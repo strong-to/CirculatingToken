@@ -44,19 +44,23 @@ apiClient.interceptors.response.use(
 
 // 导出常用的 API 方法
 export const fetchData = async <T = any>(url: string, config?: any): Promise<T> => {
-  return apiClient.get<T>(url, config)
+  const response = await apiClient.get<T>(url, config)
+  return response as T
 }
 
 export const postData = async <T = any>(url: string, data?: any, config?: any): Promise<T> => {
-  return apiClient.post<T>(url, data, config)
+  const response = await apiClient.post<T>(url, data, config)
+  return response as T
 }
 
 export const putData = async <T = any>(url: string, data?: any, config?: any): Promise<T> => {
-  return apiClient.put<T>(url, data, config)
+  const response = await apiClient.put<T>(url, data, config)
+  return response as T
 }
 
 export const deleteData = async <T = any>(url: string, config?: any): Promise<T> => {
-  return apiClient.delete<T>(url, config)
+  const response = await apiClient.delete<T>(url, config)
+  return response as T
 }
 
 export default apiClient

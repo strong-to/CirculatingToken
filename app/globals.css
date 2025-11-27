@@ -3,21 +3,111 @@
 @tailwind utilities;
 
 :root {
+  /* 背景色 - 统一使用白色 */
   --background: #ffffff;
   --foreground: #171717;
+  /* 布局变量 */
+  --container-max-width: 1920px;
+  --title-height: 89px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 全局样式重置和基础设置 */
+@layer base {
+  html {
+    /* 设置 1rem = 1px，方便开发时直接使用 rem 单位，数值等于 px */
+    font-size: 1px;
+    /* 移动端优化 */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    /* 隐藏滚动条但保持滚动功能 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 和 Edge */
   }
-}
+  
+  html::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  body {
+    /* 设置 body 的默认字体大小为 16px */
+    font-size: 16px;
+    @apply bg-background-primary text-text-primary;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* 移动端优化 */
+    overflow-x: hidden;
+    width: 100%;
+    /* 隐藏滚动条但保持滚动功能 */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 和 Edge */
+  }
+  
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* 响应式容器 - 最大宽度 1920px，左右内边距 65px（整个项目统一） */
+  .container-responsive {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    /* 移动端使用较小的内边距 */
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .container-responsive {
+      /* 平板及以上使用统一的内边距 65px */
+      padding-left: 65px;
+      padding-right: 65px;
+    }
+  }
+
+  /* Title 样式 - 统一使用 20px 字体，高度 89px */
+  h1,
+  h2,
+  h3,
+  .title {
+    @apply text-title;
+  }
+
+  /* Title 高度 - 89px */
+  .title-height {
+    height: var(--title-height);
+  }
+
+  h1 {
+    @apply text-h1 font-bold;
+  }
+
+  h2 {
+    @apply text-h2 font-semibold;
+  }
+
+  h3 {
+    @apply text-h3 font-medium;
+  }
+
+  h4 {
+    @apply text-h4 font-medium;
+  }
+
+  h5 {
+    @apply text-h5 font-medium;
+  }
+
+  h6 {
+    @apply text-h6 font-normal;
+  }
+
+  p {
+    @apply text-body leading-normal;
+  }
 }
 
 @layer utilities {

@@ -1,17 +1,12 @@
 'use client'
 
 import Image from 'next/image'
-import DraggableBox from './DraggableBox'
+import DraggableBox from '@/components/DraggableBox'
+import { DownloadIcon } from '@/components/icons/Icons'
 
 export default function Hero() {
-  const stats = [
-    { value: '357,211', label: 'PROJECTS' },
-    { value: '172,275,455', label: 'USERS' },
-    { value: '$182,588,717,071', label: 'Market Value' },
-  ]
-
   return (
-    <section className="w-full h-full flex flex-col bg-background-primary overflow-y-auto">
+    <section className="h-full snap-start flex flex-col bg-background-primary overflow-hidden">
       <div className="container-responsive w-full flex-1 flex">
         <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 lg:gap-12 w-full">
           {/* 左侧内容 */}
@@ -43,65 +38,30 @@ export default function Hero() {
             {/* <h1 className="text-[42px]  leading-tight">
               Institutional-Grade Finance, Reimagined for Everyone
             </h1> */}
-            <div className='mt-[49px]'>
-              <Image
-                src="/images/DEEPBLUE/Frame.png"
-                alt="Institutional-Grade Finance, Reimagined for Everyone"
-                width={1208}
-                height={197}
-                className="w-full h-auto"
-                priority
-              />
+            <div className="mt-[49px] max-w-[1208px] leading-[100%]">
+              <div className="font-light text-[64px] leading-[100%] text-black" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>
+                Institutional-Grade Finance,
+              </div>
+              <div className="font-light text-[64px] leading-[100%] text-black" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>
+                Reimagined for Everyone
+              </div>
             </div>
 
             {/* 统计数据 */}
-            <div className="mt-[38px] w-[421px] h-[116px]">
-              <Image
-                src="/images/DEEPBLUE/PROJECTS.png"
-                alt=""
-                width={421}
-                height={116}
-                className="w-full h-auto"
-                priority
-              />
+            <div className="mt-[38px] w-[421px] h-[116px] text-[29px] leading-[100%] text-black space-y-2">
+              <div className="font-light h-[34.48px]" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>357,211PROJECTS</div>
+              <div className="font-light h-[34.48px]" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>172,275,455USERS</div>
+              <div className="font-light h-[34.48px]" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>$182,588,717,071Market Value</div>
             </div>
 
             {/* 下载按钮 */}
             <div className="flex flex-col sm:flex-row gap-[7px] mb-[1px] absolute bottom-[47px] left-[0px]">
               <button className="flex items-center justify-center gap-2 px-6 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors w-[220px] h-[48px]">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13V3M10 13L6 9M10 13L14 9M3 16H17"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <DownloadIcon />
                 <span className="text-body font-medium">Download for iPhone</span>
               </button>
               <button className="flex items-center justify-center gap-2 px-6 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors w-[220px] h-[48px]">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13V3M10 13L6 9M10 13L14 9M3 16H17"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <DownloadIcon />
                 <span className="text-body font-medium">Download for Android</span>
               </button>
             </div>
@@ -137,13 +97,18 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      
-      {/* 底部标题 */}
-      {/* <div className="container-responsive w-full pb-8 lg:pb-12">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary">
-          Where Using Becomes Investing
-        </h2>
-      </div> */}
+
+      {/* 首屏底部品牌 logo（随 Hero 一起滚动） */}
+      <div className="w-full flex items-center bg-background-primary border-t border-gray-100">
+        <Image
+          src="/images/DEEPBLUE/foot.png"
+          alt="Partners"
+          width={800}
+          height={243}
+          className="w-full h-auto"
+          priority
+        />
+      </div>
     </section>
   )
 }

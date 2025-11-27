@@ -95,3 +95,4 @@ const bgColor = designTokens.colors.background.primary // '#ffffff'
 2. **背景色统一使用 #ffffff**：整个项目的背景色统一为白色
 3. **修改设计规范**：只需要修改 `config/design.ts` 文件，所有使用该配置的地方都会自动更新
 
+

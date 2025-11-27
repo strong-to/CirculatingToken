@@ -20,122 +20,77 @@ export default function DraggableBox({
   className = '',
 }: DraggableBoxProps) {
   const [position, setPosition] = useState({ x: initialX, y: initialY })
-  const [isDragging, setIsDragging] = useState(false)
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 })
-  const [fixedPosition, setFixedPosition] = useState({ x: 0, y: 0 })
-  const [containerRect, setContainerRect] = useState<DOMRect | null>(null)
-  const boxRef = useRef<HTMLDivElement>(null)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [isFollowing, setIsFollowing] = useState(false)
+  const initialPositionRef = useRef({ x: initialX, y: initialY })
 
   useEffect(() => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect()
-      setContainerRect(rect)
-      // 初始化固定位置
-      if (boxRef.current) {
-        const boxRect = boxRef.current.getBoundingClientRect()
-        setFixedPosition({ x: boxRect.left, y: boxRect.top })
+    initialPositionRef.current = { x: initialX, y: initialY }
+    if (!isFollowing) {
+      setPosition({ x: initialX, y: initialY })
+    }
+  }, [initialX, initialY, isFollowing])
+
+  useEffect(() => {
+    if (!isFollowing) return
+
+    const handleMouseMove = (event: MouseEvent) => {
+      setPosition({
+        x: event.clientX - width / 2,
+        y: event.clientY - height / 2,
+      })
+    }
+
+    const handleMouseOut = (event: MouseEvent) => {
+      if (!event.relatedTarget) {
+        setIsFollowing(false)
+        setPosition(initialPositionRef.current)
       }
     }
-  }, [])
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging) return
-      
-      // 拖动时使用固定定位，可以覆盖整个页面
-      setFixedPosition({
-        x: e.clientX - dragOffset.x,
-        y: e.clientY - dragOffset.y,
-      })
-    }
-
-    const handleMouseUp = () => {
-      if (!isDragging || !containerRef.current) return
-      
-      // 鼠标松开时，计算相对于容器的位置
-      const container = containerRef.current.getBoundingClientRect()
-      
-      // 使用固定定位的位置计算相对于容器的位置
-      setPosition({
-        x: fixedPosition.x - container.left,
-        y: fixedPosition.y - container.top,
-      })
-      
-      setIsDragging(false)
-    }
-
-    if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseup', handleMouseUp)
-    }
+    window.addEventListener('mousemove', handleMouseMove)
+    window.addEventListener('mouseout', handleMouseOut)
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove)
-      document.removeEventListener('mouseup', handleMouseUp)
+      window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('mouseout', handleMouseOut)
     }
-  }, [isDragging, dragOffset, fixedPosition])
+  }, [isFollowing, width, height])
 
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!boxRef.current || !containerRef.current) return
-    
-    const rect = boxRef.current.getBoundingClientRect()
-    
-    // 计算鼠标相对于盒子的偏移
-    setDragOffset({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+  const startFollowing = (event: React.MouseEvent<HTMLDivElement>) => {
+    setIsFollowing(true)
+    setPosition({
+      x: event.clientX - width / 2,
+      y: event.clientY - height / 2,
     })
-    
-    // 设置初始固定位置
-    setFixedPosition({
-      x: rect.left,
-      y: rect.top,
-    })
-    
-    setIsDragging(true)
-    e.preventDefault()
-    e.stopPropagation()
+  }
+
+  const resetPosition = () => {
+    setIsFollowing(false)
+    setPosition(initialPositionRef.current)
   }
 
   return (
-    <>
-      {/* 拖动时显示的固定定位盒子 */}
-      {isDragging && (
-        <div
-          className={`fixed cursor-move ${bgColor} ${className}`}
-          style={{
-            left: `${fixedPosition.x}px`,
-            top: `${fixedPosition.y}px`,
-            width: `${width}px`,
-            height: `${height}px`,
-            userSelect: 'none',
-            zIndex: 99999,
-            pointerEvents: 'none',
-          }}
-        />
-      )}
-      {/* 正常显示的盒子 */}
-      <div
-        ref={containerRef}
-        className="absolute inset-0"
-      >
-        <div
-          ref={boxRef}
-          className={`absolute cursor-move ${bgColor} ${className} ${isDragging ? 'opacity-0' : 'opacity-100'}`}
-          style={{
-            left: `${position.x}px`,
-            top: `${position.y}px`,
-            width: `${width}px`,
-            height: `${height}px`,
-            userSelect: 'none',
-            zIndex: 1000,
-            pointerEvents: isDragging ? 'none' : 'auto',
-          }}
-          onMouseDown={handleMouseDown}
-        />
-      </div>
-    </>
+    <div
+      className={`${bgColor} ${className}`}
+      style={{
+        position: isFollowing ? 'fixed' : 'absolute',
+        left: `${position.x}px`,
+        top: `${position.y}px`,
+        width: `${width}px`,
+        height: `${height}px`,
+        userSelect: 'none',
+        zIndex: isFollowing ? 9999 : 10,
+        pointerEvents: isFollowing ? 'none' : 'auto',
+      }}
+      onMouseEnter={startFollowing}
+      onMouseLeave={(event) => {
+        if (isFollowing && !event.relatedTarget) {
+          resetPosition()
+        }
+      }}
+      onMouseUp={resetPosition}
+      onBlur={resetPosition}
+    />
   )
 }
 

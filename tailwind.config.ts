@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss'
+// 注意：tailwind 在 Node 环境运行，不会解析 `@` 别名，这里必须使用相对路径
 import { designTokens } from './config/design'
 
 const config: Config = {

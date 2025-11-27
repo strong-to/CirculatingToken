@@ -1,6 +1,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
-import Partners from '@/components/Partners'
+import UseCaseSection from '@/components/UseCaseSection'
 
 export default function Home() {
   return (
@@ -10,14 +10,10 @@ export default function Home() {
         <Header />
       </div>
       
-      {/* 中间内容盒子 - 占满剩余空间 */}
-      <div className="flex-1 min-h-0 overflow-hidden">
+      {/* 中间内容盒子 - 占满剩余空间，按屏翻页 */}
+      <div className="flex-1 min-h-0 overflow-y-scroll snap-y snap-mandatory">
         <Hero />
-      </div>
-      
-      {/* Foot 盒子 - 固定高度 243px */}
-      <div className="h-[138px] flex-shrink-0">
-        <Partners />
+        <UseCaseSection />
       </div>
     </div>
   )

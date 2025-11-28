@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState } from 'react'
@@ -128,10 +129,31 @@ export default function  BuildWithThe() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <BlueSquareCard
+            
+
+               <div className="relative">
+              {/* 悬浮在卡片上方的 SVG 图标 */}
+              <div 
+                className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
+                style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
+              >
+                <img 
+                  src="/images/BuildWithThe/GREENMatrix.png" 
+                  alt="" 
+                  style={{ width: px(290), height: px(28), maxWidth: px(290), objectFit: 'contain',marginRight:px(70) }}
+                />
+                <img 
+                  src="/images/BuildWithThe/Earth.png" 
+                  alt="" 
+                  style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(5), objectFit: 'contain',marginLeft:px(70) }}
+                />
+              </div>
+              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
+              <BlueSquareCard
               src="/images/BuildWithThe/Investing1.png"
               alt="Investing card 3"
             />
+            </div>
            
            
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}

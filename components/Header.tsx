@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Logo from '@/components/Logo'
-
+import { px } from '@/utils/pxToRem'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -28,7 +28,15 @@ export default function Header() {
               <a
                 key={item}
                 href="#"
-                className="text-f20 text-text-primary hover:text-text-secondary transition-colors whitespace-nowrap"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: px(20),
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}
+                className=" text-text-primary hover:text-text-secondary transition-colors whitespace-nowrap"
               >
                 {item}
               </a>

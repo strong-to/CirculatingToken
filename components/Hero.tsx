@@ -15,7 +15,7 @@ export default function Hero() {
             {/* DEEP BLUE COVENANT */}
             <div className="flex flex-col r">
               {/* 可点击图片 - 悬浮时高度变为48px */}
-              <button className="inline-block w-auto cursor-pointer group relative z-10" style={{ marginTop: '2.6875rem' }}> {/* 43px */}
+              <button className="inline-block w-auto cursor-pointer group relative z-10" style={{ marginTop: px(86) }}> {/* 43px */}
                 <Image
                   src="/images/DEEPBLUE/DEEPBLUE.png"
                   alt="DEEP BLUE"
@@ -38,9 +38,10 @@ export default function Hero() {
 
             {/* 主标题 */}
             <div 
-              className="mt-[3.0625rem] leading-[100%]" 
+              className="mt-[ leading-[100%]" 
               style={{ 
                 maxWidth: '75.5rem', // 1208px
+                marginTop: px(125),
                 width: '100%'
               }}
             >
@@ -72,7 +73,7 @@ export default function Hero() {
             <div 
               className="leading-[100%] text-black" 
               style={{ 
-                marginTop: '2.375rem', // 38px
+                marginTop: px(65), // 38px
                 width: '26.3125rem', // 421px
                 height: '7.25rem', // 116px
                 fontSize: '1.8125rem', // 29px
@@ -114,7 +115,7 @@ export default function Hero() {
             </div>
 
             {/* 下载按钮 */}
-            <div className="flex flex-col sm:flex-row absolute" style={{ gap: '0.4375rem', marginBottom: '0.0625rem', bottom: '2.9375rem', left: '0' }}> {/* gap: 7px, mb: 1px, bottom: 47px */}
+            <div className="flex flex-col sm:flex-row absolute" style={{ gap: '0.4375rem', marginBottom: px(86), bottom: '2.9375rem', left: '0' }}> {/* gap: 7px, mb: 1px, bottom: 47px */}
               <button className="flex items-center justify-center gap-2 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors" style={{ paddingLeft: px(19), paddingRight: px(19), height: px(50) }}> {/* px: 19px, height: 50px */}
                 <DownloadIcon />
                 <span className="text-body font-medium">Download for iPhone</span>

@@ -25,6 +25,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      
       {/* 底层整张图片 */}
       <Image
         src={src}

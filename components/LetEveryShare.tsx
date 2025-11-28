@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState } from 'react'
@@ -34,10 +35,41 @@ export default function LetEveryShare() {
           <div className="flex flex-col items-end gap-4">
             {/* 右上蓝色方块 */}
             {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            <div className="relative flex items-center ">
-              {isExpanded && <div className="bg-[#E1050D]"  style={{ width: px(26), height: px(26)  }}></div> }  
-                <div className="bg-[#E1050D]"  style={{ width: px(88), height: px(88)  }}></div>
-              {isExpanded && <div className="bg-[#E1050D]"  style={{ width: px(55), height: px(55)  }}></div>}  
+            <div className="relative" style={{ width: px(88), height: px(88) }}>
+              {/* 中间的大方块 */}
+              <div className="bg-[#E1050D]" style={{ width: px(88.72), height: px(88.91), position: 'relative', zIndex: 1 }}></div>
+              
+              {/* 左边的小方块 - 当展开时显示，重叠在左下角 */}
+              {isExpanded && (
+                <div 
+                  className="bg-[#E1050D]" 
+                  style={{ 
+                    width: px(26.09), 
+                    height: px(26.15),
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    zIndex: 2,
+                    transform: 'translate(-85%, -20%)'
+                  }}
+                ></div>
+              )}
+              
+              {/* 右边的小方块 - 当展开时显示，重叠在右上角 */}
+              {isExpanded && (
+                <div 
+                  className="bg-[#E1050D]" 
+                  style={{ 
+                    width: px(55.66), 
+                    height: px(55.78),
+                    position: 'absolute',
+                    top: 0,
+                    right: 0,
+                    zIndex: 2,
+                    transform: 'translate(70%, -50%)'
+                  }}
+                ></div>
+              )}
             </div>
 
             {/* 折叠面板按钮 */}
@@ -139,11 +171,32 @@ export default function LetEveryShare() {
             </div>
 
 
-             {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
+            <div className="relative">
+              {/* 悬浮在卡片上方的 SVG 图标 */}
+              <div 
+                className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
+                style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
+              >
+                <img 
+                  src="/images/Investing/WALL-E.png" 
+                  alt="" 
+                  style={{ width: px(290), height: px(28), maxWidth: px(290), objectFit: 'contain' }}
+                />
+                <img 
+                  src="/images/Investing/waitingEarth.png" 
+                  alt="" 
+                  style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(17), objectFit: 'contain' }}
+                />
+              </div>
+              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
             <BlueSquareCard
               src="/images/LetEveryShare/Investing2.png"
               alt="Investing card 3"
             />
+            </div>
+
+
+             
             
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image

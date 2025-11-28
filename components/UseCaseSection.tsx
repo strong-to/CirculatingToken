@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState } from 'react'
 import Image from 'next/image'
 import BlueSquareCard from '@/components/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/CollapsiblePanelContent'
-import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
 import { px } from '@/utils/pxToRem'
 
 export default function UseCaseSection() {
@@ -145,10 +146,28 @@ export default function UseCaseSection() {
               />
             </div>
             {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <BlueSquareCard
-              src="/images/Investing/Investing3.png"
-              alt="Investing card 3"
-            />
+            <div className="relative">
+              {/* 悬浮在卡片上方的 SVG 图标 */}
+              <div 
+                className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
+                style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
+              >
+                <img 
+                  src="/images/Investing/WALL-E.png" 
+                  alt="" 
+                  style={{ width: px(290), height: px(28), maxWidth: px(290), objectFit: 'contain' }}
+                />
+                <img 
+                  src="/images/Investing/waitingEarth.png" 
+                  alt="" 
+                  style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(17), objectFit: 'contain' }}
+                />
+              </div>
+              <BlueSquareCard
+                src="/images/Investing/Investing3.png"
+                alt="Investing card 3"
+              />
+            </div>
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
                 src="/images/Investing/Investing4.png"

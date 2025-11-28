@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       {/* Title 盒子 - 固定高度 89px */}
-      <div className="h-[89px] flex-shrink-0">
+      <div className="flex-shrink-0" style={{ height: '5.5625rem' }}> {/* 89px */}
         <Header />
       </div>
       

@@ -14,11 +14,21 @@ interface DraggableBoxProps {
 export default function DraggableBox({
   initialX = 0,
   initialY = 0,
-  width = 100,
-  height = 100,
+  width = 6.25, // 默认 100px = 6.25rem
+  height = 6.25, // 默认 100px = 6.25rem
   bgColor = 'bg-background-secondary',
   className = '',
 }: DraggableBoxProps) {
+  // 将 rem 转换为像素（基于当前根字体大小）
+  const getRemInPx = (rem: number) => {
+    if (typeof window === 'undefined') return rem * 16
+    const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize)
+    return rem * rootFontSize
+  }
+
+  const widthPx = getRemInPx(width)
+  const heightPx = getRemInPx(height)
+
   const [position, setPosition] = useState({ x: initialX, y: initialY })
   const [isFollowing, setIsFollowing] = useState(false)
   const initialPositionRef = useRef({ x: initialX, y: initialY })
@@ -35,8 +45,8 @@ export default function DraggableBox({
 
     const handleMouseMove = (event: MouseEvent) => {
       setPosition({
-        x: event.clientX - width / 2,
-        y: event.clientY - height / 2,
+        x: event.clientX - widthPx / 2,
+        y: event.clientY - heightPx / 2,
       })
     }
 
@@ -54,13 +64,13 @@ export default function DraggableBox({
       window.removeEventListener('mousemove', handleMouseMove)
       window.removeEventListener('mouseout', handleMouseOut)
     }
-  }, [isFollowing, width, height])
+  }, [isFollowing, widthPx, heightPx])
 
   const startFollowing = (event: React.MouseEvent<HTMLDivElement>) => {
     setIsFollowing(true)
     setPosition({
-      x: event.clientX - width / 2,
-      y: event.clientY - height / 2,
+      x: event.clientX - widthPx / 2,
+      y: event.clientY - heightPx / 2,
     })
   }
 
@@ -76,8 +86,8 @@ export default function DraggableBox({
         position: isFollowing ? 'fixed' : 'absolute',
         left: `${position.x}px`,
         top: `${position.y}px`,
-        width: `${width}px`,
-        height: `${height}px`,
+        width: `${width}rem`,
+        height: `${height}rem`,
         userSelect: 'none',
         zIndex: isFollowing ? 9999 : 10,
         pointerEvents: isFollowing ? 'none' : 'auto',

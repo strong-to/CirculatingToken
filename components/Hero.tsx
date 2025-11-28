@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import DraggableBox from '@/components/DraggableBox'
 import { DownloadIcon } from '@/components/icons/Icons'
+import { px } from '@/utils/pxToRem'
 
 export default function Hero() {
   return (
@@ -14,13 +15,14 @@ export default function Hero() {
             {/* DEEP BLUE COVENANT */}
             <div className="flex flex-col r">
               {/* 可点击图片 - 悬浮时高度变为48px */}
-              <button className="inline-block w-auto cursor-pointer group relative z-10 mt-[43px]">
+              <button className="inline-block w-auto cursor-pointer group relative z-10" style={{ marginTop: '2.6875rem' }}> {/* 43px */}
                 <Image
                   src="/images/DEEPBLUE/DEEPBLUE.png"
                   alt="DEEP BLUE"
                   width={200}
                   height={48}
-                  className="h-[48px] w-auto transition-all duration-300"
+                  className="w-auto transition-all duration-300"
+                  style={{ height: '3rem' }} // 48px
                   priority
                 />
               </button>
@@ -35,32 +37,89 @@ export default function Hero() {
            
 
             {/* 主标题 */}
-            {/* <h1 className="text-[42px]  leading-tight">
-              Institutional-Grade Finance, Reimagined for Everyone
-            </h1> */}
-            <div className="mt-[49px] max-w-[1208px] leading-[100%]">
-              <div className="font-light text-[64px] leading-[100%] text-black" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>
+            <div 
+              className="mt-[3.0625rem] leading-[100%]" 
+              style={{ 
+                maxWidth: '75.5rem', // 1208px
+                width: '100%'
+              }}
+            >
+              <div 
+                className="font-light leading-[100%] text-black break-words" 
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: '5.25rem', // 84px = 5.25rem
+                  whiteSpace: 'normal',
+                  wordBreak: 'break-word'
+                }}
+              >
                 Institutional-Grade Finance,
               </div>
-              <div className="font-light text-[64px] leading-[100%] text-black" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>
+              <div 
+                className="font-light leading-[100%] text-black break-words" 
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: '5.25rem', // 84px = 5.25rem
+                  whiteSpace: 'normal',
+                  wordBreak: 'break-word'
+                }}
+              >
                 Reimagined for Everyone
               </div>
             </div>
 
             {/* 统计数据 */}
-            <div className="mt-[38px] w-[421px] h-[116px] text-[29px] leading-[100%] text-black space-y-2">
-              <div className="font-light h-[34.48px]" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>357,211PROJECTS</div>
-              <div className="font-light h-[34.48px]" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>172,275,455USERS</div>
-              <div className="font-light h-[34.48px]" style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}>$182,588,717,071Market Value</div>
+            <div 
+              className="leading-[100%] text-black" 
+              style={{ 
+                marginTop: '2.375rem', // 38px
+                width: '26.3125rem', // 421px
+                height: '7.25rem', // 116px
+                fontSize: '1.8125rem', // 29px
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.5rem'
+              }}
+            >
+              <div 
+                className="font-light" 
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: '1.8125rem', // 29px
+                  height: '2.155rem' // 34.48px
+                }}
+              >
+                357,211PROJECTS
+              </div>
+              <div 
+                className="font-light" 
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: '1.8125rem', // 29px
+                  height: '2.155rem' // 34.48px
+                }}
+              >
+                172,275,455USERS
+              </div>
+              <div 
+                className="font-light" 
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: '1.8125rem', // 29px
+                  height: '2.155rem' // 34.48px
+                }}
+              >
+                $182,588,717,071Market Value
+              </div>
             </div>
 
             {/* 下载按钮 */}
-            <div className="flex flex-col sm:flex-row gap-[7px] mb-[1px] absolute bottom-[47px] left-[0px]">
-              <button className="flex items-center justify-center gap-2 px-6 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors w-[220px] h-[48px]">
+            <div className="flex flex-col sm:flex-row absolute" style={{ gap: '0.4375rem', marginBottom: '0.0625rem', bottom: '2.9375rem', left: '0' }}> {/* gap: 7px, mb: 1px, bottom: 47px */}
+              <button className="flex items-center justify-center gap-2 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors" style={{ paddingLeft: px(19), paddingRight: px(19), height: px(50) }}> {/* px: 19px, height: 50px */}
                 <DownloadIcon />
                 <span className="text-body font-medium">Download for iPhone</span>
               </button>
-              <button className="flex items-center justify-center gap-2 px-6 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors w-[220px] h-[48px]">
+              <button className="flex items-center justify-center gap-2 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors" style={{ paddingLeft: px(19), paddingRight: px(19), height: px(50) }}> {/* px: 19px, height: 50px */}
                 <DownloadIcon />
                 <span className="text-body font-medium">Download for Android</span>
               </button>
@@ -73,24 +132,24 @@ export default function Hero() {
             <DraggableBox
               initialX={0}
               initialY={100}
-              width={247}
-              height={247}
+              width={15.4375}
+              height={15.4375}
               bgColor="bg-[#BDBDBD]"
               className=""
             />
             <DraggableBox
               initialX={0}
               initialY={400}
-              width={148}
-              height={148}
+              width={9.25}
+              height={9.25}
               bgColor="bg-primary-main"
               className=""
             />
             <DraggableBox
               initialX={-300}
               initialY={550}
-              width={95}
-              height={95}
+              width={5.9375}
+              height={5.9375}
               bgColor="bg-[#666666]"
               className=""
             />

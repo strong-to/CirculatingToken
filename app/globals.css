@@ -6,16 +6,20 @@
   /* 背景色 - 统一使用白色 */
   --background: #ffffff;
   --foreground: #171717;
-  /* 布局变量 */
-  --container-max-width: 1920px;
-  --title-height: 89px;
+  /* 布局变量 - 基于 1920px 设计稿，转换为 rem */
+  /* 1920px = 120rem (1920 / 16) */
+  --container-max-width: 120rem;
+  /* 89px = 5.5625rem (89 / 16) */
+  --title-height: 5.5625rem;
 }
 
 /* 全局样式重置和基础设置 */
 @layer base {
   html {
-    /* 设置 1rem = 1px，方便开发时直接使用 rem 单位，数值等于 px */
-    font-size: 1px;
+    /* 响应式根字体大小：基于 1920px 设计稿自适应缩放 */
+    /* 在 1920px 宽度时，1rem = 16px */
+    /* 使用 clamp 实现最小 8px，最大 32px 的自适应缩放 */
+    font-size: clamp(0.5rem, 0.8333vw, 2rem);
     /* 移动端优化 */
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;
@@ -29,8 +33,8 @@
   }
   
   body {
-    /* 设置 body 的默认字体大小为 16px */
-    font-size: 16px;
+    /* body 使用 1rem，会自动根据 html 的 font-size 缩放 */
+    font-size: 1rem;
     @apply bg-background-primary text-text-primary;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -49,26 +53,26 @@
     display: none; /* Chrome, Safari, Opera */
   }
 
-  /* 响应式容器 - 最大宽度 1920px，左右内边距 65px（整个项目统一） */
+  /* 响应式容器 - 最大宽度 120rem (1920px)，左右内边距自适应 */
   .container-responsive {
     width: 100%;
     max-width: var(--container-max-width);
     margin-left: auto;
     margin-right: auto;
-    /* 移动端使用较小的内边距 */
-    padding-left: 16px;
-    padding-right: 16px;
+    /* 移动端使用较小的内边距：16px = 1rem */
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     .container-responsive {
-      /* 平板及以上使用统一的内边距 65px */
-      padding-left: 65px;
-      padding-right: 65px;
+      /* 平板及以上使用统一的内边距：65px = 4.0625rem */
+      padding-left: 4.0625rem;
+      padding-right: 4.0625rem;
     }
   }
 
-  /* Title 样式 - 统一使用 20px 字体，高度 89px */
+  /* Title 样式 - 统一使用 20px (1.25rem) 字体，高度 5.5625rem (89px) */
   h1,
   h2,
   h3,
@@ -76,7 +80,7 @@
     @apply text-title;
   }
 
-  /* Title 高度 - 89px */
+  /* Title 高度 - 5.5625rem (89px) */
   .title-height {
     height: var(--title-height);
   }

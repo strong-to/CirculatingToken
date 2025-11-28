@@ -8,6 +8,7 @@ import {
   TotalUsersIcon,
   UserRatingIcon,
 } from '@/components/icons/Icons'
+import styles from './BlueSquareCard.module.css'
 
 interface BlueSquareCardProps {
   src: string
@@ -18,7 +19,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
   const [showDetail, setShowDetail] = useState(false)
 
   return (
-    <div className="relative w-[100%] rounded-[12px] overflow-hidden shadow-lg">
+    <div className={`relative overflow-hidden shadow-lg ${styles.card}`}>
       {/* 底层整张图片 */}
       <Image
         src={src}
@@ -31,75 +32,74 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
 
       {/* 覆盖在图片上的正方形蓝色方块（宽高相等，位于下半部分） */}
       <div
-        className="absolute bottom-0 left-0 w-full aspect-square bg-[#083FD8]/80 p-[10px] text-white flex flex-col justify-between cursor-pointer"
-        style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}
+        className={`absolute bottom-0 left-0 w-full aspect-square bg-[#083FD8]/80 text-white flex flex-col justify-between cursor-pointer ${styles.overlay}`}
         // onClick={() => setShowDetail((prev) => !prev)}
       >
         {showDetail ? (
           <>
             {/* 顶部：左侧图标 + 标题，右侧 Project Details 按钮 */}
-            <div className="flex items-start justify-between gap-[12px]">
-              <div className="flex items-center gap-[10px]">
-                <div className="w-[50px] h-[50px] border border-white rounded-[3px] flex items-center justify-center">
-                  <Image src="/images/Investing/games.png" alt="games" width={30} height={22} />
+            <div className={`flex items-start justify-between ${styles.detailTop}`}>
+              <div className={`flex items-center ${styles.detailTopLeft}`}>
+                <div className={`border border-white flex items-center justify-center ${styles.iconContainer} ${styles.iconImageWrapper}`}>
+                  <Image src="/images/Investing/games.png" alt="games" fill className={styles.iconImage} />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-[16px] leading-[1.1] text-white font-semibold">
+                  <span className={`leading-[1.1] text-white font-semibold ${styles.titleText}`}>
                     WALL-E& EVE
                   </span>
-                  <span className="text-[16px] leading-[1.1] text-white font-semibold mt-[2px]">
+                  <span className={`leading-[1.1] text-white font-semibold ${styles.titleText} ${styles.titleMargin}`}>
                     DBAI0000211
                   </span>
                 </div>
               </div>
-              <button className="h-[44px] px-[18px] bg-white text-[#0050E6] rounded-[6px] text-[16px] font-semibold flex items-center justify-center">
+              <button className={`bg-white text-[#0050E6] font-semibold flex items-center justify-center ${styles.detailButton}`}>
                 Project Details
               </button>
             </div>
 
             {/* 底部：左侧四个指标 + 右侧三个按钮 */}
-            <div className="mt-[14px] flex gap-[16px]">
+            <div className={`flex ${styles.detailBottom}`}>
               {/* 左列指标 */}
-              <div className="flex-1 space-y-[10px] text-[13px]">
-                <div>
-                  <div className="opacity-80 mb-[2px] flex items-center gap-[6px]">
-                    <MarketCapIcon className="w-[18px] h-[18px]" />
+              <div className={`flex-1 font-semibold text-white ${styles.metricsColumn}`}>
+                <div className={styles.metricItem}>
+                  <div className={`opacity-80 flex items-center ${styles.metricLabel}`}>
+                    <MarketCapIcon className={styles.icon18} />
                     <span>Market Cap</span>
                   </div>
-                  <div className="text-[18px] font-semibold text-white">$12.3k</div>
+                  <div className={`font-semibold text-white ${styles.metricValue}`}>$12.3k</div>
                 </div>
-                <div>
-                  <div className="opacity-80 mb-[2px] flex items-center gap-[6px]">
-                    <TotalUsersIcon className="w-[18px] h-[16px]" />
+                <div className={styles.metricItem}>
+                  <div className={`opacity-80 flex items-center ${styles.metricLabel}`}>
+                    <TotalUsersIcon className={styles.icon18x16} />
                     <span>Total Users</span>
                   </div>
-                  <div className="text-[18px] font-semibold text-white">1.2M</div>
+                  <div className={`font-semibold text-white ${styles.metricValue}`}>1.2M</div>
                 </div>
-                <div>
-                  <div className="opacity-80 mb-[2px] flex items-center gap-[6px]">
-                    <RevenueIcon className="w-[12px] h-[19px]" />
+                <div className={styles.metricItem}>
+                  <div className={`opacity-80 flex items-center ${styles.metricLabel}`}>
+                    <RevenueIcon className={styles.icon12x19} />
                     <span>24h Revenue</span>
                   </div>
-                  <div className="text-[18px] font-semibold text-white">$250k</div>
+                  <div className={`font-semibold text-white ${styles.metricValue}`}>$250k</div>
                 </div>
                 <div>
-                  <div className="opacity-80 mb-[2px] flex items-center gap-[6px]">
-                    <UserRatingIcon className="w-[18px] h-[10px]" />
+                  <div className={`opacity-80 flex items-center ${styles.metricLabel}`}>
+                    <UserRatingIcon className={styles.icon18x10} />
                     <span>User Rating</span>
                   </div>
-                  <div className="text-[18px] font-semibold text-white">★★★★★</div>
+                  <div className={`font-semibold text-white ${styles.metricValue}`}>★★★★★</div>
                 </div>
               </div>
 
               {/* 右列按钮 */}
-              <div className="flex flex-col w-[180px] space-y-[8px] text-[15px] font-semibold">
-                <button className="h-[38px] border border-white rounded-[6px] flex items-center justify-center">
+              <div className={`flex flex-col font-semibold ${styles.buttonsColumn}`}>
+                <button className={`border border-white flex items-center justify-center ${styles.actionButton}`}>
                   Market
                 </button>
-                <button className="h-[38px] border border-white rounded-[6px] flex items-center justify-center">
+                <button className={`border border-white flex items-center justify-center ${styles.actionButton}`}>
                   Lending
                 </button>
-                <button className="h-[38px] border border-white rounded-[6px] flex items-center justify-center">
+                <button className={`border border-white flex items-center justify-center ${styles.actionButton}`}>
                   Add to Favorites
                 </button>
               </div>
@@ -108,15 +108,23 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
         ) : (
           <>
             {/* 顶部：图标 + 标题 + 箭头（紧凑版） */}
-            <div className="flex items-center justify-evenly">
-              <div className="w-[45px] h-[45px] border border-white rounded-[3px] flex items-center justify-center">
-                <Image src="/images/Investing/games.png" alt="games" width={24} height={18} />
+            <div className={`flex items-center justify-evenly ${styles.compactTop}`}>
+            <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
+            <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
+                <Image 
+                  src="/images/Investing/games.png" 
+                  alt="games" 
+                  fill 
+                  className={styles.iconImage}
+                />
               </div>
+                </div>
+              
               <div className="flex-1 text-center">
-                <div className="text-[12px] leading-[1] tracking-[0] text-white font-semibold">
+                <div className={`leading-[1] tracking-[0] text-white font-semibold ${styles.titleTextSmall}`}>
                   WALL-E& EVE
                 </div>
-                <div className="mt-[6px] text-[12px] leading-[1] tracking-[0] text-white font-semibold">
+                <div className={`leading-[1] tracking-[0] text-white font-semibold ${styles.titleTextSmallMargin}`}>
                   DBAI0000211
                 </div>
               </div>
@@ -126,44 +134,44 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             </div>
 
             {/* 中间：两个按钮 */}
-            <div className="mt-[13px] flex">
-              <button className="px-[4px] h-[20px] border border-white rounded-[3px] text-[10px] font-semibold text-white flex items-center justify-center">
+            <div className={`flex ${styles.compactButtons}`}>
+              <button className={`border border-white font-semibold text-white flex items-center justify-center ${styles.compactButton}`}>
                 AI avatar
               </button>
-              <button className="px-[4px] h-[20px] border border-white rounded-[3px] text-[10px] font-semibold text-white flex items-center justify-center ml-[8px]">
+              <button className={`border border-white font-semibold text-white flex items-center justify-center ${styles.compactButton} ${styles.compactButtonMargin}`}>
                 Emotional connection
               </button>
             </div>
 
             {/* 底部：四列指标（紧凑版） */}
-            <div className="mt-[24px] grid grid-cols-2 gap-y-[18px] text-[12px] font-light">
+            <div className={`grid grid-cols-2 font-light ${styles.compactMetrics}`}>
               <div>
-                <div className="opacity-80 mb-[6px] flex items-center gap-[6px]">
-                  <MarketCapIcon className="w-[18px] h-[18px]" />
+                <div className={`opacity-80 flex items-center ${styles.compactMetricLabel}`}>
+                  <MarketCapIcon className={styles.icon18} />
                   <span>Market Cap</span>
                 </div>
-                <div className="text-[18px] font-semibold text-white">$12.3k</div>
+                <div className={`font-semibold text-white ${styles.metricValue}`}>$12.3k</div>
               </div>
               <div>
-                <div className="opacity-80 mb-[6px] flex items-center gap-[6px]">
-                  <RevenueIcon className="w-[12px] h-[19px]" />
+                <div className={`opacity-80 flex items-center ${styles.compactMetricLabel}`}>
+                  <RevenueIcon className={styles.icon12x19} />
                   <span>24h Revenue</span>
                 </div>
-                <div className="text-[18px] font-semibold text-white">$250k</div>
+                <div className={`font-semibold text-white ${styles.metricValue}`}>$250k</div>
               </div>
               <div>
-                <div className="opacity-80 mb-[6px] flex items-center gap-[6px]">
-                  <TotalUsersIcon className="w-[18px] h-[16px]" />
+                <div className={`opacity-80 flex items-center ${styles.compactMetricLabel}`}>
+                  <TotalUsersIcon className={styles.icon18x16} />
                   <span>Total Users</span>
                 </div>
-                <div className="text-[18px] font-semibold text-white">1.2M</div>
+                <div className={`font-semibold text-white ${styles.metricValue}`}>1.2M</div>
               </div>
               <div>
-                <div className="opacity-80 mb-[6px] flex items-center gap-[6px]">
-                  <UserRatingIcon className="w-[18px] h-[10px]" />
+                <div className={`opacity-80 flex items-center ${styles.compactMetricLabel}`}>
+                  <UserRatingIcon className={styles.icon18x10} />
                   <span>User Rating</span>
                 </div>
-                <div className="text-[18px] font-semibold text-white">★★★★★</div>
+                <div className={`font-semibold text-white ${styles.metricValue}`}>★★★★★</div>
               </div>
             </div>
           </>

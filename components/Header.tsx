@@ -23,7 +23,7 @@ export default function Header() {
           <Logo />
 
           {/* Navigation - 桌面端显示，左右间距 56px，中间均分 */}
-          <nav className="hidden md:flex items-center justify-between flex-1 whitespace-nowrap" style={{ marginLeft: '56px', marginRight: '146px' }}>
+          <nav className="hidden md:flex items-center justify-between flex-1 whitespace-nowrap" style={{ marginLeft: '3.5rem', marginRight: '9.125rem' }}> {/* 56px, 146px */}
             {navItems.map((item) => (
               <a
                 key={item}
@@ -36,7 +36,7 @@ export default function Header() {
           </nav>
 
           {/* 右侧图标组 - 间距 56px */}
-          <div className="flex items-center gap-[56px]">
+          <div className="flex items-center" style={{ gap: '3.5rem' }}> {/* 56px */}
             {/* 搜索图标 */}
             <button
               className="flex items-center justify-center hover:opacity-70 transition-opacity"

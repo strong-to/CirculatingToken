@@ -16,7 +16,7 @@ export default function CollapsiblePanelContent() {
           letterSpacing: '0%'
         }}
       >
-        Within the THE4 project hub, you'll find AI applications crafted by creative teams from all over the world. Just by using these apps you can enjoy state-of-the-art AI capabilities, and whenever you decide to support(including use) a project with tokens, you instantly move from being "just a user" to becoming an investor and a co-owner of the community's value. Over time, these rights tokens may also unlock upside you didn't expect.
+        Within the THE4 project hub, you&apos;ll find AI applications crafted by creative teams from all over the world. Just by using these apps you can enjoy state-of-the-art AI capabilities, and whenever you decide to support(including use) a project with tokens, you instantly move from being &quot;just a user&quot; to becoming an investor and a co-owner of the community&apos;s value. Over time, these rights tokens may also unlock upside you didn&apos;t expect.
       </div>
     </div>
   )

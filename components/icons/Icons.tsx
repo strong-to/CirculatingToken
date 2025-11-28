@@ -138,6 +138,33 @@ export const PlusIcon: React.FC<IconProps> = (props) => (
   </svg>
 )
 
+export const MinusIcon: React.FC<IconProps> = (props) => (
+  <svg
+    width="31"
+    height="2"
+    viewBox="0 0 31 2"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M0 1H31" stroke="black" strokeWidth="1.5" strokeMiterlimit="10" />
+  </svg>
+)
+
+export const LearnMoreArrowIcon: React.FC<IconProps> = (props) => (
+  <svg
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path d="M30.915 0.530273V30.9071H0.538086" stroke="black" strokeWidth="1.5" strokeMiterlimit="10" />
+    <path d="M0.530273 0.530273L30.9071 30.9071" stroke="black" strokeWidth="1.5" strokeMiterlimit="10" />
+  </svg>
+)
+
 export const DownloadIcon: React.FC<IconProps> = (props) => (
   <svg
     width="20"
@@ -151,6 +178,25 @@ export const DownloadIcon: React.FC<IconProps> = (props) => (
       d="M10 13V3M10 13L6 9M10 13L14 9M3 16H17"
       stroke="currentColor"
       strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+)
+
+export const ChevronDownIcon: React.FC<IconProps> = (props) => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <path
+      d="M4 6L8 10L12 6"
+      stroke="currentColor"
+      strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
     />

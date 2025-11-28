@@ -36,3 +36,4 @@ font-family: 'ITC Avant Garde Gothic Pro', sans-serif;
 2. 确保字体文件路径正确（相对于 `public` 目录）
 3. 建议使用 woff2 格式以获得最佳性能
 
+

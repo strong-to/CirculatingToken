@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import BlueSquareCard from '@/components/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/CollapsiblePanelContent'
+import BlueSquareCard from '@/components/com/YourNextWorld/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/com/YourNextWorld/CollapsiblePanelContent'
+
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+
 import { px } from '@/utils/pxToRem'
 
-export default function UseCaseSection() {
+export default function  YourNextWorld() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
@@ -26,16 +28,29 @@ export default function UseCaseSection() {
                 letterSpacing: '0%'
               }}
             >
-              Where Using Becomes Investing
+             Your Next World-Changing Idea Starts Here
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
             {/* 右上蓝色方块 */}
             {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            <div className="relative flex items-center ">
-              {isExpanded ? <div className="bg-[#0045FF]"  style={{ width: px(40), height: px(61)  }}></div> : ''}  
-                <div className="bg-[#0045FF]"  style={{ width: px(98), height: px(98)  }}></div>
-            </div>
+            {/* <div className="relative flex items-center ">
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div> }  
+                <div className="bg-[#8000EA]"  style={{ width: px(92), height: px(92)  }}></div>
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div>}  
+            </div> */}
+
+            <button
+              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
+              style={{
+                width: '17.296875rem', // 276.75px
+                height: '3.9375rem', // 63px
+                fontSize: '1.75rem', // 28px
+                borderRadius: '0.25rem' // 4px
+              }}
+            >
+              View More
+            </button>
 
             {/* 折叠面板按钮 */}
             <button
@@ -46,7 +61,7 @@ export default function UseCaseSection() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }}>Use AI Apps and Earn</span>
+              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Launch Your AI Project and Earn</span>
               {isExpanded ? (
                 <MinusIcon style={{ width: '31px', height: '2px' }} />
               ) : (
@@ -107,10 +122,9 @@ export default function UseCaseSection() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-            <button
+            {/* <button
               className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
               style={{
                 width: '17.296875rem', // 276.75px
@@ -120,54 +134,79 @@ export default function UseCaseSection() {
               }}
             >
               View all projects
-            </button>
+            </button> */}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing1.png"
+            
+             {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
+            {/* <BlueSquareCard
+              src="/images/BuildWithThe/Investing1.png"
+              alt="Investing card 3"
+            /> */}
+            <div className="overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: '0.75rem', aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
+              <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Datasets</div>
+              
+              {/* <Image
+                src="/images/BuildWithThe/Investing2.png"
                 alt="Investing card 1"
                 width={340}
                 height={500}
                 className="w-full h-full object-cover"
                 priority
-              />
+              /> */}
+
             </div>
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing2.png"
+           
+           
+            <div className="overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
+              <div className='text-[#000000]' style={{fontSize:px(25)}}>Compute Pool</div>
+              {/* <Image
+                src="/images/BuildWithThe/Investing2.png"
+                alt="Investing card 1"
+                width={340}
+                height={500}
+                className="w-full h-full object-cover"
+                priority
+              /> */}
+            </div>
+
+
+           
+            
+            <div className="overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+              <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Foundational Models</div>
+              {/* <Image
+                src="/images/BuildWithThe/Investing3.png"
                 alt="Investing card 2"
                 width={340}
                 height={500}
                 className="w-full h-full object-cover"
                 priority
-              />
+              /> */}
             </div>
-            {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <BlueSquareCard
-              src="/images/Investing/Investing3.png"
-              alt="Investing card 3"
-            />
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing4.png"
+           
+            <div className="overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+             <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Workflows</div>
+              {/* <Image
+                src="/images/BuildWithThe/Investing4.png"
                 alt="Investing card 4"
                 width={340}
                 height={500}
                 className="w-full h-full object-cover"
                 priority
-              />
+              /> */}
             </div>
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing5.png"
+            <div className="overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+             <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>AI Agents</div>
+              {/* <Image
+                src="/images/BuildWithThe/Investing5.png"
                 alt="Investing card 5"
                 width={340}
                 height={500}
                 className="w-full h-full object-cover"
                 priority
-              />
+              /> */}
             </div>
           </div>
 

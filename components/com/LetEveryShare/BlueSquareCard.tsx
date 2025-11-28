@@ -38,7 +38,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
       {/* 覆盖在图片上的正方形蓝色方块（宽高相等，位于下半部分） */}
       {(isHovered || showDetail) && (
         <div
-          className={`absolute bottom-0 left-0 w-full aspect-square bg-[#083FD8]/80 text-white flex flex-col justify-between cursor-pointer ${styles.overlay}`}
+          className={`absolute bottom-0 left-0 w-full aspect-square bg-[#E1050D]/80 text-white flex flex-col justify-between cursor-pointer ${styles.overlay}`}
           onClick={() => setShowDetail((prev) => !prev)}
         >
         {showDetail ? (
@@ -68,9 +68,6 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
                 {/* <Image src="/images/Investing/arr.png" alt="arrow" width={24} height={24} /> */}
               </div>
             </div>
-
-
-
 
             {/* 底部：左侧四个指标 + 右侧三个按钮 */}
             <div className={`flex ${styles.detailBottom}`} style={{width: '100%'}}>

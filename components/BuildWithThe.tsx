@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import BlueSquareCard from '@/components/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/CollapsiblePanelContent'
+import BlueSquareCard from '@/components/com/BuildWithThe/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/com/BuildWithThe/CollapsiblePanelContent'
+
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+
 import { px } from '@/utils/pxToRem'
 
-export default function UseCaseSection() {
+export default function  BuildWithThe() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
@@ -26,15 +28,16 @@ export default function UseCaseSection() {
                 letterSpacing: '0%'
               }}
             >
-              Where Using Becomes Investing
+             Build With The Brightest Minds Worldwide
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
             {/* 右上蓝色方块 */}
             {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
             <div className="relative flex items-center ">
-              {isExpanded ? <div className="bg-[#0045FF]"  style={{ width: px(40), height: px(61)  }}></div> : ''}  
-                <div className="bg-[#0045FF]"  style={{ width: px(98), height: px(98)  }}></div>
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div> }  
+                <div className="bg-[#8000EA]"  style={{ width: px(92), height: px(92)  }}></div>
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div>}  
             </div>
 
             {/* 折叠面板按钮 */}
@@ -46,7 +49,7 @@ export default function UseCaseSection() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }}>Use AI Apps and Earn</span>
+              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >Contribute AI Projects and Earn</span>
               {isExpanded ? (
                 <MinusIcon style={{ width: '31px', height: '2px' }} />
               ) : (
@@ -124,9 +127,16 @@ export default function UseCaseSection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
+             {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
+            <BlueSquareCard
+              src="/images/BuildWithThe/Investing1.png"
+              alt="Investing card 3"
+            />
+           
+           
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing1.png"
+                src="/images/BuildWithThe/Investing2.png"
                 alt="Investing card 1"
                 width={340}
                 height={500}
@@ -134,9 +144,13 @@ export default function UseCaseSection() {
                 priority
               />
             </div>
+
+
+           
+            
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing2.png"
+                src="/images/BuildWithThe/Investing3.png"
                 alt="Investing card 2"
                 width={340}
                 height={500}
@@ -144,14 +158,10 @@ export default function UseCaseSection() {
                 priority
               />
             </div>
-            {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <BlueSquareCard
-              src="/images/Investing/Investing3.png"
-              alt="Investing card 3"
-            />
+           
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing4.png"
+                src="/images/BuildWithThe/Investing4.png"
                 alt="Investing card 4"
                 width={340}
                 height={500}
@@ -161,7 +171,7 @@ export default function UseCaseSection() {
             </div>
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing5.png"
+                src="/images/BuildWithThe/Investing5.png"
                 alt="Investing card 5"
                 width={340}
                 height={500}

@@ -1,6 +1,10 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import UseCaseSection from '@/components/UseCaseSection'
+import LetEveryShare from '@/components/LetEveryShare'
+import BuildWithThe from '@/components/BuildWithThe'
+import YourNextWorld from '@/components/YourNextWorld'
+import GovernTogether from '@/components/GovernTogether'
 
 export default function Home() {
   return (
@@ -14,6 +18,10 @@ export default function Home() {
       <div className="flex-1 min-h-0 overflow-y-scroll snap-y snap-mandatory">
         <Hero />
         <UseCaseSection />
+        <LetEveryShare />
+        <BuildWithThe />
+        <YourNextWorld />
+        <GovernTogether />
       </div>
     </div>
   )

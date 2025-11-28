@@ -1,13 +1,16 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import BlueSquareCard from '@/components/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/CollapsiblePanelContent'
+// import Image from 'next/image'
+// import BlueSquareCard from '@/components/com/GovernTogether/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/com/GovernTogether/CollapsiblePanelContent'
+
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+
+
 import { px } from '@/utils/pxToRem'
 
-export default function UseCaseSection() {
+export default function  GovernTogether() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
@@ -26,16 +29,30 @@ export default function UseCaseSection() {
                 letterSpacing: '0%'
               }}
             >
-              Where Using Becomes Investing
+             Govern Together, <br />
+             Grow Together
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
             {/* 右上蓝色方块 */}
             {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            <div className="relative flex items-center ">
-              {isExpanded ? <div className="bg-[#0045FF]"  style={{ width: px(40), height: px(61)  }}></div> : ''}  
-                <div className="bg-[#0045FF]"  style={{ width: px(98), height: px(98)  }}></div>
-            </div>
+            {/* <div className="relative flex items-center ">
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div> }  
+                <div className="bg-[#8000EA]"  style={{ width: px(92), height: px(92)  }}></div>
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div>}  
+            </div> */}
+
+            <button
+              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
+              style={{
+                width: '17.296875rem', // 276.75px
+                height: '3.9375rem', // 63px
+                fontSize: '1.75rem', // 28px
+                borderRadius: '0.25rem' // 4px
+              }}
+            >
+              View More
+            </button>
 
             {/* 折叠面板按钮 */}
             <button
@@ -46,7 +63,7 @@ export default function UseCaseSection() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }}>Use AI Apps and Earn</span>
+              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Shape Projects and Community With Your Tokens</span>
               {isExpanded ? (
                 <MinusIcon style={{ width: '31px', height: '2px' }} />
               ) : (
@@ -107,10 +124,9 @@ export default function UseCaseSection() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-            <button
+            {/* <button
               className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
               style={{
                 width: '17.296875rem', // 276.75px
@@ -120,55 +136,24 @@ export default function UseCaseSection() {
               }}
             >
               View all projects
-            </button>
+            </button> */}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing1.png"
-                alt="Investing card 1"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
+          <div className=" bg-[#000000] flex items-end justify-end" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22) }}> {/* 22.7px */}
+
+             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
+             <div className="flex items-center justify-end" style={{ marginTop: '1.5rem' }}>
+               <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
+                 Learn more details
+              </span>
+              <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+                  <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+              </svg>
+            
             </div>
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing2.png"
-                alt="Investing card 2"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-            {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <BlueSquareCard
-              src="/images/Investing/Investing3.png"
-              alt="Investing card 3"
-            />
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing4.png"
-                alt="Investing card 4"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/Investing/Investing5.png"
-                alt="Investing card 5"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
+           
+
           </div>
 
         </div>

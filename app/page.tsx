@@ -5,7 +5,9 @@ import LetEveryShare from '@/components/LetEveryShare'
 import BuildWithThe from '@/components/BuildWithThe'
 import YourNextWorld from '@/components/YourNextWorld'
 import GovernTogether from '@/components/GovernTogether'
-
+import FreedomToEnter from '@/components/FreedomToEnter'
+import LiquidityThat from '@/components/LiquidityThat'
+import Footer from '@/components/Footer'
 export default function Home() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
@@ -22,6 +24,9 @@ export default function Home() {
         <BuildWithThe />
         <YourNextWorld />
         <GovernTogether />
+        <FreedomToEnter />
+        <LiquidityThat />
+        <Footer />
       </div>
     </div>
   )

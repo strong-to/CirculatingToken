@@ -3,14 +3,14 @@
 import { useState } from 'react'
 // import Image from 'next/image'
 // import BlueSquareCard from '@/components/com/GovernTogether/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/com/GovernTogether/CollapsiblePanelContent'
+import CollapsiblePanelContent from '@/components/com/LiquidityThat/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 
 
 import { px } from '@/utils/pxToRem'
 
-export default function  GovernTogether() {
+export default function  LiquidityThat() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
@@ -29,8 +29,7 @@ export default function  GovernTogether() {
                 letterSpacing: '0%'
               }}
             >
-             Govern Together, <br />
-             Grow Together
+             Liquidity That Works For You
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
@@ -63,7 +62,9 @@ export default function  GovernTogether() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Shape Projects and Community With Your Tokens</span>
+              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >
+              Borrow or Lend Tokens Instantly for Liquidity
+                </span>
               {isExpanded ? (
                 <MinusIcon style={{ width: '31px', height: '2px' }} />
               ) : (

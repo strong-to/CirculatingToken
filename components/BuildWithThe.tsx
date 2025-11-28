@@ -13,7 +13,7 @@ export default function  BuildWithThe() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
-    <section className="h-full snap-start bg-white flex flex-col">
+    <section className="min-h-full snap-start bg-white flex flex-col">
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingBottom: '3.25rem' }}> {/* 52px */}
         <div className="flex items-start justify-between gap-8" style={{ marginTop: '4.625rem' }}> {/* 74px */}
           <div className="space-y-4  ">

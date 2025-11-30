@@ -14,7 +14,7 @@ export default function  GovernTogether() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
-    <section className="min-h-full snap-start bg-white flex flex-col">
+    <section className="min-h-full snap-start bg-white flex flex-col" style={{paddingBottom:px(120)}}>
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingBottom: '3.25rem' }}> {/* 52px */}
         <div className="flex items-start justify-between gap-8" style={{ marginTop: '4.625rem' }}> {/* 74px */}
           <div className="space-y-4  ">
@@ -142,16 +142,58 @@ export default function  GovernTogether() {
       </div>
 
       {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
-      <div className="w-full bg-[#000000] flex items-end justify-end" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22) }}> {/* 22.7px */}
+      <div className="w-full bg-[#000000] relative" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden' }}> {/* 22.7px */}
+        
+        {/* 椭圆弧线 - 6个椭圆从左下到右上形成轨迹 */}
+        <div className="absolute inset-0" style={{ bottom: 0 }}>
+          <svg width="100%" height="100%" viewBox="0 0 1920 520" preserveAspectRatio="none" style={{ position: 'absolute', bottom: 0 }}>
+            <defs>
+              <clipPath id="bottomClip">
+                <rect x="0" y="0" width="1920" height="520" />
+              </clipPath>
+            </defs>
+            <g clipPath="url(#bottomClip)">
+              {/* 椭圆1 - 左下，底部对齐到520px */}
+              <g transform="translate(100, 520) scale(0.761) translate(-170, -213.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆2 - 沿着-18度角度方向往右上移动，增加重叠（相邻中心距离180px） */}
+              <g transform="translate(271, 464) scale(0.761) translate(-190, -250.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆3 */}
+              <g transform="translate(442, 409) scale(0.761) translate(-190, -303.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆4 */}
+              <g transform="translate(614, 353) scale(0.761) translate(-190, -323.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆5 */}
+              <g transform="translate(785, 298) scale(0.761) translate(-190, -400.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆6 - 右上，与椭圆5重叠，距离右边362px */}
+              <g transform="translate(956, 242) scale(0.761) translate(-120, -453.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+            </g>
+          </svg>
+        </div>
 
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
-         <div className="flex items-center justify-end" style={{ marginTop: '1.5rem' }}>
+         <div className="flex items-center justify-end absolute" style={{ bottom: px(22), right: px(66) }}>
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
-             Learn more details
+           Explore More
           </span>
           <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
-              <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" stroke-width="1.5" stroke-miterlimit="10"/>
+              <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+              <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
           </svg>
         
         </div>

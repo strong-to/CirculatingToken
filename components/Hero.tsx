@@ -11,28 +11,28 @@ export default function Hero() {
       <div className="container-responsive w-full flex-1 flex">
         <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 lg:gap-12 w-full">
           {/* 左侧内容 */}
-          <div className="flex flex-col relative">
+          <div className="flex flex-col">
             {/* DEEP BLUE COVENANT */}
-            <div className="flex flex-col r">
+            <div className="flex flex-col items-start">
               {/* 可点击图片 - 悬浮时高度变为48px */}
-              <button className="inline-block w-auto cursor-pointer group relative z-10" style={{ marginTop: px(86) }}> {/* 43px */}
-                <Image
-                  src="/images/DEEPBLUE/DEEPBLUE.png"
-                  alt="DEEP BLUE"
-                  width={200}
-                  height={48}
-                  className="w-auto transition-all duration-300"
-                  style={{ height: '3rem' }} // 48px
-                  priority
-                />
+              <button className="inline-block  cursor-pointer group  z-10" style={{ marginTop: px(86) }}> {/* 43px */}
+                <div style={{
+                  fontFamily: '"IM FELL French Canon SC", serif',
+                  fontWeight: 400,
+                  fontStyle: 'normal',
+                  fontSize: px(24),
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}>DEEP BLUE</div>
+                <div style={{
+                  fontFamily: '"IM FELL French Canon SC", serif',
+                  fontWeight: 400,
+                  fontStyle: 'normal',
+                  fontSize: px(24),
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}>COVENANT</div>
               </button>
-                
-            {/* <span className="text-f24  text-[#000000]">
-              DEEP BLUE 
-            </span>
-            <span className="text-f24  text-[#000000]">
-              COVENANT
-            </span> */}
             </div>
            
 
@@ -115,7 +115,7 @@ export default function Hero() {
             </div>
 
             {/* 下载按钮 */}
-            <div className="flex flex-col sm:flex-row absolute" style={{ gap: '0.4375rem', marginBottom: px(86), bottom: '2.9375rem', left: '0' }}> {/* gap: 7px, mb: 1px, bottom: 47px */}
+            <div className="flex flex-col sm:flex-row " style={{ gap: '0.4375rem', marginTop: px(199) }}> {/* gap: 7px, mb: 1px, bottom: 47px */}
               <button className="flex items-center justify-center gap-2 py-3 bg-primary-main text-white rounded-md hover:bg-primary-light transition-colors" style={{ paddingLeft: px(19), paddingRight: px(19), height: px(50) }}> {/* px: 19px, height: 50px */}
                 <DownloadIcon />
                 <span className="text-body font-medium">Download for iPhone</span>

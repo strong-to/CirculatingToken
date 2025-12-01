@@ -54,7 +54,7 @@ export default function  GovernTogether() {
               View More
             </button>
 
-            {/* 折叠面板按钮 */}
+            {/* 折叠面板按钮 - 添加动画 */}
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="flex items-center gap-3 text-[#000000] cursor-pointer hover:opacity-80 transition-opacity"
@@ -64,27 +64,54 @@ export default function  GovernTogether() {
               }}
             >
               <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Shape Projects and Community With Your Tokens</span>
-              {isExpanded ? (
-                <MinusIcon style={{ width: '31px', height: '2px' }} />
-              ) : (
-                <PlusIcon style={{ width: '31px', height: '31px' }} />
-              )}
+              <div className="relative" style={{ width: '31px', height: '31px' }}>
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{
+                    opacity: isExpanded ? 0 : 1,
+                    transform: isExpanded ? 'rotate(90deg) scale(0.8)' : 'rotate(0deg) scale(1)',
+                    transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
+                >
+                  <PlusIcon style={{ width: '31px', height: '31px' }} />
+                </div>
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{
+                    opacity: isExpanded ? 1 : 0,
+                    transform: isExpanded ? 'rotate(0deg) scale(1)' : 'rotate(-90deg) scale(0.8)',
+                    transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
+                >
+                  <MinusIcon style={{ width: '31px', height: '2px' }} />
+                </div>
+              </div>
             </button>
           </div>
         </div>
 
-        {/* 折叠面板内容 - 撑满整个屏幕 */}
-        {isExpanded && (
-          <div className="w-full" 
-          style={{ 
-            paddingBottom: '3.8125rem', // 61px = 3.8125rem
-          }}>
+        {/* 折叠面板内容 - 撑满整个屏幕，固定时长的动画 */}
+        <div 
+          className="w-full overflow-hidden"
+          style={{
+            display: 'grid',
+            gridTemplateRows: isExpanded ? '1fr' : '0fr',
+            transition: 'grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
+          <div 
+            className="w-full min-h-0"
+            style={{ 
+              paddingBottom: '3.8125rem', // 61px = 3.8125rem
+              opacity: isExpanded ? 1 : 0,
+              transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
             <div 
-              className="w-full "
+              className="w-full"
               style={{ 
                 marginTop: '1.5rem',
                 paddingTop: '1rem',
-                minHeight: '0' /* 确保内容可以正常展开 */
               }}
             >
               <CollapsiblePanelContent />
@@ -109,10 +136,15 @@ export default function  GovernTogether() {
               </a>
             </div>
           </div>
-        )}
+        </div>
 
-        {/* 下面的卡片区域 - 会自动往下推 */}
-        <div className="space-y-4">
+        {/* 下面的卡片区域 - 会自动往下推，平滑过渡 */}
+        <div 
+          className="space-y-4"
+          style={{
+            transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
           <div 
             className="flex items-center justify-between"
             style={{ marginBottom: '2.5625rem' }} // 41px
@@ -179,9 +211,9 @@ export default function  GovernTogether() {
               </g>
               
               {/* 椭圆6 - 右上，与椭圆5重叠，距离右边362px */}
-              <g transform="translate(956, 242) scale(0.761) translate(-120, -453.42) rotate(-2 104 713.42)">
+              {/* <g transform="translate(956, 242) scale(0.761) translate(-120, -453.42) rotate(-2 104 713.42)">
                 <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
-              </g>
+              </g> */}
             </g>
           </svg>
         </div>

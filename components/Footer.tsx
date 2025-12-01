@@ -417,7 +417,7 @@ export default function Footer() {
 
 
   {/* 底部 Help 按钮和版权信息 */}
-  <div className="container-responsive flex items-center justify-center" style={{ paddingTop: px(115), paddingBottom: px(30) }}>
+  <div className="container-responsive flex items-center justify-center" style={{ paddingTop: px(225), paddingBottom: px(30) }}>
         {/* Help 按钮 */}
         {/* 版权信息 - 右侧 */}
         <div className="flex flex-col items-end gap-1">
@@ -491,7 +491,6 @@ export default function Footer() {
             backgroundColor: '#000000',
             color: '#FFFFFF',
             border: 'none',
-            borderRadius: px(4),
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',

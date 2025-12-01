@@ -23,9 +23,11 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
     <div 
       className={`relative overflow-hidden shadow-lg ${styles.card}`}
       onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseLeave={() => {
+        setIsHovered(false)
+        setShowDetail(false) // 鼠标移出时重置详细信息状态
+      }}
     >
-      
       {/* 底层整张图片 */}
       <Image
         src={src}

@@ -3,14 +3,12 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import BlueSquareCard from '@/components/com/LetEveryShare/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/com/LetEveryShare/CollapsiblePanelContent'
-
-import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-
+import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/Home/com/UseCaseSection/CollapsiblePanelContent'
+import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
 import { px } from '@/utils/pxToRem'
 
-export default function LetEveryShare() {
+export default function WhereUsingBecomes() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
@@ -29,45 +27,28 @@ export default function LetEveryShare() {
                 letterSpacing: '0%'
               }}
             >
-              Let Every Share Come With Joy
+              Where Using Becomes Investing
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
-            {/* 右上蓝色方块 */}
+            {/* 右上蓝色方块 - 添加动画 */}
             {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            <div className="relative" style={{ width: px(88), height: px(88) }}>
-              {/* 中间的大方块 */}
-              <div className="bg-[#E1050D]" style={{ width: px(88.72), height: px(88.91), position: 'relative', zIndex: 1 }}></div>
-              
-              {/* 左边的小方块 - 当展开时显示，重叠在左下角，添加动画 */}
+            <div className="relative flex items-center">
               <div 
-                className="bg-[#E1050D] overflow-hidden"
+                className="bg-[#0045FF] overflow-hidden"
                 style={{ 
-                  width: isExpanded ? px(26.09) : '0',
-                  height: isExpanded ? px(26.15) : '0',
+                  width: isExpanded ? px(40) : '0',
+                  height: isExpanded ? px(61) : '0',
                   opacity: isExpanded ? 1 : 0,
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  zIndex: 2,
-                  transform: 'translate(-85%, -20%)',
+                  marginRight: isExpanded ? '0' : '0',
                   transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
-              ></div>
-              
-              {/* 右边的小方块 - 当展开时显示，重叠在右上角，添加动画 */}
+              ></div>  
               <div 
-                className="bg-[#E1050D] overflow-hidden"
+                className="bg-[#0045FF]"
                 style={{ 
-                  width: isExpanded ? px(55.66) : '0',
-                  height: isExpanded ? px(55.78) : '0',
-                  opacity: isExpanded ? 1 : 0,
-                  position: 'absolute',
-                  top: 0,
-                  right: 0,
-                  zIndex: 2,
-                  transform: 'translate(70%, -50%)',
-                  transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                  width: px(98), 
+                  height: px(98),
                 }}
               ></div>
             </div>
@@ -81,7 +62,7 @@ export default function LetEveryShare() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }}>Share AI Projects and Earn</span>
+              <span style={{ marginRight: '0.625rem' }}>Use AI Apps and Earn</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -193,7 +174,7 @@ export default function LetEveryShare() {
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/LetEveryShare/Investing1.png"
+                src="/images/Investing/Investing1.png"
                 alt="Investing card 1"
                 width={340}
                 height={500}
@@ -201,8 +182,17 @@ export default function LetEveryShare() {
                 priority
               />
             </div>
-
-
+            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
+              <Image
+                src="/images/Investing/Investing2.png"
+                alt="Investing card 2"
+                width={340}
+                height={500}
+                className="w-full h-full object-cover"
+                priority
+              />
+            </div>
+            {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
             <div className="relative">
               {/* 悬浮在卡片上方的 SVG 图标 */}
               <div 
@@ -220,30 +210,14 @@ export default function LetEveryShare() {
                   style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(17), objectFit: 'contain' }}
                 />
               </div>
-              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <BlueSquareCard
-              src="/images/LetEveryShare/Investing2.png"
-              alt="Investing card 3"
-            />
-            </div>
-
-
-             
-            
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/LetEveryShare/Investing3.png"
-                alt="Investing card 2"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
+              <BlueSquareCard
+                src="/images/Investing/Investing3.png"
+                alt="Investing card 3"
               />
             </div>
-           
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/LetEveryShare/Investing4.png"
+                src="/images/Investing/Investing4.png"
                 alt="Investing card 4"
                 width={340}
                 height={500}
@@ -253,7 +227,7 @@ export default function LetEveryShare() {
             </div>
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/LetEveryShare/Investing5.png"
+                src="/images/Investing/Investing5.png"
                 alt="Investing card 5"
                 width={340}
                 height={500}

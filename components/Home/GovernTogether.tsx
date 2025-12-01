@@ -2,15 +2,15 @@
 
 import { useState } from 'react'
 // import Image from 'next/image'
-// import BlueSquareCard from '@/components/com/GovernTogether/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/com/LiquidityThat/CollapsiblePanelContent'
+// import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/Home/com/GovernTogether/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 
 
 import { px } from '@/utils/pxToRem'
 
-export default function  LiquidityThat() {
+export default function  GovernTogether() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
@@ -29,7 +29,8 @@ export default function  LiquidityThat() {
                 letterSpacing: '0%'
               }}
             >
-             Liquidity That Works For You
+             Govern Together, <br />
+             Grow Together
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
@@ -62,9 +63,7 @@ export default function  LiquidityThat() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >
-              Borrow or Lend Tokens Instantly for Liquidity
-                </span>
+              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Shape Projects and Community With Your Tokens</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -175,23 +174,52 @@ export default function  LiquidityThat() {
       </div>
 
       {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
-      <div className="w-full bg-[#000000] relative flex items-end justify-end" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden' }}> {/* 22.7px */}
+      <div className="w-full bg-[#000000] relative" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden' }}> {/* 22.7px */}
         
-        {/* 竖线 */}
-        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
-          {/* 竖线 - 按指定距离 */}
-          <line x1={px(65)} y1="0" x2={px(65)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74)} y1="0" x2={px(65 + 74)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85)} y1="0" x2={px(65 + 74 + 85)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125)} y1="0" x2={px(65 + 74 + 85 + 125)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125 + 188)} y1="0" x2={px(65 + 74 + 85 + 125 + 188)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125 + 188 + 328)} y1="0" x2={px(65 + 74 + 85 + 125 + 188 + 328)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125 + 188 + 328+429)} y1="0" x2={px(65 + 74 + 85 + 125 + 188 + 328+429)} y2={px(520)} stroke="white" strokeWidth="1" />
-          {/* <line x1="calc(100% - 621px)" y1="0" x2="calc(100% - 621px)" y2={px(520)} stroke="white" strokeWidth="1" /> */}
-        </svg>
+        {/* 椭圆弧线 - 6个椭圆从左下到右上形成轨迹 */}
+        <div className="absolute inset-0" style={{ bottom: 0 }}>
+          <svg width="100%" height="100%" viewBox="0 0 1920 520" preserveAspectRatio="none" style={{ position: 'absolute', bottom: 0 }}>
+            <defs>
+              <clipPath id="bottomClip">
+                <rect x="0" y="0" width="1920" height="520" />
+              </clipPath>
+            </defs>
+            <g clipPath="url(#bottomClip)">
+              {/* 椭圆1 - 左下，底部对齐到520px */}
+              <g transform="translate(100, 520) scale(0.761) translate(-170, -213.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆2 - 沿着-18度角度方向往右上移动，增加重叠（相邻中心距离180px） */}
+              <g transform="translate(271, 464) scale(0.761) translate(-190, -250.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆3 */}
+              <g transform="translate(442, 409) scale(0.761) translate(-190, -303.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆4 */}
+              <g transform="translate(614, 353) scale(0.761) translate(-190, -323.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆5 */}
+              <g transform="translate(785, 298) scale(0.761) translate(-190, -400.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g>
+              
+              {/* 椭圆6 - 右上，与椭圆5重叠，距离右边362px */}
+              {/* <g transform="translate(956, 242) scale(0.761) translate(-120, -453.42) rotate(-2 104 713.42)">
+                <path d="M318.701 713.42C410.952 683.449 434.21 500.552 370.65 304.909C307.089 109.266 180.778 -25.0366 88.5269 4.93517C-3.72449 34.9069 -26.9829 217.804 36.5779 413.446C100.139 609.089 226.449 743.392 318.701 713.42Z" fill="none" stroke="white" strokeWidth="1.50048" strokeMiterlimit="10" />
+              </g> */}
+            </g>
+          </svg>
+        </div>
 
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
-         <div className="flex items-center justify-end relative z-10" style={{ marginTop: '1.5rem' }}>
+         <div className="flex items-center justify-end absolute" style={{ bottom: px(22), right: px(66) }}>
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
            Explore More
           </span>

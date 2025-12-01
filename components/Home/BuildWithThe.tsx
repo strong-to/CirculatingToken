@@ -3,12 +3,14 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import BlueSquareCard from '@/components/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/CollapsiblePanelContent'
-import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
+import BlueSquareCard from '@/components/Home/com/BuildWithThe/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/Home/com/BuildWithThe/CollapsiblePanelContent'
+
+import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+
 import { px } from '@/utils/pxToRem'
 
-export default function UseCaseSection() {
+export default function  BuildWithThe() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
@@ -27,7 +29,7 @@ export default function UseCaseSection() {
                 letterSpacing: '0%'
               }}
             >
-              Where Using Becomes Investing
+             Build With The Brightest Minds Worldwide
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
@@ -35,22 +37,24 @@ export default function UseCaseSection() {
             {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
             <div className="relative flex items-center">
               <div 
-                className="bg-[#0045FF] overflow-hidden"
+                className="bg-[#8000EA] overflow-hidden"
                 style={{ 
-                  width: isExpanded ? px(40) : '0',
-                  height: isExpanded ? px(61) : '0',
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
                   opacity: isExpanded ? 1 : 0,
-                  marginRight: isExpanded ? '0' : '0',
                   transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
               ></div>  
+              <div className="bg-[#8000EA]" style={{ width: px(92), height: px(92) }}></div>
               <div 
-                className="bg-[#0045FF]"
+                className="bg-[#8000EA] overflow-hidden"
                 style={{ 
-                  width: px(98), 
-                  height: px(98),
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
+                  opacity: isExpanded ? 1 : 0,
+                  transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
-              ></div>
+              ></div>  
             </div>
 
             {/* 折叠面板按钮 - 添加动画 */}
@@ -62,7 +66,7 @@ export default function UseCaseSection() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }}>Use AI Apps and Earn</span>
+              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >Contribute AI Projects and Earn</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -172,9 +176,37 @@ export default function UseCaseSection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
+             {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
+            
+
+               <div className="relative">
+              {/* 悬浮在卡片上方的 SVG 图标 */}
+              <div 
+                className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
+                style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
+              >
+                <img 
+                  src="/images/BuildWithThe/GREENMatrix.png" 
+                  alt="" 
+                  style={{ width: px(290), height: px(28), maxWidth: px(290), objectFit: 'contain',marginRight:px(70) }}
+                />
+                <img 
+                  src="/images/BuildWithThe/Earth.png" 
+                  alt="" 
+                  style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(5), objectFit: 'contain',marginLeft:px(70) }}
+                />
+              </div>
+              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
+              <BlueSquareCard
+              src="/images/BuildWithThe/Investing1.png"
+              alt="Investing card 3"
+            />
+            </div>
+           
+           
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing1.png"
+                src="/images/BuildWithThe/Investing2.png"
                 alt="Investing card 1"
                 width={340}
                 height={500}
@@ -182,9 +214,13 @@ export default function UseCaseSection() {
                 priority
               />
             </div>
+
+
+           
+            
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing2.png"
+                src="/images/BuildWithThe/Investing3.png"
                 alt="Investing card 2"
                 width={340}
                 height={500}
@@ -192,32 +228,10 @@ export default function UseCaseSection() {
                 priority
               />
             </div>
-            {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <div className="relative">
-              {/* 悬浮在卡片上方的 SVG 图标 */}
-              <div 
-                className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
-                style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
-              >
-                <img 
-                  src="/images/Investing/WALL-E.png" 
-                  alt="" 
-                  style={{ width: px(290), height: px(28), maxWidth: px(290), objectFit: 'contain' }}
-                />
-                <img 
-                  src="/images/Investing/waitingEarth.png" 
-                  alt="" 
-                  style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(17), objectFit: 'contain' }}
-                />
-              </div>
-              <BlueSquareCard
-                src="/images/Investing/Investing3.png"
-                alt="Investing card 3"
-              />
-            </div>
+           
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing4.png"
+                src="/images/BuildWithThe/Investing4.png"
                 alt="Investing card 4"
                 width={340}
                 height={500}
@@ -227,7 +241,7 @@ export default function UseCaseSection() {
             </div>
             <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/Investing/Investing5.png"
+                src="/images/BuildWithThe/Investing5.png"
                 alt="Investing card 5"
                 width={340}
                 height={500}

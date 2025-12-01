@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import Logo from '@/components/Logo'
+import Logo from '@/components/Header/com/Logo'
 import { px } from '@/utils/pxToRem'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

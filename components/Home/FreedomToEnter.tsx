@@ -1,20 +1,20 @@
-/* eslint-disable @next/next/no-img-element */
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import BlueSquareCard from '@/components/com/BuildWithThe/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/com/BuildWithThe/CollapsiblePanelContent'
+// import Image from 'next/image'
+// import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/Home/com/FreedomToEnter/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 
+
 import { px } from '@/utils/pxToRem'
 
-export default function  BuildWithThe() {
+export default function  FreedomToEnter() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
-    <section className="min-h-full snap-start bg-white flex flex-col">
+    <section className="min-h-full snap-start bg-white flex flex-col" style={{paddingBottom:px(120)}}>
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingBottom: '3.25rem' }}> {/* 52px */}
         <div className="flex items-start justify-between gap-8" style={{ marginTop: '4.625rem' }}> {/* 74px */}
           <div className="space-y-4  ">
@@ -29,33 +29,30 @@ export default function  BuildWithThe() {
                 letterSpacing: '0%'
               }}
             >
-             Build With The Brightest Minds Worldwide
+             Freedom to Enter,  <br />
+             Freedom to Grow
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
-            {/* 右上蓝色方块 - 添加动画 */}
+            {/* 右上蓝色方块 */}
             {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            <div className="relative flex items-center">
-              <div 
-                className="bg-[#8000EA] overflow-hidden"
-                style={{ 
-                  width: isExpanded ? px(38) : '0',
-                  height: isExpanded ? px(58) : '0',
-                  opacity: isExpanded ? 1 : 0,
-                  transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                }}
-              ></div>  
-              <div className="bg-[#8000EA]" style={{ width: px(92), height: px(92) }}></div>
-              <div 
-                className="bg-[#8000EA] overflow-hidden"
-                style={{ 
-                  width: isExpanded ? px(38) : '0',
-                  height: isExpanded ? px(58) : '0',
-                  opacity: isExpanded ? 1 : 0,
-                  transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                }}
-              ></div>  
-            </div>
+            {/* <div className="relative flex items-center ">
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div> }  
+                <div className="bg-[#8000EA]"  style={{ width: px(92), height: px(92)  }}></div>
+              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div>}  
+            </div> */}
+
+            <button
+              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
+              style={{
+                width: '17.296875rem', // 276.75px
+                height: '3.9375rem', // 63px
+                fontSize: '1.75rem', // 28px
+                borderRadius: '0.25rem' // 4px
+              }}
+            >
+              View More
+            </button>
 
             {/* 折叠面板按钮 - 添加动画 */}
             <button
@@ -66,7 +63,7 @@ export default function  BuildWithThe() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >Contribute AI Projects and Earn</span>
+              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Trade Tokens Anytime With Full Flexibility</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -159,10 +156,9 @@ export default function  BuildWithThe() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-            <button
+            {/* <button
               className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
               style={{
                 width: '17.296875rem', // 276.75px
@@ -172,86 +168,39 @@ export default function  BuildWithThe() {
               }}
             >
               View all projects
-            </button>
+            </button> */}
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
-             {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            
-
-               <div className="relative">
-              {/* 悬浮在卡片上方的 SVG 图标 */}
-              <div 
-                className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
-                style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
-              >
-                <img 
-                  src="/images/BuildWithThe/GREENMatrix.png" 
-                  alt="" 
-                  style={{ width: px(290), height: px(28), maxWidth: px(290), objectFit: 'contain',marginRight:px(70) }}
-                />
-                <img 
-                  src="/images/BuildWithThe/Earth.png" 
-                  alt="" 
-                  style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(5), objectFit: 'contain',marginLeft:px(70) }}
-                />
-              </div>
-              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-              <BlueSquareCard
-              src="/images/BuildWithThe/Investing1.png"
-              alt="Investing card 3"
-            />
-            </div>
-           
-           
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/BuildWithThe/Investing2.png"
-                alt="Investing card 1"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-
-
-           
-            
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/BuildWithThe/Investing3.png"
-                alt="Investing card 2"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-           
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/BuildWithThe/Investing4.png"
-                alt="Investing card 4"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/BuildWithThe/Investing5.png"
-                alt="Investing card 5"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-          </div>
-
         </div>
+      </div>
+
+      {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
+      <div className="w-full bg-[#000000] relative flex items-end justify-end" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(45), overflow: 'hidden' }}> {/* 22.7px */}
+        
+        {/* 网格白线 */}
+        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
+          {/* 水平线 - 2条线分成3行 */}
+          <line x1="0" y1={px(520 * 0.35)} x2="100%" y2={px(520 * 0.35)} stroke="white" strokeWidth="1" />
+          <line x1="0" y1={px(520 - 27)} x2="100%" y2={px(520 - 27)} stroke="white" strokeWidth="1" />
+          
+          {/* 垂直线 - 3条线分成4列，按指定像素值 */}
+          <line x1={px(515)} y1="0" x2={px(515)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1={px(515 + 217)} y1="0" x2={px(515 + 217)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1="calc(100% - 119px)" y1="0" x2="calc(100% - 119px)" y2={px(520)} stroke="white" strokeWidth="1" />
+        </svg>
+
+         {/* Learn more details 链接 - 在下边框外面紧挨着 */}
+         <div className="flex items-center justify-end relative z-10" style={{ marginTop: '1.4rem' }}>
+           <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
+           Explore More
+          </span>
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+              <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+          </svg>
+        
+        </div>
+       
+
       </div>
     </section>
   )

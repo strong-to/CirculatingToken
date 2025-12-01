@@ -1,19 +1,20 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import BlueSquareCard from '@/components/com/YourNextWorld/BlueSquareCard'
-import CollapsiblePanelContent from '@/components/com/YourNextWorld/CollapsiblePanelContent'
+// import Image from 'next/image'
+// import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/Home/com/LiquidityThat/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 
+
 import { px } from '@/utils/pxToRem'
 
-export default function  YourNextWorld() {
+export default function  LiquidityThat() {
   const [isExpanded, setIsExpanded] = useState(false)
 
   return ( 
-    <section className="min-h-full snap-start bg-white flex flex-col">
+    <section className="min-h-full snap-start bg-white flex flex-col" style={{paddingBottom:px(120)}}>
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingBottom: '3.25rem' }}> {/* 52px */}
         <div className="flex items-start justify-between gap-8" style={{ marginTop: '4.625rem' }}> {/* 74px */}
           <div className="space-y-4  ">
@@ -28,7 +29,7 @@ export default function  YourNextWorld() {
                 letterSpacing: '0%'
               }}
             >
-             Your Next World-Changing Idea Starts Here
+             Liquidity That Works For You
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
@@ -61,7 +62,9 @@ export default function  YourNextWorld() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Launch Your AI Project and Earn</span>
+              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >
+              Borrow or Lend Tokens Instantly for Liquidity
+                </span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -168,81 +171,38 @@ export default function  YourNextWorld() {
               View all projects
             </button> */}
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
-            
-             {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            {/* <BlueSquareCard
-              src="/images/BuildWithThe/Investing1.png"
-              alt="Investing card 3"
-            /> */}
-            <div className="overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: '0.75rem', aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
-              <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Datasets</div>
-              
-              {/* <Image
-                src="/images/BuildWithThe/Investing2.png"
-                alt="Investing card 1"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              /> */}
-
-            </div>
-           
-           
-            <div className="overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <div className='text-[#000000]' style={{fontSize:px(25)}}>Compute Pool</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing2.png"
-                alt="Investing card 1"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              /> */}
-            </div>
-
-
-           
-            
-            <div className="overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-              <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Foundational Models</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing3.png"
-                alt="Investing card 2"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              /> */}
-            </div>
-           
-            <div className="overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-             <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Workflows</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing4.png"
-                alt="Investing card 4"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              /> */}
-            </div>
-            <div className="overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-             <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>AI Agents</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing5.png"
-                alt="Investing card 5"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              /> */}
-            </div>
-          </div>
-
         </div>
+      </div>
+
+      {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
+      <div className="w-full bg-[#000000] relative flex items-end justify-end" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden' }}> {/* 22.7px */}
+        
+        {/* 竖线 */}
+        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
+          {/* 竖线 - 按指定距离 */}
+          <line x1={px(65)} y1="0" x2={px(65)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1={px(65 + 74)} y1="0" x2={px(65 + 74)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1={px(65 + 74 + 85)} y1="0" x2={px(65 + 74 + 85)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1={px(65 + 74 + 85 + 125)} y1="0" x2={px(65 + 74 + 85 + 125)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1={px(65 + 74 + 85 + 125 + 188)} y1="0" x2={px(65 + 74 + 85 + 125 + 188)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1={px(65 + 74 + 85 + 125 + 188 + 328)} y1="0" x2={px(65 + 74 + 85 + 125 + 188 + 328)} y2={px(520)} stroke="white" strokeWidth="1" />
+          <line x1={px(65 + 74 + 85 + 125 + 188 + 328+429)} y1="0" x2={px(65 + 74 + 85 + 125 + 188 + 328+429)} y2={px(520)} stroke="white" strokeWidth="1" />
+          {/* <line x1="calc(100% - 621px)" y1="0" x2="calc(100% - 621px)" y2={px(520)} stroke="white" strokeWidth="1" /> */}
+        </svg>
+
+         {/* Learn more details 链接 - 在下边框外面紧挨着 */}
+         <div className="flex items-center justify-end relative z-10" style={{ marginTop: '1.5rem' }}>
+           <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
+           Explore More
+          </span>
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+              <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+          </svg>
+        
+        </div>
+       
+
       </div>
     </section>
   )

@@ -217,3 +217,18 @@ export const TopBadgeIcon: React.FC<IconProps> = (props) => (
 )
 
 
+
+export const StartDateIcon: React.FC<IconProps> = (props) => (
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <circle cx="8.5" cy="8.5" r="7.8" stroke="white" strokeWidth="1.4"/>
+    <line x1="8.65" y1="3.65" x2="8.65" y2="8.35" stroke="white" strokeWidth="1.3" strokeLinecap="round"/>
+    <path d="M8.5 8.5L3.87668 11.0473" stroke="white" strokeWidth="1.3" strokeLinecap="round"/>
+  </svg>
+)

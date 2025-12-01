@@ -181,7 +181,7 @@ export default function  BuildWithThe() {
 
                <div className="relative">
               {/* 悬浮在卡片上方的 SVG 图标 */}
-              <div 
+              {/* <div 
                 className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
                 style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
               >
@@ -195,7 +195,7 @@ export default function  BuildWithThe() {
                   alt="" 
                   style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(5), objectFit: 'contain',marginLeft:px(70) }}
                 />
-              </div>
+              </div> */}
               {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
               <BlueSquareCard
               src="/images/BuildWithThe/Investing1.png"

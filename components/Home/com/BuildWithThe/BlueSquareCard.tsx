@@ -4,11 +4,12 @@ import Image from 'next/image'
 import { useState } from 'react'
 import {
   MarketCapIcon,
-  RevenueIcon,
   TotalUsersIcon,
   UserRatingIcon,
+  StartDateIcon,
 } from '@/components/icons/Icons'
 import styles from './BlueSquareCard.module.css'
+import { px } from '@/utils/pxToRem'
 
 interface BlueSquareCardProps {
   src: string
@@ -51,7 +52,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
                 <Image 
-                  src="/images/Investing/games.png" 
+                  src="/images/BuildWithThe/games.png" 
                   alt="games" 
                   fill 
                   className={styles.iconImage}
@@ -61,14 +62,13 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               
               <div className="flex-1 text-center">
                 <div className={`leading-[1] tracking-[0] text-white font-semibold ${styles.titleTextSmall}`}>
-                  WALL-E& EVE
+                GREEN Matrix
                 </div>
                 <div className={`leading-[1] tracking-[0] text-white font-semibold ${styles.titleTextSmallMargin}`}>
-                  DBAI0000211
+                DBAI0001007
                 </div>
               </div>
               <div className="h-full">
-                {/* <Image src="/images/Investing/arr.png" alt="arrow" width={24} height={24} /> */}
               </div>
             </div>
 
@@ -81,7 +81,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               <div>
                 <div className={` flex items-center ${styles.item_compactMetricLabel}`}>
                   <MarketCapIcon className={styles.icon18} />
-                  <span>Market Cap</span>
+                  <span>Contributions</span>
                 </div>
                 <div className={`font-semibold text-white ${styles.metricValue}`}>$12.3k</div>
               </div>
@@ -90,12 +90,12 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               <button className={`border border-white flex items-center justify-center ${styles.buttonactionButton}`}>
               Project Details
                 </button>
-            </div>
+            </div>  
 
               <div>
                 <div className={` flex items-center ${styles.item_compactMetricLabel}`}>
-                  <RevenueIcon className={styles.icon12x19} />
-                  <span>24h Revenue</span>
+                <StartDateIcon style={{ width: px(20), height: px(20) }} />
+                  <span>Start  Date</span>
                 </div>
                 <div className={`font-semibold text-white ${styles.metricValue}`}>$250k</div>
               </div>
@@ -108,7 +108,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               <div>
                 <div className={` flex items-center ${styles.item_compactMetricLabel}`}>
                   <TotalUsersIcon className={styles.icon18x16} />
-                  <span>Total Users</span>
+                  <span>Progress</span>
                 </div>
                 <div className={`font-semibold text-white ${styles.metricValue}`}>1.2M</div>
               </div>
@@ -121,7 +121,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               <div>
                 <div className={` flex items-center ${styles.compactMetricLabel}`}>
                   <UserRatingIcon className={styles.icon18x10} />
-                  <span>User Rating</span>
+                  <span>Contributors</span>
                 </div>
                 <div className={`font-semibold text-white ${styles.metricValue}`}>★★★★★</div>
               </div>
@@ -155,7 +155,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
                 <Image 
-                  src="/images/Investing/games.png" 
+                  src="/images/BuildWithThe/games.png" 
                   alt="games" 
                   fill 
                   className={styles.iconImage}
@@ -165,10 +165,10 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               
               <div className="flex-1 text-center">
                 <div className={`leading-[1] tracking-[0] text-white font-semibold ${styles.titleTextSmall}`}>
-                  WALL-E& EVE
+                GREEN Matrix
                 </div>
                 <div className={`leading-[1] tracking-[0] text-white font-semibold ${styles.titleTextSmallMargin}`}>
-                  DBAI0000211
+                DBAI0001007
                 </div>
               </div>
               <div className="h-full">
@@ -179,10 +179,10 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             {/* 中间：两个按钮 */}
             <div className={`flex ${styles.compactButtons}`}>
               <button className={`border border-white font-semibold text-white flex items-center justify-center ${styles.compactButton}`}>
-                AI avatar
+              Dataset
               </button>
               <button className={`border border-white font-semibold text-white flex items-center justify-center ${styles.compactButton} ${styles.compactButtonMargin}`}>
-                Emotional connection
+              Bioinformatics
               </button>
             </div>
 
@@ -191,30 +191,31 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               <div>
                 <div className={` flex items-center ${styles.compactMetricLabel}`}>
                   <MarketCapIcon className={styles.icon18} />
-                  <span>Market Cap</span>
+                  <span>Contributions</span>
                 </div>
                 <div className={`font-semibold text-white ${styles.metricValue}`}>$12.3k</div>
               </div>
               <div>
-                <div className={` flex items-center ${styles.compactMetricLabel}`}>
-                  <RevenueIcon className={styles.icon12x19} />
-                  <span>24h Revenue</span>
+                <div className={` flex items-center ${styles.compactMetricLabel}`} >
+                <StartDateIcon style={{ width: px(20), height: px(20) }} />
+                  <span>Start  Date</span>
                 </div>
                 <div className={`font-semibold text-white ${styles.metricValue}`}>$250k</div>
               </div>
               <div>
                 <div className={` flex items-center ${styles.compactMetricLabel}`}>
-                  <TotalUsersIcon className={styles.icon18x16} />
-                  <span>Total Users</span>
+                <UserRatingIcon className={styles.icon18x10} />
+                 
+                  <span>Progress</span>
                 </div>
                 <div className={`font-semibold text-white ${styles.metricValue}`}>1.2M</div>
               </div>
               <div>
                 <div className={` flex items-center ${styles.compactMetricLabel}`}>
-                  <UserRatingIcon className={styles.icon18x10} />
-                  <span>User Rating</span>
+                <TotalUsersIcon className={styles.icon18x16} />
+                  <span>Contributors</span>
                 </div>
-                <div className={`font-semibold text-white ${styles.metricValue}`}>★★★★★</div>
+                <div className={`font-semibold text-white ${styles.metricValue}`}>xxxxx</div>
               </div>
             </div>
           </>

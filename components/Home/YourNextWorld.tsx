@@ -176,69 +176,62 @@ export default function  YourNextWorld() {
               src="/images/BuildWithThe/Investing1.png"
               alt="Investing card 3"
             /> */}
-            <div className="overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: '0.75rem', aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
-              <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Datasets</div>
-              
-              {/* <Image
-                src="/images/BuildWithThe/Investing2.png"
-                alt="Investing card 1"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
+            <div className="relative overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: '0.75rem', aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
+              <Image
+                src="/images/YourNextWorld/img_datasets.png"
+                alt="Datasets"
+                fill
+                className="object-cover"
                 priority
-              /> */}
-
+              />
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Datasets</div>
             </div>
            
            
-            <div className="overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <div className='text-[#000000]' style={{fontSize:px(25)}}>Compute Pool</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing2.png"
-                alt="Investing card 1"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
+            <div className="relative overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
+              <Image
+                src="/images/YourNextWorld/img_compute_paool.png"
+                alt="Compute Pool"
+                fill
+                className="object-cover"
                 priority
-              /> */}
+              />
+              <div className='text-[#000000] relative z-10' style={{fontSize:px(25)}}>Compute Pool</div>
             </div>
 
 
            
             
-            <div className="overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-              <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Foundational Models</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing3.png"
-                alt="Investing card 2"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
+            <div className="relative overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+              <Image
+                src="/images/YourNextWorld/img_foundational_models.png"
+                alt="Foundational Models"
+                fill
+                className="object-cover"
                 priority
-              /> */}
+              />
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Foundational Models</div>
             </div>
            
-            <div className="overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-             <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>Workflows</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing4.png"
-                alt="Investing card 4"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
+            <div className="relative overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+              <Image
+                src="/images/YourNextWorld/img_workflows.png"
+                alt="Workflows"
+                fill
+                className="object-cover"
                 priority
-              /> */}
+              />
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Workflows</div>
             </div>
-            <div className="overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-             <div className='text-[#FFFFFF]' style={{fontSize:px(25)}}>AI Agents</div>
-              {/* <Image
-                src="/images/BuildWithThe/Investing5.png"
-                alt="Investing card 5"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
+            <div className="relative overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+              <Image
+                src="/images/YourNextWorld/img_ai_agents.png"
+                alt="AI Agents"
+                fill
+                className="object-cover"
                 priority
-              /> */}
+              />
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>AI Agents</div>
             </div>
           </div>
 

@@ -36,6 +36,7 @@ export function useCarouselDrag({
   const translateXRef = useRef(0)
   const isDraggingRef = useRef(false)
   const hasMovedRef = useRef(false)
+  const dragDirectionRef = useRef<'left' | 'right' | null>(null) // 记录拖拽方向
   
   // 同步状态到 ref
   useEffect(() => {
@@ -50,7 +51,7 @@ export function useCarouselDrag({
     setHasMoved(false)
   }
   
-  // 齿轮对齐函数
+  // 齿轮对齐函数 - 根据移动方向决定展示的卡片
   const snapToNearest = () => {
     const itemWidth = getItemWidth()
     if (itemWidth === 0) {
@@ -62,11 +63,24 @@ export function useCarouselDrag({
     
     // 计算当前最接近的卡片索引
     const currentTranslateX = translateXRef.current
-    const currentIndex = Math.round((-currentTranslateX - totalWidth) / itemWidth)
-    const normalizedIndex = Math.max(0, Math.min(itemCount - 1, currentIndex))
+    let currentIndex = Math.round((-currentTranslateX - totalWidth) / itemWidth)
+    
+    // 规范化索引到有效范围 [0, itemCount-1]
+    currentIndex = ((currentIndex % itemCount) + itemCount) % itemCount
+    
+    // 根据移动方向决定目标索引
+    let targetIndex = currentIndex
+    if (dragDirectionRef.current === 'left') {
+      // 往左移动：显示更右边的卡片（索引+1）
+      targetIndex = (currentIndex + 1) % itemCount
+    } else if (dragDirectionRef.current === 'right') {
+      // 往右移动：显示更左边的卡片（索引-1）
+      targetIndex = (currentIndex - 1 + itemCount) % itemCount
+    }
+    // 如果没有方向，保持当前位置（targetIndex = currentIndex）
     
     // 计算目标位置
-    let targetTranslate = -totalWidth - (normalizedIndex * itemWidth)
+    let targetTranslate = -totalWidth - (targetIndex * itemWidth)
     
     // 如果目标位置超出中间组范围，调整到中间组
     if (targetTranslate < -totalWidth * 2) {
@@ -83,6 +97,7 @@ export function useCarouselDrag({
     setTimeout(() => {
       setIsAligning(false)
       resetDragging()
+      dragDirectionRef.current = null // 重置方向
     }, snapDuration)
   }
   
@@ -115,6 +130,16 @@ export function useCarouselDrag({
       e.preventDefault()
       e.stopPropagation()
       
+      // 根据鼠标移动的diff判断方向（diff > 0 向右，diff < 0 向左）
+      // 一旦确定了方向，在整个拖拽过程中保持不变
+      if (dragDirectionRef.current === null && Math.abs(diff) > 0) {
+        if (diff > 0) {
+          dragDirectionRef.current = 'right' // 鼠标向右移动
+        } else {
+          dragDirectionRef.current = 'left' // 鼠标向左移动
+        }
+      }
+      
       let newTranslate = currentTranslate + diff
       const itemWidth = getItemWidth()
       const totalWidth = itemWidth * itemCount
@@ -145,9 +170,11 @@ export function useCarouselDrag({
             snapToNearest()
           } else {
             resetDragging()
+            dragDirectionRef.current = null // 重置方向
           }
         } else {
           resetDragging()
+          dragDirectionRef.current = null // 重置方向
         }
       }
     }
@@ -156,6 +183,7 @@ export function useCarouselDrag({
     const handleMouseLeave = () => {
       if (isDraggingRef.current) {
         resetDragging()
+        dragDirectionRef.current = null // 重置方向
       }
     }
     
@@ -163,6 +191,7 @@ export function useCarouselDrag({
     const handleBlur = () => {
       if (isDraggingRef.current) {
         resetDragging()
+        dragDirectionRef.current = null // 重置方向
       }
     }
     
@@ -185,6 +214,7 @@ export function useCarouselDrag({
     setStartX(e.clientX)
     setCurrentTranslate(translateX)
     setHasMoved(false)
+    dragDirectionRef.current = null // 重置方向，等待第一次移动时确定
   }
   
   const handleMouseUp = (e: React.MouseEvent) => {

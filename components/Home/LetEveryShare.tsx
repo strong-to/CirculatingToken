@@ -9,9 +9,54 @@ import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/Collaps
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 
 import { px } from '@/utils/pxToRem'
+import { useCarouselDrag } from '@/hooks/useCarouselDrag'
 
 export default function LetEveryShare() {
   const [isExpanded, setIsExpanded] = useState(false)
+  
+  // 卡片数据
+  const cards = [
+    { type: 'image', src: '/images/LetEveryShare/Investing1.png', alt: 'Investing card 1' },
+    { type: 'blueCard', src: '/images/LetEveryShare/Investing2.png', alt: 'Investing card 2' },
+    { type: 'image', src: '/images/LetEveryShare/Investing3.png', alt: 'Investing card 3' },
+    { type: 'image', src: '/images/LetEveryShare/Investing4.png', alt: 'Investing card 4' },
+    { type: 'image', src: '/images/LetEveryShare/Investing5.png', alt: 'Investing card 5' },
+  ]
+  
+  // 复制卡片数组以实现无缝循环
+  const extendedCards = [...cards, ...cards, ...cards]
+  
+  // 计算每个卡片的宽度（包括gap）
+  const getCardWidth = () => {
+    if (!carouselRef.current) return 0
+    const containerWidth = carouselRef.current.offsetWidth
+    const gap = 22.7 // 1.41875rem = 22.7px
+    // 根据屏幕尺寸计算：sm: 3列, lg: 5列
+    const isLarge = containerWidth >= 1024
+    const isMedium = containerWidth >= 640
+    const cols = isLarge ? 5 : isMedium ? 3 : 1
+    return (containerWidth - gap * (cols - 1)) / cols + gap
+  }
+  
+  // 使用循环滑动 Hook
+  const {
+    translateX,
+    isDragging,
+    isAligning,
+    hasMoved,
+    carouselRef,
+    handleMouseDown,
+    handleMouseUp,
+  } = useCarouselDrag({
+    itemCount: cards.length,
+    getItemWidth: getCardWidth,
+    enableSnap: true,
+    snapDuration: 300,
+    dragThreshold: 10,
+  })
+  
+  const cardWidth = getCardWidth()
+  const gap = 22.7
 
   return ( 
     <section className="min-h-full snap-start bg-white flex flex-col">
@@ -190,77 +235,84 @@ export default function LetEveryShare() {
             </button>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/LetEveryShare/Investing1.png"
-                alt="Investing card 1"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
+          <div 
+            ref={carouselRef}
+            className="relative overflow-hidden"
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            style={{ 
+              cursor: hasMoved ? 'grabbing' : (isDragging ? 'grabbing' : 'grab'),
+            }}
+          >
+            {/* 内容区域 */}
+            <div
+              className="flex"
+              style={{
+                transform: `translateX(${translateX}px)`,
+                transition: isAligning ? 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
+                gap: `${gap}px`,
+                pointerEvents: hasMoved ? 'none' : 'auto', // 真正拖拽时阻止子元素交互
+              }}
+            >
+              {extendedCards.map((card, index) => (
+                <div
+                  key={`${card.alt}-${index}`}
+                  className="flex-shrink-0"
+                  style={{ 
+                    width: `${cardWidth - gap}px`,
+                  }}
+                >
+                  {card.type === 'blueCard' ? (
+                    <div className="relative" style={{ aspectRatio: '340 / 340' }}>
+                      <BlueSquareCard
+                        src={card.src}
+                        alt={card.alt}
+                      />
+                    </div>
+                  ) : (
+                    <div 
+                      className="overflow-hidden shadow-lg bg-black" 
+                      style={{ 
+                        borderRadius: '0.75rem', 
+                        aspectRatio: '340 / 500',
+                      }}
+                    >
+                      <Image
+                        src={card.src}
+                        alt={card.alt}
+                        width={340}
+                        height={500}
+                        className="w-full h-full object-cover"
+                        draggable={false}
+                        priority={index < 5}
+                      />
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-
-
-            <div className="relative">
-              {/* 悬浮在卡片上方的 SVG 图标 */}
-              {/* <div 
-                className="absolute  left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 " 
-                style={{ pointerEvents: 'none',marginTop:px(28),display:'flex',flexDirection:'column',alignItems:'center',top:px(38) }}
-              >
-                <img 
-                  src="/images/Investing/WALL-E.png" 
-                  alt="" 
-                  style={{ width: px(290), height: px(28), maxWidth: px(290), objectFit: 'contain' }}
-                />
-                <img 
-                  src="/images/Investing/waitingEarth.png" 
-                  alt="" 
-                  style={{ width: px(212), height: px(28), maxWidth: px(212), marginTop: px(17), objectFit: 'contain' }}
-                />
-              </div> */}
-              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
-            <BlueSquareCard
-              src="/images/LetEveryShare/Investing2.png"
-              alt="Investing card 3"
-            />
-            </div>
-
-
-             
             
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/LetEveryShare/Investing3.png"
-                alt="Investing card 2"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-           
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/LetEveryShare/Investing4.png"
-                alt="Investing card 4"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-            <div className="overflow-hidden shadow-lg bg-black" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src="/images/LetEveryShare/Investing5.png"
-                alt="Investing card 5"
-                width={340}
-                height={500}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
+            {/* 左右渐变遮罩（仅在拖拽时显示） */}
+            {isDragging && cardWidth > 0 && (
+              <>
+                {/* 左边渐变遮罩：从半透明到完全透明 */}
+                <div
+                  className="absolute top-0 left-0 bottom-0 pointer-events-none z-10"
+                  style={{
+                    width: `${cardWidth}px`,
+                    background: `linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), transparent)`,
+                  }}
+                />
+                {/* 右边渐变遮罩：从半透明到完全透明 */}
+                <div
+                  className="absolute top-0 right-0 bottom-0 pointer-events-none z-10"
+                  style={{
+                    width: `${cardWidth}px`,
+                    background: `linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), transparent)`,
+                  }}
+                />
+              </>
+            )}
           </div>
 
         </div>

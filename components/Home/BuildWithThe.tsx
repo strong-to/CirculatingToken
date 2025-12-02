@@ -9,54 +9,14 @@ import CollapsiblePanelContent from '@/components/Home/com/BuildWithThe/Collapsi
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 
 import { px } from '@/utils/pxToRem'
-import { useCarouselDrag } from '@/hooks/useCarouselDrag'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import 'swiper/css'
 
 export default function  BuildWithThe() {
   const [isExpanded, setIsExpanded] = useState(false)
   
-  // 卡片数据
-  const cards = [
-    { type: 'blueCard', src: '/images/BuildWithThe/Investing1.png', alt: 'Investing card 1' },
-    { type: 'image', src: '/images/BuildWithThe/Investing2.png', alt: 'Investing card 2' },
-    { type: 'image', src: '/images/BuildWithThe/Investing3.png', alt: 'Investing card 3' },
-    { type: 'image', src: '/images/BuildWithThe/Investing4.png', alt: 'Investing card 4' },
-    { type: 'image', src: '/images/BuildWithThe/Investing5.png', alt: 'Investing card 5' },
-  ]
-  
-  // 复制卡片数组以实现无缝循环
-  const extendedCards = [...cards, ...cards, ...cards]
-  
-  // 计算每个卡片的宽度（包括gap）
-  const getCardWidth = () => {
-    if (!carouselRef.current) return 0
-    const containerWidth = carouselRef.current.offsetWidth
-    const gap = 22.7 // 1.41875rem = 22.7px
-    // 根据屏幕尺寸计算：sm: 3列, lg: 5列
-    const isLarge = containerWidth >= 1024
-    const isMedium = containerWidth >= 640
-    const cols = isLarge ? 5 : isMedium ? 3 : 1
-    return (containerWidth - gap * (cols - 1)) / cols + gap
-  }
-  
-  // 使用循环滑动 Hook
-  const {
-    translateX,
-    isDragging,
-    isAligning,
-    hasMoved,
-    carouselRef,
-    handleMouseDown,
-    handleMouseUp,
-  } = useCarouselDrag({
-    itemCount: cards.length,
-    getItemWidth: getCardWidth,
-    enableSnap: true,
-    snapDuration: 300,
-    dragThreshold: 10,
-  })
-  
-  const cardWidth = getCardWidth()
-  const gap = 22.7
+  const gap = 22.7 // 1.41875rem = 22.7px
 
   return ( 
     <section className="min-h-full snap-start bg-white flex flex-col">
@@ -220,84 +180,194 @@ export default function  BuildWithThe() {
             </button>
           </div>
 
-          <div 
-            ref={carouselRef}
-            className="relative overflow-hidden"
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            style={{ 
-              cursor: hasMoved ? 'grabbing' : (isDragging ? 'grabbing' : 'grab'),
-            }}
-          >
-            {/* 内容区域 */}
-            <div
-              className="flex"
-              style={{
-                transform: `translateX(${translateX}px)`,
-                transition: isAligning ? 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)' : 'none',
-                gap: `${gap}px`,
-                pointerEvents: hasMoved ? 'none' : 'auto', // 真正拖拽时阻止子元素交互
+          <div className="relative">
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={gap}
+              loop={true}
+              grabCursor={true}
+              watchSlidesProgress={true}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                640: {
+                  slidesPerView: 3,
+                },
+                1024: {
+                  slidesPerView: 5,
+                },
               }}
             >
-              {extendedCards.map((card, index) => (
-                <div
-                  key={`${card.alt}-${index}`}
-                  className="flex-shrink-0"
+              {/* 原始5张卡片 */}
+              <SwiperSlide>
+                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                  <BlueSquareCard
+                    src="/images/BuildWithThe/Investing1.png"
+                    alt="Investing card 1"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    width: `${cardWidth - gap}px`,
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
                   }}
                 >
-                  {card.type === 'blueCard' ? (
-                    <div className="relative" style={{ aspectRatio: '340 / 340' }}>
-                      <BlueSquareCard
-                        src={card.src}
-                        alt={card.alt}
-                      />
-                    </div>
-                  ) : (
-                    <div 
-                      className="overflow-hidden shadow-lg bg-black" 
-                      style={{ 
-                        borderRadius: '0.75rem', 
-                        aspectRatio: '340 / 500',
-                      }}
-                    >
-                      <Image
-                        src={card.src}
-                        alt={card.alt}
-                        width={340}
-                        height={500}
-                        className="w-full h-full object-cover"
-                        draggable={false}
-                        priority={index < 5}
-                      />
-                    </div>
-                  )}
+                  <Image
+                    src="/images/BuildWithThe/Investing2.png"
+                    alt="Investing card 2"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                    priority
+                  />
                 </div>
-              ))}
-            </div>
-            
-            {/* 左右渐变遮罩（仅在拖拽时显示） */}
-            {isDragging && cardWidth > 0 && (
-              <>
-                {/* 左边渐变遮罩：从半透明到完全透明 */}
-                <div
-                  className="absolute top-0 left-0 bottom-0 pointer-events-none z-10"
-                  style={{
-                    width: `${cardWidth}px`,
-                    background: `linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), transparent)`,
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
+                  style={{ 
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
                   }}
-                />
-                {/* 右边渐变遮罩：从半透明到完全透明 */}
-                <div
-                  className="absolute top-0 right-0 bottom-0 pointer-events-none z-10"
-                  style={{
-                    width: `${cardWidth}px`,
-                    background: `linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2), transparent)`,
+                >
+                  <Image
+                    src="/images/BuildWithThe/Investing3.png"
+                    alt="Investing card 3"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                    priority
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
+                  style={{ 
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
                   }}
-                />
-              </>
-            )}
+                >
+                  <Image
+                    src="/images/BuildWithThe/Investing4.png"
+                    alt="Investing card 4"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                    priority
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
+                  style={{ 
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
+                  }}
+                >
+                  <Image
+                    src="/images/BuildWithThe/Investing5.png"
+                    alt="Investing card 5"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                    priority
+                  />
+                </div>
+              </SwiperSlide>
+              
+              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
+              <SwiperSlide>
+                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                  <BlueSquareCard
+                    src="/images/BuildWithThe/Investing1.png"
+                    alt="Investing card 1"
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
+                  style={{ 
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
+                  }}
+                >
+                  <Image
+                    src="/images/BuildWithThe/Investing2.png"
+                    alt="Investing card 2"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
+                  style={{ 
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
+                  }}
+                >
+                  <Image
+                    src="/images/BuildWithThe/Investing3.png"
+                    alt="Investing card 3"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
+                  style={{ 
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
+                  }}
+                >
+                  <Image
+                    src="/images/BuildWithThe/Investing4.png"
+                    alt="Investing card 4"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div 
+                  className="overflow-hidden shadow-lg bg-black w-full" 
+                  style={{ 
+                    borderRadius: '0.75rem', 
+                    aspectRatio: '340 / 500',
+                  }}
+                >
+                  <Image
+                    src="/images/BuildWithThe/Investing5.png"
+                    alt="Investing card 5"
+                    width={340}
+                    height={500}
+                    className="w-full h-full object-cover"
+                    draggable={false}
+                  />
+                </div>
+              </SwiperSlide>
+              
+            </Swiper>
           </div>
 
         </div>

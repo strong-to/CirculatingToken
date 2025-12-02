@@ -75,9 +75,9 @@
 
   @media (min-width: 48rem) {
     .container-responsive {
-      /* 平板及以上使用统一的内边距：65px = 4.0625rem */
-      padding-left: 4.0625rem;
-      padding-right: 4.0625rem;
+      /* 平板及以上使用统一的内边距：80px = 5rem */
+      padding-left: 5rem;
+      padding-right: 5rem;
     }
   }
 

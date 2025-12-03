@@ -137,5 +137,10 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
+  
+  /* 确保所有按钮都有指针光标 */
+  button {
+    cursor: pointer !important;
+  }
 }
 

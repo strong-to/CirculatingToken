@@ -77,7 +77,7 @@ export default function FormContent({ currentStep }: FormContentProps) {
         {/* 按钮 */}
         <div className="flex items-center justify-center" style={{ width: px(720), marginTop: px(30) }}>
           <button
-            className="cursor-pointer active:bg-[#083FD8] active:!text-white transition-colors"
+            className="cursor-pointer hover:bg-[#083FD8] hover:!text-white active:bg-[#083FD8] active:!text-white transition-colors"
             style={{
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
@@ -148,7 +148,7 @@ export default function FormContent({ currentStep }: FormContentProps) {
         {/* 按钮 */}
         <div className="flex items-center justify-center" style={{ width: px(720), marginTop: px(30) }}>
           <button
-            className="cursor-pointer active:bg-[#083FD8] active:!text-white transition-colors"
+            className="cursor-pointer hover:bg-[#083FD8] hover:!text-white active:bg-[#083FD8] active:!text-white transition-colors"
             style={{
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
@@ -200,9 +200,9 @@ export default function FormContent({ currentStep }: FormContentProps) {
       />
 
        {/* 底部 Enter 按钮 */}
-     <div className="flex items-center justify-center" style={{ marginTop: px(60) ,marginRight: px(290)}}>
+     <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
      <button
-       className="cursor-pointer"
+       className=""
        style={{
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,
@@ -215,10 +215,9 @@ export default function FormContent({ currentStep }: FormContentProps) {
          backgroundColor: '#000000',
          borderRadius: px(4),
          color: '#FFFFFF',
-         cursor: 'pointer',
          display: 'flex',
          alignItems: 'center',
-         justifyContent: 'center',
+         justifyContent: 'center'
        }}
      >
        Enter

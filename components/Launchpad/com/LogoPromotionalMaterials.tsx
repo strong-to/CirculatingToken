@@ -165,7 +165,7 @@ export default function LogoPromotionalMaterials({
 
         {/* 按钮 */}
         <button
-          className="cursor-pointer active:bg-[#083FD8] active:!text-white transition-colors"
+          className="cursor-pointer hover:bg-[#083FD8] hover:!text-white active:bg-[#083FD8] active:!text-white transition-colors"
           style={{
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
             fontWeight: 300,

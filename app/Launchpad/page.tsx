@@ -11,7 +11,7 @@ export default function Launchpad() {
       </div>
       
       {/* 中间内容盒子 - 占满剩余空间 */}
-      <div className="flex-1 min-h-0 overflow-y-scroll">
+      <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
         <LaunchpadContent />
         <Footer />
       </div>

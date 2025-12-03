@@ -19,9 +19,9 @@ export default function LetEveryShare() {
   const gap = 22.7 // 1.41875rem = 22.7px
 
   return ( 
-    <section className="min-h-full snap-start bg-white flex flex-col">
-      <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingBottom: '3.25rem' }}> {/* 52px */}
-        <div className="flex items-start justify-between gap-8" style={{ marginTop: '4.625rem' }}> {/* 74px */}
+    <section className="bg-white flex flex-col min-h-[calc(100vh-5.5625rem)]">
+      <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
+        <div className="flex items-start justify-between gap-8">
           <div className="space-y-4  ">
             <div
               className="text-black"

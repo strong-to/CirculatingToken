@@ -9,7 +9,7 @@ import FooterLogo from '@/components/Home/com/InstitutionalGrade/FooterLogo'
 
 export default function InstitutionalGrade() {
   return (
-    <section className="h-full snap-start flex flex-col bg-background-primary overflow-hidden">
+    <section className="flex flex-col bg-background-primary min-h-[calc(100vh-5.5625rem)]">
       <div className="container-responsive w-full flex-1 flex">
         <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 lg:gap-12 w-full">
           {/* 左侧内容 */}

@@ -4,7 +4,7 @@ import { px } from '@/utils/pxToRem'
 
 export default function Footer() {
   return (
-    <section className="min-h-full snap-start bg-white flex flex-col relative">
+    <section className="bg-white flex flex-col relative">
       {/* 顶部蓝色边框 */}
       <div className="w-full" ></div>
       

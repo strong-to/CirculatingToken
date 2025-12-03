@@ -1,6 +1,6 @@
 export default function Launchpad() {
   return (
-    <section className="min-h-full snap-start bg-white flex flex-col">
+    <section className="bg-white flex flex-col">
       <div className="container-responsive flex-1 flex flex-col justify-center items-center" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}>
         <div
           className="text-black text-center"

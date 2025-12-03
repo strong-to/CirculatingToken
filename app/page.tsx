@@ -16,8 +16,8 @@ export default function Home() {
         <Header />
       </div>
       
-      {/* 中间内容盒子 - 占满剩余空间，按屏翻页 */}
-      <div className="flex-1 min-h-0 overflow-y-scroll snap-y snap-mandatory">
+      {/* 中间内容盒子 - 占满剩余空间，连续长页面 */}
+      <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
         <InstitutionalGrade />
         <WhereUsingBecomes />
         <LetEveryShare />

@@ -2,7 +2,7 @@
 
 /* 容器 - 自适应宽度，保持 340:500 的宽高比 */
 .card {
-  border-radius: 12px;
+  border-radius: 4px;
   width: 100%;
   aspect-ratio: 340 / 500;
 }

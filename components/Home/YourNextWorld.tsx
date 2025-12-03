@@ -176,7 +176,7 @@ export default function  YourNextWorld() {
               src="/images/BuildWithThe/Investing1.png"
               alt="Investing card 3"
             /> */}
-            <div className="relative overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: '0.75rem', aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
+            <div className="relative overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: px(4), aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
                 src="/images/YourNextWorld/img_datasets.png"
                 alt="Datasets"
@@ -188,7 +188,7 @@ export default function  YourNextWorld() {
             </div>
            
            
-            <div className="relative overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
+            <div className="relative overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
                 src="/images/YourNextWorld/img_compute_paool.png"
                 alt="Compute Pool"
@@ -202,7 +202,7 @@ export default function  YourNextWorld() {
 
            
             
-            <div className="relative overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+            <div className="relative overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
                 src="/images/YourNextWorld/img_foundational_models.png"
                 alt="Foundational Models"
@@ -213,7 +213,7 @@ export default function  YourNextWorld() {
               <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Foundational Models</div>
             </div>
            
-            <div className="relative overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+            <div className="relative overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
                 src="/images/YourNextWorld/img_workflows.png"
                 alt="Workflows"
@@ -223,7 +223,7 @@ export default function  YourNextWorld() {
               />
               <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Workflows</div>
             </div>
-            <div className="relative overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: '0.75rem', aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
+            <div className="relative overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
                 src="/images/YourNextWorld/img_ai_agents.png"
                 alt="AI Agents"

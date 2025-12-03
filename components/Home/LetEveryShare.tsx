@@ -219,7 +219,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >
@@ -246,7 +246,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >
@@ -265,7 +265,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >
@@ -284,7 +284,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >
@@ -305,7 +305,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >
@@ -331,7 +331,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >
@@ -349,7 +349,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >
@@ -367,7 +367,7 @@ export default function LetEveryShare() {
                 <div 
                   className="overflow-hidden shadow-lg bg-black w-full" 
                   style={{ 
-                    borderRadius: '0.75rem', 
+                    borderRadius: px(4), 
                     aspectRatio: '340 / 500',
                   }}
                 >

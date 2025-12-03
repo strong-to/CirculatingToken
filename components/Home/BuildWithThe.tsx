@@ -126,7 +126,7 @@ export default function  BuildWithThe() {
             </div>
             
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
-            <div className="flex items-center justify-end" style={{ marginTop: '1.5rem' }}>
+            <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
                 href="#"
                 className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"

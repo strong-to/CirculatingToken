@@ -13,7 +13,7 @@ export default function MainTitle() {
       }}
     >
       <div 
-        className="font-light leading-[100%] text-black break-words" 
+        className="font-light leading-[100%] text-black break-words cursor-pointer" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontSize: '5.25rem', // 84px = 5.25rem
@@ -24,7 +24,7 @@ export default function MainTitle() {
         Institutional-Grade Finance,
       </div>
       <div 
-        className="font-light leading-[100%] text-black break-words" 
+        className="font-light leading-[100%] text-black break-words cursor-pointer" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontSize: '5.25rem', // 84px = 5.25rem

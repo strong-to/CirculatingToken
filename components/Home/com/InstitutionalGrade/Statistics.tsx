@@ -17,7 +17,7 @@ export default function Statistics() {
       }}
     >
       <div 
-        className="font-light" 
+        className="font-light cursor-pointer" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontSize: '1.8125rem', // 29px
@@ -27,7 +27,7 @@ export default function Statistics() {
         357,211PROJECTS
       </div>
       <div 
-        className="font-light" 
+        className="font-light cursor-pointer" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontSize: '1.8125rem', // 29px
@@ -37,7 +37,7 @@ export default function Statistics() {
         172,275,455USERS
       </div>
       <div 
-        className="font-light" 
+        className="font-light cursor-pointer" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontSize: '1.8125rem', // 29px

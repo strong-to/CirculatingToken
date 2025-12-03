@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
 
@@ -13,94 +13,65 @@ export default function FooterLogo() {
     { src: '/images/InstitutionalGrade/oas.png', alt: 'Oas' },
   ]
 
-  // 复制logo数组以实现无缝循环
-  const extendedLogos = [...logos, ...logos, ...logos]
-  
-  const [translateX, setTranslateX] = useState(0)
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [currentTranslate, setCurrentTranslate] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
-  const logoWidth = 200 // 每个logo的宽度（px）
+  const [spacing, setSpacing] = useState(200)
+  const [isPaused, setIsPaused] = useState(false)
 
   // 计算每个logo的实际占用宽度（包括间距）
-  const getLogoSpacing = () => {
-    if (!containerRef.current) return logoWidth
-    const containerWidth = containerRef.current.offsetWidth
-    const padding = 300 * 2 // 左右padding
-    const availableWidth = containerWidth - padding
-    return availableWidth / 5 // 均分剩余空间
-  }
-
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDragging) return
-      
-      const diff = e.clientX - startX
-      let newTranslate = currentTranslate + diff
-      
-      const spacing = getLogoSpacing()
-      const logoCount = logos.length
-      const totalWidth = spacing * logoCount
-      
-      // 链条循环效果：当滚动超出边界时，无缝重置位置
-      if (newTranslate > -totalWidth) {
-        // 向右滚动超出左边界，重置到右侧
-        newTranslate = newTranslate - totalWidth
-        setCurrentTranslate(newTranslate)
-        setStartX(e.clientX)
-      } else if (newTranslate < -totalWidth * 2) {
-        // 向左滚动超出右边界，重置到左侧
-        newTranslate = newTranslate + totalWidth
-        setCurrentTranslate(newTranslate)
-        setStartX(e.clientX)
-      }
-      
-      setTranslateX(newTranslate)
+    const updateSpacing = () => {
+      if (!containerRef.current) return
+      const containerWidth = containerRef.current.offsetWidth
+      const padding = 300 * 2 // 左右padding
+      const availableWidth = containerWidth - padding
+      setSpacing(availableWidth / 5) // 均分剩余空间
     }
 
-    const handleMouseUp = () => {
-      if (!isDragging) return
-      setIsDragging(false)
-      // 松开时保持当前位置，不做任何对齐或回弹
-    }
+    updateSpacing()
+    window.addEventListener('resize', updateSpacing)
+    return () => window.removeEventListener('resize', updateSpacing)
+  }, [])
 
-    if (isDragging) {
-      document.addEventListener('mousemove', handleMouseMove)
-      document.addEventListener('mouseup', handleMouseUp)
-    }
+  // 复制多组 logos 以实现无缝循环
+  const extendedLogos = [...logos, ...logos, ...logos]
+  const totalWidth = spacing * logos.length // 一组的总宽度
+  const animationDuration = 10 // 动画持续时间（秒），可以调整速度
 
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove)
-      document.removeEventListener('mouseup', handleMouseUp)
-    }
-  }, [isDragging, startX, currentTranslate, logos.length])
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true)
-    setStartX(e.clientX)
-    setCurrentTranslate(translateX)
-  }
-
-  // 初始化位置到中间区域（等待容器渲染完成）
+  // 动态生成 CSS keyframes
   useEffect(() => {
-    if (!containerRef.current) return
+    const styleId = 'footer-logo-animation'
+    let styleElement = document.getElementById(styleId) as HTMLStyleElement
     
-    const spacing = getLogoSpacing()
-    const logoCount = logos.length
-    const initialTranslate = -logoCount * spacing
-    setTranslateX(initialTranslate)
-    setCurrentTranslate(initialTranslate)
-  }, [logos.length])
-
-  const spacing = getLogoSpacing()
+    if (!styleElement) {
+      styleElement = document.createElement('style')
+      styleElement.id = styleId
+      document.head.appendChild(styleElement)
+    }
+    
+    styleElement.textContent = `
+      @keyframes scrollLeft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-${totalWidth}px);
+        }
+      }
+    `
+    
+    return () => {
+      const element = document.getElementById(styleId)
+      if (element) {
+        element.remove()
+      }
+    }
+  }, [totalWidth])
 
   return (
     <div 
       ref={containerRef}
       className="w-full overflow-hidden relative"
       style={{ height: px(150) }}
-      onMouseDown={handleMouseDown}
     >
       {/* 内容区域，左右各留300px空白 */}
       <div
@@ -111,13 +82,15 @@ export default function FooterLogo() {
           maskImage: `linear-gradient(to right, transparent 0px, black ${spacing}px, black calc(100% - ${spacing}px), transparent 100%)`,
           WebkitMaskImage: `linear-gradient(to right, transparent 0px, black ${spacing}px, black calc(100% - ${spacing}px), transparent 100%)`,
         }}
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
       >
         <div
           className="flex items-center h-full"
           style={{
-            transform: `translateX(${translateX}px)`,
-            transition: 'none',
-            cursor: isDragging ? 'grabbing' : 'grab',
+            animation: `scrollLeft ${animationDuration}s linear infinite`,
+            animationPlayState: isPaused ? 'paused' : 'running',
+            width: 'fit-content',
           }}
         >
           {extendedLogos.map((logo, index) => (

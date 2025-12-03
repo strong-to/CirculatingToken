@@ -49,9 +49,10 @@ export default function Header() {
                       fontStyle: 'normal',
                       fontSize: px(20),
                       lineHeight: '100%',
-                      letterSpacing: '0%'
+                      letterSpacing: '0%',
+                      color: '#888888'
                     }}
-                    className=" text-text-primary hover:text-text-secondary transition-colors whitespace-nowrap"
+                    className="hover:opacity-70 transition-colors whitespace-nowrap cursor-pointer"
                   >
                     {item}
                   </a>
@@ -73,9 +74,10 @@ export default function Header() {
                     fontStyle: 'normal',
                     fontSize: px(20),
                     lineHeight: '100%',
-                    letterSpacing: '0%'
+                    letterSpacing: '0%',
+                    color: isActive ? '#000000' : '#888888'
                   }}
-                  className={`text-text-primary hover:text-text-secondary transition-colors whitespace-nowrap ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
+                  className={`hover:opacity-70 transition-colors whitespace-nowrap ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
                 >
                   {item}
                 </Link>
@@ -168,7 +170,10 @@ export default function Header() {
                   <a
                     key={item}
                     href={href}
-                    className="text-title text-text-primary hover:text-text-secondary transition-colors"
+                    style={{
+                      color: '#888888'
+                    }}
+                    className="text-title hover:opacity-70 transition-colors cursor-pointer"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item}
@@ -187,7 +192,10 @@ export default function Header() {
                       setIsMenuOpen(false)
                     }
                   }}
-                  className={`text-title text-text-primary hover:text-text-secondary transition-colors ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
+                  style={{
+                    color: isActive ? '#000000' : '#888888'
+                  }}
+                  className={`text-title hover:opacity-70 transition-colors ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
                 >
                   {item}
                 </Link>

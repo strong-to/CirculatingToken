@@ -2,10 +2,13 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import Logo from '@/components/Header/com/Logo'
 import { px } from '@/utils/pxToRem'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const navItems = [
     'Project Hub',
@@ -24,23 +27,60 @@ export default function Header() {
 
           {/* Navigation - 桌面端显示，左右间距 56px，中间均分 */}
           <nav className="hidden md:flex items-center justify-between flex-1 whitespace-nowrap" style={{ marginLeft: '3.5rem', marginRight: '9.125rem' }}> {/* 56px, 146px */}
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href="#"
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontStyle: 'normal',
-                  fontSize: px(20),
-                  lineHeight: '100%',
-                  letterSpacing: '0%'
-                }}
-                className=" text-text-primary hover:text-text-secondary transition-colors whitespace-nowrap"
-              >
-                {item}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              let href = '#'
+              if (item === 'Project Hub') {
+                href = '/'
+              } else if (item === 'Launchpad') {
+                href = '/Launchpad'
+              }
+              
+              const isActive = (item === 'Project Hub' && pathname === '/') || 
+                               (item === 'Launchpad' && pathname === '/Launchpad')
+              
+              if (href === '#') {
+                return (
+                  <a
+                    key={item}
+                    href={href}
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontStyle: 'normal',
+                      fontSize: px(20),
+                      lineHeight: '100%',
+                      letterSpacing: '0%'
+                    }}
+                    className=" text-text-primary hover:text-text-secondary transition-colors whitespace-nowrap"
+                  >
+                    {item}
+                  </a>
+                )
+              }
+              
+              return (
+                <Link
+                  key={item}
+                  href={href}
+                  onClick={(e) => {
+                    if (isActive) {
+                      e.preventDefault()
+                    }
+                  }}
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontStyle: 'normal',
+                    fontSize: px(20),
+                    lineHeight: '100%',
+                    letterSpacing: '0%'
+                  }}
+                  className={`text-text-primary hover:text-text-secondary transition-colors whitespace-nowrap ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
+                >
+                  {item}
+                </Link>
+              )
+            })}
           </nav>
 
           {/* 右侧图标组 - 间距 56px */}
@@ -112,16 +152,47 @@ export default function Header() {
       {isMenuOpen && (
         <div className="md:hidden bg-background-primary border-t border-gray-200">
           <nav className="container-responsive py-4 flex flex-col gap-4">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href="#"
-                className="text-title text-text-primary hover:text-text-secondary transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              let href = '#'
+              if (item === 'Project Hub') {
+                href = '/'
+              } else if (item === 'Launchpad') {
+                href = '/Launchpad'
+              }
+              
+              const isActive = (item === 'Project Hub' && pathname === '/') || 
+                               (item === 'Launchpad' && pathname === '/Launchpad')
+              
+              if (href === '#') {
+                return (
+                  <a
+                    key={item}
+                    href={href}
+                    className="text-title text-text-primary hover:text-text-secondary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item}
+                  </a>
+                )
+              }
+              
+              return (
+                <Link
+                  key={item}
+                  href={href}
+                  onClick={(e) => {
+                    if (isActive) {
+                      e.preventDefault()
+                    } else {
+                      setIsMenuOpen(false)
+                    }
+                  }}
+                  className={`text-title text-text-primary hover:text-text-secondary transition-colors ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
+                >
+                  {item}
+                </Link>
+              )
+            })}
           </nav>
         </div>
       )}

@@ -174,5 +174,21 @@
     color: #000000 !important;
     opacity: 1;
   }
+  
+  /* 下拉框菜单动画 */
+  .dropdown-menu {
+    animation: dropdownFadeIn 0.3s ease-out;
+  }
+  
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 

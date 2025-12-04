@@ -23,40 +23,56 @@ const steps = [
 ]
 
 export default function Launchpad() {
-  const [currentStep] = useAtom(currentStepAtom)
+  const [currentStep, setCurrentStep] = useAtom(currentStepAtom)
+
+  // 切换到下一步
+  const handleNextStep = () => {
+    if (currentStep < steps.length) {
+      setCurrentStep(currentStep + 1)
+    }
+  }
 
   // 根据当前步骤渲染对应的组件
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
-        return <FormContent currentStep={currentStep} />
+        return <FormContent currentStep={currentStep} onEnter={handleNextStep} />
       case 2:
-        return <TemplateSelection />
+        return <TemplateSelection onEnter={handleNextStep} />
       case 3:
-        return <TechnicalRequirementsAnalysis />
+        return <TechnicalRequirementsAnalysis onEnter={handleNextStep} />
       case 4:
-        return <QuantificationOfContributionValue />
+        return <QuantificationOfContributionValue onEnter={handleNextStep} />
       case 5:
-        return <AllocationAndGovernance />
+        return <AllocationAndGovernance onEnter={handleNextStep} />
       case 6:
-        return <EconomicDataEstimation />
+        return <EconomicDataEstimation onEnter={handleNextStep} />
       case 7:
-        return <ProjectHomepagePreview />
+        return <ProjectHomepagePreview onEnter={handleNextStep} />
       default:
-        return <FormContent currentStep={currentStep} />
+        return <FormContent currentStep={currentStep} onEnter={handleNextStep} />
     }
   }
 
   return (
     <section className="bg-white flex flex-col min-h-[calc(100vh-5.5625rem)]">
-      <div className=" flex-1 flex" style={{ paddingLeft: px(30),paddingTop: px(48),paddingBottom: px(70) }}>
-        {/* 左侧步骤条 */}
-        <div className="flex-shrink-0" style={{ width: px(300), paddingRight: px(40) }}>
+      <div className=" flex-1 flex overflow-hidden" style={{ paddingLeft: px(30),paddingTop: px(48) }}>
+        {/* 左侧步骤条 - 固定不滚动 */}
+        <div className="flex-shrink-0" style={{ width: px(300), paddingRight: px(40), position: 'sticky', top: px(48), alignSelf: 'flex-start', maxHeight: 'calc(100vh - 5.5625rem - 48px - 70px)' }}>
           <StepsBar steps={steps} />
         </div>
         
-        {/* 右侧表单内容 - 根据步骤显示不同组件 */}
-        {renderStepContent()}
+        {/* 右侧表单内容 - 可滚动 */}
+        <div
+          key={currentStep}
+          className="step-content-transition flex-1 overflow-y-auto scrollbar-hide"
+          style={{
+            willChange: 'opacity, transform',
+            maxHeight: 'calc(100vh - 5.5625rem - 48px - 70px)',
+          }}
+        >
+          {renderStepContent()}
+        </div>
       </div>
     </section>
   )

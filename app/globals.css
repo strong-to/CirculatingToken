@@ -190,5 +190,21 @@
       transform: translateY(0);
     }
   }
+  
+  /* 步骤内容切换动画 */
+  .step-content-transition {
+    animation: stepContentFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes stepContentFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
 

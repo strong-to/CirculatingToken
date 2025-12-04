@@ -2,7 +2,11 @@
 
 import { px } from '@/utils/pxToRem'
 
-export default function ProjectHomepagePreview() {
+interface ProjectHomepagePreviewProps {
+  onEnter?: () => void
+}
+
+export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePreviewProps = {} as ProjectHomepagePreviewProps) {
   return (
     <div className="flex-1">
       <div className="flex flex-col items-center justify-between" style={{ marginBottom: px(30), width: px(553) }}>
@@ -18,6 +22,7 @@ export default function ProjectHomepagePreview() {
             height: px(34),
             display: 'flex',
             alignItems: 'center',
+            marginTop: px(5),
           }}
         >
           Project Homepage Preview

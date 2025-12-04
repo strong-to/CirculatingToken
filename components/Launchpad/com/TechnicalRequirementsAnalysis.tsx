@@ -159,7 +159,11 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
   )
 }
 
-export default function TechnicalRequirementsAnalysis() {
+interface TechnicalRequirementsAnalysisProps {
+  onEnter?: () => void
+}
+
+export default function TechnicalRequirementsAnalysis({ onEnter }: TechnicalRequirementsAnalysisProps = {} as TechnicalRequirementsAnalysisProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
   
@@ -228,6 +232,7 @@ export default function TechnicalRequirementsAnalysis() {
             height: px(34),
             display: 'flex',
             alignItems: 'center',
+            marginTop: px(5),
           }}
         >
           Technical Requirements Analysis
@@ -806,7 +811,8 @@ export default function TechnicalRequirementsAnalysis() {
        {/* 底部 Enter 按钮 */}
      <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
      <button
-       className=""
+       className="cursor-pointer"
+       onClick={onEnter}
        style={{
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,

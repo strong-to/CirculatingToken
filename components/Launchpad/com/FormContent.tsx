@@ -7,9 +7,10 @@ import LogoPromotionalMaterials from './LogoPromotionalMaterials'
 
 interface FormContentProps {
   currentStep: number
+  onEnter?: () => void
 }
 
-export default function FormContent({ currentStep }: FormContentProps) {
+export default function FormContent({ currentStep, onEnter }: FormContentProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
 
@@ -28,6 +29,7 @@ export default function FormContent({ currentStep }: FormContentProps) {
           height: px(34),
           display: 'flex',
           alignItems: 'center',
+          marginTop: px(5),
           
         }}
       >
@@ -212,7 +214,8 @@ export default function FormContent({ currentStep }: FormContentProps) {
        {/* 底部 Enter 按钮 */}
      <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
      <button
-       className=""
+       className="cursor-pointer"
+       onClick={onEnter}
        style={{
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,

@@ -121,7 +121,11 @@ function CustomSelect({ placeholder, options, value, onChange }: CustomSelectPro
   )
 }
 
-export default function TemplateSelection() {
+interface TemplateSelectionProps {
+  onEnter?: () => void
+}
+
+export default function TemplateSelection({ onEnter }: TemplateSelectionProps = {} as TemplateSelectionProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
   // 12张模板图片
@@ -142,6 +146,7 @@ export default function TemplateSelection() {
             height: px(34),
             display: 'flex',
             alignItems: 'center',
+            marginTop: px(5),
           }}
         >
           Template Selection
@@ -207,7 +212,7 @@ export default function TemplateSelection() {
           return (
             <div key={index} className="flex flex-col items-center">
               <div
-                onClick={() => setSelectedImage(index)}
+                
                 className="cursor-pointer"
                 style={{
                   width: px(214),
@@ -250,6 +255,7 @@ export default function TemplateSelection() {
       <div className="flex items-center justify-center" style={{ width: px(1359) }}>
         <button
           className="cursor-pointer"
+          onClick={onEnter}
           style={{
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
             fontWeight: 300,

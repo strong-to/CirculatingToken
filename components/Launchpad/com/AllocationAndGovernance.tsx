@@ -167,7 +167,11 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
   )
 }
 
-export default function AllocationAndGovernance() {
+interface AllocationAndGovernanceProps {
+  onEnter?: () => void
+}
+
+export default function AllocationAndGovernance({ onEnter }: AllocationAndGovernanceProps = {} as AllocationAndGovernanceProps) {
   const [recommendedValues, setRecommendedValues] = useState({
     proportionOfInitiators: { input: '', dropdown: '10%' },
     tokensPerUnitWork: { input: '', dropdown: '100' },
@@ -230,6 +234,7 @@ export default function AllocationAndGovernance() {
             height: px(34),
             display: 'flex',
             alignItems: 'center',
+            marginTop: px(5),
           }}
         >
           Allocation and Governance
@@ -643,7 +648,8 @@ export default function AllocationAndGovernance() {
        {/* 底部 Enter 按钮 */}
      <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
      <button
-       className=""
+       className="cursor-pointer"
+       onClick={onEnter}
        style={{
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,

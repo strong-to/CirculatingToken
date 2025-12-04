@@ -167,7 +167,11 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
   )
 }
 
-export default function QuantificationOfContributionValue() {
+interface QuantificationOfContributionValueProps {
+  onEnter?: () => void
+}
+
+export default function QuantificationOfContributionValue({ onEnter }: QuantificationOfContributionValueProps = {} as QuantificationOfContributionValueProps) {
   const [recommendedValues, setRecommendedValues] = useState({
     gpuComputing: { input: '', dropdown: '1' },
     gpuComputing2: { input: '', dropdown: '1' },
@@ -234,6 +238,7 @@ export default function QuantificationOfContributionValue() {
             height: px(34),
             display: 'flex',
             alignItems: 'center',
+            marginTop: px(5),
           }}
         >
           Quantification of Contribution Value
@@ -665,7 +670,8 @@ export default function QuantificationOfContributionValue() {
        {/* 底部 Enter 按钮 */}
      <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
      <button
-       className=""
+       className="cursor-pointer"
+       onClick={onEnter}
        style={{
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,

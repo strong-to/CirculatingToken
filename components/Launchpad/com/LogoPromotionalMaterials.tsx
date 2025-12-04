@@ -165,7 +165,7 @@ export default function LogoPromotionalMaterials({
 
         {/* 按钮 */}
         <button
-          className="cursor-pointer hover:bg-[#083FD8] hover:!text-white active:bg-[#083FD8] active:!text-white transition-colors"
+          className="cursor-pointer hover:bg-[#000000] hover:!text-white active:bg-[#000000] active:!text-white transition-colors"
           style={{
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
             fontWeight: 300,
@@ -175,9 +175,9 @@ export default function LogoPromotionalMaterials({
             height: px(40),
             letterSpacing: '0%',
             width: px(128),
-            border: `0.5px solid #083FD8`,
+            border: `0.5px solid #000000`,
             borderRadius: px(4),
-            color: '#083FD8',
+            color: '#000000',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',

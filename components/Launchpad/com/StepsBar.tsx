@@ -21,68 +21,97 @@ export default function StepsBar({ steps, space = 40 }: StepsBarProps) {
     setCurrentStep(stepNumber)
   }
 
+  // 格式化标题：为每个步骤添加强制换行逻辑
+  const formatTitle = (title: string, stepNumber: number) => {
+    switch (stepNumber) {
+      case 1:
+        // "Basic Information Description" -> "Basic Information\nDescription"
+        return title.replace(' Description', '\nDescription')
+      case 2:
+        // "Template Selection" -> "Template\nSelection"
+        return title.replace(' Selection', '\nSelection')
+      case 3:
+        // "Technical Requirements Analysis" -> "Technical\nRequirements Analysis"
+        return title.replace('Technical ', 'Technical\n')
+      case 4:
+        // "Quantification of Contribution Value" -> "Quantification of\nContribution Value"
+        return title.replace(' of Contribution', ' of\nContribution')
+      case 5:
+        // "Allocation and Governance" -> "Allocation and\nGovernance"
+        return title.replace(' Governance', '\nGovernance')
+      case 6:
+        // "Economic Data Estimation" -> "Economic Data\nEstimation"
+        return title.replace(' Estimation', '\nEstimation')
+      case 7:
+        // "Project Homepage Preview" -> "Project Homepage\nPreview"
+        return title.replace(' Preview', '\nPreview')
+      default:
+        return title
+    }
+  }
+
   return (
     <div className="flex flex-col">
       {steps.map((step, index) => {
         const stepNumber = index + 1
         const isActive = stepNumber === currentStep
+        const formattedTitle = formatTitle(step.title, stepNumber)
         
         return (
-          <div key={index} className="flex flex-col">
-            {/* 圆圈和文字行 - 使用 flex 水平排列，垂直居中 */}
-            <div 
-              className="flex items-center cursor-pointer"
-              onClick={() => handleStepClick(stepNumber)}
-            >
-              {/* 左侧圆圈容器 */}
-              <div className="flex items-center justify-center flex-shrink-0" style={{ width: px(30), marginRight: px(16), height: px(30) }}>
-                {/* 步骤圆圈 */}
-                <div
-                  className="rounded-full flex items-center justify-center"
-                  style={{
-                    width: px(30),
-                    height: px(30),
-                    backgroundColor: isActive ? '#083FD8' : 'transparent',
-                    border: isActive ? 'none' : `2px solid #8BA6F2`,
-                    color: isActive ? '#FFFFFF' : '#8BA6F2',
-                    fontSize: px(14),
-                    fontWeight: 500,
-                  }}
-                >
-                  {stepNumber}
-                </div>
-              </div>
-              
-              {/* 步骤标题 - 使用 flex 垂直居中，高度与圆圈一致 */}
+          <div key={index} className="flex">
+            {/* 左侧固定列：圆圈和连接线 */}
+            <div className="flex flex-col items-center flex-shrink-0" style={{ width: px(30), marginRight: px(16) }}>
+              {/* 圆圈 */}
               <div
-                className="flex-1 flex items-center"
+                className="rounded-full flex items-center justify-center cursor-pointer"
+                onClick={() => handleStepClick(stepNumber)}
                 style={{
+                  width: px(30),
                   height: px(30),
-                  color: isActive ? '#000000' : '#888888',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(16),
-                  lineHeight: px(20),
+                  backgroundColor: isActive ? '#000000' : 'transparent',
+                  border: isActive ? 'none' : `2px solid #8C8C8C`,
+                  color: isActive ? '#FFFFFF' : '#8C8C8C',
+                  fontSize: px(14),
+                  fontWeight: 500,
+                  flexShrink: 0,
                 }}
               >
-                {step.title}
+                {stepNumber}
               </div>
-            </div>
-            
-            {/* 连接线 - 单独一行，使用 flex 布局 */}
-            {index < steps.length - 1 && (
-              <div className="flex items-center" style={{ height: px(60) }}>
+              
+              {/* 连接线 - 固定在圆圈下方 */}
+              {index < steps.length - 1 && (
                 <div
-                  className="flex-shrink-0"
                   style={{
                     width: px(2),
                     height: px(60),
-                    backgroundColor: '#8BA6F2',
-                    marginLeft: px(15), // 圆圈中心位置 (30/2 = 15)
+                    backgroundColor: '#8C8C8C',
+                    marginTop: 0,
+                    flexShrink: 0,
                   }}
                 />
-              </div>
-            )}
+              )}
+            </div>
+            
+            {/* 右侧文字区域 - 强制换行，与圆圈顶部对齐 */}
+            <div
+              className="flex-1 cursor-pointer"
+              onClick={() => handleStepClick(stepNumber)}
+              style={{
+                paddingTop: 0,
+                color: '#000000',
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: isActive ? px(20) : px(14),
+                lineHeight: px(20),
+                whiteSpace: 'pre-line',
+                overflow: 'hidden',
+                maxWidth: px(254), // 300 - 30(圆圈) - 16(间距) = 254
+                maxHeight: px(40), // 限制为两行高度 (20px * 2)
+              }}
+            >
+              {formattedTitle}
+            </div>
           </div>
         )
       })}

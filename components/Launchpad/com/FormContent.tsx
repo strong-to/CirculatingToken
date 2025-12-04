@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { px } from '@/utils/pxToRem'
 import FormRowWithInputs from './FormRowWithInputs'
 import LogoPromotionalMaterials from './LogoPromotionalMaterials'
@@ -9,11 +10,14 @@ interface FormContentProps {
 }
 
 export default function FormContent({ currentStep }: FormContentProps) {
+  const [firstTextareaValue, setFirstTextareaValue] = useState('')
+  const [secondTextareaValue, setSecondTextareaValue] = useState('')
+
   return (
     <div className="flex-1" >
      <div className="flex  flex-col  items-center justify-between" style={{marginBottom: px(30), width:px(586)}}>
         <div
-        className="text-black"
+        className="text-[#000000]"
         style={{
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontWeight: 300,
@@ -61,6 +65,8 @@ export default function FormContent({ currentStep }: FormContentProps) {
           </label>
           <textarea
             className="rounded"
+            value={firstTextareaValue}
+            onChange={(e) => setFirstTextareaValue(e.target.value)}
             style={{
               width: px(720),
               minHeight: px(170),
@@ -77,7 +83,7 @@ export default function FormContent({ currentStep }: FormContentProps) {
         {/* 按钮 */}
         <div className="flex items-center justify-center" style={{ width: px(720), marginTop: px(30) }}>
           <button
-            className="cursor-pointer hover:bg-[#083FD8] hover:!text-white active:bg-[#083FD8] active:!text-white transition-colors"
+            className="cursor-pointer transition-colors"
             style={{
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
@@ -89,9 +95,10 @@ export default function FormContent({ currentStep }: FormContentProps) {
               paddingBottom: px(11),
               paddingLeft: px(38),
               paddingRight: px(38),
-              border: `0.5px solid #083FD8`,
+              border: `0.5px solid #000000`,
+              backgroundColor: firstTextareaValue.trim() ? '#000000' : 'transparent',
+              color: firstTextareaValue.trim() ? '#FFFFFF' : '#000000',
               borderRadius: px(4),
-              color: '#083FD8',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
@@ -132,6 +139,8 @@ export default function FormContent({ currentStep }: FormContentProps) {
           </label>
           <textarea
             className="rounded"
+            value={secondTextareaValue}
+            onChange={(e) => setSecondTextareaValue(e.target.value)}
             style={{
               width: px(720),
               minHeight: px(170),
@@ -148,7 +157,7 @@ export default function FormContent({ currentStep }: FormContentProps) {
         {/* 按钮 */}
         <div className="flex items-center justify-center" style={{ width: px(720), marginTop: px(30) }}>
           <button
-            className="cursor-pointer hover:bg-[#083FD8] hover:!text-white active:bg-[#083FD8] active:!text-white transition-colors"
+            className="cursor-pointer transition-colors"
             style={{
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
@@ -160,9 +169,10 @@ export default function FormContent({ currentStep }: FormContentProps) {
               paddingBottom: px(11),
               paddingLeft: px(38),
               paddingRight: px(38),
-              border: `0.5px solid #083FD8`,
+              border: `0.5px solid #000000`,
+              backgroundColor: secondTextareaValue.trim() ? '#000000' : 'transparent',
+              color: secondTextareaValue.trim() ? '#FFFFFF' : '#000000',
               borderRadius: px(4),
-              color: '#083FD8',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',

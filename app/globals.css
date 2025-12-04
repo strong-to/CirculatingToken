@@ -142,5 +142,37 @@
   button {
     cursor: pointer !important;
   }
+  
+  /* 只读输入框样式 - 禁用 focus 变色，placeholder 颜色为 #000000 */
+  .readonly-input {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .readonly-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #000000 !important;
+  }
+  
+  .readonly-input::placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
+  
+  .readonly-input::-webkit-input-placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
+  
+  .readonly-input::-moz-placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
+  
+  .readonly-input:-ms-input-placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
 }
 

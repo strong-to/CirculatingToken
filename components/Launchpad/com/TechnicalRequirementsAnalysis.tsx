@@ -330,7 +330,7 @@ export default function TechnicalRequirementsAnalysis() {
               marginBottom: px(10),
             }}
           >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, display: 'block', alignSelf: 'center' }}>
               <path d="M8.64078 8.84354L7.11974 10L4.95146 6.80272L2.81553 9.96599L1.2945 8.80952L3.52751 5.68027L0 4.52381L0.582524 2.61905L4.11003 3.91157L4.07767 0H5.95469L5.88997 3.94558L9.41748 2.68707L10 4.55782L6.44013 5.71429L8.64078 8.84354Z" fill="#FF0000"/>
             </svg>
             Draft or Organise Technical Documentation 
@@ -673,8 +673,14 @@ export default function TechnicalRequirementsAnalysis() {
             fontSize: px(20),
             color: '#000000',
             marginBottom: px(20),
+            display: 'flex',
+            alignItems: 'center',
+            gap: px(8),
           }}
         >
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, display: 'block', alignSelf: 'center' }}>
+            <path d="M8.64078 8.84354L7.11974 10L4.95146 6.80272L2.81553 9.96599L1.2945 8.80952L3.52751 5.68027L0 4.52381L0.582524 2.61905L4.11003 3.91157L4.07767 0H5.95469L5.88997 3.94558L9.41748 2.68707L10 4.55782L6.44013 5.71429L8.64078 8.84354Z" fill="#FF0000"/>
+          </svg>
           Confirm
         </div>
 

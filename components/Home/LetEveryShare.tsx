@@ -216,21 +216,10 @@ export default function LetEveryShare() {
             >
               {/* 原始5张卡片 */}
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing1.png"
                     alt="Investing card 1"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
@@ -243,79 +232,36 @@ export default function LetEveryShare() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing3.png"
                     alt="Investing card 3"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing4.png"
                     alt="Investing card 4"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing5.png"
                     alt="Investing card 5"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               
               {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing1.png"
                     alt="Investing card 1"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
@@ -328,56 +274,26 @@ export default function LetEveryShare() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing3.png"
                     alt="Investing card 3"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing4.png"
                     alt="Investing card 4"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/LetEveryShare/Investing5.png"
                     alt="Investing card 5"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>

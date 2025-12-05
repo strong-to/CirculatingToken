@@ -2,7 +2,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import BlueSquareCard from '@/components/Home/com/BuildWithThe/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/BuildWithThe/CollapsiblePanelContent'
 
@@ -209,78 +208,34 @@ export default function  BuildWithThe() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing2.png"
                     alt="Investing card 2"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing3.png"
                     alt="Investing card 3"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing4.png"
                     alt="Investing card 4"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing5.png"
                     alt="Investing card 5"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
@@ -295,74 +250,34 @@ export default function  BuildWithThe() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing2.png"
                     alt="Investing card 2"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing3.png"
                     alt="Investing card 3"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing4.png"
                     alt="Investing card 4"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/BuildWithThe/Investing5.png"
                     alt="Investing card 5"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>

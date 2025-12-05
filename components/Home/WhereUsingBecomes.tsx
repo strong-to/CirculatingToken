@@ -2,7 +2,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/UseCaseSection/CollapsiblePanelContent'
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
@@ -197,43 +196,22 @@ export default function WhereUsingBecomes() {
             >
               {/* 原始5张卡片 */}
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing1.png"
                     alt="Investing card 1"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing2.png"
                     alt="Investing card 2"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
+
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
                   <BlueSquareCard
@@ -242,79 +220,39 @@ export default function WhereUsingBecomes() {
                   />
                 </div>
               </SwiperSlide>
+
+              
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing4.png"
                     alt="Investing card 4"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing5.png"
                     alt="Investing card 5"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
-                    priority
                   />
                 </div>
               </SwiperSlide>
               
               {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing1.png"
                     alt="Investing card 1"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing2.png"
                     alt="Investing card 2"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
@@ -327,38 +265,18 @@ export default function WhereUsingBecomes() {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing4.png"
                     alt="Investing card 4"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div 
-                  className="overflow-hidden shadow-lg bg-black w-full" 
-                  style={{ 
-                    borderRadius: px(4), 
-                    aspectRatio: '340 / 500',
-                  }}
-                >
-                  <Image
+                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                  <BlueSquareCard
                     src="/images/Investing/Investing5.png"
                     alt="Investing card 5"
-                    width={340}
-                    height={500}
-                    className="w-full h-full object-cover"
-                    draggable={false}
                   />
                 </div>
               </SwiperSlide>

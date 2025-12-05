@@ -225,7 +225,7 @@ export default function QuantificationOfContributionValue({ onEnter }: Quantific
 
   return (
     <div className="flex-1">
-      <div className="flex flex-col items-center justify-between" style={{ marginBottom: px(30), width: px(720) }}>
+      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width: px(720) }}>
         <div
           className="text-[#000000]"
           style={{

@@ -219,7 +219,7 @@ export default function TechnicalRequirementsAnalysis({ onEnter }: TechnicalRequ
 
   return (
     <div className="flex-1">
-      <div className="flex flex-col items-center justify-between whitespace-nowrap " style={{ marginBottom: px(30), width: px(642) }}>
+      <div className="flex flex-col items-center justify-between whitespace-nowrap " style={{ marginTop: px(5), marginBottom: px(30), width: px(642) }}>
         <div
           className="text-[#000000]"
           style={{

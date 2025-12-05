@@ -55,6 +55,7 @@ export default function StepsBar({ steps, space = 40 }: StepsBarProps) {
       {steps.map((step, index) => {
         const stepNumber = index + 1
         const isActive = stepNumber === currentStep
+        const isCompleted = stepNumber < currentStep
         const formattedTitle = formatTitle(step.title, stepNumber)
         
         return (
@@ -68,15 +69,21 @@ export default function StepsBar({ steps, space = 40 }: StepsBarProps) {
                 style={{
                   width: px(30),
                   height: px(30),
-                  backgroundColor: isActive ? '#000000' : 'transparent',
-                  border: isActive ? 'none' : `2px solid #8C8C8C`,
-                  color: isActive ? '#FFFFFF' : '#8C8C8C',
+                  backgroundColor: isActive ? '#000000' : isCompleted ? '#000000' : 'transparent',
+                  border: isActive || isCompleted ? 'none' : `2px solid #8C8C8C`,
+                  color: isActive ? '#FFFFFF' : isCompleted ? '#FFFFFF' : '#8C8C8C',
                   fontSize: px(14),
                   fontWeight: 500,
                   flexShrink: 0,
                 }}
               >
-                {stepNumber}
+                {isCompleted ? (
+                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.4678 9.55566C22.0311 9.12731 21.3298 9.13371 20.9014 9.57031L13.5439 17.0674L10.3027 13.7285L10.2334 13.6631C9.80374 13.29 9.15219 13.3015 8.73633 13.7051C8.29738 14.1312 8.28681 14.8325 8.71289 15.2715L12.7451 19.4258L12.8125 19.4893C13.2498 19.871 13.9171 19.8516 14.3311 19.4297L22.4834 11.1221L22.5469 11.0508C22.9094 10.6121 22.8814 9.96158 22.4678 9.55566Z" fill="white"/>
+                  </svg>
+                ) : (
+                  stepNumber
+                )}
               </div>
               
               {/* 连接线 - 固定在圆圈下方 */}

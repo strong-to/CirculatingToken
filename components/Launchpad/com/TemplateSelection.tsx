@@ -133,7 +133,7 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
 
   return (
     <div className="flex-1">
-      <div className="flex flex-col items-center justify-between" style={{ marginBottom: px(30), width: px(391) }}>
+      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width: px(391) }}>
         <div
           className="text-[#000000]"
           style={{

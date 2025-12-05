@@ -15,7 +15,6 @@ export default function FooterLogo() {
 
   const containerRef = useRef<HTMLDivElement>(null)
   const [spacing, setSpacing] = useState(200)
-  const [isPaused, setIsPaused] = useState(false)
 
   // 计算每个logo的实际占用宽度（包括间距）
   useEffect(() => {
@@ -23,7 +22,7 @@ export default function FooterLogo() {
       if (!containerRef.current) return
       const containerWidth = containerRef.current.offsetWidth
       const padding = 300 * 2 // 左右padding
-      const availableWidth = containerWidth - padding
+      const availableWidth = containerWidth - 200
       setSpacing(availableWidth / 5) // 均分剩余空间
     }
 
@@ -77,19 +76,16 @@ export default function FooterLogo() {
       <div
         className="h-full absolute overflow-hidden"
         style={{ 
-          left: px(320),
-          right: px(320),
+          left: px(80),
+          right: px(80),
           maskImage: `linear-gradient(to right, transparent 0px, black ${spacing}px, black calc(100% - ${spacing}px), transparent 100%)`,
           WebkitMaskImage: `linear-gradient(to right, transparent 0px, black ${spacing}px, black calc(100% - ${spacing}px), transparent 100%)`,
         }}
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
       >
         <div
           className="flex items-center h-full"
           style={{
             animation: `scrollLeft ${animationDuration}s linear infinite`,
-            animationPlayState: isPaused ? 'paused' : 'running',
             width: 'fit-content',
           }}
         >

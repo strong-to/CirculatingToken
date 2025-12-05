@@ -7,7 +7,7 @@ export default function Statistics() {
     <div 
       className="leading-[100%] text-black" 
       style={{ 
-        marginTop: px(65), // 38px
+        marginTop: px(50), // 38px
         width: '26.3125rem', // 421px
         height: '7.25rem', // 116px
         fontSize: '1.8125rem', // 29px

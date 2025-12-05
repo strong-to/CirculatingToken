@@ -8,7 +8,7 @@ export default function MainTitle() {
       className="mt-[ leading-[100%]" 
       style={{ 
         maxWidth: '75.5rem', // 1208px
-        marginTop: px(125),
+        marginTop: px(80),
         width: '100%'
       }}
     >

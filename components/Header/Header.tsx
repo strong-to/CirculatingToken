@@ -19,9 +19,9 @@ export default function Header() {
   ]
 
   return (
-    <header className="w-full h-full bg-background-primary flex flex-col border-b border-[#251814]">
+    <header className="w-full h-full bg-background-primary flex flex-col border-b border-[#B5B5B5]">
       <div className="container-responsive flex-1">
-        <div className="h-title flex items-center">
+        <div className="h-title flex items-center " style={{ height: px(120) }}>
           {/* Logo */}
           <Logo />
 

@@ -4,9 +4,9 @@ import { px } from '@/utils/pxToRem'
 
 export default function DeepBlueCovenant() {
   return (
-    <div className="flex flex-col items-start">
+    <div className="flex flex-col items-start" style={{ marginTop: px(69) }}>
       {/* 可点击图片 - 悬浮时高度变为48px */}
-      <button className="inline-block  cursor-pointer group  z-10" style={{ marginTop: px(86) }}> {/* 43px */}
+      <button className="inline-block  cursor-pointer group  z-10" > {/* 43px */}
         <div style={{
           fontFamily: '"IM FELL French Canon SC", serif',
           fontWeight: 400,

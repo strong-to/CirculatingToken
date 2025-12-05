@@ -232,7 +232,6 @@ export default function TechnicalRequirementsAnalysis({ onEnter }: TechnicalRequ
             height: px(34),
             display: 'flex',
             alignItems: 'center',
-            marginTop: px(5),
           }}
         >
           Technical Requirements Analysis

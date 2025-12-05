@@ -238,7 +238,6 @@ export default function QuantificationOfContributionValue({ onEnter }: Quantific
             height: px(34),
             display: 'flex',
             alignItems: 'center',
-            marginTop: px(5),
           }}
         >
           Quantification of Contribution Value

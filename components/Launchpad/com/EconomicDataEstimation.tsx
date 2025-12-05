@@ -22,7 +22,6 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
             height: px(34),
             display: 'flex',
             alignItems: 'center',
-            marginTop: px(5),
           }}
         >
           Economic Data Estimation
@@ -30,7 +29,7 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
         <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(8, 63, 216, 0.65)', marginTop: px(-15) }}></div>
       </div>
       
-      <div className="" style={{ marginTop: px(39) }}>
+      <div className="" style={{ marginTop: px(100) }}>
       <div className="border border-[#000000] rounded-[4px]" style={{ width: px(1355)  }}>
 
         <div  className=" flex items-center justify-between bg-[#F7F9FF]" style={{ color: '#888888', fontSize: px(16),width: '100%' , height: px(80),paddingLeft: px(30),paddingRight: px(30) }} >
@@ -283,7 +282,7 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
                 color: '#083FD8',
               }}
             >
-           Advanced Features
+             Basic Features
             </div>
             
             <div
@@ -724,7 +723,7 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
                 color: '#083FD8',
               }}
             >
-             Advanced Features
+             Basic Features
             </div>
             
             <div
@@ -1166,7 +1165,7 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
                 color: '#083FD8',
               }}
             >
-            Advanced Features
+             Basic Features
             </div>
             
             <div
@@ -1555,31 +1554,9 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
        </div>
       </div>
 
-      {/* Enter 按钮 */}
-      <div className="flex items-center justify-center" style={{ marginTop: px(40) }}>
-        <button
-          className="cursor-pointer"
-          onClick={onEnter}
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            width: px(200),
-            height: px(50),
-            backgroundColor: '#000000',
-            borderRadius: px(4),
-            color: '#FFFFFF',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          Enter
-        </button>
-      </div>
+
+     
+
       </div>
     </div>
   )

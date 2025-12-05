@@ -46,6 +46,7 @@ export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePrevi
           width: '100%', 
           overflowX: 'auto',
           overflowY: 'hidden',
+          position: 'relative',
         }}
         className="scrollbar-hide"
       >
@@ -70,6 +71,8 @@ export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePrevi
               marginLeftValue = px(-210) // 第4和第5重叠210px
             }
             
+            const isLastImage = index === previewImages.length - 1
+            
             return (
               <div
                 key={index}
@@ -78,19 +81,56 @@ export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePrevi
                   height: px(400),
                   marginLeft: marginLeftValue,
                   borderRadius: px(4),
-                  overflow: 'hidden',
+                  overflow: 'visible', // 改为visible以显示提示盒子
                   position: 'relative',
                   zIndex: previewImages.length - index, // 后面的图片在上层
                   flexShrink: 0,
                 }}
               >
-                <Image
-                  src={`/images/Launchpad/ProjectHomepagPreview/${imageName}`}
-                  alt={`Preview ${index + 1}`}
-                  width={400}
-                  height={400}
-                  className="w-full h-full object-cover"
-                />
+                <div style={{ width: '100%', height: '100%', borderRadius: px(4), overflow: 'hidden' }}>
+                  <Image
+                    src={`/images/Launchpad/ProjectHomepagPreview/${imageName}`}
+                    alt={`Preview ${index + 1}`}
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                {/* 只在最后一张图片上显示提示盒子 */}
+                {isLastImage && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      right: 0, // 定位在图片的最右边
+                      top: 0,
+                      width: px(48),
+                      height: px(400),
+                      backgroundColor: 'rgba(0, 0, 0, 0.1)', // 非常透明的黑色背景
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      zIndex: 11,
+                      pointerEvents: 'none', // 不阻挡滚动
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontStyle: 'normal',
+                        fontSize: px(16),
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        color: '#ffffff',
+                        transform: 'rotate(90deg)',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      Swipe left to view more
+                    </div>
+                  </div>
+                )}
               </div>
             )
           })}
@@ -98,7 +138,7 @@ export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePrevi
       </div>
 
       {/* Enter 按钮 */}
-      <div className="flex items-center justify-center" style={{ marginTop: px(40) }}>
+      <div className="flex items-center justify-center" style={{ marginTop: px(40), width: px(1154),marginLeft: px(110) }}>
         <button
           className="cursor-pointer"
           onClick={onEnter}

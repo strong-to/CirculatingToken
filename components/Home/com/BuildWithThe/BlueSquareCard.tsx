@@ -133,19 +133,6 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
 
             </div>
               
-
-              {/* 右列按钮 */}
-              {/* <div className={`flex flex-col font-semibold ${styles.buttonsColumn}`}>
-                <button className={`border border-white flex items-center justify-center ${styles.actionButton}`}>
-                  Market
-                </button>
-                <button className={`border border-white flex items-center justify-center ${styles.actionButton}`}>
-                  Lending
-                </button>
-                <button className={`border border-white flex items-center justify-center ${styles.actionButton}`}>
-                  Add to Favorites
-                </button>
-              </div> */}
             </div>
           </>
         ) : (

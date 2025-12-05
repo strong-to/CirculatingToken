@@ -146,7 +146,6 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
             height: px(34),
             display: 'flex',
             alignItems: 'center',
-            marginTop: px(5),
           }}
         >
           Template Selection

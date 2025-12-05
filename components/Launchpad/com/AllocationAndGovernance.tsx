@@ -234,7 +234,6 @@ export default function AllocationAndGovernance({ onEnter }: AllocationAndGovern
             height: px(34),
             display: 'flex',
             alignItems: 'center',
-            marginTop: px(5),
           }}
         >
           Allocation and Governance

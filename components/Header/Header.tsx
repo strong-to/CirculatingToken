@@ -147,8 +147,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* 分隔线 - 颜色 #251814 */}
-      <div className="w-full h-px bg-[#251814] flex-shrink-0" />
+      {/* 分隔线 - 颜色 #B5B5B5 */}
+      <div className="w-full h-px flex-shrink-0" />
 
       {/* 移动端菜单 */}
       {isMenuOpen && (

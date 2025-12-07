@@ -43,15 +43,12 @@ export default function  GovernTogether() {
             </div> */}
 
             <button
-              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
+              className="flex items-center justify-cent"
               style={{
-                width: '17.296875rem', // 276.75px
                 height: '3.9375rem', // 63px
-                fontSize: '1.75rem', // 28px
-                borderRadius: '0.25rem' // 4px
               }}
             >
-              View More
+              {/* View More */}
             </button>
 
             {/* 折叠面板按钮 - 添加动画 */}

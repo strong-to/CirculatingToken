@@ -71,7 +71,7 @@ export default function FooterLogo() {
     <div 
       ref={containerRef}
       className="w-full overflow-hidden relative"
-      style={{ height: px(250) }}
+      style={{ height: 'clamp(100px, 12rem, 180px)' }}
     >
       {/* 内容区域，左右各留300px空白 */}
       <div

@@ -11,7 +11,7 @@ export default function InstitutionalGrade() {
   return (
     <section className="flex flex-col bg-background-primary min-h-[calc(100vh-7.5rem)]">
       <div className="container-responsive w-full flex flex-1 flex-col">
-        <div className="flex-1 flex items-start pt-8 lg:pt-12">
+        <div className="flex-1 flex items-start ">
           <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 lg:gap-12 w-full">
             {/* 左侧内容 */}
             <div className="flex flex-col">

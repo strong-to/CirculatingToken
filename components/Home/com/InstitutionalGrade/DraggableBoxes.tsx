@@ -1,65 +1,51 @@
 'use client'
 
-import { useState } from 'react'
-import DraggableBox from './DraggableBox'
+import { useMemo } from 'react'
+import AnimatedBox from './AnimatedBox'
 
 export default function DraggableBoxes() {
-  const [resetTrigger, setResetTrigger] = useState(0)
-  const [activeBoxId, setActiveBoxId] = useState<string | null>(null) // 当前活动的盒子ID
-
-  const resetAllBoxes = () => {
-    // 触发所有盒子重置
-    setResetTrigger(prev => prev + 1)
-    setActiveBoxId(null)
-  }
-
-  const handleBoxActivate = (boxId: string) => {
-    // 当某个盒子激活时，设置它为活动盒子
-    // 如果 boxId 为空字符串，清除活动状态
-    setActiveBoxId(boxId || null)
-  }
+  // 生成随机顺序的延迟数组（0, 3, 6的随机排列）
+  const delays = useMemo(() => {
+    const baseDelays = [0, 3, 6]
+    // Fisher-Yates 洗牌算法
+    const shuffled = [...baseDelays]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+    return shuffled
+  }, []) // 只在组件挂载时生成一次，保持稳定
 
   return (
     <div className="hidden lg:block relative h-full w-full overflow-visible">
-      {/* 三个可拖动的盒子 */}
-      <DraggableBox
+      {/* 三个依次动画的盒子，每次只有一个在动，顺序随机 */}
+      {/* 位置使用 px 单位，可以直接调整像素值 */}
+      <AnimatedBox
         boxId="box1"
-        initialX={0}
-        initialY={100}
-        width={15.4375}
-        height={15.4375}
+        initialRight={140} // px，距离父盒子最右边140px
+        initialY={70} // px
+        initialWidth={15.4375}
+        initialHeight={15.4375}
         bgColor="bg-[#BDBDBD]"
-        className=""
-        resetTrigger={resetTrigger}
-        activeBoxId={activeBoxId}
-        onResetAll={resetAllBoxes}
-        onActivate={handleBoxActivate}
+        animationDelay={delays[0]}
       />
-      <DraggableBox
+      <AnimatedBox
         boxId="box2"
-        initialX={0}
-        initialY={400}
-        width={9.25}
-        height={9.25}
+        initialRight={0} // px，和父盒子的最右边靠在一起
+        initialY={500} // px
+        initialWidth={9.25}
+        initialHeight={9.25}
         bgColor="bg-primary-main"
-        className=""
-        resetTrigger={resetTrigger}
-        activeBoxId={activeBoxId}
-        onResetAll={resetAllBoxes}
-        onActivate={handleBoxActivate}
+        animationDelay={delays[1]}
       />
-      <DraggableBox
+      <AnimatedBox
         boxId="box3"
-        initialX={-300}
-        initialY={550}
-        width={5.9375}
-        height={5.9375}
+        initialX={-300} // px
+        initialY={400} // px
+        initialWidth={5.9375}
+        initialHeight={5.9375}
         bgColor="bg-[#666666]"
-        className=""
-        resetTrigger={resetTrigger}
-        activeBoxId={activeBoxId}
-        onResetAll={resetAllBoxes}
-        onActivate={handleBoxActivate}
+        animationDelay={delays[2]}
       />
     </div>
   )

@@ -1,20 +1,57 @@
 'use client'
 
+import { useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 
 export default function Footer() {
+  useEffect(() => {
+    const styleId = 'footer-checkbox-style'
+    let styleElement = document.getElementById(styleId) as HTMLStyleElement
+    
+    if (!styleElement) {
+      styleElement = document.createElement('style')
+      styleElement.id = styleId
+      document.head.appendChild(styleElement)
+    }
+    
+    styleElement.textContent = `
+      .footer-checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        border: 1px solid #8C8C8C;
+        background-color: transparent;
+      }
+      .footer-checkbox:checked {
+        background-color: #000000 !important;
+        border-color: #000000 !important;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z' fill='white'/%3E%3C/svg%3E");
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    `
+    
+    return () => {
+      const element = document.getElementById(styleId)
+      if (element) {
+        element.remove()
+      }
+    }
+  }, [])
+
   return (
-    <section className="bg-white flex flex-col relative">
+    <section className="bg-white flex flex-col relative" style={{ backgroundColor: '#FFFFFF', position: 'relative', zIndex: 1, marginTop: px(-120) }}>
       {/* 顶部蓝色边框 */}
-      <div className="w-full" ></div>
+      <div className="w-full" style={{ backgroundColor: '#FFFFFF', height: px(120) }}></div>
       
-      <div className="w-full">
-        <div className="container-responsive" style={{ paddingTop: px(48), paddingBottom: px(40) }}>
-          <div className="flex flex-col md:flex-row justify-between items-start gap-8">
+      <div className="w-full" style={{ backgroundColor: '#FFFFFF' }}>
+        <div className="container-responsive" style={{ paddingTop: px(48), paddingBottom: px(40), backgroundColor: '#FFFFFF' }}>
+          <div className="flex flex-col md:flex-row justify-between items-start" style={{ gap: px(32) }}>
             {/* 第一列 - 文本内容 */}
-            <div className="space-y-4 flex-shrink-0" style={{ maxWidth: '25%' }}>
+            <div className="space-y-4 flex-1">
               <div
-              className='whitespace-nowrap'
+                className="whitespace-nowrap"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
@@ -23,11 +60,11 @@ export default function Footer() {
                   lineHeight: '100%',
                   letterSpacing: '0%',
                   color: '#000000',
-                  marginBottom: px(48)
+                  marginBottom: px(24),
+                  marginTop: 0
                 }}
               >
-                The inaugural set of standard-<br />
-                ized
+                Covenant
               </div>
               <div
                 style={{
@@ -40,27 +77,19 @@ export default function Footer() {
                   color: '#000000'
                 }}
               >
-                <div style={{ marginBottom: px(12) }}> The inaugural set of standard- </div>
-                <div style={{ marginBottom: px(12) }}> ized smart contacts tokenizing  </div>
-                <div style={{ marginBottom: px(12) }}> the comeconomic cycle of </div>
-                <div style={{ marginBottom: px(12) }}>   Bitcoin Mining.</div>
-                
-                <div style={{ marginBottom: px(12) }}>  The inaugural set of standarized<br />  </div>
-                <div style={{ marginBottom: px(12) }}>   smart contacts tokenizing the<br />  </div>
-                <div style={{ marginBottom: px(12) }}>  comeconomic The inaugural set<br />  </div>
-                <div style={{ marginBottom: px(12) }}>  of standardized smart contacts<br />  </div>
-                <div style={{ marginBottom: px(12) }}>  tokenizing the com economic<br />  </div>
-                <div style={{ marginBottom: px(12) }}>   cycle of Bitcoin Mining. The<br />  </div>
-                <div style={{ marginBottom: px(12) }}>  inaugural set of standardized<br />  </div>
-                <div style={{ marginBottom: px(12) }}>  smart contacts tokenizing the<br />  </div>
-                <div style={{ marginBottom: px(12) }}>   com economic  </div>
+                <div style={{ marginBottom: px(12) }}>About THE4</div>
+                <div style={{ marginBottom: px(12) }}>How It Works</div>
+                <div style={{ marginBottom: px(12) }}>AI Project Hub</div>
+                <div style={{ marginBottom: px(12) }}>Launchpad</div>
+                <div style={{ marginBottom: px(12) }}>Marketplace</div>
+                <div style={{ marginBottom: px(12) }}>Governance</div>
+                <div style={{ marginBottom: px(12) }}>Docs</div>
+                <div style={{ marginBottom: px(12) }}>Discord</div>
               </div>
             </div>
 
-            {/* 中间两列容器 */}
-            <div className="flex flex-col md:flex-row gap-8 flex-1">
-              {/* 第二列 - Convention */}
-              <div className="space-y-4 flex-1">
+            {/* 第二列 - Convention */}
+            <div className="space-y-4 flex-1">
               <div
               className='whitespace-nowrap'
                 style={{
@@ -87,23 +116,12 @@ export default function Footer() {
                   color: '#000000'
                 }}
               >
-                <div style={{ marginBottom: px(12) }}> About us</div>
-                <div style={{ marginBottom: px(12) }}> Discard </div>
-                <div style={{ marginBottom: px(12) }}> Terms of sevice </div>
-                <div style={{ marginBottom: px(12) }}>  Partners</div>
-                
-                <div style={{ marginBottom: px(12) }}>  Store </div>
-                <div style={{ marginBottom: px(12) }}>   About us </div>
-                <div style={{ marginBottom: px(12) }}>  Discard </div>
-                <div style={{ marginBottom: px(12) }}>  Terms of sevice </div>
-                <div style={{ marginBottom: px(12) }}>  Partners  </div>
-                <div style={{ marginBottom: px(12) }}>   Store </div>
-                <div style={{ marginBottom: px(12) }}>  About us  </div>
-                <div style={{ marginBottom: px(12) }}>  The inaugural set of standardized  </div>
-                <div style={{ marginBottom: px(12) }}>  smart contacts tokenizing the com </div>
-                <div style={{ marginBottom: px(12) }}>   Terms of sevice </div>
-                <div style={{ marginBottom: px(12) }}>  Partners </div>
-                <div style={{ marginBottom: px(12) }}>  Store </div>
+                <div style={{ marginBottom: px(12) }}>About DEEPBLUE</div>
+                <div style={{ marginBottom: px(12) }}>How It Works</div>
+                <div style={{ marginBottom: px(12) }}>Consensus</div>
+                <div style={{ marginBottom: px(12) }}>White & Docs</div>
+                <div style={{ marginBottom: px(12) }}>Governance</div>
+                <div style={{ marginBottom: px(12) }}>Discord</div>
               </div>
             </div>
 
@@ -126,7 +144,7 @@ export default function Footer() {
                   marginBottom: px(24)
                 }}
               >
-                Consesus
+                Tokens
               </div>
               <div
                 style={{
@@ -142,28 +160,53 @@ export default function Footer() {
                 
 
 <div style={{ marginBottom: px(12) }}>Discard</div>
-                <div style={{ marginBottom: px(12) }}>Terms of sevice</div>
-                <div style={{ marginBottom: px(12) }}>Partners</div>
-                <div style={{ marginBottom: px(12) }}>Store</div>
-                <div style={{ marginBottom: px(12) }}>About us</div>
-                <div style={{ marginBottom: px(12) }}>Discard</div>
-                <div style={{ marginBottom: px(12) }}>Terms of sevice</div>
-                <div style={{ marginBottom: px(12) }}>Partners</div>
-                <div style={{ marginBottom: px(12) }}>Store</div>
-                <div style={{ marginBottom: px(12) }}>About us</div>
-                <div style={{ marginBottom: px(12) }}>Discard</div>
-                <div style={{ marginBottom: px(12) }}>Terms of sevice</div>
-                <div style={{ marginBottom: px(12) }}>Partners</div>
-                <div style={{ marginBottom: px(12) }}>Store</div>
-                <div style={{ marginBottom: px(12) }}>AThe inaugural set of standardized</div>
-                <div style={{ marginBottom: px(12) }}>smart contacts tokenizing the com</div>
-                <div style={{ marginBottom: px(12) }}>economic cycle of Bitcoin Mining.</div>
+                <div style={{ marginBottom: px(12) }}>Tokenomics Overview</div>
+                <div style={{ marginBottom: px(12) }}>Token Marketplace</div>
+                <div style={{ marginBottom: px(12) }}>Contract Tokens</div>
+                <div style={{ marginBottom: px(12) }}>Covenant Tokens</div>
+                <div style={{ marginBottom: px(12) }}>Convention Token</div>
               </div>
             </div>
+
+
+            {/* 第四列 - Support */}
+            <div className="space-y-4 flex-1">
+              <div
+              className='whitespace-nowrap'
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: px(30.86),
+                  lineHeight: '100%',
+                  letterSpacing: '0%',
+                  color: '#000000',
+                  marginBottom: px(24)
+                }}
+              >
+                Support
+              </div>
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: px(20.57),
+                  lineHeight: px(24),
+                  letterSpacing: '0%',
+                  color: '#000000'
+                }}
+              >
+                <div style={{ marginBottom: px(12) }}>Help Center</div>
+                <div style={{ marginBottom: px(12) }}>FAQ</div>
+                <div style={{ marginBottom: px(12) }}>Terms of Service</div>
+                <div style={{ marginBottom: px(12) }}>Privacy Policy</div>
+                <div style={{ marginBottom: px(12) }}>Contact Us</div>
+              </div>
             </div>
 
-            {/* 第四列 - Newsletter */}
-            <div className="space-y-4 flex-shrink-0" style={{ maxWidth: '25%' }}>
+            {/* 第五列 - Newsletter */}
+            <div className="space-y-4 flex-1">
               <h3
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -294,7 +337,7 @@ export default function Footer() {
                         color: '#000000'
                       }}
                     >
-                      Email addressThe inaugural set of 
+                      Subscribe
                     </div>
                 <div
                       style={{
@@ -307,24 +350,20 @@ export default function Footer() {
                         color: '#000000'
                       }}
                     >
-                      standardized smart contacts tokenizing 
+                     Meta, Insgram, Youtube, X, Discord的LOGO
                     </div>
-                <div
-                      style={{
-                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                        fontWeight: 300,
-                        fontStyle: 'normal',
-                        fontSize: px(20.57),
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#000000'
-                      }}
-                    >
-                      the comeconmic cycle of Bitcoin
-                    </div>
+               
                 <div className="space-y-2">
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input 
+                      type="checkbox" 
+                      className="footer-checkbox"
+                      style={{
+                        width: px(25),
+                        height: px(25),
+                        cursor: 'pointer'
+                      }}
+                    />
                     <span
                       style={{
                         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -340,7 +379,15 @@ export default function Footer() {
                     </span>
                   </label>
                   <label className="flex items-center gap-2">
-                    <input type="checkbox" />
+                    <input 
+                      type="checkbox" 
+                      className="footer-checkbox"
+                      style={{
+                        width: px(25),
+                        height: px(25),
+                        cursor: 'pointer'
+                      }}
+                    />
                     <span
                       style={{
                         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -411,6 +458,7 @@ export default function Footer() {
               </form>
             </div>
           </div>
+
         </div>
       </div>
 
@@ -432,7 +480,7 @@ export default function Footer() {
               color: '#000000'
             }}
           >
-            © 2024 DB.CO. ALL RIGHTS RESERVED
+            © 2024 THE4 / DeepBlue Convention. All rights reserved.
           </span>
           <div className="flex items-center gap-1">
             <a
@@ -449,7 +497,7 @@ export default function Footer() {
               }}
               className="hover:opacity-70 transition-opacity"
             >
-              Terms of Use
+              {/* Terms of Use */}
             </a>
             <span
               style={{
@@ -459,7 +507,7 @@ export default function Footer() {
                 color: '#000000'
               }}
             >
-              ·
+              {/* · */}
             </span>
             <a
               href="#"
@@ -475,7 +523,7 @@ export default function Footer() {
               }}
               className="hover:opacity-70 transition-opacity"
             >
-              Privacy Policy
+              {/* Privacy Policy */}
             </a>
           </div>
         </div>

@@ -1,0 +1,257 @@
+export interface SubCategory {
+  label: string
+  description?: string
+}
+
+export interface Category {
+  label: string
+  subCategories: (SubCategory | string)[]
+  description?: string
+}
+
+// Interaction / Form 筛选数据
+export const interactionFormCategories: Category[] = [
+  {
+    label: 'Textual',
+    description: 'All linear content such as plain text, symbols, code, etc. Text-only content, notables/images/audio.',
+    subCategories: [
+      { label: 'Text', description: 'Plain text content including documents, articles, and written content.' },
+      { label: 'Code', description: 'Programming code and source code files in various programming languages.' },
+      { label: 'Natural Language', description: 'Natural language processing content including text analysis and language understanding.' },
+      { label: 'Prompt', description: 'AI prompts and instructions for generating or processing content.' },
+      { label: 'Markdown', description: 'Markdown formatted text for documentation and structured content.' },
+      { label: 'Plain Text', description: 'Unformatted plain text content without any special formatting.' }
+    ]
+  },
+  {
+    label: 'Visual',
+    description: 'Visual content including images, videos, 3D models, and animations.',
+    subCategories: [
+      { label: 'Image', description: 'Static images including photos, illustrations, and graphics.' },
+      { label: 'Chart', description: 'Data visualization charts and graphs for presenting information.' },
+      { label: 'Graphics', description: 'Graphic design elements and visual graphics.' },
+      { label: 'Screenshot', description: 'Screen captures and screenshots of interfaces or content.' }
+    ]
+  },
+  {
+    label: 'Audio',
+    description: 'Audio content such as music, speech, and sound effects.',
+    subCategories: [
+      { label: 'Audio', description: 'General audio content including music, sound effects, and audio files.' },
+      { label: 'Speech', description: 'Spoken language content including voice recordings, speech recognition, and voice synthesis.' },
+      { label: 'Audio Features', description: 'Audio feature extraction and analysis including frequency analysis, audio processing, and audio classification.' }
+    ]
+  },
+  {
+    label: 'Multimodal',
+    description: 'Content that combines multiple media types like video with audio, text with images, or interactive content.',
+    subCategories: [
+      { label: 'Image+Text', description: 'Content combining images with text annotations or captions.' },
+      { label: 'Video+Audio', description: 'Video content with synchronized audio tracks.' },
+      { label: 'MM Output', description: 'Multimodal output combining different media types.' },
+      { label: 'Voice + Text', description: 'Content combining voice recordings with text transcriptions.' }
+    ]
+  },
+  {
+    label: 'Structured Data',
+    description: 'Structured data formats including JSON, XML, CSV, and database formats.',
+    subCategories: [
+      { label: 'Table', description: 'Tabular data organized in rows and columns.' },
+      { label: 'JSON', description: 'JSON formatted data for structured information exchange.' },
+      { label: 'CSV', description: 'Comma-separated values format for tabular data.' },
+      { label: 'DB Fields', description: 'Database fields and structured database content.' },
+      { label: 'Sensor Data', description: 'Data collected from sensors and IoT devices.' },
+      { label: 'Stream Data', description: 'Real-time streaming data and continuous data feeds.' }
+    ]
+  },
+  {
+    label: 'Document Formats',
+    description: 'Common document formats like PDF, Word, Excel, and PowerPoint files.',
+    subCategories: [
+      { label: 'PDF', description: 'PDF documents and portable document format files.' },
+      { label: 'DOC/DOCX', description: 'Microsoft Word document formats.' },
+      { label: 'XLS/XLSX', description: 'Microsoft Excel spreadsheet formats.' },
+      { label: 'PPTX', description: 'Microsoft PowerPoint presentation formats.' },
+      { label: 'TXT', description: 'Plain text document files.' },
+      { label: 'Markdown File', description: 'Markdown formatted document files.' },
+      { label: 'RTF', description: 'Rich Text Format documents.' }
+    ]
+  }
+]
+
+// Domain 筛选数据
+export const domainCategories: Category[] = [
+  {
+    label: 'Science & Nature',
+    description: 'Scientific fields and natural phenomena including biology, meteorology, geography, and environmental studies.',
+    subCategories: [
+      { label: 'Biology', description: 'Biological sciences and life sciences research.' },
+      { label: 'Meteorology', description: 'Weather and climate science including atmospheric studies.' },
+      { label: 'Geography', description: 'Geographic and spatial information and mapping.' },
+      { label: 'Environment', description: 'Environmental science and ecological studies.' },
+      { label: 'Research', description: 'Scientific research and academic studies.' },
+      { label: 'Ecology', description: 'Ecological systems and environmental relationships.' },
+      { label: 'Geology', description: 'Earth sciences and geological studies.' }
+    ]
+  },
+  {
+    label: 'Industry & Energy',
+    description: 'Industrial sectors and energy-related fields including manufacturing, transportation, and agriculture.',
+    subCategories: [
+      { label: 'Energy', description: 'Energy production, distribution, and management.' },
+      { label: 'Industry', description: 'Industrial processes and manufacturing sectors.' },
+      { label: 'Manufacturing', description: 'Manufacturing processes and production systems.' },
+      { label: 'Transportation', description: 'Transportation systems and logistics.' },
+      { label: 'Agriculture', description: 'Agricultural practices and farming systems.' }
+    ]
+  },
+  {
+    label: 'Health & Medicine',
+    description: 'Healthcare and medical fields including biomedical research and public health.',
+    subCategories: [
+      { label: 'Healthcare', description: 'Healthcare services and medical care delivery.' },
+      { label: 'Medicine', description: 'Medical practice and clinical medicine.' },
+      { label: 'Biomedical', description: 'Biomedical research and medical technology.' },
+      { label: 'Public Health', description: 'Public health initiatives and population health.' }
+    ]
+  },
+  {
+    label: 'Finance & Economics',
+    description: 'Financial and economic sectors including fintech, markets, and financial analysis.',
+    subCategories: [
+      { label: 'Finance', description: 'Financial services and banking operations.' },
+      { label: 'Fintech', description: 'Financial technology and digital finance solutions.' },
+      { label: 'Markets & Trade', description: 'Financial markets and trading activities.' },
+      { label: 'Financial Analysis', description: 'Financial data analysis and investment research.' }
+    ]
+  },
+  {
+    label: 'Law, Governance & Public Affairs',
+    description: 'Legal, governance, and public affairs including law, policy, and city management.',
+    subCategories: [
+      { label: 'Law', description: 'Legal systems and jurisprudence.' },
+      { label: 'Policy', description: 'Public policy and policy analysis.' },
+      { label: 'Public Safety', description: 'Public safety and emergency management.' },
+      { label: 'Governance / City Management', description: 'City governance and urban management systems.' }
+    ]
+  },
+  {
+    label: 'Communication & Media',
+    description: 'Communication and media industries including content creation, news, and advertising.',
+    subCategories: [
+      { label: 'Communications', description: 'Communication systems and messaging platforms.' },
+      { label: 'Media', description: 'Media content and media production.' },
+      { label: 'Content Creation', description: 'Content creation and creative media production.' },
+      { label: 'News', description: 'News media and journalism.' },
+      { label: 'Advertising', description: 'Advertising and marketing communications.' }
+    ]
+  },
+  {
+    label: 'Social & Culture',
+    description: 'Social and cultural fields including entertainment, sports, art, and community.',
+    subCategories: [
+      { label: 'Social', description: 'Social interactions and social media content.' },
+      { label: 'Entertainment', description: 'Entertainment content and media.' },
+      { label: 'Sports', description: 'Sports content and athletic activities.' },
+      { label: 'Art', description: 'Artistic content and creative works.' },
+      { label: 'Culture', description: 'Cultural content and cultural studies.' },
+      { label: 'Community', description: 'Community engagement and community content.' }
+    ]
+  },
+  {
+    label: 'Education & Learning',
+    description: 'Educational and learning fields including training, coaching, and learning tools.',
+    subCategories: [
+      { label: 'Education', description: 'Educational content and learning materials.' },
+      { label: 'Training', description: 'Training programs and professional development.' },
+      { label: 'Coaching', description: 'Coaching and mentoring content.' },
+      { label: 'Learning Tools', description: 'Educational tools and learning platforms.' }
+    ]
+  },
+  {
+    label: 'AI & Computing',
+    description: 'Artificial intelligence and computing fields including algorithms, data, models, and generation.',
+    subCategories: [
+      { label: 'AI / Computing', description: 'Artificial intelligence and computing systems.' },
+      { label: 'Algorithms', description: 'Algorithm design and computational algorithms.' },
+      { label: 'Data', description: 'Data processing and data management.' },
+      { label: 'Model', description: 'AI models and machine learning models.' },
+      { label: 'Generation & Inference', description: 'Content generation and AI inference processes.' }
+    ]
+  }
+]
+
+// Object 筛选数据
+export const objectOptions: string[] = ['Text', 'Data', 'Image', 'Video', 'Audio', 'Document', 'Chart', 'Flow', 'Code', 'Emotion']
+
+// Action 筛选数据
+export const actionCategories: Category[] = [
+  {
+    label: 'Generate',
+    description: 'Actions related to creating and generating new content.',
+    subCategories: [
+      { label: 'Generate', description: 'Generate new content from scratch or based on inputs.' },
+      { label: 'Rewrite', description: 'Rewrite and rephrase existing content.' },
+      { label: 'Edit', description: 'Edit and modify existing content.' },
+      { label: 'Summarize', description: 'Create summaries and condensed versions of content.' },
+      { label: 'Translate', description: 'Translate content between different languages.' }
+    ]
+  },
+  {
+    label: 'Analysis',
+    description: 'Actions related to understanding and analyzing content.',
+    subCategories: [
+      { label: 'Understand', description: 'Understand and comprehend content meaning.' },
+      { label: 'Analyze', description: 'Analyze content structure and patterns.' },
+      { label: 'Compare', description: 'Compare different pieces of content.' },
+      { label: 'Classify', description: 'Classify and categorize content.' },
+      { label: 'Predict', description: 'Predict outcomes and future trends.' }
+    ]
+  },
+  {
+    label: 'Organize',
+    description: 'Actions related to organizing and structuring content.',
+    subCategories: [
+      { label: 'Organize', description: 'Organize content into structured formats.' },
+      { label: 'Structure', description: 'Structure and format content systematically.' },
+      { label: 'Clarify', description: 'Clarify and simplify complex content.' },
+      { label: 'Coordinate', description: 'Coordinate and synchronize multiple content pieces.' },
+      { label: 'Optimize', description: 'Optimize content for better performance.' }
+    ]
+  },
+  {
+    label: 'Search',
+    description: 'Actions related to searching and retrieving information.',
+    subCategories: [
+      { label: 'Search', description: 'Search for specific information and content.' },
+      { label: 'Retrieve', description: 'Retrieve and fetch stored information.' },
+      { label: 'Match', description: 'Match and find similar content.' },
+      { label: 'Monitor', description: 'Monitor and track content changes.' }
+    ]
+  },
+  {
+    label: 'Interact',
+    description: 'Actions related to interaction and communication.',
+    subCategories: [
+      { label: 'Dialogue', description: 'Engage in dialogue and conversation.' },
+      { label: 'Explain', description: 'Explain concepts and provide explanations.' },
+      { label: 'Teach', description: 'Teach and provide educational content.' },
+      { label: 'Coach', description: 'Coach and provide guidance.' }
+    ]
+  },
+  {
+    label: 'Emotion',
+    description: 'Actions related to emotional support and encouragement.',
+    subCategories: [
+      { label: 'Soothe', description: 'Provide comfort and soothing support.' },
+      { label: 'Encourage', description: 'Encourage and motivate users.' },
+      { label: 'Accompany', description: 'Accompany and provide companionship.' }
+    ]
+  },
+  {
+    label: 'Others',
+    description: 'Other actions not covered by the above categories.',
+    subCategories: []
+  }
+]
+

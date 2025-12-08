@@ -3,10 +3,15 @@
 import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 
+interface SubCategory {
+  label: string
+  description?: string // 二级筛选项的解释文案
+}
+
 interface Category {
   label: string
-  subCategories: string[]
-  description?: string // 二级筛选的解释文案
+  subCategories: (SubCategory | string)[] // 支持字符串数组或对象数组
+  description?: string // 一级筛选的解释文案
 }
 
 interface FilterDropdownProps {
@@ -29,8 +34,8 @@ export default function FilterDropdown({
   const [isOpen, setIsOpen] = useState(false)
   const [selectedValue, setSelectedValue] = useState(value || '')
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
-  const [delayedHoveredCategory, setDelayedHoveredCategory] = useState<string | null>(null)
-  const hoverTimeoutRef = useRef<NodeJS.Timeout | null>(null)
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null) // 点击的一级项
+  const [hoveredSubCategory, setHoveredSubCategory] = useState<string | null>(null) // hover的二级项
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)
   const firstLevelRef = useRef<HTMLDivElement>(null)
@@ -57,34 +62,14 @@ export default function FilterDropdown({
     }
   }, [isOpen, description])
 
-  // 延迟更新 hoveredCategory，避免快速移动时二级菜单消失
-  useEffect(() => {
-    if (hoverTimeoutRef.current) {
-      clearTimeout(hoverTimeoutRef.current)
-    }
-    
-    if (hoveredCategory) {
-      setDelayedHoveredCategory(hoveredCategory)
-    } else {
-      // 延迟清除，给用户时间移动到二级菜单
-      hoverTimeoutRef.current = setTimeout(() => {
-        setDelayedHoveredCategory(null)
-      }, 150)
-    }
-
-    return () => {
-      if (hoverTimeoutRef.current) {
-        clearTimeout(hoverTimeoutRef.current)
-      }
-    }
-  }, [hoveredCategory])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false)
         setHoveredCategory(null)
-        setDelayedHoveredCategory(null)
+        setSelectedCategory(null)
+        setHoveredSubCategory(null)
       }
     }
 
@@ -101,13 +86,28 @@ export default function FilterDropdown({
     setSelectedValue(option)
     setIsOpen(false)
     setHoveredCategory(null)
+    setSelectedCategory(null)
+    setHoveredSubCategory(null)
     onChange?.(option)
+  }
+
+  const handleCategoryClick = (categoryLabel: string) => {
+    // 点击一级项，切换二级菜单的显示
+    if (selectedCategory === categoryLabel) {
+      setSelectedCategory(null)
+      setHoveredSubCategory(null)
+    } else {
+      setSelectedCategory(categoryLabel)
+      setHoveredSubCategory(null)
+    }
   }
 
   const handleCategorySelect = (categoryLabel: string, subCategory: string) => {
     setSelectedValue(`${categoryLabel} / ${subCategory}`)
     setIsOpen(false)
     setHoveredCategory(null)
+    setSelectedCategory(null)
+    setHoveredSubCategory(null)
     onChange?.(subCategory)
   }
 
@@ -180,8 +180,8 @@ export default function FilterDropdown({
             <div style={{ position: 'relative', display: 'flex', width: '100%' }}>
               {/* 左侧 - 一级分类 */}
               <div ref={firstLevelRef} style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column' }}>
-                {/* 解释文字 - 显示在最上面 */}
-                {description && (
+                {/* 解释文字 - 显示在最上面，根据hover的一级项动态变化 */}
+                {(description || hoveredCategory) && (
                   <div style={{ 
                     padding: px(16),
                     borderBottom: `1px solid #E4E7ED`,
@@ -193,8 +193,15 @@ export default function FilterDropdown({
                     wordWrap: 'break-word',
                     whiteSpace: 'normal',
                     flexShrink: 0,
+                    height: px(18 * 3 + 32), // 固定高度：三行文字的高度 + 上下padding (16*2)
+                    display: 'flex',
+                    alignItems: 'flex-start', // 顶部对齐
+                    overflow: 'hidden', // 超出部分隐藏
                   }}>
-                    {description}
+                    {hoveredCategory 
+                      ? categories.find(c => c.label === hoveredCategory)?.description || description
+                      : description
+                    }
                   </div>
                 )}
                 
@@ -209,6 +216,10 @@ export default function FilterDropdown({
                     >
                       <div
                         className="cursor-pointer flex items-center justify-between"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          handleCategoryClick(category.label)
+                        }}
                         style={{
                           padding: `${px(12)} ${px(16)}`,
                           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -217,8 +228,8 @@ export default function FilterDropdown({
                           fontSize: px(16),
                           lineHeight: '100%',
                           letterSpacing: '0%',
-                          color: hoveredCategory === category.label ? '#FFFFFF' : '#252525',
-                          backgroundColor: hoveredCategory === category.label ? '#000000' : '#FFFFFF',
+                          color: (hoveredCategory === category.label || selectedCategory === category.label) ? '#FFFFFF' : '#252525',
+                          backgroundColor: (hoveredCategory === category.label || selectedCategory === category.label) ? '#000000' : '#FFFFFF',
                           borderBottom: index < categories.length - 1 ? `1px solid #E4E7ED` : 'none',
                         }}
                       >
@@ -232,39 +243,11 @@ export default function FilterDropdown({
                 </div>
               </div>
               
-              {/* 桥接区域 - 连接一级和二级菜单，防止鼠标移动时二级菜单消失 */}
-              {hoveredCategory && (
+              {/* 右侧 - 二级分类，点击一级项后显示 */}
+              {selectedCategory && categories.find(c => c.label === selectedCategory) && firstLevelHeight > 0 && (
                 <div
-                  onMouseEnter={() => {
-                    if (hoverTimeoutRef.current) {
-                      clearTimeout(hoverTimeoutRef.current)
-                    }
-                    setHoveredCategory(hoveredCategory)
-                    setDelayedHoveredCategory(hoveredCategory)
-                  }}
-                  style={{
-                    position: 'absolute',
-                    left: '100%',
-                    top: 0,
-                    width: px(4),
-                    height: firstLevelHeight || '100%',
-                    zIndex: 59,
-                  }}
-                />
-              )}
-              
-              {/* 右侧 - 二级分类，固定位置，顶部对齐 */}
-              {delayedHoveredCategory && categories.find(c => c.label === delayedHoveredCategory) && firstLevelHeight > 0 && (
-                <div
-                  onMouseEnter={() => {
-                    if (hoverTimeoutRef.current) {
-                      clearTimeout(hoverTimeoutRef.current)
-                    }
-                    setHoveredCategory(delayedHoveredCategory)
-                    setDelayedHoveredCategory(delayedHoveredCategory)
-                  }}
                   onMouseLeave={() => {
-                    setHoveredCategory(null)
+                    setHoveredSubCategory(null)
                   }}
                   style={{
                     position: 'absolute',
@@ -283,8 +266,8 @@ export default function FilterDropdown({
                     overflow: 'hidden',
                   }}
                 >
-                  {/* 二级筛选的解释文案 */}
-                  {categories.find(c => c.label === delayedHoveredCategory)?.description && (
+                  {/* 二级筛选的解释文案 - 根据hover的二级项动态变化 */}
+                  {selectedCategory && (
                     <div style={{ 
                       padding: px(16),
                       borderBottom: `1px solid #E4E7ED`,
@@ -296,8 +279,30 @@ export default function FilterDropdown({
                       wordWrap: 'break-word',
                       whiteSpace: 'normal',
                       flexShrink: 0,
+                      height: px(18 * 3 + 32), // 固定高度：三行文字的高度 + 上下padding (16*2)
+                      display: 'flex',
+                      alignItems: 'flex-start', // 顶部对齐
+                      overflow: 'hidden', // 超出部分隐藏
                     }}>
-                      {categories.find(c => c.label === delayedHoveredCategory)?.description}
+                      {hoveredSubCategory 
+                        ? (() => {
+                            const currentCategory = categories.find(c => c.label === selectedCategory)
+                            if (currentCategory) {
+                              const subCategoryItem = currentCategory.subCategories.find((sub: SubCategory | string) => {
+                                const subLabel = typeof sub === 'string' ? sub : sub.label
+                                return subLabel === hoveredSubCategory
+                              })
+                              // 如果二级项有独立的description，优先显示
+                              if (subCategoryItem && typeof subCategoryItem === 'object' && subCategoryItem.description) {
+                                return subCategoryItem.description
+                              }
+                              // 如果没有二级项的description，显示一级项的description
+                              return currentCategory?.description || description
+                            }
+                            return description
+                          })()
+                        : categories.find(c => c.label === selectedCategory)?.description || description
+                      }
                     </div>
                   )}
                   <div style={{
@@ -305,37 +310,42 @@ export default function FilterDropdown({
                     flex: 1,
                     minHeight: 0,
                   }}>
-                    {categories.find(c => c.label === delayedHoveredCategory)?.subCategories.map((subCategory, subIndex) => (
-                      <div
-                        key={subIndex}
-                        onClick={() => handleCategorySelect(delayedHoveredCategory, subCategory)}
-                        className="cursor-pointer"
-                        style={{
-                          padding: `${px(12)} ${px(16)}`,
-                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                          fontWeight: 300,
-                          fontStyle: 'normal',
-                          fontSize: px(16),
-                          lineHeight: '100%',
-                          letterSpacing: '0%',
-                          color: selectedValue === subCategory ? '#FFFFFF' : '#252525',
-                          backgroundColor: selectedValue === subCategory ? '#000000' : '#FFFFFF',
-                          borderBottom: `1px solid #E4E7ED`,
-                        }}
-                        onMouseEnter={(e) => {
-                          if (selectedValue !== subCategory) {
-                            e.currentTarget.style.backgroundColor = '#000000'
-                            e.currentTarget.style.color = '#FFFFFF'
-                          }
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = selectedValue === subCategory ? '#000000' : '#FFFFFF'
-                          e.currentTarget.style.color = selectedValue === subCategory ? '#FFFFFF' : '#000000'
-                        }}
-                      >
-                        {subCategory}
-                      </div>
-                    ))}
+                    {categories.find(c => c.label === selectedCategory)?.subCategories.map((subCategory, subIndex) => {
+                      const subLabel = typeof subCategory === 'string' ? subCategory : subCategory.label
+                      return (
+                        <div
+                          key={subIndex}
+                          onClick={() => handleCategorySelect(selectedCategory, subLabel)}
+                          className="cursor-pointer"
+                          style={{
+                            padding: `${px(12)} ${px(16)}`,
+                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                            fontWeight: 300,
+                            fontStyle: 'normal',
+                            fontSize: px(16),
+                            lineHeight: '100%',
+                            letterSpacing: '0%',
+                            color: (selectedValue === subLabel || hoveredSubCategory === subLabel) ? '#FFFFFF' : '#252525',
+                            backgroundColor: (selectedValue === subLabel || hoveredSubCategory === subLabel) ? '#000000' : '#FFFFFF',
+                            borderBottom: `1px solid #E4E7ED`,
+                          }}
+                          onMouseEnter={(e) => {
+                            setHoveredSubCategory(subLabel)
+                            if (selectedValue !== subLabel) {
+                              e.currentTarget.style.backgroundColor = '#000000'
+                              e.currentTarget.style.color = '#FFFFFF'
+                            }
+                          }}
+                          onMouseLeave={(e) => {
+                            setHoveredSubCategory(null)
+                            e.currentTarget.style.backgroundColor = selectedValue === subLabel ? '#000000' : '#FFFFFF'
+                            e.currentTarget.style.color = selectedValue === subLabel ? '#FFFFFF' : '#000000'
+                          }}
+                        >
+                          {subLabel}
+                        </div>
+                      )
+                    })}
                   </div>
                 </div>
               )}

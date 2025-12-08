@@ -2,7 +2,7 @@
 
 import { px } from '@/utils/pxToRem'
 import ContentCard from '@/components/TokenMarketplace/com/ContentCard'
-import { cardData } from '../data/cardData'
+import { cardData } from '../data/ContentCardListData'
 
 export default function ContentCardList() {
   // 每行显示2个卡片，根据 cardData 数组长度自动分组

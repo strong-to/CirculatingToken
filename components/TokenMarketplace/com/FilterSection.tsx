@@ -8,7 +8,7 @@ import {
   domainCategories,
   objectOptions,
   actionCategories
-} from '../data/filterData'
+} from '../data/FilterSectionData'
 
 export default function FilterSection() {
   return (

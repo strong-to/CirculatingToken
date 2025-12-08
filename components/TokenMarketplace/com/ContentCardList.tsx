@@ -12,7 +12,7 @@ export default function ContentCardList() {
   }
 
   return (
-    <>
+    <div style={{ paddingBottom: px(120) }}>
       {rows.map((rowCards, rowIndex) => (
         <div key={rowIndex} className='flex items-center ' style={{ width: '100%', paddingLeft: px(40), paddingRight: px(40), marginTop: px(15), gap: px(15) }}>
           {rowCards.map((cardDataItem, cardIndex) => (
@@ -20,6 +20,6 @@ export default function ContentCardList() {
           ))}
         </div>
       ))}
-    </>
+    </div>
   )
 }

@@ -110,7 +110,8 @@ export default function ContentCard({
           display: 'flex',
           justifyContent: 'space-between',
           opacity: (!isHovered && !isClicked) ? 1 : 0,
-          transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+          transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          minWidth: 0
         }}>
         <div className='flex  items-center ' style={{height:px(60)}}>
             <div style={{width:px(60) , height:'100%'}}>
@@ -145,12 +146,14 @@ export default function ContentCard({
 
          </div>
 
-         <div className='flex flex-col items-start justify-between' style={{color:'#FFFFFF',width:'100%',marginLeft:px(28)}}>
+         <div className='flex flex-col items-start justify-between' style={{color:'#FFFFFF',flex: 1, marginLeft:px(28), minWidth: 0}}>
 
        <div className='flex flex-col items-start'  style={{height:'100%'}}>
             {initial.descriptions.map((desc, index) => (
               <div key={index} className='flex items-start justify-start whitespace-nowrap' style={{
                 width: '100%',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
                 fontStyle: 'normal',
@@ -197,7 +200,8 @@ export default function ContentCard({
           display: 'flex',
           justifyContent: 'space-between',
           opacity: (isHovered && !isClicked) ? 1 : 0,
-          transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+          transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          minWidth: 0
         }}>
         <div className='flex  items-center ' style={{height:px(60)}}>
             <div style={{width:px(60) , height:'100%'}}>
@@ -232,11 +236,13 @@ export default function ContentCard({
 
          </div>
 
-         <div className='flex flex-col items-start justify-between' style={{color:'#FFFFFF',width:'100%',marginLeft:px(28)}}>
+         <div className='flex flex-col items-start justify-between' style={{color:'#FFFFFF',flex: 1, marginLeft:px(28), minWidth: 0}}>
          <div className='flex flex-col items-start'  style={{height:'100%'}}>
             {hover.descriptions.map((desc, index) => (
               <div key={index} className='flex items-start justify-start whitespace-nowrap' style={{
                 width: '100%',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
                 fontStyle: 'normal',
@@ -292,7 +298,8 @@ export default function ContentCard({
           display: 'flex',
           justifyContent: 'space-between',
           opacity: isClicked ? 1 : 0,
-          transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+          transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          minWidth: 0
         }}>
         <div className='flex  items-center ' style={{height:px(60)}}>
             <div style={{width:px(60) , height:'100%'}}>
@@ -327,7 +334,7 @@ export default function ContentCard({
 
          </div>
 
-         <div className='flex  items-center justify-between' style={{color:'#FFFFFF',width:'100%',marginLeft:px(28),height:px(60)}}>
+         <div className='flex  items-center justify-between' style={{color:'#FFFFFF',flex: 1, marginLeft:px(28), minWidth: 0, height:px(60)}}>
            {clicked.dataCards.map((card, index) => {
              const buttonKey = `clicked_${index}`
              return (

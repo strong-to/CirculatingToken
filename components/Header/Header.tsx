@@ -33,10 +33,13 @@ export default function Header() {
                 href = '/'
               } else if (item === 'Launchpad') {
                 href = '/Launchpad'
+              } else if (item === 'Token Marketplace') {
+                href = '/TokenMarketplace'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
-                               (item === 'Launchpad' && pathname === '/Launchpad')
+                               (item === 'Launchpad' && pathname === '/Launchpad') ||
+                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace')
               
               if (href === '#') {
                 return (
@@ -160,10 +163,13 @@ export default function Header() {
                 href = '/'
               } else if (item === 'Launchpad') {
                 href = '/Launchpad'
+              } else if (item === 'Token Marketplace') {
+                href = '/TokenMarketplace'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
-                               (item === 'Launchpad' && pathname === '/Launchpad')
+                               (item === 'Launchpad' && pathname === '/Launchpad') ||
+                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace')
               
               if (href === '#') {
                 return (

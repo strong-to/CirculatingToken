@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import BlueSquareCard from '@/components/Home/com/LetEveryShare/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/CollapsiblePanelContent'
@@ -11,12 +11,28 @@ import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icon
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
+import 'swiper/css/navigation'
 
 export default function LetEveryShare() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [isWindows, setIsWindows] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 22.7 // 1.41875rem = 22.7px
+
+  // 检测操作系统
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const platform = navigator.platform.toLowerCase()
+      const userAgent = navigator.userAgent.toLowerCase()
+      // 检测 Windows 系统
+      const isWindowsOS = platform.includes('win') || userAgent.includes('windows')
+      setIsWindows(isWindowsOS)
+    }
+  }, [])
 
   return ( 
     <section className="bg-white flex flex-col min-h-[calc(100vh-5.5625rem)]">
@@ -195,13 +211,80 @@ export default function LetEveryShare() {
             </button>
           </div>
 
-          <div className="relative">
+          <div 
+            className="relative"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {/* 左箭头按钮 - 只在 Windows 系统且鼠标悬浮时显示 */}
+            {isWindows && isHovered && (
+              <button
+                onClick={() => swiperRef.current?.slidePrev()}
+                className="absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                style={{
+                  left: px(10),
+                  width: px(60),
+                  height: px(60),
+                  backgroundColor: '#3d4347',
+                  borderRadius: '50%',
+                }}
+                aria-label="Previous slide"
+              >
+                <svg 
+                  width="14" 
+                  height="30" 
+                  viewBox="0 0 14 30" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ marginLeft: px(-2) }}
+                >
+                  <mask id="path-1-inside-1_2241_2422-let" fill="white">
+                    <path d="M16 32L0 16.0001L16 0"/>
+                  </mask>
+                  <path d="M0 16.0001L-1.41422 14.5858L-2.82843 16.0001L-1.41421 17.4143L0 16.0001ZM16 32L17.4142 30.5858L1.41421 14.5858L0 16.0001L-1.41421 17.4143L14.5858 33.4142L16 32ZM0 16.0001L1.41422 17.4143L17.4142 1.41421L16 0L14.5858 -1.41421L-1.41422 14.5858L0 16.0001Z" fill="white" mask="url(#path-1-inside-1_2241_2422-let)"/>
+                </svg>
+              </button>
+            )}
+
+            {/* 右箭头按钮 - 只在 Windows 系统且鼠标悬浮时显示 */}
+            {isWindows && isHovered && (
+              <button
+                onClick={() => swiperRef.current?.slideNext()}
+                className="absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
+                style={{
+                  right: px(10),
+                  width: px(60),
+                  height: px(60),
+                  backgroundColor: '#3d4347',
+                  borderRadius: '50%',
+                }}
+                aria-label="Next slide"
+              >
+                <svg 
+                  width="14" 
+                  height="30" 
+                  viewBox="0 0 14 30" 
+                  fill="none" 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  style={{ transform: 'rotate(180deg)', marginRight: px(-2) }}
+                >
+                  <mask id="path-1-inside-1_2241_2422-let-right" fill="white">
+                    <path d="M16 32L0 16.0001L16 0"/>
+                  </mask>
+                  <path d="M0 16.0001L-1.41422 14.5858L-2.82843 16.0001L-1.41421 17.4143L0 16.0001ZM16 32L17.4142 30.5858L1.41421 14.5858L0 16.0001L-1.41421 17.4143L14.5858 33.4142L16 32ZM0 16.0001L1.41422 17.4143L17.4142 1.41421L16 0L14.5858 -1.41421L-1.41422 14.5858L0 16.0001Z" fill="white" mask="url(#path-1-inside-1_2241_2422-let-right)"/>
+                </svg>
+              </button>
+            )}
+
             <Swiper
               modules={[Navigation]}
               spaceBetween={gap}
               loop={true}
               grabCursor={true}
               watchSlidesProgress={true}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+              }}
               breakpoints={{
                 0: {
                   slidesPerView: 1,

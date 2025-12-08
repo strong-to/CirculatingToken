@@ -1554,8 +1554,31 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
        </div>
       </div>
 
-
-     
+      {/* 底部 Enter 按钮 */}
+      <div className="flex items-center justify-center" style={{ marginTop: px(60), marginRight: px(290) }}>
+        <button
+          className="cursor-pointer"
+          onClick={onEnter}
+          style={{
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 300,
+            fontStyle: 'normal',
+            fontSize: px(16),
+            lineHeight: '100%',
+            letterSpacing: '0%',
+            width: px(200),
+            height: px(50),
+            backgroundColor: '#000000',
+            borderRadius: px(4),
+            color: '#FFFFFF',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+        >
+          Enter
+        </button>
+      </div>
 
       </div>
     </div>

@@ -7,6 +7,8 @@ import InitialContent from './ChatContent/InitialContent'
 import HoverContent from './ChatContent/HoverContent'
 import ClickedContent from './ChatContent/ClickedContent'
 import { chatContentImages } from './ChatContent/resources'
+import { chatContentData } from '../data/ChatContentData'
+
 export default function ChatContent() {
   const pathname = usePathname()
   const [hoveredButtons, setHoveredButtons] = useState<Record<string, boolean>>({})
@@ -40,6 +42,19 @@ export default function ChatContent() {
 
   const handleCardMouseLeave = (index: number) => {
     const currentState = cardStates[index]
+    
+    // 清除该卡片所有按钮的 hover 状态
+    const cardData = chatContentData[index]
+    if (cardData) {
+      cardData.buttons.forEach(buttonName => {
+        setHoveredButtons(prev => {
+          const newState = { ...prev }
+          delete newState[`${index}-${buttonName}`]
+          return newState
+        })
+      })
+    }
+    
     if (currentState?.isClicked) {
       // 如果已点击，鼠标移出时重置为初始化状态
       setCardStates(prev => ({

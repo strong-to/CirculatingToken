@@ -16,8 +16,8 @@ export default function Home() {
       {/* 图片预加载组件 - 在首页加载完成后预加载所有图片 */}
       <ImagePreloader />
       
-      {/* Title 盒子 - 固定高度 89px */}
-      <div className="flex-shrink-0">
+      {/* Title 盒子 - 固定高度 72px */}
+      <div>
         <Header />
       </div>
       

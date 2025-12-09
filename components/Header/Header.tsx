@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import Logo from '@/components/Header/com/Logo'
 import { px } from '@/utils/pxToRem'
 import { images } from './resources'
 export default function Header() {
@@ -20,11 +19,21 @@ export default function Header() {
   ]
 
   return (
-    <header className="w-full h-full bg-background-primary flex flex-col border-b border-[#B5B5B5]">
-      <div className="container-responsive flex-1">
-        <div className="h-title flex items-center " style={{ height: px(120) }}>
+    <header className="w-full h-full bg-background-primary flex flex-col border-b border-[#B5B5B5]" >
+      <div className="flex-1" style={{ height: px(72) , paddingLeft: px(70) , paddingRight: px(70) }}>
+        <div className="h-title flex items-center " style={{ height: px(72) }}>
           {/* Logo */}
-          <Logo />
+          <Image
+            src="/header/img/logo.png"
+            alt="Logo"
+            width={60}
+            height={60}
+            priority
+            style={{
+              width: px(60),
+              height: px(60),
+            }}
+          />
 
           {/* Navigation - 桌面端显示，左右间距 56px，中间均分 */}
           <nav className="hidden md:flex items-center justify-between flex-1 whitespace-nowrap" style={{ marginLeft: '3.5rem', marginRight: '9.125rem' }}> {/* 56px, 146px */}

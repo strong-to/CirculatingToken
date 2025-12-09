@@ -113,7 +113,7 @@ export default function ContentCard({
           transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           minWidth: 0
         }}>
-        <div className='flex  items-center ' style={{height:px(60)}}>
+        <div className='flex  items-center ' style={{height:px(60),width:px(215)}}>
             <div style={{width:px(60) , height:'100%'}}>
               <Image
                 src={initial.icon}
@@ -167,26 +167,29 @@ export default function ContentCard({
             ))}
        </div>
            
-             <div className='flex items-center justify-end' style={{width:'100%',height:px(16), gap: px(6)}}>
+             <div className='flex items-center justify-end' style={{width:'100%',height:px(24), gap: px(6)}}>
                  {initial.buttons.map((buttonText, index) => (
-                   <div key={index} style={{
-                     height:px(16),
+                   <div key={index}
+                   className='whitespace-nowrap'
+                    style={{
+                    height:px(24),
                      paddingTop:px(1),
-                     paddingLeft: px(12),
-                     paddingRight: px(12),
+                     paddingLeft: px(4),
+                     paddingRight: px(4),
                      border: '0.5px solid #FFFFFF',
                      backgroundColor: 'transparent',
                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                      fontWeight: 300,
                      fontStyle: 'normal',
-                     fontSize: px(10),
+                     fontSize: px(14),
                      letterSpacing: '0%',
                      textAlign: 'center',
                      color: '#FFFFFF',
                      display: 'flex',
                      alignItems: 'center',
                      justifyContent: 'center',
-                     borderRadius: px(2)
+                     borderRadius: px(2),
+                     flex: 1  // 让每个按钮平均分配宽度，撑满父盒子
                    }}>{buttonText}</div>
                  ))}
              </div>
@@ -203,7 +206,7 @@ export default function ContentCard({
           transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           minWidth: 0
         }}>
-        <div className='flex  items-center ' style={{height:px(60)}}>
+        <div className='flex  items-center ' style={{height:px(60),width:px(215)}}>
             <div style={{width:px(60) , height:'100%'}}>
               <Image
                 src={hover.icon}
@@ -255,25 +258,26 @@ export default function ContentCard({
               </div>
             ))}
        </div>
-             <div className='flex items-center justify-end' style={{width:'100%',height:px(16), gap: px(6)}}>
+             <div className='flex items-center justify-end' style={{width:'100%',height:px(24), gap: px(6)}}>
                  {hover.buttons.map((buttonText, index) => {
                    const buttonKey = `hover_${index}`
                    return (
                      <div 
+                     className='whitespace-nowrap'
                        key={index}
                        onMouseEnter={() => setButtonHovered({...buttonHovered, [buttonKey]: true})}
                        onMouseLeave={() => setButtonHovered({...buttonHovered, [buttonKey]: false})}
                        style={{
-                         height:px(16),
+                         height:px(24),
                          paddingTop:px(1),
-                         paddingLeft: px(12),
-                         paddingRight: px(12),
+                         paddingLeft: px(4),
+                         paddingRight: px(4),
                          border: '0.5px solid #FFFFFF',
                          backgroundColor: buttonHovered[buttonKey] ? '#FFFFFF' : 'transparent',
                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                          fontWeight: 300,
                          fontStyle: 'normal',
-                         fontSize: px(10),
+                         fontSize: px(14),
                          letterSpacing: '0%',
                          textAlign: 'center',
                          color: buttonHovered[buttonKey] ? '#000000' : '#FFFFFF',
@@ -282,7 +286,8 @@ export default function ContentCard({
                          justifyContent: 'center',
                          borderRadius: px(2),
                          cursor: 'pointer',
-                         transition: 'background-color 0.3s ease, color 0.3s ease'
+                         transition: 'background-color 0.3s ease, color 0.3s ease',
+                         flex: 1  // 让每个按钮平均分配宽度，撑满父盒子
                        }}>{buttonText}</div>
                    )
                  })}

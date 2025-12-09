@@ -6,7 +6,7 @@ export default function Launchpad() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       {/* Title 盒子 - 固定高度 89px */}
-      <div className="flex-shrink-0" style={{ height: '5.5625rem' }}> {/* 89px */}
+      <div> {/* 89px */}
         <Header />
       </div>
       

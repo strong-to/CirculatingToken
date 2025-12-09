@@ -33,7 +33,7 @@ export default function WhereUsingBecomes() {
   }, [])
 
   return ( 
-    <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-5.5625rem)]">
+    <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]">
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
         <div className="flex items-start justify-between gap-8">
           <div className="space-y-4  ">

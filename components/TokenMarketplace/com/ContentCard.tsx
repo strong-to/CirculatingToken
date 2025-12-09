@@ -265,8 +265,8 @@ export default function ContentCard({
                      <div 
                      className='whitespace-nowrap'
                        key={index}
-                       onMouseEnter={() => setButtonHovered({...buttonHovered, [buttonKey]: true})}
-                       onMouseLeave={() => setButtonHovered({...buttonHovered, [buttonKey]: false})}
+                       onMouseEnter={() => setButtonHovered(prev => ({...prev, [buttonKey]: true}))}
+                       onMouseLeave={() => setButtonHovered(prev => ({...prev, [buttonKey]: false}))}
                        style={{
                          height:px(24),
                          paddingTop:px(1),
@@ -383,8 +383,8 @@ export default function ContentCard({
                  )}
                  <div 
                    className='flex items-center justify-center' 
-                   onMouseEnter={() => setButtonHovered({...buttonHovered, [buttonKey]: true})}
-                   onMouseLeave={() => setButtonHovered({...buttonHovered, [buttonKey]: false})}
+                   onMouseEnter={() => setButtonHovered(prev => ({...prev, [buttonKey]: true}))}
+                   onMouseLeave={() => setButtonHovered(prev => ({...prev, [buttonKey]: false}))}
                    style={{
                      width: px(88),
                      height:px(22),

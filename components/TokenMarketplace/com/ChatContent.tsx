@@ -113,28 +113,27 @@ export default function ChatContent() {
               overflow: 'hidden',
               transition: 'background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
               willChange: 'background-color',
+              position: 'relative',
             }}
             onMouseEnter={() => handleCardMouseEnter(index)}
             onMouseLeave={() => handleCardMouseLeave(index)}
             onClick={(e) => handleCardClick(index, e)}
           >
-            {/* 根据状态渲染不同的内容组件 */}
-            {isClicked ? (
-              <ClickedContent
-                cardIndex={index}
-                hoveredButtons={hoveredButtons}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-              />
-            ) : isHovered ? (
-              <HoverContent
-                cardIndex={index}
-                hoveredButtons={hoveredButtons}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                onButtonClick={handleButtonClick}
-              />
-            ) : (
+            {/* 使用绝对定位和透明度实现平滑过渡 */}
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                padding: px(20),
+                opacity: isClicked ? 0 : isHovered ? 0 : 1,
+                pointerEvents: isClicked ? 'none' : isHovered ? 'none' : 'auto',
+                transition: 'opacity 0.4s ease-in-out',
+                willChange: 'opacity',
+              }}
+            >
               <InitialContent
                 cardIndex={index}
                 imageSrc={imageSrc}
@@ -143,7 +142,52 @@ export default function ChatContent() {
                 onMouseLeave={handleMouseLeave}
                 onButtonClick={handleButtonClick}
               />
-            )}
+            </div>
+
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                padding: px(20),
+                opacity: isClicked ? 0 : isHovered ? 1 : 0,
+                pointerEvents: isClicked ? 'none' : isHovered ? 'auto' : 'none',
+                transition: 'opacity 0.4s ease-in-out',
+                willChange: 'opacity',
+              }}
+            >
+              <HoverContent
+                cardIndex={index}
+                hoveredButtons={hoveredButtons}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                onButtonClick={handleButtonClick}
+              />
+            </div>
+
+            <div
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                padding: px(20),
+                opacity: isClicked ? 1 : 0,
+                pointerEvents: isClicked ? 'auto' : 'none',
+                transition: 'opacity 0.4s ease-in-out',
+                willChange: 'opacity',
+              }}
+            >
+              <ClickedContent
+                cardIndex={index}
+                hoveredButtons={hoveredButtons}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              />
+            </div>
 
           </div>
           )

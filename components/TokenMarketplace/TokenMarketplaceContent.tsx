@@ -13,7 +13,7 @@ export default function TokenMarketplaceContent() {
 
   return (
     <>
-      {viewMode !== 'List' ? (
+      {viewMode === 'List' ? (
         <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide smooth-scroll" style={{ paddingLeft: px(240), paddingRight: px(240) }}>
           <TokenImages />
           {/* 筛选框 */}

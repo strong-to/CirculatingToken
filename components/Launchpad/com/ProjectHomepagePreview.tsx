@@ -89,7 +89,7 @@ export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePrevi
               >
                 <div style={{ width: '100%', height: '100%', borderRadius: px(4), overflow: 'hidden' }}>
                   <Image
-                    src={`/images/Launchpad/ProjectHomepagPreview/${imageName}`}
+                    src={`/launchpad/ProjectHomepagePreview/img/${imageName}`}
                     alt={`Preview ${index + 1}`}
                     width={400}
                     height={400}

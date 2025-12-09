@@ -62,7 +62,7 @@ export default function LogoPromotionalMaterials({
           >
             <div style={{ width: px(50), height: px(50) }}>
             <Image
-              src="/images/Launchpad/logo.png"
+              src="/launchpad/LogoPromotionalMaterials/img/logo.png"
               alt="Logo 1"
               width={100}
               height={100}
@@ -82,7 +82,7 @@ export default function LogoPromotionalMaterials({
             }}
           >
             <Image
-              src="/images/Launchpad/Mask1.png"
+              src="/launchpad/LogoPromotionalMaterials/img/Mask1.png"
               alt="Logo 2"
               width={100}
               height={100}
@@ -100,7 +100,7 @@ export default function LogoPromotionalMaterials({
             }}
           >
             <Image
-              src="/images/Launchpad/Mask2.png"
+              src="/launchpad/LogoPromotionalMaterials/img/Mask2.png"
               alt="Logo 3"
               width={100}
               height={100}
@@ -118,7 +118,7 @@ export default function LogoPromotionalMaterials({
             }}
           >
             <Image
-              src="/images/Launchpad/Mask3.png"
+              src="/launchpad/LogoPromotionalMaterials/img/Mask3.png"
               alt="Logo 4"
               width={100}
               height={100}
@@ -136,7 +136,7 @@ export default function LogoPromotionalMaterials({
             }}
           >
             <Image
-              src="/images/Launchpad/Mask4.png"
+              src="/launchpad/LogoPromotionalMaterials/img/Mask4.png"
               alt="Logo 5"
               width={100}
               height={100}
@@ -154,7 +154,7 @@ export default function LogoPromotionalMaterials({
             }}
           >
             <Image
-              src="/images/Launchpad/Mask5.png"
+              src="/launchpad/LogoPromotionalMaterials/img/Mask5.png"
               alt="Logo 6"
               width={100}
               height={100}

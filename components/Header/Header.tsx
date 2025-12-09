@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import Logo from '@/components/Header/com/Logo'
 import { px } from '@/utils/pxToRem'
+import { images } from './resources'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -96,7 +97,7 @@ export default function Header() {
               aria-label="Search"
             >
               <Image
-                src="/images/title/search.png"
+                src={images.search}
                 alt="Search"
                 width={24}
                 height={24}
@@ -110,7 +111,7 @@ export default function Header() {
               aria-label="Language"
             >
               <Image
-                src="/images/title/language.png"
+                src={images.language}
                 alt="Language"
                 width={24}
                 height={24}
@@ -125,7 +126,7 @@ export default function Header() {
               aria-label="Menu"
             >
               <Image
-                src="/images/title/Group.png"
+                src={images.menu}
                 alt="Menu"
                 width={24}
                 height={24}
@@ -139,7 +140,7 @@ export default function Header() {
               aria-label="User"
             >
               <Image
-                src="/images/title/user.png"
+                src={images.user}
                 alt="User"
                 width={24}
                 height={24}

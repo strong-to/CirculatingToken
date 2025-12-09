@@ -4,13 +4,15 @@ import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
 
+import { images } from './resources'
+
 export default function FooterLogo() {
   const logos = [
-    { src: '/images/InstitutionalGrade/asterisk.png', alt: 'Asterisk' },
-    { src: '/images/InstitutionalGrade/books.png', alt: 'Books' },
-    { src: '/images/InstitutionalGrade/opal.png', alt: 'Opal' },
-    { src: '/images/InstitutionalGrade/dune.png', alt: 'Dune' },
-    { src: '/images/InstitutionalGrade/oas.png', alt: 'Oas' },
+    { src: images.footerLogo.asterisk, alt: 'Asterisk' },
+    { src: images.footerLogo.books, alt: 'Books' },
+    { src: images.footerLogo.opal, alt: 'Opal' },
+    { src: images.footerLogo.dune, alt: 'Dune' },
+    { src: images.footerLogo.oas, alt: 'Oas' },
   ]
 
   const containerRef = useRef<HTMLDivElement>(null)

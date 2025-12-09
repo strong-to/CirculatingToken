@@ -66,7 +66,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               style={{ width: px(60), height: px(60) }}
             >
               <Image
-                src="/images/home/icon/sword.png"
+                src="/home/icons/img/sword.png"
                 alt="games"
                 fill
                 className="object-contain"
@@ -112,7 +112,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             style={{ width: px(24), height: px(24) }}
           >
             <Image
-              src="/images/Investing/arr.png"
+              src="/home/icons/img/arr.png"
               alt="arrow"
               width={24}
               height={24}
@@ -221,7 +221,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               style={{ width: px(60), height: px(60),marginRight: px(15) }}
             >
               <Image
-                src="/images/home/icon/sword.png"
+                src="/home/icons/img/sword.png"
                 alt="games"
                 fill
                 className="object-contain"

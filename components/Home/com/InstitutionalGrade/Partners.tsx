@@ -7,7 +7,7 @@ export default function Partners() {
     <section className="w-full h-full flex items-center bg-background-primary border-t border-gray-100">
       <div className="w-full">
         <Image
-          src="/images/DEEPBLUE/foot.png"
+          src="/home/InstitutionalGrade/img/DEEPBLUE/foot.png"
           alt="Partners"
           width={800}
           height={243}

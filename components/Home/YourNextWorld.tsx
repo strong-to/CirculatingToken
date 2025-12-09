@@ -6,6 +6,7 @@ import BlueSquareCard from '@/components/Home/com/YourNextWorld/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/YourNextWorld/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+import { images, texts } from '@/components/Home/com/YourNextWorld/resources'
 
 import { px } from '@/utils/pxToRem'
 
@@ -28,7 +29,7 @@ export default function  YourNextWorld() {
                 letterSpacing: '0%'
               }}
             >
-             Your Next World-Changing Idea Starts Here
+             {texts.mainTitle}
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
@@ -49,7 +50,7 @@ export default function  YourNextWorld() {
                 borderRadius: '0.25rem' // 4px
               }}
             >
-              View More
+              {texts.buttonViewMore}
             </button>
 
             {/* 折叠面板按钮 - 添加动画 */}
@@ -61,7 +62,7 @@ export default function  YourNextWorld() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Launch Your AI Project and Earn</span>
+              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >{texts.buttonLaunchProject}</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -173,30 +174,30 @@ export default function  YourNextWorld() {
             
              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
             {/* <BlueSquareCard
-              src="/images/BuildWithThe/Investing1.png"
+              src={images.games}
               alt="Investing card 3"
             /> */}
             <div className="relative overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: px(4), aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/YourNextWorld/img_datasets.png"
-                alt="Datasets"
+                src={images.datasets}
+                alt={texts.cardDatasets}
                 fill
                 className="object-cover"
                 priority
               />
-              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Datasets</div>
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardDatasets}</div>
             </div>
            
            
             <div className="relative overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/YourNextWorld/img_compute_paool.png"
-                alt="Compute Pool"
+                src={images.computePool}
+                alt={texts.cardComputePool}
                 fill
                 className="object-cover"
                 priority
               />
-              <div className='text-[#000000] relative z-10' style={{fontSize:px(25)}}>Compute Pool</div>
+              <div className='text-[#000000] relative z-10' style={{fontSize:px(25)}}>{texts.cardComputePool}</div>
             </div>
 
 
@@ -204,34 +205,34 @@ export default function  YourNextWorld() {
             
             <div className="relative overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/YourNextWorld/img_foundational_models.png"
-                alt="Foundational Models"
+                src={images.foundationalModels}
+                alt={texts.cardFoundationalModels}
                 fill
                 className="object-cover"
                 priority
               />
-              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Foundational Models</div>
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardFoundationalModels}</div>
             </div>
            
             <div className="relative overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/YourNextWorld/img_workflows.png"
-                alt="Workflows"
+                src={images.workflows}
+                alt={texts.cardWorkflows}
                 fill
                 className="object-cover"
                 priority
               />
-              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>Workflows</div>
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardWorkflows}</div>
             </div>
             <div className="relative overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
               <Image
-                src="/images/YourNextWorld/img_ai_agents.png"
-                alt="AI Agents"
+                src={images.aiAgents}
+                alt={texts.cardAiAgents}
                 fill
                 className="object-cover"
                 priority
               />
-              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>AI Agents</div>
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardAiAgents}</div>
             </div>
           </div>
 

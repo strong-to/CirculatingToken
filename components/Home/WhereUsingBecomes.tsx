@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from 'react'
 import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/UseCaseSection/CollapsiblePanelContent'
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
+import { images } from '@/components/Home/com/WhereUsingBecomes/resources'
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
@@ -281,7 +282,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing1.png"
+                    src={images.investing1}
                     alt="Investing card 1"
                   />
                 </div>
@@ -289,7 +290,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing2.png"
+                    src={images.investing2}
                     alt="Investing card 2"
                   />
                 </div>
@@ -298,7 +299,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing3.png"
+                    src={images.investing3}
                     alt="Investing card 3"
                   />
                 </div>
@@ -308,7 +309,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing4.png"
+                    src={images.investing4}
                     alt="Investing card 4"
                   />
                 </div>
@@ -316,7 +317,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing5.png"
+                    src={images.investing5}
                     alt="Investing card 5"
                   />
                 </div>
@@ -326,7 +327,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing1.png"
+                    src={images.investing1}
                     alt="Investing card 1"
                   />
                 </div>
@@ -334,7 +335,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing2.png"
+                    src={images.investing2}
                     alt="Investing card 2"
                   />
                 </div>
@@ -342,7 +343,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing3.png"
+                    src={images.investing3}
                     alt="Investing card 3"
                   />
                 </div>
@@ -350,7 +351,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing4.png"
+                    src={images.investing4}
                     alt="Investing card 4"
                   />
                 </div>
@@ -358,7 +359,7 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/Investing/Investing5.png"
+                    src={images.investing5}
                     alt="Investing card 5"
                   />
                 </div>

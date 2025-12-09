@@ -1,6 +1,7 @@
 'use client'
 
 import { px } from '@/utils/pxToRem'
+import { texts } from './resources'
 
 export default function MainTitle() {
   return (
@@ -21,7 +22,7 @@ export default function MainTitle() {
           wordBreak: 'break-word'
         }}
       >
-        Institutional-Grade Finance,
+        {texts.mainTitle.line1}
       </div>
       <div 
         className="font-light leading-[100%] text-black break-words cursor-pointer" 
@@ -32,7 +33,7 @@ export default function MainTitle() {
           wordBreak: 'break-word'
         }}
       >
-        Reimagined for Everyone
+        {texts.mainTitle.line2}
       </div>
     </div>
   )

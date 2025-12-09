@@ -7,6 +7,7 @@ import BlueSquareCard from '@/components/Home/com/LetEveryShare/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+import { images, texts } from '@/components/Home/com/LetEveryShare/resources'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -50,7 +51,7 @@ export default function LetEveryShare() {
                 letterSpacing: '0%'
               }}
             >
-              Let Every Share Come With Joy
+              {texts.mainTitle}
             </div>
           </div>
           <div className="flex flex-col items-end gap-4">
@@ -170,7 +171,7 @@ export default function LetEveryShare() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <span style={{ marginRight: '0.625rem' }}>{texts.linkLearnMore}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -301,7 +302,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing1.png"
+                    src={images.investing1}
                     alt="Investing card 1"
                   />
                 </div>
@@ -309,7 +310,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing2.png"
+                    src={images.investing2}
                     alt="Investing card 2"
                   />
                 </div>
@@ -317,7 +318,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing3.png"
+                    src={images.investing3}
                     alt="Investing card 3"
                   />
                 </div>
@@ -325,7 +326,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing4.png"
+                    src={images.investing4}
                     alt="Investing card 4"
                   />
                 </div>
@@ -333,7 +334,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing5.png"
+                    src={images.investing5}
                     alt="Investing card 5"
                   />
                 </div>
@@ -343,7 +344,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing1.png"
+                    src={images.investing1}
                     alt="Investing card 1"
                   />
                 </div>
@@ -351,7 +352,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing2.png"
+                    src={images.investing2}
                     alt="Investing card 2"
                   />
                 </div>
@@ -359,7 +360,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing3.png"
+                    src={images.investing3}
                     alt="Investing card 3"
                   />
                 </div>
@@ -367,7 +368,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing4.png"
+                    src={images.investing4}
                     alt="Investing card 4"
                   />
                 </div>
@@ -375,7 +376,7 @@ export default function LetEveryShare() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src="/images/LetEveryShare/Investing5.png"
+                    src={images.investing5}
                     alt="Investing card 5"
                   />
                 </div>

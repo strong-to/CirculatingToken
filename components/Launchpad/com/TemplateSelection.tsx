@@ -173,7 +173,7 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
           />
           <div className="absolute" style={{ left: px(12), top: '50%', transform: 'translateY(-50%)' }}>
             <Image
-              src="/images/title/search.png"
+              src="/header/img/search.png"
               alt="Search"
               width={18}
               height={18}
@@ -222,7 +222,7 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
                 }}
               >
                 <Image
-                  src={`/images/Launchpad/TemplateSelection/${imageName}`}
+                  src={`/launchpad/TemplateSelection/img/${imageName}`}
                   alt={`Template ${index + 1}`}
                   width={214}
                   height={214}

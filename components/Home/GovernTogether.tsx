@@ -6,7 +6,7 @@ import Image from 'next/image'
 import CollapsiblePanelContent from '@/components/Home/com/GovernTogether/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-
+import { images } from '@/components/Home/com/GovernTogether/resources'
 
 import { px } from '@/utils/pxToRem'
 
@@ -173,7 +173,7 @@ export default function  GovernTogether() {
       {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
       <div className="w-full relative" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden' }}> {/* 22.7px */}
         <Image
-          src="/images/GovernTogether/bgc.png"
+          src={images.background}
           alt="Background"
           fill
           className="object-cover"

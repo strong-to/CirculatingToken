@@ -48,7 +48,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
                 <Image 
-                  src="/images/Investing/games.png" 
+                  src="/home/icons/img/games.png" 
                   alt="games" 
                   fill 
                   className={styles.iconImage}
@@ -65,7 +65,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
                 </div>
               </div>
               <div className="h-full">
-                {/* <Image src="/images/Investing/arr.png" alt="arrow" width={24} height={24} /> */}
+                {/* <Image src="/home/icons/img/arr.png" alt="arrow" width={24} height={24} /> */}
               </div>
             </div>
 
@@ -152,7 +152,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
                 <Image 
-                  src="/images/Investing/games.png" 
+                  src="/home/icons/img/games.png" 
                   alt="games" 
                   fill 
                   className={styles.iconImage}
@@ -169,7 +169,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
                 </div>
               </div>
               <div className="h-full">
-                <Image src="/images/Investing/arr.png" alt="arrow" width={24} height={24} />
+                <Image src="/home/icons/img/arr.png" alt="arrow" width={24} height={24} />
               </div>
             </div>
 

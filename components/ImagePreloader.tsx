@@ -10,101 +10,107 @@ export default function ImagePreloader() {
   useEffect(() => {
     // 等待首屏加载完成后再预加载
     const preloadImages = () => {
-      // 首页图片列表
+      // 首页图片列表（使用新的 public 目录结构）
       const homeImages = [
-        // InstitutionalGrade
-        '/images/InstitutionalGrade/asterisk.png',
-        '/images/InstitutionalGrade/books.png',
-        '/images/InstitutionalGrade/opal.png',
-        '/images/InstitutionalGrade/dune.png',
-        '/images/InstitutionalGrade/oas.png',
-        '/images/DEEPBLUE/foot.png',
+        // InstitutionalGrade / FooterLogo
+        '/home/FooterLogo/img/asterisk.png',
+        '/home/FooterLogo/img/books.png',
+        '/home/FooterLogo/img/opal.png',
+        '/home/FooterLogo/img/dune.png',
+        '/home/FooterLogo/img/oas.png',
+        '/home/InstitutionalGrade/img/DEEPBLUE/foot.png',
         
         // WhereUsingBecomes
-        '/images/Investing/Investing1.png',
-        '/images/Investing/Investing2.png',
-        '/images/Investing/Investing3.png',
-        '/images/Investing/Investing4.png',
-        '/images/Investing/Investing5.png',
-        '/images/Investing/games.png',
-        '/images/Investing/arr.png',
+        '/home/WhereUsingBecomes/img/Investing1.png',
+        '/home/WhereUsingBecomes/img/Investing2.png',
+        '/home/WhereUsingBecomes/img/Investing3.png',
+        '/home/WhereUsingBecomes/img/Investing4.png',
+        '/home/WhereUsingBecomes/img/Investing5.png',
+        '/home/WhereUsingBecomes/img/games.png',
+        '/home/WhereUsingBecomes/img/arr.png',
         
         // LetEveryShare
-        '/images/LetEveryShare/Investing1.png',
-        '/images/LetEveryShare/Investing2.png',
-        '/images/LetEveryShare/Investing3.png',
-        '/images/LetEveryShare/Investing4.png',
-        '/images/LetEveryShare/Investing5.png',
+        '/home/LetEveryShare/img/Investing1.png',
+        '/home/LetEveryShare/img/Investing2.png',
+        '/home/LetEveryShare/img/Investing3.png',
+        '/home/LetEveryShare/img/Investing4.png',
+        '/home/LetEveryShare/img/Investing5.png',
         
         // BuildWithThe
-        '/images/BuildWithThe/Investing1.png',
-        '/images/BuildWithThe/Investing2.png',
-        '/images/BuildWithThe/Investing3.png',
-        '/images/BuildWithThe/Investing4.png',
-        '/images/BuildWithThe/Investing5.png',
-        '/images/BuildWithThe/games.png',
-        '/images/BuildWithThe/Earth.png',
-        '/images/BuildWithThe/GREENMatrix.png',
+        '/home/BuildWithThe/img/Investing1.png',
+        '/home/BuildWithThe/img/Investing2.png',
+        '/home/BuildWithThe/img/Investing3.png',
+        '/home/BuildWithThe/img/Investing4.png',
+        '/home/BuildWithThe/img/Investing5.png',
+        '/home/BuildWithThe/img/games.png',
+        '/home/BuildWithThe/img/Earth.png',
+        '/home/BuildWithThe/img/GREENMatrix.png',
         
         // YourNextWorld
-        '/images/YourNextWorld/img_datasets.png',
-        '/images/YourNextWorld/img_compute_paool.png',
-        '/images/YourNextWorld/img_foundational_models.png',
-        '/images/YourNextWorld/img_workflows.png',
-        '/images/YourNextWorld/img_ai_agents.png',
+        '/home/YourNextWorld/img/img_datasets.png',
+        '/home/YourNextWorld/img/img_compute_paool.png',
+        '/home/YourNextWorld/img/img_foundational_models.png',
+        '/home/YourNextWorld/img/img_workflows.png',
+        '/home/YourNextWorld/img/img_ai_agents.png',
         
         // GovernTogether
-        '/images/GovernTogether/bgc.png',
+        '/home/GovernTogether/img/bgc.png',
         
         // FreedomToEnter
-        '/images/FreedomToEnter/bgc.png',
+        '/home/FreedomToEnter/img/bgc.png',
         
         // LiquidityThat
-        '/images/LiquidityThat/bgc.png',
+        '/home/LiquidityThat/img/bgc.png',
         
         // Header
-        '/images/title/search.png',
-        '/images/title/language.png',
-        '/images/title/Group.png',
-        '/images/title/user.png',
+        '/header/img/search.png',
+        '/header/img/language.png',
+        '/header/img/Group.png',
+        '/header/img/user.png',
+        
+        // 通用图标
+        '/home/icons/img/sword.png',
+        '/home/icons/img/umbrella.png',
+        '/home/icons/img/arr.png',
+        '/home/icons/img/games.png',
       ]
       
-      // Launchpad页面图片列表
+      // Launchpad页面图片列表（使用新的 public 目录结构）
       const launchpadImages = [
         // TemplateSelection (12张模板图片)
-        ...Array.from({ length: 12 }, (_, i) => `/images/Launchpad/TemplateSelection/Mask${i + 1}.png`),
+        ...Array.from({ length: 12 }, (_, i) => `/launchpad/TemplateSelection/img/Mask${i + 1}.png`),
         
         // LogoPromotionalMaterials
-        '/images/Launchpad/logo.png',
-        '/images/Launchpad/Mask1.png',
-        '/images/Launchpad/Mask2.png',
-        '/images/Launchpad/Mask3.png',
-        '/images/Launchpad/Mask4.png',
-        '/images/Launchpad/Mask5.png',
+        '/launchpad/LogoPromotionalMaterials/img/logo.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask1.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask2.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask3.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask4.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask5.png',
         
         // ProjectHomepagePreview
-        '/images/Launchpad/ProjectHomepagPreview/img_13.png',
-        '/images/Launchpad/ProjectHomepagPreview/img_14.png',
-        '/images/Launchpad/ProjectHomepagPreview/img_15.png',
-        '/images/Launchpad/ProjectHomepagPreview/img_16.png',
-        '/images/Launchpad/ProjectHomepagPreview/img_17.png',
+        '/launchpad/ProjectHomepagePreview/img/img_13.png',
+        '/launchpad/ProjectHomepagePreview/img/img_14.png',
+        '/launchpad/ProjectHomepagePreview/img/img_15.png',
+        '/launchpad/ProjectHomepagePreview/img/img_16.png',
+        '/launchpad/ProjectHomepagePreview/img/img_17.png',
       ]
       
-      // TokenMarketplace页面图片列表
+      // TokenMarketplace页面图片列表（使用新的 public 目录结构）
       const tokenMarketplaceImages = [
         // TokenImages 组件的3张顶部图片
-        '/images/TokenMarketplace/Mask1.png',
-        '/images/TokenMarketplace/Mask2.png',
-        '/images/TokenMarketplace/Mask3.png',
+        '/tokenMarketplace/TokenImages/img/Mask1.png',
+        '/tokenMarketplace/TokenImages/img/Mask2.png',
+        '/tokenMarketplace/TokenImages/img/Mask3.png',
         
         // ContentCard 的背景图片（所有卡片共用）
-        '/images/TokenMarketplace/content/bg.png',
+        '/tokenMarketplace/ContentCard/img/bg.png',
         
         // ContentCard 的点击状态图标（所有卡片共用）
-        '/images/TokenMarketplace/content/icon2.png',
+        '/tokenMarketplace/ContentCard/img/icon2.png',
         
         // ContentCard 的30个图标（icon_1.png 到 icon_30.png）
-        ...Array.from({ length: 30 }, (_, i) => `/images/TokenMarketplace/content/icon/icon_${i + 1}.png`),
+        ...Array.from({ length: 30 }, (_, i) => `/tokenMarketplace/ContentCard/img/icon/icon_${i + 1}.png`),
       ]
       
       // 合并所有图片并去重

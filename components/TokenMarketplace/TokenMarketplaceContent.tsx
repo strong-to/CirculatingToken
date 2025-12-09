@@ -12,26 +12,29 @@ export default function TokenMarketplaceContent() {
   const [viewMode, setViewMode] = useState<'Chat' | 'List'>('List')
 
   return (
-    <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide" style={{ paddingLeft: px(240), paddingRight: px(240) }}>
-      {viewMode === 'List' ? (
-        <>
-          {/* 三张图片 */}
+    <>
+      {viewMode !== 'List' ? (
+        <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide smooth-scroll" style={{ paddingLeft: px(240), paddingRight: px(240) }}>
           <TokenImages />
           {/* 筛选框 */}
+          <div style={{paddingLeft: px(40), paddingRight: px(40)}}>
+
           <FilterSection onViewChange={setViewMode} />
+          </div>
           {/* 内容卡片区域 */}
           <ContentCardList />
-        </>
+        </div>
       ) : (
-        <>
-          {/* Chat 视图的图片 */}
+        <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide smooth-scroll">
           <ChatImages />
           {/* 筛选框 */}
+          <div style={{paddingLeft: px(29), paddingRight: px(29)}}>
           <FilterSection onViewChange={setViewMode} />
-          {/* Chat 内容区域 */}
+          </div>
+         
           <ChatContent />
-        </>
+        </div>
       )}
-    </div>
+    </>
   )
 }

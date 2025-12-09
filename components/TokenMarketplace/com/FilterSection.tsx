@@ -25,7 +25,7 @@ export default function FilterSection({ onViewChange }: FilterSectionProps) {
   }
 
   return (
-    <div className='flex items-center' style={{ width: '100%', paddingLeft: px(40), paddingRight: px(40), marginTop: px(15), gap: px(15) }}>
+    <div className='flex items-center' style={{ width: '100%',  marginTop: px(15), gap: px(15) }}>
       <FilterDropdown
         placeholder="Interaction / Form"
         description="Which of the following ways would you like to interact with AI?"

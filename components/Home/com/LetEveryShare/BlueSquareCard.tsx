@@ -24,6 +24,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
       onMouseLeave={() => {
         setIsHovered(false);
         setShowDetail(false);
+        setButtonHovered(null);
       }}
     >
       {/* 底层整张图片 */}
@@ -126,60 +127,96 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
         </div>
 
         <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(30) }}>
-          <div className="border border-white flex items-center justify-center" style={{ 
-            width: '66%',
-            height: '100%',
-            marginRight: px(10),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(14),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            borderRadius: px(4)
-          }}>Natural Language
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
+              width: '66%',
+              height: '100%',
+              marginRight: px(10),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontStyle: 'normal',
+              fontSize: px(14),
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              borderRadius: px(4),
+              backgroundColor: buttonHovered === 'NaturalLanguage' ? '#ffffff' : 'transparent',
+              color: buttonHovered === 'NaturalLanguage' ? '#000000' : '#ffffff',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={() => setButtonHovered('NaturalLanguage')}
+            onMouseLeave={() => setButtonHovered(null)}
+          >Natural Language
           </div>
-          <div className="border border-white  flex items-center justify-center" style={{ 
-            width: '33%',
-            height: '100%',
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(14),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            borderRadius: px(4)
-          }}>Text</div>
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
+              width: '33%',
+              height: '100%',
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontStyle: 'normal',
+              fontSize: px(14),
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              borderRadius: px(4),
+              backgroundColor: buttonHovered === 'Text' ? '#ffffff' : 'transparent',
+              color: buttonHovered === 'Text' ? '#000000' : '#ffffff',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={() => setButtonHovered('Text')}
+            onMouseLeave={() => setButtonHovered(null)}
+          >Text</div>
         </div>
 
         <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(10) }}>
-          <div className="border border-white flex items-center justify-center " style={{ 
-            width: '33%',
-            height: '100%',
-            marginRight: px(10),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(14),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            borderRadius: px(4),
-            textAlign: 'center'
-          }}>Analyze</div>
-          <div className="border border-white flex items-center justify-center" style={{ 
-            width: '66%',
-            height: '100%',
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(14),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            borderRadius: px(4)
-          }}>Public Health
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
+              width: '33%',
+              height: '100%',
+              marginRight: px(10),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontStyle: 'normal',
+              fontSize: px(14),
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              borderRadius: px(4),
+              textAlign: 'center',
+              backgroundColor: buttonHovered === 'Analyze' ? '#ffffff' : 'transparent',
+              color: buttonHovered === 'Analyze' ? '#000000' : '#ffffff',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={() => setButtonHovered('Analyze')}
+            onMouseLeave={() => setButtonHovered(null)}
+          >Analyze</div>
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
+              width: '66%',
+              height: '100%',
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontStyle: 'normal',
+              fontSize: px(14),
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              textAlign: 'center',
+              borderRadius: px(4),
+              backgroundColor: buttonHovered === 'PublicHealth' ? '#ffffff' : 'transparent',
+              color: buttonHovered === 'PublicHealth' ? '#000000' : '#ffffff',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease'
+            }}
+            onMouseEnter={() => setButtonHovered('PublicHealth')}
+            onMouseLeave={() => setButtonHovered(null)}
+          >Public Health
           </div>
         </div>
 

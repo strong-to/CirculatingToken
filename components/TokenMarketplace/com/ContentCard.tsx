@@ -123,8 +123,8 @@ export default function ContentCard({
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className='flex  flex-col items-center  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(1),paddingBottom:px(1)}}>
-             <div className='whitespace-nowrap' style={{
+            <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(1),paddingBottom:px(1)}}>
+             <div className='whitespace-nowrap flex  items-start  justify-between' style={{
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
@@ -133,7 +133,7 @@ export default function ContentCard({
                letterSpacing: '0%',
                color: '#FFFFFF'
              }}>{initial.title}</div>
-             <div className='whitespace-nowrap' style={{
+             <div className='whitespace-nowrap flex  items-start  justify-between' style={{
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
@@ -170,16 +170,16 @@ export default function ContentCard({
              <div className='flex items-center justify-end' style={{width:'100%',height:px(16), gap: px(6)}}>
                  {initial.buttons.map((buttonText, index) => (
                    <div key={index} style={{
-                     height: '100%',
-                     paddingLeft: px(16),
-                     paddingRight: px(16),
-                     border: '1px solid #FFFFFF',
+                     height:px(16),
+                     paddingTop:px(1),
+                     paddingLeft: px(12),
+                     paddingRight: px(12),
+                     border: '0.5px solid #FFFFFF',
                      backgroundColor: 'transparent',
                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                      fontWeight: 300,
                      fontStyle: 'normal',
                      fontSize: px(10),
-                     lineHeight: px(16),
                      letterSpacing: '0%',
                      textAlign: 'center',
                      color: '#FFFFFF',
@@ -213,8 +213,8 @@ export default function ContentCard({
                 className="w-full h-full object-contain"
               />
             </div>
-            <div className='flex  flex-col items-center  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(1),paddingBottom:px(1)}}>
-             <div className='whitespace-nowrap' style={{
+            <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(1),paddingBottom:px(1)}}>
+             <div className='whitespace-nowrap items-start ' style={{
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
@@ -223,7 +223,7 @@ export default function ContentCard({
                letterSpacing: '0%',
                color: '#FFFFFF'
              }}>{hover.title}</div>
-             <div className='whitespace-nowrap' style={{
+             <div className='whitespace-nowrap flex  items-start ' style={{
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
@@ -264,16 +264,16 @@ export default function ContentCard({
                        onMouseEnter={() => setButtonHovered({...buttonHovered, [buttonKey]: true})}
                        onMouseLeave={() => setButtonHovered({...buttonHovered, [buttonKey]: false})}
                        style={{
-                         height: '100%',
-                         paddingLeft: px(16),
-                         paddingRight: px(16),
-                         border: '1px solid #FFFFFF',
+                         height:px(16),
+                         paddingTop:px(1),
+                         paddingLeft: px(12),
+                         paddingRight: px(12),
+                         border: '0.5px solid #FFFFFF',
                          backgroundColor: buttonHovered[buttonKey] ? '#FFFFFF' : 'transparent',
                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                          fontWeight: 300,
                          fontStyle: 'normal',
                          fontSize: px(10),
-                         lineHeight: px(16),
                          letterSpacing: '0%',
                          textAlign: 'center',
                          color: buttonHovered[buttonKey] ? '#000000' : '#FFFFFF',

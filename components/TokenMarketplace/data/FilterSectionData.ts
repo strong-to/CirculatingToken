@@ -254,4 +254,73 @@ export const actionCategories: Category[] = [
     subCategories: []
   }
 ]
+export const actionSortBy: Category[] = [
+  {
+    label: 'Generate',
+    description: 'Actions related to creating and generating new content.',
+    subCategories: [
+      { label: 'Generate', description: 'Generate new content from scratch or based on inputs.' },
+      { label: 'Rewrite', description: 'Rewrite and rephrase existing content.' },
+      { label: 'Edit', description: 'Edit and modify existing content.' },
+      { label: 'Summarize', description: 'Create summaries and condensed versions of content.' },
+      { label: 'Translate', description: 'Translate content between different languages.' }
+    ]
+  },
+  {
+    label: 'Analysis',
+    description: 'Actions related to understanding and analyzing content.',
+    subCategories: [
+      { label: 'Understand', description: 'Understand and comprehend content meaning.' },
+      { label: 'Analyze', description: 'Analyze content structure and patterns.' },
+      { label: 'Compare', description: 'Compare different pieces of content.' },
+      { label: 'Classify', description: 'Classify and categorize content.' },
+      { label: 'Predict', description: 'Predict outcomes and future trends.' }
+    ]
+  },
+  {
+    label: 'Organize',
+    description: 'Actions related to organizing and structuring content.',
+    subCategories: [
+      { label: 'Organize', description: 'Organize content into structured formats.' },
+      { label: 'Structure', description: 'Structure and format content systematically.' },
+      { label: 'Clarify', description: 'Clarify and simplify complex content.' },
+      { label: 'Coordinate', description: 'Coordinate and synchronize multiple content pieces.' },
+      { label: 'Optimize', description: 'Optimize content for better performance.' }
+    ]
+  },
+  {
+    label: 'Search',
+    description: 'Actions related to searching and retrieving information.',
+    subCategories: [
+      { label: 'Search', description: 'Search for specific information and content.' },
+      { label: 'Retrieve', description: 'Retrieve and fetch stored information.' },
+      { label: 'Match', description: 'Match and find similar content.' },
+      { label: 'Monitor', description: 'Monitor and track content changes.' }
+    ]
+  },
+  {
+    label: 'Interact',
+    description: 'Actions related to interaction and communication.',
+    subCategories: [
+      { label: 'Dialogue', description: 'Engage in dialogue and conversation.' },
+      { label: 'Explain', description: 'Explain concepts and provide explanations.' },
+      { label: 'Teach', description: 'Teach and provide educational content.' },
+      { label: 'Coach', description: 'Coach and provide guidance.' }
+    ]
+  },
+  {
+    label: 'Emotion',
+    description: 'Actions related to emotional support and encouragement.',
+    subCategories: [
+      { label: 'Soothe', description: 'Provide comfort and soothing support.' },
+      { label: 'Encourage', description: 'Encourage and motivate users.' },
+      { label: 'Accompany', description: 'Accompany and provide companionship.' }
+    ]
+  },
+  {
+    label: 'Others',
+    description: 'Other actions not covered by the above categories.',
+    subCategories: []
+  }
+]
 

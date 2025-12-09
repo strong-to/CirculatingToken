@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 
 /**
  * 图片预加载组件
- * 在首屏加载完成后预加载首页和Launchpad页面的图片
+ * 在首屏加载完成后预加载首页、Launchpad和TokenMarketplace页面的图片
  */
 export default function ImagePreloader() {
   useEffect(() => {
@@ -90,8 +90,25 @@ export default function ImagePreloader() {
         '/images/Launchpad/ProjectHomepagPreview/img_17.png',
       ]
       
+      // TokenMarketplace页面图片列表
+      const tokenMarketplaceImages = [
+        // TokenImages 组件的3张顶部图片
+        '/images/TokenMarketplace/Mask1.png',
+        '/images/TokenMarketplace/Mask2.png',
+        '/images/TokenMarketplace/Mask3.png',
+        
+        // ContentCard 的背景图片（所有卡片共用）
+        '/images/TokenMarketplace/content/bg.png',
+        
+        // ContentCard 的点击状态图标（所有卡片共用）
+        '/images/TokenMarketplace/content/icon2.png',
+        
+        // ContentCard 的30个图标（icon_1.png 到 icon_30.png）
+        ...Array.from({ length: 30 }, (_, i) => `/images/TokenMarketplace/content/icon/icon_${i + 1}.png`),
+      ]
+      
       // 合并所有图片并去重
-      const allImages = [...new Set([...homeImages, ...launchpadImages])]
+      const allImages = [...new Set([...homeImages, ...launchpadImages, ...tokenMarketplaceImages])]
       
       // 使用link rel="preload"预加载图片（更高效）
       allImages.forEach((src) => {

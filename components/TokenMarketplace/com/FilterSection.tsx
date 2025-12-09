@@ -7,7 +7,7 @@ import {
   interactionFormCategories,
   domainCategories,
   objectOptions,
-  actionCategories
+  actionCategories,actionSortBy
 } from '../data/FilterSectionData'
 
 export default function FilterSection() {
@@ -35,6 +35,11 @@ export default function FilterSection() {
         placeholder="Action"
         description="What action would you like to perform?"
         categories={actionCategories}
+      />
+      <FilterDropdown
+        placeholder="Sort by"
+        description="What action would you like to perform?"
+        categories={actionSortBy}
       />
       
       <SearchInput

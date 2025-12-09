@@ -8,10 +8,14 @@ import GovernTogether from '@/components/Home/GovernTogether'
 import FreedomToEnter from '@/components/Home/FreedomToEnter'
 import LiquidityThat from '@/components/Home/LiquidityThat'
 import Footer from '@/components/Footer/Footer'
+import ImagePreloader from '@/components/ImagePreloader'
 import { px } from '@/utils/pxToRem'
 export default function Home() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
+      {/* 图片预加载组件 - 在首页加载完成后预加载所有图片 */}
+      <ImagePreloader />
+      
       {/* Title 盒子 - 固定高度 89px */}
       <div className="flex-shrink-0">
         <Header />

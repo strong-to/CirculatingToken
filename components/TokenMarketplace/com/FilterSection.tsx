@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { px } from '@/utils/pxToRem'
 import FilterDropdown from '@/components/TokenMarketplace/com/FilterDropdown'
 import SearchInput from '@/components/TokenMarketplace/com/SearchInput'
@@ -10,7 +11,19 @@ import {
   actionCategories,actionSortBy
 } from '../data/FilterSectionData'
 
-export default function FilterSection() {
+interface FilterSectionProps {
+  onViewChange?: (view: 'Chat' | 'List') => void
+}
+
+export default function FilterSection({ onViewChange }: FilterSectionProps) {
+  const [selectedView, setSelectedView] = useState<'Chat' | 'List'>('List')
+
+  const handleViewChange = (value: string) => {
+    const view = value as 'Chat' | 'List'
+    setSelectedView(view)
+    onViewChange?.(view)
+  }
+
   return (
     <div className='flex items-center' style={{ width: '100%', paddingLeft: px(40), paddingRight: px(40), marginTop: px(15), gap: px(15) }}>
       <FilterDropdown
@@ -38,8 +51,14 @@ export default function FilterSection() {
       />
       <FilterDropdown
         placeholder="Sort by"
-        description="What action would you like to perform?"
-        categories={actionSortBy}
+        description=""
+        options={actionSortBy}
+        value={selectedView}
+        onChange={(value) => {
+          if (value === 'Chat' || value === 'List') {
+            handleViewChange(value)
+          }
+        }}
       />
       
       <SearchInput

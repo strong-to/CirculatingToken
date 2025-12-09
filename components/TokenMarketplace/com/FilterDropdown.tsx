@@ -43,6 +43,13 @@ export default function FilterDropdown({
   const [dropdownWidth, setDropdownWidth] = useState<number>(0)
   const [firstLevelHeight, setFirstLevelHeight] = useState<number>(0)
 
+  // 同步外部传入的 value
+  useEffect(() => {
+    if (value !== undefined) {
+      setSelectedValue(value)
+    }
+  }, [value])
+
   // 获取筛选框的宽度和一级菜单的高度
   useEffect(() => {
     const updateDimensions = () => {

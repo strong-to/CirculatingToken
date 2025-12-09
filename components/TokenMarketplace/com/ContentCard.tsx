@@ -128,7 +128,7 @@ export default function ContentCard({
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(24),
+               fontSize: px(22),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'
@@ -137,7 +137,7 @@ export default function ContentCard({
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(24),
+               fontSize: px(22),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'
@@ -218,7 +218,7 @@ export default function ContentCard({
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(24),
+               fontSize: px(22),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'
@@ -227,7 +227,7 @@ export default function ContentCard({
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(24),
+               fontSize: px(22),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'

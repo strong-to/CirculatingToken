@@ -167,7 +167,7 @@ export default function ContentCard({
             ))}
        </div>
            
-             <div className='flex items-center justify-end' style={{width:'100%',height:px(24), gap: px(6)}}>
+             <div className='flex items-center justify-end' style={{width:'100%',height:px(24), gap: px(10)}}>
                  {initial.buttons.map((buttonText, index) => (
                    <div key={index}
                    className='whitespace-nowrap'
@@ -257,7 +257,7 @@ export default function ContentCard({
               </div>
             ))}
        </div>
-             <div className='flex items-center justify-end' style={{width:'100%',height:px(24), gap: px(6)}}>
+             <div className='flex items-center justify-end' style={{width:'100%',height:px(24), gap: px(10)}}>
                  {hover.buttons.map((buttonText, index) => {
                    const buttonKey = `hover_${index}`
                    return (
@@ -387,7 +387,7 @@ export default function ContentCard({
            </div>
            
            {/* 第二行：按钮，左右两个宽度是中间两个的两倍 */}
-           <div className='flex items-center justify-between' style={{ gap: px(16), width: '100%' }}>
+           <div className='flex items-center justify-between' style={{ gap: px(10), width: '100%' }}>
              {clicked.dataCards.map((card, index) => {
                const buttonKey = `clicked_${index}`
                // 左右两个按钮宽度是中间两个的两倍

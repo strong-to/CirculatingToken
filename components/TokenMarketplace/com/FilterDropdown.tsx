@@ -170,7 +170,7 @@ export default function FilterDropdown({
         <div
           className="absolute z-50 dropdown-menu"
           style={{
-            width: dropdownWidth,
+            width: `${dropdownWidth * 1.5 + 10}px`,
             marginTop: px(4),
             backgroundColor: '#FFFFFF',
             border: `1px solid #E4E7ED`,
@@ -194,7 +194,7 @@ export default function FilterDropdown({
                     borderBottom: `1px solid #E4E7ED`,
                     backgroundColor: '#F5F7FA',
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontSize: px(12),
+                    fontSize: px(16),
                     color: '#000000',
                     lineHeight: px(18),
                     wordWrap: 'break-word',
@@ -228,6 +228,7 @@ export default function FilterDropdown({
                           handleCategoryClick(category.label)
                         }}
                         style={{
+                          height: px(60),
                           padding: `${px(12)} ${px(16)}`,
                           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                           fontWeight: 300,
@@ -260,7 +261,7 @@ export default function FilterDropdown({
                     position: 'absolute',
                     left: '100%',
                     top: 0,
-                    width: dropdownWidth,
+                    width: `${dropdownWidth * 1.5 + 11}px`,
                     height: firstLevelHeight,
                     backgroundColor: '#FFFFFF',
                     border: `1px solid #E4E7ED`,
@@ -280,7 +281,7 @@ export default function FilterDropdown({
                       borderBottom: `1px solid #E4E7ED`,
                       backgroundColor: '#F5F7FA',
                       fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontSize: px(12),
+                      fontSize: px(16),
                       color: '#000000',
                       lineHeight: px(18),
                       wordWrap: 'break-word',
@@ -325,6 +326,7 @@ export default function FilterDropdown({
                           onClick={() => handleCategorySelect(selectedCategory, subLabel)}
                           className="cursor-pointer"
                           style={{
+                            height: px(60),
                             padding: `${px(12)} ${px(16)}`,
                             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                             fontWeight: 300,
@@ -367,7 +369,7 @@ export default function FilterDropdown({
                   borderBottom: `1px solid #E4E7ED`,
                   backgroundColor: '#F5F7FA',
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontSize: px(12),
+                  fontSize: px(16),
                   color: '#000000',
                   lineHeight: px(18),
                   wordWrap: 'break-word',
@@ -380,14 +382,14 @@ export default function FilterDropdown({
                 <div
                   key={index}
                   onClick={() => handleSelect(option)}
-                  className="cursor-pointer transition-colors"
+                  className="cursor-pointer transition-colors flex items-center justify-start"
                   style={{
+                    height: px(60),
                     padding: `${px(10)} ${px(12)}`,
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
                     fontStyle: 'normal',
                     fontSize: px(16),
-                    lineHeight: '100%',
                     letterSpacing: '0%',
                     color: selectedValue === option ? '#FFFFFF' : '#252525',
                     backgroundColor: selectedValue === option ? '#000000' : '#FFFFFF',

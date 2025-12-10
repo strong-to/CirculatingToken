@@ -36,6 +36,7 @@ export default function FilterDropdown({
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null) // 点击的一级项
   const [hoveredSubCategory, setHoveredSubCategory] = useState<string | null>(null) // hover的二级项
+  const [hoveredOption, setHoveredOption] = useState<string | null>(null) // hover的简单选项
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)
   const firstLevelRef = useRef<HTMLDivElement>(null)
@@ -77,6 +78,7 @@ export default function FilterDropdown({
         setHoveredCategory(null)
         setSelectedCategory(null)
         setHoveredSubCategory(null)
+        setHoveredOption(null)
       }
     }
 
@@ -95,6 +97,7 @@ export default function FilterDropdown({
     setHoveredCategory(null)
     setSelectedCategory(null)
     setHoveredSubCategory(null)
+    setHoveredOption(null)
     onChange?.(option)
   }
 
@@ -239,6 +242,7 @@ export default function FilterDropdown({
                           color: (hoveredCategory === category.label || selectedCategory === category.label) ? '#FFFFFF' : '#252525',
                           backgroundColor: (hoveredCategory === category.label || selectedCategory === category.label) ? '#000000' : '#FFFFFF',
                           borderBottom: index < categories.length - 1 ? `1px solid #E4E7ED` : 'none',
+                          transition: 'background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                         }}
                       >
                         <span>{category.label}</span>
@@ -324,7 +328,7 @@ export default function FilterDropdown({
                         <div
                           key={subIndex}
                           onClick={() => handleCategorySelect(selectedCategory, subLabel)}
-                          className="cursor-pointer"
+                          className="cursor-pointer  flex items-center justify-start"
                           style={{
                             height: px(60),
                             padding: `${px(12)} ${px(16)}`,
@@ -337,18 +341,13 @@ export default function FilterDropdown({
                             color: (selectedValue === subLabel || hoveredSubCategory === subLabel) ? '#FFFFFF' : '#252525',
                             backgroundColor: (selectedValue === subLabel || hoveredSubCategory === subLabel) ? '#000000' : '#FFFFFF',
                             borderBottom: `1px solid #E4E7ED`,
+                            transition: 'background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                           }}
-                          onMouseEnter={(e) => {
+                          onMouseEnter={() => {
                             setHoveredSubCategory(subLabel)
-                            if (selectedValue !== subLabel) {
-                              e.currentTarget.style.backgroundColor = '#000000'
-                              e.currentTarget.style.color = '#FFFFFF'
-                            }
                           }}
-                          onMouseLeave={(e) => {
+                          onMouseLeave={() => {
                             setHoveredSubCategory(null)
-                            e.currentTarget.style.backgroundColor = selectedValue === subLabel ? '#000000' : '#FFFFFF'
-                            e.currentTarget.style.color = selectedValue === subLabel ? '#FFFFFF' : '#000000'
                           }}
                         >
                           {subLabel}
@@ -378,37 +377,34 @@ export default function FilterDropdown({
                   {description}
                 </div>
               )}
-              {options?.map((option, index) => (
-                <div
-                  key={index}
-                  onClick={() => handleSelect(option)}
-                  className="cursor-pointer transition-colors flex items-center justify-start"
-                  style={{
-                    height: px(60),
-                    padding: `${px(10)} ${px(12)}`,
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontStyle: 'normal',
-                    fontSize: px(16),
-                    letterSpacing: '0%',
-                    color: selectedValue === option ? '#FFFFFF' : '#252525',
-                    backgroundColor: selectedValue === option ? '#000000' : '#FFFFFF',
-                    borderBottom: index < (options.length - 1) ? `1px solid #E4E7ED` : 'none',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (selectedValue !== option) {
-                      e.currentTarget.style.backgroundColor = '#000000'
-                      e.currentTarget.style.color = '#FFFFFF'
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = selectedValue === option ? '#000000' : '#FFFFFF'
-                    e.currentTarget.style.color = selectedValue === option ? '#FFFFFF' : '#000000'
-                  }}
-                >
-                  {option}
-                </div>
-              ))}
+              {options?.map((option, index) => {
+                const isSelected = selectedValue === option
+                const isHovered = hoveredOption === option
+                return (
+                  <div
+                    key={index}
+                    onClick={() => handleSelect(option)}
+                    className="cursor-pointer flex items-center justify-start"
+                    onMouseEnter={() => setHoveredOption(option)}
+                    onMouseLeave={() => setHoveredOption(null)}
+                    style={{
+                      height: px(60),
+                      padding: `${px(10)} ${px(12)}`,
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontStyle: 'normal',
+                      fontSize: px(16),
+                      letterSpacing: '0%',
+                      color: (isSelected || isHovered) ? '#FFFFFF' : '#252525',
+                      backgroundColor: (isSelected || isHovered) ? '#000000' : '#FFFFFF',
+                      borderBottom: index < (options.length - 1) ? `1px solid #E4E7ED` : 'none',
+                      transition: 'background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                  >
+                    {option}
+                  </div>
+                )
+              })}
             </>
           )}
         </div>

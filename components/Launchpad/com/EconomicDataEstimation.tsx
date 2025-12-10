@@ -29,7 +29,7 @@ export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimati
         <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(8, 63, 216, 0.65)', marginTop: px(-15) }}></div>
       </div>
       
-      <div className="" style={{ marginTop: px(100) }}>
+      <div className="">
       <div className="border border-[#000000] rounded-[4px]" style={{ width: px(1355)  }}>
 
         <div  className=" flex items-center justify-between bg-[#F7F9FF]" style={{ color: '#888888', fontSize: px(16),width: '100%' , height: px(80),paddingLeft: px(30),paddingRight: px(30) }} >

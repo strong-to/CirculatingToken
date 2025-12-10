@@ -56,9 +56,9 @@ export default function Launchpad() {
 
   return (
     <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]">
-      <div className=" flex-1 flex overflow-hidden" style={{ paddingLeft: px(30),paddingTop: px(48) }}>
+      <div className=" flex-1 flex overflow-hidden" style={{ paddingLeft: px(30) }}>
         {/* 左侧步骤条 - 固定不滚动 */}
-        <div className="flex-shrink-0" style={{ width: px(300), paddingRight: px(40), position: 'sticky', top: px(48), alignSelf: 'flex-start', maxHeight: 'calc(100vh - 4.5rem - 48px - 70px)' }}>
+        <div className="flex-shrink-0" style={{ width: px(300), paddingRight: px(40), paddingTop: px(48), position: 'sticky', top: 0, alignSelf: 'flex-start', maxHeight: 'calc(100vh - 4.5rem - 70px)' }}>
           <StepsBar steps={steps} />
         </div>
         
@@ -68,7 +68,8 @@ export default function Launchpad() {
           className="step-content-transition flex-1 overflow-y-auto scrollbar-hide"
           style={{
             willChange: 'opacity, transform',
-            maxHeight: 'calc(100vh - 4.5rem - 48px - 70px)',
+            maxHeight: 'calc(100vh - 4.5rem - 70px)',
+            paddingTop: px(48),
           }}
         >
           {renderStepContent()}

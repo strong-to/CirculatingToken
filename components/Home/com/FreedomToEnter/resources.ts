@@ -5,8 +5,10 @@
 
 // ==================== 图片资源 ====================
 export const images = {
-  // 背景图
+  // 背景图（初始化状态）
   background: '/home/FreedomToEnter/img/bgc.png',
+  // hover 状态 gif
+  hover: '/home/FreedomToEnter/img/hover.gif',
   // 通用图标
   sword: '/home/icons/img/sword.png',
   arrow: '/home/icons/img/arr.png',

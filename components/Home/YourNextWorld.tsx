@@ -12,6 +12,7 @@ import { px } from '@/utils/pxToRem'
 
 export default function  YourNextWorld() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [hoveredCard, setHoveredCard] = useState<string | null>(null)
 
   return ( 
     <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]">
@@ -177,63 +178,238 @@ export default function  YourNextWorld() {
               src={images.games}
               alt="Investing card 3"
             /> */}
-            <div className="relative overflow-hidden shadow-lg bg-[#8000EA] flex items-end justify-center" style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: px(4), aspectRatio: '340 / 500'}}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src={images.datasets}
-                alt={texts.cardDatasets}
-                fill
-                className="object-cover"
-                priority
-              />
+            <div 
+              className="relative overflow-hidden shadow-lg  flex items-end justify-center" 
+              style={{paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', borderRadius: px(4), aspectRatio: '340 / 500'}}
+              onMouseEnter={() => setHoveredCard('datasets')}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* 初始化图片 */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'datasets' ? 0 : 1,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.init.datasets}
+                  alt={texts.cardDatasets}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'datasets' ? 1 : 0,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.hover.datasets}
+                  alt={texts.cardDatasets}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardDatasets}</div>
             </div>
            
            
-            <div className="relative overflow-hidden shadow-lg bg-[#fdf166] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src={images.computePool}
-                alt={texts.cardComputePool}
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className='text-[#000000] relative z-10' style={{fontSize:px(25)}}>{texts.cardComputePool}</div>
+            <div 
+              className="relative overflow-hidden shadow-lg flex items-end justify-center" 
+              style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}
+              onMouseEnter={() => setHoveredCard('computePool')}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* 初始化图片 */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'computePool' ? 0 : 1,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.init.computePool}
+                  alt={texts.cardComputePool}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'computePool' ? 1 : 0,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.hover.computePool}
+                  alt={texts.cardComputePool}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardComputePool}</div>
             </div>
 
-
-           
-            
-            <div className="relative overflow-hidden shadow-lg bg-[#008400] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src={images.foundationalModels}
-                alt={texts.cardFoundationalModels}
-                fill
-                className="object-cover"
-                priority
-              />
+            <div 
+              className="relative overflow-hidden shadow-lg  flex items-end justify-center" 
+              style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}
+              onMouseEnter={() => setHoveredCard('foundationalModels')}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* 初始化图片 */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'foundationalModels' ? 0 : 1,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.init.foundationalModels}
+                  alt={texts.cardFoundationalModels}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'foundationalModels' ? 1 : 0,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.hover.foundationalModels}
+                  alt={texts.cardFoundationalModels}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardFoundationalModels}</div>
             </div>
            
-            <div className="relative overflow-hidden shadow-lg bg-[#E1050D] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src={images.workflows}
-                alt={texts.cardWorkflows}
-                fill
-                className="object-cover"
-                priority
-              />
+            <div 
+              className="relative overflow-hidden shadow-lg flex items-end justify-center" 
+              style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}
+              onMouseEnter={() => setHoveredCard('workflows')}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* 初始化图片 */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'workflows' ? 0 : 1,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.init.workflows}
+                  alt={texts.cardWorkflows}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'workflows' ? 1 : 0,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.hover.workflows}
+                  alt={texts.cardWorkflows}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardWorkflows}</div>
             </div>
-            <div className="relative overflow-hidden shadow-lg bg-[#083fd8] flex items-end justify-center" style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', }}> {/* 12px, 保持 340:500 宽高比 */}
-              <Image
-                src={images.aiAgents}
-                alt={texts.cardAiAgents}
-                fill
-                className="object-cover"
-                priority
-              />
+            
+            <div 
+              className="relative overflow-hidden shadow-lg flex items-end justify-center" 
+              style={{ borderRadius: px(4), aspectRatio: '340 / 500',paddingBottom:px(22) ,fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }}
+              onMouseEnter={() => setHoveredCard('aiAgents')}
+              onMouseLeave={() => setHoveredCard(null)}
+            >
+              {/* 初始化图片 */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'aiAgents' ? 0 : 1,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.init.aiAgents}
+                  alt={texts.cardAiAgents}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
+              <div style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                opacity: hoveredCard === 'aiAgents' ? 1 : 0,
+                transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                willChange: 'opacity'
+              }}>
+                <Image
+                  src={images.hover.aiAgents}
+                  alt={texts.cardAiAgents}
+                  fill
+                  className="object-cover"
+                />
+              </div>
               <div className='text-[#FFFFFF] relative z-10' style={{fontSize:px(25)}}>{texts.cardAiAgents}</div>
             </div>
+
+
           </div>
 
         </div>

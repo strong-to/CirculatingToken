@@ -5,8 +5,10 @@
 
 // ==================== 图片资源 ====================
 export const images = {
-  // 背景图
+  // 背景图（初始化状态）
   background: '/home/LiquidityThat/img/bgc.png',
+  // hover 状态 gif
+  hover: '/home/LiquidityThat/img/hover.gif',
   // 通用图标
   games: '/home/icons/img/games.png',
   arrow: '/home/icons/img/arr.png',

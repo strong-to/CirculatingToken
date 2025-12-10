@@ -20,3 +20,5 @@
 - 组件路径：`components/Home/com/InstitutionalGrade/FooterLogo.tsx`
 - 页面路径：首页 (`app/page.tsx`)
 
+
+

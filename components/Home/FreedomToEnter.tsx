@@ -1,17 +1,18 @@
 'use client'
 
 import { useState } from 'react'
-// import Image from 'next/image'
+import Image from 'next/image'
 // import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/FreedomToEnter/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-
+import { images } from '@/components/Home/com/FreedomToEnter/resources'
 
 import { px } from '@/utils/pxToRem'
 
 export default function  FreedomToEnter() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   return ( 
     <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]" style={{paddingBottom:px(120)}}>
@@ -171,20 +172,51 @@ export default function  FreedomToEnter() {
       </div>
 
       {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
-      <div className="w-full bg-[#000000] relative flex items-end justify-end" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(45), overflow: 'hidden' }}> {/* 22.7px */}
+      <div 
+        className="w-full bg-[#000000] relative flex items-end justify-end" 
+        style={{ height:px(520), paddingRight:px(66),paddingBottom:px(45), overflow: 'hidden', backgroundColor: '#000000' }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* 初始化背景图片 */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: isHovered ? 0 : 1,
+          transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          willChange: 'opacity'
+        }}>
+          <Image
+            src={images.background}
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        {/* hover gif */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: isHovered ? 1 : 0,
+          transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          willChange: 'opacity'
+        }}>
+          <Image
+            src={images.hover}
+            alt="Background Hover"
+            fill
+            className="object-cover"
+          />
+        </div>
         
-        {/* 网格白线 */}
-        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
-          {/* 水平线 - 2条线分成3行 */}
-          <line x1="0" y1={px(520 * 0.35)} x2="100%" y2={px(520 * 0.35)} stroke="white" strokeWidth="1" />
-          <line x1="0" y1={px(520 - 27)} x2="100%" y2={px(520 - 27)} stroke="white" strokeWidth="1" />
-          
-          {/* 垂直线 - 3条线分成4列，按指定像素值 */}
-          <line x1={px(515)} y1="0" x2={px(515)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(515 + 217)} y1="0" x2={px(515 + 217)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1="calc(100% - 119px)" y1="0" x2="calc(100% - 119px)" y2={px(520)} stroke="white" strokeWidth="1" />
-        </svg>
-
+       
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
          <div className="flex items-center justify-end relative z-10" style={{ marginTop: '1.4rem' }}>
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>

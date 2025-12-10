@@ -1,17 +1,18 @@
 'use client'
 
 import { useState } from 'react'
-// import Image from 'next/image'
+import Image from 'next/image'
 // import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LiquidityThat/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-
+import { images } from '@/components/Home/com/LiquidityThat/resources'
 
 import { px } from '@/utils/pxToRem'
 
 export default function  LiquidityThat() {
   const [isExpanded, setIsExpanded] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   return ( 
     <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]" style={{paddingBottom:px(120)}}>
@@ -172,20 +173,49 @@ export default function  LiquidityThat() {
       </div>
 
       {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
-      <div className="w-full bg-[#000000] relative flex items-end justify-end" style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden' }}> {/* 22.7px */}
-        
-        {/* 竖线 */}
-        <svg className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
-          {/* 竖线 - 按指定距离 */}
-          <line x1={px(65)} y1="0" x2={px(65)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74)} y1="0" x2={px(65 + 74)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85)} y1="0" x2={px(65 + 74 + 85)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125)} y1="0" x2={px(65 + 74 + 85 + 125)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125 + 188)} y1="0" x2={px(65 + 74 + 85 + 125 + 188)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125 + 188 + 328)} y1="0" x2={px(65 + 74 + 85 + 125 + 188 + 328)} y2={px(520)} stroke="white" strokeWidth="1" />
-          <line x1={px(65 + 74 + 85 + 125 + 188 + 328+429)} y1="0" x2={px(65 + 74 + 85 + 125 + 188 + 328+429)} y2={px(520)} stroke="white" strokeWidth="1" />
-          {/* <line x1="calc(100% - 621px)" y1="0" x2="calc(100% - 621px)" y2={px(520)} stroke="white" strokeWidth="1" /> */}
-        </svg>
+      <div 
+        className="w-full bg-[#000000] relative flex items-end justify-end" 
+        style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden', backgroundColor: '#000000' }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        {/* 初始化背景图片 */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: isHovered ? 0 : 1,
+          transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          willChange: 'opacity'
+        }}>
+          <Image
+            src={images.background}
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        {/* hover gif */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: isHovered ? 1 : 0,
+          transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          willChange: 'opacity'
+        }}>
+          <Image
+            src={images.hover}
+            alt="Background Hover"
+            fill
+            className="object-cover"
+          />
+        </div>
 
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
          <div className="flex items-center justify-end relative z-10" style={{ marginTop: '1.5rem' }}>

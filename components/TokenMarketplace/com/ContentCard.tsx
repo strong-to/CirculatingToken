@@ -55,7 +55,7 @@ export default function ContentCard({
       }}
       style={{ 
         width: 'calc(50% - 7.5px)',
-        height: px(100), 
+        height: px(110), 
         borderRadius: px(4),
         paddingLeft: px(20),
         paddingRight: px(15),
@@ -113,22 +113,22 @@ export default function ContentCard({
           transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           minWidth: 0
         }}>
-        <div className='flex  items-center ' style={{height:px(60),width:px(215)}}>
-            <div style={{width:px(60) , height:'100%'}}>
+        <div className='flex  items-center ' style={{height:px(70),width:px(260)}}>
+            
+            <div style={{width:px(70) , height:px(70), position: 'relative'}}>
               <Image
                 src={initial.icon}
                 alt="Icon"
-                width={60}
-                height={60}
-                className="w-full h-full object-contain"
+                fill
+                className="object-contain"
               />
             </div>
-            <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(1),paddingBottom:px(1)}}>
+            <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(8),paddingBottom:px(4)}}>
              <div className='whitespace-nowrap flex  items-start  justify-between' style={{
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(22),
+               fontSize: px(24),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'
@@ -137,7 +137,7 @@ export default function ContentCard({
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(22),
+               fontSize: px(24),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'
@@ -157,7 +157,7 @@ export default function ContentCard({
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
                 fontStyle: 'normal',
-                fontSize: px(18),
+                fontSize: px(20),
                 lineHeight: '20px',
                 letterSpacing: '0%',
                 color: '#FFFFFF'
@@ -206,22 +206,21 @@ export default function ContentCard({
           transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           minWidth: 0
         }}>
-        <div className='flex  items-center ' style={{height:px(60),width:px(215)}}>
-            <div style={{width:px(60) , height:'100%'}}>
+         <div className='flex  items-center ' style={{height:px(70),width:px(260)}}>
+            <div style={{width:px(70) , height:px(70), position: 'relative'}}>
               <Image
                 src={hover.icon}
                 alt="Icon"
-                width={60}
-                height={60}
-                className="w-full h-full object-contain"
+                fill
+                className="object-contain"
               />
             </div>
-            <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(1),paddingBottom:px(1)}}>
+            <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(8),paddingBottom:px(4)}}>
              <div className='whitespace-nowrap items-start ' style={{
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(22),
+               fontSize: px(24),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'
@@ -230,7 +229,7 @@ export default function ContentCard({
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
                fontStyle: 'normal',
-               fontSize: px(22),
+               fontSize: px(24),
                lineHeight: '100%',
                letterSpacing: '0%',
                color: '#FFFFFF'
@@ -249,7 +248,7 @@ export default function ContentCard({
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
                 fontStyle: 'normal',
-                fontSize: px(18),
+                fontSize: px(20),
                 lineHeight: '20px',
                 letterSpacing: '0%',
                 color: '#FFFFFF'
@@ -306,17 +305,16 @@ export default function ContentCard({
           transition: 'opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
           minWidth: 0
         }}>
-        <div className='flex  items-center ' style={{height:px(60)}}>
-            <div style={{width:px(60) , height:'100%'}}>
+        <div className='flex  items-center ' style={{height:px(70),width:px(260)}}>
+            <div style={{width:px(70) , height:px(70), position: 'relative'}}>
               <Image
                 src={clicked.icon}
                 alt="Icon"
-                width={60}
-                height={60}
-                className="w-full h-full object-contain"
+                fill
+                className="object-contain"
               />
             </div>
-            <div className='flex  flex-col items-start justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(1),paddingBottom:px(1)}}>
+            <div className='flex  flex-col items-start justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(8),paddingBottom:px(4)}}>
              <div className='whitespace-nowrap flex  items-start justify-start' style={{
                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                fontWeight: 300,
@@ -339,23 +337,25 @@ export default function ContentCard({
 
          </div>
 
-         <div className='flex  items-center justify-between' style={{color:'#FFFFFF',flex: 1, marginLeft:px(28), minWidth: 0, height:px(60)}}>
-           {clicked.dataCards.map((card, index) => {
-             const buttonKey = `clicked_${index}`
-             return (
-               <div key={index} className='flex flex-col items-start justify-between' style={{ width: px(88),height:'100%' }}>
+         <div className='flex flex-col justify-between' style={{color:'#FFFFFF',flex: 1, marginLeft:px(28), minWidth: 0, height:px(70), gap: px(8)}}>
+           {/* 第一行：数据卡片（标题+数值），均分宽度 */}
+           <div className='flex items-center justify-between' style={{ gap: px(16), width: '100%' }}>
+             {clicked.dataCards.map((card, index) => (
+               <div key={`data-${index}`} className='flex flex-col items-start justify-start' style={{ flex: 1, minWidth: 0 }}>
+                 {/* 标题 */}
                  <div className='whitespace-nowrap flex items-center justify-start' style={{
                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                    fontWeight: 300,
                    fontStyle: 'normal',
-                   fontSize: px(10),
-                   lineHeight: px(9),
+                   fontSize: px(14),
+                   lineHeight: px(14),
                    letterSpacing: '0%',
                    color: '#FFFFFF'
                  }}>{card.label}</div>
+                 {/* 数值或评分 */}
                  {card.rating !== undefined ? (
                    // 显示评分星星
-                   <div className='flex items-center justify-start' style={{ gap: px(2) }}>
+                   <div className='flex items-center justify-start' style={{ gap: px(2), marginTop: px(4) }}>
                      {Array.from({ length: 5 }).map((_, starIndex) => {
                        const isFilled = starIndex < (card.rating || 0)
                        return isFilled ? (
@@ -364,46 +364,59 @@ export default function ContentCard({
                          </svg>
                        ) : (
                          <svg key={starIndex} width={px(12)} height={px(12)} viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <path d="M10.3613 6.62598L10.4736 6.97168H15.2432L11.6787 9.56152L11.3848 9.77539L11.4971 10.1201L12.8584 14.3096L9.29395 11.7207L9 11.5068L8.70605 11.7207L5.14062 14.3105L6.50391 10.1201L6.61523 9.77539L6.32227 9.56152L2.75781 6.97168H7.52637L7.63867 6.62598L9 2.43555L10.3613 6.62598Z" stroke="white" fill="none"/>
+                           <path d="M10.3613 6.62598L10.4736 6.97168H15.2432L11.6787 9.56152L11.3848 9.77539L11.4971 10.1201L12.8584 14.3096L9.29395 11.7207L9 11.5068L8.70705 11.7207L5.14062 14.3105L6.50391 10.1201L6.61523 9.77539L6.32227 9.56152L2.75781 6.97168H7.52637L7.63867 6.62598L9 2.43555L10.3613 6.62598Z" stroke="white" fill="none"/>
                          </svg>
                        )
                      })}
                    </div>
                  ) : (
                    // 显示数值
-                   <div className='whitespace-nowrap flex items-center justify-start'  style={{
+                   <div className='whitespace-nowrap flex items-center justify-start' style={{
                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                      fontWeight: 700,
                      fontStyle: 'normal',
-                     fontSize: px(13),
-                     lineHeight: px(11),
+                     fontSize: px(16),
+                     lineHeight: px(16),
                      letterSpacing: '0%',
-                     color: '#FFFFFF'
+                     color: '#FFFFFF',
+                     marginTop: px(4)
                    }}>{card.value}</div>
                  )}
+               </div>
+             ))}
+           </div>
+           
+           {/* 第二行：按钮，左右两个宽度是中间两个的两倍 */}
+           <div className='flex items-center justify-between' style={{ gap: px(16), width: '100%' }}>
+             {clicked.dataCards.map((card, index) => {
+               const buttonKey = `clicked_${index}`
+               // 左右两个按钮宽度是中间两个的两倍
+               const flexValue = (index === 0 || index === 3) ? 2 : 1
+               return (
                  <div 
+                   key={`button-${index}`}
                    className='flex items-center justify-center' 
                    onMouseEnter={() => setButtonHovered(prev => ({...prev, [buttonKey]: true}))}
                    onMouseLeave={() => setButtonHovered(prev => ({...prev, [buttonKey]: false}))}
                    style={{
-                     width: px(88),
-                     height:px(22),
+                     flex: flexValue,
+                     height:px(24),
                      border: '1px solid #FFFFFF',
-                     borderRadius: px(4),
+                     borderRadius: px(2),
                      backgroundColor: buttonHovered[buttonKey] ? '#FFFFFF' : 'transparent',
                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                      fontWeight: 300,
                      fontStyle: 'normal',
-                     fontSize: px(10),
+                     fontSize: px(14),
                      lineHeight: '100%',
                      letterSpacing: '0%',
                      color: buttonHovered[buttonKey] ? '#000000' : '#FFFFFF',
                      cursor: 'pointer',
                      transition: 'background-color 0.3s ease, color 0.3s ease'
                    }}>{card.buttonText}</div>
-               </div>
-             )
-           })}
+               )
+             })}
+           </div>
          </div>
         </div>
         )}

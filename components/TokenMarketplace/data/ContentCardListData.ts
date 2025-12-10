@@ -108,14 +108,14 @@ export const cardData: ContentCardProps[] = [
       icon: images.icons.icon3,
       title: 'ECONOSET',
       subtitle: 'DBAI0000011',
-      descriptions: ['THIS IS AN ECONOMIC INSTRUCTION AI ','DATASET'],
+      descriptions: ['THIS IS AN ECONOMIC INSTRUCTION AI DATASET'],
       buttons: ['Text', 'Markets & Trade', 'Data', 'Summarize']
     },
     hover: {
       icon: images.icons.icon3,
       title: 'ECONOSET',
       subtitle: 'DBAI0000011',
-      descriptions: ['THIS IS AN ECONOMIC INSTRUCTION AI ','DATASET'],
+      descriptions: ['THIS IS AN ECONOMIC INSTRUCTION AI DATASET'],
       buttons: ['Text', 'Markets & Trade', 'Data', 'Summarize']
     },
     clicked: {
@@ -156,14 +156,14 @@ export const cardData: ContentCardProps[] = [
       icon: images.icons.icon4,
       title: 'TRANSIT FLOW',
       subtitle: 'DBAI0000008',
-      descriptions: ['THIS IS A TRANSPORTATION INSTRUCTION AI ','DATASET'],
+      descriptions: ['THIS IS A TRANSPORTATION INSTRUCTION AI DATASET',],
       buttons: ['Text', 'Transportation', 'Data', 'Summarize']
     },
     hover: {
       icon: images.icons.icon4,
       title: 'TRANSIT FLOW',
       subtitle: 'DBAI0000008',
-      descriptions: ['THIS IS A TRANSPORTATION INSTRUCTION AI ','DATASET'],
+      descriptions: ['THIS IS A TRANSPORTATION INSTRUCTION AI DATASET'],
       buttons: ['Text', 'Transportation', 'Data', 'Summarize']
     },
     clicked: {
@@ -300,14 +300,14 @@ export const cardData: ContentCardProps[] = [
       icon: images.icons.icon7,
       title: 'QUANT LOOP',
       subtitle: 'DBAI0000021',
-      descriptions: ['THIS IS A QUANTITATIVE TRADING AI ','WORKFLOW'],
+      descriptions: ['THIS IS A QUANTITATIVE TRADING AI WORKFLOW'],
       buttons: ['Data', 'Markets & Trade', 'Text', 'Predict&Analyze']
     },
     hover: {
       icon: images.icons.icon7,
       title: 'QUANT LOOP',
       subtitle: 'DBAI0000021',
-      descriptions: ['THIS IS A QUANTITATIVE TRADING AI ','WORKFLOW'],
+      descriptions: ['THIS IS A QUANTITATIVE TRADING AI WORKFLOW'],
       buttons: ['Data', 'Markets & Trade', 'Text', 'Predict&Analyze']
     },
     clicked: {
@@ -588,14 +588,14 @@ export const cardData: ContentCardProps[] = [
       icon: images.icons.icon13,
       title: 'ATMO SET',
       subtitle: 'DBAI0000009',
-      descriptions: ['THIS IS A METEOROLOGY INSTRUCTION AI ','DATASET'],
+      descriptions: ['THIS IS A METEOROLOGY INSTRUCTION AI DATASET'],
       buttons: ['Text', 'Meteorology', 'Data', 'Summarize']
     },
     hover: {
       icon: images.icons.icon13,
       title: 'ATMO SET',
       subtitle: 'DBAI0000009',
-      descriptions: ['THIS IS A METEOROLOGY INSTRUCTION AI ','DATASET'],
+      descriptions: ['THIS IS A METEOROLOGY INSTRUCTION AI DATASET'],
       buttons: ['Text', 'Meteorology', 'Data', 'Summarize']
     },
     clicked: {
@@ -636,14 +636,14 @@ export const cardData: ContentCardProps[] = [
       icon: images.icons.icon14,
       title: 'CODE WEAVER',
       subtitle: 'DBAI0000020',
-      descriptions: ['THIS IS A PROGRAMMING ASSISTANT AI ','WORKFLOW'],
+      descriptions: ['THIS IS A PROGRAMMING ASSISTANT AI WORKFLOW'],
       buttons: ['Code', 'Computing', 'Text', 'Generate&Edit']
     },
     hover: {
       icon: images.icons.icon14,
       title: 'CODE WEAVER',
       subtitle: 'DBAI0000020',
-      descriptions: ['THIS IS A PROGRAMMING ASSISTANT AI ','WORKFLOW'],
+      descriptions: ['THIS IS A PROGRAMMING ASSISTANT AI WORKFLOW'],
       buttons: ['Code', 'Computing', 'Text', 'Generate&Edit']
     },
     clicked: {
@@ -1212,14 +1212,14 @@ export const cardData: ContentCardProps[] = [
       icon: images.icons.icon26,
       title: 'SOUND FORGE',
       subtitle: 'DBAI0000015',
-      descriptions: ['THIS IS AN AUDIO CREATION AI ','WORKFLOW'],
+      descriptions: ['THIS IS AN AUDIO CREATION AI WORKFLOW'],
       buttons: ['Audio', 'Entertainment', 'Text', 'Generate&Edit']
     },
     hover: {
       icon: images.icons.icon26,
       title: 'SOUND FORGE',
       subtitle: 'DBAI0000015',
-      descriptions: ['THIS IS AN AUDIO CREATION AI ','WORKFLOW'],
+      descriptions: ['THIS IS AN AUDIO CREATION AI WORKFLOW'],
       buttons: ['Audio', 'Entertainment', 'Text', 'Generate&Edit']
     },
     clicked: {

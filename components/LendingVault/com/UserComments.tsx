@@ -1,8 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { px } from "@/utils/pxToRem"
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
 
 export default function UserComments() {
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>({
@@ -12,6 +17,9 @@ export default function UserComments() {
     'Poor': false,
     'Terrible': false,
   })
+
+  const swiperRef = useRef<SwiperType | null>(null)
+  const gap = 30 // 卡片间距 30px
 
   const handleToggle = (label: string) => {
     setCheckedItems(prev => ({
@@ -239,28 +247,56 @@ export default function UserComments() {
 
           {/*  */}
 
-          <div style={{marginTop: px(33),paddingLeft: px(80),
-            paddingRight: px(80), gap: px(30) }} className='flex '>
+<div style={{marginLeft: px(70),marginRight: px(70)}}>
+<div style={{overflow: 'hidden' ,height: px(360), lineHeight:'px(360)', paddingLeft: px(10), paddingRight: px(10),paddingTop: px(50)}} className='relative'>
             
-            {/* 4个评论卡片 */}
-            {[
-              { img: 'img1.png', name: 'AtmoSet', id: 'DBAI000000', stars: 5, comment: 'Great tool.......', emoji: '👍👍', date: 'Dec 09 2025' },
-              { img: 'img2.png', name: 'Nero', id: 'DB000000137', stars: 5, comment: 'It is very convenient and can be easily used without professional skills!', emoji: '', date: 'Dec 09 2025' },
-              { img: 'img3.png', name: 'Ashley', id: 'DBAI0000009', stars: 5, comment: 'It is very efficient, and it would be even better if it could have voice interaction function.', emoji: '', date: 'Dec 09 2025' },
-              { img: 'img4.png', name: 'Shi san', id: 'DBAI0000009', stars: 5, comment: 'It\'s the best software I\'ve ever used, and it replaces almost every other tool, perfect!', emoji: '', date: 'Dec 09 2025' },
-            ].map((item, cardIndex) => (
-              <div
-                key={cardIndex}
-                style={{
-                  width: '100%',
-                  height: px(251),
-                  backgroundColor: '#ffffff',
-                  boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  overflow: 'hidden',
-                }}
-              >
+            {/* 4个评论卡片 - 使用 Swiper 实现按下滚动 */}
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={gap}
+              loop={true}
+              grabCursor={true}
+              watchSlidesProgress={true}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
+              style={{
+                overflow: 'visible',
+              }}
+            >
+              {/* 原始4张卡片 */}
+              {[
+                { img: 'img1.png', name: 'AtmoSet', id: 'DBAI000000', stars: 5, comment: 'Great tool.......', emoji: '👍👍', date: 'Dec 09 2025' },
+                { img: 'img2.png', name: 'Nero', id: 'DB000000137', stars: 5, comment: 'It is very convenient and can be easily used without professional skills!', emoji: '', date: 'Dec 09 2025' },
+                { img: 'img3.png', name: 'Ashley', id: 'DBAI0000009', stars: 5, comment: 'It is very efficient, and it would be even better if it could have voice interaction function.', emoji: '', date: 'Dec 09 2025' },
+                { img: 'img4.png', name: 'Shi san', id: 'DBAI0000009', stars: 5, comment: 'It\'s the best software I\'ve ever used, and it replaces almost every other tool, perfect!', emoji: '', date: 'Dec 09 2025' },
+              ].map((item, cardIndex) => (
+                <SwiperSlide 
+                  key={cardIndex}
+                  style={{
+                    overflow: 'visible',
+                    padding: '0',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '100%',
+                      height: px(251),
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      overflow: 'hidden',
+                    }}
+                  >
                 <div className="flex flex-col w-full h-full" style={{ padding: px(20) }}>
                   {/* 顶部：图标、名称、评分 */}
                   <div className="flex items-center" style={{ gap: px(16), marginBottom: px(20) }}>
@@ -369,16 +405,158 @@ export default function UserComments() {
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+                  </div>
+                </SwiperSlide>
+              ))}
+              
+              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
+              {[
+                { img: 'img1.png', name: 'AtmoSet', id: 'DBAI000000', stars: 5, comment: 'Great tool.......', emoji: '👍👍', date: 'Dec 09 2025' },
+                { img: 'img2.png', name: 'Nero', id: 'DB000000137', stars: 5, comment: 'It is very convenient and can be easily used without professional skills!', emoji: '', date: 'Dec 09 2025' },
+                { img: 'img3.png', name: 'Ashley', id: 'DBAI0000009', stars: 5, comment: 'It is very efficient, and it would be even better if it could have voice interaction function.', emoji: '', date: 'Dec 09 2025' },
+                { img: 'img4.png', name: 'Shi san', id: 'DBAI0000009', stars: 5, comment: 'It\'s the best software I\'ve ever used, and it replaces almost every other tool, perfect!', emoji: '', date: 'Dec 09 2025' },
+              ].map((item, cardIndex) => (
+                <SwiperSlide 
+                  key={`duplicate-${cardIndex}`}
+                  style={{
+                    overflow: 'visible',
+                    padding: '0',
+                  }}
+                >
+                  <div
+                    style={{
+                      width: '100%',
+                      height: px(251),
+                      backgroundColor: '#ffffff',
+                      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <div className="flex flex-col w-full h-full" style={{ padding: px(20) }}>
+                      {/* 顶部：图标、名称、评分 */}
+                      <div className="flex items-center" style={{ gap: px(16), marginBottom: px(20) }}>
+                        {/* 图片盒子 60x60 */}
+                        <div
+                          style={{
+                            width: px(60),
+                            height: px(60),
+                            borderRadius: px(4),
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            flexShrink: 0,
+                            overflow: 'hidden',
+                          }}
+                        >
+                          <Image
+                            src={`/LendingVault/UserComments/${item.img}`}
+                            alt={item.name}
+                            width={60}
+                            height={60}
+                            style={{ width: px(60), height: px(60), objectFit: 'cover', borderRadius: px(4) }}
+                          />
+                        </div>
+                        
+                        {/* 名称和ID */}
+                        <div className="flex flex-col flex-1" style={{ gap: px(4) }}>
+                          <div
+                            style={{
+                              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                              fontWeight: 300,
+                              fontStyle: 'normal',
+                              fontSize: px(20),
+                              lineHeight: '100%',
+                              letterSpacing: '0%',
+                              color: '#000000',
+                            }}
+                          >
+                            {item.name}
+                          </div>
+                          <div
+                            style={{
+                              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                              fontWeight: 300,
+                              fontStyle: 'normal',
+                              fontSize: px(20),
+                              lineHeight: '100%',
+                              letterSpacing: '0%',
+                              color: '#000000',
+                            }}
+                          >
+                            {item.id}
+                          </div>
+                        </div>
+                        
+                        {/* 5颗实心星星 */}
+                        <div className="flex items-center" style={{ gap: px(4), flexShrink: 0 }}>
+                          {Array.from({ length: 5 }).map((_, starIndex) => (
+                            <svg key={starIndex} width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M13.418 8.32031L13.5303 8.66602H20.9404L15.2393 12.8086L14.9453 13.0225L15.0576 13.3672L17.2344 20.0693L11.5332 15.9277L11.2402 15.7139L10.9463 15.9277L5.24414 20.0693L7.42188 13.3672L7.53418 13.0225L7.24023 12.8086L1.53906 8.66602H8.94922L9.06152 8.32031L11.2393 1.61621L13.418 8.32031Z" fill="black"/>
+                            </svg>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      {/* 评论内容区域 - 输入框 */}
+                      <div className="flex-1 flex flex-col" style={{ position: 'relative' }}>
+                        <textarea
+                          defaultValue={`${item.comment}${item.emoji}`}
+                          style={{
+                            flex: 1,
+                            border: '1px solid #000000',
+                            borderRadius: px(4),
+                            padding: px(16),
+                            paddingBottom: px(40),
+                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                            fontWeight: 300,
+                            fontStyle: 'normal',
+                            fontSize: px(16),
+                            lineHeight: '150%',
+                            letterSpacing: '0%',
+                            color: '#000000',
+                            resize: 'none',
+                            outline: 'none',
+                            overflow: 'hidden',
+                          }}
+                          className="scrollbar-hide"
+                        />
+                        {/* 日期 - 显示在输入框右下角 */}
+                        <div
+                          style={{
+                            position: 'absolute',
+                            bottom: px(16),
+                            right: px(16),
+                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                            fontWeight: 300,
+                            fontStyle: 'normal',
+                            fontSize: px(14),
+                            lineHeight: '100%',
+                            letterSpacing: '0%',
+                            color: '#888888',
+                            pointerEvents: 'none',
+                          }}
+                        >
+                          {item.date}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
+</div>
+          
 
 
 
 
 
-    <div className='flex items-center justify-center' style={{ marginTop: px(70), gap: px(16) }}>
+
+    <div className='flex items-center justify-center' style={{ marginTop: px(30), gap: px(16) }}>
         <button
           className="flex items-center justify-center transition-colors cursor-pointer"
           style={{

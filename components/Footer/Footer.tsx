@@ -350,7 +350,7 @@ export default function Footer() {
                         color: '#000000'
                       }}
                     >
-                     Meta, Insgram, Youtube, X, Discord的LOGO
+                     Meta, Insgram, Youtube, X, DiscordLOGO
                     </div>
                
                 <div className="space-y-2">

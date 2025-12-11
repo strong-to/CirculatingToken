@@ -141,6 +141,7 @@ export default function ChatContent() {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onButtonClick={handleButtonClick}
+                isPriority={index < 12}
               />
             </div>
 

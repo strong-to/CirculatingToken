@@ -11,8 +11,9 @@ export default function ContentCard({
   clickColor = '#CB2C22',
   initial,
   hover,
-  clicked
-}: ContentCardProps) {
+  clicked,
+  isPriority = false
+}: ContentCardProps & { isPriority?: boolean }) {
   const [isHovered, setIsHovered] = useState(false)
   const [isClicked, setIsClicked] = useState(false)
   // 动态创建按钮hover状态对象
@@ -121,6 +122,8 @@ export default function ContentCard({
                 alt="Icon"
                 fill
                 className="object-contain"
+                priority={isPriority}
+                loading={isPriority ? undefined : 'lazy'}
               />
             </div>
             <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(8),paddingBottom:px(4)}}>
@@ -213,6 +216,7 @@ export default function ContentCard({
                 alt="Icon"
                 fill
                 className="object-contain"
+                loading="lazy"
               />
             </div>
             <div className='flex  flex-col items-start  justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(8),paddingBottom:px(4)}}>
@@ -312,6 +316,7 @@ export default function ContentCard({
                 alt="Icon"
                 fill
                 className="object-contain"
+                loading="lazy"
               />
             </div>
             <div className='flex  flex-col items-start justify-between' style={{marginLeft:px(20),height:'100%',paddingTop:px(8),paddingBottom:px(4)}}>

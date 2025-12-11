@@ -62,6 +62,7 @@ export default function HoverContent({
               alt="icon14"
               fill
               className="object-contain"
+              loading="lazy"
             />
           </div>
         </div>

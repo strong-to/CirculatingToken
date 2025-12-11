@@ -32,6 +32,7 @@ export default function ClickedContent({
               alt="icon13"
               fill
               className="object-contain"
+              loading="lazy"
             />
           </div>
 

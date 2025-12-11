@@ -43,8 +43,9 @@ export default function InitialContent({
   hoveredButtons,
   onMouseEnter,
   onMouseLeave,
-  onButtonClick
-}: InitialContentProps) {
+  onButtonClick,
+  isPriority = false
+}: InitialContentProps & { isPriority?: boolean }) {
   const cardData = chatContentData[cardIndex] || chatContentData[0]
   const buttonWidths = calculateButtonWidths(cardData.buttons)
   return (
@@ -63,6 +64,8 @@ export default function InitialContent({
               alt={`icon ${cardIndex + 1}`}
               fill
               className="object-contain"
+              priority={isPriority}
+              loading={isPriority ? undefined : 'lazy'}
             />
           </div>
         </div>

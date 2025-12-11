@@ -75,12 +75,13 @@ const imageResources = {
 
   // TokenMarketplace页面图片
   tokenMarketplaceImages: [
-    '/tokenMarketplace/TokenImages/img/Mask1.png',
-    '/tokenMarketplace/TokenImages/img/Mask2.png',
-    '/tokenMarketplace/TokenImages/img/Mask3.png',
+    '/tokenMarketplace/TokenImages/img/Mask4.png',
+    '/tokenMarketplace/TokenImages/img/Mask5.png',
+    '/tokenMarketplace/TokenImages/img/Mask6.png',
     '/tokenMarketplace/ContentCard/img/bg.png',
     '/tokenMarketplace/ContentCard/img/icon2.png',
     ...Array.from({ length: 30 }, (_, i) => `/tokenMarketplace/ContentCard/img/icon/icon_${i + 1}.png`),
+    ...Array.from({ length: 30 }, (_, i) => `/tokenMarketplace/ChatContent/img/icon${String(i + 1).padStart(2, '0')}.png`),
   ],
 }
 
@@ -153,7 +154,7 @@ const preloadSingleImage = (src: string): Promise<boolean> => {
  */
 const preloadImagesWithConcurrency = async (
   images: string[],
-  concurrency: number = 6
+  concurrency: number = 8 // 提高默认并发数，从 6 提升到 8
 ): Promise<void> => {
   // 去重
   const uniqueImages = [...new Set(images)]
@@ -166,9 +167,9 @@ const preloadImagesWithConcurrency = async (
     const batch = tasks.slice(i, i + concurrency)
     await Promise.allSettled(batch.map((task) => task()))
     
-    // 每批之间添加小延迟，避免阻塞主线程
+    // 每批之间添加小延迟，避免阻塞主线程（减少延迟时间，从 10ms 降到 5ms）
     if (i + concurrency < tasks.length) {
-      await new Promise((resolve) => setTimeout(resolve, 10))
+      await new Promise((resolve) => setTimeout(resolve, 5))
     }
   }
 }
@@ -299,7 +300,8 @@ export default function ImagePreloader() {
       const concurrency = getOptimalConcurrency()
       const images = imageResources.tokenMarketplaceImages
       loadedPagesRef.current.add('tokenMarketplace')
-      preloadImagesWithConcurrency(images, Math.min(concurrency + 2, 12)).catch(() => {})
+      // 提高 TokenMarketplace 页面的并发数，从 12 提升到 16（因为图片较多）
+      preloadImagesWithConcurrency(images, Math.min(concurrency + 4, 16)).catch(() => {})
     }
   }, [pathname])
   

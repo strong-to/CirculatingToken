@@ -45,11 +45,14 @@ export default function Header() {
                 href = '/Launchpad'
               } else if (item === 'Token Marketplace') {
                 href = '/TokenMarketplace'
+              } else if (item === 'Lending Vault') {
+                href = '/LendingVault'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
-                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace')
+                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
+                               (item === 'Lending Vault' && pathname === '/LendingVault')
               
               if (href === '#') {
                 return (
@@ -175,11 +178,14 @@ export default function Header() {
                 href = '/Launchpad'
               } else if (item === 'Token Marketplace') {
                 href = '/TokenMarketplace'
+              } else if (item === 'Lending Vault') {
+                href = '/LendingVault'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
-                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace')
+                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
+                               (item === 'Lending Vault' && pathname === '/LendingVault')
               
               if (href === '#') {
                 return (

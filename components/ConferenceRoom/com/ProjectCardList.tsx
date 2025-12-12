@@ -3,6 +3,12 @@
 import { px } from "@/utils/pxToRem";
 import { useState } from "react";
 import Image from "next/image";
+import Modal from "./Modal/Modal";
+import ProjectFundingModal from "./Modal/ProjectFundingModal";
+import CollectDataModal from "./Modal/CollectDataModal";
+import GPUComputeModal from "./Modal/GPUComputeModal";
+import OptimizeImageModal from "./Modal/OptimizeImageModal";
+import APIDocumentationModal from "./Modal/APIDocumentationModal";
 
 interface Tag {
   type: "bordered" | "icon";
@@ -81,25 +87,38 @@ const cardData: CardData[] = [
   },
 ];
 
+const modalComponents = [
+  ProjectFundingModal,
+  CollectDataModal,
+  GPUComputeModal,
+  OptimizeImageModal,
+  APIDocumentationModal,
+];
+
 export default function ProjectCardList() {
   const [activeButtons, setActiveButtons] = useState<Record<string, boolean>>({});
+  const [openModalIndex, setOpenModalIndex] = useState<number | null>(1);
 
   return (
-    <div
-      className="flex flex-wrap w-full"
-      style={{ marginTop: px(30), gap: px(20) }}
-    >
-      {cardData.map((card, index) => (
-        <div
-          key={index}
-          className="border border-[#000000] flex items-start justify-between"
-          style={{
-            width: `calc(50% - ${px(10)})`,
-            height: px(155),
-            padding: px(25),
-            borderRadius: px(4),
-          }}
-        >
+    <>
+      <div
+        className="flex flex-wrap w-full"
+        style={{ marginTop: px(30), gap: px(20) }}
+      >
+        {cardData.map((card, index) => {
+          const ModalComponent = modalComponents[index];
+          return (
+            <div
+              key={index}
+              className="border border-[#000000] flex items-start justify-between cursor-pointer"
+              style={{
+                width: `calc(50% - ${px(10)})`,
+                height: px(155),
+                padding: px(25),
+                borderRadius: px(4),
+              }}
+              onClick={() => setOpenModalIndex(index)}
+            >
           <div
             className="relative flex-shrink-0 flex items-center justify-center"
             style={{ width: px(70), height: px(70), marginRight: px(15), borderRadius: px(4) }}
@@ -363,8 +382,22 @@ export default function ProjectCardList() {
             })}
           </div>
         </div>
-      ))}
-    </div>
+          );
+        })}
+      </div>
+
+      {openModalIndex !== null && (
+        <Modal
+          isOpen={true}
+          onClose={() => setOpenModalIndex(null)}
+        >
+          {(() => {
+            const ModalComponent = modalComponents[openModalIndex];
+            return ModalComponent ? <ModalComponent /> : null;
+          })()}
+        </Modal>
+      )}
+    </>
   );
 }
 

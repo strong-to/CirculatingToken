@@ -1,0 +1,334 @@
+'use client'
+
+import FilterDropdown from "@/components/LendingVault/com/FilterDropdown"
+import SearchInput from "@/components/LendingVault/com/SearchInput"
+import { projectGovernanceData, interactionFormCategories } from "@/components/TokenMarketplace/data/FilterSectionData"
+import { px } from "@/utils/pxToRem"
+import { useState, useRef, useEffect } from "react"
+import * as echarts from 'echarts'
+import DataTable, { Column } from './DataTable'
+
+export default function ProposalContent() {
+  const [selectedView, setSelectedView] = useState<'Diagram' | 'List'>('List')
+  const chartRef = useRef<HTMLDivElement>(null)
+  const chartInstanceRef = useRef<echarts.ECharts | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage, setItemsPerPage] = useState(10)
+  const totalPages = 7
+
+
+  // 表格列定义
+  const columns: Column[] = [
+    { key: 'type', label: 'Type', width: 'flex' },
+    { key: 'subject', label: 'Subject', width: 'flex' },
+    { key: 'proposer', label: 'Proposer', width: 'flex' },
+    { key: 'turnout', label: 'Turnout', width: 'flex' },
+    { key: 'timing', label: 'Timing', width: 'flex' },
+    { key: 'status', label: 'Status', width: 'flex' },
+  ]
+    // 表格数据
+    const tableData = [
+      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: '' },
+      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'Pass' },
+      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'Reject' },
+      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'In Progress' },
+      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'In Progress' },
+      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'In Progress' },
+    ]
+  
+
+  const handleViewChange = (value: string) => {
+    const view = value as 'Diagram' | 'List'
+    setSelectedView(view)
+  }
+
+  // 列表表格列定义
+  const listColumns: Column[] = [
+    { key: 'time', label: 'time', width: 200 },
+    { key: 'newUsage', label: 'Newly Added Usage Count', width: 'flex' },
+    { key: 'cumulativeUsage', label: 'Cumulative Usage Count', width: 'flex' },
+    { key: 'newRecommendation', label: 'Newly Added Recommendation Count', width: 'flex' },
+    { key: 'cumulativeRecommendation', label: 'Cumulative Recommendation Count', width: 'flex' },
+    { key: 'newConstruction', label: 'Newly Added Construction Count', width: 'flex' },
+    { key: 'cumulativeConstruction', label: 'Cumulative Construction Count', width: 'flex' },
+  ]
+
+  // 列表表格数据
+  const listData = Array.from({ length: 6 }, (_, index) => {
+    const dates = ['14:59-08-07-2026', '14:59-07-07-2026', '14:59-06-07-2026', '14:59-05-07-2026', '14:59-04-07-2026', '14:59-03-07-2026']
+    return {
+      time: dates[index],
+      newUsage: '666',
+      cumulativeUsage: '888',
+      newRecommendation: '222',
+      cumulativeRecommendation: '333',
+      newConstruction: '220',
+      cumulativeConstruction: '110',
+    }
+  })
+
+  // 初始化图表
+  useEffect(() => {
+    // 只有在 Diagram 模式下才初始化图表
+    if (selectedView !== 'Diagram' || !chartRef.current) return
+
+    // 如果已经存在实例，先销毁
+    if (chartInstanceRef.current) {
+      chartInstanceRef.current.dispose()
+    }
+
+    // 创建新的图表实例
+    const chartInstance = echarts.init(chartRef.current)
+    chartInstanceRef.current = chartInstance
+
+    // 配置选项
+    const option = {
+      grid: {
+        left: '5%',
+        right: '5%',
+        top: '10%',
+        bottom: '10%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [820, 932, 901, 934, 1290, 1330, 1320],
+          type: 'line',
+          smooth: true
+        }
+      ]
+    }
+
+    // 设置配置项
+    chartInstance.setOption(option)
+
+    // 响应式调整
+    const handleResize = () => {
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.resize()
+      }
+    }
+    window.addEventListener('resize', handleResize)
+
+    // 清理函数
+    return () => {
+      window.removeEventListener('resize', handleResize)
+      if (chartInstanceRef.current) {
+        chartInstanceRef.current.dispose()
+        chartInstanceRef.current = null
+      }
+    }
+  }, [selectedView])
+
+  return (
+    <div className="w-full">
+      {/* 筛选框 */}
+      <div className='flex items-center' style={{ width: '100%', marginTop: px(15), gap: px(15), paddingLeft: px(80), paddingRight: px(80) }}>
+        <div className="flex-1">
+          <SearchInput />
+          </div>
+        <div className="flex-1">
+
+          
+          <FilterDropdown
+            placeholder="Sort by"
+            description=""
+            options={projectGovernanceData}
+            value={selectedView}
+            onChange={(value) => {
+              if (value === 'Diagram' || value === 'List') {
+                handleViewChange(value)
+              }
+            }}
+          />
+        </div>
+
+        <div className="flex-1">
+          <FilterDropdown
+            placeholder="Interaction / Form"
+            description="Which of the following ways would you like to interact with AI?"
+            categories={interactionFormCategories}
+          />
+        </div>
+        <div className="flex-1">
+          <button
+            className="flex-1 transition-colors cursor-pointer w-full"
+            style={{
+              height: px(44),
+              border: '1px solid #000000',
+              borderRadius: px(4),
+              backgroundColor: '#ffffff',
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontStyle: 'normal',
+              fontSize: px(16),
+              lineHeight: '100%',
+              letterSpacing: '0%',
+              color: '#000000',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#000000'
+              e.currentTarget.style.color = '#ffffff'
+              e.currentTarget.style.borderColor = '#000000'
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#ffffff'
+              e.currentTarget.style.color = '#000000'
+              e.currentTarget.style.borderColor = '#000000'
+            }}
+          >
+            Submit a Proposal
+          </button>
+        </div>
+
+     
+      </div>
+
+      {/* 图表 */}
+      <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(20) }}>
+      <DataTable columns={columns} data={tableData} />
+
+       {/* 翻页控件 */}
+       <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>
+           <div className="flex items-center" style={{ gap: px(16), marginRight: px(30) }}>
+             <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
+               共1条
+             </span>
+             <select
+               value={itemsPerPage}
+               onChange={(e) => setItemsPerPage(Number(e.target.value))}
+               style={{
+                 fontFamily: 'PingFang SC',
+                 fontWeight: 400,
+                 fontStyle: 'normal',
+                 fontSize: px(16),
+                 lineHeight: '100%',
+                 letterSpacing: '0%',
+                 padding: px(4),
+                 border: '1px solid #e0e0e0',
+                 borderRadius: px(4),
+               }}
+             >
+               <option value={10}>10条/页</option>
+               <option value={20}>20条/页</option>
+               <option value={50}>50条/页</option>
+             </select>
+           </div>
+
+           <div className="flex items-center" style={{ gap: px(8) }}>
+             <button
+               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+               disabled={currentPage === 1}
+               style={{
+                 fontFamily: 'PingFang SC',
+                 fontWeight: 400,
+                 fontStyle: 'normal',
+                 fontSize: px(16),
+                 lineHeight: '100%',
+                 letterSpacing: '0%',
+                 padding: px(8),
+                 border: '1px solid #e0e0e0',
+                 borderRadius: px(4),
+                 backgroundColor: currentPage === 1 ? '#f5f5f5' : '#ffffff',
+                 cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
+                 color: currentPage === 1 ? '#999999' : '#000000',
+               }}
+             >
+               &lt;
+             </button>
+             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+               <button
+                 key={page}
+                 onClick={() => setCurrentPage(page)}
+                 style={{
+                   fontFamily: 'PingFang SC',
+                   fontWeight: 400,
+                   fontStyle: 'normal',
+                   fontSize: px(16),
+                   lineHeight: '100%',
+                   letterSpacing: '0%',
+                   width: px(30),
+                   height: px(30),
+                   display: 'flex',
+                   alignItems: 'center',
+                   justifyContent: 'center',
+                   border: '1px solid #e0e0e0',
+                   borderRadius: px(4),
+                   backgroundColor: currentPage === page ? '#000000' : '#F0F2F5',
+                   color: currentPage === page ? '#ffffff' : '#000000',
+                   cursor: 'pointer',
+                 }}
+               >
+                 {page}
+               </button>
+             ))}
+             <button
+               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+               disabled={currentPage === totalPages}
+               style={{
+                 fontFamily: 'PingFang SC',
+                 fontWeight: 400,
+                 fontStyle: 'normal',
+                 fontSize: px(16),
+                 lineHeight: '100%',
+                 letterSpacing: '0%',
+                 padding: px(8),
+                 border: '1px solid #e0e0e0',
+                 borderRadius: px(4),
+                 backgroundColor: currentPage === totalPages ? '#f5f5f5' : '#ffffff',
+                 cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
+                 color: currentPage === totalPages ? '#999999' : '#000000',
+               }}
+             >
+               &gt;
+             </button>
+             <div className="flex items-center" style={{ gap: px(8), marginLeft: px(16) }}>
+               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
+                 前往
+               </span>
+               <input
+                 type="number"
+                 min={1}
+                 max={totalPages}
+                 value={currentPage}
+                 onChange={(e) => {
+                   const page = Number(e.target.value)
+                   if (page >= 1 && page <= totalPages) {
+                     setCurrentPage(page)
+                   }
+                 }}
+                 style={{
+                   fontFamily: 'PingFang SC',
+                   fontWeight: 400,
+                   fontStyle: 'normal',
+                   fontSize: px(16),
+                   lineHeight: '100%',
+                   letterSpacing: '0%',
+                   width: px(50),
+                   padding: px(4),
+                   border: '1px solid #e0e0e0',
+                   borderRadius: px(4),
+                   textAlign: 'center',
+                 }}
+               />
+               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
+                 页
+               </span>
+             </div>
+           </div>
+         </div>
+      </div>
+    </div>
+  )
+}
+

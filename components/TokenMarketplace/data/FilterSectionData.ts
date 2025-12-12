@@ -257,3 +257,4 @@ export const actionCategories: Category[] = [
 
 
 export const actionSortBy: string[] = ['Chat', 'List']
+export const projectGovernanceData: string[] = ['Diagram', 'List']

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 // import TokenImages from '@/components/TokenMarketplace/com/TokenImages'
 import FilterSection from '@/components/TokenMarketplace/com/FilterSection'
-import ContentCardList from '@/components/TokenMarketplace/com/ContentCardList'
+// import ContentCardList from '@/components/TokenMarketplace/com/ContentCardList'
 import ChatImages from '@/components/TokenMarketplace/com/ChatImages'
 import ChatContent from '@/components/TokenMarketplace/com/ChatContent'
 
@@ -40,8 +40,9 @@ export default function TokenMarketplaceContent() {
           <FilterSection onViewChange={setViewMode} />
           </div>
           <div style={{ position: 'relative', width: '100%' }}>
+          <ChatContent />
             {/* List 视图 */}
-            {displayList && (
+            {/* {displayList && (
               <div 
                 key="list-view"
                 style={{
@@ -59,9 +60,9 @@ export default function TokenMarketplaceContent() {
               >
                 <ContentCardList />
               </div>
-            )}
+            )} */}
             {/* Chat 视图 */}
-            {displayChat && (
+            {/* {displayChat && (
               <div 
                 key="chat-view"
                 style={{
@@ -79,7 +80,7 @@ export default function TokenMarketplaceContent() {
               >
                 <ChatContent />
               </div>
-            )}
+            )} */}
           </div>
         </div>
   )

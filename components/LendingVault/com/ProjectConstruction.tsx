@@ -3,18 +3,46 @@
 import { useState } from 'react'
 import { px } from "@/utils/pxToRem"
 import Image from 'next/image'
+import DataTable, { Column } from './DataTable'
 
 export default function ProjectConstruction() {
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
   const totalPages = 7
 
+  // 表格列定义
+  const columns: Column[] = [
+    { key: 'annotation', label: 'multi-modal data annotation', width: 200 },
+    { key: 'content', label: 'job content', width: 'flex' },
+    { key: 'filter', label: 'filter/sort', width: 120 },
+    { key: 'tokens', label: 'contribution consideration/Tokens', width: 180 },
+    { key: 'unit', label: 'workload unit', width: 120 },
+    { key: 'demand', label: 'total demand', width: 120 },
+    { key: 'participants', label: 'number of participants', width: 150 },
+    { key: 'difficulty', label: 'difficulty coefficient', width: 140 },
+    { key: 'timeLimit', label: 'time limit', width: 120 },
+    { key: 'status', label: 'status', width: 120 },
+  ]
+
+  // 表格数据
+  const tableData = Array.from({ length: 6 }, () => ({
+    annotation: 'multi-modal data annotation',
+    content: 'job content',
+    filter: 'filter/sort',
+    tokens: '80',
+    unit: 'item',
+    demand: '200000',
+    participants: '110',
+    difficulty: '4.1/5.0',
+    timeLimit: 'Nov 30 2026',
+    status: 'under construction',
+  }))
 
   return (
     <>
   
       {/* 顶部区域 */}
-      <div className="w-full" style={{ marginTop: px(131), gap: px(30) }}>
+      <div className="w-full" style={{ marginTop: px(120), gap: px(30) }}>
          <div className='flex items-center w-full justify-end' style={{height:px(25),gap:px(20),paddingRight:px(70),paddingBottom:px(25)}}>
              <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
                construction response count：1,503
@@ -79,119 +107,8 @@ export default function ProjectConstruction() {
 
 
        {/* 数据表格 */}
-       <div className="w-full" style={{ marginTop: px(50), paddingLeft: px(80), paddingRight: px(80) }}>
-         {/* 表格 */}
-         <div className="w-full" style={{ borderTop: '1px solid #e0e0e0', borderBottom: '1px solid #e0e0e0', overflow: 'hidden' }}>
-           {/* 表头 */}
-           <div className="flex" style={{ borderBottom: '1px solid #e0e0e0' }}>
-             <div style={{ width: px(200), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 multi-modal data annotation
-               </span>
-             </div>
-             <div style={{ flex: 1, height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 job content
-               </span>
-             </div>
-             <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 filter/sort
-               </span>
-             </div>
-             <div style={{ width: px(180), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 contribution consideration/Tokens
-               </span>
-             </div>
-             <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 workload unit
-               </span>
-             </div>
-             <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 total demand
-               </span>
-             </div>
-             <div style={{ width: px(150), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 number of participants
-               </span>
-             </div>
-             <div style={{ width: px(140), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 difficulty coefficient
-               </span>
-             </div>
-             <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 time limit
-               </span>
-             </div>
-             <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: 'none', display: 'flex', alignItems: 'center' }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 status
-               </span>
-             </div>
-           </div>
-
-           {/* 表格数据行 */}
-           {Array.from({ length: 6 }).map((_, index) => (
-             <div key={index} className="flex" style={{ borderBottom: index < 5 ? '1px solid #e0e0e0' : 'none' }}>
-               <div style={{ width: px(200), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   multi-modal data annotation
-                 </span>
-               </div>
-               <div style={{ flex: 1, height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   job content
-                 </span>
-               </div>
-               <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   filter/sort
-                 </span>
-               </div>
-               <div style={{ width: px(180), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   80
-                 </span>
-               </div>
-               <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   item
-                 </span>
-               </div>
-               <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   200000
-                 </span>
-               </div>
-               <div style={{ width: px(150), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   110
-                 </span>
-               </div>
-               <div style={{ width: px(140), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   4.1/5.0
-                 </span>
-               </div>
-               <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: '1px solid #e0e0e0', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   Nov 30 2026
-                 </span>
-               </div>
-               <div style={{ width: px(120), height: px(70), padding: px(16), borderRight: 'none', display: 'flex', alignItems: 'center' }}>
-                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                   under construction
-                 </span>
-               </div>
-             </div>
-           ))}
-         </div>
+       <div className="w-full" style={{ marginTop: px(20), paddingLeft: px(80), paddingRight: px(80) }}>
+         <DataTable columns={columns} data={tableData} />
 
          {/* 翻页控件 */}
          <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>

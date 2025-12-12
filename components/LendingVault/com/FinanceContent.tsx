@@ -112,7 +112,7 @@ export default function FinanceContent() {
       <div className='flex items-center' style={{ width: '100%', marginTop: px(15), gap: px(15), paddingLeft: px(80), paddingRight: px(80) }}>
         <div className="flex-1">
           <FilterDropdown
-            placeholder="Sort by"
+            placeholder="Diagram/List"
             description=""
             options={projectGovernanceData}
             value={selectedView}
@@ -126,13 +126,20 @@ export default function FinanceContent() {
 
         <div className="flex-1">
           <FilterDropdown
-            placeholder="Interaction / Form"
+            placeholder="Subject"
+            description="Which of the following ways would you like to interact with AI?"
+            categories={interactionFormCategories}
+          />
+        </div>
+        <div className="flex-1">
+          <FilterDropdown
+            placeholder="Asset"
             description="Which of the following ways would you like to interact with AI?"
             categories={interactionFormCategories}
           />
         </div>
 
-        {['Use', 'Recommend', 'Construct', '2024-11--2024-11-21'].map((label, index) => (
+        {[ 'Revenue', 'Expense', '2024-11--2024-11-21'].map((label, index) => (
           <button
             key={index}
             className="flex-1 transition-colors cursor-pointer"

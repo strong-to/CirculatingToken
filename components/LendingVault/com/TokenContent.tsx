@@ -24,27 +24,24 @@ export default function EcosystemContent() {
   // 列表表格列定义
   const listColumns: Column[] = [
     { key: 'time', label: 'time', width: 200 },
-    { key: 'newUsage', label: 'Newly Added Usage Count', width: 'flex' },
-    { key: 'cumulativeUsage', label: 'Cumulative Usage Count', width: 'flex' },
-    { key: 'newRecommendation', label: 'Newly Added Recommendation Count', width: 'flex' },
-    { key: 'cumulativeRecommendation', label: 'Cumulative Recommendation Count', width: 'flex' },
-    { key: 'newConstruction', label: 'Newly Added Construction Count', width: 'flex' },
-    { key: 'cumulativeConstruction', label: 'Cumulative Construction Count', width: 'flex' },
+    { key: 'action', label: 'action', width: 'flex' },
+    { key: 'subject', label: 'subject', width: 'flex' },
+    { key: 'party', label: 'party', width: 'flex' },
+    { key: 'consideration', label: 'consideration', width: 'flex' },
+    { key: 'occurrenceCount', label: 'occurrence count', width: 'flex' },
+    { key: 'cumulative', label: 'cumulative', width: 'flex' },
+    { key: 'stock', label: 'stock', width: 'flex' },
   ]
 
   // 列表表格数据
-  const listData = Array.from({ length: 6 }, (_, index) => {
-    const dates = ['14:59-08-07-2026', '14:59-07-07-2026', '14:59-06-07-2026', '14:59-05-07-2026', '14:59-04-07-2026', '14:59-03-07-2026']
-    return {
-      time: dates[index],
-      newUsage: '666',
-      cumulativeUsage: '888',
-      newRecommendation: '222',
-      cumulativeRecommendation: '333',
-      newConstruction: '220',
-      cumulativeConstruction: '110',
-    }
-  })
+  const listData = [
+    { time: '14:59-08-07-2026', action: 'Mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
+    { time: '14:59-07-07-2026', action: 'mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
+    { time: '14:59-06-07-2026', action: 'stake', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
+    { time: '14:59-05-07-2026', action: 'decompress', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
+    { time: '14:59-04-07-2026', action: 'mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
+    { time: '14:59-03-07-2026', action: 'mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
+  ]
 
   // 初始化图表
   useEffect(() => {
@@ -124,15 +121,15 @@ export default function EcosystemContent() {
           />
         </div>
 
-        <div className="flex-1">
+        {/* <div className="flex-1">
           <FilterDropdown
             placeholder="Interaction / Form"
             description="Which of the following ways would you like to interact with AI?"
             categories={interactionFormCategories}
           />
-        </div>
+        </div> */}
 
-        {['Use', 'Recommend', 'Construct', '2024-11--2024-11-21'].map((label, index) => (
+        {[ 'Mint' ,'Burn', 'Staking', 'Decompress', '2024-11--2024-11-21'].map((label, index) => (
           <button
             key={index}
             className="flex-1 transition-colors cursor-pointer"

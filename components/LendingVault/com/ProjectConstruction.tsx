@@ -8,27 +8,27 @@ export default function ProjectConstruction() {
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
   const totalPages = 7
-  // 12个圆形图标的背景颜色
-  const iconColors = [
-    '#083FD8', // blue
-    '#CB2C22', // red
-    '#4A90E2', // light blue
-    '#FF6B35', // orange
-    '#4CAF50', // green
-    '#E91E63', // pink
-    '#8BC34A', // light green
-    '#FFFFFF', // white
-    '#9E9E9E', // grey
-    '#00BCD4', // light blue
-    '#9C27B0', // purple
-    '#795548', // brown
-  ]
+
 
   return (
     <>
   
       {/* 顶部区域 */}
       <div className="w-full" style={{ marginTop: px(131), gap: px(30) }}>
+         <div className='flex items-center w-full justify-end' style={{height:px(25),gap:px(20),paddingRight:px(70),paddingBottom:px(25)}}>
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
+               construction response count：1,503
+             </div>
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
+               number of constructors：667
+             </div>
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
+               number of completed response subjects：7
+             </div>
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
+               number of ongoing response subjects：05
+             </div>
+         </div>
       <div className="bg-black w-full relative flex items-center justify-end" style={{height:px(140)}}>
       <div
           style={{

@@ -47,12 +47,15 @@ export default function Header() {
                 href = '/TokenMarketplace'
               } else if (item === 'Lending Vault') {
                 href = '/LendingVault'
+              } else if (item === 'Conference Room') {
+                href = '/ConferenceRoom'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
-                               (item === 'Lending Vault' && pathname === '/LendingVault')
+                               (item === 'Lending Vault' && pathname === '/LendingVault') ||
+                               (item === 'Conference Room' && pathname === '/ConferenceRoom')
               
               if (href === '#') {
                 return (
@@ -180,12 +183,15 @@ export default function Header() {
                 href = '/TokenMarketplace'
               } else if (item === 'Lending Vault') {
                 href = '/LendingVault'
+              } else if (item === 'Conference Room') {
+                href = '/ConferenceRoom'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
-                               (item === 'Lending Vault' && pathname === '/LendingVault')
+                               (item === 'Lending Vault' && pathname === '/LendingVault') ||
+                               (item === 'Conference Room' && pathname === '/ConferenceRoom')
               
               if (href === '#') {
                 return (

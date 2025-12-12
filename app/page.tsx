@@ -9,7 +9,6 @@ import FreedomToEnter from '@/components/Home/FreedomToEnter'
 import LiquidityThat from '@/components/Home/LiquidityThat'
 import Footer from '@/components/Footer/Footer'
 import ImagePreloader from '@/components/ImagePreloader'
-import { px } from '@/utils/pxToRem'
 export default function Home() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">

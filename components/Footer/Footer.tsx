@@ -347,7 +347,8 @@ export default function Footer() {
                         fontSize: px(20.57),
                         lineHeight: '100%',
                         letterSpacing: '0%',
-                        color: '#000000'
+                        color: '#000000',
+                          whiteSpace: 'nowrap'
                       }}
                     >
                      Meta, Insgram, Youtube, X, DiscordLOGO
@@ -396,7 +397,8 @@ export default function Footer() {
                         fontSize: px(20.57),
                         lineHeight: '100%',
                         letterSpacing: '0%',
-                        color: '#000000'
+                        color: '#000000',
+                        whiteSpace: 'nowrap'
                       }}
                     >
                       Customized online advertising

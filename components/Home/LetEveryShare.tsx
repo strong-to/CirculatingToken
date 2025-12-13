@@ -103,7 +103,19 @@ export default function LetEveryShare() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }}>Share AI Projects and Earn</span>
+              <span
+                style={{
+                  marginRight: '0.625rem',
+                  fontFamily: "ITC Avant Garde Gothic Pro",
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(28),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                }}
+              >
+                Share AI Projects and Earn
+              </span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -204,11 +216,21 @@ export default function LetEveryShare() {
               style={{
                 width: '17.296875rem', // 276.75px
                 height: '3.9375rem', // 63px
-                fontSize: '1.75rem', // 28px
                 borderRadius: '0.25rem' // 4px
               }}
             >
-              View all projects
+              <span
+                style={{
+                  fontFamily: "ITC Avant Garde Gothic Pro",
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(26),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                }}
+              >
+                View all projects
+              </span>
             </button>
           </div>
 

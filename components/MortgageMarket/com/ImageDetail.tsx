@@ -13,11 +13,8 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
     <div
       className="w-full h-full flex flex-col"
       style={{
-        padding: px(50),
-        paddingBottom: px(0),
+        padding: px(40),
         backgroundColor: "#ffffff",
-        height: "100vh",
-        overflow: "hidden",
       }}
     >
       {/* Profile Header */}
@@ -26,8 +23,8 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
         <div
           className="relative"
           style={{
-            width: px(200),
-            height: px(200),
+            width: px(120),
+            height: px(120),
             borderRadius: "50%",
             overflow: "hidden",
             marginBottom: px(20),
@@ -323,13 +320,12 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
 
       {/* Content Area */}
       <div className="flex-1 flex flex-col">
-        {/* Content Previews - Fixed to bottom */}
+        {/* Content Previews */}
         <div
           className="flex"
           style={{
             gap: px(20),
-            marginTop: "auto",
-            paddingBottom: 0,
+            marginBottom: px(40),
           }}
         >
           <div
@@ -367,6 +363,8 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
             />
           </div>
         </div>
+
+      
       </div>
       
     </div>

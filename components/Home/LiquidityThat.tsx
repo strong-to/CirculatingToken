@@ -60,7 +60,19 @@ export default function  LiquidityThat() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >
+              <span
+                style={{
+                  marginRight: '0.625rem',
+                  fontFamily: "ITC Avant Garde Gothic Pro",
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(28),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  textAlign: "right",
+                }}
+                className='whitespace-nowrap'
+              >
               Borrow or Lend Tokens Instantly for Liquidity
                 </span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>

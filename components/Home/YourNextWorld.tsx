@@ -45,6 +45,7 @@ export default function  YourNextWorld() {
             <button
               className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
               style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 width: '17.296875rem', // 276.75px
                 height: '3.9375rem', // 63px
                 fontSize: '1.75rem', // 28px
@@ -63,7 +64,21 @@ export default function  YourNextWorld() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >{texts.buttonLaunchProject}</span>
+              <span
+                style={{
+                  marginRight: '0.625rem',
+                  fontFamily: "ITC Avant Garde Gothic Pro",
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(28),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  textAlign: "right",
+                }}
+                className='whitespace-nowrap'
+              >
+                {texts.buttonLaunchProject}
+              </span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"

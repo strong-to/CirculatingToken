@@ -40,7 +40,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
       <div
         className="fixed inset-0 z-40"
         style={{
-          backgroundColor: "#4d4d4d",
+          backgroundColor: "rgba(0, 0, 0, 0.4)",
           opacity: isAnimating ? 1 : 0,
           transition: "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
         }}

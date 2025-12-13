@@ -16,6 +16,7 @@ export default function Header() {
     'Token Marketplace',
     'Lending Vault',
     'Conference Room',
+    'Mortgage  market'
   ]
 
   return (
@@ -49,13 +50,16 @@ export default function Header() {
                 href = '/LendingVault'
               } else if (item === 'Conference Room') {
                 href = '/ConferenceRoom'
+              } else if (item === 'Mortgage  market') {
+                href = '/MortgageMarket'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
                                (item === 'Lending Vault' && pathname === '/LendingVault') ||
-                               (item === 'Conference Room' && pathname === '/ConferenceRoom')
+                               (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
+                               (item === 'Mortgage  market' && pathname === '/MortgageMarket')
               
               if (href === '#') {
                 return (
@@ -185,13 +189,16 @@ export default function Header() {
                 href = '/LendingVault'
               } else if (item === 'Conference Room') {
                 href = '/ConferenceRoom'
+              } else if (item === 'Mortgage  market') {
+                href = '/MortgageMarket'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
                                (item === 'Lending Vault' && pathname === '/LendingVault') ||
-                               (item === 'Conference Room' && pathname === '/ConferenceRoom')
+                               (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
+                               (item === 'Mortgage  market' && pathname === '/MortgageMarket')
               
               if (href === '#') {
                 return (

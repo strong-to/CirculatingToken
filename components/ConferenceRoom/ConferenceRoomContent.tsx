@@ -5,7 +5,7 @@ import { useState } from "react";
 import ProjectCardList from "./com/ProjectCardList";
 
 export default function ConferenceRoomContent() {
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState("All");
   return (
     <>
       <div
@@ -72,7 +72,7 @@ export default function ConferenceRoomContent() {
           })}
         </div>
 
-        <ProjectCardList />
+        <ProjectCardList filterTab={activeTab} />
 
       </div>
     </>

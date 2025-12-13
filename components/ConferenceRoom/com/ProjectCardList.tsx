@@ -95,9 +95,39 @@ const modalComponents = [
   APIDocumentationModal,
 ];
 
-export default function ProjectCardList() {
-  const [activeButtons, setActiveButtons] = useState<Record<string, boolean>>({});
-  const [openModalIndex, setOpenModalIndex] = useState<number | null>(1);
+interface ProjectCardListProps {
+  filterTab?: string;
+}
+
+export default function ProjectCardList({ filterTab = "All" }: ProjectCardListProps) {
+  // 初始化时，所有 "Open" 按钮默认选中
+  const initialActiveButtons: Record<string, boolean> = {};
+  cardData.forEach((card, index) => {
+    if (card.buttons.includes("Open")) {
+      const buttonKey = `${index}-Open`;
+      initialActiveButtons[buttonKey] = true;
+    }
+  });
+
+  const [activeButtons, setActiveButtons] = useState<Record<string, boolean>>(initialActiveButtons);
+  const [openModalIndex, setOpenModalIndex] = useState<number | null>(null);
+
+  // 按钮到卡片标题的映射
+  const filterMap: Record<string, string> = {
+    Funding: "Project funding support",
+    Data: "Collect labeled data for specific",
+    Compute: "NVIDIA A100 GPU Computing Power",
+    Development: "Optimize image recognition performance",
+    Documentation: "Write detailed API documentation",
+  };
+
+  // 根据选中的按钮过滤卡片，同时保留原始索引
+  const filteredCardsWithIndex =
+    filterTab === "All"
+      ? cardData.map((card, index) => ({ card, originalIndex: index }))
+      : cardData
+          .map((card, index) => ({ card, originalIndex: index }))
+          .filter(({ card }) => card.title === filterMap[filterTab]);
 
   return (
     <>
@@ -105,11 +135,11 @@ export default function ProjectCardList() {
         className="flex flex-wrap w-full"
         style={{ marginTop: px(30), gap: px(20) }}
       >
-        {cardData.map((card, index) => {
-          const ModalComponent = modalComponents[index];
+        {filteredCardsWithIndex.map(({ card, originalIndex }, index) => {
+          const ModalComponent = modalComponents[originalIndex];
           return (
             <div
-              key={index}
+              key={originalIndex}
               className="border border-[#000000] flex items-start justify-between cursor-pointer"
               style={{
                 width: `calc(50% - ${px(10)})`,
@@ -117,7 +147,7 @@ export default function ProjectCardList() {
                 padding: px(25),
                 borderRadius: px(4),
               }}
-              onClick={() => setOpenModalIndex(index)}
+              onClick={() => setOpenModalIndex(originalIndex)}
             >
           <div
             className="relative flex-shrink-0 flex items-center justify-center"
@@ -128,7 +158,7 @@ export default function ProjectCardList() {
               alt={card.title}
               fill
               style={{ objectFit: "contain" }}
-              loading={index < 2 ? "eager" : "lazy"}
+              loading={originalIndex < 2 ? "eager" : "lazy"}
             />
           </div>
 
@@ -333,7 +363,7 @@ export default function ProjectCardList() {
             }}
           >
             {card.buttons.map((btnText) => {
-              const buttonKey = `${index}-${btnText}`;
+              const buttonKey = `${originalIndex}-${btnText}`;
               const isBtnActive = activeButtons[buttonKey] || false;
               return (
                 <button

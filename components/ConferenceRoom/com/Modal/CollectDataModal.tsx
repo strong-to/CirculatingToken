@@ -555,7 +555,7 @@ export default function CollectDataModal() {
 
 
 
-<div className="flex flex-col" style={{ gap: px(20),marginTop:px(25) }}>
+<div className="flex flex-col" style={{ gap: px(20),marginTop:px(35) }}>
           {/* Completely accurate */}
           <div
             className="flex items-center justify-start"
@@ -637,7 +637,7 @@ export default function CollectDataModal() {
           </div>
         </div>
 
-        <div className="w-full flex items-center justify-center" style={{marginTop:px(40),gap:px(20)}}>
+        <div className="w-full flex items-center justify-center" style={{marginTop:px(60),marginBottom:px(20),gap:px(20)}}>
           <button
             className="w-full flex items-center justify-center"
             style={{

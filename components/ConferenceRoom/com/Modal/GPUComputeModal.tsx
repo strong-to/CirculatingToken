@@ -577,7 +577,7 @@ export default function GPUComputeModal() {
         style={{
           paddingLeft: px(30),
           paddingRight: px(30),
-          paddingTop: px(20),
+          paddingTop: px(30),
           gap: px(20),
         }}
       >
@@ -714,7 +714,7 @@ export default function GPUComputeModal() {
       </div>
 
 
-      <div style={{height:px(44),paddingLeft:px(50),paddingRight:px(50),marginTop:px(50)}} className="flex items-center justify-center w-full">
+      <div style={{height:px(44),paddingLeft:px(50),paddingRight:px(50),marginTop:px(60)}} className="flex items-center justify-center w-full">
  <button className="cursor-pointer w-full" style={{  height:px(44), backgroundColor:"#000000",borderRadius:px(4), color:"#ffffff",fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',fontWeight: 300,fontSize: px(16),lineHeight: "100%",letterSpacing: "0%"}}>
  Submit Compute Resource
  </button>

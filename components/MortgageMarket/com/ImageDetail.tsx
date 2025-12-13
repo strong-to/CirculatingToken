@@ -14,8 +14,10 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
       className="w-full h-full flex flex-col"
       style={{
         padding: px(50),
-        paddingBottom:px(0),
+        paddingBottom: px(0),
         backgroundColor: "#ffffff",
+        height: "100vh",
+        overflow: "hidden",
       }}
     >
       {/* Profile Header */}

@@ -46,16 +46,48 @@ export default function MortgageMarketContent() {
 
       {/* right */}
       <div
+        className="flex-1 relative"
         style={{
-          flex: 1,
-          overflow: "auto",
+          overflow: activeTab === "play" ? "auto" : "hidden",
         }}
       >
-        {activeTab !== "play" ? (
+        {/* ImageDetail */}
+        <div
+          className="scrollbar-hide"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            opacity: activeTab !== "play" ? 1 : 0,
+            visibility: activeTab !== "play" ? "visible" : "hidden",
+            transition: "opacity 0.3s ease-in-out",
+            pointerEvents: activeTab !== "play" ? "auto" : "none",
+            overflow: "hidden",
+          }}
+        >
           <ImageDetail imageSrc="" onBack={() => {}} />
-        ) : (
+        </div>
+        
+        {/* ImageGrid */}
+        <div
+          className="scrollbar-hide"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            opacity: activeTab === "play" ? 1 : 0,
+            visibility: activeTab === "play" ? "visible" : "hidden",
+            transition: "opacity 0.3s ease-in-out",
+            pointerEvents: activeTab === "play" ? "auto" : "none",
+            overflow: "auto",
+          }}
+        >
           <ImageGrid />
-        )}
+        </div>
       </div>
 
       {/* Fixed Video Description Overlay */}

@@ -2,8 +2,38 @@
 
 import { px } from "@/utils/pxToRem";
 import FilterDropdown from "@/components/ConferenceRoom/com/Modal/FilterDropdown";
+import { useEffect, useRef, useState } from "react";
 
 export default function ProjectFundingModal() {
+  const [sliderValue, setSliderValue] = useState(33); // 初始值33%
+  const [isDragging, setIsDragging] = useState(false);
+  const sliderRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (isDragging && sliderRef.current) {
+        const rect = sliderRef.current.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
+        setSliderValue(percentage);
+      }
+    };
+
+    const handleMouseUp = () => {
+      setIsDragging(false);
+    };
+
+    if (isDragging) {
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+    }
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+    };
+  }, [isDragging]);
+
   return (
     <div>
       <div
@@ -18,29 +48,35 @@ export default function ProjectFundingModal() {
           lineHeight: px(26),
         }}
       >
-         <div style={{width:px(20),height:px(20) , marginTop:px(-10),marginRight:px(10)  }}> 
-        <svg
-          width="20"
-          height="20"
-          viewBox="0 0 20 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        <div
+          style={{
+            width: px(20),
+            height: px(20),
+            marginTop: px(-10),
+            marginRight: px(10),
+          }}
         >
-          <rect width="20" height="20" rx="2" fill="black" />
-          <path d="M8 6.57031H8.57143V9.99886H8V6.57031Z" fill="white" />
-          <path
-            d="M11.3491 8.14618C11.3491 6.37538 9.91357 4.93986 8.14276 4.93986C6.37196 4.93987 4.93645 6.37538 4.93644 8.14618C4.93644 9.91699 6.37196 11.3525 8.14276 11.3525V12.0033C6.01253 12.0033 4.28564 10.2764 4.28564 8.14618C4.28565 6.01596 6.01254 4.28907 8.14276 4.28906C10.273 4.28906 11.9999 6.01595 11.9999 8.14618C11.9999 10.2764 10.273 12.0033 8.14276 12.0033V11.3525C9.91357 11.3525 11.3491 9.91699 11.3491 8.14618Z"
-            fill="white"
-          />
-          <path
-            d="M13.2537 10.7422L13.6213 11.1796L10.9968 13.3857L10.6292 12.9483L13.2537 10.7422Z"
-            fill="white"
-          />
-          <path
-            d="M12.5707 8.03125C13.52 8.13714 14.4319 8.59257 15.0951 9.38146C16.4658 11.0121 16.2551 13.4453 14.6245 14.816C12.9939 16.1866 10.561 15.9759 9.19028 14.3454C8.74466 13.8152 8.46697 13.1999 8.3501 12.5643C8.56951 12.5476 8.78455 12.5154 8.99422 12.4689C9.0938 12.9892 9.32315 13.4922 9.68823 13.9265C10.8276 15.282 12.8501 15.4571 14.2057 14.3177C15.5612 13.1783 15.7365 11.1558 14.5972 9.80028C14.0512 9.15081 13.3024 8.7729 12.5215 8.68014C12.5528 8.46821 12.5696 8.25161 12.5707 8.03125Z"
-            fill="white"
-          />
-        </svg>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="20" height="20" rx="2" fill="black" />
+            <path
+              d="M10.0005 5.64062C11.1183 5.64069 12.1057 5.88314 12.7954 6.25098C13.5067 6.63032 13.7856 7.07013 13.7856 7.42676C13.7854 7.7833 13.5063 8.22238 12.7954 8.60156C12.1057 8.9694 11.1183 9.21185 10.0005 9.21191C8.88248 9.21191 7.89437 8.96945 7.20459 8.60156C6.49373 8.22239 6.21457 7.78328 6.21436 7.42676C6.21436 7.07015 6.49341 6.6303 7.20459 6.25098C7.89437 5.88309 8.88248 5.64062 10.0005 5.64062Z"
+              stroke="white"
+            />
+            <path
+              d="M6.28857 8.85156C6.52309 9.06767 6.82298 9.25898 7.17236 9.42285C6.77061 9.69869 6.71436 9.92614 6.71436 9.99512C6.7148 10.0782 6.795 10.3845 7.43994 10.7285C8.04394 11.0506 8.948 11.2803 10.0005 11.2803C11.0528 11.2802 11.9561 11.0506 12.5601 10.7285C13.2051 10.3845 13.2852 10.0782 13.2856 9.99512C13.2856 9.9261 13.2291 9.69891 12.8267 9.42285C13.1754 9.25939 13.4741 9.06804 13.7085 8.85254C14.0742 9.18918 14.2856 9.57813 14.2856 9.99512L14.2798 10.1123C14.1647 11.3198 12.2931 12.2802 10.0005 12.2803L9.56201 12.2686C7.47307 12.1554 5.82785 11.242 5.72021 10.1123L5.71436 9.99512C5.71436 9.57857 5.92351 9.18794 6.28857 8.85156Z"
+              fill="white"
+            />
+            <path
+              d="M6.28857 11.4297C6.52309 11.6458 6.82298 11.8371 7.17236 12.001C6.77061 12.2768 6.71436 12.5043 6.71436 12.5732C6.7148 12.6563 6.795 12.9626 7.43994 13.3066C8.04394 13.6287 8.948 13.8584 10.0005 13.8584C11.0528 13.8583 11.9561 13.6287 12.5601 13.3066C13.2051 12.9626 13.2852 12.6563 13.2856 12.5732C13.2856 12.5042 13.2291 12.277 12.8267 12.001C13.1754 11.8375 13.4741 11.6462 13.7085 11.4307C14.0742 11.7673 14.2856 12.1563 14.2856 12.5732L14.2798 12.6904C14.1647 13.8979 12.2931 14.8583 10.0005 14.8584L9.56201 14.8467C7.47307 14.7336 5.82785 13.8201 5.72021 12.6904L5.71436 12.5732C5.71436 12.1567 5.92351 11.7661 6.28857 11.4297Z"
+              fill="white"
+            />
+          </svg>
         </div>
         <h2
           className="flex items-center justify-start"
@@ -48,11 +84,11 @@ export default function ProjectFundingModal() {
             marginLeft: px(10),
             color: "#000000",
             marginTop: px(3),
-            fontSize:px(26),
+            fontSize: px(26),
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           }}
         >
-          NVIDIA A100 GPU Computing Power
+          Project funding support
         </h2>
       </div>
       <div
@@ -67,22 +103,17 @@ export default function ProjectFundingModal() {
           marginBottom: px(30),
         }}
       >
-        Provide NVIDIA A100 or equivalent GPU computing power for model
-        training. At least 40GB VRAM GPU required for large-scale image
-        recognition model training and fine-tuning. Please provide GPU specs and
-        accessible address (IP + port or API endpoint). Expected contribution:
-        100-200 GPU hours per week.
+        Support the project with USDC to earn tokens and special benefits
       </div>
       <div className="w-full h-[1px] bg-[#000000]" />
 
       {/* 表单卡片区域 */}
       <div
-        className="flex flex-wrap"
+        className="w-full "
         style={{
           paddingLeft: px(30),
           paddingRight: px(30),
           paddingTop: px(30),
-          gap: px(20),
         }}
       >
         {/* 左侧卡片：NVIDIA A100 GPU Computing Power */}
@@ -91,410 +122,38 @@ export default function ProjectFundingModal() {
             flex: 1,
             minWidth: px(400),
             backgroundColor: "#ffffff",
-            border: "1px solid #e0e0e0",
+            border: "1px solid #E3E3E3",
             borderRadius: px(4),
             padding: px(20),
           }}
         >
           <div
-            className="flex items-center"
             style={{
-              marginBottom: px(12),
-            }}
-          >
-            <div style={{width:px(20),height:px(20) , marginTop:px(-10),marginRight:px(10)  }}>
-
-            
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M19.1109 10C19.1109 4.96818 15.0318 0.889116 10 0.889116C4.96821 0.889116 0.889116 4.96818 0.889116 10C0.889116 15.0318 4.96821 19.1109 10 19.1109V20C4.47715 20 0 15.5229 0 10C0 4.47711 4.47715 0 10 0C15.5228 0 20 4.47711 20 10C20 15.5229 15.5228 20 10 20V19.1109C15.0318 19.1109 19.1109 15.0318 19.1109 10Z" fill="black"/>
-<path d="M14.209 12.5041H15.4528C14.3739 14.3437 12.4408 15.456 10.3429 15.456C7.18106 15.456 4.5437 13.0745 4.5437 10.0086C4.5437 6.91408 7.13611 4.54688 10.3279 4.54688C12.3809 4.54688 14.5237 5.67343 15.4078 7.42745H14.1641C13.3099 6.21532 11.8114 5.50231 10.3129 5.50231C7.8404 5.50231 5.65259 7.58431 5.65259 10.0228C5.65259 12.39 7.84041 14.5005 10.3279 14.5005C11.8414 14.5005 13.205 13.7733 14.209 12.5041Z" fill="black"/>
-</svg>
-</div>
-            <div
-              style={{
-                marginLeft: px(10),
-                color: "#000000",
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(22),
-                lineHeight: px(26),
-              }}
-            >
-              NVIDIA A100 GPU Computing Power
-            </div>
-          </div>
-          <div
-            style={{
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(16),
-              lineHeight: "150%",
-              color: "#555555",
-              marginBottom: px(16),
-            }}
-          >
-            Provide NVIDIA A100 or equivalent GPU computing power for model
-            training. At least 40GB VRAM GPU required for large-scale image
-            recognition model training and fine-tuning. Please provide GPU specs
-            ...
-          </div>
-          {/* 标签按钮组 */}
-          <div
-            className="flex items-center"
-            style={{ gap: px(12), flexWrap: "wrap" }}
-          >
-            <button
-              className="flex items-center justify-center"
-              style={{
-                height: px(32),
-                paddingLeft: px(16),
-                paddingRight: px(16),
-                borderRadius: px(2),
-                backgroundColor: "#000000",
-                color: "#ffffff",
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                cursor: "pointer",
-              }}
-            >
-              8000-15000 GVP
-            </button>
-            <button
-              className="flex items-center justify-center"
-              style={{
-                height: px(32),
-                paddingLeft: px(16),
-                paddingRight: px(16),
-                borderRadius: px(2),
-                border: "1px solid #000000",
-                color: "#000000",
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                cursor: "pointer",
-              }}
-            >
-              medium
-            </button>
-            <button
-              className="flex items-center justify-center"
-              style={{
-                height: px(32),
-                paddingLeft: px(16),
-                paddingRight: px(16),
-                borderRadius: px(2),
-                border: "1px solid #000000",
-                color: "#000000",
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                cursor: "pointer",
-              }}
-            >
-              Ongoing
-            </button>
-          </div>
-        </div>
-
-        {/* 右侧卡片：Compute Type */}
-        <div
-          style={{
-            flex: 1,
-            minWidth: px(400),
-            backgroundColor: "#ffffff",
-            border: "1px solid #e0e0e0",
-            borderRadius: px(5),
-            padding: px(20),
-            position: "relative",
-          }}
-        >
-          <h3
-            style={{
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(24),
               color: "#000000",
-              marginBottom: px(5),
-            }}
-          >
-            Compute Type
-          </h3>
-          <p
-            style={{
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(16),
-              lineHeight: "150%",
-              color: "#555555",
-              marginBottom: px(16),
-            }}
-          >
-            Select the type of compute resource you can provide
-          </p>
-          <FilterDropdown
-            placeholder="GPU Computing"
-            description="Select the type of compute resource you can provide"
-            options={["GPU Computing", "GPU Computing1", "GPU Computing2"]}
-            value="GPU Computing"
-            backgroundColor="#F5F5F5"
-          />
-        </div>
-      </div>
-
-      {/* GPU Specifications 和 Access Information 卡片 */}
-      <div
-        className="flex flex-wrap"
-        style={{
-          paddingLeft: px(30),
-          paddingRight: px(30),
-          paddingTop: px(20),
-          gap: px(20),
-        }}
-      >
-        {/* 左侧卡片：GPU Specifications */}
-        <div
-          style={{
-            flex: 1,
-            minWidth: px(400),
-            backgroundColor: "#ffffff",
-            border: "1px solid #e0e0e0",
-            borderRadius: px(4),
-            padding: px(25),
-          }}
-        >
-          <h3
-            style={{
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
               fontSize: px(22),
-              color: "#000000",
-              marginBottom: px(20),
+              lineHeight: px(26),
             }}
           >
-            GPU Specifications
-          </h3>
-
-          {/* GPU Model */}
-          <div style={{ marginBottom: px(16) }}>
-            <label
-              className="flex items-center"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(14),
-                color: "#000000",
-                marginBottom: px(5),
-              }}
-            >
-              <svg
-                width="9"
-                height="9"
-                viewBox="0 0 9 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ marginRight: px(4) }}
-              >
-                <path
-                  d="M7.47598 7.27875L6.15998 8.23075L4.28398 5.59875L2.43598 8.20275L1.11998 7.25075L3.05198 4.67475L-2.33799e-05 3.72275L0.503977 2.15475L3.55598 3.21875L3.52798 -0.00125027H5.15198L5.09598 3.24675L8.14798 2.21075L8.65198 3.75075L5.57198 4.70275L7.47598 7.27875Z"
-                  fill="#CB2C22"
-                />
-              </svg>
-              GPU Model
-            </label>
-
-            <FilterDropdown
-              placeholder="GPU Model"
-              options={[
-                "NVIDIA A100, 80GB",
-                "NVIDIA A100, 40GB",
-                "NVIDIA A6000, 48GB",
-                "NVIDIA V100, 32GB",
-                "NVIDIA V100, 16GB",
-                "NVIDIA RTX 4090, 24GB",
-                "NVIDIA RTX 3090, 24GB",
-                "NVIDIA RTX 3080, 10GB",
-                "NVIDIA L40, 48GB",
-                "NVIDIA T4, 16GB",
-                "Other"
-              ]}
-            />
+            Contribute Funds
           </div>
 
-          {/* GPU Count */}
-          <div>
-            <label
-              className="flex items-center"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(14),
-                color: "#000000",
-                marginBottom: px(5),
-              }}
-            >
-              <svg
-                width="9"
-                height="9"
-                viewBox="0 0 9 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ marginRight: px(4) }}
-              >
-                <path
-                  d="M7.47598 7.27875L6.15998 8.23075L4.28398 5.59875L2.43598 8.20275L1.11998 7.25075L3.05198 4.67475L-2.33799e-05 3.72275L0.503977 2.15475L3.55598 3.21875L3.52798 -0.00125027H5.15198L5.09598 3.24675L8.14798 2.21075L8.65198 3.75075L5.57198 4.70275L7.47598 7.27875Z"
-                  fill="#CB2C22"
-                />
-              </svg>
-              GPU Count
-            </label>
-
-            <FilterDropdown
-              placeholder="1"
-              options={["1", "2", "4", "8", "16", "32+"]}
-              value="1"
-            />
-          </div>
-        </div>
-
-        {/* 右侧卡片：Access Information */}
-        <div
-          style={{
-            flex: 1,
-            minWidth: px(400),
-            backgroundColor: "#ffffff",
-            border: "1px solid #e0e0e0",
-            borderRadius: px(4),
-            padding: px(25),
-            position: "relative",
-          }}
-        >
-          <div className="flex items-center" style={{ marginBottom: px(20) }}>
-            <h3
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(22),
-                color: "#000000",
-                marginRight: px(4),
-              }}
-            >
-              Access Information
-            </h3>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 18 18"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.1998 9C17.1998 4.47136 13.5286 0.800204 9 0.800204C4.47139 0.800204 0.800204 4.47136 0.800204 9C0.800204 13.5286 4.47139 17.1998 9 17.1998V18C4.02944 18 0 13.9706 0 9C0 4.0294 4.02944 0 9 0C13.9706 0 18 4.0294 18 9C18 13.9706 13.9706 18 9 18V17.1998C13.5286 17.1998 17.1998 13.5286 17.1998 9Z"
-                fill="black"
-              />
-              <path
-                d="M10.004 10.5718H8.95559V10.4935C8.95559 9.55342 9.45146 8.78311 10.3015 8.06502C11.1516 7.34694 11.6333 6.82469 11.6333 6.13272C11.6333 5.04907 10.5849 4.18736 9.42313 4.18736C8.28971 4.18736 7.18464 4.95767 7.18464 6.23717V6.45912H6.13623V6.27634C6.13623 4.46154 7.76551 3.27344 9.46563 3.27344C11.2508 3.27344 12.6817 4.51377 12.6817 6.17189C12.6817 7.04665 12.2283 7.66028 11.3783 8.37837C10.5282 9.09645 10.0182 9.74926 10.004 10.5718ZM10.004 13.0916H8.95559V11.4466H10.004V13.0916Z"
-                fill="black"
-              />
-            </svg>
-          </div>
-
+          {/* 12 */}
           <div
-            style={{ marginBottom: px(16), gap: px(15) }}
-            className=" w-full flex items-center justify-between"
+            style={{
+              marginTop: px(10),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(16),
+              lineHeight: "150%",
+              color: "#555555",
+              marginBottom: px(16),
+            }}
           >
-            {/* IP Address / Domain */}
-            <div className="w-full">
-              <label
-                className="flex items-center"
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: "#000000",
-                  marginBottom: px(5),
-                }}
-              >
-                <svg
-                  width="9"
-                  height="9"
-                  viewBox="0 0 9 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ marginRight: px(4) }}
-                >
-                  <path
-                    d="M7.47598 7.27875L6.15998 8.23075L4.28398 5.59875L2.43598 8.20275L1.11998 7.25075L3.05198 4.67475L-2.33799e-05 3.72275L0.503977 2.15475L3.55598 3.21875L3.52798 -0.00125027H5.15198L5.09598 3.24675L8.14798 2.21075L8.65198 3.75075L5.57198 4.70275L7.47598 7.27875Z"
-                    fill="#CB2C22"
-                  />
-                </svg>
-                IP Address / Domain
-              </label>
-              <input
-                type="text"
-                placeholder="e.g. 192.168.1.100 or example.com"
-                style={{
-                  width: "100%",
-                  height: px(44),
-                  paddingLeft: px(12),
-                  paddingRight: px(12),
-                  border: "1px solid #e0e0e0",
-                  borderRadius: px(4),
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  backgroundColor: "#ffffff",
-                }}
-              />
-            </div>
-
-            {/* Port */}
-            <div className="w-full">
-              <label
-                className="flex items-center"
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: "#000000",
-                  marginBottom: px(5),
-                }}
-              >
-                <svg
-                  width="9"
-                  height="9"
-                  viewBox="0 0 9 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ marginRight: px(4) }}
-                >
-                  <path
-                    d="M7.47598 7.27875L6.15998 8.23075L4.28398 5.59875L2.43598 8.20275L1.11998 7.25075L3.05198 4.67475L-2.33799e-05 3.72275L0.503977 2.15475L3.55598 3.21875L3.52798 -0.00125027H5.15198L5.09598 3.24675L8.14798 2.21075L8.65198 3.75075L5.57198 4.70275L7.47598 7.27875Z"
-                    fill="#CB2C22"
-                  />
-                </svg>
-                Port
-              </label>
-              <input
-                type="text"
-                placeholder="e.g., 8080"
-                style={{
-                  width: "100%",
-                  height: px(44),
-                  paddingLeft: px(12),
-                  paddingRight: px(12),
-                  border: "1px solid #e0e0e0",
-                  borderRadius: px(4),
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  backgroundColor: "#ffffff",
-                }}
-              />
-            </div>
+            Support the project with USDC to earn tokens and special benefits
           </div>
 
-          {/* SSH Public Key (optional) */}
           <div>
             <label
               className="flex items-center"
@@ -506,30 +165,17 @@ export default function ProjectFundingModal() {
                 marginBottom: px(5),
               }}
             >
-              <svg
-                width="9"
-                height="9"
-                viewBox="0 0 9 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ marginRight: px(4) }}
-              >
-                <path
-                  d="M7.47598 7.27875L6.15998 8.23075L4.28398 5.59875L2.43598 8.20275L1.11998 7.25075L3.05198 4.67475L-2.33799e-05 3.72275L0.503977 2.15475L3.55598 3.21875L3.52798 -0.00125027H5.15198L5.09598 3.24675L8.14798 2.21075L8.65198 3.75075L5.57198 4.70275L7.47598 7.27875Z"
-                  fill="#CB2C22"
-                />
-              </svg>
-              SSH Public Key (optional)
+              Contribution Amount (USDC)
             </label>
             <input
               type="text"
-              placeholder="ssh-rsa AAAAB3..."
+              placeholder="$ 100"
               style={{
                 width: "100%",
                 height: px(44),
                 paddingLeft: px(12),
                 paddingRight: px(12),
-                border: "1px solid #e0e0e0",
+                border: "0.5px solid #000000",
                 borderRadius: px(4),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
@@ -538,163 +184,466 @@ export default function ProjectFundingModal() {
               }}
             />
           </div>
-        </div>
-      </div>
 
-      {/* Availability & Duration 和 Additional Information 卡片 */}
-      <div
-        className="flex flex-wrap"
-        style={{
-          paddingLeft: px(30),
-          paddingRight: px(30),
-          paddingTop: px(20),
-          gap: px(20),
-        }}
-      >
-        {/* 左侧卡片：Availability & Duration */}
-        <div
-          style={{
-            flex: 1,
-            minWidth: px(400),
-            backgroundColor: "#ffffff",
-            border: "1px solid #e0e0e0",
-            borderRadius: px(4),
-            padding: px(25),
-          }}
-        >
-          <h3
+          <div
             style={{
+              height: px(19),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(16),
+              color: "#555555",
+              marginTop: px(10),
+            }}
+          >
+            Minimum contribution: 50 USDC
+          </div>
+
+          <div className="flex" style={{ marginTop: px(11), gap: px(20) }}>
+            <div
+              className=" flex items-center justify-center "
+              style={{
+                width: px(80),
+                height: px(40),
+                border: "0.5px solid #000000",
+                borderRadius: px(4),
+              }}
+            >
+              $100
+            </div>
+            <div
+              className=" flex items-center justify-center "
+              style={{
+                width: px(80),
+                height: px(40),
+                border: "0.5px solid #000000",
+                borderRadius: px(4),
+              }}
+            >
+              $500
+            </div>
+            <div
+              className=" flex items-center justify-center "
+              style={{
+                width: px(80),
+                height: px(40),
+                border: "0.5px solid #000000",
+                borderRadius: px(4),
+              }}
+            >
+              $1000
+            </div>
+            <div
+              className=" flex items-center justify-center "
+              style={{
+                width: px(80),
+                height: px(40),
+                border: "0.5px solid #000000",
+                borderRadius: px(4),
+              }}
+            >
+              $5000
+            </div>
+          </div>
+
+          <div
+            style={{
+              marginTop: px(31),
+              color: "#000000",
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
               fontSize: px(22),
-              color: "#000000",
-              marginBottom: px(20),
+              lineHeight: px(26),
             }}
           >
-            Availability & Duration
-          </h3>
-
-          {/* Availability */}
-          <div style={{ marginBottom: px(16) }}>
-            <label
-              className="flex items-center"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(14),
-                color: "#000000",
-                marginBottom: px(5),
-              }}
-            >
-              <svg
-                width="9"
-                height="9"
-                viewBox="0 0 9 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ marginRight: px(4) }}
-              >
-                <path
-                  d="M7.47598 7.27875L6.15998 8.23075L4.28398 5.59875L2.43598 8.20275L1.11998 7.25075L3.05198 4.67475L-2.33799e-05 3.72275L0.503977 2.15475L3.55598 3.21875L3.52798 -0.00125027H5.15198L5.09598 3.24675L8.14798 2.21075L8.65198 3.75075L5.57198 4.70275L7.47598 7.27875Z"
-                  fill="#CB2C22"
-                />
-              </svg>
-              Availability
-            </label>
-            <FilterDropdown
-              placeholder="24/7"
-              options={["24/7", "Business Hours", "Custom"]}
-              value="24/7"
-            />
+            Lock Period (extra rewards)
           </div>
 
-          {/* Commitment Duration */}
-          <div>
-            <label
-              className="flex items-center"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(14),
-                color: "#000000",
-                marginBottom: px(5),
-              }}
-            >
-              <svg
-                width="9"
-                height="9"
-                viewBox="0 0 9 9"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                style={{ marginRight: px(4) }}
-              >
-                <path
-                  d="M7.47598 7.27875L6.15998 8.23075L4.28398 5.59875L2.43598 8.20275L1.11998 7.25075L3.05198 4.67475L-2.33799e-05 3.72275L0.503977 2.15475L3.55598 3.21875L3.52798 -0.00125027H5.15198L5.09598 3.24675L8.14798 2.21075L8.65198 3.75075L5.57198 4.70275L7.47598 7.27875Z"
-                  fill="#CB2C22"
-                />
-              </svg>
-              Commitment Duration
-            </label>
-            <FilterDropdown
-              placeholder="1 Month"
-              options={["1 Week", "Month", "3 Months", "6 Months", "1 Year"]}
-              value="Month"
-            />
-          </div>
-        </div>
-
-        {/* 右侧卡片：Additional Information */}
-        <div
-          style={{
-            flex: 1,
-            minWidth: px(400),
-            backgroundColor: "#ffffff",
-            border: "1px solid #e0e0e0",
-            borderRadius: px(4),
-            padding: px(25),
-          }}
-        >
-          <h3
-            style={{
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(22),
-              color: "#000000",
-              marginBottom: px(20),
-            }}
+          <div
+            className="w-full flex items-center justify-between"
+            style={{ marginTop: px(15) }}
           >
-            Additional Information
-          </h3>
-          <textarea
-            placeholder="e.g., SLA guarantees, special configurations, maintenance windows..."
+            <div
+              style={{
+                color: "#555555",
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                lineHeight: px(19),
+              }}
+            >
+              6 months
+            </div>
+
+            <div
+              className="flex items-center justify-center"
+              style={{
+                height: px(25),
+                borderRadius: px(12.5),
+                paddingLeft: px(25),
+                paddingRight: px(25),
+                border: "0.5px solid #000000",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#000000",
+                }}
+              >
+                +10% Bonus
+              </span>
+            </div>
+          </div>
+
+          {/* 滚动轴 */}
+          <div
+            ref={sliderRef}
+            className="relative"
             style={{
               width: "100%",
-              minHeight: px(159),
-              padding: px(12),
-              border: "1px solid #e0e0e0",
+              height: px(15),
+              marginTop: px(20),
+              cursor: "pointer",
+            }}
+            onMouseDown={(e) => {
+              if (sliderRef.current) {
+                setIsDragging(true);
+                const rect = sliderRef.current.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const percentage = Math.max(
+                  0,
+                  Math.min(100, (x / rect.width) * 100)
+                );
+                setSliderValue(percentage);
+              }
+            }}
+          >
+            {/* 滑块轨道 */}
+            <div
+              className="relative w-full h-full"
+              style={{
+                borderRadius: px(7.5),
+                overflow: "hidden",
+              }}
+            >
+              {/* 黑色部分（左侧） */}
+              <div
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: `${sliderValue}%`,
+                  height: "100%",
+                  backgroundColor: "#000000",
+                  borderRadius: px(7.5),
+                }}
+              />
+              {/* 灰色部分（右侧） */}
+              <div
+                style={{
+                  position: "absolute",
+                  right: 0,
+                  top: 0,
+                  width: `${100 - sliderValue}%`,
+                  height: "100%",
+                  backgroundColor: "#E3E3E3",
+                  borderRadius: px(7.5),
+                }}
+              />
+            </div>
+
+            {/* 圆圈把手 */}
+            <div
+              style={{
+                position: "absolute",
+                left: `calc(${sliderValue}% - ${px(15)})`,
+                top: px(-9),
+                width: px(30),
+                height: px(30),
+                cursor: "grab",
+                userSelect: "none",
+              }}
+              onMouseDown={(e) => {
+                e.stopPropagation();
+                setIsDragging(true);
+              }}
+            >
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="15" cy="15" r="15" fill="black" />
+                <circle cx="15" cy="15" r="15" fill="black" fillOpacity="0.2" />
+                <circle cx="15" cy="15" r="15" fill="black" fillOpacity="0.2" />
+                <circle cx="15" cy="15" r="15" fill="black" fillOpacity="0.2" />
+                <circle cx="15" cy="15" r="15" fill="black" fillOpacity="0.2" />
+                <circle cx="14.9971" cy="15" r="10" fill="white" />
+              </svg>
+            </div>
+          </div>
+
+          <div
+            className="w-full flex items-center justify-between"
+            style={{ marginTop: px(15) }}
+          >
+            <div
+              style={{
+                color: "#555555",
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                lineHeight: px(19),
+              }}
+            >
+              No lock
+            </div>
+
+            <div
+              className="flex items-center justify-center"
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                lineHeight: "100%",
+                letterSpacing: "0%",
+                color: "#555555",
+              }}
+            >
+              24months
+            </div>
+          </div>
+
+          <div
+            className="flex items-center  w-full bg-[#EFF6FF]"
+            style={{
+              paddingLeft: px(25),
+              paddingRight: px(10),
+              marginTop: px(30),
+              height: px(44),
+              border: "0.5px solid #000000",
               borderRadius: px(4),
+              color: "#435B9B",
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
-              fontSize: px(14),
-              backgroundColor: "#ffffff",
-              resize: "vertical",
+              fontSize: px(16),
+              gap: px(10),
             }}
-          />
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 20 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.1998 10C18.1998 5.47136 14.5286 1.8002 10 1.8002C5.47139 1.8002 1.8002 5.47136 1.8002 10C1.8002 14.5286 5.47139 18.1998 10 18.1998V19C5.02944 19 1 14.9706 1 10C1 5.0294 5.02944 1 10 1C14.9706 1 19 5.0294 19 10C19 14.9706 14.9706 19 10 19V18.1998C14.5286 18.1998 18.1998 14.5286 18.1998 10Z"
+                fill="black"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 4.6875L9.99679 11.8875L9.09679 11.8871L9.1 4.6871L10 4.6875Z"
+                fill="#252525"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M9.99609 14.6094L9.99667 13.3157L9.09667 13.3153L9.09609 14.609L9.99609 14.6094Z"
+                fill="#252525"
+              />
+            </svg>
+            Longer lock periods yield more token rewards. Tokens unlock
+            gradually during the lock, and you still retain governance voting
+            rights.
+          </div>
+
+          <div
+            className="w-full bg-[#EFFAF8]"
+            style={{
+              marginTop: px(20),
+              paddingLeft: px(25),
+              paddingRight: px(10),
+              paddingTop: px(40),
+              height: px(276),
+              border: "0.5px solid #000000",
+              borderRadius: px(4),
+            }}
+          >
+            <div className="flex items-center justify-between">
+              <div
+                className="flex items-center justify-start"
+                style={{
+                  fontWeight: 300,
+                  fontSize: px(24),
+                  marginBottom: px(12),
+                  lineHeight: px(20),
+                }}
+              >
+                <div
+                  className="flex items-center justify-center"
+                  style={{
+                    width: px(30),
+                    height: px(30),
+                    marginRight: px(10),
+                    flexShrink: 0,
+                    marginTop: px(-10),
+                  }}
+                >
+                  <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 30 30"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15.247 3C20.291 3 24.38 7.08896 24.38 12.133C24.38 14.1623 23.7176 16.0366 22.598 17.5527L25.5148 22.7134L25.8089 23.2344L22.0014 22.8991L20.8401 26.0417L20.6039 26.6783L20.2705 26.0872L17.4004 21.0095C16.7098 21.1765 15.9889 21.266 15.247 21.266C14.6043 21.266 13.9773 21.1992 13.3721 21.0729L10.5384 26.0872L10.205 26.6783L9.96879 26.0417L8.80747 22.8991L5 23.2344L5.29402 22.7134L8.07674 17.7895C6.84789 16.2339 6.11395 14.2693 6.11395 12.133C6.11395 7.08896 10.2029 3 15.247 3ZM6.13671 22.5018L9.23128 22.2293L9.31493 22.455L10.3237 25.1861L12.7367 20.9167C11.0912 20.4473 9.63563 19.5277 8.511 18.3L6.13671 22.5018ZM22.1748 18.0829C21.0856 19.35 19.655 20.3143 18.0254 20.8342L20.4852 25.1861L21.4939 22.455L21.5776 22.2293L24.6722 22.5018L22.1748 18.0829ZM15.247 3.81193C10.6514 3.81193 6.92588 7.53745 6.92588 12.133C6.92588 13.959 7.51446 15.6473 8.51161 17.0194L8.53437 16.9806L8.8247 17.3497C9.62882 18.3728 10.7588 19.1138 11.7028 19.6016C12.0491 19.7805 12.3673 19.9243 12.6309 20.034C13.4536 20.3062 14.333 20.4541 15.247 20.4541C16.4571 20.4541 17.6068 20.1953 18.6442 19.7307C18.7426 19.6783 18.8455 19.6229 18.9517 19.5634C19.4417 19.289 20.0037 18.9394 20.5787 18.5202C22.4052 16.9939 23.5681 14.6996 23.5681 12.133C23.5681 7.53745 19.8425 3.81193 15.247 3.81193Z"
+                      fill="black"
+                      stroke="black"
+                      strokeWidth="0.3"
+                    />
+                  </svg>
+                </div>
+
+                <h2
+                  style={{
+                    color: "#000000",
+                    fontSize: px(26),
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    margin: 0,
+                  }}
+                >
+                  Estimated Reward
+                </h2>
+              </div>
+
+              <div
+                style={{
+                  height: px(32),
+                  width: px(112),
+                  backgroundColor: "#008236",
+                  borderRadius: px(16),
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#FFFFFF",
+                }}
+              >
+                Supporter
+              </div>
+            </div>
+
+            <h1
+              style={{
+                width: px(208),
+                height: px(38),
+                marginTop: px(25),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 700,
+                fontSize: px(35),
+                lineHeight: px(54),
+                letterSpacing: "4%",
+                color: "#008236",
+                opacity: 1,
+              }}
+            >
+              1,150 GVP
+            </h1>
+
+            <div
+              className="flex flex-col"
+              style={{ gap: px(10), marginTop: px(20) }}
+            >
+              {/* Base reward (10x) */}
+              <div
+                className="flex items-center justify-between"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#555555",
+                  height: px(19),
+                }}
+              >
+                <span>Base reward (10x):</span>
+                <span>1.000 GVP</span>
+              </div>
+
+              {/* Tier bonus (5%) */}
+              <div
+                className="flex items-center justify-between"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#555555",
+                  height: px(19),
+                }}
+              >
+                <span>Tier bonus (5%):</span>
+                <span>+50</span>
+              </div>
+
+              {/* Lock bonus (10%) */}
+              <div
+                className="flex items-center justify-between"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#555555",
+                  height: px(19),
+                }}
+              >
+                <span>Lock bonus (10%):</span>
+                <span>+100</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            style={{ height: px(44), marginTop: px(50) }}
+            className="flex items-center justify-center w-full"
+          >
+            <button
+              className="cursor-pointer w-full"
+              style={{
+                height: px(44),
+                backgroundColor: "#000000",
+                borderRadius: px(4),
+                color: "#ffffff",
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                lineHeight: "100%",
+                letterSpacing: "0%",
+              }}
+            >
+              Confirm Contribution
+            </button>
+          </div>
         </div>
       </div>
-
-
-      <div style={{height:px(44),paddingLeft:px(50),paddingRight:px(50),marginTop:px(50)}} className="flex items-center justify-center w-full">
- <button className="cursor-pointer w-full" style={{  height:px(44), backgroundColor:"#000000",borderRadius:px(4), color:"#ffffff",fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',fontWeight: 300,fontSize: px(16),lineHeight: "100%",letterSpacing: "0%"}}>
- Submit Compute Resource
- </button>
-      
-
-      </div>
-
-
-
-
     </div>
   );
 }

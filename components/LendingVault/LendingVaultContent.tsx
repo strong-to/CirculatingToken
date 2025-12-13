@@ -49,7 +49,8 @@ export default function LendingVaultContent() {
             'User Comments',
             'Project Construction',
             'Project Governance',
-            'Token Trading'
+            'Token Trading',
+            'Token Lending'
           ].map((text) => {
             const isActive = activeTab === text
             return (
@@ -98,7 +99,8 @@ export default function LendingVaultContent() {
       {activeTab === 'User Comments' && <UserComments />}
       {activeTab === 'Project Construction' && <ProjectConstruction />}
       {activeTab === 'Project Governance' && <ProjectGovernance />}
-      {activeTab === 'Token Trading' && <TokenTrading />}
+      {activeTab === 'Token Trading' && <ProjectGovernance />}
+      {activeTab === 'Token Lending' && <ProjectGovernance />}
 
       {/* Projects You May Be Interested In */}
      

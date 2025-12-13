@@ -383,11 +383,11 @@ export default function EcosystemContent() {
               ))}
             </div>
 
-            {/* 翻页控件 */}
+            {/* Pagination Controls */}
             <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>
               <div className="flex items-center" style={{ gap: px(16), marginRight: px(30) }}>
                 <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                  共1条
+                  Total {listData.length} items
                 </span>
                 <select
                   value={itemsPerPage}
@@ -404,9 +404,9 @@ export default function EcosystemContent() {
                     borderRadius: px(4),
                   }}
                 >
-                  <option value={10}>10条/页</option>
-                  <option value={20}>20条/页</option>
-                  <option value={50}>50条/页</option>
+                  <option value={10}>10 items/page</option>
+                  <option value={20}>20 items/page</option>
+                  <option value={50}>50 items/page</option>
                 </select>
               </div>
 
@@ -487,7 +487,7 @@ export default function EcosystemContent() {
                 </button>
                 <div className="flex items-center" style={{ gap: px(8), marginLeft: px(16) }}>
                   <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                    前往
+                    Go to
                   </span>
                   <input
                     type="number"
@@ -515,7 +515,7 @@ export default function EcosystemContent() {
                     }}
                   />
                   <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                    页
+                    page
                   </span>
                 </div>
               </div>

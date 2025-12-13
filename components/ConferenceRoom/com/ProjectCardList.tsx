@@ -369,10 +369,17 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
                 <button
                   key={buttonKey}
                   onClick={() => {
-                    setActiveButtons((prev) => ({
-                      ...prev,
-                      [buttonKey]: !prev[buttonKey],
-                    }));
+                    setActiveButtons((prev) => {
+                      // 先取消同卡片中所有按钮的选中状态
+                      const newState = { ...prev };
+                      card.buttons.forEach((btn) => {
+                        const key = `${originalIndex}-${btn}`;
+                        newState[key] = false;
+                      });
+                      // 然后设置当前点击的按钮为选中状态
+                      newState[buttonKey] = true;
+                      return newState;
+                    });
                   }}
                   className="flex items-center justify-center transition-colors"
                   style={{

@@ -214,12 +214,12 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
                       className="flex items-center"
                       style={{
                         height: px(22),
-                        border: "1px solid #000000",
+                        border: "0.5px solid #000000",
                         borderRadius: px(2),
                         paddingLeft: px(10),
                         paddingRight: px(10),
                         paddingTop: px(4),
-                        paddingBottom: px(4),
+                        paddingBottom: px(2),
                         color: "#000000",
                       }}
                     >
@@ -270,7 +270,7 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
                         style={{
                           width: px(16),
                           height: px(16),
-                          border: "1px dashed #e0e0e0",
+                          border: "0.5px dashed #e0e0e0",
                           borderRadius: px(2),
                           display: "flex",
                           alignItems: "center",
@@ -388,7 +388,7 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
                     lineHeight: "100%",
                     letterSpacing: "0%",
                     textAlign: "center",
-                    border: "1px solid #000000",
+                    border: "0.5px solid #000000",
                     cursor: "pointer",
                   }}
                   onMouseEnter={(e) => {

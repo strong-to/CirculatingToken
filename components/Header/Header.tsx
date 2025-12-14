@@ -1,11 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import { images } from './resources'
+import { preloadPageImages } from '@/utils/imagePreloader'
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -18,6 +20,14 @@ export default function Header() {
     'Conference Room',
     'Mortgage  market'
   ]
+
+  // 预加载指定页面的图片（hover 时触发）
+  const handleNavHover = useCallback((href: string) => {
+    if (href && href !== '#' && href !== pathname) {
+      // 使用低优先级预加载，避免影响当前页面性能
+      preloadPageImages(href, 'normal')
+    }
+  }, [pathname])
 
   return (
     <header className="w-full h-full bg-background-primary flex flex-col border-b border-[#B5B5B5]" >
@@ -86,6 +96,7 @@ export default function Header() {
                 <Link
                   key={item}
                   href={href}
+                  onMouseEnter={() => handleNavHover(href)}
                   onClick={(e) => {
                     if (isActive) {
                       e.preventDefault()
@@ -220,6 +231,7 @@ export default function Header() {
                 <Link
                   key={item}
                   href={href}
+                  onMouseEnter={() => handleNavHover(href)}
                   onClick={(e) => {
                     if (isActive) {
                       e.preventDefault()

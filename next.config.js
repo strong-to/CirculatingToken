@@ -11,6 +11,15 @@ const nextConfig = {
     // 设备尺寸断点（用于响应式图片）
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // 允许的图片域名（如果使用CDN）
+    remotePatterns: process.env.NEXT_PUBLIC_CDN_BASE_URL
+      ? [
+          {
+            protocol: 'https',
+            hostname: new URL(process.env.NEXT_PUBLIC_CDN_BASE_URL).hostname,
+          },
+        ]
+      : [],
   },
   
   // 压缩配置
@@ -29,6 +38,9 @@ const nextConfig = {
   
   // 页面配置
   poweredByHeader: false, // 移除 X-Powered-By 头，提高安全性
+  
+  // 静态导出配置
+  trailingSlash: false, // 不在URL末尾添加斜杠
 }
 
 module.exports = nextConfig

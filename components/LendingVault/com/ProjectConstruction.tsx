@@ -4,11 +4,13 @@ import { useState } from 'react'
 import { px } from "@/utils/pxToRem"
 import Image from 'next/image'
 import DataTable, { Column } from './DataTable'
+import ConstructorImageModal from './ConstructorImageModal'
 
 export default function ProjectConstruction() {
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
   const totalPages = 7
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
 
   // 表格列定义
   const columns: Column[] = [
@@ -84,12 +86,21 @@ export default function ProjectConstruction() {
            {Array.from({ length: 16 }, (_, i) => (
              <div
                key={i}
+               onClick={() => setSelectedImageIndex(i)}
                style={{
                  width: px(80),
                  height: px(80),
                  borderRadius: '50%',
                  flexShrink: 0,
                  overflow: 'hidden',
+                 cursor: 'pointer',
+                 transition: 'transform 0.2s',
+               }}
+               onMouseEnter={(e) => {
+                 e.currentTarget.style.transform = 'scale(1.1)'
+               }}
+               onMouseLeave={(e) => {
+                 e.currentTarget.style.transform = 'scale(1)'
                }}
              >
                <Image
@@ -241,6 +252,16 @@ export default function ProjectConstruction() {
          </div>
        </div>
     </div>
+
+    {/* 构造函数图片弹窗 */}
+    {selectedImageIndex !== null && (
+      <ConstructorImageModal
+        isOpen={selectedImageIndex !== null}
+        onClose={() => setSelectedImageIndex(null)}
+        imageSrc={`/LendingVault/ProjectConstruction/item/img${selectedImageIndex + 1}.png`}
+        imageIndex={selectedImageIndex}
+      />
+    )}
     </>
   )
 }

@@ -1,30 +1,47 @@
-# Apache 服务器配置 - 图片和静态资源优化
-# 将此文件放在 public 目录或网站根目录
+# Apache 服务器配置 - Next.js 静态导出
+# 用于解决刷新404问题和优化性能
 
-# ==================== 启用压缩 ====================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # 处理 Next.js 静态导出的路由
+  # 如果请求的文件不存在，尝试添加 .html 扩展名
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !^/api/
+  RewriteRule ^(.*)$ /$1.html [L]
+  
+  # 如果 .html 文件也不存在，重定向到 index.html（用于客户端路由）
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ /index.html [L]
+</IfModule>
+
+# ==================== Gzip 压缩 ====================
 <IfModule mod_deflate.c>
-  # 压缩 HTML, CSS, JavaScript, Text, XML 和字体
-  AddOutputFilterByType DEFLATE text/html
-  AddOutputFilterByType DEFLATE text/css
-  AddOutputFilterByType DEFLATE text/javascript
-  AddOutputFilterByType DEFLATE text/xml
-  AddOutputFilterByType DEFLATE text/plain
+  # 压缩 HTML、CSS、JavaScript、Text、XML 和字体
   AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE application/x-javascript
   AddOutputFilterByType DEFLATE application/json
-  AddOutputFilterByType DEFLATE application/xml
-  AddOutputFilterByType DEFLATE application/xhtml+xml
   AddOutputFilterByType DEFLATE application/rss+xml
-  AddOutputFilterByType DEFLATE application/atom+xml
-  AddOutputFilterByType DEFLATE image/svg+xml
-  AddOutputFilterByType DEFLATE font/truetype
-  AddOutputFilterByType DEFLATE font/opentype
   AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
-  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-font
   AddOutputFilterByType DEFLATE application/x-font-opentype
-  AddOutputFilterByType DEFLATE application/x-font-woff
-  AddOutputFilterByType DEFLATE application/font-woff
-  AddOutputFilterByType DEFLATE application/font-woff2
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/xml
 </IfModule>
 
 # ==================== 浏览器缓存 ====================
@@ -42,86 +59,47 @@
   
   # CSS 和 JavaScript 缓存 1 个月
   ExpiresByType text/css "access plus 1 month"
-  ExpiresByType text/javascript "access plus 1 month"
   ExpiresByType application/javascript "access plus 1 month"
-  ExpiresByType application/x-javascript "access plus 1 month"
+  ExpiresByType text/javascript "access plus 1 month"
   
   # 字体缓存 1 年
-  ExpiresByType font/truetype "access plus 1 year"
-  ExpiresByType font/opentype "access plus 1 year"
-  ExpiresByType application/x-font-ttf "access plus 1 year"
-  ExpiresByType application/x-font-opentype "access plus 1 year"
-  ExpiresByType application/x-font-woff "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
   ExpiresByType application/font-woff "access plus 1 year"
   ExpiresByType application/font-woff2 "access plus 1 year"
   
-  # HTML 不缓存（总是获取最新版本）
+  # HTML 不缓存
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
 # ==================== Cache-Control 头 ====================
 <IfModule mod_headers.c>
-  # 图片文件缓存 1 年
-  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
-    Header set Cache-Control "max-age=31536000, public, immutable"
+  # 图片和字体：长期缓存
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|otf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
   
-  # CSS 和 JS 文件缓存 1 个月
+  # CSS 和 JavaScript：中期缓存
   <FilesMatch "\.(css|js)$">
-    Header set Cache-Control "max-age=2592000, public"
+    Header set Cache-Control "public, max-age=2592000"
   </FilesMatch>
   
-  # 字体文件缓存 1 年
-  <FilesMatch "\.(ttf|otf|woff|woff2|eot)$">
-    Header set Cache-Control "max-age=31536000, public, immutable"
-  </FilesMatch>
-  
-  # HTML 文件不缓存
+  # HTML：不缓存
   <FilesMatch "\.(html|htm)$">
     Header set Cache-Control "no-cache, no-store, must-revalidate"
     Header set Pragma "no-cache"
     Header set Expires "0"
   </FilesMatch>
+  
+  # 安全头
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set X-XSS-Protection "1; mode=block"
 </IfModule>
 
 # ==================== MIME 类型 ====================
 <IfModule mod_mime.c>
-  # WebP 图片
   AddType image/webp .webp
-  
-  # 字体文件
-  AddType font/truetype .ttf
-  AddType font/opentype .otf
-  AddType application/x-font-woff .woff
-  AddType application/font-woff2 .woff2
-  AddType application/vnd.ms-fontobject .eot
-  
-  # JavaScript
-  AddType application/javascript .js
-  AddType text/javascript .js
-  
-  # CSS
-  AddType text/css .css
+  AddType font/woff .woff
+  AddType font/woff2 .woff2
 </IfModule>
-
-# ==================== 安全头 ====================
-<IfModule mod_headers.c>
-  # 移除服务器信息
-  Header unset X-Powered-By
-  Header always unset X-Powered-By
-  
-  # XSS 保护
-  Header set X-XSS-Protection "1; mode=block"
-  
-  # 防止 MIME 类型嗅探
-  Header set X-Content-Type-Options "nosniff"
-  
-  # 防止页面被嵌入 iframe
-  Header set X-Frame-Options "SAMEORIGIN"
-</IfModule>
-
-# ==================== 启用 HTTP/2 (如果服务器支持) ====================
-# 注意：这需要在服务器层面配置，这里只是注释说明
-
-
-

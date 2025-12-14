@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { px } from "@/utils/pxToRem";
+import { getOptimizedImageUrl, getImageLoading } from "@/utils/imageUtils";
 
 interface ImageSkeletonProps {
   width?: number | string;
@@ -158,41 +159,51 @@ export default function ImageWithSkeleton({
       )}
 
       {/* 图片 */}
-      {/* 如果 width 或 height 是字符串，或者 fill=true，使用 fill 模式 */}
-      {fill || typeof width === "string" || typeof height === "string" ? (
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          style={{
-            objectFit,
-            opacity: isLoading ? 0 : 1,
-            transition: "opacity 0.3s ease-in-out",
-          }}
-          priority={priority}
-          loading={loading}
-          onLoad={handleLoad}
-          onError={handleError}
-        />
-      ) : (
-        <Image
-          src={src}
-          alt={alt}
-          width={typeof width === "number" ? width : undefined}
-          height={typeof height === "number" ? height : undefined}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit,
-            opacity: isLoading ? 0 : 1,
-            transition: "opacity 0.3s ease-in-out",
-          }}
-          priority={priority}
-          loading={loading}
-          onLoad={handleLoad}
-          onError={handleError}
-        />
-      )}
+      {/* 使用CDN优化后的URL */}
+      {(() => {
+        const optimizedSrc = getOptimizedImageUrl(src, typeof width === "number" ? width : undefined)
+        const imageLoading = loading || getImageLoading(src, priority === true)
+        
+        // 如果 width 或 height 是字符串，或者 fill=true，使用 fill 模式
+        if (fill || typeof width === "string" || typeof height === "string") {
+          return (
+            <Image
+              src={optimizedSrc}
+              alt={alt}
+              fill
+              style={{
+                objectFit,
+                opacity: isLoading ? 0 : 1,
+                transition: "opacity 0.3s ease-in-out",
+              }}
+              priority={priority}
+              loading={imageLoading}
+              onLoad={handleLoad}
+              onError={handleError}
+            />
+          )
+        } else {
+          return (
+            <Image
+              src={optimizedSrc}
+              alt={alt}
+              width={typeof width === "number" ? width : undefined}
+              height={typeof height === "number" ? height : undefined}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit,
+                opacity: isLoading ? 0 : 1,
+                transition: "opacity 0.3s ease-in-out",
+              }}
+              priority={priority}
+              loading={imageLoading}
+              onLoad={handleLoad}
+              onError={handleError}
+            />
+          )
+        }
+      })()}
 
       {/* 错误占位符 */}
       {hasError && (

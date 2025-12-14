@@ -29,13 +29,20 @@ export function getOptimizedImageUrl(
     // 移除开头的斜杠
     const cleanSrc = src.startsWith('/') ? src.slice(1) : src
     
-    // 如果指定了宽度，使用CDN的缩放功能
-    if (width) {
+    // 检测是否是真正的CDN服务（支持参数格式）
+    // 真正的CDN通常包含：imagekit.io, cloudinary.com, cdn.example.com 等
+    const isRealCDN = CDN_BASE_URL.includes('imagekit.io') || 
+                     CDN_BASE_URL.includes('cloudinary.com') ||
+                     CDN_BASE_URL.includes('cdn.') ||
+                     CDN_BASE_URL.includes('cloudfront.net')
+    
+    // 如果是真正的CDN且指定了宽度，使用CDN的缩放功能
+    if (isRealCDN && width) {
       // 格式：https://cdn.example.com/w_800,q_85/图片路径
       return `${CDN_BASE_URL}/w_${width},q_${quality}/${cleanSrc}`
     }
     
-    // 不指定宽度，直接使用CDN
+    // 普通服务器地址或未指定宽度，直接拼接路径（不添加CDN参数）
     return `${CDN_BASE_URL}/${cleanSrc}`
   }
 

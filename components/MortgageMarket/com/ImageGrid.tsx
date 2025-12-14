@@ -119,6 +119,8 @@ export default function ImageGrid() {
                     fill
                     aspectRatio={image.aspectRatio}
                     objectFit="cover"
+                    priority={configIndex === 0 && columnIndex < 2 && imageIndex === 0}
+                    loading={configIndex === 0 && columnIndex < 2 && imageIndex === 0 ? undefined : 'lazy'}
                   />
 
                   {/* 覆盖信息 */}

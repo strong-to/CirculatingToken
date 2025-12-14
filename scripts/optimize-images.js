@@ -150,6 +150,23 @@ async function optimizeImageWithSharp(imagePath) {
     // 生成 WebP 版本
     if (config.generateWebP) {
       const webpPath = path.join(dir, `${name}.webp`)
+      
+      // 如果 WebP 文件已存在，先删除（解决权限问题）
+      if (fs.existsSync(webpPath)) {
+        try {
+          fs.unlinkSync(webpPath)
+        } catch (err) {
+          // 如果删除失败（权限问题），尝试使用 chmod 修改权限
+          try {
+            fs.chmodSync(webpPath, 0o666)
+            fs.unlinkSync(webpPath)
+          } catch (chmodErr) {
+            console.log(`   ⚠️  无法删除已存在的 WebP 文件（权限不足），跳过: ${webpPath}`)
+            return // 跳过这个文件的 WebP 生成
+          }
+        }
+      }
+      
       await image
         .webp({ quality: config.webpQuality })
         .toFile(webpPath)

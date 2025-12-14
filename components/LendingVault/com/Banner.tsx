@@ -172,6 +172,8 @@ export default function Banner() {
                       className="w-full h-full"
                       style={{ width: '100%', height: '100%' }}
                       objectFit="cover"
+                      priority={index < 2}
+                      loading={index < 2 ? undefined : 'lazy'}
                     />
                   </div>
                 </SwiperSlide>
@@ -197,6 +199,8 @@ export default function Banner() {
                       className="w-full h-full"
                       style={{ width: '100%', height: '100%' }}
                       objectFit="cover"
+                      priority={index < 2}
+                      loading={index < 2 ? undefined : 'lazy'}
                     />
                   </div>
                 </SwiperSlide>

@@ -98,6 +98,8 @@ export default function ProjectsYouMayBeInterestedIn() {
               alt={`Project ${index + 1}`}
               fill
               objectFit="cover"
+              priority={index < 2}
+              loading={index < 2 ? undefined : 'lazy'}
             />
           </div>
         ))}

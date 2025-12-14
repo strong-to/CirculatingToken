@@ -1,7 +1,7 @@
 'use client'
 
 import { px } from "@/utils/pxToRem"
-import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
+import Image from 'next/image'
 import { useState } from "react"
 import EcosystemContent from './EcosystemContent'
 import TokenContent from './TokenContent'
@@ -89,13 +89,12 @@ export default function ProjectGovernance() {
               flexShrink: 0,
             }}
           >
-            <ImageWithSkeleton
+            <Image
               src="/LendingVault/ProjectConstruction/logo2.png"
               alt="Project Construction Logo2"
               width={200}
               height={200}
-              borderRadius={px(4)}
-              objectFit="cover"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: px(4) }}
             />
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client'
 
-import Image from 'next/image'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { useState } from 'react'
 import {
   MarketCapIcon,
@@ -26,12 +26,13 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* 底层整张图片 */}
-      <Image
+      <ImageWithSkeleton
         src={src}
         alt={alt}
         width={340}
         height={500}
-        className="w-full h-full object-cover"
+        className="w-full h-full"
+        objectFit="cover"
         priority
       />
 
@@ -47,11 +48,11 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`flex items-center justify-evenly  ${styles.compactTop}`}>
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
-                <Image 
+                <ImageWithSkeleton 
                   src="/home/icons/img/games.png" 
                   alt="games" 
                   fill 
-                  className={styles.iconImage}
+                  objectFit="contain"
                 />
               </div>
                 </div>
@@ -151,11 +152,11 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`flex items-center justify-evenly  ${styles.compactTop}`}>
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
-                <Image 
+                <ImageWithSkeleton 
                   src="/home/icons/img/games.png" 
                   alt="games" 
                   fill 
-                  className={styles.iconImage}
+                  objectFit="contain"
                 />
               </div>
                 </div>
@@ -169,7 +170,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
                 </div>
               </div>
               <div className="h-full">
-                <Image src="/home/icons/img/arr.png" alt="arrow" width={24} height={24} />
+                <ImageWithSkeleton src="/home/icons/img/arr.png" alt="arrow" width={24} height={24} objectFit="contain" />
               </div>
             </div>
 

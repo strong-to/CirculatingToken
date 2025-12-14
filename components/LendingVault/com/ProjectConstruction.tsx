@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { px } from "@/utils/pxToRem"
-import Image from 'next/image'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import DataTable, { Column } from './DataTable'
 import ConstructorImageModal from './ConstructorImageModal'
 
@@ -73,12 +73,13 @@ export default function ProjectConstruction() {
           }}
         >
     
-          <Image
+          <ImageWithSkeleton
             src="/LendingVault/ProjectConstruction/logo.png"
             alt="Project Construction Logo"
             width={200}
             height={200}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: px(4) }}
+            borderRadius={px(4)}
+            objectFit="cover"
           />
         </div> 
 
@@ -103,12 +104,13 @@ export default function ProjectConstruction() {
                  e.currentTarget.style.transform = 'scale(1)'
                }}
              >
-               <Image
+               <ImageWithSkeleton
                  src={`/LendingVault/ProjectConstruction/item/img${i + 1}.png`}
                  alt={`Constructor ${i + 1}`}
                  width={80}
                  height={80}
-                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                 borderRadius="50%"
+                 objectFit="cover"
                />
              </div>
            ))}

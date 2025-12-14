@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/common/ImageWithSkeleton";
 import { useState } from "react";
 import styles from "./BlueSquareCard.module.css";
 import { px } from "@/utils/pxToRem";
@@ -29,12 +29,13 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
       }}
     >
       {/* 底层整张图片 */}
-      <Image
+      <ImageWithSkeleton
         src={src}
         alt={alt}
         width={340}
         height={500}
-        className="w-full h-full object-cover"
+        className="w-full h-full"
+        objectFit="cover"
         priority
       />
 
@@ -67,11 +68,11 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               className="relative flex items-center justify-center"
               style={{ width: px(60), height: px(60) }}
             >
-              <Image
+              <ImageWithSkeleton
                 src={images.umbrella}
                 alt="games"
                 fill
-                className="object-contain"
+                objectFit="contain"
               />
               
             </div>
@@ -113,12 +114,12 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             className="h-full flex items-end justify-end"
             style={{ width: px(24), height: px(24) }}
           >
-            <Image
+            <ImageWithSkeleton
               src={images.arrow}
               alt="arrow"
               width={24}
               height={24}
-              className="w-full h-full object-contain"
+              objectFit="contain"
             />
           </div>
 
@@ -261,11 +262,11 @@ GUIDANCE AI</div>
               className="relative flex items-start justify-center"
               style={{ width: px(60), height: px(60),marginRight: px(15) }}
             >
-              <Image
+              <ImageWithSkeleton
                 src={images.sword}
                 alt="games"
                 fill
-                className="object-contain"
+                objectFit="contain"
               />
               
             </div>

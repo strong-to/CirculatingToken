@@ -1,7 +1,7 @@
 "use client";
 
 import { px } from "@/utils/pxToRem";
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/common/ImageWithSkeleton";
 
 interface ImageDetailProps {
   imageSrc: string;
@@ -34,11 +34,12 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
             marginBottom: px(20),
           }}
         >
-          <Image
+          <ImageWithSkeleton
             src="/MortgageMarket/img/Mask6.png"
             alt="Profile"
             fill
-            style={{ objectFit: "cover" }}
+            borderRadius="50%"
+            objectFit="cover"
           />
         </div>
 
@@ -343,11 +344,12 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
               filter: "blur(4px)",
             }}
           >
-            <Image
+            <ImageWithSkeleton
               src="/MortgageMarket/img/Mask4.png"
               alt="Preview 1"
               fill
-              style={{ objectFit: "cover" }}
+              borderRadius={px(8)}
+              objectFit="cover"
             />
           </div>
           <div
@@ -360,11 +362,12 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
               filter: "blur(4px)",
             }}
           >
-            <Image
+            <ImageWithSkeleton
               src="/MortgageMarket/img/Mask6.png"
               alt="Preview 2"
               fill
-              style={{ objectFit: "cover" }}
+              borderRadius={px(8)}
+              objectFit="cover"
             />
           </div>
         </div>

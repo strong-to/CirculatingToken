@@ -61,7 +61,7 @@ export default function  GovernTogether() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' }} className='whitespace-nowrap' >Shape Projects and Community With Your Tokens</span>
+              <span style={{ marginRight: '0.625rem', fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }} className='whitespace-nowrap,z' >Shape Projects and Community With Your Tokens</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"

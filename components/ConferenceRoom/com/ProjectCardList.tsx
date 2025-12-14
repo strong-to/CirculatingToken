@@ -2,7 +2,7 @@
 
 import { px } from "@/utils/pxToRem";
 import { useState } from "react";
-import Image from "next/image";
+import ImageWithSkeleton from "@/components/common/ImageWithSkeleton";
 import Modal from "./Modal/Modal";
 import ProjectFundingModal from "./Modal/ProjectFundingModal";
 import CollectDataModal from "./Modal/CollectDataModal";
@@ -153,11 +153,11 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
             className="relative flex-shrink-0 flex items-center justify-center"
             style={{ width: px(70), height: px(70), marginRight: px(15), borderRadius: px(4) }}
           >
-            <Image
+            <ImageWithSkeleton
               src={card.icon}
               alt={card.title}
               fill
-              style={{ objectFit: "contain" }}
+              objectFit="contain"
               loading={originalIndex < 2 ? "eager" : "lazy"}
             />
           </div>

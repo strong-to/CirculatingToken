@@ -109,7 +109,7 @@ export default function ImageWithSkeleton({
   fill = false,
   borderRadius,
   aspectRatio,
-  objectFit = "cover",
+  objectFit,
   style,
   className,
   priority,
@@ -119,6 +119,16 @@ export default function ImageWithSkeleton({
 }: ImageWithSkeletonProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+
+  // 从 className 中提取 objectFit（如果未通过 props 提供）
+  const finalObjectFit = objectFit || (() => {
+    if (className?.includes('object-contain')) return 'contain';
+    if (className?.includes('object-cover')) return 'cover';
+    if (className?.includes('object-fill')) return 'fill';
+    if (className?.includes('object-none')) return 'none';
+    if (className?.includes('object-scale-down')) return 'scale-down';
+    return 'cover'; // 默认值
+  })();
 
   const handleLoad = () => {
     setIsLoading(false);
@@ -171,10 +181,12 @@ export default function ImageWithSkeleton({
               src={optimizedSrc}
               alt={alt}
               fill
+              className={className}
               style={{
-                objectFit,
+                objectFit: finalObjectFit,
                 opacity: isLoading ? 0 : 1,
                 transition: "opacity 0.3s ease-in-out",
+                ...style,
               }}
               priority={priority}
               loading={imageLoading}
@@ -189,12 +201,14 @@ export default function ImageWithSkeleton({
               alt={alt}
               width={typeof width === "number" ? width : undefined}
               height={typeof height === "number" ? height : undefined}
+              className={className}
               style={{
                 width: "100%",
                 height: "100%",
-                objectFit,
+                objectFit: finalObjectFit,
                 opacity: isLoading ? 0 : 1,
                 transition: "opacity 0.3s ease-in-out",
+                ...style,
               }}
               priority={priority}
               loading={imageLoading}

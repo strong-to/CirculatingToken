@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Image from 'next/image'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { px } from "@/utils/pxToRem"
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
@@ -313,12 +313,13 @@ export default function UserComments() {
                         overflow: 'hidden',
                       }}
                     >
-                      <Image
+                      <ImageWithSkeleton
                         src={`/LendingVault/UserComments/${item.img}`}
                         alt={item.name}
                         width={60}
                         height={60}
-                        style={{ width: px(60), height: px(60), objectFit: 'cover', borderRadius: px(4) }}
+                        borderRadius={px(4)}
+                        objectFit="cover"
                       />
                     </div>
                     
@@ -450,12 +451,13 @@ export default function UserComments() {
                             overflow: 'hidden',
                           }}
                         >
-                          <Image
+                          <ImageWithSkeleton
                             src={`/LendingVault/UserComments/${item.img}`}
                             alt={item.name}
                             width={60}
                             height={60}
-                            style={{ width: px(60), height: px(60), objectFit: 'cover', borderRadius: px(4) }}
+                            borderRadius={px(4)}
+                            objectFit="cover"
                           />
                         </div>
                         

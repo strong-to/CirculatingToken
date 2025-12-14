@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Image from 'next/image'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
@@ -53,13 +53,14 @@ export default function Banner() {
     <>
       {/* 主 Banner 图片 */}
       <div className="w-full" style={{ height: px(540) }}>
-        <Image
+        <ImageWithSkeleton
           src="/LendingVault/banner/MaskGroup.png"
           alt="Banner"
           width={1920}
           height={540}
-          className="w-full h-full object-cover"
+          className="w-full h-full"
           style={{ width: '100%', height: '100%' }}
+          objectFit="cover"
           priority
         />
       </div>
@@ -163,13 +164,14 @@ export default function Banner() {
                   }}
                 >
                   <div className="h-full overflow-hidden">
-                    <Image
+                    <ImageWithSkeleton
                       src={src}
                       alt={`Banner item ${index + 1}`}
                       width={299}
                       height={168}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full"
                       style={{ width: '100%', height: '100%' }}
+                      objectFit="cover"
                     />
                   </div>
                 </SwiperSlide>
@@ -187,13 +189,14 @@ export default function Banner() {
                   }}
                 >
                   <div className="h-full overflow-hidden">
-                    <Image
+                    <ImageWithSkeleton
                       src={src}
                       alt={`Banner item ${index + 1}`}
                       width={299}
                       height={168}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full"
                       style={{ width: '100%', height: '100%' }}
+                      objectFit="cover"
                     />
                   </div>
                 </SwiperSlide>

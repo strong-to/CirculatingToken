@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import Image from 'next/image'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { px } from '@/utils/pxToRem'
 import { LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -93,12 +93,11 @@ export default function ProjectsYouMayBeInterestedIn() {
                 height: px(383),
             }}
           >
-            <Image
+            <ImageWithSkeleton
               src={src}
               alt={`Project ${index + 1}`}
               fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 16vw"
+              objectFit="cover"
             />
           </div>
         ))}

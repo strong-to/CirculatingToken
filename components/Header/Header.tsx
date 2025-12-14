@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import Image from 'next/image'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
@@ -126,7 +127,7 @@ export default function Header() {
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               aria-label="Search"
             >
-              <Image
+              <ImageWithSkeleton
                 src={images.search}
                 alt="Search"
                 width={24}
@@ -140,7 +141,7 @@ export default function Header() {
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               aria-label="Language"
             >
-              <Image
+              <ImageWithSkeleton
                 src={images.language}
                 alt="Language"
                 width={24}
@@ -155,7 +156,7 @@ export default function Header() {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Menu"
             >
-              <Image
+              <ImageWithSkeleton
                 src={images.menu}
                 alt="Menu"
                 width={24}
@@ -169,7 +170,7 @@ export default function Header() {
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               aria-label="User"
             >
-              <Image
+              <ImageWithSkeleton
                 src={images.user}
                 alt="User"
                 width={24}

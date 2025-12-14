@@ -125,15 +125,25 @@ async function optimizeImageWithSharp(imagePath) {
     console.log(`📸 优化: ${imagePath} (${metadata.width}x${metadata.height})`)
     
     // 压缩原图
+    // 注意：sharp 不允许输入和输出是同一个文件，所以需要先读取到 buffer
     if (config.compressOriginal) {
+      let buffer
       if (ext === '.jpg' || ext === '.jpeg') {
-        await image
+        buffer = await image
           .jpeg({ quality: config.jpegQuality, mozjpeg: true })
-          .toFile(imagePath)
+          .toBuffer()
       } else if (ext === '.png') {
-        await image
+        buffer = await image
           .png({ quality: config.webpQuality, compressionLevel: 9 })
-          .toFile(imagePath)
+          .toBuffer()
+      }
+      
+      if (buffer) {
+        // 写入到临时文件，然后替换原文件
+        const tempPath = `${imagePath}.tmp`
+        fs.writeFileSync(tempPath, buffer)
+        fs.renameSync(tempPath, imagePath)
+        console.log(`   ✅ 压缩原图: ${imagePath}`)
       }
     }
     

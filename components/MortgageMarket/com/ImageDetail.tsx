@@ -13,8 +13,12 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
     <div
       className="w-full h-full flex flex-col"
       style={{
-        padding: px(40),
+        // padding: px(40),
+        paddingLeft:px(40),
+        paddingRight:px(40),   
+        paddingTop:px(40),
         backgroundColor: "#ffffff",
+        height: "100%",
       }}
     >
       {/* Profile Header */}
@@ -325,7 +329,8 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
           className="flex"
           style={{
             gap: px(20),
-            marginBottom: px(40),
+            marginTop: "auto",
+            marginBottom: 0,
           }}
         >
           <div

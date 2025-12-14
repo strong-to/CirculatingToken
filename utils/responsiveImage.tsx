@@ -37,7 +37,9 @@ function useWebPSupport(): boolean {
   const [supportsWebP, setSupportsWebP] = useState(false)
 
   useEffect(() => {
-    const webP = new Image()
+    if (typeof window === 'undefined') return
+    
+    const webP = new window.Image()
     webP.onload = webP.onerror = () => {
       setSupportsWebP(webP.height === 2)
     }
@@ -102,8 +104,8 @@ export default function ResponsiveImage({
     const webpSrc = getBestImageFormat(src, supportsWebP)
     
     // 检查 WebP 文件是否存在（通过尝试加载）
-    if (webpSrc !== src && supportsWebP) {
-      const img = new Image()
+    if (typeof window !== 'undefined' && webpSrc !== src && supportsWebP) {
+      const img = new window.Image()
       img.onload = () => {
         setImageSrc(webpSrc)
       }

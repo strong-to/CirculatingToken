@@ -230,17 +230,23 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
           {/* Posts */}
           <div className="flex items-center" style={{ gap: px(2) }}>
            
-<svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M17 0C7.61124 0 0 7.61124 0 17C0 26.3884 7.61124 34 17 34C26.3891 34 34 26.3884 34 17C34 7.61124 26.3891 0 17 0Z" fill="white"/>
-<path d="M24.1329 16.4419L12.8674 10.0581L11 9V11.1163V23.8837V26L12.8674 24.9419L24.1326 18.5585L26 17.5003L24.1329 16.4419ZM12.2449 23.8834V11.1163L23.5104 17.5L12.2449 23.8834Z" fill="black"/>
-<path d="M24.1329 16.4419L12.8674 10.0581L11 9V11.1163V23.8837V26L12.8674 24.9419L24.1326 18.5585L26 17.5003L24.1329 16.4419ZM12.2449 23.8834V11.1163L23.5104 17.5L12.2449 23.8834Z" fill="black" fill-opacity="0.2"/>
-<path d="M24.1329 16.4419L12.8674 10.0581L11 9V11.1163V23.8837V26L12.8674 24.9419L24.1326 18.5585L26 17.5003L24.1329 16.4419ZM12.2449 23.8834V11.1163L23.5104 17.5L12.2449 23.8834Z" fill="black" fill-opacity="0.2"/>
-<path d="M24.1329 16.4419L12.8674 10.0581L11 9V11.1163V23.8837V26L12.8674 24.9419L24.1326 18.5585L26 17.5003L24.1329 16.4419ZM12.2449 23.8834V11.1163L23.5104 17.5L12.2449 23.8834Z" fill="black" fill-opacity="0.2"/>
-<path d="M24.1329 16.4419L12.8674 10.0581L11 9V11.1163V23.8837V26L12.8674 24.9419L24.1326 18.5585L26 17.5003L24.1329 16.4419ZM12.2449 23.8834V11.1163L23.5104 17.5L12.2449 23.8834Z" fill="black" fill-opacity="0.2"/>
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 0.75C21.318 0.75 27.25 6.68228 27.25 14C27.25 21.3174 21.318 27.25 14 27.25C6.6823 27.25 0.75 21.3174 0.75 14C0.75 6.68229 6.68229 0.75 14 0.75Z" stroke="black" stroke-width="1.5"/>
+<path d="M14 0.75C21.318 0.75 27.25 6.68228 27.25 14C27.25 21.3174 21.318 27.25 14 27.25C6.6823 27.25 0.75 21.3174 0.75 14C0.75 6.68229 6.68229 0.75 14 0.75Z" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+<path d="M14 0.75C21.318 0.75 27.25 6.68228 27.25 14C27.25 21.3174 21.318 27.25 14 27.25C6.6823 27.25 0.75 21.3174 0.75 14C0.75 6.68229 6.68229 0.75 14 0.75Z" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+<path d="M14 0.75C21.318 0.75 27.25 6.68228 27.25 14C27.25 21.3174 21.318 27.25 14 27.25C6.6823 27.25 0.75 21.3174 0.75 14C0.75 6.68229 6.68229 0.75 14 0.75Z" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+<path d="M14 0.75C21.318 0.75 27.25 6.68228 27.25 14C27.25 21.3174 21.318 27.25 14 27.25C6.6823 27.25 0.75 21.3174 0.75 14C0.75 6.68229 6.68229 0.75 14 0.75Z" stroke="black" stroke-opacity="0.2" stroke-width="1.5"/>
+<path d="M20.5063 13.1286L11.4939 7.87141L10 7V8.74283V19.2572V21L11.4939 20.1286L20.5061 14.8717L22 14.0003L20.5063 13.1286ZM10.996 19.2569V8.74283L20.0083 14L10.996 19.2569Z" fill="black"/>
+<path d="M20.5063 13.1286L11.4939 7.87141L10 7V8.74283V19.2572V21L11.4939 20.1286L20.5061 14.8717L22 14.0003L20.5063 13.1286ZM10.996 19.2569V8.74283L20.0083 14L10.996 19.2569Z" fill="black" fill-opacity="0.2"/>
+<path d="M20.5063 13.1286L11.4939 7.87141L10 7V8.74283V19.2572V21L11.4939 20.1286L20.5061 14.8717L22 14.0003L20.5063 13.1286ZM10.996 19.2569V8.74283L20.0083 14L10.996 19.2569Z" fill="black" fill-opacity="0.2"/>
+<path d="M20.5063 13.1286L11.4939 7.87141L10 7V8.74283V19.2572V21L11.4939 20.1286L20.5061 14.8717L22 14.0003L20.5063 13.1286ZM10.996 19.2569V8.74283L20.0083 14L10.996 19.2569Z" fill="black" fill-opacity="0.2"/>
+<path d="M20.5063 13.1286L11.4939 7.87141L10 7V8.74283V19.2572V21L11.4939 20.1286L20.5061 14.8717L22 14.0003L20.5063 13.1286ZM10.996 19.2569V8.74283L20.0083 14L10.996 19.2569Z" fill="black" fill-opacity="0.2"/>
+<path d="M20.5063 13.1286L11.4939 7.87141L10 7V8.74283V19.2572V21L11.4939 20.1286L20.5061 14.8717L22 14.0003L20.5063 13.1286ZM10.996 19.2569V8.74283L20.0083 14L10.996 19.2569Z" stroke="black" stroke-width="0.5"/>
 </svg>
 
             <span
               style={{
+                marginLeft: px(5),
                 fontFamily: "ITC Avant Garde Gothic Pro",
                 fontWeight: 300,
                 fontStyle: "normal",
@@ -277,6 +283,7 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
             </svg>
             <span
               style={{
+                marginLeft: px(5),
                 fontFamily: "ITC Avant Garde Gothic Pro",
                 fontWeight: 300,
                 fontStyle: "normal",
@@ -301,6 +308,7 @@ export default function ImageDetail({ imageSrc, onBack }: ImageDetailProps) {
             </svg>
             <span
               style={{
+                marginLeft: px(5),
                 fontFamily: "ITC Avant Garde Gothic Pro",
                 fontWeight: 300,
                 fontStyle: "normal",

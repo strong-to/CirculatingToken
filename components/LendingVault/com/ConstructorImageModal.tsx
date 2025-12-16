@@ -2,7 +2,7 @@
 
 import { px } from "@/utils/pxToRem";
 import { useEffect, useState } from "react";
-import ImageWithSkeleton from "@/components/common/ImageWithSkeleton";
+import Image from "next/image";
 
 interface ConstructorImageModalProps {
   isOpen: boolean;
@@ -139,13 +139,16 @@ export default function ConstructorImageModal({
               border: "0.5px solid #000000",
             }}
           >
-            <ImageWithSkeleton
+            <Image
               src={imageSrc}
               alt={`Constructor ${imageIndex + 1}`}
-              width={90}
-              height={90}
-              borderRadius="50%"
-              objectFit="cover"
+              width={80}
+              height={80}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
               priority
             />
           </div>

@@ -3,10 +3,10 @@
 import { px } from "@/utils/pxToRem"
 import Image from 'next/image'
 import { useState } from "react"
-import EcosystemContent from './EcosystemContent'
-import TokenContent from './TokenContent'
-import FinanceContent from './FinanceContent'
-import ProposalContent from './ProposalContent'
+import EcosystemContent from "./EcosystemContent"
+import TokenContent from "./TokenContent"
+import FinanceContent from "./FinanceContent"
+import ProposalContent from "./ProposalContent"
 
 export default function ProjectGovernance() {
   const [selectedTab, setSelectedTab] = useState<'Ecosystem' | 'Token' | 'Finance' | 'Proposal'>('Ecosystem')
@@ -14,21 +14,26 @@ export default function ProjectGovernance() {
 
 
     return (
-        <div className="w-full"  style={{marginTop:px(123)}}>
-            <div className='flex items-center w-full justify-start' style={{height:px(25),gap:px(20),paddingLeft:px(80),paddingBottom:px(25)}}>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               construction response count：1,503
+        <div className="w-full"  style={{marginTop:px(50)}}>
+            <div className='flex items-center w-full justify-start' style={{height:px(32),gap:px(20),paddingLeft:px(80),paddingBottom:px(25)}}>
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+             Number of Ongoing Projects：960,876
              </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of constructors：667
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+             Number of Available Projects ：960,876
              </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of completed response subjects：7
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+             Total Number of Projects：38,960,876
              </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of ongoing response subjects：05
+           </div>
+           <div className='flex items-center w-full justify-start' style={{height:px(25),gap:px(20),paddingLeft:px(80),paddingBottom:px(25),marginTop:px(5)}}>
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+             Total Number of Visits：771,565,002
              </div>
-         </div>
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+             Total Number of Registered Users：2,052.11
+             </div>
+           </div>
 
         <div className="w-full bg-black relative flex items-center justify-between"  style={{ height:px(140), paddingLeft:px(80), paddingRight:px(80) }}>
           <div className="flex items-center " style={{gap:px(20) }}>

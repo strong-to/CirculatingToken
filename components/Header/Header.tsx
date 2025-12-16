@@ -18,8 +18,10 @@ export default function Header() {
     'Launchpad',
     'Token Marketplace',
     'Lending Vault',
+    'Project Construction',
+    'Mortgage  market',
     'Conference Room',
-    'Mortgage  market'
+    
   ]
 
   // 预加载指定页面的图片（hover 时触发）
@@ -63,6 +65,8 @@ export default function Header() {
                 href = '/ConferenceRoom'
               } else if (item === 'Mortgage  market') {
                 href = '/MortgageMarket'
+              } else if (item === 'Project Construction') {
+                href = '/ProjectConstruction'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
@@ -70,7 +74,8 @@ export default function Header() {
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
                                (item === 'Lending Vault' && pathname === '/LendingVault') ||
                                (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
-                               (item === 'Mortgage  market' && pathname === '/MortgageMarket')
+                               (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
+                               (item === 'Project Construction' && pathname === '/ProjectConstruction')
               
               if (href === '#') {
                 return (
@@ -203,6 +208,8 @@ export default function Header() {
                 href = '/ConferenceRoom'
               } else if (item === 'Mortgage  market') {
                 href = '/MortgageMarket'
+              } else if (item === 'Project Construction') {
+                href = '/ProjectConstruction'
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/') || 
@@ -210,7 +217,8 @@ export default function Header() {
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
                                (item === 'Lending Vault' && pathname === '/LendingVault') ||
                                (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
-                               (item === 'Mortgage  market' && pathname === '/MortgageMarket')
+                               (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
+                               (item === 'Project Construction' && pathname === '/ProjectConstruction')
               
               if (href === '#') {
                 return (

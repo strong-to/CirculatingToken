@@ -130,6 +130,13 @@ export const imageResources = {
     '/MortgageMarket/img2/Mask7.png',
     '/MortgageMarket/img2/Mask8.png',
   ],
+
+  // ProjectConstruction页面图片
+  projectConstructionImages: [
+    '/header/img/logo.png', // Header logo
+    '/LendingVault/ProjectConstruction/logo.png',
+    ...Array.from({ length: 16 }, (_, i) => `/LendingVault/ProjectConstruction/item/img${i + 1}.png`),
+  ],
 }
 
 /**
@@ -142,6 +149,7 @@ export const pageImageMap: Record<string, string[]> = {
   '/LendingVault': imageResources.lendingVaultImages,
   '/ConferenceRoom': imageResources.conferenceRoomImages,
   '/MortgageMarket': imageResources.mortgageMarketImages,
+  '/ProjectConstruction': imageResources.projectConstructionImages,
 }
 
 /**

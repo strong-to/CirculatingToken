@@ -1,7 +1,7 @@
 "use client";
 
 import { px } from "@/utils/pxToRem";
-import FilterDropdown from "@/components/ConferenceRoom/com/Modal/FilterDropdown";
+import FilterDropdown from "@/components/ProjectConstruction/com/Modal/FilterDropdown";
 import { useState, useRef, useEffect } from "react";
 
 export default function GPUComputeModal() {

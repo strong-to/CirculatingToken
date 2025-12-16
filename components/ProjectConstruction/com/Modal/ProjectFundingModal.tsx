@@ -53,7 +53,7 @@ export default function ProjectFundingModal() {
             width: px(20),
             height: px(20),
             marginTop: px(-10),
-            marginRight: px(10),
+            marginRight: px(40),
           }}
         >
           <svg
@@ -98,8 +98,8 @@ export default function ProjectFundingModal() {
           fontSize: px(16),
           lineHeight: "150%",
           color: "#555555",
-          paddingLeft: px(30),
-          paddingRight: px(30),
+          paddingLeft: px(80),
+          paddingRight: px(80),
           marginBottom: px(30),
         }}
       >
@@ -421,7 +421,7 @@ export default function ProjectFundingModal() {
           </div>
 
           <div
-            className="flex items-center  w-full bg-[#EFF6FF]"
+            className="flex items-center  w-full bg-[#f5f5f5]"
             style={{
               paddingLeft: px(25),
               paddingRight: px(10),
@@ -429,7 +429,7 @@ export default function ProjectFundingModal() {
               height: px(44),
               border: "0.5px solid #000000",
               borderRadius: px(4),
-              color: "#435B9B",
+              color: "#000000",
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
               fontSize: px(16),
@@ -466,7 +466,7 @@ export default function ProjectFundingModal() {
           </div>
 
           <div
-            className="w-full bg-[#EFFAF8]"
+            className="w-full bg-[#f5f5f5]"
             style={{
               marginTop: px(20),
               paddingLeft: px(25),
@@ -530,7 +530,7 @@ export default function ProjectFundingModal() {
                 style={{
                   height: px(32),
                   width: px(112),
-                  backgroundColor: "#008236",
+                  backgroundColor: "#000000",
                   borderRadius: px(16),
                   display: "flex",
                   alignItems: "center",
@@ -557,7 +557,7 @@ export default function ProjectFundingModal() {
                 fontSize: px(35),
                 lineHeight: px(54),
                 letterSpacing: "4%",
-                color: "#008236",
+                color: "#000000",
                 opacity: 1,
               }}
             >

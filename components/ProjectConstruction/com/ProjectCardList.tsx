@@ -353,7 +353,7 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
           </div>
 
           {/* 按钮 */}
-          <div
+          {/* <div
             className="flex flex-col flex-shrink-0 items-center justify-center"
             style={{
               width: px(130),
@@ -417,7 +417,7 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
                 </button>
               );
             })}
-          </div>
+          </div> */}
         </div>
           );
         })}

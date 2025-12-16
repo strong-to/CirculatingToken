@@ -5,13 +5,14 @@ import { px } from "@/utils/pxToRem"
 import Image from 'next/image'
 import DataTable, { Column } from './DataTable'
 import ConstructorImageModal from './ConstructorImageModal'
+import ProjectCardList from '@/components/ProjectConstruction/com/ProjectCardList'
 
 export default function ProjectConstruction() {
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
   const totalPages = 7
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
-
+  const [activeTab, setActiveTab] = useState("All");
   // 表格列定义
   const columns: Column[] = [
     { key: 'annotation', label: 'multi-modal data annotation', width: 200 },
@@ -119,7 +120,9 @@ export default function ProjectConstruction() {
 
        {/* 数据表格 */}
        <div className="w-full" style={{ marginTop: px(20), paddingLeft: px(80), paddingRight: px(80) }}>
-         <DataTable columns={columns} data={tableData} />
+         {/* <DataTable columns={columns} data={tableData} /> */}
+
+         <ProjectCardList filterTab={activeTab} />
 
          {/* Pagination Controls */}
          <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>

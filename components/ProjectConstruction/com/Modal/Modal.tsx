@@ -50,9 +50,9 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
       <div
         className="fixed z-50"
         style={{
-          top: px(30),
-          left: px(30),
-          right: px(30),
+          top: px(80),
+          left: px(80),
+          right: px(80),
           bottom: px(0),
           backgroundColor: "#ffffff",
           overflowY: "auto",

@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import BlueSquareCard from '@/components/Home/com/LetEveryShare/BlueSquareCard'
+import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
@@ -24,6 +24,12 @@ export default function LetEveryShare() {
   const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 15 // 1.41875rem = 22.7px
+
+  // 小图标：使用 /home/icon/img 里的第 11~20 个 icon
+  const letEveryIconImages = Array.from({ length: 10 }, (_, i) => {
+    const num = String(10 + i + 1).padStart(2, '0') // 11..20
+    return `/home/icon/img/icon${num}.png`
+  })
 
   // 检测操作系统
   useEffect(() => {
@@ -361,86 +367,106 @@ export default function LetEveryShare() {
                 },
               }}
             >
-              {/* 原始5张卡片 */}
+              {/* 原始5张卡片（映射 ChatContent 第 11~15 条：索引 10~14） */}
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing1}
                     alt="Investing card 1"
+                    cardIndex={10}
+                    iconSrcOverride={letEveryIconImages[0]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing2}
                     alt="Investing card 2"
+                    cardIndex={11}
+                    iconSrcOverride={letEveryIconImages[1]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing3}
                     alt="Investing card 3"
+                    cardIndex={12}
+                    iconSrcOverride={letEveryIconImages[2]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing4}
                     alt="Investing card 4"
+                    cardIndex={13}
+                    iconSrcOverride={letEveryIconImages[3]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing5}
                     alt="Investing card 5"
+                    cardIndex={14}
+                    iconSrcOverride={letEveryIconImages[4]}
                   />
                 </div>
               </SwiperSlide>
               
-              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
+              {/* 复制卡片以支持循环模式（映射 ChatContent 第 16~20 条：索引 15~19） */}
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing6}
                     alt="Investing card 1"
+                    cardIndex={15}
+                    iconSrcOverride={letEveryIconImages[5]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing7}
                     alt="Investing card 2"
+                    cardIndex={16}
+                    iconSrcOverride={letEveryIconImages[6]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing8}
                     alt="Investing card 3"
+                    cardIndex={17}
+                    iconSrcOverride={letEveryIconImages[7]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing9}
                     alt="Investing card 4"
+                    cardIndex={18}
+                    iconSrcOverride={letEveryIconImages[8]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing10}
                     alt="Investing card 5"
+                    cardIndex={19}
+                    iconSrcOverride={letEveryIconImages[9]}
                   />
                 </div>
               </SwiperSlide>

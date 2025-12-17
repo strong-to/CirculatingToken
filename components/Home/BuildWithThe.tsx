@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
-import BlueSquareCard from '@/components/Home/com/BuildWithThe/BlueSquareCard'
+import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/BuildWithThe/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
@@ -22,6 +22,12 @@ export default function  BuildWithThe() {
   const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 15 // 1.41875rem = 22.7px
+
+  // 小图标：使用 /home/icon/img 里的第 21~30 个 icon
+  const buildWithIconImages = Array.from({ length: 10 }, (_, i) => {
+    const num = String(20 + i + 1).padStart(2, '0') // 21..30
+    return `/home/icon/img/icon${num}.png`
+  })
 
   // 检测操作系统
   useEffect(() => {
@@ -314,86 +320,106 @@ export default function  BuildWithThe() {
                 },
               }}
             >
-              {/* 原始5张卡片 */}
+              {/* 原始5张卡片（映射 ChatContent 第 21~25 条：索引 20~24），使用 icon21~25 */}
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing1}
                     alt="Investing card 1"
+                    cardIndex={20}
+                    iconSrcOverride={buildWithIconImages[0]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing2}
                     alt="Investing card 2"
+                    cardIndex={21}
+                    iconSrcOverride={buildWithIconImages[1]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing3}
                     alt="Investing card 3"
+                    cardIndex={22}
+                    iconSrcOverride={buildWithIconImages[2]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing4}
                     alt="Investing card 4"
+                    cardIndex={23}
+                    iconSrcOverride={buildWithIconImages[3]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing5}
                     alt="Investing card 5"
+                    cardIndex={24}
+                    iconSrcOverride={buildWithIconImages[4]}
                   />
                 </div>
               </SwiperSlide>
               
-              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
+              {/* 复制卡片以支持循环模式（映射 ChatContent 第 26~30 条：索引 25~29），使用 icon26~30 */}
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing6}
                     alt="Investing card 1"
+                    cardIndex={25}
+                    iconSrcOverride={buildWithIconImages[5]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing7}
                     alt="Investing card 2"
+                    cardIndex={26}
+                    iconSrcOverride={buildWithIconImages[6]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing8}
                     alt="Investing card 3"
+                    cardIndex={27}
+                    iconSrcOverride={buildWithIconImages[7]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing9}
                     alt="Investing card 4"
+                    cardIndex={28}
+                    iconSrcOverride={buildWithIconImages[8]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing10}
                     alt="Investing card 5"
+                    cardIndex={29}
+                    iconSrcOverride={buildWithIconImages[9]}
                   />
                 </div>
               </SwiperSlide>

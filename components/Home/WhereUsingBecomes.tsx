@@ -22,6 +22,12 @@ export default function WhereUsingBecomes() {
   
   const gap = 15 // 1.41875rem = 22.7px
 
+  // Home 专用的小图标（前 10 个）
+  const homeIconImages = Array.from({ length: 10 }, (_, i) => {
+    const num = String(i + 1).padStart(2, '0')
+    return `/home/icon/img/icon${num}.png`
+  })
+
   // 检测操作系统
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -331,99 +337,109 @@ export default function WhereUsingBecomes() {
                 },
               }}
             >
-              {/* 原始5张卡片 */}
+              {/* 原始5张卡片（映射 ChatContent 第 1~5 条 & Home 专用前 5 个 icon） */}
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing1}
                     alt="Investing card 1"
                     cardIndex={0}
+                    iconSrcOverride={homeIconImages[0]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing2}
                     alt="Investing card 2"
                     cardIndex={1}
+                    iconSrcOverride={homeIconImages[1]}
                   />
                 </div>
               </SwiperSlide>
 
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing3}
                     alt="Investing card 3"
                     cardIndex={2}
+                    iconSrcOverride={homeIconImages[2]}
                   />
                 </div>
               </SwiperSlide>
 
               
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing4}
                     alt="Investing card 4"
                     cardIndex={3}
+                    iconSrcOverride={homeIconImages[3]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing5}
                     alt="Investing card 5"
                     cardIndex={4}
+                    iconSrcOverride={homeIconImages[4]}
                   />
                 </div>
               </SwiperSlide>
               
-              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
+              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides），继续使用前 10 个 icon */}
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing6}
                     alt="Investing card 1"
                     cardIndex={5}
+                    iconSrcOverride={homeIconImages[5]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing7}
                     alt="Investing card 2"
                     cardIndex={6}
+                    iconSrcOverride={homeIconImages[6]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing8}
                     alt="Investing card 3"
                     cardIndex={7}
+                    iconSrcOverride={homeIconImages[7]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing9}
                     alt="Investing card 4"
                     cardIndex={8}
+                    iconSrcOverride={homeIconImages[8]}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
+                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing10}
                     alt="Investing card 5"
                     cardIndex={9}
+                    iconSrcOverride={homeIconImages[9]}
                   />
                 </div>
               </SwiperSlide>

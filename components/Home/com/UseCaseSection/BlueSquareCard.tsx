@@ -12,9 +12,33 @@ interface BlueSquareCardProps {
   alt: string;
   // 可选：用于从 ChatContentData 中取对应的数据（前 10 条）
   cardIndex?: number;
+  // 可选：父组件传入的小图标地址；如果提供则优先使用（例如 Home 页面自定义 icon）
+  iconSrcOverride?: string;
 }
 
-export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardProps) {
+// 计算按钮宽度（参考 ChatContent/InitialContent）
+function calculateButtonWidths(buttons: string[]): string[] {
+  if (buttons.length !== 4) {
+    // 如果不是 4 个按钮，回退到原来的 66% / 33% 固定布局
+    return ["66%", "33%", "33%", "66%"];
+  }
+
+  const lengths = buttons.map((btn) => btn.length);
+
+  // 第一行：按钮 0 和 1
+  const row1Total = lengths[0] + lengths[1];
+  const row1Width0 = `${(lengths[0] / row1Total) * 100}%`;
+  const row1Width1 = `${(lengths[1] / row1Total) * 100}%`;
+
+  // 第二行：按钮 2 和 3
+  const row2Total = lengths[2] + lengths[3];
+  const row2Width2 = `${(lengths[2] / row2Total) * 100}%`;
+  const row2Width3 = `${(lengths[3] / row2Total) * 100}%`;
+
+  return [row1Width0, row1Width1, row2Width2, row2Width3];
+}
+
+export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }: BlueSquareCardProps) {
   const [showDetail, setShowDetail] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [buttonHovered, setButtonHovered] = useState<string | null>(null);
@@ -30,16 +54,21 @@ export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardPr
           descriptions: ["THIS IS A VIDEO", "CREATION AIWORKFLOW"],
         };
 
-  // 内部小图标：优先使用 ChatContent 的图标，否则使用原来的 sword 图标
+  // 内部小图标：
+  // 1. 如果父组件传了 iconSrcOverride，则优先使用（例如 Home/WhereUsingBecomes 专用 icon）
+  // 2. 否则优先使用 ChatContent 的图标
+  // 3. 再否则使用原来的 sword 图标
   const iconSrc =
-    cardIndex !== undefined &&
+    iconSrcOverride ??
+    (cardIndex !== undefined &&
     cardIndex >= 0 &&
     cardIndex < chatContentImages.length
       ? chatContentImages[cardIndex]
-      : "/home/icons/img/sword.png";
+      : "/home/icons/img/sword.png");
 
   const [btn0, btn1, btn2, btn3] = cardData.buttons;
   const [desc0, desc1] = cardData.descriptions;
+  const buttonWidths = calculateButtonWidths(cardData.buttons);
 
   return (
     <div
@@ -151,7 +180,7 @@ export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardPr
               <div
                 className="border border-white flex items-center justify-center cursor-pointer"
                 style={{
-                  width: "66%",
+                  width: buttonWidths[0],
                   height: "100%",
                   marginRight: px(10),
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -167,15 +196,14 @@ export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardPr
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                 }}
-                onMouseEnter={() => setButtonHovered(btn0)}
-                onMouseLeave={() => setButtonHovered(null)}
+            
               >
                 {btn0}
               </div>
               <div
                 className="border border-white flex items-center justify-center cursor-pointer"
                 style={{
-                  width: "33%",
+                  width: buttonWidths[1],
                   height: "100%",
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
@@ -190,8 +218,7 @@ export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardPr
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                 }}
-                onMouseEnter={() => setButtonHovered(btn1)}
-                onMouseLeave={() => setButtonHovered(null)}
+               
               >
                 {btn1}
               </div>
@@ -201,7 +228,7 @@ export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardPr
               <div
                 className="border border-white flex items-center justify-center cursor-pointer"
                 style={{
-                  width: "33%",
+                  width: buttonWidths[2],
                   height: "100%",
                   marginRight: px(10),
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -217,15 +244,14 @@ export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardPr
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                 }}
-                onMouseEnter={() => setButtonHovered(btn2)}
-                onMouseLeave={() => setButtonHovered(null)}
+             
               >
                 {btn2}
               </div>
               <div
                 className="border border-white flex items-center justify-center cursor-pointer"
                 style={{
-                  width: "66%",
+                  width: buttonWidths[3],
                   height: "100%",
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
@@ -240,8 +266,7 @@ export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardPr
                   cursor: "pointer",
                   transition: "all 0.2s ease",
                 }}
-                onMouseEnter={() => setButtonHovered(btn3)}
-                onMouseLeave={() => setButtonHovered(null)}
+              
               >
                 {btn3}
               </div>

@@ -148,8 +148,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               cursor: 'pointer',
               transition: 'all 0.2s ease'
             }}
-            onMouseEnter={() => setButtonHovered('NaturalLanguage')}
-            onMouseLeave={() => setButtonHovered(null)}
+           
           >
             Natural Language
 
@@ -172,8 +171,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               cursor: 'pointer',
               transition: 'all 0.2s ease'
             }}
-            onMouseEnter={() => setButtonHovered('Text')}
-            onMouseLeave={() => setButtonHovered(null)}
+           
           >Text</div>
         </div>
 
@@ -197,8 +195,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               cursor: 'pointer',
               transition: 'all 0.2s ease'
             }}
-            onMouseEnter={() => setButtonHovered('Analyze')}
-            onMouseLeave={() => setButtonHovered(null)}
+           
           >Analyze</div>
           <div 
             className="border border-white flex items-center justify-center cursor-pointer" 
@@ -218,8 +215,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               cursor: 'pointer',
               transition: 'all 0.2s ease'
             }}
-            onMouseEnter={() => setButtonHovered('PublicHealth')}
-            onMouseLeave={() => setButtonHovered(null)}
+           
           >Public Health
           </div>
         </div>

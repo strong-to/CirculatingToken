@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 // import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/GovernTogether/CollapsiblePanelContent'
 
@@ -217,7 +218,11 @@ export default function  GovernTogether() {
         </div>
 
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
-         <div className="flex items-center justify-end absolute z-10" style={{ bottom: px(22), right: px(66) }}>
+         <Link 
+           href="/ConferenceRoom"
+           className="flex items-center justify-end absolute z-10 cursor-pointer hover:opacity-80 transition-opacity" 
+           style={{ bottom: px(22), right: px(66) }}
+         >
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
            Explore More
           </span>
@@ -226,7 +231,7 @@ export default function  GovernTogether() {
               <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
           </svg>
         
-        </div>
+        </Link>
        
 
       </div>

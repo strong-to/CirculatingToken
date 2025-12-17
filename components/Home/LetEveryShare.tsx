@@ -2,6 +2,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import BlueSquareCard from '@/components/Home/com/LetEveryShare/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/CollapsiblePanelContent'
@@ -22,7 +23,7 @@ export default function LetEveryShare() {
   const [isHovered, setIsHovered] = useState(false)
   const swiperRef = useRef<SwiperType | null>(null)
   
-  const gap = 22.7 // 1.41875rem = 22.7px
+  const gap = 15 // 1.41875rem = 22.7px
 
   // 检测操作系统
   useEffect(() => {
@@ -210,28 +211,30 @@ export default function LetEveryShare() {
             >
               Top Use-to-Earn Picks
             </div>
-            {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-            <button
-              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
-              style={{
-                width: '17.296875rem', // 276.75px
-                height: '3.9375rem', // 63px
-                borderRadius: '0.25rem' // 4px
-              }}
-            >
-              <span
+            {/* 右侧按钮：View all projects，点击跳转 /ProjectHub */}
+            <Link href="/ProjectHub">
+              <button
+                className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
                 style={{
-                  fontFamily: "ITC Avant Garde Gothic Pro",
-                  fontWeight: 300,
-                  fontStyle: "normal",
-                  fontSize: px(26),
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
+                  width: '17.296875rem', // 276.75px
+                  height: '3.9375rem', // 63px
+                  borderRadius: '0.25rem' // 4px
                 }}
               >
-                View all projects
-              </span>
-            </button>
+                <span
+                  style={{
+                    fontFamily: "ITC Avant Garde Gothic Pro",
+                    fontWeight: 300,
+                    fontStyle: "normal",
+                    fontSize: px(26),
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                  }}
+                >
+                  View all projects
+                </span>
+              </button>
+            </Link>
           </div>
 
           <div 

@@ -20,31 +20,36 @@ export default function Statistics() {
         className="font-light cursor-pointer" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-          fontSize: '1.8125rem', // 29px
-          height: '2.155rem' // 34.48px
+          fontSize:px(29), // 29px
+          height: px(35)
         }}
       >
-        357,211PROJECTS
+        <span>357,211</span>
+        <span style={{ marginLeft: px(8) }}>PROJECTS</span>
       </div>
       <div 
         className="font-light cursor-pointer" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-          fontSize: '1.8125rem', // 29px
-          height: '2.155rem' // 34.48px
+          fontSize:px(29), // 29px
+          height: px(35)
         }}
       >
-        172,275,455USERS
+        <span>172,275,455</span>
+        <span style={{ marginLeft: px(8) }}>USERS</span>
       </div>
       <div 
-        className="font-light cursor-pointer" 
+        className="font-light cursor-pointer whitespace-nowrap" 
         style={{ 
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontSize: '1.8125rem', // 29px
-          height: '2.155rem' // 34.48px
+          height: px(35)
         }}
       >
-        $182,588,717,071Market Value
+
+     <span>$182,588,717,071 </span>
+     <span style={{ marginLeft: px(8) }}>Market Value</span>
+        
       </div>
     </div>
   )

@@ -16,11 +16,12 @@ export default function Header() {
   const navItems = [
     'Project Hub',
     'Launchpad',
+    'Conference Room',
     'Token Marketplace',
     'Lending Vault',
-    'Project Construction',
-    'Mortgage  market',
-    'Conference Room',
+    // 'Project Construction',
+    'About',
+    'Mortgage  market'
     
   ]
 
@@ -37,28 +38,32 @@ export default function Header() {
       <div className="flex-1" style={{ height: px(72) , paddingLeft: px(70) , paddingRight: px(70) }}>
         <div className="h-title flex items-center " style={{ height: px(72) }}>
           {/* Logo */}
-          <Image
-            src="/header/img/logo.png"
-            alt="Logo"
-            width={60}
-            height={60}
-            priority
-            style={{
-              width: px(60),
-              height: px(60),
-            }}
-          />
+          <Link href="/">
+            <Image
+              src="/header/img/logo.png"
+              alt="Logo"
+              width={60}
+              height={60}
+              priority
+              style={{
+                width: px(60),
+                height: px(60),
+                cursor: 'pointer',
+              }}
+            />
+          </Link>
 
           {/* Navigation - 桌面端显示，左右间距 56px，中间均分 */}
           <nav className="hidden md:flex items-center justify-between flex-1 whitespace-nowrap" style={{ marginLeft: '3.5rem', marginRight: '9.125rem' }}> {/* 56px, 146px */}
             {navItems.map((item) => {
               let href = '#'
               if (item === 'Project Hub') {
-                href = '/'
+                href = '/ProjectHub'
               } else if (item === 'Launchpad') {
                 href = '/Launchpad'
               } else if (item === 'Token Marketplace') {
-                href = '/TokenMarketplace'
+                // href = '/TokenMarketplace'
+
               } else if (item === 'Lending Vault') {
                 href = '/LendingVault'
               } else if (item === 'Conference Room') {
@@ -69,7 +74,7 @@ export default function Header() {
                 href = '/ProjectConstruction'
               }
               
-              const isActive = (item === 'Project Hub' && pathname === '/') || 
+              const isActive = (item === 'Project Hub' && pathname === '/ProjectHub') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
                                (item === 'Lending Vault' && pathname === '/LendingVault') ||
@@ -197,11 +202,11 @@ export default function Header() {
             {navItems.map((item) => {
               let href = '#'
               if (item === 'Project Hub') {
-                href = '/'
+                href = '/ProjectHub'
               } else if (item === 'Launchpad') {
                 href = '/Launchpad'
               } else if (item === 'Token Marketplace') {
-                href = '/TokenMarketplace'
+                // href = '/TokenMarketplace'
               } else if (item === 'Lending Vault') {
                 href = '/LendingVault'
               } else if (item === 'Conference Room') {
@@ -212,7 +217,7 @@ export default function Header() {
                 href = '/ProjectConstruction'
               }
               
-              const isActive = (item === 'Project Hub' && pathname === '/') || 
+              const isActive = (item === 'Project Hub' && pathname === '/ProjectHub') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
                                (item === 'Lending Vault' && pathname === '/LendingVault') ||

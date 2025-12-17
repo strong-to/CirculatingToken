@@ -41,7 +41,7 @@ export default function Footer() {
   }, [])
 
   return (
-    <section className="bg-white flex flex-col relative" style={{ backgroundColor: '#FFFFFF', position: 'relative', zIndex: 1, marginTop: px(-120) }}>
+    <section className="bg-white flex flex-col relative min-h-screen" style={{ backgroundColor: '#FFFFFF', position: 'relative', zIndex: 1, marginTop: px(-120) }}>
       {/* 顶部蓝色边框 */}
       <div className="w-full" style={{ backgroundColor: '#FFFFFF', height: px(120) }}></div>
       
@@ -324,36 +324,6 @@ export default function Footer() {
                     className="placeholder:text-gray-400"
                   />
                 </div>
-
-
-                <div
-                      style={{
-                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                        fontWeight: 300,
-                        fontStyle: 'normal',
-                        fontSize: px(20.57),
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#000000'
-                      }}
-                    >
-                      Subscribe
-                    </div>
-                <div
-                      style={{
-                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                        fontWeight: 300,
-                        fontStyle: 'normal',
-                        fontSize: px(20.57),
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#000000',
-                          whiteSpace: 'nowrap'
-                      }}
-                    >
-                     Meta, Insgram, Youtube, X, DiscordLOGO
-                    </div>
-               
                 <div className="space-y-2">
                   <label className="flex items-center gap-2">
                     <input 
@@ -467,10 +437,53 @@ export default function Footer() {
 
 
   {/* 底部 Help 按钮和版权信息 */}
-  <div className="container-responsive flex items-center justify-center" style={{ paddingTop: px(225), paddingBottom: px(30) }}>
+  <div className="container-responsive flex items-center justify-start" style={{ paddingTop: px(225), position: 'absolute',
+            left: 0,
+            bottom: 0, }}>
         {/* Help 按钮 */}
+
+        <button
+          style={{
+            
+            width: px(153),
+            height: px(153),
+            backgroundColor: '#000000',
+            color: '#FFFFFF',
+            border: 'none',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: px(4),
+            cursor: 'pointer',
+            zIndex: 1000
+          }}
+          className="hover:opacity-90 transition-opacity"
+        >
+          
+          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M42.0439 22C42.0439 10.93 33.0699 1.95605 22 1.95605C10.9301 1.95605 1.95605 10.93 1.95605 22C1.95605 33.07 10.9301 42.0439 22 42.0439V44C9.84974 44 0 34.1503 0 22C0 9.84965 9.84974 0 22 0C34.1503 0 44 9.84965 44 22C44 34.1503 34.1503 44 22 44V42.0439C33.0699 42.0439 42.0439 33.07 42.0439 22Z" fill="white"/>
+<path d="M24.4545 25.8404H21.8918V25.6489C21.8918 23.3511 23.1039 21.4681 25.1818 19.7128C27.2597 17.9574 28.4372 16.6809 28.4372 14.9894C28.4372 12.3404 25.8745 10.234 23.0346 10.234C20.2641 10.234 17.5628 12.117 17.5628 15.2447V15.7872H15V15.3404C15 10.9043 18.9827 8 23.1385 8C27.5022 8 31 11.0319 31 15.0851C31 17.2234 29.8918 18.7234 27.8139 20.4787C25.7359 22.234 24.4892 23.8298 24.4545 25.8404ZM24.4545 32H21.8918V27.9787H24.4545V32Z" fill="white"/>
+</svg>
+
+          <span
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(33.19),
+              color: '#FFFFFF'
+            }}
+          >
+            Help
+          </span>
+        </button>
+
+
+
         {/* 版权信息 - 右侧 */}
-        <div className="flex flex-col items-end gap-1">
+
+        
+        <div className="flex w-full items-center justify-center">
           <span
             style={{
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -479,7 +492,7 @@ export default function Footer() {
               fontSize: px(20.57),
               lineHeight: '100%',
               letterSpacing: '0%',
-              color: '#000000'
+              color: '#808080'
             }}
           >
             © 2024 THE4 / DeepBlue Convention. All rights reserved.
@@ -531,43 +544,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <button
-          style={{
-            position: 'absolute',
-            left: px(123),
-            bottom: 0,
-            width: px(153),
-            height: px(153),
-            backgroundColor: '#000000',
-            color: '#FFFFFF',
-            border: 'none',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: px(4),
-            cursor: 'pointer',
-            zIndex: 1000
-          }}
-          className="hover:opacity-90 transition-opacity"
-        >
-          
-          <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M42.0439 22C42.0439 10.93 33.0699 1.95605 22 1.95605C10.9301 1.95605 1.95605 10.93 1.95605 22C1.95605 33.07 10.9301 42.0439 22 42.0439V44C9.84974 44 0 34.1503 0 22C0 9.84965 9.84974 0 22 0C34.1503 0 44 9.84965 44 22C44 34.1503 34.1503 44 22 44V42.0439C33.0699 42.0439 42.0439 33.07 42.0439 22Z" fill="white"/>
-<path d="M24.4545 25.8404H21.8918V25.6489C21.8918 23.3511 23.1039 21.4681 25.1818 19.7128C27.2597 17.9574 28.4372 16.6809 28.4372 14.9894C28.4372 12.3404 25.8745 10.234 23.0346 10.234C20.2641 10.234 17.5628 12.117 17.5628 15.2447V15.7872H15V15.3404C15 10.9043 18.9827 8 23.1385 8C27.5022 8 31 11.0319 31 15.0851C31 17.2234 29.8918 18.7234 27.8139 20.4787C25.7359 22.234 24.4892 23.8298 24.4545 25.8404ZM24.4545 32H21.8918V27.9787H24.4545V32Z" fill="white"/>
-</svg>
-
-          <span
-            style={{
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(33.19),
-              color: '#FFFFFF'
-            }}
-          >
-            Help
-          </span>
-        </button>
+    
       {/* 底部蓝色边框 - 最底部 */}
   
     </section>

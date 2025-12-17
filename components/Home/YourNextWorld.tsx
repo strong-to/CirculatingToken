@@ -42,18 +42,17 @@ export default function  YourNextWorld() {
               {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div>}  
             </div> */}
 
-            <button
-              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
+            <div
+              className=""
               style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 width: '17.296875rem', // 276.75px
                 height: '3.9375rem', // 63px
                 fontSize: '1.75rem', // 28px
                 borderRadius: '0.25rem' // 4px
               }}
             >
-              {texts.buttonViewMore}
-            </button>
+              {/* {texts.divViewMore} */}
+            </div>
 
             {/* 折叠面板按钮 - 添加动画 */}
             <button
@@ -186,7 +185,7 @@ export default function  YourNextWorld() {
             </button> */}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: '1.41875rem' }}> {/* 22.7px */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5" style={{ gap: px(20) }}> {/* 22.7px */}
             
              {/* 中间高亮卡片：使用带 340x340 蓝色背景的通用组件 */}
             {/* <BlueSquareCard

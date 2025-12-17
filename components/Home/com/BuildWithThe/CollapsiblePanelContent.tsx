@@ -11,7 +11,7 @@ export default function CollapsiblePanelContent() {
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontWeight: 300,
           fontStyle: 'normal',
-          fontSize: '2.375rem', // 38px = 2.375rem (PostCSS会自动转换为rem)
+          fontSize: px(28), // 38px = 2.375rem (PostCSS会自动转换为rem)
           lineHeight: px(60), // 60px (PostCSS会自动转换为rem)
           letterSpacing: '0%'
         }}

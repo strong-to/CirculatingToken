@@ -15,7 +15,7 @@ export default function FormContent({ currentStep, onEnter }: FormContentProps) 
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
 
   return (
-    <div className="flex-1" >
+    <div className="flex-1" style={{paddingRight:px(280)}} >
      <div className="flex  flex-col  items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width:px(586)}}>
         <div
         className="text-[#000000]"
@@ -60,17 +60,17 @@ export default function FormContent({ currentStep, onEnter }: FormContentProps) 
               marginBottom: px(10),
             }}
           >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, marginTop: px(-4) }}>
               <path d="M8.64078 8.84354L7.11974 10L4.95146 6.80272L2.81553 9.96599L1.2945 8.80952L3.52751 5.68027L0 4.52381L0.582524 2.61905L4.11003 3.91157L4.07767 0H5.95469L5.88997 3.94558L9.41748 2.68707L10 4.55782L6.44013 5.71429L8.64078 8.84354Z" fill="#FF0000"/>
             </svg>
             Function Description
           </label>
           <textarea
-            className="rounded"
+            className="rounded w-full"
             value={firstTextareaValue}
             onChange={(e) => setFirstTextareaValue(e.target.value)}
             style={{
-              width: px(720),
+              
               minHeight: px(170),
               padding: px(12),
               border: `0.5px solid #000000`,
@@ -83,10 +83,13 @@ export default function FormContent({ currentStep, onEnter }: FormContentProps) 
         </div>
         
         {/* 按钮 */}
-        <div className="flex items-center justify-center" style={{ width: px(720), marginTop: px(30) }}>
+        <div className="flex items-center justify-center w-full" style={{marginTop: px(30),}}>
           <button
             className="cursor-pointer transition-colors"
+            onClick={() => setSecondTextareaValue(firstTextareaValue)}
             style={{
+              // width: px(720), 
+              
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
               fontStyle: 'normal',
@@ -134,30 +137,32 @@ export default function FormContent({ currentStep, onEnter }: FormContentProps) 
               marginBottom: px(10),
             }}
           >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0, marginTop: px(-4) }}>
               <path d="M8.64078 8.84354L7.11974 10L4.95146 6.80272L2.81553 9.96599L1.2945 8.80952L3.52751 5.68027L0 4.52381L0.582524 2.61905L4.11003 3.91157L4.07767 0H5.95469L5.88997 3.94558L9.41748 2.68707L10 4.55782L6.44013 5.71429L8.64078 8.84354Z" fill="#FF0000"/>
             </svg>
             Function Description
           </label>
           <textarea
-            className="rounded"
+            className="rounded w-full"
             value={secondTextareaValue}
-            onChange={(e) => setSecondTextareaValue(e.target.value)}
+            readOnly
             style={{
-              width: px(720),
               minHeight: px(170),
               padding: px(12),
               border: `0.5px solid #000000`,
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontSize: px(14),
               resize: 'vertical',
+              // backgroundColor: '#F5F5F5',
+              cursor: 'default',
+              outline: 'none',
             }}
-            placeholder="Please enter"
+            placeholder="Content will be generated after submitting above form"
           />
         </div>
         
         {/* 按钮 */}
-        <div className="flex items-center justify-center" style={{ width: px(720), marginTop: px(30) }}>
+        <div className="flex items-center justify-center w-full" style={{ marginTop: px(30) }}>
           <button
             className="cursor-pointer transition-colors"
             style={{
@@ -212,7 +217,7 @@ export default function FormContent({ currentStep, onEnter }: FormContentProps) 
       />
 
        {/* 底部 Enter 按钮 */}
-     <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
+     <div className="flex items-center justify-center " style={{ marginTop: px(60)}}>
      <button
        className="cursor-pointer"
        onClick={onEnter}

@@ -21,7 +21,7 @@ export default function  BuildWithThe() {
   const [isHovered, setIsHovered] = useState(false)
   const swiperRef = useRef<SwiperType | null>(null)
   
-  const gap = 22.7 // 1.41875rem = 22.7px
+  const gap = 15 // 1.41875rem = 22.7px
 
   // 检测操作系统
   useEffect(() => {
@@ -87,21 +87,7 @@ export default function  BuildWithThe() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span
-                style={{
-                  marginRight: '0.625rem',
-                  fontFamily: "ITC Avant Garde Gothic Pro",
-                  fontWeight: 300,
-                  fontStyle: "normal",
-                  fontSize: px(28),
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  textAlign: "right",
-                }}
-                className='whitespace-nowrap'
-              >
-                Contribute AI Projects and Earn
-              </span>
+              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >Contribute AI Projects and Earn</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -202,21 +188,11 @@ export default function  BuildWithThe() {
               style={{
                 width: '17.296875rem', // 276.75px
                 height: '3.9375rem', // 63px
+                fontSize: '1.75rem', // 28px
                 borderRadius: '0.25rem' // 4px
               }}
             >
-              <span
-                style={{
-                  fontFamily: "ITC Avant Garde Gothic Pro",
-                  fontWeight: 300,
-                  fontStyle: "normal",
-                  fontSize: px(26),
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                }}
-              >
-                View all projects
-              </span>
+              View all projects
             </button>
           </div>
 

@@ -6,10 +6,11 @@ import Statistics from '@/components/Home/com/InstitutionalGrade/Statistics'
 import DownloadButtons from '@/components/Home/com/InstitutionalGrade/DownloadButtons'
 import DraggableBoxes from '@/components/Home/com/InstitutionalGrade/DraggableBoxes'
 import FooterLogo from '@/components/Home/com/InstitutionalGrade/FooterLogo'
+import { px } from '@/utils/pxToRem'
 
 export default function InstitutionalGrade() {
   return (
-    <section className="flex flex-col bg-background-primary min-h-[calc(100vh-4.5rem)]">
+    <section className="flex flex-col bg-background-primary min-h-[calc(100vh-4.5rem)]" style={{paddingBottom:px(60)}}>
       <div className="container-responsive w-full flex flex-1 flex-col">
         <div className="flex-1 flex items-start ">
           <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] gap-8 lg:gap-12 w-full">

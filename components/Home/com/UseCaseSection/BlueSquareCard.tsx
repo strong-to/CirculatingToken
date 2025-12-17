@@ -4,16 +4,42 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./BlueSquareCard.module.css";
 import { px } from "@/utils/pxToRem";
+import { chatContentData } from "@/components/TokenMarketplace/data/ChatContentData";
+import { chatContentImages } from "@/components/TokenMarketplace/com/ChatContent/resources";
 
 interface BlueSquareCardProps {
   src: string;
   alt: string;
+  // 可选：用于从 ChatContentData 中取对应的数据（前 10 条）
+  cardIndex?: number;
 }
 
-export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
+export default function BlueSquareCard({ src, alt, cardIndex }: BlueSquareCardProps) {
   const [showDetail, setShowDetail] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [buttonHovered, setButtonHovered] = useState<string | null>(null);
+
+  // 当提供 cardIndex 时，从 ChatContentData 中取对应的数据；否则使用原本的默认文案
+  const cardData =
+    cardIndex !== undefined && cardIndex >= 0 && cardIndex < chatContentData.length
+      ? chatContentData[cardIndex]
+      : {
+          title: "WALL-E& EVE",
+          subtitle: "DBAI0000211",
+          buttons: ["Natural Language", "Text", "Analyze", "Public Health"],
+          descriptions: ["THIS IS A VIDEO", "CREATION AIWORKFLOW"],
+        };
+
+  // 内部小图标：优先使用 ChatContent 的图标，否则使用原来的 sword 图标
+  const iconSrc =
+    cardIndex !== undefined &&
+    cardIndex >= 0 &&
+    cardIndex < chatContentImages.length
+      ? chatContentImages[cardIndex]
+      : "/home/icons/img/sword.png";
+
+  const [btn0, btn1, btn2, btn3] = cardData.buttons;
+  const [desc0, desc1] = cardData.descriptions;
 
   return (
     <div
@@ -56,247 +82,260 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
         {/* 顶部：图标 + 标题 + 箭头（紧凑版） */}
 
         {!showDetail && (
-        <>
-        <div className="">
-          <div
-            className="flex items-center justify-center "
-            style={{ width: px(60), height: px(60), borderRadius: px(3) }}
-          >
-            <div
-              className="relative flex items-center justify-center"
-              style={{ width: px(60), height: px(60) }}
-            >
-              <Image
-                src="/home/icons/img/sword.png"
-                alt="games"
-                fill
-                className="object-contain"
-              />
-              
+          <>
+            <div className="">
+              <div
+                className="flex items-center justify-center "
+                style={{ width: px(60), height: px(60), borderRadius: px(3) }}
+              >
+                <div
+                  className="relative flex items-center justify-center"
+                  style={{ width: px(60), height: px(60) }}
+                >
+                  <Image
+                    src={iconSrc}
+                    alt="icon"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              <div className="flex justify-between" style={{ marginTop: px(17) }}>
+                <div className="flex-1 text-staart ">
+                  <div
+                    className="leading-[1] tracking-[0] text-white"
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontStyle: "normal",
+                      fontSize: px(23),
+                      lineHeight: px(25),
+                      letterSpacing: "0%",
+                    }}
+                  >
+                    {cardData.title}
+                  </div>
+                  <div
+                    className="leading-[1] tracking-[0] text-white"
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontStyle: "normal",
+                      fontSize: px(23),
+                      lineHeight: px(25),
+                      letterSpacing: "0%",
+                    }}
+                  >
+                    {cardData.subtitle}
+                  </div>
+                </div>
+
+                <div
+                  className="h-full flex items-end justify-end"
+                  style={{ width: px(24), height: px(24) }}
+                >
+                  <Image
+                    src="/home/icons/img/arr.png"
+                    alt="arrow"
+                    width={24}
+                    height={24}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
 
-
-        <div className="flex justify-between" style={{ marginTop: px(17) }} >
-          <div className="flex-1 text-staart ">
-            <div
-              className="leading-[1] tracking-[0] text-white"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontStyle: "normal",
-                fontSize: px(23),
-                lineHeight: px(25),
-                letterSpacing: "0%",
-              }}
-            >
-              WALL-E& EVE
+            {/* 按钮区域：宽度和样式不变，仅文案来自 cardData.buttons */}
+            <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(30) }}>
+              <div
+                className="border border-white flex items-center justify-center cursor-pointer"
+                style={{
+                  width: "66%",
+                  height: "100%",
+                  marginRight: px(10),
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(14),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
+                  borderRadius: px(4),
+                  backgroundColor: buttonHovered === btn0 ? "#ffffff" : "transparent",
+                  color: buttonHovered === btn0 ? "#000000" : "#ffffff",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={() => setButtonHovered(btn0)}
+                onMouseLeave={() => setButtonHovered(null)}
+              >
+                {btn0}
+              </div>
+              <div
+                className="border border-white flex items-center justify-center cursor-pointer"
+                style={{
+                  width: "33%",
+                  height: "100%",
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(14),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
+                  borderRadius: px(4),
+                  backgroundColor: buttonHovered === btn1 ? "#ffffff" : "transparent",
+                  color: buttonHovered === btn1 ? "#000000" : "#ffffff",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={() => setButtonHovered(btn1)}
+                onMouseLeave={() => setButtonHovered(null)}
+              >
+                {btn1}
+              </div>
             </div>
-            <div
-              className="leading-[1] tracking-[0] text-white"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontStyle: "normal",
-                fontSize: px(23),
-                lineHeight: px(25),
-                letterSpacing: "0%",
-              }}
-            >
-              DBAI0000211
+
+            <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(10) }}>
+              <div
+                className="border border-white flex items-center justify-center cursor-pointer"
+                style={{
+                  width: "33%",
+                  height: "100%",
+                  marginRight: px(10),
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(14),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  borderRadius: px(4),
+                  textAlign: "center",
+                  backgroundColor: buttonHovered === btn2 ? "#ffffff" : "transparent",
+                  color: buttonHovered === btn2 ? "#000000" : "#ffffff",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={() => setButtonHovered(btn2)}
+                onMouseLeave={() => setButtonHovered(null)}
+              >
+                {btn2}
+              </div>
+              <div
+                className="border border-white flex items-center justify-center cursor-pointer"
+                style={{
+                  width: "66%",
+                  height: "100%",
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(14),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  textAlign: "center",
+                  borderRadius: px(4),
+                  backgroundColor: buttonHovered === btn3 ? "#ffffff" : "transparent",
+                  color: buttonHovered === btn3 ? "#000000" : "#ffffff",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={() => setButtonHovered(btn3)}
+                onMouseLeave={() => setButtonHovered(null)}
+              >
+                {btn3}
+              </div>
             </div>
-          </div>
 
-
-          <div
-            className="h-full flex items-end justify-end"
-            style={{ width: px(24), height: px(24) }}
-          >
-            <Image
-              src="/home/icons/img/arr.png"
-              alt="arrow"
-              width={24}
-              height={24}
-              className="w-full h-full object-contain"
-            />
-          </div>
-
-          </div>
-
-
-        </div>
-
-        <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(30) }}>
-          <div 
-            className="border border-white flex items-center justify-center cursor-pointer" 
-            style={{ 
-              width: '66%',
-              height: '100%',
-              marginRight: px(10),
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontStyle: 'normal',
-              fontSize: px(14),
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              textAlign: 'center',
-              borderRadius: px(4),
-              backgroundColor: buttonHovered === 'NaturalLanguage' ? '#ffffff' : 'transparent',
-              color: buttonHovered === 'NaturalLanguage' ? '#000000' : '#ffffff',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
-            // onMouseEnter={() => setButtonHovered('NaturalLanguage')}
-            // onMouseLeave={() => setButtonHovered(null)}
-          >Natural Language
-          </div>
-          <div 
-            className="border border-white flex items-center justify-center cursor-pointer" 
-            style={{ 
-              width: '33%',
-              height: '100%',
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontStyle: 'normal',
-              fontSize: px(14),
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              textAlign: 'center',
-              borderRadius: px(4),
-              backgroundColor: buttonHovered === 'Text' ? '#ffffff' : 'transparent',
-              color: buttonHovered === 'Text' ? '#000000' : '#ffffff',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
-            // onMouseEnter={() => setButtonHovered('Text')}
-            // onMouseLeave={() => setButtonHovered(null)}
-          >Text</div>
-        </div>
-
-        <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(10) }}>
-          <div 
-            className="border border-white flex items-center justify-center cursor-pointer" 
-            style={{ 
-              width: '33%',
-              height: '100%',
-              marginRight: px(10),
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontStyle: 'normal',
-              fontSize: px(14),
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              borderRadius: px(4),
-              textAlign: 'center',
-              backgroundColor: buttonHovered === 'Analyze' ? '#ffffff' : 'transparent',
-              color: buttonHovered === 'Analyze' ? '#000000' : '#ffffff',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
-            // onMouseEnter={() => setButtonHovered('Analyze')}
-            // onMouseLeave={() => setButtonHovered(null)}
-          >Analyze</div>
-          <div 
-            className="border border-white flex items-center justify-center cursor-pointer" 
-            style={{ 
-              width: '66%',
-              height: '100%',
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontStyle: 'normal',
-              fontSize: px(14),
-              lineHeight: '100%',
-              letterSpacing: '0%',
-              textAlign: 'center',
-              borderRadius: px(4),
-              backgroundColor: buttonHovered === 'PublicHealth' ? '#ffffff' : 'transparent',
-              color: buttonHovered === 'PublicHealth' ? '#000000' : '#ffffff',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }}
-            // onMouseEnter={() => setButtonHovered('PublicHealth')}
-            // onMouseLeave={() => setButtonHovered(null)}
-          >Public Health
-          </div>
-        </div>
-
-        <div className="w-full  flex flex-col justify-between" style={{ height: px(35), marginTop: px(25) }}>
-        <div style={{
-          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-          fontWeight: 300,
-          fontStyle: 'normal',
-          fontSize: px(18),
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          color: '#FFFFFF'
-        }}>THIS IS A VIDEO</div>
-        <div style={{
-          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-          fontWeight: 300,
-          fontStyle: 'normal',
-          fontSize: px(18),
-          lineHeight: '100%',
-          letterSpacing: '0%',
-          color: '#FFFFFF',
-          marginTop: px(5)
-        }}>CREATION AIWORKFLOW
-        </div>
-        </div>
-        </>
+            {/* 描述区域：保持样式，仅替换为 cardData.descriptions 前两行 */}
+            <div
+              className="w-full  flex flex-col justify-between"
+              style={{ height: px(35), marginTop: px(25) }}
+            >
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(18),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#FFFFFF",
+                }}
+              >
+                {desc0}
+              </div>
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: "normal",
+                  fontSize: px(18),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#FFFFFF",
+                  marginTop: px(5),
+                }}
+              >
+                {desc1}
+              </div>
+            </div>
+          </>
         )}
 
         {showDetail && (
-        <>
-        <div className="">
+          <>
+            <div className="">
+              <div
+                className="flex items-center justify-start "
+                style={{ height: px(60) }}
+              >
+                <div
+                  className="relative flex items-start justify-center"
+                  style={{ width: px(60), height: px(60), marginRight: px(15) }}
+                >
+                  <Image
+                    src={iconSrc}
+                    alt="icon"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
 
-          <div
-            className="flex items-center justify-start "
-            style={{ height: px(60) }}
-          >
-            <div
-              className="relative flex items-start justify-center"
-              style={{ width: px(60), height: px(60),marginRight: px(15) }}
-            >
-              <Image
-                src="/home/icons/img/sword.png"
-                alt="games"
-                fill
-                className="object-contain"
-              />
-              
-            </div>
+                <div
+                  className=" h-full flex justify-between flex-col"
+                  style={{ paddingTop: px(2), paddingBottom: px(2) }}
+                >
+                  <div
+                    className="leading-[1] tracking-[0] text-white"
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontStyle: "normal",
+                      fontSize: px(23),
+                      lineHeight: px(25),
+                      letterSpacing: "0%",
+                    }}
+                  >
+                    {cardData.title}
+                  </div>
+                  <div
+                    className="leading-[1] tracking-[0] text-white"
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontStyle: "normal",
+                      fontSize: px(23),
+                      lineHeight: px(25),
+                      letterSpacing: "0%",
+                    }}
+                  >
+                    {cardData.subtitle}
+                  </div>
+                </div>
+              </div>
 
-            <div className=" h-full flex justify-between flex-col" style={{ paddingTop: px(2) , paddingBottom: px(2) }}>
-            <div
-              className="leading-[1] tracking-[0] text-white"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontStyle: "normal",
-                fontSize: px(23),
-                lineHeight: px(25),
-                letterSpacing: "0%",
-              }}
-            >
-              WALL-E& EVE
             </div>
-            <div
-              className="leading-[1] tracking-[0] text-white"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontStyle: "normal",
-                fontSize: px(23),
-                lineHeight: px(25),
-                letterSpacing: "0%",
-              }}
-            >
-              DBAI0000211
-            </div>
-          </div>
-          </div>
-
-        </div>
 
 
         <div className=" flex justify-between items-center" style={{ height: px(36), marginTop: px(26) }}>

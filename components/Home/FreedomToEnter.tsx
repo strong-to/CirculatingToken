@@ -17,8 +17,8 @@ export default function  FreedomToEnter() {
   return ( 
     <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]" style={{paddingBottom:px(120)}}>
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
-        <div className="flex items-start justify-between gap-8">
-          <div className="space-y-4  ">
+        <div className="flex flex-col items-start justify-between ">
+          <div className=" flex  items-start justify-between w-full ">
             <div
               className="text-black"
               style={{ 
@@ -30,29 +30,47 @@ export default function  FreedomToEnter() {
                 letterSpacing: '0%'
               }}
             >
-             Freedom to Enter,  <br />
-             Freedom to Grow
+             
+            Freedom to Enter,
+            </div>
+
+            <div className="relative flex items-center">
+              <div 
+                style={{ 
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
+                  opacity:   0,
+                }}
+              ></div>  
+              <div className="" style={{ width: px(92), height: px(92) }}></div>
+              <div 
+                
+                style={{ 
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
+                  opacity:  0,
+                }}
+              ></div>  
             </div>
           </div>
-          <div className="flex flex-col items-end gap-4">
-            {/* 右上蓝色方块 */}
-            {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            {/* <div className="relative flex items-center ">
-              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div> }  
-                <div className="bg-[#8000EA]"  style={{ width: px(92), height: px(92)  }}></div>
-              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div>}  
-            </div> */}
-
-          <button
-              className="flex items-center justify-cent"
-              style={{
-                height: '3.9375rem', // 63px
-              }}
-            >
-              {/* View More */}
-            </button>
-
-            {/* 折叠面板按钮 - 添加动画 */}
+          
+          <div className='w-full flex items-end justify-between' style={{ marginTop: px(15) }}>
+              
+              <div
+                className="text-black"
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: '5.125rem', // 82px = 5.125rem
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}
+              >
+           Freedom to Grow
+              </div>
+              
+              {/* 折叠面板按钮 - 添加动画 */}
             <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="flex items-center gap-3 text-[#000000] cursor-pointer hover:opacity-80 transition-opacity"
@@ -99,9 +117,9 @@ export default function  FreedomToEnter() {
                 </div>
               </div>
             </button>
-          </div>
+  
+              </div>
         </div>
-
         {/* 折叠面板内容 - 撑满整个屏幕，固定时长的动画 */}
         <div 
           className="w-full overflow-hidden"
@@ -234,7 +252,7 @@ export default function  FreedomToEnter() {
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
          <div className="flex items-center justify-end relative z-10" style={{ marginTop: '1.4rem' }}>
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
-           Explore More
+           {/* Explore More */}
           </span>
           <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>

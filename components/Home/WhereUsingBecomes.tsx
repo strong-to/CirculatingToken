@@ -36,8 +36,8 @@ export default function WhereUsingBecomes() {
   return ( 
     <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]">
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
-        <div className="flex items-start justify-between gap-8">
-          <div className="space-y-4  ">
+        <div className="flex flex-col items-start justify-between ">
+          <div className=" flex  items-start justify-between w-full ">
             <div
               className="text-black"
               style={{ 
@@ -49,13 +49,10 @@ export default function WhereUsingBecomes() {
                 letterSpacing: '0%'
               }}
             >
-              Where Using Becomes Investing
+              Where Using Becomes
             </div>
-          </div>
-          <div className="flex flex-col items-end gap-4">
-            {/* 右上蓝色方块 - 添加动画 */}
-            {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            <div className="relative flex items-center">
+
+            <div className="relative flex items-center ">
               <div 
                 className="bg-[#0045FF] overflow-hidden"
                 style={{ 
@@ -74,54 +71,71 @@ export default function WhereUsingBecomes() {
                 }}
               ></div>
             </div>
-
-            {/* 折叠面板按钮 - 添加动画 */}
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="flex items-center gap-3 text-[#000000] cursor-pointer hover:opacity-80 transition-opacity"
-              style={{
-                marginTop: '2.5rem', // 40px
-                fontSize: '1.75rem' // 28px
-              }}
-            >
-              <span
-                style={{
-                  marginRight: '0.625rem',
-                  fontFamily: "ITC Avant Garde Gothic Pro",
+          </div>
+          
+          <div className='w-full flex items-end justify-between'>
+              
+              <div
+                className="text-black"
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
-                  fontStyle: "normal",
-                  fontSize: px(28),
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  textAlign: "right",
+                  fontStyle: 'normal',
+                  fontSize: '5.125rem', // 82px = 5.125rem
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
                 }}
               >
-                Use AI Apps and Earn
-              </span>
-              <div className="relative" style={{ width: '31px', height: '31px' }}>
-                <div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{
-                    opacity: isExpanded ? 0 : 1,
-                    transform: isExpanded ? 'rotate(90deg) scale(0.8)' : 'rotate(0deg) scale(1)',
-                    transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                  }}
-                >
-                  <PlusIcon style={{ width: '31px', height: '31px' }} />
-                </div>
-                <div
-                  className="absolute inset-0 flex items-center justify-center"
-                  style={{
-                    opacity: isExpanded ? 1 : 0,
-                    transform: isExpanded ? 'rotate(0deg) scale(1)' : 'rotate(-90deg) scale(0.8)',
-                    transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
-                  }}
-                >
-                  <MinusIcon style={{ width: '31px', height: '2px' }} />
-                </div>
+             Investing
               </div>
-            </button>
-          </div>
+  
+              <button
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="flex items-center gap-3 text-[#000000] cursor-pointer hover:opacity-80 transition-opacity"
+                style={{
+                  marginTop: '2.5rem', // 40px
+                  fontSize: '1.75rem' // 28px
+                }}
+              >
+                <span
+                  style={{
+                    marginRight: '0.625rem',
+                    fontFamily: "ITC Avant Garde Gothic Pro",
+                    fontWeight: 300,
+                    fontStyle: "normal",
+                    fontSize: px(28),
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                    textAlign: "right",
+                  }}
+                >
+                  Use AI Apps and Earn
+                </span>
+                <div className="relative" style={{ width: '31px', height: '31px' }}>
+                  <div
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{
+                      opacity: isExpanded ? 0 : 1,
+                      transform: isExpanded ? 'rotate(90deg) scale(0.8)' : 'rotate(0deg) scale(1)',
+                      transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                  >
+                    <PlusIcon style={{ width: '31px', height: '31px' }} />
+                  </div>
+                  <div
+                    className="absolute inset-0 flex items-center justify-center"
+                    style={{
+                      opacity: isExpanded ? 1 : 0,
+                      transform: isExpanded ? 'rotate(0deg) scale(1)' : 'rotate(-90deg) scale(0.8)',
+                      transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                    }}
+                  >
+                    <MinusIcon style={{ width: '31px', height: '2px' }} />
+                  </div>
+                </div>
+              </button>
+  
+              </div>
         </div>
 
         {/* 折叠面板内容 - 撑满整个屏幕，固定时长的动画 */}
@@ -310,6 +324,7 @@ export default function WhereUsingBecomes() {
                   <BlueSquareCard
                     src={images.investing1}
                     alt="Investing card 1"
+                    cardIndex={0}
                   />
                 </div>
               </SwiperSlide>
@@ -318,6 +333,7 @@ export default function WhereUsingBecomes() {
                   <BlueSquareCard
                     src={images.investing2}
                     alt="Investing card 2"
+                    cardIndex={1}
                   />
                 </div>
               </SwiperSlide>
@@ -327,6 +343,7 @@ export default function WhereUsingBecomes() {
                   <BlueSquareCard
                     src={images.investing3}
                     alt="Investing card 3"
+                    cardIndex={2}
                   />
                 </div>
               </SwiperSlide>
@@ -337,6 +354,7 @@ export default function WhereUsingBecomes() {
                   <BlueSquareCard
                     src={images.investing4}
                     alt="Investing card 4"
+                    cardIndex={3}
                   />
                 </div>
               </SwiperSlide>
@@ -345,6 +363,7 @@ export default function WhereUsingBecomes() {
                   <BlueSquareCard
                     src={images.investing5}
                     alt="Investing card 5"
+                    cardIndex={4}
                   />
                 </div>
               </SwiperSlide>
@@ -353,40 +372,45 @@ export default function WhereUsingBecomes() {
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src={images.investing1}
+                    src={images.investing6}
                     alt="Investing card 1"
+                    cardIndex={5}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src={images.investing2}
+                    src={images.investing7}
                     alt="Investing card 2"
+                    cardIndex={6}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 340' }}>
                   <BlueSquareCard
-                    src={images.investing3}
+                    src={images.investing8}
                     alt="Investing card 3"
+                    cardIndex={7}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src={images.investing4}
+                    src={images.investing9}
                     alt="Investing card 4"
+                    cardIndex={8}
                   />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '340 / 500' }}>
                   <BlueSquareCard
-                    src={images.investing5}
+                    src={images.investing10}
                     alt="Investing card 5"
+                    cardIndex={9}
                   />
                 </div>
               </SwiperSlide>

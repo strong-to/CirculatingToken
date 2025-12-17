@@ -15,6 +15,11 @@ export const images = {
   investing3: '/home/BuildWithThe/img/Investing3.png',
   investing4: '/home/BuildWithThe/img/Investing4.png',
   investing5: '/home/BuildWithThe/img/Investing5.png',
+  investing6: '/home/BuildWithThe/img/Investing6.png',
+  investing7: '/home/BuildWithThe/img/Investing7.png',
+  investing8: '/home/BuildWithThe/img/Investing8.png',
+  investing9: '/home/BuildWithThe/img/Investing9.png',
+  investing10: '/home/BuildWithThe/img/Investing10.png',
   // 装饰图标
   earth: '/home/BuildWithThe/img/Earth.png',
   games: '/home/BuildWithThe/img/games.png',

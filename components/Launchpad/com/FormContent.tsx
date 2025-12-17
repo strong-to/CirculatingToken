@@ -13,6 +13,49 @@ interface FormContentProps {
 export default function FormContent({ currentStep, onEnter }: FormContentProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
+  
+  // 第一个组件的图片列表（用于随机调换）
+  const defaultImages = [
+    '/launchpad/LogoPromotionalMaterials/img/logo.png',
+    '/launchpad/LogoPromotionalMaterials/img/Mask1.png',
+    '/launchpad/LogoPromotionalMaterials/img/Mask2.png',
+    '/launchpad/LogoPromotionalMaterials/img/Mask3.png',
+    '/launchpad/LogoPromotionalMaterials/img/Mask4.png',
+    '/launchpad/LogoPromotionalMaterials/img/Mask5.png',
+  ]
+  const [firstComponentImages, setFirstComponentImages] = useState<string[]>(defaultImages)
+  
+  // 第二个和第三个组件的图片列表（初始为空，让用户上传）
+  const [secondComponentImages, setSecondComponentImages] = useState<(string | null)[]>(
+    Array(6).fill(null)
+  )
+  const [thirdComponentImages, setThirdComponentImages] = useState<(string | null)[]>(
+    Array(6).fill(null)
+  )
+
+  // 处理第一个按钮点击 - 随机调换图片位置（第一个logo保持不变）
+  const handleRenovateClick = () => {
+    const shuffled = [...firstComponentImages]
+    // 保持第一个元素（logo）不变，只打乱后面的5个元素
+    // Fisher-Yates 洗牌算法，从索引1开始
+    for (let i = shuffled.length - 1; i > 1; i--) {
+      const j = Math.floor(Math.random() * (i - 1 + 1)) + 1; // j 的范围是 [1, i]
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+    setFirstComponentImages(shuffled)
+  }
+
+  // 处理第二个按钮点击
+  const handleSubmitClick = () => {
+    console.log('Submit clicked')
+    // 在这里添加 Submit 按钮的逻辑
+  }
+
+  // 处理第三个按钮点击
+  const handleConfirmClick = () => {
+    console.log('Confirm clicked')
+    // 在这里添加 Confirm 按钮的逻辑
+  }
 
   return (
     <div className="flex-1" style={{paddingRight:px(280)}} >
@@ -204,20 +247,53 @@ export default function FormContent({ currentStep, onEnter }: FormContentProps) 
       <LogoPromotionalMaterials
         hasAsterisk={false}
         buttonText="Renovate"
+        allowEdit={false}
+        images={firstComponentImages}
+        onButtonClick={handleRenovateClick}
       />
       
       <LogoPromotionalMaterials
         hasAsterisk={false}
         buttonText="Submit"
+        allowEdit={true}
+        images={secondComponentImages}
+        onImagesChange={setSecondComponentImages}
+        onButtonClick={handleSubmitClick}
       />
       
       <LogoPromotionalMaterials
         hasAsterisk={true}
         buttonText="Confirm"
+        allowEdit={true}
+        images={thirdComponentImages}
+        onImagesChange={setThirdComponentImages}
+        onButtonClick={handleConfirmClick}
       />
 
        {/* 底部 Enter 按钮 */}
      <div className="flex items-center justify-center " style={{ marginTop: px(60)}}>
+     <button
+       className="cursor-pointer"
+       style={{
+         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+         fontWeight: 300,
+         fontStyle: 'normal',
+         fontSize: px(16),
+         lineHeight: '100%',
+         letterSpacing: '0%',
+         width: px(200),
+         height: px(50),
+         backgroundColor: '#000000',
+         borderRadius: px(4),
+         color: '#FFFFFF',
+         display: 'flex',
+         alignItems: 'center',
+         justifyContent: 'center',
+         marginRight: px(5)
+       }}
+     >
+       Save
+     </button>
      <button
        className="cursor-pointer"
        onClick={onEnter}
@@ -238,7 +314,7 @@ export default function FormContent({ currentStep, onEnter }: FormContentProps) 
          justifyContent: 'center'
        }}
      >
-       Enter
+       Next
      </button>
    </div>
       

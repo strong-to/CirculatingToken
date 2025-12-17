@@ -1,8 +1,9 @@
-'use client'
+"use client"
 
-import { useState } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
+import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
 // import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/GovernTogether/CollapsiblePanelContent'
 
@@ -11,15 +12,17 @@ import { images } from '@/components/Home/com/GovernTogether/resources'
 
 import { px } from '@/utils/pxToRem'
 
-export default function  GovernTogether() {
+export default function GovernTogether() {
   const [isExpanded, setIsExpanded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const router = useRouter()
 
   return ( 
     <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]" style={{paddingBottom:px(120)}}>
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
-        <div className="flex items-start justify-between gap-8">
-          <div className="space-y-4  ">
+        
+        <div className="flex flex-col items-start justify-between ">
+          <div className=" flex  items-start justify-between w-full ">
             <div
               className="text-black"
               style={{ 
@@ -31,30 +34,48 @@ export default function  GovernTogether() {
                 letterSpacing: '0%'
               }}
             >
-             Govern Together, <br />
-             Grow Together
+            
+            Govern Together, 
+           
+            </div>
+
+            <div className="relative flex items-center">
+              <div 
+                style={{ 
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
+                  opacity:   0,
+                }}
+              ></div>  
+              <div className="" style={{ width: px(92), height: px(92) }}></div>
+              <div 
+                
+                style={{ 
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
+                  opacity:  0,
+                }}
+              ></div>  
             </div>
           </div>
-          <div className="flex flex-col items-end gap-4">
-            {/* 右上蓝色方块 */}
-            {/* <div className="bg-[#0045FF]" style={{ width: '5.625rem', height: '5.625rem' }} />  */}
-            {/* <div className="relative flex items-center ">
-              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div> }  
-                <div className="bg-[#8000EA]"  style={{ width: px(92), height: px(92)  }}></div>
-              {isExpanded && <div className="bg-[#8000EA]"  style={{ width: px(38), height: px(58)  }}></div>}  
-            </div> */}
-
-            <button
-              className="flex items-center justify-cent"
-              style={{
-                height: '3.9375rem', // 63px
-              }}
-            >
-              {/* View More */}
-            </button>
-
-            {/* 折叠面板按钮 - 添加动画 */}
-            <button
+          
+          <div className='w-full flex items-end justify-between' style={{ marginTop: px(15) }}>
+              
+              <div
+                className="text-black"
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: '5.125rem', // 82px = 5.125rem
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}
+              >
+           Grow Together
+              </div>
+              
+              <button
               onClick={() => setIsExpanded(!isExpanded)}
               className="flex items-center gap-3 text-[#000000] cursor-pointer hover:opacity-80 transition-opacity"
               style={{
@@ -86,8 +107,14 @@ export default function  GovernTogether() {
                 </div>
               </div>
             </button>
-          </div>
+  
+              </div>
         </div>
+
+
+
+
+
 
         {/* 折叠面板内容 - 撑满整个屏幕，固定时长的动画 */}
         <div 
@@ -156,28 +183,24 @@ export default function  GovernTogether() {
               }}
             >
             </div>
-            {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-            {/* <button
-              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
-              style={{
-                width: '17.296875rem', // 276.75px
-                height: '3.9375rem', // 63px
-                fontSize: '1.75rem', // 28px
-                borderRadius: '0.25rem' // 4px
-              }}
-            >
-              View all projects
-            </button> */}
           </div>
         </div>
       </div>
 
       {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
-      <div 
-        className="w-full relative" 
-        style={{ height:px(520), paddingRight:px(66),paddingBottom:px(22), overflow: 'hidden', backgroundColor: '#000000' }}
+      <div
+        className="w-full relative"
+        style={{
+          height: px(520),
+          paddingRight: px(66),
+          paddingBottom: px(22),
+          overflow: "hidden",
+          backgroundColor: "#000000",
+          cursor: "pointer",
+        }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => router.push("/ConferenceRoom")}
       >
         {/* 初始化背景图片 */}
         <div style={{
@@ -224,17 +247,18 @@ export default function  GovernTogether() {
            style={{ bottom: px(22), right: px(66) }}
          >
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
-           Explore More
+           
           </span>
           <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
               <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
           </svg>
-        
         </Link>
        
 
       </div>
+
+      
     </section>
   )
 }

@@ -15,6 +15,11 @@ export const images = {
   investing3: '/home/WhereUsingBecomes/img/Investing3.png',
   investing4: '/home/WhereUsingBecomes/img/Investing4.png',
   investing5: '/home/WhereUsingBecomes/img/Investing5.png',
+  investing6: '/home/WhereUsingBecomes/img/Investing6.png',
+  investing7: '/home/WhereUsingBecomes/img/Investing7.png',
+  investing8: '/home/WhereUsingBecomes/img/Investing8.png',
+  investing9: '/home/WhereUsingBecomes/img/Investing9.png',
+  investing10: '/home/WhereUsingBecomes/img/Investing10.png',
   // 装饰图标
   arr: '/home/icons/img/arr.png', // 使用通用图标
   games: '/home/icons/img/games.png', // 使用通用图标

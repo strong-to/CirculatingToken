@@ -9,7 +9,7 @@ import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/compone
 import { images } from '@/components/Home/com/WhereUsingBecomes/resources'
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Mousewheel } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -298,11 +298,24 @@ export default function WhereUsingBecomes() {
             )}
 
             <Swiper
-              modules={[Navigation]}
+              modules={[Navigation, Mousewheel]}
               spaceBetween={gap}
               loop={true}
               grabCursor={true}
               watchSlidesProgress={true}
+              // 使用 freeMode + mousewheel，让左右滚动有“惯性”而不是一次滚动一个卡片
+              freeMode={{
+                enabled: true,
+                momentum: true,
+                momentumRatio: 1.5,      // 惯性更明显一些
+                momentumBounce: false,
+              }}
+              mousewheel={{
+                forceToAxis: true,      // 只根据水平方向滚动
+                releaseOnEdges: true,   // 滑到边缘时把滚动交还给页面
+                sensitivity: 1.2,       // 提高灵敏度，滑一下走得更多
+                thresholdDelta: 1,      // 较小的滑动也能触发滚动
+              }}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper
               }}
@@ -416,6 +429,10 @@ export default function WhereUsingBecomes() {
               </SwiperSlide>
               
             </Swiper>
+
+
+
+            
           </div>
 
         </div>

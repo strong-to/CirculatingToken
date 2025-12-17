@@ -12,7 +12,7 @@ import { images, texts } from '@/components/Home/com/LetEveryShare/resources'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Mousewheel } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -325,12 +325,27 @@ export default function LetEveryShare() {
               </button>
             )}
 
+
+
             <Swiper
-              modules={[Navigation]}
+              modules={[Navigation, Mousewheel]}
               spaceBetween={gap}
               loop={true}
               grabCursor={true}
               watchSlidesProgress={true}
+              // 滚动逻辑与 WhereUsingBecomes 保持一致：freeMode + mousewheel 惯性左右滑
+              freeMode={{
+                enabled: true,
+                momentum: true,
+                momentumRatio: 1.5,
+                momentumBounce: false,
+              }}
+              mousewheel={{
+                forceToAxis: true,
+                releaseOnEdges: true,
+                sensitivity: 1.2,
+                thresholdDelta: 1,
+              }}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper
               }}
@@ -431,6 +446,9 @@ export default function LetEveryShare() {
               </SwiperSlide>
               
             </Swiper>
+
+
+
           </div>
 
         </div>

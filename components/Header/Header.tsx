@@ -18,7 +18,7 @@ export default function Header() {
     'Launchpad',
     'Conference Room',
     'Token Marketplace',
-    'Lending Vault',
+    // 'Lending Vault',
     // 'Project Construction',
     'About',
     'Mortgage  market'

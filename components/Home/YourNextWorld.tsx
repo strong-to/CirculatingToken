@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 import BlueSquareCard from "@/components/Home/com/YourNextWorld/BlueSquareCard"
 import CollapsiblePanelContent from "@/components/Home/com/YourNextWorld/CollapsiblePanelContent"
 
@@ -16,6 +17,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 
 export default function YourNextWorld() {
+  const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const swiperRef = useRef<SwiperType | null>(null)
@@ -209,6 +211,9 @@ export default function YourNextWorld() {
           </div>
 
           <div className="relative">
+
+
+            
             <Swiper
               modules={[Navigation, Mousewheel]}
               spaceBetween={gap}
@@ -246,7 +251,7 @@ export default function YourNextWorld() {
               {/* 5 个盒子 */}
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg  flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
                   style={{
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -255,13 +260,14 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("datasets")}
                   onMouseLeave={() => setHoveredCard(null)}
-                >
-                  {/* 初始化图片 */}
+                  onClick={() => router.push('/Launchpad')}
+            >
+              {/* 初始化图片 */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "datasets" ? 0 : 1,
@@ -270,20 +276,20 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.init.datasets}
-                      alt={texts.cardDatasets}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                  {/* hover gif */}
+                <Image
+                  src={images.init.datasets}
+                  alt={texts.cardDatasets}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "datasets" ? 1 : 0,
@@ -292,25 +298,25 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.hover.datasets}
-                      alt={texts.cardDatasets}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <Image
+                  src={images.hover.datasets}
+                  alt={texts.cardDatasets}
+                  fill
+                  className="object-cover"
+                />
+              </div>
                   <div
                     className="text-[#FFFFFF] relative z-10"
                     style={{ fontSize: px(25) }}
                   >
                     {texts.cardDatasets}
                   </div>
-                </div>
+            </div>
               </SwiperSlide>
 
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "2 / 3",
@@ -318,14 +324,15 @@ export default function YourNextWorld() {
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   }}
                   onMouseEnter={() => setHoveredCard("computePool")}
-                  onMouseLeave={() => setHoveredCard(null)}
-                >
-                  {/* 初始化图片 */}
+              onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
+            >
+              {/* 初始化图片 */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "computePool" ? 0 : 1,
@@ -334,20 +341,20 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.init.computePool}
-                      alt={texts.cardComputePool}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                  {/* hover gif */}
+                <Image
+                  src={images.init.computePool}
+                  alt={texts.cardComputePool}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "computePool" ? 1 : 0,
@@ -356,25 +363,25 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.hover.computePool}
-                      alt={texts.cardComputePool}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <Image
+                  src={images.hover.computePool}
+                  alt={texts.cardComputePool}
+                  fill
+                  className="object-cover"
+                />
+              </div>
                   <div
                     className="text-[#FFFFFF] relative z-10"
                     style={{ fontSize: px(25) }}
                   >
                     {texts.cardComputePool}
                   </div>
-                </div>
+            </div>
               </SwiperSlide>
 
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg  flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "340 / 500",
@@ -383,13 +390,14 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("foundationalModels")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
-                  {/* 初始化图片 */}
+              {/* 初始化图片 */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity:
@@ -399,20 +407,20 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.init.foundationalModels}
-                      alt={texts.cardFoundationalModels}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                  {/* hover gif */}
+                <Image
+                  src={images.init.foundationalModels}
+                  alt={texts.cardFoundationalModels}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity:
@@ -422,25 +430,25 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.hover.foundationalModels}
-                      alt={texts.cardFoundationalModels}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <Image
+                  src={images.hover.foundationalModels}
+                  alt={texts.cardFoundationalModels}
+                  fill
+                  className="object-cover"
+                />
+              </div>
                   <div
                     className="text-[#FFFFFF] relative z-10"
                     style={{ fontSize: px(25) }}
                   >
                     {texts.cardFoundationalModels}
                   </div>
-                </div>
+            </div>
               </SwiperSlide>
-
+           
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "340 / 500",
@@ -449,13 +457,14 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("workflows")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
-                  {/* 初始化图片 */}
+              {/* 初始化图片 */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "workflows" ? 0 : 1,
@@ -464,20 +473,20 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.init.workflows}
-                      alt={texts.cardWorkflows}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                  {/* hover gif */}
+                <Image
+                  src={images.init.workflows}
+                  alt={texts.cardWorkflows}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "workflows" ? 1 : 0,
@@ -486,25 +495,25 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.hover.workflows}
-                      alt={texts.cardWorkflows}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <Image
+                  src={images.hover.workflows}
+                  alt={texts.cardWorkflows}
+                  fill
+                  className="object-cover"
+                />
+              </div>
                   <div
                     className="text-[#FFFFFF] relative z-10"
                     style={{ fontSize: px(25) }}
                   >
                     {texts.cardWorkflows}
                   </div>
-                </div>
+            </div>
               </SwiperSlide>
-
+            
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "340 / 500",
@@ -513,13 +522,14 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("aiAgents")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
-                  {/* 初始化图片 */}
+              {/* 初始化图片 */}
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "aiAgents" ? 0 : 1,
@@ -528,15 +538,15 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.init.aiAgents}
-                      alt={texts.cardAiAgents}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                  {/* hover gif */}
+                <Image
+                  src={images.init.aiAgents}
+                  alt={texts.cardAiAgents}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              {/* hover gif */}
                   <div
                     style={{
                       position: "absolute",
@@ -569,7 +579,7 @@ export default function YourNextWorld() {
               {/* 额外再复制 5 个盒子，初始化时一共 10 张，滚动更顺畅 */}
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg  flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
                   style={{
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -578,6 +588,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("datasets")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
                   <div
                     style={{
@@ -631,7 +642,7 @@ export default function YourNextWorld() {
 
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "340 / 500",
@@ -640,6 +651,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("computePool")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
                   <div
                     style={{
@@ -693,7 +705,7 @@ export default function YourNextWorld() {
 
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg  flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "340 / 500",
@@ -702,6 +714,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("foundationalModels")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
                   <div
                     style={{
@@ -757,7 +770,7 @@ export default function YourNextWorld() {
 
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "340 / 500",
@@ -766,6 +779,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("workflows")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
                   <div
                     style={{
@@ -819,7 +833,7 @@ export default function YourNextWorld() {
 
               <SwiperSlide>
                 <div
-                  className="relative overflow-hidden shadow-lg flex items-end justify-center"
+                  className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
                     aspectRatio: "340 / 500",
@@ -828,6 +842,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("aiAgents")}
                   onMouseLeave={() => setHoveredCard(null)}
+                  onClick={() => router.push('/Launchpad')}
                 >
                   <div
                     style={{
@@ -853,8 +868,8 @@ export default function YourNextWorld() {
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
-                      left: 0,
+                top: 0,
+                left: 0,
                       width: "100%",
                       height: "100%",
                       opacity: hoveredCard === "aiAgents" ? 1 : 0,
@@ -863,22 +878,25 @@ export default function YourNextWorld() {
                       willChange: "opacity",
                     }}
                   >
-                    <Image
-                      src={images.hover.aiAgents}
-                      alt={texts.cardAiAgents}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
+                <Image
+                  src={images.hover.aiAgents}
+                  alt={texts.cardAiAgents}
+                  fill
+                  className="object-cover"
+                />
+              </div>
                   <div
                     className="text-[#FFFFFF] relative z-10"
                     style={{ fontSize: px(25) }}
                   >
                     {texts.cardAiAgents}
                   </div>
-                </div>
+            </div>
               </SwiperSlide>
             </Swiper>
+
+
+
           </div>
 
         </div>

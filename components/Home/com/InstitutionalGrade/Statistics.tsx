@@ -25,7 +25,7 @@ export default function Statistics() {
         }}
       >
         <span>357,211</span>
-        <span style={{ marginLeft: px(8) }}>PROJECTS</span>
+        <span style={{ marginLeft: px(12) }}>PROJECTS</span>
       </div>
       <div 
         className="font-light cursor-pointer" 
@@ -36,7 +36,7 @@ export default function Statistics() {
         }}
       >
         <span>172,275,455</span>
-        <span style={{ marginLeft: px(8) }}>USERS</span>
+        <span style={{ marginLeft: px(12) }}>USERS</span>
       </div>
       <div 
         className="font-light cursor-pointer whitespace-nowrap" 
@@ -48,7 +48,7 @@ export default function Statistics() {
       >
 
      <span>$182,588,717,071 </span>
-     <span style={{ marginLeft: px(8) }}>Market Value</span>
+     <span style={{ marginLeft: px(12) }}>Market Value</span>
         
       </div>
     </div>

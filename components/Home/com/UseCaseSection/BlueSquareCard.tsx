@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./BlueSquareCard.module.css";
 import { px } from "@/utils/pxToRem";
 import { chatContentData } from "@/components/TokenMarketplace/data/ChatContentData";
@@ -39,6 +40,7 @@ function calculateButtonWidths(buttons: string[]): string[] {
 }
 
 export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }: BlueSquareCardProps) {
+  const router = useRouter();
   const [showDetail, setShowDetail] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [buttonHovered, setButtonHovered] = useState<string | null>(null);
@@ -388,7 +390,7 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
           }}>$ 6,550,521</div>
         </div>
         <div 
-          className="border border-white flex items-center justify-center" 
+          className="border border-white flex items-center justify-center cursor-pointer" 
           style={{ 
             width: px(128),
             height: '100%',
@@ -406,6 +408,11 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
           }}
           onMouseEnter={() => setButtonHovered('details')}
           onMouseLeave={() => setButtonHovered(null)}
+          onClick={() => {
+            if (cardData.subtitle === 'DBAI0000017') {
+              router.push('/LendingVault');
+            }
+          }}
         >Details
         </div>
         </div>

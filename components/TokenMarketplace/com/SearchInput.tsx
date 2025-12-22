@@ -22,7 +22,7 @@ export default function SearchInput({
           height: px(44),
           paddingLeft: px(12),
           paddingRight: px(12),
-          border: `1px solid #000000`,
+          border: `0.5px solid #000000`,
           borderRadius: px(4),
           backgroundColor: '#FFFFFF',
         }}

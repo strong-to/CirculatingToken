@@ -132,7 +132,7 @@ export default function FilterDropdown({
           height: px(44),
           paddingLeft: px(12),
           paddingRight: px(12),
-          border: `1px solid #000000`,
+          border: `0.5px solid #000000`,
           borderRadius: px(4),
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontSize: px(14),

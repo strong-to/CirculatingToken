@@ -11,13 +11,19 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import { images } from '@/components/Home/com/YourNextWorld/resources'
 import { useTexts } from '@/components/Home/com/YourNextWorld/useTexts'
+import { useGlobalModal } from '@/components/GlobalModal/GlobalModal'
 
 export default function ModelCardSlider() {
   const texts = useTexts()
   const router = useRouter()
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+  const { setSelectedCard } = useGlobalModal()
   const swiperRef = useRef<SwiperType | null>(null)
   const gap = 15 // 1.41875rem = 22.7px
+
+  const handleCardClick = (cardType: string) => {
+    setSelectedCard(cardType)
+  }
 
   return (
     <div 
@@ -87,7 +93,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("datasets")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("datasets")}
             >
               {/* 初始化图片 */}
               <div
@@ -152,7 +158,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("computePool")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("computePool")}
             >
               {/* 初始化图片 */}
               <div
@@ -217,7 +223,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("foundationalModels")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("foundationalModels")}
             >
               {/* 初始化图片 */}
               <div
@@ -284,7 +290,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("workflows")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("workflows")}
             >
               {/* 初始化图片 */}
               <div
@@ -349,7 +355,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("aiAgents")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("aiAgents")}
             >
               {/* 初始化图片 */}
               <div
@@ -415,7 +421,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("datasets")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("datasets")}
             >
               <div
                 style={{
@@ -478,7 +484,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("computePool")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("computePool")}
             >
               <div
                 style={{
@@ -490,7 +496,7 @@ export default function ModelCardSlider() {
                   opacity: hoveredCard === "computePool" ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                  willChange: "opacity",
+                    willChange: "opacity",
                 }}
               >
                 <Image
@@ -511,7 +517,7 @@ export default function ModelCardSlider() {
                   opacity: hoveredCard === "computePool" ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                  willChange: "opacity",
+                    willChange: "opacity",
                 }}
               >
                 <Image
@@ -541,7 +547,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("foundationalModels")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("foundationalModels")}
             >
               <div
                 style={{
@@ -606,7 +612,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("workflows")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("workflows")}
             >
               <div
                 style={{
@@ -618,7 +624,7 @@ export default function ModelCardSlider() {
                   opacity: hoveredCard === "workflows" ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                  willChange: "opacity",
+                    willChange: "opacity",
                 }}
               >
                 <Image
@@ -639,7 +645,7 @@ export default function ModelCardSlider() {
                   opacity: hoveredCard === "workflows" ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
-                  willChange: "opacity",
+                    willChange: "opacity",
                 }}
               >
                 <Image
@@ -669,7 +675,7 @@ export default function ModelCardSlider() {
               }}
               onMouseEnter={() => setHoveredCard("aiAgents")}
               onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => router.push('/Launchpad')}
+              onClick={() => handleCardClick("aiAgents")}
             >
               <div
                 style={{

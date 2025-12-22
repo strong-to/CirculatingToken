@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  output: 'export',
+  // 注释掉 output: 'export'，因为文件上传功能需要 API 路由
+  // output: 'export',
   
   // 图片配置
   images: {
-    unoptimized: true, // 静态导出模式下必须禁用图片优化
+    // unoptimized: true, // 已移除静态导出，可以启用图片优化
     // 图片格式优化提示（虽然不能自动优化，但可以提示开发者）
     formats: ['image/webp'],
     // 设备尺寸断点（用于响应式图片）

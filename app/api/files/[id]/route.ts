@@ -53,14 +53,33 @@ async function handleFileRequest(
     const fileBuffer = await readFile(filePath)
     const originalFileName = fileId
     
+    // PDF 文件使用 inline（浏览器预览）
+    // PPT 文件：不设置 Content-Disposition，让浏览器自己决定如何处理
+    // 其他文件使用 attachment（下载）
+    const isPDF = fileExt === 'pdf'
+    const isPPT = ['ppt', 'pptx'].includes(fileExt || '')
+    
+    const headers: Record<string, string> = {
+      'Content-Type': contentType,
+      'Content-Length': fileBuffer.length.toString(),
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, HEAD',
+    }
+    
+    if (isPDF) {
+      // PDF 可以在浏览器中预览
+      headers['Content-Disposition'] = `inline; filename="${encodeURIComponent(originalFileName)}"`
+    } else if (isPPT) {
+      // PPT 文件：设置为 attachment，直接下载
+      // 浏览器不支持直接预览 PPT，所以直接下载更合适
+      headers['Content-Disposition'] = `attachment; filename="${encodeURIComponent(originalFileName)}"`
+    } else {
+      // 其他文件：强制下载
+      headers['Content-Disposition'] = `attachment; filename="${encodeURIComponent(originalFileName)}"`
+    }
+    
     return new NextResponse(fileBuffer, {
-      headers: {
-        'Content-Type': contentType,
-        'Content-Disposition': `attachment; filename="${encodeURIComponent(originalFileName)}"`,
-        'Content-Length': fileBuffer.length.toString(),
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, HEAD',
-      },
+      headers,
     })
   } catch (error) {
     console.error('File download error:', error)

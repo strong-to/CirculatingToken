@@ -171,6 +171,7 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
   const [uploadedFileInfo, setUploadedFileInfo] = useState<UploadedFileInfo | null>(null)
+  const [isNextHovered, setIsNextHovered] = useState(false)
 
 
   const [viewMode, setViewMode] = useState<'Chat' | 'List'>('List')
@@ -354,7 +355,7 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
 
 
        {/* 底部 Enter 按钮 */}
-     <div className="flex items-center justify-center " style={{ marginTop: px(60)}}>
+     <div className="flex items-center justify-center" style={{ marginTop: px(120) }}>
      <button
        className="cursor-pointer"
        onClick={onEnter}
@@ -362,20 +363,23 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,
          fontStyle: 'normal',
-         fontSize: px(16),
+         fontSize: px(14),
          lineHeight: '100%',
          letterSpacing: '0%',
-         width: px(200),
-         height: px(50),
-         backgroundColor: '#000000',
+         width: px(230),
+         height: px(40),
+         backgroundColor: isNextHovered ? '#000000' : '#FFFFFF',
          borderRadius: px(4),
-         color: '#FFFFFF',
+         color: isNextHovered ? '#FFFFFF' : '#000000',
+         border: `${px(1)} solid #000000`,
          display: 'flex',
          alignItems: 'center',
-         justifyContent: 'center'
+         justifyContent: 'center',
        }}
+       onMouseEnter={() => setIsNextHovered(true)}
+       onMouseLeave={() => setIsNextHovered(false)}
      >
-       Next
+       <span suppressHydrationWarning>Next</span>
      </button>
    </div>
       

@@ -1,8 +1,11 @@
 'use client'
 
 import { px } from '@/utils/pxToRem'
+import { useTexts } from './useTexts'
 
 export default function Statistics() {
+  const texts = useTexts();
+  
   return (
     <div 
       className="leading-[100%] text-black" 
@@ -15,6 +18,7 @@ export default function Statistics() {
         flexDirection: 'column',
         gap: '0.5rem'
       }}
+      suppressHydrationWarning
     >
       <div 
         className="font-light cursor-pointer" 
@@ -23,9 +27,10 @@ export default function Statistics() {
           fontSize:px(29), // 29px
           height: px(35)
         }}
+        suppressHydrationWarning
       >
-        <span>357,211</span>
-        <span style={{ marginLeft: px(12) }}>PROJECTS</span>
+        <span>{texts.statistics.projects.value}</span>
+        <span style={{ marginLeft: px(12) }}>{texts.statistics.projects.label}</span>
       </div>
       <div 
         className="font-light cursor-pointer" 
@@ -34,9 +39,10 @@ export default function Statistics() {
           fontSize:px(29), // 29px
           height: px(35)
         }}
+        suppressHydrationWarning
       >
-        <span>172,275,455</span>
-        <span style={{ marginLeft: px(12) }}>USERS</span>
+        <span>{texts.statistics.users.value}</span>
+        <span style={{ marginLeft: px(12) }}>{texts.statistics.users.label}</span>
       </div>
       <div 
         className="font-light cursor-pointer whitespace-nowrap" 
@@ -45,11 +51,10 @@ export default function Statistics() {
           fontSize: '1.8125rem', // 29px
           height: px(35)
         }}
+        suppressHydrationWarning
       >
-
-     <span>$182,588,717,071 </span>
-     <span style={{ marginLeft: px(12) }}>Market Value</span>
-        
+        <span>{texts.statistics.marketValue.value} </span>
+        <span style={{ marginLeft: px(12) }}>{texts.statistics.marketValue.label}</span>
       </div>
     </div>
   )

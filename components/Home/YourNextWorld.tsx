@@ -7,7 +7,8 @@ import BlueSquareCard from "@/components/Home/com/YourNextWorld/BlueSquareCard"
 import CollapsiblePanelContent from "@/components/Home/com/YourNextWorld/CollapsiblePanelContent"
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from "@/components/icons/Icons"
-import { images, texts } from "@/components/Home/com/YourNextWorld/resources"
+import { images } from "@/components/Home/com/YourNextWorld/resources"
+import { useTexts } from "@/components/Home/com/YourNextWorld/useTexts"
 
 import { px } from "@/utils/pxToRem"
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -17,6 +18,7 @@ import "swiper/css"
 import "swiper/css/navigation"
 
 export default function YourNextWorld() {
+  const texts = useTexts();
   const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
@@ -39,8 +41,9 @@ export default function YourNextWorld() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
+              suppressHydrationWarning
             >
-            Your Next World-Changing 
+            {texts.mainTitle.line1}
             </div>
 
             <div className="relative flex items-center">
@@ -75,8 +78,9 @@ export default function YourNextWorld() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
+                suppressHydrationWarning
               >
-           Idea Starts Here
+           {texts.mainTitle.line2}
               </div>
               
               <button
@@ -99,8 +103,9 @@ export default function YourNextWorld() {
                   textAlign: "right",
                 }}
                 className='whitespace-nowrap'
+                suppressHydrationWarning
               >
-                Launch Your AI Project and Earn
+                {texts.buttonLaunch}
               </span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
@@ -170,7 +175,7 @@ export default function YourNextWorld() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>

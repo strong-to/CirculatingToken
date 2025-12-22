@@ -9,10 +9,12 @@ import CollapsiblePanelContent from '@/components/Home/com/GovernTogether/Collap
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { images } from '@/components/Home/com/GovernTogether/resources'
+import { useTexts } from '@/components/Home/com/GovernTogether/useTexts'
 
 import { px } from '@/utils/pxToRem'
 
 export default function GovernTogether() {
+  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const router = useRouter()
@@ -33,9 +35,10 @@ export default function GovernTogether() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
+              suppressHydrationWarning
             >
             
-            Govern Together, 
+            {texts.mainTitle.line1}
            
             </div>
 
@@ -71,8 +74,9 @@ export default function GovernTogether() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
+                suppressHydrationWarning
               >
-           Grow Together
+           {texts.mainTitle.line2}
               </div>
               
               <button
@@ -83,7 +87,7 @@ export default function GovernTogether() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem', fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }} className='whitespace-nowrap,z' >Shape Projects and Community With Your Tokens</span>
+              <span style={{ marginRight: '0.625rem', fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }} className='whitespace-nowrap,z' suppressHydrationWarning>{texts.buttonShape}</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -157,7 +161,7 @@ export default function GovernTogether() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>

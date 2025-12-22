@@ -8,7 +8,8 @@ import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-import { images, texts } from '@/components/Home/com/LetEveryShare/resources'
+import { images } from '@/components/Home/com/LetEveryShare/resources'
+import { useTexts } from '@/components/Home/com/LetEveryShare/useTexts'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -18,6 +19,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 export default function LetEveryShare() {
+  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -50,18 +52,19 @@ export default function LetEveryShare() {
 
         <div className="flex flex-col items-start justify-between ">
           <div className=" flex  items-start justify-between w-full ">
-            <div
-              className="text-black"
-              style={{ 
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontStyle: 'normal',
-                fontSize: '5.125rem', // 82px = 5.125rem
-                lineHeight: '100%',
-                letterSpacing: '0%'
-              }}
-            >
-              Let Every Share Come 
+              <div
+                className="text-black"
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: '5.125rem', // 82px = 5.125rem
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}
+                suppressHydrationWarning
+              >
+              {texts.mainTitle.line1}
             </div>
 
             <div className="relative" style={{ width: px(88), height: px(88) }}>
@@ -114,8 +117,9 @@ export default function LetEveryShare() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
+                suppressHydrationWarning
               >
-             With Joy
+             {texts.mainTitle.line2}
               </div>
   
               <button
@@ -137,8 +141,9 @@ export default function LetEveryShare() {
                     letterSpacing: "0%",
                     textAlign: "right",
                   }}
+                  suppressHydrationWarning
                 >
-                  Share AI Projects and Earn
+                  {texts.buttonShare}
                 </span>
                 <div className="relative" style={{ width: '31px', height: '31px' }}>
                   <div
@@ -213,7 +218,7 @@ export default function LetEveryShare() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>{texts.linkLearnMore}</span>
+                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -237,8 +242,9 @@ export default function LetEveryShare() {
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontSize: '1.75rem' // 28px
               }}
+              suppressHydrationWarning
             >
-              Top Use-to-Earn Picks
+              {texts.sectionTitle}
             </div>
             {/* 右侧按钮：View all projects，点击跳转 /ProjectHub */}
             <Link href="/ProjectHub">
@@ -250,7 +256,7 @@ export default function LetEveryShare() {
                   borderRadius: '0.25rem' // 4px
                 }}
               >
-                <span
+                  <span
                   style={{
                     fontFamily: "ITC Avant Garde Gothic Pro",
                     fontWeight: 300,
@@ -259,8 +265,9 @@ export default function LetEveryShare() {
                     lineHeight: "100%",
                     letterSpacing: "0%",
                   }}
+                  suppressHydrationWarning
                 >
-                  View all projects
+                  {texts.buttonViewAll}
                 </span>
               </button>
             </Link>

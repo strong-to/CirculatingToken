@@ -7,10 +7,12 @@ import CollapsiblePanelContent from '@/components/Home/com/LiquidityThat/Collaps
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { images } from '@/components/Home/com/LiquidityThat/resources'
+import { useTexts } from '@/components/Home/com/LiquidityThat/useTexts'
 
 import { px } from '@/utils/pxToRem'
 
 export default function  LiquidityThat() {
+  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -29,9 +31,10 @@ export default function  LiquidityThat() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
+              suppressHydrationWarning
             >
              
-             Liquidity That Works 
+             {texts.mainTitle.line1}
             </div>
 
             <div className="relative flex items-center">
@@ -66,9 +69,10 @@ export default function  LiquidityThat() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
+                suppressHydrationWarning
               >
          
-For You
+{texts.mainTitle.line2}
               </div>
               
               {/* 折叠面板按钮 - 添加动画 */}
@@ -92,8 +96,9 @@ For You
                   textAlign: "right",
                 }}
                 className='whitespace-nowrap'
+                suppressHydrationWarning
               >
-              Borrow or Lend Tokens Instantly for Liquidity
+              {texts.buttonBorrow}
                 </span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
@@ -163,7 +168,7 @@ For You
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>

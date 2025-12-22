@@ -1,13 +1,11 @@
 {
-  "mainTitle": "Build With The Brightest Minds Worldwide",
+  "mainTitle": {
+    "line1": "Build With The Brightest Minds",
+    "line2": "Worldwide"
+  },
   "buttonContribute": "Contribute AI Projects and Earn",
-  "linkLearnMore": "Learn more details"
+  "linkLearnMore": "Learn more details",
+  "sectionTitle": "Top Use-to-Earn Picks",
+  "buttonViewAll": "View all projects",
+  "collapsibleContent": "Just like traditional software, AI needs to be researched, deployed, and continuously iterated. But instead of leaving all of that to a single centralized company, THE4 invites builders from all backgrounds to collaborate openly. You can propose ideas, join existing teams, or contribute to live AI projects. In return, builders receive meaningful allocations of rights tokens for the AI projects (Contracts) they help grow, as well as tokens from the THE4 Community (Covenant)."
 }
-
-
-
-
-
-
-
-

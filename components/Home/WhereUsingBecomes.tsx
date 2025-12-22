@@ -7,6 +7,7 @@ import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/UseCaseSection/CollapsiblePanelContent'
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
 import { images } from '@/components/Home/com/WhereUsingBecomes/resources'
+import { useTexts } from '@/components/Home/com/WhereUsingBecomes/useTexts'
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel } from 'swiper/modules'
@@ -15,6 +16,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 export default function WhereUsingBecomes() {
+  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -54,8 +56,9 @@ export default function WhereUsingBecomes() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
+              suppressHydrationWarning
             >
-              Where Using Becomes
+              {texts.mainTitle.line1}
             </div>
 
             <div className="relative flex items-center ">
@@ -91,8 +94,9 @@ export default function WhereUsingBecomes() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
+                suppressHydrationWarning
               >
-             Investing
+             {texts.mainTitle.line2}
               </div>
   
               <button
@@ -114,8 +118,9 @@ export default function WhereUsingBecomes() {
                     letterSpacing: "0%",
                     textAlign: "right",
                   }}
+                  suppressHydrationWarning
                 >
-                  Use AI Apps and Earn
+                  {texts.buttonUseApps}
                 </span>
                 <div className="relative" style={{ width: '31px', height: '31px' }}>
                   <div
@@ -185,7 +190,7 @@ export default function WhereUsingBecomes() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -209,8 +214,9 @@ export default function WhereUsingBecomes() {
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontSize: '1.75rem' // 28px
               }}
+              suppressHydrationWarning
             >
-              Top Use-to-Earn Picks
+              {texts.sectionTitle}
             </div>
             {/* 右侧按钮：View all projects，点击跳转 /ProjectHub */}
             <Link href="/ProjectHub">
@@ -231,8 +237,9 @@ export default function WhereUsingBecomes() {
                     lineHeight: "100%",
                     letterSpacing: "0%",
                   }}
+                  suppressHydrationWarning
                 >
-                  View all projects
+                  {texts.buttonViewAll}
                 </span>
               </button>
             </Link>

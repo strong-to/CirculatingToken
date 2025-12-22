@@ -65,72 +65,58 @@ public/
 │   │       ├── oas.png       # OAS 平台 Logo
 │   │       └── opal.png      # Opal 平台 Logo
 │   │
+│   ├── icon/               # Home 页面卡片图标（30个）
+│   │   └── img/           # 卡片图标资源
+│   │       ├── icon01.png  # 第1个卡片图标
+│   │       ├── icon02.png  # 第2个卡片图标
+│   │       ├── icon03.png  # 第3个卡片图标
+│   │       ├── ...         # icon04.png ~ icon29.png
+│   │       └── icon30.png  # 第30个卡片图标
+│   │
 │   ├── InstitutionalGrade/  # InstitutionalGrade 组件（机构级金融）
-│   │   ├── img/            # 图片资源
-│   │   │   └── DEEPBLUE/   # DEEP BLUE COVENANT 相关图片
-│   │   │       ├── DEEPBLUE.png  # DEEP BLUE 主 Logo
-│   │   │       ├── foot.png     # DEEP BLUE 页脚图片
-│   │   │       ├── Frame.png    # DEEP BLUE 框架图片
-│   │   │       └── PROJECTS.png # DEEP BLUE 项目图片
 │   │   └── text/           # 文案资源
-│   │       ├── main_title.txt          # 主标题："Institutional-Grade Finance, Reimagined for Everyone"
-│   │       ├── deep_blue_covenant.txt  # DEEP BLUE COVENANT 标题文案
-│   │       └── texts.json              # 文案 JSON 文件（包含主标题和 DEEP BLUE 标题）
+│   │       └── texts.json  # 文案 JSON 文件（包含主标题、DEEP BLUE COVENANT、统计数据、下载按钮等）
 │   │
 │   ├── YourNextWorld/      # YourNextWorld 组件（你的下一个世界）
-│   │   ├── img/            # 卡片背景图片（5张）
+│   │   ├── img/            # 图片资源
 │   │   │   ├── img_datasets.png            # Datasets（数据集）卡片背景图
 │   │   │   ├── img_compute_paool.png       # Compute Pool（计算池）卡片背景图
 │   │   │   ├── img_foundational_models.png  # Foundational Models（基础模型）卡片背景图
 │   │   │   ├── img_workflows.png           # Workflows（工作流）卡片背景图
-│   │   │   └── img_ai_agents.png           # AI Agents（AI 代理）卡片背景图
+│   │   │   ├── img_ai_agents.png           # AI Agents（AI 代理）卡片背景图
+│   │   │   ├── init/                       # 初始化状态图片（5张）
+│   │   │   │   ├── img1.png  # Datasets 初始化图
+│   │   │   │   ├── img2.png  # Compute Pool 初始化图
+│   │   │   │   ├── img3.png  # Foundational Models 初始化图
+│   │   │   │   ├── img4.png  # Workflows 初始化图
+│   │   │   │   └── img5.png  # AI Agents 初始化图
+│   │   │   └── hover/                      # Hover 状态 GIF（5张）
+│   │   │       ├── 01.gif  # Datasets hover 动画
+│   │   │       ├── 02.gif  # Compute Pool hover 动画
+│   │   │       ├── 03.gif  # Foundational Models hover 动画
+│   │   │       ├── 04.gif  # Workflows hover 动画
+│   │   │       └── 05.gif  # AI Agents hover 动画
 │   │   └── text/           # 文案资源
-│   │       ├── main_title.txt              # 主标题："Your Next World-Changing Idea Starts Here"
-│   │       ├── button_view_more.txt       # "View More" 按钮文案
-│   │       ├── button_launch_project.txt  # "Launch Your AI Project and Earn" 按钮文案
-│   │       ├── card_datasets.txt          # "Datasets" 卡片标题
-│   │       ├── card_compute_pool.txt      # "Compute Pool" 卡片标题
-│   │       ├── card_foundational_models.txt # "Foundational Models" 卡片标题
-│   │       ├── card_workflows.txt         # "Workflows" 卡片标题
-│   │       ├── card_ai_agents.txt         # "AI Agents" 卡片标题
-│   │       └── texts.json                 # 所有文案的 JSON 文件
+│   │       └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、卡片标题、折叠面板内容等）
 │   │
 │   ├── BuildWithThe/       # BuildWithThe 组件（与全球最聪明的人一起构建）
 │   │   ├── img/            # 图片资源
-│   │   │   ├── Investing1.png  # 投资卡片1（轮播图第一张）
-│   │   │   ├── Investing2.png  # 投资卡片2（轮播图第二张）
-│   │   │   ├── Investing3.png  # 投资卡片3（轮播图第三张）
-│   │   │   ├── Investing4.png  # 投资卡片4（轮播图第四张）
-│   │   │   ├── Investing5.png  # 投资卡片5（轮播图第五张）
+│   │   │   ├── Investing1.png ~ Investing10.png  # 投资卡片（轮播图，共10张）
 │   │   │   ├── Earth.png       # 地球装饰图标
 │   │   │   ├── games.png       # 游戏装饰图标
 │   │   │   └── GREENMatrix.png # 绿色矩阵装饰图标
 │   │   └── text/           # 文案资源
-│   │       ├── main_title.txt        # 主标题："Build With The Brightest Minds Worldwide"
-│   │       ├── button_contribute.txt # "Contribute AI Projects and Earn" 按钮文案
-│   │       ├── link_learn_more.txt   # "Learn more details" 链接文案
-│   │       └── texts.json            # 所有文案的 JSON 文件
+│   │       └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、链接、章节标题、折叠面板内容等）
 │   │
 │   ├── LetEveryShare/      # LetEveryShare 组件（让每一份分享都带来快乐）
-│   │   ├── img/            # 图片资源（5张投资卡片）
-│   │   │   ├── Investing1.png  # 投资卡片1（轮播图）
-│   │   │   ├── Investing2.png  # 投资卡片2（轮播图）
-│   │   │   ├── Investing3.png  # 投资卡片3（轮播图）
-│   │   │   ├── Investing4.png  # 投资卡片4（轮播图）
-│   │   │   └── Investing5.png  # 投资卡片5（轮播图）
+│   │   ├── img/            # 图片资源
+│   │   │   └── Investing1.png ~ Investing10.png  # 投资卡片（轮播图，共10张）
 │   │   └── text/           # 文案资源
-│   │       ├── main_title.txt      # 主标题："Let Every Share Come With Joy"
-│   │       ├── button_use_apps.txt # "Use AI Apps and Earn" 按钮文案
-│   │       ├── link_learn_more.txt # "Learn more details" 链接文案
-│   │       └── texts.json         # 所有文案的 JSON 文件
+│   │       └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、链接、章节标题、折叠面板内容等）
 │   │
 │   ├── WhereUsingBecomes/  # WhereUsingBecomes 组件（使用即投资）
 │   │   ├── img/            # 图片资源
-│   │   │   ├── Investing1.png  # 投资卡片1（轮播图）
-│   │   │   ├── Investing2.png  # 投资卡片2（轮播图）
-│   │   │   ├── Investing3.png  # 投资卡片3（轮播图）
-│   │   │   ├── Investing4.png  # 投资卡片4（轮播图）
-│   │   │   ├── Investing5.png  # 投资卡片5（轮播图）
+│   │   │   ├── Investing1.png ~ Investing10.png  # 投资卡片（轮播图，共10张）
 │   │   │   ├── Vector1.png     # 矢量装饰图标1
 │   │   │   ├── Vector2.png     # 矢量装饰图标2
 │   │   │   ├── Vector3.png     # 矢量装饰图标3
@@ -140,25 +126,28 @@ public/
 │   │   │   ├── games.png       # 游戏装饰图标
 │   │   │   └── waitingEarth.png # 等待地球装饰图标
 │   │   └── text/           # 文案资源
-│   │       ├── main_title.txt      # 主标题："Where Using Becomes Investing"
-│   │       ├── button_use_apps.txt # "Use AI Apps and Earn" 按钮文案
-│   │       ├── link_learn_more.txt # "Learn more details" 链接文案
-│   │       └── texts.json         # 所有文案的 JSON 文件
+│   │       └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、链接、章节标题、折叠面板内容等）
 │   │
 │   ├── GovernTogether/     # GovernTogether 组件（共同治理）
 │   │   ├── img/            # 图片资源
-│   │   │   └── bgc.png     # 背景图片
-│   │   └── text/           # 文案资源（待添加）
+│   │   │   ├── bgc.png     # 背景图片（初始化状态）
+│   │   │   └── hover.gif   # Hover 状态 GIF 动画
+│   │   └── text/           # 文案资源
+│   │       └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、链接、折叠面板内容等）
 │   │
 │   ├── FreedomToEnter/     # FreedomToEnter 组件（自由进入）
 │   │   ├── img/            # 图片资源
-│   │   │   └── bgc.png     # 背景图片
-│   │   └── text/           # 文案资源（待添加）
+│   │   │   ├── bgc.png     # 背景图片（初始化状态）
+│   │   │   └── hover.gif   # Hover 状态 GIF 动画
+│   │   └── text/           # 文案资源
+│   │       └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、链接、折叠面板内容等）
 │   │
 │   └── LiquidityThat/      # LiquidityThat 组件（流动性）
 │       ├── img/            # 图片资源
-│       │   └── bgc.png     # 背景图片
-│       └── text/           # 文案资源（待添加）
+│       │   ├── bgc.png     # 背景图片（初始化状态）
+│       │   └── hover.gif   # Hover 状态 GIF 动画
+│       └── text/           # 文案资源
+│           └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、链接、折叠面板内容等）
 │
 ├── launchpad/              # Launchpad 页面资源（项目启动台）
 │   ├── TemplateSelection/  # TemplateSelection 组件（模板选择）
@@ -240,4 +229,52 @@ public/
                           # 包含：24h Revenue, Market cap, Total Users, User Rating
                           # 以及：Details, Share, Market, Favorites 按钮文案
 ```
+
+## 文案文件说明
+
+### texts.json 文件格式
+
+所有组件的文案都统一存储在 `text/texts.json` 文件中，采用 JSON 格式。每个组件的 `texts.json` 文件包含该组件使用的所有文案内容。
+
+#### 通用结构示例
+
+```json
+{
+  "mainTitle": {
+    "line1": "主标题第一行",
+    "line2": "主标题第二行"
+  },
+  "buttonXXX": "按钮文案",
+  "linkLearnMore": "Learn more details",
+  "sectionTitle": "章节标题（如适用）",
+  "buttonViewAll": "View all projects（如适用）",
+  "collapsibleContent": "折叠面板的详细内容",
+  "cardXXX": "卡片标题（如适用）"
+}
+```
+
+#### 各组件 texts.json 包含的字段
+
+- **InstitutionalGrade**: `mainTitle`, `deepBlueCovenant`, `statistics`, `downloadButtons`
+- **YourNextWorld**: `mainTitle`, `buttonLaunch`, `linkLearnMore`, `cardDatasets`, `cardComputePool`, `cardFoundationalModels`, `cardWorkflows`, `cardAiAgents`, `collapsibleContent`
+- **BuildWithThe**: `mainTitle`, `buttonContribute`, `linkLearnMore`, `sectionTitle`, `buttonViewAll`, `collapsibleContent`
+- **LetEveryShare**: `mainTitle`, `buttonShare`, `linkLearnMore`, `sectionTitle`, `buttonViewAll`, `collapsibleContent`
+- **WhereUsingBecomes**: `mainTitle`, `buttonUseApps`, `linkLearnMore`, `sectionTitle`, `buttonViewAll`, `collapsibleContent`
+- **GovernTogether**: `mainTitle`, `buttonShape`, `linkLearnMore`, `collapsibleContent`
+- **FreedomToEnter**: `mainTitle`, `buttonTrade`, `linkLearnMore`, `collapsibleContent`
+- **LiquidityThat**: `mainTitle`, `buttonBorrow`, `linkLearnMore`, `collapsibleContent`
+
+### 使用说明
+
+1. **修改文案**：直接编辑 `public/home/{组件名}/text/texts.json` 文件
+2. **实时更新**：修改后刷新页面即可看到更新（开发模式下会自动检测变化）
+3. **优先级**：`public` 目录下的文件始终优先于组件目录的副本
+4. **同步机制**：服务端会自动将 `public` 目录的文件同步到组件目录，用于客户端 hydration
+
+### 图片资源说明
+
+- 所有图片文件都存储在对应组件的 `img/` 目录下
+- 图片文件名应清晰描述其用途
+- 支持 PNG、GIF、JPG 等常见图片格式
+- Hover 状态的动画使用 GIF 格式
 

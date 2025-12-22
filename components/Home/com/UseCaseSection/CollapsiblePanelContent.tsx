@@ -2,8 +2,11 @@
 
 import { LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { px } from '@/utils/pxToRem'
+import { useTexts } from '@/components/Home/com/WhereUsingBecomes/useTexts'
 
 export default function CollapsiblePanelContent() {
+  const texts = useTexts();
+  
   return (
     <div className="w-full relative" > {/* 346px = 21.625rem */}
       <div 
@@ -16,8 +19,9 @@ export default function CollapsiblePanelContent() {
           lineHeight: px(60), // 60px (PostCSS会自动转换为rem)
           letterSpacing: '0%'
         }}
+        suppressHydrationWarning
       >
-        Within the THE4 project hub, you&apos;ll find AI applications crafted by creative teams from all over the world. Just by using these apps you can enjoy state-of-the-art AI capabilities, and whenever you decide to support(including use) a project with tokens, you instantly move from being &quot;just a user&quot; to becoming an investor and a co-owner of the community&apos;s value. Over time, these rights tokens may also unlock upside you didn&apos;t expect.
+        {texts.collapsibleContent}
       </div>
     </div>
   )

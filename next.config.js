@@ -41,6 +41,23 @@ const nextConfig = {
   
   // 静态导出配置
   trailingSlash: false, // 不在URL末尾添加斜杠
+  
+  // 开发模式配置
+  ...(process.env.NODE_ENV === 'development' && {
+    // 在开发模式下，禁用 public 目录的缓存
+    // 确保修改 public 目录下的文件能立即生效
+    webpack: (config, { isServer }) => {
+      if (isServer) {
+        // 服务端：清除 require 缓存，确保每次请求都重新读取文件
+        config.watchOptions = {
+          ...config.watchOptions,
+          ignored: /node_modules/,
+          poll: 1000, // 每秒检查一次文件变化
+        };
+      }
+      return config;
+    },
+  }),
 }
 
 module.exports = nextConfig

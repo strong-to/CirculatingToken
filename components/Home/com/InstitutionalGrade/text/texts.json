@@ -1,11 +1,28 @@
 {
+  "deepBlueCovenant": {
+    "line1": "DEEP BLUE",
+    "line2": "COVENANT"
+  },
   "mainTitle": {
     "line1": "Institutional-Grade Finance,",
     "line2": "Reimagined for Everyone"
   },
-  "deepBlueCovenant": {
-    "line1": "DEEP BLUE",
-    "line2": "COVENANT"
+  "statistics": {
+    "projects": {
+      "value": "357,211",
+      "label": "PROJECTS"
+    },
+    "users": {
+      "value": "172,275,455",
+      "label": "USERS"
+    },
+    "marketValue": {
+      "value": "$182,588,717,071",
+      "label": "Market Value"
+    }
+  },
+  "downloadButtons": {
+    "iphone": "Download for iPhone121",
+    "android": "Download for Android"
   }
 }
-

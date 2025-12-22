@@ -155,10 +155,14 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
   const [inputValues, setInputValues] = useState<string[]>(['', '', '', ''])
   const [presets, setPresets] = useState<string[][]>([])
-  const [refreshCount, setRefreshCount] = useState(0)
+  // 上面“Project Name and Token Name”区域的刷新计数
+  const [nameRefreshCount, setNameRefreshCount] = useState(0)
+  // 下面“Logo and Promotional Materials”区域的刷新计数
+  const [logoRefreshCount, setLogoRefreshCount] = useState(0)
   const [uploadImages, setUploadImages] = useState<(string | null)[]>(Array(7).fill(null))
   const fileInputRefs = useRef<(HTMLInputElement | null)[]>([])
   const [hoverBoxIndex, setHoverBoxIndex] = useState<number | null>(null)
+  const [isNextHovered, setIsNextHovered] = useState(false)
 
   // 从 public 加载预设名称（最多使用前 5 组）
   useEffect(() => {
@@ -175,14 +179,38 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
       })
   }, [])
 
+  // 上半部分：刷新 4 个输入框
   const handleRefreshInputs = () => {
-    if (refreshCount >= 5) return
+    if (nameRefreshCount >= 5) return
     if (!presets.length) return
-
     // 依次使用预设，超过预设数量时循环使用，但最多 5 次
-    const preset = presets[refreshCount % presets.length]
+    const preset = presets[nameRefreshCount % presets.length]
     setInputValues(preset)
-    setRefreshCount((count) => count + 1)
+    setNameRefreshCount((count) => count + 1)
+  }
+
+  // 下半部分：刷新 7 个 Logo/宣传素材盒子
+  const handleRefreshLogos = () => {
+    if (logoRefreshCount >= 5) return
+    // 从 LogoPromotionalMaterials 目录中随机取 7 张图片填充 7 个盒子
+    const presetImagePaths = [
+      '/launchpad/LogoPromotionalMaterials/img/logo.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask1.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask2.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask3.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask4.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask5.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask6.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask7.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask8.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask9.png',
+      '/launchpad/LogoPromotionalMaterials/img/Mask10.png',
+    ]
+
+    const shuffled = [...presetImagePaths].sort(() => Math.random() - 0.5)
+    const selected = shuffled.slice(0, 7)
+    setUploadImages(selected)
+    setLogoRefreshCount((count) => count + 1)
   }
 
   // 处理上传图片
@@ -276,8 +304,8 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
                   backgroundColor: '#000000',
                   borderRadius: px(4),
                   padding: px(8),
-                  cursor: refreshCount >= 5 ? 'default' : 'pointer',
-                  opacity: refreshCount >= 5 ? 0.4 : 1,
+                  cursor: nameRefreshCount >= 5 ? 'default' : 'pointer',
+                  opacity: nameRefreshCount >= 5 ? 0.4 : 1,
                 }}
                 onClick={handleRefreshInputs}
               >
@@ -365,10 +393,10 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
                   backgroundColor: '#000000',
                   borderRadius: px(4),
                   padding: px(8),
-                  cursor: refreshCount >= 5 ? 'default' : 'pointer',
-                  opacity: refreshCount >= 5 ? 0.4 : 1,
+                  cursor: logoRefreshCount >= 5 ? 'default' : 'pointer',
+                  opacity: logoRefreshCount >= 5 ? 0.4 : 1,
                 }}
-                onClick={handleRefreshInputs}
+                onClick={handleRefreshLogos}
               >
               Refresh
               
@@ -501,20 +529,23 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
             fontWeight: 300,
             fontStyle: 'normal',
-            fontSize: px(16),
+            fontSize: px(14),
             lineHeight: '100%',
             letterSpacing: '0%',
-            width: px(200),
-            height: px(50),
-            backgroundColor: '#000000',
+            width: px(230),
+            height: px(40),
+            backgroundColor: isNextHovered ? '#000000' : '#FFFFFF',
             borderRadius: px(4),
-            color: '#FFFFFF',
+            color: isNextHovered ? '#FFFFFF' : '#000000',
+            border: `${px(1)} solid #000000`,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}
+          onMouseEnter={() => setIsNextHovered(true)}
+          onMouseLeave={() => setIsNextHovered(false)}
         >
-          Enter
+         Next
         </button>
       </div>
     </div>

@@ -1,0 +1,25 @@
+{
+  "title": "Naming and Brand Image Establishment",
+  "projectNameSection": {
+    "label": "Project Name and Token Name",
+    "description": "Please enter the prompt information in the following text box, or click the control button on the <br/> right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.",
+    "refreshButton": "Refresh",
+    "inputPlaceholders": {
+      "fullProjectName": "Full Project Name",
+      "shortProjectName": "Short Project Name",
+      "fullTokenName": "Full Token Name",
+      "shortTokenName": "Short Token Name"
+    }
+  },
+  "logoSection": {
+    "label": "Logo and Promotional Materials",
+    "description": "Please upload materials according to the prompt information in the following frame, or click the <br/> control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.",
+    "refreshButton": "Refresh",
+    "uploadLabels": {
+      "logo": "Logo",
+      "image": "Image"
+    }
+  },
+  "nextButton": "Next"
+}
+

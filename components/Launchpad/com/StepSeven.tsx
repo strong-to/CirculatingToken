@@ -3,11 +3,11 @@
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
 
-interface ProjectHomepagePreviewProps {
+interface StepSevenProps {
   onEnter?: () => void
 }
 
-export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePreviewProps = {} as ProjectHomepagePreviewProps) {
+export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenProps) {
   const previewImages = [
     'img_13.png',
     'img_14.png',
@@ -89,7 +89,7 @@ export default function ProjectHomepagePreview({ onEnter }: ProjectHomepagePrevi
               >
                 <div style={{ width: '100%', height: '100%', borderRadius: px(4), overflow: 'hidden' }}>
                   <Image
-                    src={`/launchpad/ProjectHomepagePreview/img/${imageName}`}
+                    src={`/launchpad/stepSeven/img/${imageName}`}
                     alt={`Preview ${index + 1}`}
                     width={400}
                     height={400}

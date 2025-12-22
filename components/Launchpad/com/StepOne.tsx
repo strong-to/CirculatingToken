@@ -3,12 +3,12 @@
 import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 
-interface FormContentProps {
+interface StepOneProps {
   currentStep: number
   onEnter?: () => void
 }
 
-// 默认文案（作为回退），实际文案从 public/launchpad/formContent/texts.json 加载
+// 默认文案（作为回退），实际文案从 public/launchpad/stepOne/texts.json 加载
 const defaultTexts = {
   title: 'Purpose Description and Function Sorting',
   purposeLabel: 'Purpose Description',
@@ -23,16 +23,16 @@ const defaultTexts = {
   nextButton: 'Next',
 }
 
-type FormContentTexts = typeof defaultTexts
+type StepOneTexts = typeof defaultTexts
 
-export default function FormContent({ currentStep, onEnter }: FormContentProps) {
+export default function StepOne({ currentStep, onEnter }: StepOneProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
-  const [texts, setTexts] = useState<FormContentTexts>(defaultTexts)
+  const [texts, setTexts] = useState<StepOneTexts>(defaultTexts)
 
   // 从 public 目录加载文案
   useEffect(() => {
-    const url = `/launchpad/formContent/texts.json?t=${Date.now()}`
+    const url = `/launchpad/stepOne/texts.json?t=${Date.now()}`
     fetch(url, { cache: 'no-store' })
       .then((res) => res.json())
       .then((data) => setTexts({ ...defaultTexts, ...data }))

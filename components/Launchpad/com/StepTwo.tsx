@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
+import { useTexts } from './StepTwo/useTexts'
 
 // 自定义下拉框组件
 interface CustomSelectProps {
@@ -147,12 +148,13 @@ function CloseIcon() {
   )
 }
 
-interface TemplateSelectionProps {
+interface StepTwoProps {
   onEnter?: () => void
 }
 
-export default function TemplateSelection({ onEnter }: TemplateSelectionProps = {} as TemplateSelectionProps) {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) {
+  const texts = useTexts()
+ 
   const [inputValues, setInputValues] = useState<string[]>(['', '', '', ''])
   const [presets, setPresets] = useState<string[][]>([])
   // 上面“Project Name and Token Name”区域的刷新计数
@@ -264,7 +266,7 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
             alignItems: 'center',
           }}
         >
-          Naming and Brand Image Establishment
+          <span suppressHydrationWarning>{texts.title}</span>
         </div>
         <div
           style={{
@@ -284,10 +286,10 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
                 color: '#8C8C8C',
               }}
             >
-              <span style={{ color: '#000000', marginRight: px(8) }}>
-              Project Name and Token Name
+              <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
+              {texts.projectNameSection.label}
                 </span>
-                Please enter the prompt information in the following text box, or click the control button on the <br/> right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.
+                <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.projectNameSection.description }} />
             </div>
 
               <div
@@ -309,7 +311,7 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
                 }}
                 onClick={handleRefreshInputs}
               >
-              Refresh
+              <span suppressHydrationWarning>{texts.projectNameSection.refreshButton}</span>
               
               </div>
           </div>
@@ -327,10 +329,10 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
             }}
           >
             {[
-              'Full Project Name',
-              'Short Project Name',
-              'Full Token Name',
-              'Short Token Name',
+              texts.projectNameSection.inputPlaceholders.fullProjectName,
+              texts.projectNameSection.inputPlaceholders.shortProjectName,
+              texts.projectNameSection.inputPlaceholders.fullTokenName,
+              texts.projectNameSection.inputPlaceholders.shortTokenName,
             ].map((placeholder, index) => (
               <input
                 key={index}
@@ -372,11 +374,11 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
                 color: '#8C8C8C',
               }}
             >
-              <span style={{ color: '#000000', marginRight: px(8) }}>
-              Logo and Promotional Materials 
+              <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
+              {texts.logoSection.label}
                 </span>
 
-                Please upload materials according to the prompt information in the following frame, or click the <br/> control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.
+                <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.logoSection.description }} />
             </div>
 
               <div
@@ -398,7 +400,7 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
                 }}
                 onClick={handleRefreshLogos}
               >
-              Refresh
+              <span suppressHydrationWarning>{texts.logoSection.refreshButton}</span>
               
               </div>
           </div>
@@ -416,13 +418,13 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
             }}
           >
             {[
-              { ratio: '1 / 1', label: 'Logo' },
-              { ratio: '1 / 1', label: 'Image' },
-              { ratio: '1 / 1', label: 'Image' },
-              { ratio: '1 / 2', label: 'Image' },
-              { ratio: '1 / 2', label: 'Image' },
-              { ratio: '2 / 1', label: 'Image' },
-              { ratio: '2 / 1', label: 'Image' },
+              { ratio: '1 / 1', label: texts.logoSection.uploadLabels.logo },
+              { ratio: '1 / 1', label: texts.logoSection.uploadLabels.image },
+              { ratio: '1 / 1', label: texts.logoSection.uploadLabels.image },
+              { ratio: '1 / 2', label: texts.logoSection.uploadLabels.image },
+              { ratio: '1 / 2', label: texts.logoSection.uploadLabels.image },
+              { ratio: '2 / 1', label: texts.logoSection.uploadLabels.image },
+              { ratio: '2 / 1', label: texts.logoSection.uploadLabels.image },
             ].map((box, index) => (
               <div
                 key={`upload-box-${index}`}
@@ -545,7 +547,7 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
           onMouseEnter={() => setIsNextHovered(true)}
           onMouseLeave={() => setIsNextHovered(false)}
         >
-         Next
+         <span suppressHydrationWarning>{texts.nextButton}</span>
         </button>
       </div>
     </div>

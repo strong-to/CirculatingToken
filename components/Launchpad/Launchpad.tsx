@@ -4,13 +4,13 @@ import { useState } from 'react'
 import { useAtom } from 'jotai'
 import { px } from '@/utils/pxToRem'
 import StepsBar from './com/StepsBar'
-import FormContent from './com/FormContent'
-import TemplateSelection from './com/TemplateSelection'
-import TechnicalRequirementsAnalysis from './com/TechnicalRequirementsAnalysis'
-import QuantificationOfContributionValue from './com/QuantificationOfContributionValue'
-import AllocationAndGovernance from './com/AllocationAndGovernance'
-import EconomicDataEstimation from './com/EconomicDataEstimation'
-import ProjectHomepagePreview from './com/ProjectHomepagePreview'
+import StepOne from './com/StepOne'
+import StepTwo from './com/StepTwo'
+import StepThree from './com/StepThree'
+import StepFour from './com/StepFour'
+import StepFive from './com/StepFive'
+import StepSix from './com/StepSix'
+import StepSeven from './com/StepSeven'
 import WelcomePage from './com/WelcomePage/WelcomePage'
 import { currentStepAtom } from '@/store/atoms'
 
@@ -48,21 +48,21 @@ export default function Launchpad() {
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
-        return <FormContent currentStep={currentStep} onEnter={handleNextStep} />
+        return <StepOne currentStep={currentStep} onEnter={handleNextStep} />
       case 2:
-        return <TemplateSelection onEnter={handleNextStep} />
+        return <StepTwo onEnter={handleNextStep} />
       case 3:
-        return <TechnicalRequirementsAnalysis onEnter={handleNextStep} />
+        return <StepThree onEnter={handleNextStep} />
       case 4:
-        return <QuantificationOfContributionValue onEnter={handleNextStep} />
+        return <StepFour onEnter={handleNextStep} />
       case 5:
-        return <AllocationAndGovernance onEnter={handleNextStep} />
+        return <StepFive onEnter={handleNextStep} />
       case 6:
-        return <EconomicDataEstimation onEnter={handleNextStep} />
+        return <StepSix onEnter={handleNextStep} />
       case 7:
-        return <ProjectHomepagePreview onEnter={handleNextStep} />
+        return <StepSeven onEnter={handleNextStep} />
       default:
-        return <FormContent currentStep={currentStep} onEnter={handleNextStep} />
+        return <StepOne currentStep={currentStep} onEnter={handleNextStep} />
     }
   }
 

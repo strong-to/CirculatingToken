@@ -150,7 +150,7 @@ public/
 │           └── texts.json  # 所有文案的 JSON 文件（包含主标题、按钮、链接、折叠面板内容等）
 │
 ├── launchpad/              # Launchpad 页面资源（项目启动台）
-│   ├── TemplateSelection/  # TemplateSelection 组件（模板选择）
+│   ├── stepTwo/  # StepTwo 组件（第二步：模板选择）
 │   │   └── img/           # 模板预览图片（12张）
 │   │       ├── Mask1.png   # 模板1预览图
 │   │       ├── Mask2.png   # 模板2预览图
@@ -174,7 +174,7 @@ public/
 │   │       ├── Mask4.png  # 宣传图片4
 │   │       └── Mask5.png  # 宣传图片5
 │   │
-│   └── ProjectHomepagePreview/  # ProjectHomepagePreview 组件（项目首页预览）
+│   └── stepSeven/  # StepSeven 组件（第七步：项目首页预览）
 │       └── img/           # 项目首页预览图片（5张）
 │           ├── img_13.png  # 预览图1
 │           ├── img_14.png  # 预览图2

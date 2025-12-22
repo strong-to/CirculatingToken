@@ -59,18 +59,18 @@ export const imageResources = {
 
   // Launchpad页面图片
   launchpadImages: [
-    ...Array.from({ length: 12 }, (_, i) => `/launchpad/TemplateSelection/img/Mask${i + 1}.png`),
+    ...Array.from({ length: 12 }, (_, i) => `/launchpad/stepTwo/img/Mask${i + 1}.png`),
     '/launchpad/LogoPromotionalMaterials/img/logo.png',
     '/launchpad/LogoPromotionalMaterials/img/Mask1.png',
     '/launchpad/LogoPromotionalMaterials/img/Mask2.png',
     '/launchpad/LogoPromotionalMaterials/img/Mask3.png',
     '/launchpad/LogoPromotionalMaterials/img/Mask4.png',
     '/launchpad/LogoPromotionalMaterials/img/Mask5.png',
-    '/launchpad/ProjectHomepagePreview/img/img_13.png',
-    '/launchpad/ProjectHomepagePreview/img/img_14.png',
-    '/launchpad/ProjectHomepagePreview/img/img_15.png',
-    '/launchpad/ProjectHomepagePreview/img/img_16.png',
-    '/launchpad/ProjectHomepagePreview/img/img_17.png',
+    '/launchpad/stepSeven/img/img_13.png',
+    '/launchpad/stepSeven/img/img_14.png',
+    '/launchpad/stepSeven/img/img_15.png',
+    '/launchpad/stepSeven/img/img_16.png',
+    '/launchpad/stepSeven/img/img_17.png',
   ],
 
   // TokenMarketplace页面图片

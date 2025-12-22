@@ -2,11 +2,11 @@
 
 import { px } from '@/utils/pxToRem'
 
-interface EconomicDataEstimationProps {
+interface StepSixProps {
   onEnter?: () => void
 }
 
-export default function EconomicDataEstimation({ onEnter }: EconomicDataEstimationProps = {} as EconomicDataEstimationProps) {
+export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) {
   return (
     <div className="flex-1">
       <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width: px(532) }}>

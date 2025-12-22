@@ -113,86 +113,86 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
         {/* 顶部：图标 + 标题 + 箭头（紧凑版） */}
 
         {!showDetail && (
-          <>
-            <div className="">
-              <div
-                className="flex items-center justify-center "
-                style={{ width: px(60), height: px(60), borderRadius: px(3) }}
-              >
-                <div
-                  className="relative flex items-center justify-center"
-                  style={{ width: px(60), height: px(60) }}
-                >
-                  <Image
+        <>
+        <div className="">
+          <div
+            className="flex items-center justify-center "
+            style={{ width: px(60), height: px(60), borderRadius: px(3) }}
+          >
+            <div
+              className="relative flex items-center justify-center"
+              style={{ width: px(60), height: px(60) }}
+            >
+              <Image
                     src={iconSrc}
                     alt="icon"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
-              </div>
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
 
               <div className="flex justify-between" style={{ marginTop: px(17) }}>
-                <div className="flex-1 text-staart ">
-                  <div
-                    className="leading-[1] tracking-[0] text-white"
-                    style={{
-                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontWeight: 300,
-                      fontStyle: "normal",
-                      fontSize: px(23),
-                      lineHeight: px(25),
-                      letterSpacing: "0%",
-                    }}
-                  >
+          <div className="flex-1 text-staart ">
+            <div
+              className="leading-[1] tracking-[0] text-white"
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: "normal",
+                fontSize: px(23),
+                lineHeight: px(25),
+                letterSpacing: "0%",
+              }}
+            >
                     {cardData.title}
-                  </div>
-                  <div
-                    className="leading-[1] tracking-[0] text-white"
-                    style={{
-                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontWeight: 300,
-                      fontStyle: "normal",
-                      fontSize: px(23),
-                      lineHeight: px(25),
-                      letterSpacing: "0%",
-                    }}
-                  >
-                    {cardData.subtitle}
-                  </div>
-                </div>
-
-                <div
-                  className="h-full flex items-end justify-end"
-                  style={{ width: px(24), height: px(24) }}
-                >
-                  <Image
-                    src="/home/icons/img/arr.png"
-                    alt="arrow"
-                    width={24}
-                    height={24}
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
             </div>
+            <div
+              className="leading-[1] tracking-[0] text-white"
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: "normal",
+                fontSize: px(23),
+                lineHeight: px(25),
+                letterSpacing: "0%",
+              }}
+            >
+                    {cardData.subtitle}
+            </div>
+          </div>
+
+          <div
+            className="h-full flex items-end justify-end"
+            style={{ width: px(24), height: px(24) }}
+          >
+            <Image
+              src="/home/icons/img/arr.png"
+              alt="arrow"
+              width={24}
+              height={24}
+              className="w-full h-full object-contain"
+            />
+          </div>
+          </div>
+        </div>
 
             {/* 按钮区域：宽度和样式不变，仅文案来自 cardData.buttons */}
-            <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(30) }}>
-              <div
-                className="border border-white flex items-center justify-center cursor-pointer"
-                style={{
+        <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(30) }}>
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
                   width: buttonWidths[0],
                   height: "100%",
-                  marginRight: px(10),
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
+              marginRight: px(10),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
                   fontStyle: "normal",
-                  fontSize: px(14),
+              fontSize: px(14),
                   lineHeight: "100%",
                   letterSpacing: "0%",
                   textAlign: "center",
-                  borderRadius: px(4),
+              borderRadius: px(4),
                   backgroundColor: buttonHovered === btn0 ? "#ffffff" : "transparent",
                   color: buttonHovered === btn0 ? "#000000" : "#ffffff",
                   cursor: "pointer",
@@ -201,20 +201,20 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
             
               >
                 {btn0}
-              </div>
-              <div
-                className="border border-white flex items-center justify-center cursor-pointer"
-                style={{
+          </div>
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
                   width: buttonWidths[1],
                   height: "100%",
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
                   fontStyle: "normal",
-                  fontSize: px(14),
+              fontSize: px(14),
                   lineHeight: "100%",
                   letterSpacing: "0%",
                   textAlign: "center",
-                  borderRadius: px(4),
+              borderRadius: px(4),
                   backgroundColor: buttonHovered === btn1 ? "#ffffff" : "transparent",
                   color: buttonHovered === btn1 ? "#000000" : "#ffffff",
                   cursor: "pointer",
@@ -224,22 +224,22 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
               >
                 {btn1}
               </div>
-            </div>
+        </div>
 
-            <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(10) }}>
-              <div
-                className="border border-white flex items-center justify-center cursor-pointer"
-                style={{
+        <div className="w-full flex justify-between" style={{ height: px(30), marginTop: px(10) }}>
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
                   width: buttonWidths[2],
                   height: "100%",
-                  marginRight: px(10),
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
+              marginRight: px(10),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
                   fontStyle: "normal",
-                  fontSize: px(14),
+              fontSize: px(14),
                   lineHeight: "100%",
                   letterSpacing: "0%",
-                  borderRadius: px(4),
+              borderRadius: px(4),
                   textAlign: "center",
                   backgroundColor: buttonHovered === btn2 ? "#ffffff" : "transparent",
                   color: buttonHovered === btn2 ? "#000000" : "#ffffff",
@@ -250,19 +250,19 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
               >
                 {btn2}
               </div>
-              <div
-                className="border border-white flex items-center justify-center cursor-pointer"
-                style={{
+          <div 
+            className="border border-white flex items-center justify-center cursor-pointer" 
+            style={{ 
                   width: buttonWidths[3],
                   height: "100%",
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
                   fontStyle: "normal",
-                  fontSize: px(14),
+              fontSize: px(14),
                   lineHeight: "100%",
                   letterSpacing: "0%",
                   textAlign: "center",
-                  borderRadius: px(4),
+              borderRadius: px(4),
                   backgroundColor: buttonHovered === btn3 ? "#ffffff" : "transparent",
                   color: buttonHovered === btn3 ? "#000000" : "#ffffff",
                   cursor: "pointer",
@@ -271,8 +271,8 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
               
               >
                 {btn3}
-              </div>
-            </div>
+          </div>
+        </div>
 
             {/* 描述区域：保持样式，仅替换为 cardData.descriptions 前两行 */}
             <div
@@ -281,10 +281,10 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
             >
               <div
                 style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
                   fontStyle: "normal",
-                  fontSize: px(18),
+          fontSize: px(18),
                   lineHeight: "100%",
                   letterSpacing: "0%",
                   color: "#FFFFFF",
@@ -294,10 +294,10 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
               </div>
               <div
                 style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
                   fontStyle: "normal",
-                  fontSize: px(18),
+          fontSize: px(18),
                   lineHeight: "100%",
                   letterSpacing: "0%",
                   color: "#FFFFFF",
@@ -305,64 +305,64 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
                 }}
               >
                 {desc1}
-              </div>
-            </div>
-          </>
+        </div>
+        </div>
+        </>
         )}
 
         {showDetail && (
-          <>
-            <div className="">
-              <div
-                className="flex items-center justify-start "
-                style={{ height: px(60) }}
-              >
-                <div
-                  className="relative flex items-start justify-center"
+        <>
+        <div className="">
+          <div
+            className="flex items-center justify-start "
+            style={{ height: px(60) }}
+          >
+            <div
+              className="relative flex items-start justify-center"
                   style={{ width: px(60), height: px(60), marginRight: px(15) }}
-                >
-                  <Image
+            >
+              <Image
                     src={iconSrc}
                     alt="icon"
-                    fill
-                    className="object-contain"
-                  />
-                </div>
+                fill
+                className="object-contain"
+              />
+            </div>
 
                 <div
                   className=" h-full flex justify-between flex-col"
                   style={{ paddingTop: px(2), paddingBottom: px(2) }}
                 >
-                  <div
-                    className="leading-[1] tracking-[0] text-white"
-                    style={{
-                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontWeight: 300,
-                      fontStyle: "normal",
-                      fontSize: px(23),
-                      lineHeight: px(25),
-                      letterSpacing: "0%",
-                    }}
-                  >
+            <div
+              className="leading-[1] tracking-[0] text-white"
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: "normal",
+                fontSize: px(23),
+                lineHeight: px(25),
+                letterSpacing: "0%",
+              }}
+            >
                     {cardData.title}
-                  </div>
-                  <div
-                    className="leading-[1] tracking-[0] text-white"
-                    style={{
-                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontWeight: 300,
-                      fontStyle: "normal",
-                      fontSize: px(23),
-                      lineHeight: px(25),
-                      letterSpacing: "0%",
-                    }}
-                  >
-                    {cardData.subtitle}
-                  </div>
-                </div>
-              </div>
-
             </div>
+            <div
+              className="leading-[1] tracking-[0] text-white"
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: "normal",
+                fontSize: px(23),
+                lineHeight: px(25),
+                letterSpacing: "0%",
+              }}
+            >
+                    {cardData.subtitle}
+            </div>
+          </div>
+          </div>
+
+        </div>
 
 
         <div className=" flex justify-between items-center" style={{ height: px(36), marginTop: px(26) }}>

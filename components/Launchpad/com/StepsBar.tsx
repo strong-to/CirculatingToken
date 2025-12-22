@@ -1,6 +1,7 @@
 'use client'
 
 import { useAtom } from 'jotai'
+import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import { currentStepAtom } from '@/store/atoms'
 
@@ -16,37 +17,40 @@ interface StepsBarProps {
 
 export default function StepsBar({ steps, space = 40 }: StepsBarProps) {
   const [currentStep, setCurrentStep] = useAtom(currentStepAtom)
+  const [stepsData, setStepsData] = useState<{ steps: Array<{ title: string }> } | null>(null)
+
+  // 从 public 目录加载步骤数据（禁止缓存，保证改文案后能立即生效）
+  useEffect(() => {
+    const url = `/launchpad/steps.json?t=${Date.now()}`
+
+    fetch(url, { cache: 'no-store' })
+      .then(res => res.json())
+      .then(data => setStepsData(data))
+      .catch(err => console.error('Failed to load steps data:', err))
+  }, [])
 
   const handleStepClick = (stepNumber: number) => {
     setCurrentStep(stepNumber)
   }
 
-  // 格式化标题：为每个步骤添加强制换行逻辑
-  const formatTitle = (title: string, stepNumber: number) => {
-    switch (stepNumber) {
-      case 1:
-        // "Basic Information Description" -> "Basic Information\nDescription"
-        return title.replace(' Description', '\nDescription')
-      case 2:
-        // "Template Selection" -> "Template\nSelection"
-        return title.replace(' Selection', '\nSelection')
-      case 3:
-        // "Technical Requirements Analysis" -> "Technical\nRequirements Analysis"
-        return title.replace('Technical ', 'Technical\n')
-      case 4:
-        // "Quantification of Contribution Value" -> "Quantification of\nContribution Value"
-        return title.replace(' of Contribution', ' of\nContribution')
-      case 5:
-        // "Allocation and Governance" -> "Allocation and\nGovernance"
-        return title.replace(' Governance', '\nGovernance')
-      case 6:
-        // "Economic Data Estimation" -> "Economic Data\nEstimation"
-        return title.replace(' Estimation', '\nEstimation')
-      case 7:
-        // "Project Homepage Preview" -> "Project Homepage\nPreview"
-        return title.replace(' Preview', '\nPreview')
-      default:
-        return title
+  // 格式化标题：根据特殊符号处理换行
+  // / 表示选中时换行， # 表示未选中时换行
+  const formatTitle = (title: string, stepNumber: number, isActive: boolean) => {
+    // 从 JSON 文件中获取带标记的标题，如果没有则使用原始标题
+    const markedTitle = stepsData?.steps[stepNumber - 1]?.title || title
+    
+    if (isActive) {
+      // 选中状态：使用 / 作为换行符，移除 #
+      return markedTitle
+        .replace(/#/g, '') // 移除未选中换行标记
+        .replace(/\s*\/\s*/g, '\n') // 将 / 替换为换行符
+        .trim()
+    } else {
+      // 未选中状态：使用 # 作为换行符，移除 /
+      return markedTitle
+        .replace(/\//g, '') // 移除选中换行标记
+        .replace(/#/g, '\n') // 将 # 替换为换行符
+        .trim()
     }
   }
 
@@ -55,66 +59,59 @@ export default function StepsBar({ steps, space = 40 }: StepsBarProps) {
       {steps.map((step, index) => {
         const stepNumber = index + 1
         const isActive = stepNumber === currentStep
-        const isCompleted = stepNumber < currentStep
-        const formattedTitle = formatTitle(step.title, stepNumber)
-        
+        const formattedTitle = formatTitle(step.title, stepNumber, isActive)
+
         return (
           <div key={index} className="flex">
-            {/* 左侧固定列：圆圈和连接线 */}
-            <div className="flex flex-col items-center flex-shrink-0" style={{ width: px(30), marginRight: px(16) }}>
-              {/* 圆圈 */}
+            {/* 左侧固定列：数字和连接线（顶部对齐） */}
+            <div
+              className="flex flex-col items-start flex-shrink-0"
+              style={{ width: px(30), marginRight: px(16) }}
+            >
               <div
-                className="rounded-full flex items-center justify-center cursor-pointer"
+                className="cursor-pointer"
                 onClick={() => handleStepClick(stepNumber)}
                 style={{
-                  width: px(30),
-                  height: px(30),
-                  backgroundColor: isActive ? '#000000' : isCompleted ? '#000000' : 'transparent',
-                  border: isActive || isCompleted ? 'none' : `2px solid #8C8C8C`,
-                  color: isActive ? '#FFFFFF' : isCompleted ? '#FFFFFF' : '#8C8C8C',
-                  fontSize: px(14),
+                  // 未选中状态的基础样式不变，仅在选中时放大字号
+                  fontSize: isActive ? px(40) : px(22),
+                  color: '#000000',
                   fontWeight: 500,
                   flexShrink: 0,
+                  lineHeight: 1,
+                  marginLeft: isActive ? px(-5) : 0,
                 }}
               >
-                {isCompleted ? (
-                  <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.4678 9.55566C22.0311 9.12731 21.3298 9.13371 20.9014 9.57031L13.5439 17.0674L10.3027 13.7285L10.2334 13.6631C9.80374 13.29 9.15219 13.3015 8.73633 13.7051C8.29738 14.1312 8.28681 14.8325 8.71289 15.2715L12.7451 19.4258L12.8125 19.4893C13.2498 19.871 13.9171 19.8516 14.3311 19.4297L22.4834 11.1221L22.5469 11.0508C22.9094 10.6121 22.8814 9.96158 22.4678 9.55566Z" fill="white"/>
-                  </svg>
-                ) : (
-                  stepNumber
-                )}
+                {stepNumber}
               </div>
-              
-              {/* 连接线 - 固定在圆圈下方 */}
+
+              {/* 连接线 */}
               {index < steps.length - 1 && (
                 <div
                   style={{
                     width: px(2),
-                    height: px(60),
-                    backgroundColor: '#8C8C8C',
+                    height: px(105),
+                    backgroundColor: '',
                     marginTop: 0,
                     flexShrink: 0,
                   }}
                 />
               )}
             </div>
-            
-            {/* 右侧文字区域 - 强制换行，与圆圈顶部对齐 */}
+
+            {/* 右侧文字区域 - 强制换行 */}
             <div
               className="flex-1 cursor-pointer"
               onClick={() => handleStepClick(stepNumber)}
               style={{
-                paddingTop: 0,
+                paddingTop: isActive ? px(5.5) : 0,
                 color: '#000000',
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
                 fontSize: isActive ? px(20) : px(14),
-                lineHeight: px(20),
+                lineHeight: isActive ? px(24) : px(20), // 选中时行高增加4px (20 + 4 = 24)
                 whiteSpace: 'pre-line',
                 overflow: 'hidden',
-                maxWidth: px(254), // 300 - 30(圆圈) - 16(间距) = 254
-                maxHeight: px(40), // 限制为两行高度 (20px * 2)
+                // maxWidth: px(254), // 300 - 30(数字) - 16(间距) = 254
               }}
             >
               {formattedTitle}

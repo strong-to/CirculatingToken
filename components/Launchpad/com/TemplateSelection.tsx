@@ -121,19 +121,107 @@ function CustomSelect({ placeholder, options, value, onChange }: CustomSelectPro
   )
 }
 
+// 小加号图标
+function PlusIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.8125 12.1875H23.5625V13.8125H13.8125V23.5625H12.1875V13.8125H2.4375V12.1875H12.1875V2.4375H13.8125V12.1875Z" fill="black" />
+      <path d="M13.8125 12.1875H23.5625V13.8125H13.8125V23.5625H12.1875V13.8125H2.4375V12.1875H12.1875V2.4375H13.8125V12.1875Z" fill="black" fillOpacity="0.2" />
+      <path d="M13.8125 12.1875H23.5625V13.8125H13.8125V23.5625H12.1875V13.8125H2.4375V12.1875H12.1875V2.4375H13.8125V12.1875Z" fill="black" fillOpacity="0.2" />
+      <path d="M13.8125 12.1875H23.5625V13.8125H13.8125V23.5625H12.1875V13.8125H2.4375V12.1875H12.1875V2.4375H13.8125V12.1875Z" fill="black" fillOpacity="0.2" />
+      <path d="M13.8125 12.1875H23.5625V13.8125H13.8125V23.5625H12.1875V13.8125H2.4375V12.1875H12.1875V2.4375H13.8125V12.1875Z" fill="black" fillOpacity="0.2" />
+    </svg>
+  )
+}
+
+// 删除图标（右上角小 X）
+function CloseIcon() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle opacity="0.5" cx="13" cy="13" r="13" fill="black" />
+      <path
+        d="M17.7007 7.50684C17.9217 7.32084 18.2524 7.332 18.4604 7.54004C18.6797 7.75962 18.6797 8.11537 18.4604 8.33496L13.5142 13.2812L18.4604 18.2275C18.6797 18.4471 18.6797 18.8029 18.4604 19.0225C18.2524 19.2305 17.9217 19.2417 17.7007 19.0557L17.6646 19.0225L12.7183 14.0762L7.77295 19.0225L7.73682 19.0557C7.51581 19.2419 7.18516 19.2306 6.97705 19.0225C6.75758 18.8028 6.75758 18.4472 6.97705 18.2275L11.9233 13.2812L6.97705 8.33496C6.75758 8.11533 6.75758 7.75967 6.97705 7.54004C7.18516 7.33193 7.51581 7.32064 7.73682 7.50684L7.77295 7.54004L12.7183 12.4854L17.6646 7.54004L17.7007 7.50684Z"
+        fill="white"
+      />
+    </svg>
+  )
+}
+
 interface TemplateSelectionProps {
   onEnter?: () => void
 }
 
 export default function TemplateSelection({ onEnter }: TemplateSelectionProps = {} as TemplateSelectionProps) {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [inputValues, setInputValues] = useState<string[]>(['', '', '', ''])
+  const [presets, setPresets] = useState<string[][]>([])
+  const [refreshCount, setRefreshCount] = useState(0)
+  const [uploadImages, setUploadImages] = useState<(string | null)[]>(Array(7).fill(null))
+  const fileInputRefs = useRef<(HTMLInputElement | null)[]>([])
+  const [hoverBoxIndex, setHoverBoxIndex] = useState<number | null>(null)
+
+  // 从 public 加载预设名称（最多使用前 5 组）
+  useEffect(() => {
+    const url = `/launchpad/templateNames.json?t=${Date.now()}`
+    fetch(url, { cache: 'no-store' })
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data.presets)) {
+          setPresets(data.presets.slice(0, 5))
+        }
+      })
+      .catch(() => {
+        // 忽略加载错误，保持 presets 为空时不刷新
+      })
+  }, [])
+
+  const handleRefreshInputs = () => {
+    if (refreshCount >= 5) return
+    if (!presets.length) return
+
+    // 依次使用预设，超过预设数量时循环使用，但最多 5 次
+    const preset = presets[refreshCount % presets.length]
+    setInputValues(preset)
+    setRefreshCount((count) => count + 1)
+  }
+
+  // 处理上传图片
+  const handleBoxClick = (index: number) => {
+    fileInputRefs.current[index]?.click()
+  }
+
+  const handleFileChange = (index: number, event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (!file) return
+    if (!file.type.startsWith('image/')) return
+
+    const reader = new FileReader()
+    reader.onload = () => {
+      const result = reader.result as string
+      setUploadImages((prev) => {
+        const next = [...prev]
+        next[index] = result
+        return next
+      })
+    }
+    reader.readAsDataURL(file)
+  }
+
+  const handleRemoveImage = (index: number, e: React.MouseEvent) => {
+    e.stopPropagation()
+    setUploadImages((prev) => {
+      const next = [...prev]
+      next[index] = null
+      return next
+    })
+  }
 
   // 12张模板图片
   const templateImages = Array.from({ length: 12 }, (_, i) => `Mask${i + 1}.png`)
 
   return (
-    <div className="flex-1">
-      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width: px(391) }}>
+    <div className="flex-1" style={{paddingRight:px(240)}}>
+      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(82), width: px(805) }}>
         <div
           className="text-[#000000]"
           style={{
@@ -148,108 +236,262 @@ export default function TemplateSelection({ onEnter }: TemplateSelectionProps = 
             alignItems: 'center',
           }}
         >
-          Template Selection
+          Naming and Brand Image Establishment
         </div>
-        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(8, 63, 216, 0.65)', marginTop: px(-15) }}></div>
+        <div
+          style={{
+            width: '100%',
+            height: px(18),
+            backgroundColor: 'rgba(225, 5, 13, 0.75)', // #ec5d62 加上透明度
+            marginTop: px(-15),
+          }}
+        ></div>
       </div>
+      <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
+            <div
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(20),
+                color: '#8C8C8C',
+              }}
+            >
+              <span style={{ color: '#000000', marginRight: px(8) }}>
+              Project Name and Token Name
+                </span>
+                Please enter the prompt information in the following text box, or click the control button on the <br/> right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.
+            </div>
 
-      {/* 搜索和筛选区域 */}
-      <div className="flex items-center gap-4" style={{ marginBottom: px(30) }}>
-        {/* 搜索框 */}
-        <div className="relative" style={{ width: px(451), height: px(44) }}>
-          <input
-            type="text"
-            placeholder="Search"
-            style={{
-              width: '100%',
-              height: '100%',
-              paddingLeft: px(40),
-              paddingRight: px(12),
-              border: `0.5px solid #000000`,
-              borderRadius: px(4),
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontSize: px(14),
-            }}
-          />
-          <div className="absolute" style={{ left: px(12), top: '50%', transform: 'translateY(-50%)' }}>
-            <Image
-              src="/header/img/search.png"
-              alt="Search"
-              width={18}
-              height={18}
-            />
-          </div>
-        </div>
-
-        {/* 下拉框组 */}
-        <CustomSelect
-          placeholder="Tags"
-          options={['Filter', 'Tags', 'Sort']}
-        />
-
-        <CustomSelect
-          placeholder="Filter"
-          options={['Filter', 'Tags', 'Sort']}
-        />
-
-        <CustomSelect
-          placeholder="Sort"
-          options={['Filter', 'Tags', 'Sort']}
-        />
-      </div>
-
-      {/* 图片网格 */}
-      <div className="grid" style={{ 
-        gridTemplateColumns: `repeat(6, ${px(214)})`,
-        gridTemplateRows: `repeat(2, ${px(214)})`,
-        gap: px(15),
-        marginBottom: px(40),
-        width: px(1359), // 6列 × 214px + 5个间距 × 15px = 1284 + 75 = 1359px
-      }}>
-        {templateImages.map((imageName, index) => {
-          const isSelected = selectedImage === index
-          return (
-            <div key={index} className="flex flex-col items-center">
               <div
-                
-                className="cursor-pointer"
                 style={{
-                  width: px(214),
-                  height: px(214),
+                  width: px(100),
+                  height: px(40),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(14),
+                  color: '#ffffff',
+                  backgroundColor: '#000000',
                   borderRadius: px(4),
+                  padding: px(8),
+                  cursor: refreshCount >= 5 ? 'default' : 'pointer',
+                  opacity: refreshCount >= 5 ? 0.4 : 1,
+                }}
+                onClick={handleRefreshInputs}
+              >
+              Refresh
+              
+              </div>
+          </div>
+
+
+
+          {/* 四个并排输入框 */}
+          <div
+            className="w-full"
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(4, 1fr)',
+              gap: px(12),
+              marginBottom: px(82),
+            }}
+          >
+            {[
+              'Full Project Name',
+              'Short Project Name',
+              'Full Token Name',
+              'Short Token Name',
+            ].map((placeholder, index) => (
+              <input
+                key={index}
+                type="text"
+                placeholder={placeholder}
+                value={inputValues[index] || ''}
+                onChange={(e) => {
+                  const next = [...inputValues]
+                  next[index] = e.target.value
+                  setInputValues(next)
+                }}
+                style={{
+                  width: '100%',
+                  height: px(44),
+                  paddingLeft: px(15),
+                  paddingRight: px(15),
+                  border: `0.5px solid #000000`,
+                  borderRadius: px(4),
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal', // 对应设计稿里的 Book
+                  fontSize: px(16),
+                  lineHeight: '100%',
+                  letterSpacing: '0%',
+                  color: '#8C8C8C',
+                }}
+              />
+            ))}
+          </div>
+
+
+
+          <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
+            <div
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(20),
+                color: '#8C8C8C',
+              }}
+            >
+              <span style={{ color: '#000000', marginRight: px(8) }}>
+              Logo and Promotional Materials 
+                </span>
+
+                Please upload materials according to the prompt information in the following frame, or click the <br/> control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.
+            </div>
+
+              <div
+                style={{
+                  width: px(100),
+                  height: px(40),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(14),
+                  color: '#ffffff',
+                  backgroundColor: '#000000',
+                  borderRadius: px(4),
+                  padding: px(8),
+                  cursor: refreshCount >= 5 ? 'default' : 'pointer',
+                  opacity: refreshCount >= 5 ? 0.4 : 1,
+                }}
+                onClick={handleRefreshInputs}
+              >
+              Refresh
+              
+              </div>
+          </div>
+
+
+          {/* 7 个小盒子：3 个 1:1，2 个 1:2，2 个 2:1
+              宽度由 grid 比例控制，高度由 aspect-ratio 自动计算 */}
+          <div
+            className="w-full"
+            style={{
+              display: 'grid',
+              marginBottom: px(120),
+              gridTemplateColumns: '1fr 1fr 1fr 0.5fr 0.5fr 2fr 2fr', // 宽度比例：1:1:1:0.5:0.5:2:2
+              gap: px(14),
+            }}
+          >
+            {[
+              { ratio: '1 / 1', label: 'Logo' },
+              { ratio: '1 / 1', label: 'Image' },
+              { ratio: '1 / 1', label: 'Image' },
+              { ratio: '1 / 2', label: 'Image' },
+              { ratio: '1 / 2', label: 'Image' },
+              { ratio: '2 / 1', label: 'Image' },
+              { ratio: '2 / 1', label: 'Image' },
+            ].map((box, index) => (
+              <div
+                key={`upload-box-${index}`}
+                style={{
+                  width: '100%',
+                  aspectRatio: box.ratio,
+                  border: '0.5px solid #000000',
+                  borderRadius: px(4),
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: px(8),
+                  cursor: 'pointer',
                   overflow: 'hidden',
                   position: 'relative',
                 }}
+                onClick={() => handleBoxClick(index)}
+                onMouseEnter={() => setHoverBoxIndex(index)}
+                onMouseLeave={() => setHoverBoxIndex((prev) => (prev === index ? null : prev))}
               >
-                <Image
-                  src={`/launchpad/TemplateSelection/img/${imageName}`}
-                  alt={`Template ${index + 1}`}
-                  width={214}
-                  height={214}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              {/* 选中时显示尺寸信息 */}
-              {isSelected && (
-                <div
-                  style={{
-                    marginTop: px(8),
-                    padding: `${px(4)} ${px(8)}`,
-                    backgroundColor: '#083FD8',
-                    borderRadius: px(4),
-                    color: '#FFFFFF',
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontSize: px(12),
+                <input
+                  type="file"
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  ref={(el) => {
+                    fileInputRefs.current[index] = el
                   }}
-                >
-                  214 × 214
-                </div>
-              )}
-            </div>
-          )
-        })}
-      </div>
+                  onChange={(e) => handleFileChange(index, e)}
+                />
 
+                {uploadImages[index] ? (
+                  <>
+                    <img
+                      src={uploadImages[index] as string}
+                      alt={box.label}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
+                    />
+                    {hoverBoxIndex === index && (
+                      <button
+                        type="button"
+                        onClick={(e) => handleRemoveImage(index, e)}
+                        style={{
+                          position: 'absolute',
+                          top: px(6),
+                          right: px(2),
+                          border: 'none',
+                          background: 'transparent',
+                          padding: 0,
+                          cursor: 'pointer',
+                        }}
+                      >
+                        <CloseIcon />
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    <PlusIcon />
+                    <span
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontStyle: 'normal', // Book
+                        fontSize: px(16),
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        color: '#8C8C8C',
+                      }}
+                    >
+                      {box.label}
+                    </span>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
       {/* Enter 按钮 */}
       <div className="flex items-center justify-center" style={{ width: px(1359) }}>
         <button

@@ -1,0 +1,12 @@
+{
+  "title": "Purpose Description and Function Sorting",
+  "purposeLabel": "Purpose Description",
+  "purposeHelp": "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. The AI can provide this service for 5 times.",
+  "functionSortingLabel": "Function Sorting",
+  "functionSortingHelp": "The AI will generate an understandable manuscript in real time in the following text box based on the information you input for your confirmation",
+  "textarea1Placeholder": "The plan you are going to implement, the conception, the goal you want to achieve, or just a simple idea",
+  "textarea2Placeholder": "The AI will generate content here based on the plan above",
+  "nextButton": "Next"
+}
+
+

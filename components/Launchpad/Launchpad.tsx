@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useAtom } from 'jotai'
 import { px } from '@/utils/pxToRem'
 import StepsBar from './com/StepsBar'
@@ -10,20 +11,31 @@ import QuantificationOfContributionValue from './com/QuantificationOfContributio
 import AllocationAndGovernance from './com/AllocationAndGovernance'
 import EconomicDataEstimation from './com/EconomicDataEstimation'
 import ProjectHomepagePreview from './com/ProjectHomepagePreview'
+import WelcomePage from './com/WelcomePage/WelcomePage'
 import { currentStepAtom } from '@/store/atoms'
 
 const steps = [
-  { title: 'Basic Information Description' },
-  { title: 'Template Selection' },
-  { title: 'Technical Requirements Analysis' },
-  { title: 'Quantification of Contribution Value' },
-  { title: 'Allocation and Governance' },
-  { title: 'Economic Data Estimation' },
-  { title: 'Project Homepage Preview' },
+  { title: 'Purpose Description and Function Sorting' }, // UI: 三行
+  { title: 'Naming and Brand Image Establishment' }, // UI: 两行
+  { title: 'Model Selection and Technical Documentation Compilation' }, // UI: 两行
+  { title: 'Construction Requirements and Contribution Quantification' }, // UI: 两行
+  { title: 'Rights Allocation and Project Governance' }, // UI: 两行
+  { title: 'Fee Standards and Economic Data Estimation' }, // UI: 两行
+  { title: 'Preview and Release' }, // UI: 两行
 ]
 
 export default function Launchpad() {
   const [currentStep, setCurrentStep] = useAtom(currentStepAtom)
+  const [showWelcome, setShowWelcome] = useState(true)
+
+  // 处理开始按钮点击
+  const handleStart = () => {
+    setShowWelcome(false)
+    // 确保从第一步开始
+    if (currentStep === 0) {
+      setCurrentStep(1)
+    }
+  }
 
   // 切换到下一步
   const handleNextStep = () => {
@@ -54,6 +66,16 @@ export default function Launchpad() {
     }
   }
 
+  // 如果显示欢迎页，只显示欢迎页
+  if (showWelcome) {
+    return (
+      <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]">
+        <WelcomePage onStart={handleStart} />
+      </section>
+    )
+  }
+
+  // 否则显示正常的步骤流程
   return (
     <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]">
       <div className=" flex-1 flex overflow-hidden" style={{ paddingLeft: px(30) }}>

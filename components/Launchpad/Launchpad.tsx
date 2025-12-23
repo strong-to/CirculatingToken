@@ -105,7 +105,7 @@ export default function Launchpad() {
           style={{
             willChange: 'opacity, transform',
             maxHeight: 'calc(100vh - 4.5rem - 70px)',
-            paddingTop: px(48),
+            paddingTop: px(45),
             paddingRight: px(280)
           }}
         >

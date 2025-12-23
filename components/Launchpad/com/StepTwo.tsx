@@ -151,13 +151,13 @@ function CloseIcon() {
 
 interface StepTwoProps {
   onEnter?: () => void
+  previewMode?: boolean
 }
 
-export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) {
+export default function StepTwo({ onEnter, previewMode }: StepTwoProps = {} as StepTwoProps) {
   const texts = useTexts()
  
   const [inputValues, setInputValues] = useState<string[]>(['', '', '', ''])
-  const [presets, setPresets] = useState<string[][]>([])
   // 上面“Project Name and Token Name”区域的刷新计数
   const [nameRefreshCount, setNameRefreshCount] = useState(0)
   // 下面“Logo and Promotional Materials”区域的刷新计数
@@ -166,27 +166,19 @@ export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) 
   const fileInputRefs = useRef<(HTMLInputElement | null)[]>([])
   const [hoverBoxIndex, setHoverBoxIndex] = useState<number | null>(null)
 
-  // 从 public 加载预设名称（最多使用前 5 组）
-  useEffect(() => {
-    const url = `/launchpad/templateNames.json?t=${Date.now()}`
-    fetch(url, { cache: 'no-store' })
-      .then((res) => res.json())
-      .then((data) => {
-        if (Array.isArray(data.presets)) {
-          setPresets(data.presets.slice(0, 5))
-        }
-      })
-      .catch(() => {
-        // 忽略加载错误，保持 presets 为空时不刷新
-      })
-  }, [])
-
-  // 上半部分：刷新 4 个输入框
+  // 上半部分：刷新 4 个输入框，最多 5 次
   const handleRefreshInputs = () => {
     if (nameRefreshCount >= 5) return
-    if (!presets.length) return
-    // 依次使用预设，超过预设数量时循环使用，但最多 5 次
-    const preset = presets[nameRefreshCount % presets.length]
+
+    const localPresets: string[][] = [
+      ['Hyperliquid Main Project', 'HYP', 'Hyper Token', 'HYP'],
+      ['Sample Project Alpha', 'ALP', 'Alpha Token', 'ALP'],
+      ['Demo Project Beta', 'BET', 'Beta Token', 'BET'],
+      ['Governance Project', 'GOV', 'Governance Token', 'GOV'],
+      ['Liquidity Project', 'LIQ', 'Liquidity Token', 'LIQ'],
+    ]
+
+    const preset = localPresets[nameRefreshCount % localPresets.length]
     setInputValues(preset)
     setNameRefreshCount((count) => count + 1)
   }
@@ -251,18 +243,15 @@ export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) 
 
   return (
     <>
-   
-      <StepTitleBar
-        title={<span suppressHydrationWarning>{texts.title}</span>}
-        barColor="rgba(225, 5, 13, 0.75)"
-        width={805}
-        marginTop={5}
-        marginBottom={82}
-      />
-
-
-      
-      
+      {!previewMode && (
+        <StepTitleBar
+          title={<span suppressHydrationWarning>{texts.title}</span>}
+          barColor="rgba(225, 5, 13, 0.75)"
+          width={805}
+          marginTop={5}
+          marginBottom={82}
+        />
+      )}
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
             <div
               style={{
@@ -343,7 +332,7 @@ export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) 
                   fontSize: px(16),
                   lineHeight: '100%',
                   letterSpacing: '0%',
-                  color: '#8C8C8C',
+                  color: inputValues[index] ? '#000000' : '#8C8C8C',
                 }}
               />
             ))}
@@ -493,7 +482,9 @@ export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) 
             ))}
           </div>
       {/* 底部 Next 按钮 */}
-      <StepNextButton onClick={onEnter} label={texts.nextButton} marginTop={0} />
+      {!previewMode && (
+        <StepNextButton onClick={onEnter} label={texts.nextButton} marginTop={0} />
+      )}
       </>
   )
 }

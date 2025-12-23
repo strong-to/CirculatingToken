@@ -166,9 +166,10 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
 
 interface StepThreeProps {
   onEnter?: () => void
+  previewMode?: boolean
 }
 
-export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeProps) {
+export default function StepThree({ onEnter, previewMode }: StepThreeProps = {} as StepThreeProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
   const [uploadedFileInfo, setUploadedFileInfo] = useState<UploadedFileInfo | null>(null)
@@ -263,13 +264,15 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
 
   return (
     <>
-      <StepTitleBar
-        title="Model Selection and Technical Documentation Compilation"
-        barColor="rgba(132, 0, 249, 0.65)"
-        width={1197}
-        marginTop={5}
-        marginBottom={82}
-      />
+      {!previewMode && (
+        <StepTitleBar
+          title="Model Selection and Technical Documentation Compilation"
+          barColor="rgba(132, 0, 249, 0.65)"
+          width={1197}
+          marginTop={5}
+          marginBottom={82}
+        />
+      )}
 
 
 
@@ -277,6 +280,8 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
 
 
 
+
+ <div style={{marginBottom: px(60)}}>
 
 
 
@@ -379,13 +384,13 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
 
 
 
-
+</div>
 
 
 
 
       {/* 底部 Next 按钮 */}
-      <StepNextButton onClick={onEnter} label="Next" />
+      {!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
       
 
      

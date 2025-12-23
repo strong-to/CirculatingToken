@@ -170,9 +170,10 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
 
 interface StepFiveProps {
   onEnter?: () => void
+  previewMode?: boolean
 }
 
-export default function StepFive({ onEnter }: StepFiveProps = {} as StepFiveProps) {
+export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as StepFiveProps) {
   const [isEnterHovered, setIsEnterHovered] = useState(false)
   const [recommendedValues, setRecommendedValues] = useState({
     proportionOfInitiators: { input: '', dropdown: '10%' },
@@ -302,13 +303,15 @@ export default function StepFive({ onEnter }: StepFiveProps = {} as StepFiveProp
 
   return (
     <>
-      <StepTitleBar
-        title="Rights Allocation and Project Governance"
-        barColor="rgba(255, 240, 5, 0.75)"
-        width={843}
-        marginTop={5}
-        marginBottom={80}
-      />
+      {!previewMode && (
+        <StepTitleBar
+          title="Rights Allocation and Project Governance"
+          barColor="rgba(255, 240, 5, 0.75)"
+          width={843}
+          marginTop={5}
+          marginBottom={80}
+        />
+      )}
 
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
             <div
@@ -512,7 +515,7 @@ export default function StepFive({ onEnter }: StepFiveProps = {} as StepFiveProp
 
 
       {/* 底部 Next 按钮 */}
-      <StepNextButton onClick={onEnter} label="Next" />
+      {!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
     </>
   )
 }

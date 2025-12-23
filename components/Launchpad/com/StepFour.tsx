@@ -172,9 +172,10 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
 
 interface StepFourProps {
   onEnter?: () => void
+  previewMode?: boolean
 }
 
-export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProps) {
+export default function StepFour({ onEnter, previewMode }: StepFourProps = {} as StepFourProps) {
   // 构造需求项选项和对应的单位映射
   const requirementOptions = [
     '自定义', // 第一条添加自定义选项
@@ -348,16 +349,18 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
 
   return (
     <>
-      <StepTitleBar
-        title="Construction Requirements and Contribution Quantification"
-        barColor="rgba(0, 132, 0, 0.65)"
-        width={1175}
-        marginTop={5}
-        marginBottom={80}
-      />
+      {!previewMode && (
+        <StepTitleBar
+          title="Construction Requirements and Contribution Quantification"
+          barColor="rgba(0, 132, 0, 0.65)"
+          width={1175}
+          marginTop={5}
+          marginBottom={80}
+        />
+      )}
 
 
-
+<div style={{marginBottom: px(60)}}>
 
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
             <div
@@ -425,7 +428,7 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
             ))}
           </div>
 
-
+          </div>
 
 
 
@@ -434,7 +437,7 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
 
 
     
-     <StepNextButton onClick={onEnter} label="Next" />
+     {!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
       
 
      

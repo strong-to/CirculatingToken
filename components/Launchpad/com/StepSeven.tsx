@@ -2,9 +2,33 @@
 
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
+import StepOne from './StepOne'
+import StepTwo from './StepTwo'
+import StepThree from './StepThree'
+import StepFour from './StepFour'
+import StepFive from './StepFive'
+import StepSix from './StepSix'
 
 interface StepSevenProps {
   onEnter?: () => void
+}
+
+interface StepSevenPreviewProps {
+  showStatus?: boolean
+}
+
+function StepSevenPreview({ showStatus }: StepSevenPreviewProps) {
+  const previewMode = !!showStatus
+  return (
+    <div>
+      <StepOne currentStep={0} />
+      <StepTwo previewMode={previewMode} />
+      <StepThree previewMode={previewMode} /> 
+      <StepFour previewMode={previewMode} />
+      <StepFive previewMode={previewMode} />
+      <StepSix previewMode={previewMode} />
+    </div>
+  )
 }
 
 export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenProps) {
@@ -39,15 +63,13 @@ export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenP
         fontSize: px(20),
         lineHeight: '100%',
         letterSpacing: '0%',
-        marginBottom: px(160),
+        marginBottom: px(60),
         color: '#8C8C8C',
       }}>Click the image below to preview the comprehensive information of the project in full.</div>
-      
-     <div>
-      预览图
-     </div>
+
+      <StepSevenPreview showStatus />
       {/* Enter 按钮 */}
-      <div className="flex items-center justify-center" style={{ marginTop: px(120), width: px(1154),marginLeft: px(110) }}>
+      <div className="flex items-center justify-center" style={{ marginTop: px(60), width: px(1154),marginLeft: px(110) }}>
         <button
           className="cursor-pointer"
           onClick={onEnter}

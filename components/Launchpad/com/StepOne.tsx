@@ -48,14 +48,21 @@ export default function StepOne({ currentStep, onEnter }: StepOneProps) {
     return input
   }
 
+  const isPreview = currentStep === 0
+
   return (
     <>
-   
-  
-      <StepTitleBar title={texts.title} barColor="rgba(8, 63, 216, 0.65)" width={815} marginTop={5} marginBottom={80} />
-      
+      {!isPreview && (
+        <StepTitleBar
+          title={texts.title}
+          barColor="rgba(8, 63, 216, 0.65)"
+          width={815}
+          marginTop={5}
+          marginBottom={80}
+        />
+      )}
       {/* 表单内容区域 */}
-      <div className="">
+      <div className="" style={{marginBottom: px(120)}}>
         {/* Function Description */}
         <div style={{marginBottom: px(82)}}>
           <div style={{marginBottom: px(20)}}>
@@ -175,7 +182,7 @@ export default function StepOne({ currentStep, onEnter }: StepOneProps) {
       /> */}
 
       {/* 底部 Next 按钮 */}
-      <StepNextButton onClick={onEnter} label={texts.nextButton} marginTop={60} />
+      {!isPreview && <StepNextButton onClick={onEnter} label={texts.nextButton} />}
       
      
 

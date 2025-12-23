@@ -8,9 +8,10 @@ import { StepTitleBar, StepNextButton } from './StepCommon'
 
 interface StepSixProps {
   onEnter?: () => void
+  previewMode?: boolean
 }
 
-export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) {
+export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as StepSixProps) {
   // Basic Functions 盒子状态
   const [basicPricingMethod, setBasicPricingMethod] = useState('')
   const [basicCustomLeftText, setBasicCustomLeftText] = useState('')
@@ -120,16 +121,18 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
 
   return (
     <>
-      <StepTitleBar
-        title="Fee Standards and Economic Data Estimation"
-        barColor="rgba(151, 151, 151, 0.65)"
-        width={910}
-        marginTop={5}
-        marginBottom={80}
-      />
+      {!previewMode && (
+        <StepTitleBar
+          title="Fee Standards and Economic Data Estimation"
+          barColor="rgba(151, 151, 151, 0.65)"
+          width={910}
+          marginTop={5}
+          marginBottom={80}
+        />
+      )}
 
 
-
+<div style={{marginTop: px(60)}} >
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
             <div
               style={{
@@ -835,10 +838,10 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
  
 
 
-
+          </div>
 
 {/* 底部 Enter 按钮 */}
-<StepNextButton onClick={onEnter} label="Next" />
+{!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
     </>
   )
 }

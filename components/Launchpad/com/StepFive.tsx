@@ -172,6 +172,7 @@ interface StepFiveProps {
 }
 
 export default function StepFive({ onEnter }: StepFiveProps = {} as StepFiveProps) {
+  const [isEnterHovered, setIsEnterHovered] = useState(false)
   const [recommendedValues, setRecommendedValues] = useState({
     proportionOfInitiators: { input: '', dropdown: '10%' },
     tokensPerUnitWork: { input: '', dropdown: '100' },
@@ -525,31 +526,34 @@ export default function StepFive({ onEnter }: StepFiveProps = {} as StepFiveProp
           ))}
 
 
-       {/* 底部 Enter 按钮 */}
-     <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
-     <button
-       className="cursor-pointer"
-       onClick={onEnter}
-       style={{
-         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-         fontWeight: 300,
-         fontStyle: 'normal',
-         fontSize: px(16),
-         lineHeight: '100%',
-         letterSpacing: '0%',
-         width: px(200),
-         height: px(50),
-         backgroundColor: '#000000',
-         borderRadius: px(4),
-         color: '#FFFFFF',
-         display: 'flex',
-         alignItems: 'center',
-         justifyContent: 'center'
-       }}
-     >
-       Enter
-     </button>
-   </div>
+      {/* 底部 Enter 按钮 */}
+      <div className="flex items-center justify-center" style={{ marginTop: px(120) }}>
+        <button
+          className="cursor-pointer"
+          onClick={onEnter}
+          style={{
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 300,
+            fontStyle: 'normal',
+            fontSize: px(14),
+            lineHeight: '100%',
+            letterSpacing: '0%',
+            width: px(230),
+            height: px(40),
+            backgroundColor: isEnterHovered ? '#000000' : '#FFFFFF',
+            borderRadius: px(4),
+            color: isEnterHovered ? '#FFFFFF' : '#000000',
+            border: `${px(1)} solid #000000`,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          onMouseEnter={() => setIsEnterHovered(true)}
+          onMouseLeave={() => setIsEnterHovered(false)}
+        >
+          <span suppressHydrationWarning>Next</span>
+        </button>
+      </div>
     </div>
   )
 }

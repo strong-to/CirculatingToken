@@ -10,6 +10,7 @@ interface StepSixProps {
 }
 
 export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) {
+  const [isEnterHovered, setIsEnterHovered] = useState(false)
   // Basic Functions 盒子状态
   const [basicPricingMethod, setBasicPricingMethod] = useState('')
   const [basicCustomLeftText, setBasicCustomLeftText] = useState('')
@@ -22,8 +23,25 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
   const [advancedCustomQuantities, setAdvancedCustomQuantities] = useState<string[]>(['', '', '', ''])
   const [advancedCustomPrices, setAdvancedCustomPrices] = useState<string[]>(['', '', '', ''])
 
-  // Refresh 按钮是否已点击
+  // Economic Data Estimation 表格：6 行（账户），7 列（月数）
+  const accountRows = [
+    'Total Users',
+    'Cumulative Operating Revenue',
+    'Cumulative Net Profit',
+    'Token Minting Amount',
+    'Token Bid and Ask Prices',
+    'Staking Ratio',
+  ]
+  const monthColumns = ['3 Months', '6 Months', '12 Months', '24Months', '36Months', '48months', '60Months']
+  const [economicTableValues, setEconomicTableValues] = useState<string[][]>(
+    () => accountRows.map(() => monthColumns.map(() => ''))
+  )
+
+  // 上面 Fee Standard 区域的 Refresh 按钮是否已点击
   const [hasRefreshed, setHasRefreshed] = useState(false)
+
+  // 下面 Economic Data Estimation 区域的 Refresh 按钮是否已点击
+  const [hasEconomicRefreshed, setHasEconomicRefreshed] = useState(false)
 
   // 右侧小格子的文案，根据下拉框选择切换
   const bySubscriptionDurationRows: [string, string][] = [
@@ -90,6 +108,16 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
     setHasRefreshed(true)
   }
 
+  const handleEconomicRefresh = () => {
+    if (hasEconomicRefreshed) return
+
+    const next = accountRows.map(() =>
+      monthColumns.map(() => randomPrice())
+    )
+    setEconomicTableValues(next)
+    setHasEconomicRefreshed(true)
+  }
+
   return (
     <div className="flex-1" style={{paddingRight: px(240)}}>
       <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(80), width: px(910) }}>
@@ -128,10 +156,11 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
                 </span>
                 Please enter the prompt information in the following text box, or click the control button on the right to let the AI <br/> help you complete the relevant work. Note: The AI can provide this service only once.
                 
-                 </div>
+             </div>
 
               <div
                 onClick={handleRefreshAll}
+                
                 style={{
                   height: px(40),
                   display: 'flex',
@@ -156,7 +185,7 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
 
 
           {/* 111 & 222 两个盒子 */}
-          <div className='w-full flex items-start justify-between' style={{ marginBottom: px(20), gap: px(15) }}>
+          <div className='w-full flex items-start justify-between' style={{ marginBottom: px(82), gap: px(15) }}>
             {/* 111 盒子 */}
             <div className='flex-1'>
             <div
@@ -649,37 +678,205 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
 
 
 
+          <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
+            <div
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(20),
+                color: '#8C8C8C',
+              }}
+            >
+              <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
+              Economic Data Estimation
+                </span>
+                Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service only once.
+                 </div>
+
+              <div
+                onClick={handleEconomicRefresh}
+                style={{
+                  height: px(40),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(14),
+                  color: '#ffffff',
+                  backgroundColor: '#000000',
+                  borderRadius: px(4),
+                  paddingLeft: px(26),
+                  paddingRight: px(26),
+                  cursor: hasEconomicRefreshed ? 'default' : 'pointer',
+                  opacity: hasEconomicRefreshed ? 0.4 : 1,
+                 
+                }}
+              >
+                Refresh 
+              </div>
+          </div>
+
+
+          {/* Economic Data Estimation 表格 */}
+          <div
+            style={{
+              border: '0.7px solid #000000',
+              borderRadius: px(2),
+              overflow: 'hidden',
+            }}
+          >
+            {/* 表头行 */}
+            <div
+              style={{
+                display: 'flex',
+                height: px(44),
+              }}
+            >
+              {/* 第一列表头 */}
+              <div
+                style={{
+                  width: px(219),
+                  borderRight: '0.7px solid #000000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  color: '#000000',
+                }}
+              >
+                Account
+              </div>
+              {/* 其余 7 列表头 */}
+              {monthColumns.map((col) => (
+                <div
+                  key={col}
+                  style={{
+                    flex: 1,
+                    borderRight: '0.7px solid #000000',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(16),
+                    color: '#000000',
+                  }}
+                >
+                  {col}
+                </div>
+              ))}
+            </div>
+
+            {/* 数据行 */}
+            {accountRows.map((account, rowIndex) => (
+              <div
+                key={account}
+                style={{
+                  display: 'flex',
+                  height: px(44),
+                  borderTop: '0.7px solid #000000',
+                }}
+              >
+                {/* 第一列：账户名称（固定文案） */}
+                <div
+                  style={{
+                    width: px(219),
+                    borderRight: '0.7px solid #000000',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    paddingLeft: px(12),
+                    paddingRight: px(12),
+                    textAlign: 'center',
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(16),
+                    color: '#000000',
+                  }}
+                >
+                  {account}
+                </div>
+
+                {/* 其余 7 列：可输入 */}
+                {monthColumns.map((col, colIndex) => (
+                  <div
+                    key={col}
+                    style={{
+                      flex: 1,
+                      borderRight: '0.7px solid #000000',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <input
+                      type="text"
+                      value={economicTableValues[rowIndex][colIndex]}
+                      onChange={(e) => {
+                        const next = economicTableValues.map((row) => [...row])
+                        next[rowIndex][colIndex] = e.target.value
+                        setEconomicTableValues(next)
+                      }}
+                      onBlur={(e) => {
+                        const formatted = formatNumberWithThousands(e.target.value)
+                        const next = economicTableValues.map((row) => [...row])
+                        next[rowIndex][colIndex] = formatted
+                        setEconomicTableValues(next)
+                      }}
+                      placeholder="666,111.00"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        border: 'none',
+                        outline: 'none',
+                        textAlign: 'center',
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontSize: px(16),
+                        color: '#000000',
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+ 
 
 
 
 
-
-
- {/* 底部 Enter 按钮 */}
- <div className="flex items-center justify-center" style={{ marginTop: px(60), marginRight: px(290) }}>
-        <button
-          className="cursor-pointer"
-          onClick={onEnter}
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            width: px(200),
-            height: px(50),
-            backgroundColor: '#000000',
-            borderRadius: px(4),
-            color: '#FFFFFF',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        >
-          Enter
-        </button>
-      </div>
+{/* 底部 Enter 按钮 */}
+<div className="flex items-center justify-center" style={{ marginTop: px(120) }}>
+       <button
+         className="cursor-pointer"
+         onClick={onEnter}
+         style={{
+           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+           fontWeight: 300,
+           fontStyle: 'normal',
+           fontSize: px(14),
+           lineHeight: '100%',
+           letterSpacing: '0%',
+           width: px(230),
+           height: px(40),
+           backgroundColor: isEnterHovered ? '#000000' : '#FFFFFF',
+           borderRadius: px(4),
+           color: isEnterHovered ? '#FFFFFF' : '#000000',
+           border: `${px(1)} solid #000000`,
+           display: 'flex',
+           alignItems: 'center',
+           justifyContent: 'center',
+         }}
+         onMouseEnter={() => setIsEnterHovered(true)}
+         onMouseLeave={() => setIsEnterHovered(false)}
+       >
+         <span suppressHydrationWarning>Next</span>
+       </button>
+     </div>
     </div>
   )
 }

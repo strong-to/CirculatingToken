@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
 import { useTexts } from './StepTwo/useTexts'
+import { StepTitleBar, StepNextButton } from './StepCommon'
 
 // 自定义下拉框组件
 interface CustomSelectProps {
@@ -164,7 +165,6 @@ export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) 
   const [uploadImages, setUploadImages] = useState<(string | null)[]>(Array(7).fill(null))
   const fileInputRefs = useRef<(HTMLInputElement | null)[]>([])
   const [hoverBoxIndex, setHoverBoxIndex] = useState<number | null>(null)
-  const [isNextHovered, setIsNextHovered] = useState(false)
 
   // 从 public 加载预设名称（最多使用前 5 组）
   useEffect(() => {
@@ -250,33 +250,19 @@ export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) 
   const templateImages = Array.from({ length: 12 }, (_, i) => `Mask${i + 1}.png`)
 
   return (
-    <div className="flex-1" style={{paddingRight:px(240)}}>
-      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(82), width: px(805) }}>
-        <div
-          className="text-[#000000]"
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(40),
-            lineHeight: px(48),
-            verticalAlign: 'middle',
-            height: px(34),
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          <span suppressHydrationWarning>{texts.title}</span>
-        </div>
-        <div
-          style={{
-            width: '100%',
-            height: px(18),
-            backgroundColor: 'rgba(225, 5, 13, 0.75)', // #ec5d62 加上透明度
-            marginTop: px(-15),
-          }}
-        ></div>
-      </div>
+    <>
+   
+      <StepTitleBar
+        title={<span suppressHydrationWarning>{texts.title}</span>}
+        barColor="rgba(225, 5, 13, 0.75)"
+        width={805}
+        marginTop={5}
+        marginBottom={82}
+      />
+
+
+      
+      
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
             <div
               style={{
@@ -506,51 +492,9 @@ export default function StepTwo({ onEnter }: StepTwoProps = {} as StepTwoProps) 
               </div>
             ))}
           </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-      {/* Enter 按钮 */}
-      <div className="flex items-center justify-center" style={{ width: px(1359) }}>
-        <button
-          className="cursor-pointer"
-          onClick={onEnter}
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(14),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            width: px(230),
-            height: px(40),
-            backgroundColor: isNextHovered ? '#000000' : '#FFFFFF',
-            borderRadius: px(4),
-            color: isNextHovered ? '#FFFFFF' : '#000000',
-            border: `${px(1)} solid #000000`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onMouseEnter={() => setIsNextHovered(true)}
-          onMouseLeave={() => setIsNextHovered(false)}
-        >
-         <span suppressHydrationWarning>{texts.nextButton}</span>
-        </button>
-      </div>
-    </div>
+      {/* 底部 Next 按钮 */}
+      <StepNextButton onClick={onEnter} label={texts.nextButton} marginTop={0} />
+      </>
   )
 }
 

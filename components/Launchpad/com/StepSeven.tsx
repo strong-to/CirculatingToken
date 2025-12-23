@@ -8,17 +8,11 @@ interface StepSevenProps {
 }
 
 export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenProps) {
-  const previewImages = [
-    'img_13.png',
-    'img_14.png',
-    'img_15.png',
-    'img_16.png',
-    'img_17.png',
-  ]
+ 
 
   return (
-    <div className="flex-1">
-      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width: px(553) }}>
+    <>
+      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width: px(426) }}>
         <div
           className="text-[#000000]"
           style={{
@@ -34,111 +28,26 @@ export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenP
             marginTop: px(5),
           }}
         >
-          Project Homepage Preview
+          Preview and Release
         </div>
         <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(8, 63, 216, 0.65)', marginTop: px(-15) }}></div>
       </div>
-      
-      {/* 图片画廊 */}
-      <div 
-        style={{ 
-          marginTop: px(40), 
-          width: '100%', 
-          overflowX: 'auto',
-          overflowY: 'hidden',
-          position: 'relative',
-        }}
-        className="scrollbar-hide"
-      >
-        <div
-          style={{
-            display: 'flex',
-            width: px(1154), // 计算：第5张从954px开始，显示200px（一半），所以总宽度是954+200=1154px
-            position: 'relative',
-            height: px(400),
-          }}
-        >
-          {previewImages.map((imageName, index) => {
-            // 计算每张图片的 marginLeft
-            let marginLeftValue: number | string = 0
-            if (index === 1) {
-              marginLeftValue = px(-106) // 第1和第2重叠106px
-            } else if (index === 2) {
-              marginLeftValue = px(-150) // 第2和第3重叠150px
-            } else if (index === 3) {
-              marginLeftValue = px(-180) // 第3和第4重叠180px
-            } else if (index === 4) {
-              marginLeftValue = px(-210) // 第4和第5重叠210px
-            }
-            
-            const isLastImage = index === previewImages.length - 1
-            
-            return (
-              <div
-                key={index}
-                style={{
-                  width: px(400),
-                  height: px(400),
-                  marginLeft: marginLeftValue,
-                  borderRadius: px(4),
-                  overflow: 'visible', // 改为visible以显示提示盒子
-                  position: 'relative',
-                  zIndex: previewImages.length - index, // 后面的图片在上层
-                  flexShrink: 0,
-                }}
-              >
-                <div style={{ width: '100%', height: '100%', borderRadius: px(4), overflow: 'hidden' }}>
-                  <Image
-                    src={`/launchpad/stepSeven/img/${imageName}`}
-                    alt={`Preview ${index + 1}`}
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                
-                {/* 只在最后一张图片上显示提示盒子 */}
-                {isLastImage && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      right: 0, // 定位在图片的最右边
-                      top: 0,
-                      width: px(48),
-                      height: px(400),
-                      backgroundColor: 'rgba(0, 0, 0, 0.1)', // 非常透明的黑色背景
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      zIndex: 11,
-                      pointerEvents: 'none', // 不阻挡滚动
-                    }}
-                  >
-                    <div
-                      style={{
-                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                        fontWeight: 300,
-                        fontStyle: 'normal',
-                        fontSize: px(16),
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#ffffff',
-                        transform: 'rotate(90deg)',
-                        whiteSpace: 'nowrap',
-                      }}
-                    >
-                      Swipe left to view more
-                    </div>
-                  </div>
-                )}
-              </div>
-            )
-          })}
-        </div>
-      </div>
 
+      <div style={{fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+        fontWeight: 300,
+        fontStyle: 'normal',
+        fontSize: px(20),
+        lineHeight: '100%',
+        letterSpacing: '0%',
+        marginBottom: px(160),
+        color: '#8C8C8C',
+      }}>Click the image below to preview the comprehensive information of the project in full.</div>
+      
+     <div>
+      预览图
+     </div>
       {/* Enter 按钮 */}
-      <div className="flex items-center justify-center" style={{ marginTop: px(40), width: px(1154),marginLeft: px(110) }}>
+      <div className="flex items-center justify-center" style={{ marginTop: px(120), width: px(1154),marginLeft: px(110) }}>
         <button
           className="cursor-pointer"
           onClick={onEnter}
@@ -159,10 +68,10 @@ export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenP
             justifyContent: 'center',
           }}
         >
-          EConfirm Publication
+          Confirm the Release
         </button>
       </div>
-    </div>
+    </>
   )
 }
 

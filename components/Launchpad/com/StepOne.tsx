@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
+import { StepTitleBar, StepNextButton } from './StepCommon'
 
 interface StepOneProps {
   currentStep: number
@@ -28,7 +29,6 @@ type StepOneTexts = typeof defaultTexts
 export default function StepOne({ currentStep, onEnter }: StepOneProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
-  const [isNextHovered, setIsNextHovered] = useState(false)
   const [texts, setTexts] = useState<StepOneTexts>(defaultTexts)
 
   // 从 public 目录加载文案
@@ -49,28 +49,10 @@ export default function StepOne({ currentStep, onEnter }: StepOneProps) {
   }
 
   return (
-    <div className="flex-1" style={{paddingRight:px(280)}} >
-       <div className="flex  flex-col  items-center justify-between" style={{ marginTop: px(5), marginBottom: px(80), width:px(815)}}>
-        <div
-        className="text-[#000000]"
-        style={{
-          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-          fontWeight: 300,
-          fontStyle: 'normal',
-          fontSize: px(40),
-          lineHeight: px(48),
-          verticalAlign: 'middle',
-          height: px(34),
-          display: 'flex',
-          alignItems: 'center',
-          marginTop: px(5),
-        }}
-      >
-       {texts.title}
-      </div>
-      <div style={{width: '100%', height: px(18), backgroundColor: 'rgba(8, 63, 216, 0.65)',marginTop: px(-15)}}></div>
-     </div>
-      
+    <>
+   
+  
+      <StepTitleBar title={texts.title} barColor="rgba(8, 63, 216, 0.65)" width={815} marginTop={5} marginBottom={80} />
       
       {/* 表单内容区域 */}
       <div className="">
@@ -192,38 +174,13 @@ export default function StepOne({ currentStep, onEnter }: StepOneProps) {
         onButtonClick={handleConfirmClick}
       /> */}
 
-       {/* 底部 Enter 按钮 */}
-     <div className="flex items-center justify-center" style={{ marginTop: px(60) }}>
-     <button
-       className="cursor-pointer"
-       onClick={onEnter}
-       style={{
-         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-         fontWeight: 300,
-         fontStyle: 'normal',
-         fontSize: px(14),
-         lineHeight: '100%',
-         letterSpacing: '0%',
-         width: px(230),
-         height: px(40),
-         backgroundColor: isNextHovered ? '#000000' : '#FFFFFF',
-         borderRadius: px(4),
-         color: isNextHovered ? '#FFFFFF' : '#000000',
-         border: `${px(1)} solid #000000`,
-         display: 'flex',
-         alignItems: 'center',
-         justifyContent: 'center',
-       }}
-       onMouseEnter={() => setIsNextHovered(true)}
-       onMouseLeave={() => setIsNextHovered(false)}
-     >
-       <span suppressHydrationWarning>{texts.nextButton}</span>
-     </button>
-   </div>
+      {/* 底部 Next 按钮 */}
+      <StepNextButton onClick={onEnter} label={texts.nextButton} marginTop={60} />
       
      
 
-    </div>
+    
+    </>
   )
 }
 

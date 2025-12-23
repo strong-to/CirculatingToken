@@ -12,6 +12,7 @@ import StepFive from './com/StepFive'
 import StepSix from './com/StepSix'
 import StepSeven from './com/StepSeven'
 import WelcomePage from './com/WelcomePage/WelcomePage'
+import SuccessPage from './com/SuccessPage'
 import { currentStepAtom } from '@/store/atoms'
 
 const steps = [
@@ -27,6 +28,7 @@ const steps = [
 export default function Launchpad() {
   const [currentStep, setCurrentStep] = useAtom(currentStepAtom)
   const [showWelcome, setShowWelcome] = useState(true)
+  const [showSuccess, setShowSuccess] = useState(false)
 
   // 处理开始按钮点击
   const handleStart = () => {
@@ -41,6 +43,9 @@ export default function Launchpad() {
   const handleNextStep = () => {
     if (currentStep < steps.length) {
       setCurrentStep(currentStep + 1)
+    } else {
+      // 所有步骤完成后显示成功页
+      setShowSuccess(true)
     }
   }
 
@@ -75,6 +80,15 @@ export default function Launchpad() {
     )
   }
 
+  // 所有步骤完成后的成功页
+  if (showSuccess) {
+    return (
+      <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]">
+        <SuccessPage />
+      </section>
+    )
+  }
+
   // 否则显示正常的步骤流程
   return (
     <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]">
@@ -92,10 +106,13 @@ export default function Launchpad() {
             willChange: 'opacity, transform',
             maxHeight: 'calc(100vh - 4.5rem - 70px)',
             paddingTop: px(48),
+            paddingRight: px(280)
           }}
         >
+        
           {renderStepContent()}
         </div>
+
       </div>
     </section>
   )

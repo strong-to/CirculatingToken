@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
+import { StepTitleBar, StepNextButton } from './StepCommon'
 import FilterSection from '@/components/TokenMarketplace/com/FilterSection'
 import ModelCardSlider from './StepThree/ModelCardSlider'
 import FileUploadArea from './StepThree/FileUploadArea'
@@ -261,26 +262,14 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
   }
 
   return (
-    <div className="flex-1" style={{paddingRight:px(240)}}>
-      <div className="flex flex-col items-center justify-between whitespace-nowrap " style={{ marginTop: px(5), marginBottom: px(82), width: px(1197) }}>
-        <div
-          className="text-[#000000]"
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(40),
-            lineHeight: px(48),
-            verticalAlign: 'middle',
-            height: px(34),
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          Model Selection and Technical Documentation Compilation
-        </div>
-        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(132, 0, 249, 0.65)', marginTop: px(-15) }}></div>
-      </div>
+    <>
+      <StepTitleBar
+        title="Model Selection and Technical Documentation Compilation"
+        barColor="rgba(132, 0, 249, 0.65)"
+        width={1197}
+        marginTop={5}
+        marginBottom={82}
+      />
 
 
 
@@ -395,39 +384,13 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
 
 
 
-       {/* 底部 Enter 按钮 */}
-     <div className="flex items-center justify-center" style={{ marginTop: px(120) }}>
-     <button
-       className="cursor-pointer"
-       onClick={onEnter}
-       style={{
-         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-         fontWeight: 300,
-         fontStyle: 'normal',
-         fontSize: px(14),
-         lineHeight: '100%',
-         letterSpacing: '0%',
-         width: px(230),
-         height: px(40),
-         backgroundColor: isNextHovered ? '#000000' : '#FFFFFF',
-         borderRadius: px(4),
-         color: isNextHovered ? '#FFFFFF' : '#000000',
-         border: `${px(1)} solid #000000`,
-         display: 'flex',
-         alignItems: 'center',
-         justifyContent: 'center',
-       }}
-       onMouseEnter={() => setIsNextHovered(true)}
-       onMouseLeave={() => setIsNextHovered(false)}
-     >
-       <span suppressHydrationWarning>Next</span>
-     </button>
-   </div>
+      {/* 底部 Next 按钮 */}
+      <StepNextButton onClick={onEnter} label="Next" />
       
 
      
 
-    </div>
+    </>
   )
 }
 

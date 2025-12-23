@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import RequirementRow, { RequirementRowData } from './RequirementRow'
+import { StepTitleBar, StepNextButton } from './StepCommon'
 
 
 // 带下拉框的输入组件：左边输入框 + 右边81px下拉框
@@ -174,7 +175,6 @@ interface StepFourProps {
 }
 
 export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProps) {
-  const [isEnterHovered, setIsEnterHovered] = useState(false)
   // 构造需求项选项和对应的单位映射
   const requirementOptions = [
     '自定义', // 第一条添加自定义选项
@@ -347,26 +347,14 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
   })
 
   return (
-    <div className="flex-1" style={{paddingRight: px(240)}}>
-      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(80), width: px(1175) }}>
-        <div
-          className="text-[#000000]"
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(40),
-            lineHeight: px(48),
-            verticalAlign: 'middle',
-            height: px(34),
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          Construction Requirements and Contribution Quantification
-        </div>
-        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(0, 132, 0, 0.65)', marginTop: px(-15) }}></div>
-      </div>
+    <>
+      <StepTitleBar
+        title="Construction Requirements and Contribution Quantification"
+        barColor="rgba(0, 132, 0, 0.65)"
+        width={1175}
+        marginTop={5}
+        marginBottom={80}
+      />
 
 
 
@@ -446,37 +434,11 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
 
 
     
-     <div className="flex items-center justify-center" style={{ marginTop: px(120) }}>
-       <button
-         className="cursor-pointer"
-         onClick={onEnter}
-         style={{
-           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-           fontWeight: 300,
-           fontStyle: 'normal',
-           fontSize: px(14),
-           lineHeight: '100%',
-           letterSpacing: '0%',
-           width: px(230),
-           height: px(40),
-           backgroundColor: isEnterHovered ? '#000000' : '#FFFFFF',
-           borderRadius: px(4),
-           color: isEnterHovered ? '#FFFFFF' : '#000000',
-           border: `${px(1)} solid #000000`,
-           display: 'flex',
-           alignItems: 'center',
-           justifyContent: 'center',
-         }}
-         onMouseEnter={() => setIsEnterHovered(true)}
-         onMouseLeave={() => setIsEnterHovered(false)}
-       >
-         <span suppressHydrationWarning>Next</span>
-       </button>
-     </div>
+     <StepNextButton onClick={onEnter} label="Next" />
       
 
      
-    </div>
+    </>
   )
 }
 

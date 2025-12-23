@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
+import { StepTitleBar, StepNextButton } from './StepCommon'
 
 // 带下拉框的输入组件：左边输入框 + 右边81px下拉框
 interface RequirementInputProps {
@@ -300,30 +301,14 @@ export default function StepFive({ onEnter }: StepFiveProps = {} as StepFiveProp
   }
 
   return (
-    <div className="flex-1" style={{paddingRight: px(240)}}>
-      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(80), width: px(843) }}>
-        <div
-          className="text-[#000000]"
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(40),
-            lineHeight: px(48),
-            verticalAlign: 'middle',
-            height: px(34),
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          Rights Allocation and Project Governance
-        </div>
-        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(255, 240, 5, 0.75)', marginTop: px(-15) }}></div>
-      </div>
-
-
-
-
+    <>
+      <StepTitleBar
+        title="Rights Allocation and Project Governance"
+        barColor="rgba(255, 240, 5, 0.75)"
+        width={843}
+        marginTop={5}
+        marginBottom={80}
+      />
 
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
             <div
@@ -526,34 +511,8 @@ export default function StepFive({ onEnter }: StepFiveProps = {} as StepFiveProp
           ))}
 
 
-      {/* 底部 Enter 按钮 */}
-      <div className="flex items-center justify-center" style={{ marginTop: px(120) }}>
-        <button
-          className="cursor-pointer"
-          onClick={onEnter}
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(14),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            width: px(230),
-            height: px(40),
-            backgroundColor: isEnterHovered ? '#000000' : '#FFFFFF',
-            borderRadius: px(4),
-            color: isEnterHovered ? '#FFFFFF' : '#000000',
-            border: `${px(1)} solid #000000`,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-          onMouseEnter={() => setIsEnterHovered(true)}
-          onMouseLeave={() => setIsEnterHovered(false)}
-        >
-          <span suppressHydrationWarning>Next</span>
-        </button>
-      </div>
-    </div>
+      {/* 底部 Next 按钮 */}
+      <StepNextButton onClick={onEnter} label="Next" />
+    </>
   )
 }

@@ -4,13 +4,13 @@ import { useState } from 'react'
 import { px } from '@/utils/pxToRem'
 import { formatNumberWithThousands } from './StepFiveNumericUtils'
 import StepSixDropdown from '@/components/Launchpad/com/StepSix/StepSixDropdown'
+import { StepTitleBar, StepNextButton } from './StepCommon'
 
 interface StepSixProps {
   onEnter?: () => void
 }
 
 export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) {
-  const [isEnterHovered, setIsEnterHovered] = useState(false)
   // Basic Functions 盒子状态
   const [basicPricingMethod, setBasicPricingMethod] = useState('')
   const [basicCustomLeftText, setBasicCustomLeftText] = useState('')
@@ -119,26 +119,14 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
   }
 
   return (
-    <div className="flex-1" style={{paddingRight: px(240)}}>
-      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(80), width: px(910) }}>
-        <div
-          className="text-[#000000]"
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(40),
-            lineHeight: px(48),
-            verticalAlign: 'middle',
-            height: px(34),
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          Fee Standards and Economic Data Estimation
-        </div>
-        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(151, 151, 151, 0.65)', marginTop: px(-15) }}></div>
-      </div>
+    <>
+      <StepTitleBar
+        title="Fee Standards and Economic Data Estimation"
+        barColor="rgba(151, 151, 151, 0.65)"
+        width={910}
+        marginTop={5}
+        marginBottom={80}
+      />
 
 
 
@@ -850,34 +838,8 @@ export default function StepSix({ onEnter }: StepSixProps = {} as StepSixProps) 
 
 
 {/* 底部 Enter 按钮 */}
-<div className="flex items-center justify-center" style={{ marginTop: px(120) }}>
-       <button
-         className="cursor-pointer"
-         onClick={onEnter}
-         style={{
-           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-           fontWeight: 300,
-           fontStyle: 'normal',
-           fontSize: px(14),
-           lineHeight: '100%',
-           letterSpacing: '0%',
-           width: px(230),
-           height: px(40),
-           backgroundColor: isEnterHovered ? '#000000' : '#FFFFFF',
-           borderRadius: px(4),
-           color: isEnterHovered ? '#FFFFFF' : '#000000',
-           border: `${px(1)} solid #000000`,
-           display: 'flex',
-           alignItems: 'center',
-           justifyContent: 'center',
-         }}
-         onMouseEnter={() => setIsEnterHovered(true)}
-         onMouseLeave={() => setIsEnterHovered(false)}
-       >
-         <span suppressHydrationWarning>Next</span>
-       </button>
-     </div>
-    </div>
+<StepNextButton onClick={onEnter} label="Next" />
+    </>
   )
 }
 

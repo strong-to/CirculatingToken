@@ -8,8 +8,7 @@ import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-import { images } from '@/components/Home/com/LetEveryShare/resources'
-import { useTexts } from '@/components/Home/com/LetEveryShare/useTexts'
+import { images, texts } from '@/components/Home/com/LetEveryShare/resources'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -19,19 +18,12 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 export default function LetEveryShare() {
-  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 15 // 1.41875rem = 22.7px
-
-  // 小图标：使用 /home/icon/img 里的第 11~20 个 icon
-  const letEveryIconImages = Array.from({ length: 10 }, (_, i) => {
-    const num = String(10 + i + 1).padStart(2, '0') // 11..20
-    return `/home/icon/img/icon${num}.png`
-  })
 
   // 检测操作系统
   useEffect(() => {
@@ -52,19 +44,18 @@ export default function LetEveryShare() {
 
         <div className="flex flex-col items-start justify-between ">
           <div className=" flex  items-start justify-between w-full ">
-              <div
-                className="text-black"
-                style={{ 
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontStyle: 'normal',
-                  fontSize: '5.125rem', // 82px = 5.125rem
-                  lineHeight: '100%',
-                  letterSpacing: '0%'
-                }}
-                suppressHydrationWarning
-              >
-              {texts.mainTitle.line1}
+            <div
+              className="text-black"
+              style={{ 
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: 'normal',
+                fontSize: '5.125rem', // 82px = 5.125rem
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
+            >
+              Let Every Share Come 
             </div>
 
             <div className="relative" style={{ width: px(88), height: px(88) }}>
@@ -117,9 +108,8 @@ export default function LetEveryShare() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
-                suppressHydrationWarning
               >
-             {texts.mainTitle.line2}
+             With Joy
               </div>
   
               <button
@@ -141,9 +131,8 @@ export default function LetEveryShare() {
                     letterSpacing: "0%",
                     textAlign: "right",
                   }}
-                  suppressHydrationWarning
                 >
-                  {texts.buttonShare}
+                  Share AI Projects and Earn
                 </span>
                 <div className="relative" style={{ width: '31px', height: '31px' }}>
                   <div
@@ -218,7 +207,7 @@ export default function LetEveryShare() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
+                <span style={{ marginRight: '0.625rem' }}>{texts.linkLearnMore}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -242,9 +231,8 @@ export default function LetEveryShare() {
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontSize: '1.75rem' // 28px
               }}
-              suppressHydrationWarning
             >
-              {texts.sectionTitle}
+              Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，点击跳转 /ProjectHub */}
             <Link href="/ProjectHub">
@@ -256,7 +244,7 @@ export default function LetEveryShare() {
                   borderRadius: '0.25rem' // 4px
                 }}
               >
-                  <span
+                <span
                   style={{
                     fontFamily: "ITC Avant Garde Gothic Pro",
                     fontWeight: 300,
@@ -265,9 +253,8 @@ export default function LetEveryShare() {
                     lineHeight: "100%",
                     letterSpacing: "0%",
                   }}
-                  suppressHydrationWarning
                 >
-                  {texts.buttonViewAll}
+                  View all projects
                 </span>
               </button>
             </Link>
@@ -374,14 +361,14 @@ export default function LetEveryShare() {
                 },
               }}
             >
-              {/* 原始5张卡片（映射 ChatContent 第 11~15 条：索引 10~14） */}
+              {/* 原始5张卡片（使用 icon_11 到 icon_15） */}
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing1}
                     alt="Investing card 1"
-                    cardIndex={10}
-                    iconSrcOverride={letEveryIconImages[0]}
+                    cardIndex={20}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_11.png"
                   />
                 </div>
               </SwiperSlide>
@@ -390,8 +377,8 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing2}
                     alt="Investing card 2"
-                    cardIndex={11}
-                    iconSrcOverride={letEveryIconImages[1]}
+                    cardIndex={21}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_12.png"
                   />
                 </div>
               </SwiperSlide>
@@ -400,8 +387,8 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing3}
                     alt="Investing card 3"
-                    cardIndex={12}
-                    iconSrcOverride={letEveryIconImages[2]}
+                    cardIndex={22}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_13.png"
                   />
                 </div>
               </SwiperSlide>
@@ -410,8 +397,8 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing4}
                     alt="Investing card 4"
-                    cardIndex={13}
-                    iconSrcOverride={letEveryIconImages[3]}
+                    cardIndex={23}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_14.png"
                   />
                 </div>
               </SwiperSlide>
@@ -420,20 +407,20 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing5}
                     alt="Investing card 5"
-                    cardIndex={14}
-                    iconSrcOverride={letEveryIconImages[4]}
+                    cardIndex={24}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_15.png"
                   />
                 </div>
               </SwiperSlide>
               
-              {/* 复制卡片以支持循环模式（映射 ChatContent 第 16~20 条：索引 15~19） */}
+              {/* 复制卡片以支持循环模式（使用 icon_16 到 icon_20） */}
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing6}
                     alt="Investing card 1"
-                    cardIndex={15}
-                    iconSrcOverride={letEveryIconImages[5]}
+                    cardIndex={25}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_16.png"
                   />
                 </div>
               </SwiperSlide>
@@ -442,8 +429,8 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing7}
                     alt="Investing card 2"
-                    cardIndex={16}
-                    iconSrcOverride={letEveryIconImages[6]}
+                    cardIndex={26}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_17.png"
                   />
                 </div>
               </SwiperSlide>
@@ -452,8 +439,8 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing8}
                     alt="Investing card 3"
-                    cardIndex={17}
-                    iconSrcOverride={letEveryIconImages[7]}
+                    cardIndex={27}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_18.png"
                   />
                 </div>
               </SwiperSlide>
@@ -462,8 +449,8 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing9}
                     alt="Investing card 4"
-                    cardIndex={18}
-                    iconSrcOverride={letEveryIconImages[8]}
+                    cardIndex={28}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_19.png"
                   />
                 </div>
               </SwiperSlide>
@@ -472,8 +459,8 @@ export default function LetEveryShare() {
                   <BlueSquareCard
                     src={images.investing10}
                     alt="Investing card 5"
-                    cardIndex={19}
-                    iconSrcOverride={letEveryIconImages[9]}
+                    cardIndex={29}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_20.png"
                   />
                 </div>
               </SwiperSlide>

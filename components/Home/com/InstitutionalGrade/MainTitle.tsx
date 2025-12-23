@@ -1,11 +1,9 @@
 'use client'
 
 import { px } from '@/utils/pxToRem'
-import { useTexts } from './useTexts'
+import { texts } from './resources'
 
 export default function MainTitle() {
-  const texts = useTexts();
-  
   return (
     <div 
       className="mt-[ leading-[100%]" 
@@ -14,7 +12,6 @@ export default function MainTitle() {
         marginTop: px(80),
         width: '100%'
       }}
-      suppressHydrationWarning
     >
       <div 
         className="font-light leading-[100%] text-black break-words cursor-pointer" 
@@ -24,7 +21,6 @@ export default function MainTitle() {
           whiteSpace: 'normal',
           wordBreak: 'break-word'
         }}
-        suppressHydrationWarning
       >
         {texts.mainTitle.line1}
       </div>
@@ -36,7 +32,6 @@ export default function MainTitle() {
           whiteSpace: 'normal',
           wordBreak: 'break-word'
         }}
-        suppressHydrationWarning
       >
         {texts.mainTitle.line2}
       </div>

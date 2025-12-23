@@ -1,11 +1,8 @@
 'use client'
 
 import { px } from "@/utils/pxToRem"
-import { useTexts } from './useTexts'
 
 export default function CollapsiblePanelContent() {
-  const texts = useTexts();
-  
   return (
     <div className="w-full relative"> {/* 346px = 21.625rem */}
       <div 
@@ -18,10 +15,8 @@ export default function CollapsiblePanelContent() {
           lineHeight: px(60), // 60px (PostCSS会自动转换为rem)
           letterSpacing: '0%'
         }}
-        suppressHydrationWarning
       >
-{texts.collapsibleContent}
-      </div>
+Just like traditional software, AI needs to be researched, deployed, and continuously iterated. But instead of leaving all of that to a single centralized company, THE4 invites builders from all backgrounds to collaborate openly. You can propose ideas, join existing teams, or contribute to live AI projects. In return, builders receive meaningful allocations of rights tokens for the AI projects (Contracts) they help grow, as well as tokens from the THE4 Community (Covenant).      </div>
     </div>
   )
 }

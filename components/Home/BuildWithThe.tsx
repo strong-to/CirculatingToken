@@ -7,7 +7,6 @@ import CollapsiblePanelContent from '@/components/Home/com/BuildWithThe/Collapsi
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { images } from '@/components/Home/com/BuildWithThe/resources'
-import { useTexts } from '@/components/Home/com/BuildWithThe/useTexts'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -17,7 +16,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 export default function  BuildWithThe() {
-  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -25,10 +23,10 @@ export default function  BuildWithThe() {
   
   const gap = 15 // 1.41875rem = 22.7px
 
-  // 小图标：使用 /home/icon/img 里的第 21~30 个 icon
+  // 小图标：使用 /tokenMarketplace/ContentCard/img/icon 里的最后 10 个 icon（icon_21 到 icon_30）
   const buildWithIconImages = Array.from({ length: 10 }, (_, i) => {
-    const num = String(20 + i + 1).padStart(2, '0') // 21..30
-    return `/home/icon/img/icon${num}.png`
+    const num = 21 + i // 21..30
+    return `/tokenMarketplace/ContentCard/img/icon/icon_${num}.png`
   })
 
   // 检测操作系统
@@ -57,9 +55,8 @@ export default function  BuildWithThe() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
-              suppressHydrationWarning
             >
-             {texts.mainTitle.line1}
+             Build With The Brightest Minds 
             </div>
 
             <div className="relative flex items-center">
@@ -97,9 +94,8 @@ export default function  BuildWithThe() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
-                suppressHydrationWarning
               >
-            {texts.mainTitle.line2}
+            Worldwide
               </div>
               
               <button
@@ -110,7 +106,7 @@ export default function  BuildWithThe() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' suppressHydrationWarning>{texts.buttonContribute}</span>
+              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >Contribute AI Projects and Earn</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -182,7 +178,7 @@ export default function  BuildWithThe() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
+                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -206,12 +202,11 @@ export default function  BuildWithThe() {
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontSize: '1.75rem' // 28px
               }}
-              suppressHydrationWarning
             >
-              {texts.sectionTitle}
+              Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-              <button
+            <button
               className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
               style={{
                 width: '17.296875rem', // 276.75px
@@ -220,7 +215,7 @@ export default function  BuildWithThe() {
                 borderRadius: '0.25rem' // 4px
               }}
             >
-              <span suppressHydrationWarning>{texts.buttonViewAll}</span>
+              View all projects
             </button>
           </div>
 

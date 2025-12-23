@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
+import RequirementRow, { RequirementRowData } from './RequirementRow'
+
 
 // 带下拉框的输入组件：左边输入框 + 右边81px下拉框
 interface RequirementInputProps {
@@ -56,7 +58,7 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
             borderTopLeftRadius: px(4),
             borderBottomLeftRadius: px(4),
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontSize: px(12),
+            fontSize: px(14),
             color: readonly && !inputValue ? '#000000' : '#000000',
             backgroundColor: '#FFFFFF',
             outline: 'none',
@@ -84,7 +86,7 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
             <span
               style={{
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontSize: px(12),
+                fontSize: px(14),
                 color: '#000000',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
@@ -140,7 +142,7 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
                     fontStyle: 'normal',
-                    fontSize: px(12),
+                    fontSize: px(14),
                     lineHeight: '100%',
                     letterSpacing: '0%',
                     color: dropdownValue === option ? '#FFFFFF' : '#000000',
@@ -172,6 +174,138 @@ interface StepFourProps {
 }
 
 export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProps) {
+  // 构造需求项选项和对应的单位映射
+  const requirementOptions = [
+    '自定义', // 第一条添加自定义选项
+    'CPU Computing Power',
+    'GPU Computing Power',
+    'Language Generation Model API',
+    'Image Generation Model API',
+    'System Architecture',
+    'Data Collection',
+    'Data Labeling',
+    'Visual Design',
+    'Interaction Design',
+    'System Testing',
+    'Other',
+  ]
+
+  const requirementUnitMap: Record<string, string> = {
+    'CPU Computing Power': 'GOPS',
+    'GPU Computing Power': 'GOPS',
+    'Language Generation Model API': 'Tokens',
+    'Image Generation Model API': 'Tokens',
+    'System Architecture': 'ELOC',
+    'Data Collection': 'DataPoint',
+    'Data Labeling': 'DataPoint',
+    'Visual Design': 'Tasks',
+    'Interaction Design': 'Tasks',
+    'System Testing': 'FP',
+    'Other': 'USD',
+  }
+
+  // 12 行数据的状态
+  const [requirementRows, setRequirementRows] = useState<RequirementRowData[]>(
+    Array.from({ length: 12 }, () => ({
+      selectedRequirement: '',
+      selectedUnit: '',
+      customRequirement: '',
+      customUnit: '',
+      quantity: '',
+      cause: '',
+    }))
+  )
+  
+  // 按钮是否已被点击
+  const [isRefreshClicked, setIsRefreshClicked] = useState(false)
+  
+  // 更新某一行数据
+  const handleRowDataChange = (index: number, data: RequirementRowData) => {
+    const newRows = [...requirementRows]
+    newRows[index] = data
+    setRequirementRows(newRows)
+  }
+  
+  // 生成随机数字（带千分位和小数点后两位）
+  const generateRandomNumber = (): string => {
+    const integer = Math.floor(Math.random() * 1000000) + 1 // 1 到 1000000
+    const decimal = Math.floor(Math.random() * 100) // 0 到 99
+    const decimalStr = decimal.toString().padStart(2, '0')
+    
+    // 格式化千分位
+    const formattedInteger = integer.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    
+    return `${formattedInteger}.${decimalStr}`
+  }
+  
+  // 处理刷新按钮点击
+  const handleRefreshClick = () => {
+    if (isRefreshClicked) return // 如果已经点击过，直接返回
+    
+    // 生成随机数据填充所有行
+    const newRows = requirementRows.map(() => {
+      // 随机选择一个需求项（排除"自定义"）
+      const nonCustomOptions = requirementOptions.filter(opt => opt !== '自定义')
+      const randomRequirement = nonCustomOptions[Math.floor(Math.random() * nonCustomOptions.length)]
+      const randomUnit = requirementUnitMap[randomRequirement] || ''
+      
+      return {
+        selectedRequirement: randomRequirement,
+        selectedUnit: randomUnit,
+        customRequirement: '',
+        customUnit: '',
+        quantity: generateRandomNumber(),
+        cause: generateRandomNumber(),
+      }
+    })
+    
+    setRequirementRows(newRows)
+    setIsRefreshClicked(true)
+  }
+  
+  
+  // 处理数字输入（只允许数字和小数点）
+  const handleNumberInput = (value: string, setter: (value: string) => void) => {
+    // 只允许数字和小数点
+    const cleaned = value.replace(/[^\d.]/g, '')
+    // 确保只有一个小数点
+    const parts = cleaned.split('.')
+    if (parts.length > 2) {
+      setter(parts[0] + '.' + parts.slice(1).join(''))
+    } else {
+      setter(cleaned)
+    }
+  }
+  
+  // 格式化数字输入（失焦时调用）
+  const formatNumberOnBlur = (value: string, setter: (value: string) => void) => {
+    if (!value) {
+      setter('')
+      return
+    }
+    
+    // 移除所有非数字字符（除了小数点）
+    const numericValue = value.replace(/[^\d.]/g, '')
+    if (!numericValue) {
+      setter('')
+      return
+    }
+    
+    // 分割整数和小数部分
+    const parts = numericValue.split('.')
+    const integerPart = parts[0] || '0'
+    const decimalPart = parts[1] || ''
+    
+    // 格式化整数部分（千分位）
+    const formattedInteger = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+    
+    // 限制小数部分最多两位，并补齐到两位
+    const formattedDecimal = decimalPart.slice(0, 2).padEnd(2, '0')
+    
+    // 返回格式化后的值
+    setter(`${formattedInteger}.${formattedDecimal}`)
+  }
+
   const [recommendedValues, setRecommendedValues] = useState({
     gpuComputing: { input: '', dropdown: '1' },
     gpuComputing2: { input: '', dropdown: '1' },
@@ -210,22 +344,10 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
     field9: { input: '', dropdown: '1' },
     field10: { input: '', dropdown: '1' },
   })
-  
-  // 检查 Confirm Requirements 部分所有输入框是否都有值
-  const isConfirmRequirementsFilled = () => {
-    const fields = Object.values(confirmRequirementsValues)
-    return fields.every(field => field.input.trim() !== '' && field.dropdown.trim() !== '')
-  }
-  
-  // 检查 Confirm 部分所有输入框是否都有值
-  const isConfirmFilled = () => {
-    const fields = Object.values(confirmValues)
-    return fields.every(field => field.input.trim() !== '' && field.dropdown.trim() !== '')
-  }
 
   return (
-    <div className="flex-1">
-      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width: px(720) }}>
+    <div className="flex-1" style={{paddingRight: px(240)}}>
+      <div className="flex flex-col items-center justify-between" style={{ marginTop: px(5), marginBottom: px(80), width: px(1175) }}>
         <div
           className="text-[#000000]"
           style={{
@@ -240,434 +362,90 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
             alignItems: 'center',
           }}
         >
-          Quantification of Contribution Value
+          Construction Requirements and Contribution Quantification
         </div>
-        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(8, 63, 216, 0.65)', marginTop: px(-15) }}></div>
-      </div>
-      
-      {/* Recommended Requirements */}
-      <div style={{ marginTop: px(40) }}>
-        {/* <div> */}
-
-       
-        <div
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontSize: px(20),
-            color: '#000000',
-            marginBottom: px(20),
-          }}
-        >
-          Recommended Requirements
-        </div>
-
-
-    <div className='flex items-start' style={{ gap: px(15) }}>
-      {/* 左侧两行字段 */}
-      <div>
-        <div className="flex" style={{ marginBottom: px(15), gap: px(15) }}>
-          <RequirementInput
-            label="GPU Computing Power"
-            inputValue={recommendedValues.gpuComputing.input}
-            dropdownValue={recommendedValues.gpuComputing.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, gpuComputing: { ...recommendedValues.gpuComputing, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, gpuComputing: { ...recommendedValues.gpuComputing, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="GPU Computing Power"
-            inputValue={recommendedValues.gpuComputing2.input}
-            dropdownValue={recommendedValues.gpuComputing2.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, gpuComputing2: { ...recommendedValues.gpuComputing2, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, gpuComputing2: { ...recommendedValues.gpuComputing2, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="Data Annotation"
-            inputValue={recommendedValues.dataAnnotation1.input}
-            dropdownValue={recommendedValues.dataAnnotation1.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, dataAnnotation1: { ...recommendedValues.dataAnnotation1, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, dataAnnotation1: { ...recommendedValues.dataAnnotation1, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="System Architecture"
-            inputValue={recommendedValues.systemArchitecture.input}
-            dropdownValue={recommendedValues.systemArchitecture.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, systemArchitecture: { ...recommendedValues.systemArchitecture, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, systemArchitecture: { ...recommendedValues.systemArchitecture, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="System Testing"
-            inputValue={recommendedValues.systemTesting.input}
-            dropdownValue={recommendedValues.systemTesting.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, systemTesting: { ...recommendedValues.systemTesting, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, systemTesting: { ...recommendedValues.systemTesting, dropdown: val } })}
-            readonly={true}
-          />
-        </div>
-        
-        <div className="flex" style={{ gap: px(15) }}>
-          <RequirementInput
-            label="Language Generation Model API"
-            inputValue={recommendedValues.languageModel.input}
-            dropdownValue={recommendedValues.languageModel.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, languageModel: { ...recommendedValues.languageModel, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, languageModel: { ...recommendedValues.languageModel, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="Image Generation Model API"
-            inputValue={recommendedValues.imageGeneration.input}
-            dropdownValue={recommendedValues.imageGeneration.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, imageGeneration: { ...recommendedValues.imageGeneration, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, imageGeneration: { ...recommendedValues.imageGeneration, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="Data Annotation"
-            inputValue={recommendedValues.dataAnnotation2.input}
-            dropdownValue={recommendedValues.dataAnnotation2.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, dataAnnotation2: { ...recommendedValues.dataAnnotation2, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, dataAnnotation2: { ...recommendedValues.dataAnnotation2, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="Interaction Design"
-            inputValue={recommendedValues.interactionDesign.input}
-            dropdownValue={recommendedValues.interactionDesign.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, interactionDesign: { ...recommendedValues.interactionDesign, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, interactionDesign: { ...recommendedValues.interactionDesign, dropdown: val } })}
-            readonly={true}
-          />
-          <RequirementInput
-            label="Visual Design"
-            inputValue={recommendedValues.visualDesign.input}
-            dropdownValue={recommendedValues.visualDesign.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setRecommendedValues({ ...recommendedValues, visualDesign: { ...recommendedValues.visualDesign, input: val } })}
-            onDropdownChange={(val) => setRecommendedValues({ ...recommendedValues, visualDesign: { ...recommendedValues.visualDesign, dropdown: val } })}
-            readonly={true}
-          />
-        </div>
-      </div>
-      
-      {/* 右侧按钮 - 垂直居中 */}
-      <div className='flex items-center' style={{ alignSelf: 'stretch' }}>
-        <button
-          className="cursor-pointer transition-colors"
-          style={{
-            width: px(128),
-            height: px(44),
-            border: `0.5px solid #000000`,
-            borderRadius: px(4),
-            backgroundColor: '#000000',
-            color: '#FFFFFF',
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontSize: px(14),
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          Renovate
-        </button>
-      </div>
-    </div>
-
-
-      </div>
-
-      {/* Confirm Requirements  */}
-      <div style={{ marginTop: px(40) }}>
-        {/* <div> */}
-
-       
-        <div
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontSize: px(20),
-            color: '#000000',
-            marginBottom: px(20),
-          }}
-        >
-          Confirm Requirements 
-        </div>
-
-
-    <div className='flex items-start' style={{ gap: px(15) }}>
-      {/* 左侧两行字段 */}
-      <div>
-        <div className="flex" style={{ marginBottom: px(15), gap: px(15) }}>
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field1.input}
-            dropdownValue={confirmRequirementsValues.field1.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field1: { ...confirmRequirementsValues.field1, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field1: { ...confirmRequirementsValues.field1, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field2.input}
-            dropdownValue={confirmRequirementsValues.field2.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field2: { ...confirmRequirementsValues.field2, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field2: { ...confirmRequirementsValues.field2, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field3.input}
-            dropdownValue={confirmRequirementsValues.field3.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field3: { ...confirmRequirementsValues.field3, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field3: { ...confirmRequirementsValues.field3, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field4.input}
-            dropdownValue={confirmRequirementsValues.field4.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field4: { ...confirmRequirementsValues.field4, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field4: { ...confirmRequirementsValues.field4, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field5.input}
-            dropdownValue={confirmRequirementsValues.field5.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field5: { ...confirmRequirementsValues.field5, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field5: { ...confirmRequirementsValues.field5, dropdown: val } })}
-          />
-        </div>
-        
-        <div className="flex" style={{ gap: px(15) }}>
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field6.input}
-            dropdownValue={confirmRequirementsValues.field6.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field6: { ...confirmRequirementsValues.field6, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field6: { ...confirmRequirementsValues.field6, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field7.input}
-            dropdownValue={confirmRequirementsValues.field7.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field7: { ...confirmRequirementsValues.field7, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field7: { ...confirmRequirementsValues.field7, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field8.input}
-            dropdownValue={confirmRequirementsValues.field8.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field8: { ...confirmRequirementsValues.field8, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field8: { ...confirmRequirementsValues.field8, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field9.input}
-            dropdownValue={confirmRequirementsValues.field9.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field9: { ...confirmRequirementsValues.field9, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field9: { ...confirmRequirementsValues.field9, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmRequirementsValues.field10.input}
-            dropdownValue={confirmRequirementsValues.field10.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field10: { ...confirmRequirementsValues.field10, input: val } })}
-            onDropdownChange={(val) => setConfirmRequirementsValues({ ...confirmRequirementsValues, field10: { ...confirmRequirementsValues.field10, dropdown: val } })}
-          />
-        </div>
-      </div>
-      
-      {/* 右侧按钮 - 垂直居中 */}
-      <div className='flex items-center' style={{ alignSelf: 'stretch' }}>
-        <button
-          className="cursor-pointer transition-colors"
-          style={{
-            width: px(128),
-            height: px(44),
-            border: `0.5px solid #000000`,
-            borderRadius: px(4),
-            backgroundColor: isConfirmRequirementsFilled() ? '#000000' : 'transparent',
-            color: isConfirmRequirementsFilled() ? '#FFFFFF' : '#000000',
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontSize: px(14),
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          Submit
-        </button>
-      </div>
-    </div>
-
-
+        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(0, 132, 0, 0.65)', marginTop: px(-15) }}></div>
       </div>
 
 
-      {/* Confirm */}
-      <div style={{ marginTop: px(40) }}>
-        {/* <div> */}
-
-       
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: px(8),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontSize: px(20),
-            color: '#000000',
-            marginBottom: px(20),
-          }}
-        >
-            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg" >
-            <path d="M8.64078 8.84354L7.11974 10L4.95146 6.80272L2.81553 9.96599L1.2945 8.80952L3.52751 5.68027L0 4.52381L0.582524 2.61905L4.11003 3.91157L4.07767 0H5.95469L5.88997 3.94558L9.41748 2.68707L10 4.55782L6.44013 5.71429L8.64078 8.84354Z" fill="#FF0000"/>
-          </svg>
-          Confirm
-        </div>
 
 
-    <div className='flex items-start' style={{ gap: px(15) }}>
-      {/* 左侧两行字段 */}
-      <div>
-        <div className="flex" style={{ marginBottom: px(15), gap: px(15) }}>
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field1.input}
-            dropdownValue={confirmValues.field1.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field1: { ...confirmValues.field1, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field1: { ...confirmValues.field1, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field2.input}
-            dropdownValue={confirmValues.field2.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field2: { ...confirmValues.field2, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field2: { ...confirmValues.field2, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field3.input}
-            dropdownValue={confirmValues.field3.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field3: { ...confirmValues.field3, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field3: { ...confirmValues.field3, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field4.input}
-            dropdownValue={confirmValues.field4.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field4: { ...confirmValues.field4, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field4: { ...confirmValues.field4, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field5.input}
-            dropdownValue={confirmValues.field5.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field5: { ...confirmValues.field5, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field5: { ...confirmValues.field5, dropdown: val } })}
-          />
-        </div>
-        
-        <div className="flex" style={{ gap: px(15) }}>
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field6.input}
-            dropdownValue={confirmValues.field6.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field6: { ...confirmValues.field6, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field6: { ...confirmValues.field6, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field7.input}
-            dropdownValue={confirmValues.field7.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field7: { ...confirmValues.field7, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field7: { ...confirmValues.field7, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field8.input}
-            dropdownValue={confirmValues.field8.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field8: { ...confirmValues.field8, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field8: { ...confirmValues.field8, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field9.input}
-            dropdownValue={confirmValues.field9.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field9: { ...confirmValues.field9, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field9: { ...confirmValues.field9, dropdown: val } })}
-          />
-          <RequirementInput
-            label=""
-            inputValue={confirmValues.field10.input}
-            dropdownValue={confirmValues.field10.dropdown}
-            options={['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '1']}
-            onInputChange={(val) => setConfirmValues({ ...confirmValues, field10: { ...confirmValues.field10, input: val } })}
-            onDropdownChange={(val) => setConfirmValues({ ...confirmValues, field10: { ...confirmValues.field10, dropdown: val } })}
-          />
-        </div>
-      </div>
-      
-      {/* 右侧按钮 - 垂直居中 */}
-      <div className='flex items-center' style={{ alignSelf: 'stretch' }}>
-        <button
-          className="cursor-pointer transition-colors"
-          style={{
-            width: px(128),
-            height: px(44),
-            border: `0.5px solid #000000`,
-            borderRadius: px(4),
-            backgroundColor: isConfirmFilled() ? '#000000' : 'transparent',
-            color: isConfirmFilled() ? '#FFFFFF' : '#000000',
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontSize: px(14),
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          Confirm
-        </button>
-      </div>
-    </div>
+      <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
+            <div
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(20),
+                color: '#8C8C8C',
+              }}
+            >
+              <span style={{ color: '#8C8C8C', marginRight: px(8), fontSize: px(20), fontWeight: 300 }} >
+              Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you <br/> complete the relevant work. Note: The AI can provide this service once.
+                </span>
+
+                <span  />
+            </div>
+
+              <div
+                onClick={handleRefreshClick}
+                style={{
+                  paddingLeft: px(26),
+                  paddingRight: px(26),
+                  height: px(40),
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(14),
+                  color: '#ffffff',
+                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
+                  borderRadius: px(4),
+                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
+                  opacity: isRefreshClicked ? 0.6 : 1,
+                }}
+              >
+             Refresh
+              
+              </div>
+          </div>
 
 
-      </div>
+          <div 
+            className='w-full flex flex-wrap items-start justify-between'
+            style={{
+              gap: `${px(20)} ${px(15)}`,
+            }}
+          >
+            {requirementRows.map((rowData, index) => (
+              <div
+                key={index}
+                style={{
+                  width: `calc(50% - ${px(7.5)})`, // 两列布局，减去一半的间距
+                }}
+              >
+                <RequirementRow
+                  data={rowData}
+                  requirementOptions={requirementOptions}
+                  requirementUnitMap={requirementUnitMap}
+                  onDataChange={(data) => handleRowDataChange(index, data)}
+                  handleNumberInput={handleNumberInput}
+                  formatNumberOnBlur={formatNumberOnBlur}
+                />
+              </div>
+            ))}
+          </div>
 
-     
 
-       {/* 底部 Enter 按钮 */}
-     <div className="flex items-center justify-center " style={{ marginTop: px(60) ,marginRight: px(290)}}>
+
+
+
+
+
+
+
+    
+     <div className="flex items-center justify-center " style={{ marginTop: px(120)}}>
      <button
        className="cursor-pointer"
        onClick={onEnter}
@@ -697,3 +475,4 @@ export default function StepFour({ onEnter }: StepFourProps = {} as StepFourProp
     </div>
   )
 }
+

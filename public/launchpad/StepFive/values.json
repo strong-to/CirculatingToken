@@ -1,0 +1,15 @@
+{
+  "founderTokenProportion": "15.00",
+  "proposalInitiationTokenProportion": "5.00",
+  "adjustmentPassRateOfContributionWeight": "66.70",
+  "passiveResponsePassRate": "50.00",
+  "adjustmentPassRateOfMintingIndex": "66.70",
+  "projectLiquidationPassRate": "80.00",
+  "tokenMintingQuantityPerPhase": "1,000,000.00",
+  "tokenMintingIncrementalDifference": "1.50",
+  "tokenMintingIndex": "1.024",
+  "aaa": "0.00",
+  "bbb": "0.00",
+  "ccc": "0.00"
+}
+

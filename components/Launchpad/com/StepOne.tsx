@@ -50,7 +50,7 @@ export default function StepOne({ currentStep, onEnter }: StepOneProps) {
 
   return (
     <div className="flex-1" style={{paddingRight:px(280)}} >
-       <div className="flex  flex-col  items-center justify-between" style={{ marginTop: px(5), marginBottom: px(30), width:px(815)}}>
+       <div className="flex  flex-col  items-center justify-between" style={{ marginTop: px(5), marginBottom: px(80), width:px(815)}}>
         <div
         className="text-[#000000]"
         style={{

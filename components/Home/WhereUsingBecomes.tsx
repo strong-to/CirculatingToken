@@ -7,7 +7,6 @@ import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/UseCaseSection/CollapsiblePanelContent'
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
 import { images } from '@/components/Home/com/WhereUsingBecomes/resources'
-import { useTexts } from '@/components/Home/com/WhereUsingBecomes/useTexts'
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel } from 'swiper/modules'
@@ -16,19 +15,12 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 export default function WhereUsingBecomes() {
-  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 15 // 1.41875rem = 22.7px
-
-  // Home 专用的小图标（前 10 个）
-  const homeIconImages = Array.from({ length: 10 }, (_, i) => {
-    const num = String(i + 1).padStart(2, '0')
-    return `/home/icon/img/icon${num}.png`
-  })
 
   // 检测操作系统
   useEffect(() => {
@@ -56,9 +48,8 @@ export default function WhereUsingBecomes() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
-              suppressHydrationWarning
             >
-              {texts.mainTitle.line1}
+              Where Using Becomes
             </div>
 
             <div className="relative flex items-center ">
@@ -94,9 +85,8 @@ export default function WhereUsingBecomes() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
-                suppressHydrationWarning
               >
-             {texts.mainTitle.line2}
+             Investing
               </div>
   
               <button
@@ -118,9 +108,8 @@ export default function WhereUsingBecomes() {
                     letterSpacing: "0%",
                     textAlign: "right",
                   }}
-                  suppressHydrationWarning
                 >
-                  {texts.buttonUseApps}
+                  Use AI Apps and Earn
                 </span>
                 <div className="relative" style={{ width: '31px', height: '31px' }}>
                   <div
@@ -190,7 +179,7 @@ export default function WhereUsingBecomes() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
+                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -214,9 +203,8 @@ export default function WhereUsingBecomes() {
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontSize: '1.75rem' // 28px
               }}
-              suppressHydrationWarning
             >
-              {texts.sectionTitle}
+              Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，点击跳转 /ProjectHub */}
             <Link href="/ProjectHub">
@@ -237,9 +225,8 @@ export default function WhereUsingBecomes() {
                     lineHeight: "100%",
                     letterSpacing: "0%",
                   }}
-                  suppressHydrationWarning
                 >
-                  {texts.buttonViewAll}
+                  View all projects
                 </span>
               </button>
             </Link>
@@ -344,14 +331,14 @@ export default function WhereUsingBecomes() {
                 },
               }}
             >
-              {/* 原始5张卡片（映射 ChatContent 第 1~5 条 & Home 专用前 5 个 icon） */}
+              {/* 原始5张卡片 */}
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing1}
                     alt="Investing card 1"
                     cardIndex={0}
-                    iconSrcOverride={homeIconImages[0]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_1.png"
                   />
                 </div>
               </SwiperSlide>
@@ -361,7 +348,7 @@ export default function WhereUsingBecomes() {
                     src={images.investing2}
                     alt="Investing card 2"
                     cardIndex={1}
-                    iconSrcOverride={homeIconImages[1]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_2.png"
                   />
                 </div>
               </SwiperSlide>
@@ -372,7 +359,7 @@ export default function WhereUsingBecomes() {
                     src={images.investing3}
                     alt="Investing card 3"
                     cardIndex={2}
-                    iconSrcOverride={homeIconImages[2]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_3.png"
                   />
                 </div>
               </SwiperSlide>
@@ -384,7 +371,7 @@ export default function WhereUsingBecomes() {
                     src={images.investing4}
                     alt="Investing card 4"
                     cardIndex={3}
-                    iconSrcOverride={homeIconImages[3]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_4.png"
                   />
                 </div>
               </SwiperSlide>
@@ -394,19 +381,19 @@ export default function WhereUsingBecomes() {
                     src={images.investing5}
                     alt="Investing card 5"
                     cardIndex={4}
-                    iconSrcOverride={homeIconImages[4]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_5.png"
                   />
                 </div>
               </SwiperSlide>
               
-              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides），继续使用前 10 个 icon */}
+              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
               <SwiperSlide>
                 <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
                   <BlueSquareCard
                     src={images.investing6}
                     alt="Investing card 1"
                     cardIndex={5}
-                    iconSrcOverride={homeIconImages[5]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_6.png"
                   />
                 </div>
               </SwiperSlide>
@@ -416,7 +403,7 @@ export default function WhereUsingBecomes() {
                     src={images.investing7}
                     alt="Investing card 2"
                     cardIndex={6}
-                    iconSrcOverride={homeIconImages[6]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_7.png"
                   />
                 </div>
               </SwiperSlide>
@@ -426,7 +413,7 @@ export default function WhereUsingBecomes() {
                     src={images.investing8}
                     alt="Investing card 3"
                     cardIndex={7}
-                    iconSrcOverride={homeIconImages[7]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_8.png"
                   />
                 </div>
               </SwiperSlide>
@@ -436,7 +423,7 @@ export default function WhereUsingBecomes() {
                     src={images.investing9}
                     alt="Investing card 4"
                     cardIndex={8}
-                    iconSrcOverride={homeIconImages[8]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_9.png"
                   />
                 </div>
               </SwiperSlide>
@@ -446,7 +433,7 @@ export default function WhereUsingBecomes() {
                     src={images.investing10}
                     alt="Investing card 5"
                     cardIndex={9}
-                    iconSrcOverride={homeIconImages[9]}
+                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_10.png"
                   />
                 </div>
               </SwiperSlide>

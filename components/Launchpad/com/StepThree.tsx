@@ -172,6 +172,8 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
   const [uploadedFileInfo, setUploadedFileInfo] = useState<UploadedFileInfo | null>(null)
   const [isNextHovered, setIsNextHovered] = useState(false)
+  const [isRefreshClicked, setIsRefreshClicked] = useState(false)
+  const [presetContent, setPresetContent] = useState<string>('')
 
 
   const [viewMode, setViewMode] = useState<'Chat' | 'List'>('List')
@@ -225,6 +227,38 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
     return fields.every(field => field.input.trim() !== '' && field.dropdown.trim() !== '')
   }
   
+  // 生成随机文字内容
+  const generateRandomContent = () => {
+    const paragraphs = [
+      'This document outlines the technical specifications and requirements for the AI project development.',
+      'The project aims to create an innovative solution that leverages advanced machine learning algorithms to solve complex problems.',
+      'Key components include data preprocessing, model training, and deployment infrastructure.',
+      'We will utilize state-of-the-art neural network architectures to achieve optimal performance.',
+      'The development process will follow agile methodologies with regular iterations and feedback cycles.',
+      'Quality assurance measures will be implemented throughout the project lifecycle.',
+      'Documentation and code reviews are essential for maintaining high standards.',
+      'The team will collaborate closely to ensure seamless integration of all system components.',
+    ]
+    
+    // 随机选择3-5段文字
+    const numParagraphs = Math.floor(Math.random() * 3) + 3
+    const selectedParagraphs = []
+    for (let i = 0; i < numParagraphs; i++) {
+      const randomIndex = Math.floor(Math.random() * paragraphs.length)
+      selectedParagraphs.push(paragraphs[randomIndex])
+    }
+    
+    return selectedParagraphs.join('\n\n')
+  }
+
+  // 处理 Refresh 按钮点击
+  const handleRefreshClick = () => {
+    if (!isRefreshClicked) {
+      const randomContent = generateRandomContent()
+      setPresetContent(randomContent)
+      setIsRefreshClicked(true)
+    }
+  }
 
   return (
     <div className="flex-1" style={{paddingRight:px(240)}}>
@@ -313,8 +347,8 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
             </div>
 
             <div
+                onClick={handleRefreshClick}
                 style={{
-                
                   height: px(40),
                   display: 'flex',
                   alignItems: 'center',
@@ -323,11 +357,13 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
                   fontWeight: 300,
                   fontSize: px(14),
                   color: '#ffffff',
-                  backgroundColor: '#000000',
+                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
                   borderRadius: px(4),
                   marginLeft: px(32),
                   paddingLeft: px(26),
                   paddingRight: px(26),
+                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
+                  opacity: isRefreshClicked ? 0.6 : 1,
                 }}
               >
              Refresh
@@ -342,6 +378,11 @@ export default function StepThree({ onEnter }: StepThreeProps = {} as StepThreeP
             onFileUploaded={(fileInfo) => {
               setUploadedFileInfo(fileInfo)
             }}
+            onFileDeleted={() => {
+              setPresetContent('')
+              // 不重置 isRefreshClicked，保持按钮禁用状态
+            }}
+            presetContent={presetContent}
           />
 
 

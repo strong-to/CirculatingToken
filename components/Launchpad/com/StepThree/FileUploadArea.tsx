@@ -1,15 +1,17 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import { uploadFile, getFileDownloadUrl, isDocxFile, isPreviewableFile, type UploadedFileInfo } from '@/utils/fileUpload'
 import { parseDocxFile } from '@/utils/docxParser'
 
 interface FileUploadAreaProps {
   onFileUploaded?: (fileInfo: UploadedFileInfo) => void
+  onFileDeleted?: () => void
+  presetContent?: string
 }
 
-export default function FileUploadArea({ onFileUploaded }: FileUploadAreaProps) {
+export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetContent }: FileUploadAreaProps) {
   const [uploadedFile, setUploadedFile] = useState<UploadedFileInfo | null>(null)
   const [docxContent, setDocxContent] = useState<string>('')
   const [isUploading, setIsUploading] = useState(false)
@@ -18,6 +20,30 @@ export default function FileUploadArea({ onFileUploaded }: FileUploadAreaProps) 
   const [isResizing, setIsResizing] = useState(false)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
+
+  // 当 presetContent 传入时，模拟上传了一个 docx 文件
+  useEffect(() => {
+    if (presetContent && presetContent.trim() !== '' && !uploadedFile) {
+      const mockFileInfo: UploadedFileInfo = {
+        fileId: `preset-${Date.now()}`,
+        fileName: 'AI Generated Content.docx',
+        fileSize: presetContent.length,
+        fileType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      }
+      setUploadedFile(mockFileInfo)
+      // 将纯文本转换为 HTML，保持换行
+      const htmlContent = presetContent.split('\n\n').map(para => `<p>${para}</p>`).join('')
+      setDocxContent(htmlContent)
+      onFileUploaded?.(mockFileInfo)
+    } else if (!presetContent || presetContent.trim() === '') {
+      // 如果 presetContent 被清除，也清除文件状态
+      if (uploadedFile && uploadedFile.fileId.startsWith('preset-')) {
+        setUploadedFile(null)
+        setDocxContent('')
+        setContainerHeight(170)
+      }
+    }
+  }, [presetContent, uploadedFile, onFileUploaded])
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -167,6 +193,9 @@ export default function FileUploadArea({ onFileUploaded }: FileUploadAreaProps) 
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
+    
+    // 通知父组件文件已删除（用于清除预设内容）
+    onFileDeleted?.()
   }
 
   // 调整大小处理

@@ -7,12 +7,10 @@ import CollapsiblePanelContent from '@/components/Home/com/FreedomToEnter/Collap
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { images } from '@/components/Home/com/FreedomToEnter/resources'
-import { useTexts } from '@/components/Home/com/FreedomToEnter/useTexts'
 
 import { px } from '@/utils/pxToRem'
 
 export default function  FreedomToEnter() {
-  const texts = useTexts();
   const [isExpanded, setIsExpanded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -31,10 +29,9 @@ export default function  FreedomToEnter() {
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
-              suppressHydrationWarning
             >
              
-            {texts.mainTitle.line1}
+            Freedom to Enter,
             </div>
 
             <div className="relative flex items-center">
@@ -69,9 +66,8 @@ export default function  FreedomToEnter() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
-                suppressHydrationWarning
               >
-           {texts.mainTitle.line2}
+           Freedom to Grow
               </div>
               
               {/* 折叠面板按钮 - 添加动画 */}
@@ -95,9 +91,8 @@ export default function  FreedomToEnter() {
                   textAlign: "right",
                 }}
                 className='whitespace-nowrap'
-                suppressHydrationWarning
               >
-                {texts.buttonTrade}
+                Trade Tokens Anytime With Full Flexibility
               </span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
@@ -166,7 +161,7 @@ export default function  FreedomToEnter() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }} suppressHydrationWarning>{texts.linkLearnMore}</span>
+                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>

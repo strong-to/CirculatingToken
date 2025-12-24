@@ -78,15 +78,15 @@ export default function StepSixDropdown({
       <div
         ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer flex items-center"
+        className="cursor-pointer flex items-center justify-center"
         style={{
           width: '100%',
           height: px(44),
           paddingLeft: px(12),
           // 让箭头距离文字约 10px，不再贴到最右侧
-          paddingRight: 0,
+          paddingRight: px(12),
           columnGap: px(10),
-          // 去掉边框，让下拉看起来“无边框”
+          // 去掉边框，让下拉看起来"无边框"
           border: 'none',
           borderRadius: 0,
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',

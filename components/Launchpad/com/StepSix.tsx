@@ -79,10 +79,10 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
   ]
 
   const byAchievedResultsRows: [string, string][] = [
-    ['1 Level', '5.00'],
-    ['2 Level', '20.00'],
-    ['3 Level', '60.00'],
-    ['4 Level', '150.00'],
+    ['1 Item', '5.00'],
+    ['5 Item', '20.00'],
+    ['20 Item', '60.00'],
+    ['60 Item', '150.00'],
   ]
 
   const byConsumedResourcesRows: [string, string][] = [
@@ -107,6 +107,12 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
   const randomPrice = () => {
     const raw = (Math.random() * 100000).toFixed(2)
     return formatNumberWithThousands(raw)
+  }
+
+  // 限制输入只能为数字（包括小数点和千分位逗号）
+  const handleNumericInput = (value: string): string => {
+    // 移除所有非数字、非小数点、非逗号的字符
+    return value.replace(/[^\d.,]/g, '')
   }
 
   // 更新状态并同步到父组件
@@ -405,8 +411,9 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                 type="text"
                                 value={basicCustomPrices[rowIndex]}
                                 onChange={(e) => {
+                                  const numericValue = handleNumericInput(e.target.value)
                                   const next = [...basicCustomPrices]
-                                  next[rowIndex] = e.target.value
+                                  next[rowIndex] = numericValue
                                   updateStepSixData({ basicCustomPrices: next })
                                 }}
                                 onBlur={(e) => {
@@ -430,10 +437,16 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                               />
                             ) : (
                               <input
+                                key={`basic-price-${basicPricingMethod}-${rowIndex}`}
                                 type="text"
                                 defaultValue={basicRows[rowIndex]?.[1] || ''}
+                                onChange={(e) => {
+                                  const numericValue = handleNumericInput(e.target.value)
+                                  e.target.value = numericValue
+                                }}
                                 onBlur={(e) => {
-                                  e.target.value = formatNumberWithThousands(e.target.value)
+                                  const formatted = formatNumberWithThousands(e.target.value)
+                                  e.target.value = formatted
                                 }}
                                 placeholder="0.00"
               style={{
@@ -648,8 +661,9 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                 type="text"
                                 value={advancedCustomPrices[rowIndex]}
                                 onChange={(e) => {
+                                  const numericValue = handleNumericInput(e.target.value)
                                   const next = [...advancedCustomPrices]
-                                  next[rowIndex] = e.target.value
+                                  next[rowIndex] = numericValue
                                   updateStepSixData({ advancedCustomPrices: next })
                                 }}
                                 onBlur={(e) => {
@@ -673,10 +687,16 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                               />
                             ) : (
                               <input
+                                key={`advanced-price-${advancedPricingMethod}-${rowIndex}`}
                                 type="text"
                                 defaultValue={advancedRows[rowIndex]?.[1] || ''}
+                                onChange={(e) => {
+                                  const numericValue = handleNumericInput(e.target.value)
+                                  e.target.value = numericValue
+                                }}
                                 onBlur={(e) => {
-                                  e.target.value = formatNumberWithThousands(e.target.value)
+                                  const formatted = formatNumberWithThousands(e.target.value)
+                                  e.target.value = formatted
                                 }}
                                 placeholder="0.00"
                                 style={{
@@ -805,7 +825,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                 key={account}
                 style={{
                   display: 'flex',
-                  height: px(44),
+                  height: px(50),
                   borderTop: '0.7px solid #000000',
                 }}
               >
@@ -823,6 +843,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
                   fontSize: px(16),
+                  lineHeight: '1.2',
                   color: '#000000',
                   }}
                 >
@@ -845,8 +866,9 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                       type="text"
                       value={economicTableValues[rowIndex][colIndex]}
                       onChange={(e) => {
+                        const numericValue = handleNumericInput(e.target.value)
                         const next = economicTableValues.map((row) => [...row])
-                        next[rowIndex][colIndex] = e.target.value
+                        next[rowIndex][colIndex] = numericValue
                         updateStepSixData({ economicTableValues: next })
                       }}
                       onBlur={(e) => {
@@ -855,7 +877,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                         next[rowIndex][colIndex] = formatted
                         updateStepSixData({ economicTableValues: next })
                       }}
-                      placeholder="666,111.00"
+                      placeholder="0.00"
                       style={{
                         width: '100%',
                         height: '100%',

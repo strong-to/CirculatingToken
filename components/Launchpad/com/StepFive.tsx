@@ -240,6 +240,12 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
   const [isRefreshClicked, setIsRefreshClicked] = useState(false)
 
   // 数字格式化：千分位 + 保留两位小数（没有小数则补 .00）
+  // 限制输入只能为数字（包括小数点和千分位逗号）
+  const handleNumericInput = (value: string): string => {
+    // 移除所有非数字、非小数点、非逗号的字符
+    return value.replace(/[^\d.,]/g, '')
+  }
+
   const formatNumberWithThousands = (value: string): string => {
     if (!value) return ''
     const numeric = value.replace(/,/g, '')
@@ -438,7 +444,8 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                   type="text"
                   value={fieldValues[row.leftField as keyof typeof fieldValues]}
                   onChange={(e) => {
-                    const newValues = { ...fieldValues, [row.leftField]: e.target.value }
+                    const numericValue = handleNumericInput(e.target.value)
+                    const newValues = { ...fieldValues, [row.leftField]: numericValue }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
@@ -513,7 +520,8 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                   type="text"
                   value={fieldValues[row.rightField as keyof typeof fieldValues]}
                   onChange={(e) => {
-                    const newValues = { ...fieldValues, [row.rightField]: e.target.value }
+                    const numericValue = handleNumericInput(e.target.value)
+                    const newValues = { ...fieldValues, [row.rightField]: numericValue }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import { formatNumberWithThousands } from './StepFiveNumericUtils'
 import StepSixDropdown from '@/components/Launchpad/com/StepSix/StepSixDropdown'
@@ -9,21 +9,11 @@ import { StepTitleBar, StepNextButton } from './StepCommon'
 interface StepSixProps {
   onEnter?: () => void
   previewMode?: boolean
+  data?: import('../Launchpad').StepSixData
+  onDataChange?: (data: Partial<import('../Launchpad').StepSixData>) => void
 }
 
-export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as StepSixProps) {
-  // Basic Functions 盒子状态
-  const [basicPricingMethod, setBasicPricingMethod] = useState('')
-  const [basicCustomLeftText, setBasicCustomLeftText] = useState('')
-  const [basicCustomQuantities, setBasicCustomQuantities] = useState<string[]>(['', '', '', ''])
-  const [basicCustomPrices, setBasicCustomPrices] = useState<string[]>(['', '', '', ''])
-
-  // Advanced Functions 盒子状态
-  const [advancedPricingMethod, setAdvancedPricingMethod] = useState('')
-  const [advancedCustomLeftText, setAdvancedCustomLeftText] = useState('')
-  const [advancedCustomQuantities, setAdvancedCustomQuantities] = useState<string[]>(['', '', '', ''])
-  const [advancedCustomPrices, setAdvancedCustomPrices] = useState<string[]>(['', '', '', ''])
-
+export default function StepSix({ onEnter, previewMode, data, onDataChange }: StepSixProps = {} as StepSixProps) {
   // Economic Data Estimation 表格：6 行（账户），7 列（月数）
   const accountRows = [
     'Total Users',
@@ -34,9 +24,45 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
     'Staking Ratio',
   ]
   const monthColumns = ['3 Months', '6 Months', '12 Months', '24Months', '36Months', '48months', '60Months']
-  const [economicTableValues, setEconomicTableValues] = useState<string[][]>(
-    () => accountRows.map(() => monthColumns.map(() => ''))
+
+  // Basic Functions 盒子状态
+  const [basicPricingMethod, setBasicPricingMethod] = useState(data?.basicPricingMethod || '')
+  const [basicCustomLeftText, setBasicCustomLeftText] = useState(data?.basicCustomLeftText || '')
+  const [basicCustomQuantities, setBasicCustomQuantities] = useState<string[]>(
+    data?.basicCustomQuantities || ['', '', '', '']
   )
+  const [basicCustomPrices, setBasicCustomPrices] = useState<string[]>(
+    data?.basicCustomPrices || ['', '', '', '']
+  )
+
+  // Advanced Functions 盒子状态
+  const [advancedPricingMethod, setAdvancedPricingMethod] = useState(data?.advancedPricingMethod || '')
+  const [advancedCustomLeftText, setAdvancedCustomLeftText] = useState(data?.advancedCustomLeftText || '')
+  const [advancedCustomQuantities, setAdvancedCustomQuantities] = useState<string[]>(
+    data?.advancedCustomQuantities || ['', '', '', '']
+  )
+  const [advancedCustomPrices, setAdvancedCustomPrices] = useState<string[]>(
+    data?.advancedCustomPrices || ['', '', '', '']
+  )
+
+  const [economicTableValues, setEconomicTableValues] = useState<string[][]>(
+    data?.economicTableValues || accountRows.map(() => monthColumns.map(() => ''))
+  )
+
+  // 同步外部数据变化
+  useEffect(() => {
+    if (data) {
+      setBasicPricingMethod(data.basicPricingMethod)
+      setBasicCustomLeftText(data.basicCustomLeftText)
+      setBasicCustomQuantities(data.basicCustomQuantities)
+      setBasicCustomPrices(data.basicCustomPrices)
+      setAdvancedPricingMethod(data.advancedPricingMethod)
+      setAdvancedCustomLeftText(data.advancedCustomLeftText)
+      setAdvancedCustomQuantities(data.advancedCustomQuantities)
+      setAdvancedCustomPrices(data.advancedCustomPrices)
+      setEconomicTableValues(data.economicTableValues)
+    }
+  }, [data])
 
   // 上面 Fee Standard 区域的 Refresh 按钮是否已点击
   const [hasRefreshed, setHasRefreshed] = useState(false)
@@ -83,16 +109,22 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
     return formatNumberWithThousands(raw)
   }
 
+  // 更新状态并同步到父组件
+  const updateStepSixData = (updates: Partial<import('../Launchpad').StepSixData>) => {
+    if (updates.basicPricingMethod !== undefined) setBasicPricingMethod(updates.basicPricingMethod)
+    if (updates.basicCustomLeftText !== undefined) setBasicCustomLeftText(updates.basicCustomLeftText)
+    if (updates.basicCustomQuantities !== undefined) setBasicCustomQuantities(updates.basicCustomQuantities)
+    if (updates.basicCustomPrices !== undefined) setBasicCustomPrices(updates.basicCustomPrices)
+    if (updates.advancedPricingMethod !== undefined) setAdvancedPricingMethod(updates.advancedPricingMethod)
+    if (updates.advancedCustomLeftText !== undefined) setAdvancedCustomLeftText(updates.advancedCustomLeftText)
+    if (updates.advancedCustomQuantities !== undefined) setAdvancedCustomQuantities(updates.advancedCustomQuantities)
+    if (updates.advancedCustomPrices !== undefined) setAdvancedCustomPrices(updates.advancedCustomPrices)
+    if (updates.economicTableValues !== undefined) setEconomicTableValues(updates.economicTableValues)
+    onDataChange?.(updates)
+  }
+
   const handleRefreshAll = () => {
     if (hasRefreshed) return
-
-    // 切到自定义模式
-    setBasicPricingMethod('Custom')
-    setAdvancedPricingMethod('Custom')
-
-    // 左侧文本
-    setBasicCustomLeftText('Custom Pricing Method')
-    setAdvancedCustomLeftText('Custom Pricing Method')
 
     // 随机填充数量和价格
     const genQuantities = () =>
@@ -101,10 +133,16 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
     const genPrices = () =>
       Array.from({ length: 4 }, () => randomPrice())
 
-    setBasicCustomQuantities(genQuantities())
-    setAdvancedCustomQuantities(genQuantities())
-    setBasicCustomPrices(genPrices())
-    setAdvancedCustomPrices(genPrices())
+    updateStepSixData({
+      basicPricingMethod: 'Custom',
+      advancedPricingMethod: 'Custom',
+      basicCustomLeftText: 'Custom Pricing Method',
+      advancedCustomLeftText: 'Custom Pricing Method',
+      basicCustomQuantities: genQuantities(),
+      advancedCustomQuantities: genQuantities(),
+      basicCustomPrices: genPrices(),
+      advancedCustomPrices: genPrices(),
+    })
 
     setHasRefreshed(true)
   }
@@ -115,7 +153,7 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
     const next = accountRows.map(() =>
       monthColumns.map(() => randomPrice())
     )
-    setEconomicTableValues(next)
+    updateStepSixData({ economicTableValues: next })
     setHasEconomicRefreshed(true)
   }
 
@@ -134,31 +172,31 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
 
 <div style={{marginTop: px(60)}} >
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
                 fontSize: px(20),
                 color: '#8C8C8C',
               }}
             >
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
-              Fee Standard
+            Fee Standard
                 </span>
                 Please enter the prompt information in the following text box, or click the control button on the right to let the AI <br/> help you complete the relevant work. Note: The AI can provide this service only once.
                 
-             </div>
+          </div>
 
               <div
                 onClick={handleRefreshAll}
-                
-                style={{
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
+        
+          style={{
+            height: px(40),
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
                   fontSize: px(14),
                   color: '#ffffff',
                   backgroundColor: '#000000',
@@ -171,8 +209,8 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
               >
                 Refresh 
               </div>
-          </div>
-
+            </div>
+            
 
 
           {/* 111 & 222 两个盒子 */}
@@ -190,7 +228,7 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                 {/* 表头 80px（整体一块，没有内部竖向格子） */}
                 <div
                 className='flex items-center justify-center'
-                  style={{
+              style={{
                     height: px(80),
                     display: 'flex',
                     borderBottom: '0.7px solid #000000',
@@ -199,25 +237,25 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                 >
                   <div
                   className='flex items-center justify-center'
-                    style={{
+              style={{
                       flex: 2,
                       display: 'flex',
                       alignItems: 'center',
                       paddingLeft: px(30),
-                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontWeight: 300,
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
                       fontSize: px(20),
-                      color: '#000000',
-                    }}
-                  >
+                color: '#000000',
+              }}
+            >
                     Basic Functions
-                  </div>
+            </div>
                 
-                </div>
+            </div>
 
                 {/* 内容区域整体：左边一个大盒子，右边一个大盒子内部再切成格子 */}
-                <div
-                  style={{
+          <div
+              style={{
                     display: 'flex',
                     backgroundColor: '#FFFFFF',
                   }}
@@ -246,17 +284,17 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                           'Custom',
                         ]}
                         value={basicPricingMethod}
-                        onChange={(value) => setBasicPricingMethod(value)}
+                        onChange={(value) => updateStepSixData({ basicPricingMethod: value })}
                         isCustom={isBasicCustom}
                         customText={basicCustomLeftText}
-                        onCustomTextChange={setBasicCustomLeftText}
+                        onCustomTextChange={(text) => updateStepSixData({ basicCustomLeftText: text })}
                       />
                     </div>
-                  </div>
-
+            </div>
+            
                   {/* 右侧大盒子：内部是 4 行 2 列的小格子 */}
-                  <div
-                    style={{
+            <div
+              style={{
                       flex: 2,
                       display: 'flex',
                       flexDirection: 'column',
@@ -267,22 +305,22 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                     {[0, 1, 2, 3].map((rowIndex) => (
                       <div
                         key={rowIndex}
-                        style={{
+              style={{
                           height: px(44),
                           display: 'flex',
                         }}
                       >
-                        <div
-                          style={{
+            <div
+              style={{
                             flex: 1,
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             borderRight: '0.7px solid #000000',
                             borderTop: rowIndex === 0 ? undefined : '0.7px solid #000000',
-                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                            fontWeight: 300,
-                            fontSize: px(16),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
                             color: basicPricingMethod ? '#000000' : '#8C8C8C',
                           }}
                         >
@@ -295,7 +333,7 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                               onChange={(e) => {
                                 const next = [...basicCustomQuantities]
                                 next[rowIndex] = e.target.value
-                                setBasicCustomQuantities(next)
+                                updateStepSixData({ basicCustomQuantities: next })
                               }}
                               placeholder="Quantity / Unit"
                               style={{
@@ -304,43 +342,43 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                                 border: 'none',
                                 outline: 'none',
                                 textAlign: 'center',
-                                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                fontWeight: 300,
-                                fontSize: px(16),
-                                color: '#000000',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  color: '#000000',
                               }}
                             />
                           ) : (
                             basicRows[rowIndex]?.[0] || ''
                           )}
-                        </div>
-                        <div
-                          style={{
+                </div>
+          <div
+            style={{
                             flex: 1,
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             borderTop: rowIndex === 0 ? undefined : '0.7px solid #000000',
-                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                            fontWeight: 300,
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
                             fontSize: px(16),
-                            color: '#000000',
-                          }}
-                        >
+              color: '#000000',
+            }}
+          >
                           {/* 内部分成 $ 和 数字两列 */}
                           <div
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
                               width: px(40),
                               height: '100%',
-                            }}
-                          >
+          }}
+        >
                             $
-                          </div>
-                          <div
-                            style={{
+        </div>
+          <div
+              style={{
                               flex: 1,
                               display: 'flex',
                               alignItems: 'center',
@@ -351,12 +389,12 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                           >
                             {!basicPricingMethod ? (
                               <span
-                                style={{
+              style={{
                                   width: '100%',
                                   textAlign: 'center',
-                                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                  fontWeight: 300,
-                                  fontSize: px(16),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
                                   color: '#8C8C8C',
                                 }}
                               >
@@ -369,25 +407,25 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                                 onChange={(e) => {
                                   const next = [...basicCustomPrices]
                                   next[rowIndex] = e.target.value
-                                  setBasicCustomPrices(next)
+                                  updateStepSixData({ basicCustomPrices: next })
                                 }}
                                 onBlur={(e) => {
                                   const formatted = formatNumberWithThousands(e.target.value)
                                   const next = [...basicCustomPrices]
                                   next[rowIndex] = formatted
-                                  setBasicCustomPrices(next)
+                                  updateStepSixData({ basicCustomPrices: next })
                                 }}
                                 placeholder="0.00"
-                                style={{
+              style={{
                                   width: '100%',
                                   height: '100%',
                                   border: 'none',
                                   outline: 'none',
                                   textAlign: 'center',
-                                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                  fontWeight: 300,
-                                  fontSize: px(16),
-                                  color: '#000000',
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                color: '#000000',
                                 }}
                               />
                             ) : (
@@ -398,31 +436,31 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                                   e.target.value = formatNumberWithThousands(e.target.value)
                                 }}
                                 placeholder="0.00"
-                                style={{
+              style={{
                                   width: '100%',
                                   height: '100%',
                                   border: 'none',
                                   outline: 'none',
                                   textAlign: 'center',
-                                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                  fontWeight: 300,
-                                  fontSize: px(16),
-                                  color: '#000000',
-                                }}
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                color: '#000000',
+              }}
                               />
                             )}
-                          </div>
-                        </div>
-                      </div>
+            </div>
+          </div>
+                </div>
                     ))}
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
 
             {/* 222 盒子 */}
             <div className='flex-1'>
-            <div
+          <div
               style={{
                 border: '0.7px solid #000000',
                 borderRadius: px(2),
@@ -433,7 +471,7 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                 {/* 表头 80px（整体一块，没有内部竖向格子） */}
                 <div
                 className='flex items-center justify-center'
-                  style={{
+              style={{
                     height: px(80),
                     display: 'flex',
                     borderBottom: '0.7px solid #000000',
@@ -442,25 +480,25 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                 >
                   <div
                   className='flex items-center justify-center'
-                    style={{
+              style={{
                       flex: 2,
                       display: 'flex',
                       alignItems: 'center',
                       paddingLeft: px(30),
-                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontWeight: 300,
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
                       fontSize: px(20),
-                      color: '#000000',
-                    }}
-                  >
+                color: '#000000',
+              }}
+            >
                    Advanced Functions
-                  </div>
+            </div>
                 
-                </div>
+            </div>
 
                 {/* 内容区域整体：左边一个大盒子，右边一个大盒子内部再切成格子 */}
-                <div
-                  style={{
+          <div
+            style={{
                     display: 'flex',
                     backgroundColor: '#FFFFFF',
                   }}
@@ -468,17 +506,17 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                   {/* 左侧大盒子：整块 Pricing/Charging Method 居中 */}
                   {/* 左侧大盒子：中间放一个下拉框 */}
                   <div
-                    style={{
+          style={{
                       flex: 2,
                       height: px(44 * 4),
                       borderRight: '0.7px solid #000000',
                       paddingLeft: px(30),
                       paddingRight: px(30),
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                  >
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
                     <div style={{ width: '100%', maxWidth: px(350) }}>
                       <StepSixDropdown
                         placeholder="Pricing/Charging Method"
@@ -489,17 +527,17 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                           'Custom',
                         ]}
                         value={advancedPricingMethod}
-                        onChange={(value) => setAdvancedPricingMethod(value)}
+                        onChange={(value) => updateStepSixData({ advancedPricingMethod: value })}
                         isCustom={isAdvancedCustom}
                         customText={advancedCustomLeftText}
-                        onCustomTextChange={setAdvancedCustomLeftText}
+                        onCustomTextChange={(text) => updateStepSixData({ advancedCustomLeftText: text })}
                       />
-                    </div>
+        </div>
                   </div>
 
                   {/* 右侧大盒子：内部是 4 行 2 列的小格子 */}
-                  <div
-                    style={{
+          <div
+              style={{
                       flex: 2,
                       display: 'flex',
                       flexDirection: 'column',
@@ -510,22 +548,22 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                     {[0, 1, 2, 3].map((rowIndex) => (
                       <div
                         key={rowIndex}
-                        style={{
+              style={{
                           height: px(44),
                           display: 'flex',
                         }}
                       >
-                        <div
-                          style={{
+            <div
+              style={{
                             flex: 1,
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             borderRight: '0.7px solid #000000',
                             borderTop: rowIndex === 0 ? undefined : '0.7px solid #000000',
-                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                            fontWeight: 300,
-                            fontSize: px(16),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
                             color: advancedPricingMethod ? '#000000' : '#8C8C8C',
                           }}
                         >
@@ -538,25 +576,25 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                               onChange={(e) => {
                                 const next = [...advancedCustomQuantities]
                                 next[rowIndex] = e.target.value
-                                setAdvancedCustomQuantities(next)
+                                updateStepSixData({ advancedCustomQuantities: next })
                               }}
                               placeholder="Quantity / Unit"
-                              style={{
+              style={{
                                 width: '100%',
                                 height: '100%',
                                 border: 'none',
                                 outline: 'none',
                                 textAlign: 'center',
-                                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                fontWeight: 300,
-                                fontSize: px(16),
-                                color: '#000000',
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                color: '#000000',
                               }}
                             />
                           ) : (
                             advancedRows[rowIndex]?.[0] || ''
                           )}
-                        </div>
+            </div>
                         <div
                           style={{
                             flex: 1,
@@ -564,15 +602,15 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                             alignItems: 'center',
                             justifyContent: 'center',
                             borderTop: rowIndex === 0 ? undefined : '0.7px solid #000000',
-                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                            fontWeight: 300,
-                            fontSize: px(16),
-                            color: '#000000',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  color: '#000000',
                           }}
                         >
                           {/* 内部分成 $ 和 数字两列 */}
-                          <div
-                            style={{
+          <div
+              style={{
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -581,9 +619,9 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                             }}
                           >
                             $
-                          </div>
-                          <div
-                            style={{
+            </div>
+            <div
+              style={{
                               flex: 1,
                               display: 'flex',
                               alignItems: 'center',
@@ -594,12 +632,12 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                           >
                             {!advancedPricingMethod ? (
                               <span
-                                style={{
+              style={{
                                   width: '100%',
                                   textAlign: 'center',
-                                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                  fontWeight: 300,
-                                  fontSize: px(16),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
                                   color: '#8C8C8C',
                                 }}
                               >
@@ -612,25 +650,25 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                                 onChange={(e) => {
                                   const next = [...advancedCustomPrices]
                                   next[rowIndex] = e.target.value
-                                  setAdvancedCustomPrices(next)
+                                  updateStepSixData({ advancedCustomPrices: next })
                                 }}
                                 onBlur={(e) => {
                                   const formatted = formatNumberWithThousands(e.target.value)
                                   const next = [...advancedCustomPrices]
                                   next[rowIndex] = formatted
-                                  setAdvancedCustomPrices(next)
+                                  updateStepSixData({ advancedCustomPrices: next })
                                 }}
                                 placeholder="0.00"
-                                style={{
+              style={{
                                   width: '100%',
                                   height: '100%',
                                   border: 'none',
                                   outline: 'none',
                                   textAlign: 'center',
-                                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                  fontWeight: 300,
-                                  fontSize: px(16),
-                                  color: '#000000',
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                color: '#000000',
                                 }}
                               />
                             ) : (
@@ -647,33 +685,33 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                                   border: 'none',
                                   outline: 'none',
                                   textAlign: 'center',
-                                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                                  fontWeight: 300,
-                                  fontSize: px(16),
-                                  color: '#000000',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  color: '#000000',
                                 }}
                               />
                             )}
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
                 </div>
+                </div>
+                </div>
+                    ))}
               </div>
             </div>
-            
-          </div>
+              </div>
+            </div>
+
+      </div>
 
 
 
 
 
           <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
                 fontSize: px(20),
                 color: '#8C8C8C',
               }}
@@ -682,15 +720,15 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
               Economic Data Estimation
                 </span>
                 Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service only once.
-                 </div>
+          </div>
 
               <div
                 onClick={handleEconomicRefresh}
-                style={{
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+          style={{
+            height: px(40),
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
                   fontSize: px(14),
@@ -706,12 +744,12 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
               >
                 Refresh 
               </div>
-          </div>
+        </div>
 
 
           {/* Economic Data Estimation 表格 */}
-          <div
-            style={{
+            <div
+              style={{
               border: '0.7px solid #000000',
               borderRadius: px(2),
               overflow: 'hidden',
@@ -732,34 +770,34 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(16),
-                  color: '#000000',
-                }}
-              >
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                color: '#000000',
+              }}
+            >
                 Account
-              </div>
+            </div>
               {/* 其余 7 列表头 */}
               {monthColumns.map((col) => (
-                <div
+            <div
                   key={col}
-                  style={{
+              style={{
                     flex: 1,
                     borderRight: '0.7px solid #000000',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontSize: px(16),
-                    color: '#000000',
-                  }}
-                >
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                color: '#000000',
+              }}
+            >
                   {col}
-                </div>
-              ))}
             </div>
+              ))}
+          </div>
 
             {/* 数据行 */}
             {accountRows.map((account, rowIndex) => (
@@ -782,10 +820,10 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                     paddingLeft: px(12),
                     paddingRight: px(12),
                     textAlign: 'center',
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontSize: px(16),
-                    color: '#000000',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  color: '#000000',
                   }}
                 >
                   {account}
@@ -809,13 +847,13 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                       onChange={(e) => {
                         const next = economicTableValues.map((row) => [...row])
                         next[rowIndex][colIndex] = e.target.value
-                        setEconomicTableValues(next)
+                        updateStepSixData({ economicTableValues: next })
                       }}
                       onBlur={(e) => {
                         const formatted = formatNumberWithThousands(e.target.value)
                         const next = economicTableValues.map((row) => [...row])
                         next[rowIndex][colIndex] = formatted
-                        setEconomicTableValues(next)
+                        updateStepSixData({ economicTableValues: next })
                       }}
                       placeholder="666,111.00"
                       style={{
@@ -824,23 +862,23 @@ export default function StepSix({ onEnter, previewMode }: StepSixProps = {} as S
                         border: 'none',
                         outline: 'none',
                         textAlign: 'center',
-                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                        fontWeight: 300,
-                        fontSize: px(16),
-                        color: '#000000',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  color: '#000000',
                       }}
                     />
-                  </div>
+                </div>
                 ))}
-              </div>
+                </div>
             ))}
-          </div>
- 
+            </div>
+           
+          
 
+      </div>
 
-          </div>
-
-{/* 底部 Enter 按钮 */}
+      {/* 底部 Enter 按钮 */}
 {!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
     </>
   )

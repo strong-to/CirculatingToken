@@ -53,7 +53,7 @@ function TableDropdown({ placeholder, options, value, onChange, onOpenChange }: 
       style={{
         width: '100%',
         height: '100%',
-        zIndex: 1,
+        zIndex: isOpen ? 9999999 : 1,
       }}
     >
       <div
@@ -66,7 +66,7 @@ function TableDropdown({ placeholder, options, value, onChange, onOpenChange }: 
           paddingRight: px(12),
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontWeight: 300,
-          fontSize: px(12),
+          fontSize: px(14),
           color: value ? '#000000' : '#8C8C8C',
           backgroundColor: '#FFFFFF',
         }}
@@ -114,7 +114,7 @@ function TableDropdown({ placeholder, options, value, onChange, onOpenChange }: 
             left: 0,
             maxHeight: px(300),
             overflowY: 'auto',
-            zIndex: 999999,
+            zIndex: 9999999,
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
           } as React.CSSProperties}
@@ -125,13 +125,15 @@ function TableDropdown({ placeholder, options, value, onChange, onOpenChange }: 
               <div
                 key={index}
                 onClick={() => handleSelect(option)}
-                className="cursor-pointer transition-colors"
+                className="cursor-pointer transition-colors flex items-center"
                 style={{
-                  padding: `${px(10)} ${px(12)}`,
+                  height: px(44),
+                  paddingLeft: px(12),
+                  paddingRight: px(12),
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
                   fontStyle: 'normal',
-                  fontSize: px(12),
+                  fontSize: px(14),
                   lineHeight: '100%',
                   letterSpacing: '0%',
                   color: isSelected ? '#FFFFFF' : '#252525',
@@ -254,7 +256,7 @@ export default function RequirementRow({
   }
 
   // 判断是否为自定义模式
-  const isCustomMode = localData.selectedRequirement === '自定义'
+  const isCustomMode = localData.selectedRequirement === 'Custom'
 
   // 处理自定义模式下点击下拉按钮
   useEffect(() => {
@@ -274,7 +276,7 @@ export default function RequirementRow({
   }, [isCustomDropdownOpen])
 
   // 当下拉菜单打开时，提高容器的 z-index
-  const containerZIndex = (isCustomDropdownOpen || isTableDropdownOpen) ? 10000 : 1
+  const containerZIndex = (isCustomDropdownOpen || isTableDropdownOpen) ? 9999999 : 1
 
   return (
     <div 
@@ -300,6 +302,7 @@ export default function RequirementRow({
           overflow: 'visible',
           borderTopLeftRadius: px(4),
           borderBottomLeftRadius: px(4),
+          zIndex: (isCustomDropdownOpen || isTableDropdownOpen) ? 9999999 : 'auto',
         }}
       >
         {isCustomMode ? (
@@ -322,7 +325,7 @@ export default function RequirementRow({
                 outline: 'none',
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
-                fontSize: px(12),
+                fontSize: px(14),
                 color: localData.customRequirement ? '#000000' : '#8C8C8C',
                 backgroundColor: '#FFFFFF',
               }}
@@ -372,7 +375,7 @@ export default function RequirementRow({
                   left: 0,
                   maxHeight: px(300),
                   overflowY: 'auto',
-                  zIndex: 999999,
+                  zIndex: 9999999,
                   scrollbarWidth: 'none',
                   msOverflowStyle: 'none',
                 } as React.CSSProperties}
@@ -384,7 +387,7 @@ export default function RequirementRow({
                       key={index}
                       onClick={() => {
                         const updates: Partial<RequirementRowData> = { selectedRequirement: option }
-                        if (option !== '自定义') {
+                        if (option !== 'Custom') {
                           updates.selectedUnit = requirementUnitMap[option] || ''
                           updates.customRequirement = ''
                           updates.customUnit = ''
@@ -392,13 +395,15 @@ export default function RequirementRow({
                         updateData(updates)
                         setIsCustomDropdownOpen(false)
                       }}
-                      className="cursor-pointer transition-colors"
+                      className="cursor-pointer transition-colors flex items-center"
                       style={{
-                        padding: `${px(10)} ${px(12)}`,
+                        height: px(44),
+                        paddingLeft: px(12),
+                        paddingRight: px(12),
                         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                         fontWeight: 300,
                         fontStyle: 'normal',
-                        fontSize: px(12),
+                        fontSize: px(14),
                         lineHeight: '100%',
                         letterSpacing: '0%',
                         color: isSelected ? '#FFFFFF' : '#252525',
@@ -467,7 +472,7 @@ export default function RequirementRow({
               outline: 'none',
                       fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                       fontWeight: 300,
-                      fontSize: px(12),
+                      fontSize: px(14),
                       color: localData.customUnit ? '#000000' : '#8C8C8C',
               backgroundColor: '#FFFFFF',
               textAlign: 'center',
@@ -489,7 +494,7 @@ export default function RequirementRow({
               outline: 'none',
                       fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                       fontWeight: 300,
-                      fontSize: px(12),
+                      fontSize: px(14),
                       color: localData.selectedUnit ? '#000000' : '#8C8C8C',
               backgroundColor: '#FFFFFF',
               textAlign: 'center',
@@ -523,7 +528,7 @@ export default function RequirementRow({
             outline: 'none',
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
-                    fontSize: px(12),
+                    fontSize: px(14),
                     color: localData.quantity ? '#000000' : '#8C8C8C',
             backgroundColor: '#FFFFFF',
             textAlign: 'center',
@@ -557,7 +562,7 @@ export default function RequirementRow({
             outline: 'none',
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
-                    fontSize: px(12),
+                    fontSize: px(14),
                     color: localData.cause ? '#000000' : '#8C8C8C',
             backgroundColor: '#FFFFFF',
             textAlign: 'center',

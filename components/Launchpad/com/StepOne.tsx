@@ -3,10 +3,13 @@
 import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import { StepTitleBar, StepNextButton } from './StepCommon'
+import type { StepOneData } from '../Launchpad'
 
 interface StepOneProps {
   currentStep: number
   onEnter?: () => void
+  data?: StepOneData
+  onDataChange?: (data: Partial<StepOneData>) => void
 }
 
 // 默认文案（作为回退），实际文案从 public/launchpad/stepOne/texts.json 加载
@@ -26,10 +29,18 @@ const defaultTexts = {
 
 type StepOneTexts = typeof defaultTexts
 
-export default function StepOne({ currentStep, onEnter }: StepOneProps) {
-  const [firstTextareaValue, setFirstTextareaValue] = useState('')
-  const [secondTextareaValue, setSecondTextareaValue] = useState('')
+export default function StepOne({ currentStep, onEnter, data, onDataChange }: StepOneProps) {
+  const [firstTextareaValue, setFirstTextareaValue] = useState(data?.firstTextareaValue || '')
+  const [secondTextareaValue, setSecondTextareaValue] = useState(data?.secondTextareaValue || '')
   const [texts, setTexts] = useState<StepOneTexts>(defaultTexts)
+
+  // 同步外部数据变化
+  useEffect(() => {
+    if (data) {
+      setFirstTextareaValue(data.firstTextareaValue)
+      setSecondTextareaValue(data.secondTextareaValue)
+    }
+  }, [data])
 
   // 从 public 目录加载文案
   useEffect(() => {
@@ -88,14 +99,20 @@ export default function StepOne({ currentStep, onEnter }: StepOneProps) {
             onChange={(e) => {
               const value = e.target.value
               setFirstTextareaValue(value)
-              setSecondTextareaValue(generateFunctionSortingText(value))
+              const generatedValue = generateFunctionSortingText(value)
+              setSecondTextareaValue(generatedValue)
+              // 更新到父组件
+              onDataChange?.({
+                firstTextareaValue: value,
+                secondTextareaValue: generatedValue,
+              })
             }}
             style={{
               minHeight: px(170),
               padding: px(12),
               border: `0.5px solid #000000`,
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontSize: px(14),
+              fontSize: px(16),
               resize: 'vertical',
             }}
             placeholder={texts.textarea1Placeholder}
@@ -130,7 +147,7 @@ export default function StepOne({ currentStep, onEnter }: StepOneProps) {
               padding: px(12),
               border: `0.5px solid #000000`,
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontSize: px(14),
+              fontSize: px(16),
               resize: 'vertical',
               cursor: 'default',
               outline: 'none',

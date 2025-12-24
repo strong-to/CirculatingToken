@@ -1,14 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // 注释掉 output: 'export'，因为文件上传功能需要 API 路由
-  // output: 'export',
+  // 启用静态导出，打包文件将输出到 out 目录
+  // 注意：启用后 API 路由（文件上传功能）将无法工作
+  output: 'export',
   
   // 图片配置
   images: {
-    // unoptimized: true, // 已移除静态导出，可以启用图片优化
-    // 图片格式优化提示（虽然不能自动优化，但可以提示开发者）
-    formats: ['image/webp'],
+    unoptimized: true, // 静态导出模式下必须禁用图片优化
     // 设备尺寸断点（用于响应式图片）
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],

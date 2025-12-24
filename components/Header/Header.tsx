@@ -20,8 +20,8 @@ export default function Header() {
     'Token Marketplace',
     // 'Lending Vault',
     // 'Project Construction',
-    'About',
-    'Mortgage  market'
+    'Mortgage  market',
+    'About'
     
   ]
 
@@ -34,7 +34,7 @@ export default function Header() {
   }, [pathname])
 
   return (
-    <header className="w-full h-full bg-background-primary flex flex-col border-b border-[#B5B5B5]" >
+    <header className="w-full h-full bg-background-primary flex flex-col " >
       <div className="flex-1" style={{ height: px(72) , paddingLeft: px(70) , paddingRight: px(70) }}>
         <div className="h-title flex items-center " style={{ height: px(72) }}>
           {/* Logo */}
@@ -140,8 +140,8 @@ export default function Header() {
               <ImageWithSkeleton
                 src={images.search}
                 alt="Search"
-                width={24}
-                height={24}
+                width={22}
+                height={22}
                 priority
               />
             </button>
@@ -154,8 +154,8 @@ export default function Header() {
               <ImageWithSkeleton
                 src={images.language}
                 alt="Language"
-                width={24}
-                height={24}
+                width={22}
+                height={22}
                 priority
               />
             </button>
@@ -169,8 +169,8 @@ export default function Header() {
               <ImageWithSkeleton
                 src={images.menu}
                 alt="Menu"
-                width={24}
-                height={24}
+                width={22}
+                height={22}
                 priority
               />
             </button>
@@ -183,8 +183,8 @@ export default function Header() {
               <ImageWithSkeleton
                 src={images.user}
                 alt="User"
-                width={24}
-                height={24}
+                width={22}
+                height={22}
                 priority
               />
             </button>

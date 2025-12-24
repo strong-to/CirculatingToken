@@ -11,27 +11,29 @@ import StepSix from './StepSix'
 
 interface StepSevenProps {
   onEnter?: () => void
+  launchpadData?: import('../Launchpad').LaunchpadData
 }
 
 interface StepSevenPreviewProps {
   showStatus?: boolean
+  launchpadData?: import('../Launchpad').LaunchpadData
 }
 
-function StepSevenPreview({ showStatus }: StepSevenPreviewProps) {
+function StepSevenPreview({ showStatus, launchpadData }: StepSevenPreviewProps) {
   const previewMode = !!showStatus
   return (
     <div>
-      <StepOne currentStep={0} />
-      <StepTwo previewMode={previewMode} />
-      <StepThree previewMode={previewMode} /> 
-      <StepFour previewMode={previewMode} />
-      <StepFive previewMode={previewMode} />
-      <StepSix previewMode={previewMode} />
+      <StepOne currentStep={0} data={launchpadData?.stepOne} />
+      <StepTwo previewMode={previewMode} data={launchpadData?.stepTwo} />
+      <StepThree previewMode={previewMode} data={launchpadData?.stepThree} /> 
+      <StepFour previewMode={previewMode} data={launchpadData?.stepFour} />
+      <StepFive previewMode={previewMode} data={launchpadData?.stepFive} />
+      <StepSix previewMode={previewMode} data={launchpadData?.stepSix} />
     </div>
   )
 }
 
-export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenProps) {
+export default function StepSeven({ onEnter, launchpadData }: StepSevenProps = {} as StepSevenProps) {
  
 
   return (
@@ -67,7 +69,7 @@ export default function StepSeven({ onEnter }: StepSevenProps = {} as StepSevenP
         color: '#8C8C8C',
       }}>Click the image below to preview the comprehensive information of the project in full.</div>
 
-      <StepSevenPreview showStatus />
+      <StepSevenPreview showStatus launchpadData={launchpadData} />
       {/* Enter 按钮 */}
       <div className="flex items-center justify-center" style={{ marginTop: px(60), width: px(1154),marginLeft: px(110) }}>
         <button

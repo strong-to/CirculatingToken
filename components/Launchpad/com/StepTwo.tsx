@@ -152,17 +152,27 @@ function CloseIcon() {
 interface StepTwoProps {
   onEnter?: () => void
   previewMode?: boolean
+  data?: import('../Launchpad').StepTwoData
+  onDataChange?: (data: Partial<import('../Launchpad').StepTwoData>) => void
 }
 
-export default function StepTwo({ onEnter, previewMode }: StepTwoProps = {} as StepTwoProps) {
+export default function StepTwo({ onEnter, previewMode, data, onDataChange }: StepTwoProps = {} as StepTwoProps) {
   const texts = useTexts()
  
-  const [inputValues, setInputValues] = useState<string[]>(['', '', '', ''])
-  // 上面“Project Name and Token Name”区域的刷新计数
+  const [inputValues, setInputValues] = useState<string[]>(data?.inputValues || ['', '', '', ''])
+  // 上面"Project Name and Token Name"区域的刷新计数
   const [nameRefreshCount, setNameRefreshCount] = useState(0)
-  // 下面“Logo and Promotional Materials”区域的刷新计数
+  // 下面"Logo and Promotional Materials"区域的刷新计数
   const [logoRefreshCount, setLogoRefreshCount] = useState(0)
-  const [uploadImages, setUploadImages] = useState<(string | null)[]>(Array(7).fill(null))
+  const [uploadImages, setUploadImages] = useState<(string | null)[]>(data?.uploadImages || Array(7).fill(null))
+
+  // 同步外部数据变化
+  useEffect(() => {
+    if (data) {
+      setInputValues(data.inputValues)
+      setUploadImages(data.uploadImages)
+    }
+  }, [data])
   const fileInputRefs = useRef<(HTMLInputElement | null)[]>([])
   const [hoverBoxIndex, setHoverBoxIndex] = useState<number | null>(null)
 
@@ -181,6 +191,7 @@ export default function StepTwo({ onEnter, previewMode }: StepTwoProps = {} as S
     const preset = localPresets[nameRefreshCount % localPresets.length]
     setInputValues(preset)
     setNameRefreshCount((count) => count + 1)
+    onDataChange?.({ inputValues: preset })
   }
 
   // 下半部分：刷新 7 个 Logo/宣传素材盒子
@@ -205,6 +216,7 @@ export default function StepTwo({ onEnter, previewMode }: StepTwoProps = {} as S
     const selected = shuffled.slice(0, 7)
     setUploadImages(selected)
     setLogoRefreshCount((count) => count + 1)
+    onDataChange?.({ uploadImages: selected })
   }
 
   // 处理上传图片
@@ -223,6 +235,7 @@ export default function StepTwo({ onEnter, previewMode }: StepTwoProps = {} as S
       setUploadImages((prev) => {
         const next = [...prev]
         next[index] = result
+        onDataChange?.({ uploadImages: next })
         return next
       })
     }
@@ -234,6 +247,7 @@ export default function StepTwo({ onEnter, previewMode }: StepTwoProps = {} as S
     setUploadImages((prev) => {
       const next = [...prev]
       next[index] = null
+      onDataChange?.({ uploadImages: next })
       return next
     })
   }
@@ -318,6 +332,7 @@ export default function StepTwo({ onEnter, previewMode }: StepTwoProps = {} as S
                   const next = [...inputValues]
                   next[index] = e.target.value
                   setInputValues(next)
+                  onDataChange?.({ inputValues: next })
                 }}
                 style={{
                   width: '100%',

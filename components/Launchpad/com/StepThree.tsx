@@ -167,15 +167,25 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
 interface StepThreeProps {
   onEnter?: () => void
   previewMode?: boolean
+  data?: import('../Launchpad').StepThreeData
+  onDataChange?: (data: Partial<import('../Launchpad').StepThreeData>) => void
 }
 
-export default function StepThree({ onEnter, previewMode }: StepThreeProps = {} as StepThreeProps) {
+export default function StepThree({ onEnter, previewMode, data, onDataChange }: StepThreeProps = {} as StepThreeProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState('')
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
-  const [uploadedFileInfo, setUploadedFileInfo] = useState<UploadedFileInfo | null>(null)
+  const [uploadedFileInfo, setUploadedFileInfo] = useState<UploadedFileInfo | null>(data?.uploadedFileInfo || null)
   const [isNextHovered, setIsNextHovered] = useState(false)
   const [isRefreshClicked, setIsRefreshClicked] = useState(false)
-  const [presetContent, setPresetContent] = useState<string>('')
+  const [presetContent, setPresetContent] = useState<string>(data?.presetContent || '')
+
+  // 同步外部数据变化
+  useEffect(() => {
+    if (data) {
+      setUploadedFileInfo(data.uploadedFileInfo)
+      setPresetContent(data.presetContent)
+    }
+  }, [data])
 
 
   const [viewMode, setViewMode] = useState<'Chat' | 'List'>('List')
@@ -259,6 +269,7 @@ export default function StepThree({ onEnter, previewMode }: StepThreeProps = {} 
       const randomContent = generateRandomContent()
       setPresetContent(randomContent)
       setIsRefreshClicked(true)
+      onDataChange?.({ presetContent: randomContent })
     }
   }
 
@@ -310,7 +321,13 @@ export default function StepThree({ onEnter, previewMode }: StepThreeProps = {} 
 
 
           <div style={{marginBottom: px(30)}}>
-          <FilterSection onViewChange={setViewMode} />
+          <FilterSection 
+            onViewChange={setViewMode}
+            onFilterChange={(filterValues) => {
+              onDataChange?.({ filterValues })
+            }}
+            initialFilterValues={data?.filterValues}
+          />
           </div>
 
           <div style={{marginBottom: px(82)}}>
@@ -371,9 +388,12 @@ export default function StepThree({ onEnter, previewMode }: StepThreeProps = {} 
           <FileUploadArea
             onFileUploaded={(fileInfo) => {
               setUploadedFileInfo(fileInfo)
+              onDataChange?.({ uploadedFileInfo: fileInfo })
             }}
             onFileDeleted={() => {
               setPresetContent('')
+              setUploadedFileInfo(null)
+              onDataChange?.({ presetContent: '', uploadedFileInfo: null })
               // 不重置 isRefreshClicked，保持按钮禁用状态
             }}
             presetContent={presetContent}

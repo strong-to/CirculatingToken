@@ -173,12 +173,14 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
 interface StepFourProps {
   onEnter?: () => void
   previewMode?: boolean
+  data?: import('../Launchpad').StepFourData
+  onDataChange?: (data: Partial<import('../Launchpad').StepFourData>) => void
 }
 
-export default function StepFour({ onEnter, previewMode }: StepFourProps = {} as StepFourProps) {
+export default function StepFour({ onEnter, previewMode, data, onDataChange }: StepFourProps = {} as StepFourProps) {
   // 构造需求项选项和对应的单位映射
   const requirementOptions = [
-    '自定义', // 第一条添加自定义选项
+    'Custom', // 第一条添加自定义选项
     'CPU Computing Power',
     'GPU Computing Power',
     'Language Generation Model API',
@@ -208,7 +210,7 @@ export default function StepFour({ onEnter, previewMode }: StepFourProps = {} as
 
   // 12 行数据的状态
   const [requirementRows, setRequirementRows] = useState<RequirementRowData[]>(
-    Array.from({ length: 12 }, () => ({
+    data?.requirementRows || Array.from({ length: 12 }, () => ({
       selectedRequirement: '',
       selectedUnit: '',
       customRequirement: '',
@@ -217,15 +219,23 @@ export default function StepFour({ onEnter, previewMode }: StepFourProps = {} as
       cause: '',
     }))
   )
+
+  // 同步外部数据变化
+  useEffect(() => {
+    if (data?.requirementRows) {
+      setRequirementRows(data.requirementRows)
+    }
+  }, [data])
   
   // 按钮是否已被点击
   const [isRefreshClicked, setIsRefreshClicked] = useState(false)
   
   // 更新某一行数据
-  const handleRowDataChange = (index: number, data: RequirementRowData) => {
+  const handleRowDataChange = (index: number, rowData: RequirementRowData) => {
     const newRows = [...requirementRows]
-    newRows[index] = data
+    newRows[index] = rowData
     setRequirementRows(newRows)
+    onDataChange?.({ requirementRows: newRows })
   }
   
   // 生成随机数字（带千分位和小数点后两位）
@@ -246,8 +256,8 @@ export default function StepFour({ onEnter, previewMode }: StepFourProps = {} as
     
     // 生成随机数据填充所有行
     const newRows = requirementRows.map(() => {
-      // 随机选择一个需求项（排除"自定义"）
-      const nonCustomOptions = requirementOptions.filter(opt => opt !== '自定义')
+      // 随机选择一个需求项（排除"Custom"）
+      const nonCustomOptions = requirementOptions.filter(opt => opt !== 'Custom')
       const randomRequirement = nonCustomOptions[Math.floor(Math.random() * nonCustomOptions.length)]
       const randomUnit = requirementUnitMap[randomRequirement] || ''
       
@@ -263,6 +273,7 @@ export default function StepFour({ onEnter, previewMode }: StepFourProps = {} as
     
     setRequirementRows(newRows)
     setIsRefreshClicked(true)
+    onDataChange?.({ requirementRows: newRows })
   }
   
   

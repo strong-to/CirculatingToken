@@ -57,7 +57,7 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
             borderTopLeftRadius: px(4),
             borderBottomLeftRadius: px(4),
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontSize: px(12),
+             fontSize: px(14),
             color: readonly && !inputValue ? '#000000' : '#000000',
             backgroundColor: '#FFFFFF',
             outline: 'none',
@@ -85,7 +85,7 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
             <span
               style={{
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontSize: px(12),
+                 fontSize: px(14),
                 color: '#000000',
                 overflow: 'hidden',
                 textOverflow: 'ellipsis',
@@ -141,7 +141,7 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
                     fontStyle: 'normal',
-                    fontSize: px(12),
+                     fontSize: px(14),
                     lineHeight: '100%',
                     letterSpacing: '0%',
                     color: dropdownValue === option ? '#FFFFFF' : '#000000',
@@ -171,9 +171,11 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
 interface StepFiveProps {
   onEnter?: () => void
   previewMode?: boolean
+  data?: import('../Launchpad').StepFiveData
+  onDataChange?: (data: Partial<import('../Launchpad').StepFiveData>) => void
 }
 
-export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as StepFiveProps) {
+export default function StepFive({ onEnter, previewMode, data, onDataChange }: StepFiveProps = {} as StepFiveProps) {
   const [isEnterHovered, setIsEnterHovered] = useState(false)
   const [recommendedValues, setRecommendedValues] = useState({
     proportionOfInitiators: { input: '', dropdown: '10%' },
@@ -210,20 +212,29 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
     field8: { input: '', dropdown: '1' },
   })
   // 12个字段的数值
-  const [fieldValues, setFieldValues] = useState({
-    founderTokenProportion: '',
-    proposalInitiationTokenProportion: '',
-    adjustmentPassRateOfContributionWeight: '',
-    passiveResponsePassRate: '',
-    adjustmentPassRateOfMintingIndex: '',
-    projectLiquidationPassRate: '',
-    tokenMintingQuantityPerPhase: '',
-    tokenMintingIncrementalDifference: '',
-    tokenMintingIndex: '',
-    aaa: '',
-    bbb: '',
-    ccc: '',
-  })
+  const [fieldValues, setFieldValues] = useState(
+    data?.fieldValues || {
+      founderTokenProportion: '',
+      proposalInitiationTokenProportion: '',
+      adjustmentPassRateOfContributionWeight: '',
+      passiveResponsePassRate: '',
+      adjustmentPassRateOfMintingIndex: '',
+      projectLiquidationPassRate: '',
+      tokenMintingQuantityPerPhase: '',
+      tokenMintingIncrementalDifference: '',
+      tokenMintingIndex: '',
+      aaa: '',
+      bbb: '',
+      ccc: '',
+    }
+  )
+
+  // 同步外部数据变化
+  useEffect(() => {
+    if (data?.fieldValues) {
+      setFieldValues(data.fieldValues)
+    }
+  }, [data])
 
   // Refresh按钮是否已点击（只能点击一次）
   const [isRefreshClicked, setIsRefreshClicked] = useState(false)
@@ -260,7 +271,7 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
       const data = await response.json()
       
       // 将JSON中的值填入所有字段
-      setFieldValues({
+      const newFieldValues = {
         founderTokenProportion: data.founderTokenProportion || '',
         proposalInitiationTokenProportion: data.proposalInitiationTokenProportion || '',
         adjustmentPassRateOfContributionWeight: data.adjustmentPassRateOfContributionWeight || '',
@@ -273,7 +284,9 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
         aaa: data.aaa || '',
         bbb: data.bbb || '',
         ccc: data.ccc || '',
-      })
+      }
+      setFieldValues(newFieldValues)
+      onDataChange?.({ fieldValues: newFieldValues })
     } catch (error) {
       console.warn('无法从 public 目录加载值，使用默认值', error)
     }
@@ -314,11 +327,11 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
       )}
 
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(20),
+        <div
+          style={{
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 300,
+            fontSize: px(20),
                 color: '#8C8C8C',
               }}
             >
@@ -327,18 +340,18 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
                 </span>
 
                 <span  />
-            </div>
-
-              <button
+      </div>
+      
+        <button
                 onClick={handleRefreshClick}
                 disabled={isRefreshClicked}
-                style={{
+          style={{
                   paddingLeft: px(26),
                   paddingRight: px(26),
                   height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
                   fontSize: px(14),
@@ -351,8 +364,8 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
                 }}
               >
                 Refresh
-              </button>
-          </div>
+        </button>
+    </div>
 
           {/* 6行输入框布局 */}
           {[
@@ -407,27 +420,35 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
                 {/* 左侧标题（非输入框） */}
                 <div
                   className='flex items-center'
-                  style={{
+          style={{
                     flex: 1,
                     height: '100%',
                     paddingLeft: px(16),
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontSize: px(12),
-                    color: '#000000',
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 300,
+                     fontSize: px(14),
+            color: '#000000',
                   }}
                 >
                   {row.leftLabel}
-                </div>
-
+        </div>
+        
                 {/* 中间输入框 83px，千分位 + 两位小数 */}
                 <input
                   type="text"
                   value={fieldValues[row.leftField as keyof typeof fieldValues]}
-                  onChange={(e) => setFieldValues({ ...fieldValues, [row.leftField]: e.target.value })}
-                  onBlur={(e) => setFieldValues({ ...fieldValues, [row.leftField]: formatNumberWithThousands(e.target.value) })}
+                  onChange={(e) => {
+                    const newValues = { ...fieldValues, [row.leftField]: e.target.value }
+                    setFieldValues(newValues)
+                    onDataChange?.({ fieldValues: newValues })
+                  }}
+                  onBlur={(e) => {
+                    const newValues = { ...fieldValues, [row.leftField]: formatNumberWithThousands(e.target.value) }
+                    setFieldValues(newValues)
+                    onDataChange?.({ fieldValues: newValues })
+                  }}
                   placeholder="0.00"
-                  style={{
+          style={{
                     width: px(83),
                     height: '100%',
                     paddingLeft: px(12),
@@ -435,9 +456,9 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
                     border: 'none',
                     borderLeft: '0.7px solid #000000',
                     outline: 'none',
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
-                    fontSize: px(12),
+                     fontSize: px(14),
                     color: fieldValues[row.leftField as keyof typeof fieldValues] ? '#000000' : '#8C8C8C',
                     textAlign: 'center',
                   }}
@@ -446,28 +467,28 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
                 {/* 百分比方块 44x44，背景 #F5F5F5 */}
                 <div
                   className='flex items-center justify-center'
-                  style={{
+          style={{
                     width: px(44),
                     height: '100%',
                     backgroundColor: '#F5F5F5',
                     borderLeft: '0.7px solid #000000',
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontSize: px(12),
-                    color: '#000000',
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 300,
+                     fontSize: px(14),
+            color: '#000000',
                   }}
                 >
                   %
-                </div>
-              </div>
-
+        </div>
+      </div>
+      
               {/* 右侧输入框（不带%） */}
               <div
                 className='w-full flex items-center'
-                style={{
+          style={{
                   overflow: 'hidden',
-                  height: px(44),
-                  borderRadius: px(4),
+            height: px(44),
+            borderRadius: px(4),
                   border: '0.7px solid #000000',
                 }}
               >
@@ -478,23 +499,31 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
                     flex: 1,
                     height: '100%',
                     paddingLeft: px(16),
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
-                    fontSize: px(12),
+                     fontSize: px(14),
                     color: '#000000',
                   }}
                 >
                   {row.rightLabel}
-                </div>
+    </div>
 
                 {/* 输入框 127px，千分位 + 两位小数 */}
                 <input
                   type="text"
                   value={fieldValues[row.rightField as keyof typeof fieldValues]}
-                  onChange={(e) => setFieldValues({ ...fieldValues, [row.rightField]: e.target.value })}
-                  onBlur={(e) => setFieldValues({ ...fieldValues, [row.rightField]: formatNumberWithThousands(e.target.value) })}
+                  onChange={(e) => {
+                    const newValues = { ...fieldValues, [row.rightField]: e.target.value }
+                    setFieldValues(newValues)
+                    onDataChange?.({ fieldValues: newValues })
+                  }}
+                  onBlur={(e) => {
+                    const newValues = { ...fieldValues, [row.rightField]: formatNumberWithThousands(e.target.value) }
+                    setFieldValues(newValues)
+                    onDataChange?.({ fieldValues: newValues })
+                  }}
                   placeholder="0.00"
-                  style={{
+       style={{
                     width: px(127),
                     height: '100%',
                     paddingLeft: px(12),
@@ -502,15 +531,15 @@ export default function StepFive({ onEnter, previewMode }: StepFiveProps = {} as
                     border: 'none',
                     borderLeft: '0.7px solid #000000',
                     outline: 'none',
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontSize: px(12),
+         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+         fontWeight: 300,
+                     fontSize: px(14),
                     color: fieldValues[row.rightField as keyof typeof fieldValues] ? '#000000' : '#8C8C8C',
                     textAlign: 'center',
                   }}
                 />
-              </div>
-            </div>
+   </div>
+    </div>
           ))}
 
 

@@ -388,10 +388,10 @@ export default function YourNextWorld() {
                 <div
                   className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
                   style={{
-                    borderRadius: px(4),
-                    aspectRatio: "340 / 500",
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    borderRadius: px(4),
+                    aspectRatio: "2 / 3",
                   }}
                   onMouseEnter={() => setHoveredCard("foundationalModels")}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -455,10 +455,10 @@ export default function YourNextWorld() {
                 <div
                   className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
-                    borderRadius: px(4),
-                    aspectRatio: "340 / 500",
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    borderRadius: px(4),
+                    aspectRatio: "2 / 3",
                   }}
                   onMouseEnter={() => setHoveredCard("workflows")}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -520,10 +520,10 @@ export default function YourNextWorld() {
                 <div
                   className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
-                    borderRadius: px(4),
-                    aspectRatio: "340 / 500",
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    borderRadius: px(4),
+                    aspectRatio: "2 / 3",
                   }}
                   onMouseEnter={() => setHoveredCard("aiAgents")}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -589,7 +589,7 @@ export default function YourNextWorld() {
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     borderRadius: px(4),
-                    aspectRatio: "340 / 500",
+                    aspectRatio: "2 / 3",
                   }}
                   onMouseEnter={() => setHoveredCard("datasets")}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -650,7 +650,7 @@ export default function YourNextWorld() {
                   className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
                     borderRadius: px(4),
-                    aspectRatio: "340 / 500",
+                    aspectRatio: "2 / 3",
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   }}
@@ -712,10 +712,10 @@ export default function YourNextWorld() {
                 <div
                   className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
                   style={{
-                    borderRadius: px(4),
-                    aspectRatio: "340 / 500",
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    borderRadius: px(4),
+                    aspectRatio: "2 / 3",
                   }}
                   onMouseEnter={() => setHoveredCard("foundationalModels")}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -777,10 +777,10 @@ export default function YourNextWorld() {
                 <div
                   className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
-                    borderRadius: px(4),
-                    aspectRatio: "340 / 500",
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    borderRadius: px(4),
+                    aspectRatio: "2 / 3",
                   }}
                   onMouseEnter={() => setHoveredCard("workflows")}
                   onMouseLeave={() => setHoveredCard(null)}
@@ -840,10 +840,10 @@ export default function YourNextWorld() {
                 <div
                   className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
                   style={{
-                    borderRadius: px(4),
-                    aspectRatio: "340 / 500",
                     paddingBottom: px(22),
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    borderRadius: px(4),
+                    aspectRatio: "2 / 3",
                   }}
                   onMouseEnter={() => setHoveredCard("aiAgents")}
                   onMouseLeave={() => setHoveredCard(null)}

@@ -1,0 +1,305 @@
+{
+  "system_id": "DBTF0000024",
+  "slug": "tripmate",
+  "status": "completed",
+  "profile": {
+    "name": "TripMate",
+    "symbol": "T",
+    "type_en": "AI Agent",
+    "category_cn": "旅行助理",
+    "slogan": "Travel smarter, wander further.",
+    "summary": "TripMate delivers AI Agent capabilities for Social teams.",
+    "description_md": "## 关于 TripMate\nTravel smarter, wander further.\n\n### 交互形态\n- Text / Image+Text\n\n### 适用领域\n- Social / Transportation\n\n### 核心能力\n- Analyze · Explain · Predict · Summarize\n\n### 运营概览\n- 贡献者：176\n- 市值：$17.2M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_024.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask24.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/tripmate_hero.jpg",
+          "context": "project_home_hero",
+          "description": "TripMate 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/tripmate_intro.mp4",
+          "context": "project_story",
+          "description": "TripMate 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000024",
+      "introduction": "Reliable CPU compute at scale. 024"
+    },
+    "links": {
+      "website": "https://tripmate.io",
+      "whitepaper": "https://docs.tripmate.io/whitepaper",
+      "github": "https://github.com/dbtf/tripmate"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Social",
+      "Transportation"
+    ],
+    "object": [
+      "Text",
+      "Image",
+      "Data"
+    ],
+    "action": [
+      "Analyze",
+      "Explain",
+      "Predict",
+      "Summarize"
+    ],
+    "interaction_form": [
+      "Text",
+      "Image+Text"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-27",
+      "progress": 1,
+      "contributors_count": 176,
+      "total_commits": 4632
+    },
+    "operation": {
+      "total_users": 500,
+      "new_users_24h": 13,
+      "revenue_total": 244396,
+      "revenue_24h": 3740
+    },
+    "rating": {
+      "score": 4.7,
+      "review_count": 44
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Needs Polish",
+      "Scalable",
+      "Low Latency"
+    ],
+    "list": [
+      {
+        "id": "tripmate_rev_1",
+        "user_id": "tripmate_builder",
+        "user_name": "TBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/tripmate_1.png",
+        "rating": 5,
+        "content": "TripMate 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 19
+      },
+      {
+        "id": "tripmate_rev_2",
+        "user_id": "tripmate_ops",
+        "user_name": "TOps",
+        "avatar": "https://assets.dbtf.com/avatars/tripmate_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 21
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 15.09,
+      "market_cap": 17200000,
+      "change_24h_percent": -0.9,
+      "volume_24h": 548175
+    },
+    "supply": {
+      "total_supply": 1139530,
+      "circulating": 1118628,
+      "minted_24h": 326,
+      "burned_24h": 127
+    },
+    "staking": {
+      "total_staked": 647997,
+      "staking_ratio": 0.57,
+      "unstaked_24h": 13504,
+      "apy": 0.09
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 15.06,
+        "high": 15.22,
+        "low": 14.99,
+        "close": 15.19,
+        "volume": 597481
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 14.92,
+        "high": 15,
+        "low": 14.83,
+        "close": 15.03,
+        "volume": 580667
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 14.94,
+          "amount": 585
+        },
+        {
+          "price": 14.86,
+          "amount": 427
+        }
+      ],
+      "asks": [
+        {
+          "price": 15.24,
+          "amount": 674
+        },
+        {
+          "price": 15.32,
+          "amount": 705
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "tripmate_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 15.09,
+        "amount": 130,
+        "total_value": 2059.9,
+        "trader_info": {
+          "user_id": "tripmate_whale",
+          "name": "TWhale",
+          "avatar": "https://assets.dbtf.com/avatars/tripmate_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "tripmate_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 15.01,
+        "amount": 86,
+        "total_value": 1437.4,
+        "trader_info": {
+          "user_id": "tripmate_pro",
+          "name": "TTrader",
+          "avatar": "https://assets.dbtf.com/avatars/tripmate_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 38,
+      "active_builders_count": 176
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "tripmate_resource",
+        "unit_name": "Unit",
+        "description": "TripMate 核心资源贡献",
+        "reward_token": 12.8
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "tripmate_task_1",
+        "title": "扩展 TripMate 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 291599,
+        "progress_target": 647997,
+        "reward_display": "T 奖励"
+      },
+      {
+        "task_id": "tripmate_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "T 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "tripmate_alpha",
+        "name": "TAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/tripmate_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 16025,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "tripmate_beta",
+        "name": "TBeta",
+        "avatar": "https://assets.dbtf.com/avatars/tripmate_beta.png",
+        "role": "Developer",
+        "contribution_points": 8815,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "tripmate_hist_1",
+        "user_id": "tripmate_alpha",
+        "user_name": "TAlpha",
+        "task_title": "TripMate 节点贡献",
+        "amount": 115,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "tripmate_gov_1",
+        "title": "关于 TripMate 奖励参数的提案",
+        "proposer": {
+          "name": "T DAO",
+          "avatar": "https://assets.dbtf.com/avatars/tripmate_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 TripMate 在 Social 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 1376000,
+          "against": 344000,
+          "abstain": 172000
+        },
+        "recent_votes": [
+          {
+            "user_id": "tripmate_governor_a",
+            "name": "TGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/tripmate_gov_a.png",
+            "vote_option": "for",
+            "weight": 6336,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "tripmate_governor_b",
+            "name": "TGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/tripmate_gov_b.png",
+            "vote_option": "against",
+            "weight": 1154,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,306 @@
+{
+  "system_id": "DBTF0000026",
+  "slug": "finpilot",
+  "status": "completed",
+  "profile": {
+    "name": "FinPilot",
+    "symbol": "F",
+    "type_en": "AI Agent",
+    "category_cn": "财经助理",
+    "slogan": "Insights that keep your money moving.",
+    "summary": "FinPilot delivers AI Agent capabilities for Finance teams.",
+    "description_md": "## 关于 FinPilot\nInsights that keep your money moving.\n\n### 交互形态\n- Text / Table / Chart\n\n### 适用领域\n- Finance / Markets & Trade\n\n### 核心能力\n- Analyze · Predict · Summarize · Explain\n\n### 运营概览\n- 贡献者：241\n- 市值：$36.8M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_026.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask26.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/finpilot_hero.jpg",
+          "context": "project_home_hero",
+          "description": "FinPilot 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/finpilot_intro.mp4",
+          "context": "project_story",
+          "description": "FinPilot 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000026",
+      "introduction": "Reliable CPU compute at scale. 026"
+    },
+    "links": {
+      "website": "https://finpilot.io",
+      "whitepaper": "https://docs.finpilot.io/whitepaper",
+      "github": "https://github.com/dbtf/finpilot"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Finance",
+      "Markets & Trade"
+    ],
+    "object": [
+      "Data",
+      "Chart",
+      "Text"
+    ],
+    "action": [
+      "Analyze",
+      "Predict",
+      "Summarize",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Text",
+      "Table",
+      "Chart"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-30",
+      "progress": 1,
+      "contributors_count": 241,
+      "total_commits": 7439
+    },
+    "operation": {
+      "total_users": 684,
+      "new_users_24h": 17,
+      "revenue_total": 790768,
+      "revenue_24h": 7210
+    },
+    "rating": {
+      "score": 4.6,
+      "review_count": 60
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Great Support",
+      "Needs Polish",
+      "Scalable"
+    ],
+    "list": [
+      {
+        "id": "finpilot_rev_1",
+        "user_id": "finpilot_builder",
+        "user_name": "FBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/finpilot_1.png",
+        "rating": 5,
+        "content": "FinPilot 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 31
+      },
+      {
+        "id": "finpilot_rev_2",
+        "user_id": "finpilot_ops",
+        "user_name": "FOps",
+        "avatar": "https://assets.dbtf.com/avatars/finpilot_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 21
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 26.81,
+      "market_cap": 36800000,
+      "change_24h_percent": 3.1,
+      "volume_24h": 919056
+    },
+    "supply": {
+      "total_supply": 1372583,
+      "circulating": 1296672,
+      "minted_24h": 429,
+      "burned_24h": 155
+    },
+    "staking": {
+      "total_staked": 688453,
+      "staking_ratio": 0.5,
+      "unstaked_24h": 16684,
+      "apy": 0.09
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 27.01,
+        "high": 27.18,
+        "low": 26.67,
+        "close": 26.78,
+        "volume": 759262
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 26.69,
+        "high": 26.97,
+        "low": 26.59,
+        "close": 26.46,
+        "volume": 802275
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 26.54,
+          "amount": 895
+        },
+        {
+          "price": 26.41,
+          "amount": 520
+        }
+      ],
+      "asks": [
+        {
+          "price": 27.08,
+          "amount": 753
+        },
+        {
+          "price": 27.21,
+          "amount": 443
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "finpilot_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 26.81,
+        "amount": 126,
+        "total_value": 4002.06,
+        "trader_info": {
+          "user_id": "finpilot_whale",
+          "name": "FWhale",
+          "avatar": "https://assets.dbtf.com/avatars/finpilot_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "finpilot_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 26.68,
+        "amount": 77,
+        "total_value": 2388.93,
+        "trader_info": {
+          "user_id": "finpilot_pro",
+          "name": "FTrader",
+          "avatar": "https://assets.dbtf.com/avatars/finpilot_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 61,
+      "active_builders_count": 241
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "finpilot_resource",
+        "unit_name": "Unit",
+        "description": "FinPilot 核心资源贡献",
+        "reward_token": 9.9
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "finpilot_task_1",
+        "title": "扩展 FinPilot 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 309804,
+        "progress_target": 688453,
+        "reward_display": "F 奖励"
+      },
+      {
+        "task_id": "finpilot_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "F 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "finpilot_alpha",
+        "name": "FAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/finpilot_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 13177,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "finpilot_beta",
+        "name": "FBeta",
+        "avatar": "https://assets.dbtf.com/avatars/finpilot_beta.png",
+        "role": "Developer",
+        "contribution_points": 8002,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "finpilot_hist_1",
+        "user_id": "finpilot_alpha",
+        "user_name": "FAlpha",
+        "task_title": "FinPilot 节点贡献",
+        "amount": 130,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "finpilot_gov_1",
+        "title": "关于 FinPilot 奖励参数的提案",
+        "proposer": {
+          "name": "F DAO",
+          "avatar": "https://assets.dbtf.com/avatars/finpilot_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 FinPilot 在 Finance 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 2944000,
+          "against": 736000,
+          "abstain": 368000
+        },
+        "recent_votes": [
+          {
+            "user_id": "finpilot_governor_a",
+            "name": "FGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/finpilot_gov_a.png",
+            "vote_option": "for",
+            "weight": 5266,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "finpilot_governor_b",
+            "name": "FGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/finpilot_gov_b.png",
+            "vote_option": "against",
+            "weight": 1778,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

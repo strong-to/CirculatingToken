@@ -7,6 +7,7 @@ import FilterSection from '@/components/TokenMarketplace/com/FilterSection'
 // import ContentCardList from '@/components/TokenMarketplace/com/ContentCardList'
 import ChatImages from '@/components/TokenMarketplace/com/ChatImages'
 import ChatContent from '@/components/TokenMarketplace/com/ChatContent'
+import PlaceholderComponent from '@/components/TokenMarketplace/com/PlaceholderComponent'
 
 export default function TokenMarketplaceContent() {
   const [viewMode, setViewMode] = useState<'Chat' | 'List'>('List')
@@ -34,13 +35,20 @@ export default function TokenMarketplaceContent() {
 
   return (
       <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide smooth-scroll">
-          <ChatImages />
+          {/* <ChatImages /> */}
           {/* 筛选框 */}
           <div style={{paddingLeft: px(29), paddingRight: px(29)}}>
           <FilterSection onViewChange={setViewMode} />
           </div>
-          <div style={{ position: 'relative', width: '100%' }}>
-          <ChatContent />
+
+
+          <PlaceholderComponent />
+
+
+
+
+          {/* <div style={{ position: 'relative', width: '100%' }}>
+          <ChatContent /> */}
             {/* List 视图 */}
             {/* {displayList && (
               <div 
@@ -81,7 +89,7 @@ export default function TokenMarketplaceContent() {
                 <ChatContent />
               </div>
             )} */}
-          </div>
+          {/* </div> */}
         </div>
   )
 }

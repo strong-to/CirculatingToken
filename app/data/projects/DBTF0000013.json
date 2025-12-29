@@ -1,0 +1,305 @@
+{
+  "system_id": "DBTF0000013",
+  "slug": "artrefer",
+  "status": "completed",
+  "profile": {
+    "name": "ArtRefer",
+    "symbol": "A",
+    "type_en": "Dataset",
+    "category_cn": "艺术行业数据集",
+    "slogan": "Creative cues for style, critique, and expression.",
+    "summary": "ArtRefer delivers Dataset capabilities for Art teams.",
+    "description_md": "## 关于 ArtRefer\nCreative cues for style, critique, and expression.\n\n### 交互形态\n- Text / Image\n\n### 适用领域\n- Art / Culture\n\n### 核心能力\n- Classify · Explain · Analyze · Generate\n\n### 运营概览\n- 贡献者：85\n- 市值：$2.5M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_013.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask13.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/artrefer_hero.jpg",
+          "context": "project_home_hero",
+          "description": "ArtRefer 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/artrefer_intro.mp4",
+          "context": "project_story",
+          "description": "ArtRefer 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000013",
+      "introduction": "Reliable CPU compute at scale. 013"
+    },
+    "links": {
+      "website": "https://artrefer.io",
+      "whitepaper": "https://docs.artrefer.io/whitepaper",
+      "github": "https://github.com/dbtf/artrefer"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Art",
+      "Culture"
+    ],
+    "object": [
+      "Image",
+      "Text",
+      "Emotion"
+    ],
+    "action": [
+      "Classify",
+      "Explain",
+      "Analyze",
+      "Generate"
+    ],
+    "interaction_form": [
+      "Text",
+      "Image"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-17",
+      "progress": 1,
+      "contributors_count": 85,
+      "total_commits": 2389
+    },
+    "operation": {
+      "total_users": 239,
+      "new_users_24h": 6,
+      "revenue_total": 41076,
+      "revenue_24h": 540
+    },
+    "rating": {
+      "score": 4.5,
+      "review_count": 21
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Low Latency",
+      "Reliable",
+      "Feature Rich"
+    ],
+    "list": [
+      {
+        "id": "artrefer_rev_1",
+        "user_id": "artrefer_builder",
+        "user_name": "ABuilder",
+        "avatar": "https://assets.dbtf.com/avatars/artrefer_1.png",
+        "rating": 5,
+        "content": "ArtRefer 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 23
+      },
+      {
+        "id": "artrefer_rev_2",
+        "user_id": "artrefer_ops",
+        "user_name": "AOps",
+        "avatar": "https://assets.dbtf.com/avatars/artrefer_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 11
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.75,
+      "market_cap": 2500000,
+      "change_24h_percent": -0.3,
+      "volume_24h": 105528
+    },
+    "supply": {
+      "total_supply": 910686,
+      "circulating": 886148,
+      "minted_24h": 471,
+      "burned_24h": 110
+    },
+    "staking": {
+      "total_staked": 402427,
+      "staking_ratio": 0.44,
+      "unstaked_24h": 10678,
+      "apy": 0.18
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 2.8,
+        "high": 2.81,
+        "low": 2.79,
+        "close": 2.82,
+        "volume": 96133
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 2.82,
+        "high": 2.84,
+        "low": 2.81,
+        "close": 2.83,
+        "volume": 88719
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 2.72,
+          "amount": 628
+        },
+        {
+          "price": 2.71,
+          "amount": 525
+        }
+      ],
+      "asks": [
+        {
+          "price": 2.78,
+          "amount": 762
+        },
+        {
+          "price": 2.79,
+          "amount": 719
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "artrefer_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 2.75,
+        "amount": 140,
+        "total_value": 308.64,
+        "trader_info": {
+          "user_id": "artrefer_whale",
+          "name": "AWhale",
+          "avatar": "https://assets.dbtf.com/avatars/artrefer_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "artrefer_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 2.74,
+        "amount": 97,
+        "total_value": 204.17,
+        "trader_info": {
+          "user_id": "artrefer_pro",
+          "name": "ATrader",
+          "avatar": "https://assets.dbtf.com/avatars/artrefer_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 19,
+      "active_builders_count": 85
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "artrefer_resource",
+        "unit_name": "Unit",
+        "description": "ArtRefer 核心资源贡献",
+        "reward_token": 8.7
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "artrefer_task_1",
+        "title": "扩展 ArtRefer 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 181092,
+        "progress_target": 402427,
+        "reward_display": "A 奖励"
+      },
+      {
+        "task_id": "artrefer_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "A 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "artrefer_alpha",
+        "name": "AAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/artrefer_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 13593,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "artrefer_beta",
+        "name": "ABeta",
+        "avatar": "https://assets.dbtf.com/avatars/artrefer_beta.png",
+        "role": "Developer",
+        "contribution_points": 9813,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "artrefer_hist_1",
+        "user_id": "artrefer_alpha",
+        "user_name": "AAlpha",
+        "task_title": "ArtRefer 节点贡献",
+        "amount": 131,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "artrefer_gov_1",
+        "title": "关于 ArtRefer 奖励参数的提案",
+        "proposer": {
+          "name": "A DAO",
+          "avatar": "https://assets.dbtf.com/avatars/artrefer_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 ArtRefer 在 Art 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 200000,
+          "against": 50000,
+          "abstain": 25000
+        },
+        "recent_votes": [
+          {
+            "user_id": "artrefer_governor_a",
+            "name": "AGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/artrefer_gov_a.png",
+            "vote_option": "for",
+            "weight": 5456,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "artrefer_governor_b",
+            "name": "AGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/artrefer_gov_b.png",
+            "vote_option": "against",
+            "weight": 1580,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

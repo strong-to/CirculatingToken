@@ -1,0 +1,305 @@
+{
+  "system_id": "DBTF0000017",
+  "slug": "frameflow",
+  "status": "completed",
+  "profile": {
+    "name": "FrameFlow",
+    "symbol": "F",
+    "type_en": "Workflow",
+    "category_cn": "视频创作",
+    "slogan": "From script to screen—fully automated.",
+    "summary": "FrameFlow delivers Workflow capabilities for Media teams.",
+    "description_md": "## 关于 FrameFlow\nFrom script to screen—fully automated.\n\n### 交互形态\n- Video+Audio / Image+Text\n\n### 适用领域\n- Media / Entertainment\n\n### 核心能力\n- Generate · Edit · Summarize · Explain\n\n### 运营概览\n- 贡献者：243\n- 市值：$22.6M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_017.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask17.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/frameflow_hero.jpg",
+          "context": "project_home_hero",
+          "description": "FrameFlow 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/frameflow_intro.mp4",
+          "context": "project_story",
+          "description": "FrameFlow 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000017",
+      "introduction": "Reliable CPU compute at scale. 017"
+    },
+    "links": {
+      "website": "https://frameflow.io",
+      "whitepaper": "https://docs.frameflow.io/whitepaper",
+      "github": "https://github.com/dbtf/frameflow"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Media",
+      "Entertainment"
+    ],
+    "object": [
+      "Video",
+      "Audio",
+      "Image"
+    ],
+    "action": [
+      "Generate",
+      "Edit",
+      "Summarize",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Video+Audio",
+      "Image+Text"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-20",
+      "progress": 1,
+      "contributors_count": 243,
+      "total_commits": 6444
+    },
+    "operation": {
+      "total_users": 684,
+      "new_users_24h": 17,
+      "revenue_total": 810456,
+      "revenue_24h": 4920
+    },
+    "rating": {
+      "score": 4.4,
+      "review_count": 61
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Scalable",
+      "Needs Polish",
+      "Low Latency"
+    ],
+    "list": [
+      {
+        "id": "frameflow_rev_1",
+        "user_id": "frameflow_builder",
+        "user_name": "FBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/frameflow_1.png",
+        "rating": 4,
+        "content": "FrameFlow 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 48
+      },
+      {
+        "id": "frameflow_rev_2",
+        "user_id": "frameflow_ops",
+        "user_name": "FOps",
+        "avatar": "https://assets.dbtf.com/avatars/frameflow_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 12
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 16.41,
+      "market_cap": 22600000,
+      "change_24h_percent": -0.4,
+      "volume_24h": 642265
+    },
+    "supply": {
+      "total_supply": 1376791,
+      "circulating": 1375595,
+      "minted_24h": 678,
+      "burned_24h": 324
+    },
+    "staking": {
+      "total_staked": 423693,
+      "staking_ratio": 0.31,
+      "unstaked_24h": 14118,
+      "apy": 0.18
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 16.04,
+        "high": 16.27,
+        "low": 15.75,
+        "close": 15.94,
+        "volume": 760018
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 16.21,
+        "high": 16.54,
+        "low": 15.91,
+        "close": 16.08,
+        "volume": 557506
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 16.25,
+          "amount": 747
+        },
+        {
+          "price": 16.16,
+          "amount": 713
+        }
+      ],
+      "asks": [
+        {
+          "price": 16.57,
+          "amount": 470
+        },
+        {
+          "price": 16.66,
+          "amount": 575
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "frameflow_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 16.41,
+        "amount": 132,
+        "total_value": 2260.78,
+        "trader_info": {
+          "user_id": "frameflow_whale",
+          "name": "FWhale",
+          "avatar": "https://assets.dbtf.com/avatars/frameflow_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "frameflow_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 16.33,
+        "amount": 81,
+        "total_value": 1016.5,
+        "trader_info": {
+          "user_id": "frameflow_pro",
+          "name": "FTrader",
+          "avatar": "https://assets.dbtf.com/avatars/frameflow_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 52,
+      "active_builders_count": 243
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "frameflow_resource",
+        "unit_name": "Unit",
+        "description": "FrameFlow 核心资源贡献",
+        "reward_token": 13
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "frameflow_task_1",
+        "title": "扩展 FrameFlow 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 190662,
+        "progress_target": 423693,
+        "reward_display": "F 奖励"
+      },
+      {
+        "task_id": "frameflow_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "F 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "frameflow_alpha",
+        "name": "FAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/frameflow_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 15897,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "frameflow_beta",
+        "name": "FBeta",
+        "avatar": "https://assets.dbtf.com/avatars/frameflow_beta.png",
+        "role": "Developer",
+        "contribution_points": 8189,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "frameflow_hist_1",
+        "user_id": "frameflow_alpha",
+        "user_name": "FAlpha",
+        "task_title": "FrameFlow 节点贡献",
+        "amount": 110,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "frameflow_gov_1",
+        "title": "关于 FrameFlow 奖励参数的提案",
+        "proposer": {
+          "name": "F DAO",
+          "avatar": "https://assets.dbtf.com/avatars/frameflow_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 FrameFlow 在 Media 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 1808000,
+          "against": 452000,
+          "abstain": 226000
+        },
+        "recent_votes": [
+          {
+            "user_id": "frameflow_governor_a",
+            "name": "FGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/frameflow_gov_a.png",
+            "vote_option": "for",
+            "weight": 5316,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "frameflow_governor_b",
+            "name": "FGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/frameflow_gov_b.png",
+            "vote_option": "against",
+            "weight": 1227,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

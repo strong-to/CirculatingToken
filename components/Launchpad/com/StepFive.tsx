@@ -122,7 +122,7 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
                 marginTop: px(4),
                 backgroundColor: '#FFFFFF',
                 border: `0.5px solid #E4E7ED`,
-                borderRadius: px(4),
+                borderRadius: px(8),
                 boxShadow: '0 2px 12px 0 rgba(0, 0, 0, 0.1)',
                 overflow: 'hidden',
                 right: 0,
@@ -325,7 +325,7 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
       {!previewMode && (
         <StepTitleBar
           title="Rights Allocation and Project Governance"
-          barColor="rgba(255, 240, 5, 0.75)"
+          barColor="rgba(225, 5, 13, 0.75)"
           width={843}
           marginTop={5}
           marginBottom={80}
@@ -465,7 +465,7 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                     outline: 'none',
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
-                     fontSize: px(14),
+            fontSize: px(14),
                     color: fieldValues[row.leftField as keyof typeof fieldValues] ? '#000000' : '#8C8C8C',
                     textAlign: 'center',
                   }}
@@ -508,10 +508,10 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                     paddingLeft: px(16),
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
-                     fontSize: px(14),
+            fontSize: px(14),
                     color: '#000000',
-                  }}
-                >
+          }}
+        >
                   {row.rightLabel}
     </div>
 

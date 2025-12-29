@@ -1,0 +1,307 @@
+{
+  "system_id": "DBTF0000004",
+  "slug": "spectra",
+  "status": "completed",
+  "profile": {
+    "name": "Spectra",
+    "symbol": "S",
+    "type_en": "Foundation Model",
+    "category_cn": "视觉模型",
+    "slogan": "Seeing structure, meaning, and detail—instantly.",
+    "summary": "Spectra delivers Foundation Model capabilities for AI / Computing teams.",
+    "description_md": "## 关于 Spectra\nSeeing structure, meaning, and detail—instantly.\n\n### 交互形态\n- Image / Image+Text / Video+Audio\n\n### 适用领域\n- AI / Computing / Media\n\n### 核心能力\n- Generate · Classify · Predict · Analyze · Explain\n\n### 运营概览\n- 贡献者：221\n- 市值：$52.0M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_004.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask4.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/spectra_hero.jpg",
+          "context": "project_home_hero",
+          "description": "Spectra 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/spectra_intro.mp4",
+          "context": "project_story",
+          "description": "Spectra 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000004",
+      "introduction": "Reliable CPU compute at scale. 004"
+    },
+    "links": {
+      "website": "https://spectra.io",
+      "whitepaper": "https://docs.spectra.io/whitepaper",
+      "github": "https://github.com/dbtf/spectra"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI / Computing",
+      "Media"
+    ],
+    "object": [
+      "Image",
+      "Video",
+      "Data"
+    ],
+    "action": [
+      "Generate",
+      "Classify",
+      "Predict",
+      "Analyze",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Image",
+      "Image+Text",
+      "Video+Audio"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-07",
+      "progress": 1,
+      "contributors_count": 221,
+      "total_commits": 7034
+    },
+    "operation": {
+      "total_users": 617,
+      "new_users_24h": 15,
+      "revenue_total": 1101383,
+      "revenue_24h": 8400
+    },
+    "rating": {
+      "score": 4.3,
+      "review_count": 55
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Needs Polish",
+      "Scalable",
+      "Low Latency"
+    ],
+    "list": [
+      {
+        "id": "spectra_rev_1",
+        "user_id": "spectra_builder",
+        "user_name": "SBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/spectra_1.png",
+        "rating": 4,
+        "content": "Spectra 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 39
+      },
+      {
+        "id": "spectra_rev_2",
+        "user_id": "spectra_ops",
+        "user_name": "SOps",
+        "avatar": "https://assets.dbtf.com/avatars/spectra_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 22
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 56.84,
+      "market_cap": 52000000,
+      "change_24h_percent": -3.7,
+      "volume_24h": 2374104
+    },
+    "supply": {
+      "total_supply": 914894,
+      "circulating": 848557,
+      "minted_24h": 720,
+      "burned_24h": 252
+    },
+    "staking": {
+      "total_staked": 592905,
+      "staking_ratio": 0.65,
+      "unstaked_24h": 21120,
+      "apy": 0.14
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 58.92,
+        "high": 59.59,
+        "low": 58.46,
+        "close": 58.4,
+        "volume": 2061140
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 57.76,
+        "high": 57.76,
+        "low": 56.71,
+        "close": 58,
+        "volume": 1984298
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 56.27,
+          "amount": 980
+        },
+        {
+          "price": 55.99,
+          "amount": 717
+        }
+      ],
+      "asks": [
+        {
+          "price": 57.41,
+          "amount": 480
+        },
+        {
+          "price": 57.69,
+          "amount": 471
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "spectra_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 56.84,
+        "amount": 146,
+        "total_value": 5725.36,
+        "trader_info": {
+          "user_id": "spectra_whale",
+          "name": "SWhale",
+          "avatar": "https://assets.dbtf.com/avatars/spectra_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "spectra_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 56.56,
+        "amount": 60,
+        "total_value": 4938.24,
+        "trader_info": {
+          "user_id": "spectra_pro",
+          "name": "STrader",
+          "avatar": "https://assets.dbtf.com/avatars/spectra_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 57,
+      "active_builders_count": 221
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "spectra_resource",
+        "unit_name": "Unit",
+        "description": "Spectra 核心资源贡献",
+        "reward_token": 11.7
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "spectra_task_1",
+        "title": "扩展 Spectra 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 266807,
+        "progress_target": 592905,
+        "reward_display": "S 奖励"
+      },
+      {
+        "task_id": "spectra_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "S 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "spectra_alpha",
+        "name": "SAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/spectra_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 16312,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "spectra_beta",
+        "name": "SBeta",
+        "avatar": "https://assets.dbtf.com/avatars/spectra_beta.png",
+        "role": "Developer",
+        "contribution_points": 10000,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "spectra_hist_1",
+        "user_id": "spectra_alpha",
+        "user_name": "SAlpha",
+        "task_title": "Spectra 节点贡献",
+        "amount": 111,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "spectra_gov_1",
+        "title": "关于 Spectra 奖励参数的提案",
+        "proposer": {
+          "name": "S DAO",
+          "avatar": "https://assets.dbtf.com/avatars/spectra_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 Spectra 在 AI / Computing 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 4160000,
+          "against": 1040000,
+          "abstain": 520000
+        },
+        "recent_votes": [
+          {
+            "user_id": "spectra_governor_a",
+            "name": "SGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/spectra_gov_a.png",
+            "vote_option": "for",
+            "weight": 5505,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "spectra_governor_b",
+            "name": "SGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/spectra_gov_b.png",
+            "vote_option": "against",
+            "weight": 1029,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

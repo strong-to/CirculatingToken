@@ -1,0 +1,306 @@
+{
+  "system_id": "DBTF0000018",
+  "slug": "indusdraft",
+  "status": "completed",
+  "profile": {
+    "name": "IndusDraft",
+    "symbol": "I",
+    "type_en": "Workflow",
+    "category_cn": "工业设计",
+    "slogan": "Precision design for real-world manufacturing.",
+    "summary": "IndusDraft delivers Workflow capabilities for Industry teams.",
+    "description_md": "## 关于 IndusDraft\nPrecision design for real-world manufacturing.\n\n### 交互形态\n- Image / Chart / Table\n\n### 适用领域\n- Industry / Manufacturing\n\n### 核心能力\n- Analyze · Generate · Predict · Explain\n\n### 运营概览\n- 贡献者：156\n- 市值：$19.4M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_018.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask18.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/indusdraft_hero.jpg",
+          "context": "project_home_hero",
+          "description": "IndusDraft 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/indusdraft_intro.mp4",
+          "context": "project_story",
+          "description": "IndusDraft 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000018",
+      "introduction": "Reliable CPU compute at scale. 018"
+    },
+    "links": {
+      "website": "https://indusdraft.io",
+      "whitepaper": "https://docs.indusdraft.io/whitepaper",
+      "github": "https://github.com/dbtf/indusdraft"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Industry",
+      "Manufacturing"
+    ],
+    "object": [
+      "Image",
+      "Data",
+      "Chart"
+    ],
+    "action": [
+      "Analyze",
+      "Generate",
+      "Predict",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Image",
+      "Chart",
+      "Table"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-22",
+      "progress": 1,
+      "contributors_count": 156,
+      "total_commits": 3988
+    },
+    "operation": {
+      "total_users": 440,
+      "new_users_24h": 11,
+      "revenue_total": 479651,
+      "revenue_24h": 3780
+    },
+    "rating": {
+      "score": 4.4,
+      "review_count": 39
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Scalable",
+      "Reliable",
+      "Great Support"
+    ],
+    "list": [
+      {
+        "id": "indusdraft_rev_1",
+        "user_id": "indusdraft_builder",
+        "user_name": "IBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/indusdraft_1.png",
+        "rating": 4,
+        "content": "IndusDraft 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 14
+      },
+      {
+        "id": "indusdraft_rev_2",
+        "user_id": "indusdraft_ops",
+        "user_name": "IOps",
+        "avatar": "https://assets.dbtf.com/avatars/indusdraft_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 13
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 16.97,
+      "market_cap": 19400000,
+      "change_24h_percent": -2.4,
+      "volume_24h": 969430
+    },
+    "supply": {
+      "total_supply": 1143318,
+      "circulating": 1064029,
+      "minted_24h": 730,
+      "burned_24h": 229
+    },
+    "staking": {
+      "total_staked": 770826,
+      "staking_ratio": 0.67,
+      "unstaked_24h": 15431,
+      "apy": 0.12
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 17.01,
+        "high": 17.21,
+        "low": 16.81,
+        "close": 17.09,
+        "volume": 1019291
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 16.83,
+        "high": 16.86,
+        "low": 16.7,
+        "close": 16.89,
+        "volume": 1138946
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 16.8,
+          "amount": 652
+        },
+        {
+          "price": 16.72,
+          "amount": 560
+        }
+      ],
+      "asks": [
+        {
+          "price": 17.14,
+          "amount": 734
+        },
+        {
+          "price": 17.22,
+          "amount": 634
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "indusdraft_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 16.97,
+        "amount": 129,
+        "total_value": 1937.16,
+        "trader_info": {
+          "user_id": "indusdraft_whale",
+          "name": "IWhale",
+          "avatar": "https://assets.dbtf.com/avatars/indusdraft_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "indusdraft_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 16.89,
+        "amount": 97,
+        "total_value": 1674.41,
+        "trader_info": {
+          "user_id": "indusdraft_pro",
+          "name": "ITrader",
+          "avatar": "https://assets.dbtf.com/avatars/indusdraft_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 33,
+      "active_builders_count": 156
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "indusdraft_resource",
+        "unit_name": "Unit",
+        "description": "IndusDraft 核心资源贡献",
+        "reward_token": 11.5
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "indusdraft_task_1",
+        "title": "扩展 IndusDraft 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 346872,
+        "progress_target": 770826,
+        "reward_display": "I 奖励"
+      },
+      {
+        "task_id": "indusdraft_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "I 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "indusdraft_alpha",
+        "name": "IAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/indusdraft_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 14473,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "indusdraft_beta",
+        "name": "IBeta",
+        "avatar": "https://assets.dbtf.com/avatars/indusdraft_beta.png",
+        "role": "Developer",
+        "contribution_points": 7782,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "indusdraft_hist_1",
+        "user_id": "indusdraft_alpha",
+        "user_name": "IAlpha",
+        "task_title": "IndusDraft 节点贡献",
+        "amount": 118,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "indusdraft_gov_1",
+        "title": "关于 IndusDraft 奖励参数的提案",
+        "proposer": {
+          "name": "I DAO",
+          "avatar": "https://assets.dbtf.com/avatars/indusdraft_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 IndusDraft 在 Industry 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 1552000,
+          "against": 388000,
+          "abstain": 194000
+        },
+        "recent_votes": [
+          {
+            "user_id": "indusdraft_governor_a",
+            "name": "IGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/indusdraft_gov_a.png",
+            "vote_option": "for",
+            "weight": 6781,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "indusdraft_governor_b",
+            "name": "IGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/indusdraft_gov_b.png",
+            "vote_option": "against",
+            "weight": 1138,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

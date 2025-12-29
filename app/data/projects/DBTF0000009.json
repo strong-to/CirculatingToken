@@ -1,0 +1,305 @@
+{
+  "system_id": "DBTF0000009",
+  "slug": "atmoset",
+  "status": "completed",
+  "profile": {
+    "name": "AtmoSet",
+    "symbol": "A",
+    "type_en": "Dataset",
+    "category_cn": "气象行业数据集",
+    "slogan": "Signals behind storms, seasons, and the climate.",
+    "summary": "AtmoSet delivers Dataset capabilities for Meteorology teams.",
+    "description_md": "## 关于 AtmoSet\nSignals behind storms, seasons, and the climate.\n\n### 交互形态\n- Text / Table\n\n### 适用领域\n- Meteorology / Environment\n\n### 核心能力\n- Predict · Analyze · Summarize · Classify\n\n### 运营概览\n- 贡献者：112\n- 市值：$3.2M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_009.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask9.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/atmoset_hero.jpg",
+          "context": "project_home_hero",
+          "description": "AtmoSet 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/atmoset_intro.mp4",
+          "context": "project_story",
+          "description": "AtmoSet 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000009",
+      "introduction": "Reliable CPU compute at scale. 009"
+    },
+    "links": {
+      "website": "https://atmoset.io",
+      "whitepaper": "https://docs.atmoset.io/whitepaper",
+      "github": "https://github.com/dbtf/atmoset"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Meteorology",
+      "Environment"
+    ],
+    "object": [
+      "Data",
+      "Text",
+      "Chart"
+    ],
+    "action": [
+      "Predict",
+      "Analyze",
+      "Summarize",
+      "Classify"
+    ],
+    "interaction_form": [
+      "Text",
+      "Table"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-13",
+      "progress": 1,
+      "contributors_count": 112,
+      "total_commits": 2993
+    },
+    "operation": {
+      "total_users": 313,
+      "new_users_24h": 8,
+      "revenue_total": 40882,
+      "revenue_24h": 660
+    },
+    "rating": {
+      "score": 4.2,
+      "review_count": 28
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Feature Rich",
+      "Scalable",
+      "Needs Polish"
+    ],
+    "list": [
+      {
+        "id": "atmoset_rev_1",
+        "user_id": "atmoset_builder",
+        "user_name": "ABuilder",
+        "avatar": "https://assets.dbtf.com/avatars/atmoset_1.png",
+        "rating": 4,
+        "content": "AtmoSet 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 30
+      },
+      {
+        "id": "atmoset_rev_2",
+        "user_id": "atmoset_ops",
+        "user_name": "AOps",
+        "avatar": "https://assets.dbtf.com/avatars/atmoset_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 23
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.79,
+      "market_cap": 3200000,
+      "change_24h_percent": 2.2,
+      "volume_24h": 170928
+    },
+    "supply": {
+      "total_supply": 1147526,
+      "circulating": 1130412,
+      "minted_24h": 978,
+      "burned_24h": 421
+    },
+    "staking": {
+      "total_staked": 551231,
+      "staking_ratio": 0.48,
+      "unstaked_24h": 16045,
+      "apy": 0.09
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 2.74,
+        "high": 2.74,
+        "low": 2.69,
+        "close": 2.76,
+        "volume": 172405
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 2.75,
+        "high": 2.78,
+        "low": 2.74,
+        "close": 2.76,
+        "volume": 199979
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 2.76,
+          "amount": 505
+        },
+        {
+          "price": 2.75,
+          "amount": 752
+        }
+      ],
+      "asks": [
+        {
+          "price": 2.82,
+          "amount": 452
+        },
+        {
+          "price": 2.83,
+          "amount": 385
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "atmoset_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 2.79,
+        "amount": 135,
+        "total_value": 286.38,
+        "trader_info": {
+          "user_id": "atmoset_whale",
+          "name": "AWhale",
+          "avatar": "https://assets.dbtf.com/avatars/atmoset_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "atmoset_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 2.78,
+        "amount": 100,
+        "total_value": 199.5,
+        "trader_info": {
+          "user_id": "atmoset_pro",
+          "name": "ATrader",
+          "avatar": "https://assets.dbtf.com/avatars/atmoset_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 24,
+      "active_builders_count": 112
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "atmoset_resource",
+        "unit_name": "Unit",
+        "description": "AtmoSet 核心资源贡献",
+        "reward_token": 14.6
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "atmoset_task_1",
+        "title": "扩展 AtmoSet 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 248054,
+        "progress_target": 551231,
+        "reward_display": "A 奖励"
+      },
+      {
+        "task_id": "atmoset_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "A 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "atmoset_alpha",
+        "name": "AAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/atmoset_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 17192,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "atmoset_beta",
+        "name": "ABeta",
+        "avatar": "https://assets.dbtf.com/avatars/atmoset_beta.png",
+        "role": "Developer",
+        "contribution_points": 7969,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "atmoset_hist_1",
+        "user_id": "atmoset_alpha",
+        "user_name": "AAlpha",
+        "task_title": "AtmoSet 节点贡献",
+        "amount": 148,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "atmoset_gov_1",
+        "title": "关于 AtmoSet 奖励参数的提案",
+        "proposer": {
+          "name": "A DAO",
+          "avatar": "https://assets.dbtf.com/avatars/atmoset_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 AtmoSet 在 Meteorology 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 256000,
+          "against": 64000,
+          "abstain": 32000
+        },
+        "recent_votes": [
+          {
+            "user_id": "atmoset_governor_a",
+            "name": "AGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/atmoset_gov_a.png",
+            "vote_option": "for",
+            "weight": 6830,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "atmoset_governor_b",
+            "name": "AGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/atmoset_gov_b.png",
+            "vote_option": "against",
+            "weight": 1387,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

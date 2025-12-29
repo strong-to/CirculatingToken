@@ -1,0 +1,305 @@
+{
+  "system_id": "DBTF0000002",
+  "slug": "tensorgrid",
+  "status": "completed",
+  "profile": {
+    "name": "TensorGrid",
+    "symbol": "T",
+    "type_en": "Compute Pool",
+    "category_cn": "图形处理器（GPU）集群",
+    "slogan": "High-performance GPU compute on demand.",
+    "summary": "TensorGrid delivers Compute Pool capabilities for AI / Computing teams.",
+    "description_md": "## 关于 TensorGrid\nHigh-performance GPU compute on demand.\n\n### 交互形态\n- Code / Table\n\n### 适用领域\n- AI / Computing / Industry\n\n### 核心能力\n- Analyze · Optimize · Coordinate · Predict\n\n### 运营概览\n- 贡献者：89\n- 市值：$4.8M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_002.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask2.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/tensorgrid_hero.jpg",
+          "context": "project_home_hero",
+          "description": "TensorGrid 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/tensorgrid_intro.mp4",
+          "context": "project_story",
+          "description": "TensorGrid 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000002",
+      "introduction": "Reliable CPU compute at scale. 002"
+    },
+    "links": {
+      "website": "https://tensorgrid.io",
+      "whitepaper": "https://docs.tensorgrid.io/whitepaper",
+      "github": "https://github.com/dbtf/tensorgrid"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI / Computing",
+      "Industry"
+    ],
+    "object": [
+      "Data",
+      "Code",
+      "Video"
+    ],
+    "action": [
+      "Analyze",
+      "Optimize",
+      "Coordinate",
+      "Predict"
+    ],
+    "interaction_form": [
+      "Code",
+      "Table"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-02",
+      "progress": 1,
+      "contributors_count": 89,
+      "total_commits": 2066
+    },
+    "operation": {
+      "total_users": 248,
+      "new_users_24h": 6,
+      "revenue_total": 215232,
+      "revenue_24h": 2480
+    },
+    "rating": {
+      "score": 4.3,
+      "review_count": 22
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Needs Polish",
+      "Feature Rich",
+      "Scalable"
+    ],
+    "list": [
+      {
+        "id": "tensorgrid_rev_1",
+        "user_id": "tensorgrid_builder",
+        "user_name": "TBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/tensorgrid_1.png",
+        "rating": 4,
+        "content": "TensorGrid 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 27
+      },
+      {
+        "id": "tensorgrid_rev_2",
+        "user_id": "tensorgrid_ops",
+        "user_name": "TOps",
+        "avatar": "https://assets.dbtf.com/avatars/tensorgrid_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 21
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 3.47,
+      "market_cap": 4800000,
+      "change_24h_percent": 0.3,
+      "volume_24h": 252250
+    },
+    "supply": {
+      "total_supply": 1381842,
+      "circulating": 1332724,
+      "minted_24h": 617,
+      "burned_24h": 233
+    },
+    "staking": {
+      "total_staked": 435469,
+      "staking_ratio": 0.32,
+      "unstaked_24h": 14034,
+      "apy": 0.14
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 3.42,
+        "high": 3.48,
+        "low": 3.42,
+        "close": 3.45,
+        "volume": 285544
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 3.5,
+        "high": 3.55,
+        "low": 3.5,
+        "close": 3.5,
+        "volume": 257837
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 3.44,
+          "amount": 670
+        },
+        {
+          "price": 3.42,
+          "amount": 623
+        }
+      ],
+      "asks": [
+        {
+          "price": 3.5,
+          "amount": 851
+        },
+        {
+          "price": 3.52,
+          "amount": 733
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "tensorgrid_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 3.47,
+        "amount": 151,
+        "total_value": 513.42,
+        "trader_info": {
+          "user_id": "tensorgrid_whale",
+          "name": "TWhale",
+          "avatar": "https://assets.dbtf.com/avatars/tensorgrid_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "tensorgrid_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 3.45,
+        "amount": 68,
+        "total_value": 322.81,
+        "trader_info": {
+          "user_id": "tensorgrid_pro",
+          "name": "TTrader",
+          "avatar": "https://assets.dbtf.com/avatars/tensorgrid_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 16,
+      "active_builders_count": 89
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "tensorgrid_resource",
+        "unit_name": "Unit",
+        "description": "TensorGrid 核心资源贡献",
+        "reward_token": 14.6
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "tensorgrid_task_1",
+        "title": "扩展 TensorGrid 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 195961,
+        "progress_target": 435469,
+        "reward_display": "T 奖励"
+      },
+      {
+        "task_id": "tensorgrid_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "T 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "tensorgrid_alpha",
+        "name": "TAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/tensorgrid_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 11160,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "tensorgrid_beta",
+        "name": "TBeta",
+        "avatar": "https://assets.dbtf.com/avatars/tensorgrid_beta.png",
+        "role": "Developer",
+        "contribution_points": 6812,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "tensorgrid_hist_1",
+        "user_id": "tensorgrid_alpha",
+        "user_name": "TAlpha",
+        "task_title": "TensorGrid 节点贡献",
+        "amount": 146,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "tensorgrid_gov_1",
+        "title": "关于 TensorGrid 奖励参数的提案",
+        "proposer": {
+          "name": "T DAO",
+          "avatar": "https://assets.dbtf.com/avatars/tensorgrid_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 TensorGrid 在 AI / Computing 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 384000,
+          "against": 96000,
+          "abstain": 48000
+        },
+        "recent_votes": [
+          {
+            "user_id": "tensorgrid_governor_a",
+            "name": "TGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/tensorgrid_gov_a.png",
+            "vote_option": "for",
+            "weight": 6575,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "tensorgrid_governor_b",
+            "name": "TGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/tensorgrid_gov_b.png",
+            "vote_option": "against",
+            "weight": 1205,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

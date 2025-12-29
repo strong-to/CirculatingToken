@@ -1,0 +1,306 @@
+{
+  "system_id": "DBTF0000005",
+  "slug": "echomind",
+  "status": "completed",
+  "profile": {
+    "name": "EchoMind",
+    "symbol": "E",
+    "type_en": "Foundation Model",
+    "category_cn": "听觉模型",
+    "slogan": "Understanding sound with clarity and precision.",
+    "summary": "EchoMind delivers Foundation Model capabilities for AI / Computing teams.",
+    "description_md": "## 关于 EchoMind\nUnderstanding sound with clarity and precision.\n\n### 交互形态\n- Audio / Speech / Audio Features\n\n### 适用领域\n- AI / Computing / Media\n\n### 核心能力\n- Classify · Analyze · Predict · Explain · Understand\n\n### 运营概览\n- 贡献者：158\n- 市值：$26.0M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_005.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask5.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/echomind_hero.jpg",
+          "context": "project_home_hero",
+          "description": "EchoMind 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/echomind_intro.mp4",
+          "context": "project_story",
+          "description": "EchoMind 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000005",
+      "introduction": "Reliable CPU compute at scale. 005"
+    },
+    "links": {
+      "website": "https://echomind.io",
+      "whitepaper": "https://docs.echomind.io/whitepaper",
+      "github": "https://github.com/dbtf/echomind"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI / Computing",
+      "Media"
+    ],
+    "object": [
+      "Audio",
+      "Data"
+    ],
+    "action": [
+      "Classify",
+      "Analyze",
+      "Predict",
+      "Explain",
+      "Understand"
+    ],
+    "interaction_form": [
+      "Audio",
+      "Speech",
+      "Audio Features"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-09",
+      "progress": 1,
+      "contributors_count": 158,
+      "total_commits": 4938
+    },
+    "operation": {
+      "total_users": 441,
+      "new_users_24h": 11,
+      "revenue_total": 522379,
+      "revenue_24h": 5600
+    },
+    "rating": {
+      "score": 4.3,
+      "review_count": 40
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Great Support",
+      "Low Latency",
+      "Needs Polish"
+    ],
+    "list": [
+      {
+        "id": "echomind_rev_1",
+        "user_id": "echomind_builder",
+        "user_name": "EBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/echomind_1.png",
+        "rating": 4,
+        "content": "EchoMind 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 45
+      },
+      {
+        "id": "echomind_rev_2",
+        "user_id": "echomind_ops",
+        "user_name": "EOps",
+        "avatar": "https://assets.dbtf.com/avatars/echomind_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 22
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 18.82,
+      "market_cap": 26000000,
+      "change_24h_percent": 2.3,
+      "volume_24h": 447400
+    },
+    "supply": {
+      "total_supply": 1381421,
+      "circulating": 1324798,
+      "minted_24h": 772,
+      "burned_24h": 375
+    },
+    "staking": {
+      "total_staked": 848911,
+      "staking_ratio": 0.61,
+      "unstaked_24h": 18947,
+      "apy": 0.09
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 18.28,
+        "high": 18.45,
+        "low": 18.25,
+        "close": 18.33,
+        "volume": 508367
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 19.19,
+        "high": 19.24,
+        "low": 19.06,
+        "close": 19.12,
+        "volume": 511217
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 18.63,
+          "amount": 885
+        },
+        {
+          "price": 18.54,
+          "amount": 564
+        }
+      ],
+      "asks": [
+        {
+          "price": 19.01,
+          "amount": 744
+        },
+        {
+          "price": 19.1,
+          "amount": 529
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "echomind_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 18.82,
+        "amount": 144,
+        "total_value": 2580.43,
+        "trader_info": {
+          "user_id": "echomind_whale",
+          "name": "EWhale",
+          "avatar": "https://assets.dbtf.com/avatars/echomind_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "echomind_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 18.73,
+        "amount": 76,
+        "total_value": 1577.21,
+        "trader_info": {
+          "user_id": "echomind_pro",
+          "name": "ETrader",
+          "avatar": "https://assets.dbtf.com/avatars/echomind_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 41,
+      "active_builders_count": 158
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "echomind_resource",
+        "unit_name": "Unit",
+        "description": "EchoMind 核心资源贡献",
+        "reward_token": 10.3
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "echomind_task_1",
+        "title": "扩展 EchoMind 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 382010,
+        "progress_target": 848911,
+        "reward_display": "E 奖励"
+      },
+      {
+        "task_id": "echomind_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "E 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "echomind_alpha",
+        "name": "EAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/echomind_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 14888,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "echomind_beta",
+        "name": "EBeta",
+        "avatar": "https://assets.dbtf.com/avatars/echomind_beta.png",
+        "role": "Developer",
+        "contribution_points": 9594,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "echomind_hist_1",
+        "user_id": "echomind_alpha",
+        "user_name": "EAlpha",
+        "task_title": "EchoMind 节点贡献",
+        "amount": 118,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "echomind_gov_1",
+        "title": "关于 EchoMind 奖励参数的提案",
+        "proposer": {
+          "name": "E DAO",
+          "avatar": "https://assets.dbtf.com/avatars/echomind_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 EchoMind 在 AI / Computing 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 2080000,
+          "against": 520000,
+          "abstain": 260000
+        },
+        "recent_votes": [
+          {
+            "user_id": "echomind_governor_a",
+            "name": "EGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/echomind_gov_a.png",
+            "vote_option": "for",
+            "weight": 6970,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "echomind_governor_b",
+            "name": "EGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/echomind_gov_b.png",
+            "vote_option": "against",
+            "weight": 1740,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

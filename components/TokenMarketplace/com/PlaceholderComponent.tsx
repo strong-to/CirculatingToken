@@ -5,10 +5,9 @@ import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
 import { projectsList, type ProjectData } from '@/app/data'
 import ProjectModal from './PlaceholderComponent/ProjectModal'
-import { log } from 'console'
 
 interface PlaceholderComponentProps {
-  // 可以添加需要的 props
+  projects?: ProjectData[]
 }
 
 // 获取图片路径的辅助函数
@@ -39,10 +38,8 @@ const formatCurrency = (value: number | undefined): string => {
   })}`
 }
 
-export default function PlaceholderComponent({}: PlaceholderComponentProps = {}) {
-  // 使用真实数据
-  const displayData = projectsList
-  console.log('displayData--------------------------------1212',displayData)
+export default function PlaceholderComponent({ projects }: PlaceholderComponentProps = {}) {
+  const displayData = projects ?? projectsList
   const [selectedCard, setSelectedCard] = useState<ProjectData | null>(null)
   const timersRef = useRef<Map<number, NodeJS.Timeout[]>>(new Map())
 
@@ -80,7 +77,7 @@ export default function PlaceholderComponent({}: PlaceholderComponentProps = {})
         
         {displayData.map((card, index) => (
           <div
-            key={index}
+            key={card.system_id ?? index}
             className='flex-col bgc-[#fdfdfd] cursor-pointer'
             style={{
               width: `calc((100% - ${px(16 * 5)}) / 6)`,

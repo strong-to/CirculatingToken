@@ -1,18 +1,86 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useCallback } from 'react'
 import { px } from '@/utils/pxToRem'
 // import TokenImages from '@/components/TokenMarketplace/com/TokenImages'
-import FilterSection from '@/components/TokenMarketplace/com/FilterSection'
+import FilterSection, { type FilterValues } from '@/components/TokenMarketplace/com/FilterSection'
 // import ContentCardList from '@/components/TokenMarketplace/com/ContentCardList'
 import ChatImages from '@/components/TokenMarketplace/com/ChatImages'
 import ChatContent from '@/components/TokenMarketplace/com/ChatContent'
 import PlaceholderComponent from '@/components/TokenMarketplace/com/PlaceholderComponent'
+import { projectsList, type ProjectData } from '@/app/data'
+
+const defaultFilters: FilterValues = {
+  interactionForm: '',
+  domain: '',
+  object: '',
+  action: '',
+  search: '',
+}
+
+const matchesSelection = (selection: string, values?: string[]) => {
+  if (!selection) return true
+  if (!values || values.length === 0) return false
+  const normalized = selection.toLowerCase()
+  return values.some((value) => value.toLowerCase() === normalized)
+}
+
+const matchesSearch = (project: ProjectData, keyword: string) => {
+  if (!keyword.trim()) {
+    return true
+  }
+
+  const normalized = keyword.trim().toLowerCase()
+  const targets = [
+    project.profile?.name ?? '',
+    project.profile?.summary ?? '',
+    project.system_id ?? '',
+  ]
+
+  return targets.some((target) => target.toLowerCase().includes(normalized))
+}
 
 export default function TokenMarketplaceContent() {
   const [viewMode, setViewMode] = useState<'Chat' | 'List'>('List')
   const [displayList, setDisplayList] = useState(true)
   const [displayChat, setDisplayChat] = useState(false)
+  const [filterValues, setFilterValues] = useState<FilterValues>(defaultFilters)
+
+  const handleFilterChange = useCallback((values: FilterValues) => {
+    setFilterValues(values)
+  }, [])
+
+  const handleResetFilters = useCallback(() => {
+    setFilterValues(defaultFilters)
+  }, [])
+
+  const filteredProjects = useMemo(() => {
+    return projectsList.filter((project) => {
+      if (!matchesSelection(filterValues.interactionForm, project.taxonomy?.interaction_form)) {
+        return false
+      }
+
+      if (!matchesSelection(filterValues.domain, project.taxonomy?.domain)) {
+        return false
+      }
+
+      if (!matchesSelection(filterValues.object, project.taxonomy?.object)) {
+        return false
+      }
+
+      if (!matchesSelection(filterValues.action, project.taxonomy?.action)) {
+        return false
+      }
+
+      if (!matchesSearch(project, filterValues.search)) {
+        return false
+      }
+
+      return true
+    })
+  }, [filterValues])
+
+  const hasFilteredResults = filteredProjects.length > 0
 
   // 延迟隐藏，确保过渡动画完成
   useEffect(() => {
@@ -38,11 +106,51 @@ export default function TokenMarketplaceContent() {
           {/* <ChatImages /> */}
           {/* 筛选框 */}
           <div style={{paddingLeft: px(29), paddingRight: px(29)}}>
-          <FilterSection onViewChange={setViewMode} />
+          <FilterSection 
+            viewMode={viewMode}
+            filterValues={filterValues}
+            onViewChange={setViewMode}
+            onFilterChange={handleFilterChange}
+          />
           </div>
 
-
-          <PlaceholderComponent />
+          {hasFilteredResults ? (
+            <PlaceholderComponent projects={filteredProjects} />
+          ) : (
+            <div
+              className="flex flex-col items-center justify-center text-center gap-4"
+              style={{
+                paddingTop: px(80),
+                paddingBottom: px(80),
+                paddingLeft: px(29),
+                paddingRight: px(29),
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: px(20),
+                  fontWeight: 300,
+                  color: '#000000',
+                }}
+              >
+                No projects match these filters yet.
+              </p>
+              <button
+                type="button"
+                onClick={handleResetFilters}
+                className="px-6 py-3 border border-black rounded"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: px(16),
+                  fontWeight: 300,
+                }}
+              >
+                Reset filters
+              </button>
+            </div>
+          )
+          }
 
 
 

@@ -1,6 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import FilterDropdown from '@/components/TokenMarketplace/com/FilterDropdown'
 import SearchInput from '@/components/TokenMarketplace/com/SearchInput'
@@ -8,64 +7,38 @@ import {
   interactionFormCategories,
   domainCategories,
   objectOptions,
-  actionCategories,actionSortBy
+  actionCategories,
+  actionSortBy,
 } from '../data/FilterSectionData'
 
-interface FilterSectionProps {
-  onViewChange?: (view: 'Chat' | 'List') => void
-  onFilterChange?: (filterValues: {
-    interactionForm?: string
-    domain?: string
-    object?: string
-    action?: string
-    sortBy?: string
-    search?: string
-  }) => void
-  initialFilterValues?: {
-    interactionForm?: string
-    domain?: string
-    object?: string
-    action?: string
-    sortBy?: string
-    search?: string
-  }
+export interface FilterValues {
+  interactionForm: string
+  domain: string
+  object: string
+  action: string
+  search: string
 }
 
-export default function FilterSection({ onViewChange, onFilterChange, initialFilterValues }: FilterSectionProps) {
-  const [selectedView, setSelectedView] = useState<'Chat' | 'List'>(
-    (initialFilterValues?.sortBy as 'Chat' | 'List') || 'List'
-  )
-  const [filterValues, setFilterValues] = useState({
-    interactionForm: initialFilterValues?.interactionForm || '',
-    domain: initialFilterValues?.domain || '',
-    object: initialFilterValues?.object || '',
-    action: initialFilterValues?.action || '',
-    sortBy: initialFilterValues?.sortBy || '',
-    search: initialFilterValues?.search || '',
-  })
+interface FilterSectionProps {
+  viewMode: 'Chat' | 'List'
+  filterValues: FilterValues
+  onViewChange?: (view: 'Chat' | 'List') => void
+  onFilterChange?: (filterValues: FilterValues) => void
+}
 
-  // 同步外部初始值
-  useEffect(() => {
-    if (initialFilterValues) {
-      setFilterValues(prev => ({ ...prev, ...initialFilterValues }))
-      if (initialFilterValues.sortBy === 'Chat' || initialFilterValues.sortBy === 'List') {
-        setSelectedView(initialFilterValues.sortBy)
-      }
-    }
-  }, [initialFilterValues])
-
+export default function FilterSection({
+  viewMode,
+  filterValues,
+  onViewChange,
+  onFilterChange,
+}: FilterSectionProps) {
   const handleViewChange = (value: string) => {
     const view = value as 'Chat' | 'List'
-    setSelectedView(view)
     onViewChange?.(view)
-    const newFilterValues = { ...filterValues, sortBy: view }
-    setFilterValues(newFilterValues)
-    onFilterChange?.(newFilterValues)
   }
 
-  const handleFilterChange = (key: string, value: string) => {
+  const handleFilterChange = (key: keyof FilterValues, value: string) => {
     const newFilterValues = { ...filterValues, [key]: value }
-    setFilterValues(newFilterValues)
     onFilterChange?.(newFilterValues)
   }
 
@@ -106,7 +79,7 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
         placeholder="Sort by"
         description=""
         options={actionSortBy}
-        value={selectedView}
+        value={viewMode}
         onChange={(value) => {
           if (value === 'Chat' || value === 'List') {
             handleViewChange(value)
@@ -122,4 +95,3 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
     </div>
   )
 }
-

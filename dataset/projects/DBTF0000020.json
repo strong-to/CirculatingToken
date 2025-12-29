@@ -1,0 +1,301 @@
+{
+  "system_id": "DBTF0000020",
+  "slug": "codeweaver",
+  "status": "completed",
+  "profile": {
+    "name": "CodeWeaver",
+    "symbol": "C",
+    "type_en": "Workflow",
+    "category_cn": "代码编程",
+    "slogan": "Code faster. Think deeper. Ship sooner.",
+    "summary": "CodeWeaver delivers Workflow capabilities for AI / Computing teams.",
+    "description_md": "## 关于 CodeWeaver\nCode faster. Think deeper. Ship sooner.\n\n### 交互形态\n- Code / Text\n\n### 适用领域\n- AI / Computing\n\n### 核心能力\n- Generate · Edit · Analyze · Explain\n\n### 运营概览\n- 贡献者：263\n- 市值：$28.1M\n- 建设进度：100%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/codeweaver.svg",
+      "banner": "https://assets.dbtf.com/banners/codeweaver.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/codeweaver_hero.jpg",
+          "context": "project_home_hero",
+          "description": "CodeWeaver 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/codeweaver_intro.mp4",
+          "context": "project_story",
+          "description": "CodeWeaver 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://codeweaver.io",
+      "whitepaper": "https://docs.codeweaver.io/whitepaper",
+      "github": "https://github.com/dbtf/codeweaver"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI / Computing"
+    ],
+    "object": [
+      "Code",
+      "Text"
+    ],
+    "action": [
+      "Generate",
+      "Edit",
+      "Analyze",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Code",
+      "Text"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-24",
+      "progress": 1,
+      "contributors_count": 263,
+      "total_commits": 6016
+    },
+    "operation": {
+      "total_users": 746,
+      "new_users_24h": 19,
+      "revenue_total": 520174,
+      "revenue_24h": 5380
+    },
+    "rating": {
+      "score": 4.7,
+      "review_count": 66
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Reliable",
+      "Feature Rich",
+      "Low Latency"
+    ],
+    "list": [
+      {
+        "id": "codeweaver_rev_1",
+        "user_id": "codeweaver_builder",
+        "user_name": "CBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/codeweaver_1.png",
+        "rating": 5,
+        "content": "CodeWeaver 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 35
+      },
+      {
+        "id": "codeweaver_rev_2",
+        "user_id": "codeweaver_ops",
+        "user_name": "COps",
+        "avatar": "https://assets.dbtf.com/avatars/codeweaver_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 20
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 20.46,
+      "market_cap": 28100000,
+      "change_24h_percent": -0.8,
+      "volume_24h": 1283137
+    },
+    "supply": {
+      "total_supply": 1373425,
+      "circulating": 1312420,
+      "minted_24h": 1019,
+      "burned_24h": 453
+    },
+    "staking": {
+      "total_staked": 415884,
+      "staking_ratio": 0.3,
+      "unstaked_24h": 5844,
+      "apy": 0.09
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 20.21,
+        "high": 20.21,
+        "low": 20.01,
+        "close": 20.29,
+        "volume": 1049060
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 20.95,
+        "high": 21.29,
+        "low": 20.73,
+        "close": 20.94,
+        "volume": 1324137
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 20.26,
+          "amount": 966
+        },
+        {
+          "price": 20.15,
+          "amount": 639
+        }
+      ],
+      "asks": [
+        {
+          "price": 20.66,
+          "amount": 516
+        },
+        {
+          "price": 20.77,
+          "amount": 469
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "codeweaver_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 20.46,
+        "amount": 139,
+        "total_value": 2270.52,
+        "trader_info": {
+          "user_id": "codeweaver_whale",
+          "name": "CWhale",
+          "avatar": "https://assets.dbtf.com/avatars/codeweaver_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "codeweaver_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 20.36,
+        "amount": 62,
+        "total_value": 1386.24,
+        "trader_info": {
+          "user_id": "codeweaver_pro",
+          "name": "CTrader",
+          "avatar": "https://assets.dbtf.com/avatars/codeweaver_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 47,
+      "active_builders_count": 263
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "codeweaver_resource",
+        "unit_name": "Unit",
+        "description": "CodeWeaver 核心资源贡献",
+        "reward_token": 8.5
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "codeweaver_task_1",
+        "title": "扩展 CodeWeaver 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 187148,
+        "progress_target": 415884,
+        "reward_display": "C 奖励"
+      },
+      {
+        "task_id": "codeweaver_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "C 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "codeweaver_alpha",
+        "name": "CAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/codeweaver_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 13721,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "codeweaver_beta",
+        "name": "CBeta",
+        "avatar": "https://assets.dbtf.com/avatars/codeweaver_beta.png",
+        "role": "Developer",
+        "contribution_points": 6439,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "codeweaver_hist_1",
+        "user_id": "codeweaver_alpha",
+        "user_name": "CAlpha",
+        "task_title": "CodeWeaver 节点贡献",
+        "amount": 136,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "codeweaver_gov_1",
+        "title": "关于 CodeWeaver 奖励参数的提案",
+        "proposer": {
+          "name": "C DAO",
+          "avatar": "https://assets.dbtf.com/avatars/codeweaver_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 CodeWeaver 在 AI / Computing 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 2248000,
+          "against": 562000,
+          "abstain": 281000
+        },
+        "recent_votes": [
+          {
+            "user_id": "codeweaver_governor_a",
+            "name": "CGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/codeweaver_gov_a.png",
+            "vote_option": "for",
+            "weight": 6476,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "codeweaver_governor_b",
+            "name": "CGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/codeweaver_gov_b.png",
+            "vote_option": "against",
+            "weight": 1508,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

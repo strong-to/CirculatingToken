@@ -1,0 +1,380 @@
+{
+  // ==================================================================================
+  // 1. 系统元数据 (System Metadata)
+  // [作用]: 用于前端路由、API查询、数据库索引
+  // ==================================================================================
+  
+  // [DB Key] 唯一标识符，对应 Excel "System ID"。前端获取详情时使用 /api/project/{system_id}
+  "system_id": "DBTF0000001", 
+  
+  // [Route] URL 友好的短名称，用于生成伪静态链接。例如: domain.com/project/prime-core
+  "slug": "prime-core",       
+  
+  // [Status] 项目状态标记。
+  // UI逻辑: 'active'显示绿色"进行中"标签, 'completed'显示灰色, 'voting'显示紫色"治理中"
+  "status": "active",         
+
+  // ==================================================================================
+  // 2. 项目概况 (Profile)
+  // [作用]: 渲染详情页的 "Header"、"Hero Section" 和 "关于" 标签页
+  // ==================================================================================
+  "profile": {
+    // [Header] 项目主名称，字号最大
+    "name": "PrimeCore",
+    
+    // [Header] 代币符号 (Ticker)，通常显示在名称旁，如 "PrimeCore (PRIME)"
+    "symbol": "PRIME",                
+    
+    // [Tags] 英文类型，渲染为 Chip/Tag 标签
+    "type_en": "Compute Pool",        
+    
+    // [Tags] 中文分类，对应 Excel "Type" 及中文翻译
+    "category_cn": "中央处理器（CPU）集群", 
+    
+    // [Hero] 一句话广告，对应 Excel "Slogan"。显示在 Banner 图上的醒目位置
+    "slogan": "Reliable CPU compute at scale.", 
+    
+    // [Card] 短摘要，用于“项目列表页”的卡片描述，限制字数（建议显示2行，多余省略号）
+    "summary": "High-performance CPU clustering for massive parallel processing tasks.",
+    
+    // [Tab: About] 详细介绍，对应 Excel "项目简介" + "详细介绍"。
+    // UI逻辑: 前端必须使用 Markdown 组件渲染此字段，支持标题、列表、加粗等排版。
+    "description_md": "## 关于 PrimeCore\nPrimeCore 是一个去中心化的 **CPU 算力集群**...\n\n### 核心功能\n- 弹性扩容\n- 极低延迟",
+
+    // [Media] 媒体资源管理器
+    // 逻辑: 包含 Logo, Banner 以及 Excel 中 "项目视觉素材" 列的内容
+    "media": {
+      // [Icon] 项目方 Logo (建议尺寸 200x200)
+      "logo": "https://assets.dbtf.com/logos/primecore_logo.svg",
+      
+      // [Background] 详情页顶部背景大图 (建议 1920x400)
+      "banner": "https://assets.dbtf.com/banners/primecore_banner.jpg",
+      
+      // [Gallery] 视觉素材列表。前端需遍历此数组。
+      "assets": [
+        {
+          "type": "image", // 素材类型: 'image' 或 'video'
+          "url": "https://assets.dbtf.com/posters/poster_01.jpg",
+          
+          // [Context] 上下文/位置标识 (对应 Excel "项目视觉素材" 描述)
+          // 逻辑: 前端开发需通过 switch(context) 决定将此图片放在 "海报弹窗" 还是 "主页首屏"
+          "context": "poster_interaction_1", // 对应: "首页海报1次交互弹窗界面"
+          "description": "展示高性能计算的核心架构图" // 图片 Alt 属性或说明文字
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/intro.mp4",
+          "context": "project_home_hero",    // 对应: "项目主页首屏界面"
+          "description": "项目概念演示视频"
+        },
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/ui/popup_interaction.jpg",
+          "context": "interaction_popup_2",  // 对应: "项目集项目海报交互弹窗界面"
+          "description": "交互流程说明"
+        }
+      ]
+    },
+
+    // [Links] 社交媒体与外部链接栏 (Icon list)
+    "links": {
+      "website": "https://primecore.io",
+      "whitepaper": "https://docs.primecore.io/whitepaper",
+      "github": "https://github.com/dbtf/prime-core"
+    }
+  },
+
+  // ==================================================================================
+  // 3. 属性标签 (Taxonomy)
+  // [作用]: 用于详情页侧边栏信息展示，以及列表页的筛选(Filter)功能
+  // ==================================================================================
+  "taxonomy": {
+    "domain": ["AI / Computing", "Industry"],     // [Filter] 领域筛选
+    "object": ["Data", "Code"],                   // [Info] 处理对象
+    "action": ["Analyze", "Optimize", "Monitor"], // [Info] 支持的动作
+    "interaction_form": ["Code", "Table"]         // [Info] 交互形式
+  },
+
+  // ==================================================================================
+  // 4. 运营指标 (Metrics)
+  // [作用]: 渲染 "Dashboard" 仪表盘区域，展示项目健康度
+  // ==================================================================================
+  "metrics": {
+    // 开发侧数据 (对应 Excel "总体建设进度", "参与建设人数")
+    "development": {
+      "start_date": "2025-12-01", // [Info] 项目启动时间
+      "progress": 0.62,           // [Progress Bar] 进度条 (0.62 = 62%)
+      "contributors_count": 48,   // [Stat] 参与人数 (点击可跳转到底部贡献者列表)
+      "total_commits": 1240       // [Stat] 代码提交数 (可选)
+    },
+    // 运营侧数据 (对应 Excel "用户数量", "营收")
+    "operation": {
+      "total_users": 158,         // [Stat] 累计用户
+      "new_users_24h": 0,         // [Stat] 24H 新增 (可显示 +0 绿色标签)
+      "revenue_total": 0,         // [Stat] 累计收入 (单位默认 USD，前端需格式化为 $0.00)
+      "revenue_24h": 0            // [Stat] 24H 收入
+    },
+    // 评分概览 (对应 Excel "评分")
+    "rating": {
+      "score": 4.8,               // [Stars] 渲染为 4.8 颗星
+      "review_count": 12          // [Link] "12条评论" 链接到评论区
+    }
+  },
+
+  // ==================================================================================
+  // 5. 社区评价 (Reviews)
+  // [作用]: 渲染详情页底部的 "评价/讨论区"
+  // ==================================================================================
+  "reviews": {
+    // [Header] 评价区的标签云
+    "summary_tags": ["Stable", "High Compute Power", "Documentation Needed"],
+    
+    // [List] 具体的评论卡片列表 (Excel "评论者信息" + "评论")
+    "list": [
+      {
+        "id": "rev_101",
+        "user_id": "u_5566",       // 关联 User Profile
+        "user_name": "Dev_Alice",  // 显示名称
+        "avatar": "https://assets.dbtf.com/avatars/user_05.png", // 用户头像
+        "rating": 5,               // 该条评论的打分
+        "content": "接入非常顺畅，CPU 调度效率比传统云服务高出 20%。", // 评论正文
+        "date": "2025-12-10",
+        "likes": 24                // 点赞数
+      },
+      {
+        "id": "rev_102",
+        "user_id": "u_7788",
+        "user_name": "Miner_Bob",
+        "avatar": "https://assets.dbtf.com/avatars/user_08.png",
+        "rating": 4,
+        "content": "收益结算很准时，但是 dashboard 的刷新有时会有延迟。",
+        "date": "2025-12-12",
+        "likes": 8
+      }
+    ]
+  },
+
+  // ==================================================================================
+  // 6. 通证经济 (Tokenomics)
+  // [作用]: 渲染 Web3 金融数据卡片 (Price, Supply, Staking)
+  // ==================================================================================
+  "tokenomics": {
+    "base_currency": "USDT",      // 计价单位
+    
+    // 价格信息 (Excel "通证价格", "市值")
+    "price_info": {
+      "current_price": 2.30,      // [Big Text] 当前币价
+      "market_cap": 2300000,      // [Stat] 市值 (前端格式化为 $2.3M)
+      "change_24h_percent": 5.2,  // [Color] +5.2% (正数显绿，负数显红)
+      "volume_24h": 45000         // [Stat] 24H 交易量
+    },
+    
+    // 供应量 (Excel "新增/销毁通证数量")
+    "supply": {
+      "total_supply": 1000000,    // 总供应
+      "circulating": 1000000,     // 流通量
+      "minted_24h": 500,          // [Data] 今日挖矿产出
+      "burned_24h": 50            // [Data] 今日手续费销毁
+    },
+    
+    // 质押数据 (Excel "质押/解押通证数量")
+    "staking": {
+      "total_staked": 450000,     // [Stat] 质押池总量
+      "staking_ratio": 0.45,      // [Chart] 饼图: 45% 代币被质押
+      "unstaked_24h": 1200,       // [Data] 今日解押流出
+      "apy": 0.12                 // [Highlight] 年化收益率 12%
+    }
+  },
+
+  // ==================================================================================
+  // 7. 交易市场 (Market Data)
+  // [作用]: 渲染 "Trade/Swap" 标签页，包含K线、深度和成交记录
+  // ==================================================================================
+  "market": {
+    // [Chart] K线图数据源 (OHLCV格式)
+    // 适配 ECharts / TradingView 库
+    "price_history": [
+      { "timestamp": 1735171200, "open": 2.10, "high": 2.20, "low": 2.05, "close": 2.15, "volume": 12000 },
+      { "timestamp": 1735257600, "open": 2.15, "high": 2.35, "low": 2.10, "close": 2.30, "volume": 25000 }
+    ],
+    
+    // [Depth] 深度图数据 (买单/卖单)
+    "order_book": {
+      "bids": [ { "price": 2.29, "amount": 500 }, { "price": 2.28, "amount": 1500 } ], // 买单列表 (价格由高到低)
+      "asks": [ { "price": 2.31, "amount": 400 }, { "price": 2.32, "amount": 800 } ]  // 卖单列表 (价格由低到高)
+    },
+
+    // [List] 最新成交记录 (Excel "历史交易量" + "买/卖人信息")
+    // 逻辑: 这是一个滚动列表，点击 'trader_info' 可跳转到用户个人主页
+    "recent_trades": [
+      {
+        "id": "tx_9981",
+        "timestamp": 1735344000,
+        "type": "buy",            // 类型: buy(绿) / sell(红)
+        "price": 2.30,
+        "amount": 100,
+        "total_value": 230,
+        
+        // [User Link] 买家详细信息
+        "trader_info": { 
+          "user_id": "u_whale_01",
+          "name": "0xWhale",
+          "avatar": "https://assets.dbtf.com/avatars/whale.png",
+          "wallet_short": "0x71...9A" // 显示缩略地址
+        }
+      },
+      {
+        "id": "tx_9980",
+        "timestamp": 1735343900,
+        "type": "sell",
+        "price": 2.29,
+        "amount": 50,
+        "total_value": 114.5,
+        "trader_info": { 
+          "user_id": "u_paper_02",
+          "name": "Trader_X",
+          "avatar": "https://assets.dbtf.com/avatars/default.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+
+  // ==================================================================================
+  // 8. 共创体系 (Co-creation)
+  // [作用]: 渲染 "Contribute/Earn" 标签页，包含任务大厅和贡献者榜单
+  // ==================================================================================
+  "co_creation": {
+    // 概览统计 (Excel "贡献科目数量", "参与人数")
+    "summary": {
+      "total_contributions_recorded": 12, 
+      "active_builders_count": 48         
+    },
+
+    // [Calculator] 收益计算器配置
+    // 逻辑: 前端根据此数组生成 "输入算力 -> 预估收益" 的计算器
+    "exchange_rates": [
+      {
+        "resource_key": "cpu_compute",
+        "unit_name": "Core Hour",         // 单位
+        "description": "提供 1 小时单核算力",
+        "reward_token": 5                 // 汇率: 1单位 = 5 Token
+      }
+    ],
+
+    // [List] 任务大厅 / 悬赏列表 (Needs)
+    // 逻辑: 展示项目方当前需要什么资源。点击卡片弹出 "提交贡献/接入" 模态框
+    "open_tasks": [
+      {
+        "task_id": "task_res_001",
+        "title": "持续提供 CPU 算力节点",
+        "type": "long_term",          // 类型: 'long_term'(挖矿类) / 'one_time'(任务类)
+        "category": "resource",       // 分类图标: 资源类
+        "status": "active",           // 状态: 招募中
+        "progress_current": 450,      // 当前已收集
+        "progress_target": 1000,      // 目标
+        "reward_display": "5 PRIME / Core-Hour" // 奖励描述文本
+      },
+      {
+        "task_id": "task_dev_002",
+        "title": "优化多线程调度算法",
+        "type": "one_time",
+        "category": "development",    // 分类图标: 开发类
+        "status": "active",
+        "reward_display": "2000 PRIME" // 固定悬赏额
+      }
+    ],
+
+    // [List] 建设者/贡献者排行榜 (Excel "建设者信息")
+    // 逻辑: 按照 contribution_points 排序，展示前10名
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "u_007",
+        "name": "Super_Node_01",
+        "avatar": "https://assets.dbtf.com/avatars/robot.png",
+        "role": "Compute Provider",     // 用户角色标签
+        "contribution_points": 15000,   // 贡献积分
+        "last_active": "2025-12-25"
+      },
+      {
+        "rank": 2,
+        "user_id": "u_008",
+        "name": "CodeMaster",
+        "avatar": "https://assets.dbtf.com/avatars/dev_pro.png",
+        "role": "Developer",
+        "contribution_points": 8000,
+        "last_active": "2025-12-20"
+      }
+    ],
+
+    // [Ticker] 实时贡献流水 (Excel "贡献记录")
+    // 逻辑: 类似于区块链浏览器的 Latest Transactions，实时滚动的
+    "contribution_history": [
+      {
+        "record_id": "rec_111",
+        "user_id": "u_007",
+        "user_name": "Super_Node_01",
+        "task_title": "提供 CPU 算力节点",
+        "amount": 100, 
+        "unit": "Core Hour",
+        "timestamp": 1735344000
+      }
+    ]
+  },
+
+  // ==================================================================================
+  // 9. 治理 (Governance)
+  // [作用]: 渲染 "Governance/DAO" 标签页，展示提案和投票
+  // ==================================================================================
+  "governance": {
+    "active_proposal_count": 1, // 活跃提案数通知气泡
+    
+    // [List] 提案列表 (Excel "议案条目")
+    "proposals": [
+      {
+        "proposal_id": "prop_gov_01",
+        "title": "关于调整节点奖励系数的提案", // 标题
+        
+        // 提案人卡片 (Excel "提案人信息")
+        "proposer": { 
+          "name": "Core_Team",
+          "avatar": "https://assets.dbtf.com/avatars/admin.png",
+          "address": "0xAdmin...001"
+        },
+        
+        "status": "voting",        // 状态: voting / passed / rejected
+        "end_timestamp": 1767312000, // 倒计时截止时间
+        "description": "建议将闲时算力的奖励系数从 1.0 提升至 1.2 以鼓励更多节点接入。", // 简介
+        
+        // [Chart] 投票结果进度条
+        "votes_summary": {
+          "for": 150000,    // 赞成票
+          "against": 20000, // 反对票
+          "abstain": 5000   // 弃权
+        },
+
+        // [List] 最近投票记录 (Excel "投票人信息")
+        // 逻辑: 展示谁投了什么，点击用户跳转个人页
+        "recent_votes": [
+          {
+            "user_id": "u_888",
+            "name": "BigHolder_A",
+            "avatar": "https://assets.dbtf.com/avatars/user_10.png",
+            "vote_option": "for", // 投了赞成
+            "weight": 50000,      // 票数权重 (持有多少币代表多少票)
+            "timestamp": 1735340000
+          },
+          {
+            "user_id": "u_999",
+            "name": "Voter_B",
+            "avatar": "https://assets.dbtf.com/avatars/user_11.png",
+            "vote_option": "against",
+            "weight": 10000,
+            "timestamp": 1735330000
+          }
+        ]
+      }
+    ]
+  }
+}

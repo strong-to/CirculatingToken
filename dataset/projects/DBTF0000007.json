@@ -1,0 +1,302 @@
+{
+  "system_id": "DBTF0000007",
+  "slug": "mediprompt",
+  "status": "completed",
+  "profile": {
+    "name": "MediPrompt",
+    "symbol": "M",
+    "type_en": "Dataset",
+    "category_cn": "医疗行业数据集",
+    "slogan": "Clinical-grade instruction data for medical AI.",
+    "summary": "MediPrompt delivers Dataset capabilities for Healthcare teams.",
+    "description_md": "## 关于 MediPrompt\nClinical-grade instruction data for medical AI.\n\n### 交互形态\n- Text / Document\n\n### 适用领域\n- Healthcare / Biomedical\n\n### 核心能力\n- Analyze · Summarize · Classify · Predict\n\n### 运营概览\n- 贡献者：188\n- 市值：$4.7M\n- 建设进度：100%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/mediprompt.svg",
+      "banner": "https://assets.dbtf.com/banners/mediprompt.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/mediprompt_hero.jpg",
+          "context": "project_home_hero",
+          "description": "MediPrompt 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/mediprompt_intro.mp4",
+          "context": "project_story",
+          "description": "MediPrompt 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://mediprompt.io",
+      "whitepaper": "https://docs.mediprompt.io/whitepaper",
+      "github": "https://github.com/dbtf/mediprompt"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Healthcare",
+      "Biomedical"
+    ],
+    "object": [
+      "Text",
+      "Data"
+    ],
+    "action": [
+      "Analyze",
+      "Summarize",
+      "Classify",
+      "Predict"
+    ],
+    "interaction_form": [
+      "Text",
+      "Document"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-11",
+      "progress": 1,
+      "contributors_count": 188,
+      "total_commits": 4266
+    },
+    "operation": {
+      "total_users": 525,
+      "new_users_24h": 13,
+      "revenue_total": 154125,
+      "revenue_24h": 1120
+    },
+    "rating": {
+      "score": 4.3,
+      "review_count": 47
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Great Support",
+      "Needs Polish",
+      "Feature Rich"
+    ],
+    "list": [
+      {
+        "id": "mediprompt_rev_1",
+        "user_id": "mediprompt_builder",
+        "user_name": "MBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/mediprompt_1.png",
+        "rating": 4,
+        "content": "MediPrompt 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 18
+      },
+      {
+        "id": "mediprompt_rev_2",
+        "user_id": "mediprompt_ops",
+        "user_name": "MOps",
+        "avatar": "https://assets.dbtf.com/avatars/mediprompt_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 23
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 5.14,
+      "market_cap": 4700000,
+      "change_24h_percent": -1.8,
+      "volume_24h": 48464
+    },
+    "supply": {
+      "total_supply": 914474,
+      "circulating": 843190,
+      "minted_24h": 875,
+      "burned_24h": 401
+    },
+    "staking": {
+      "total_staked": 500622,
+      "staking_ratio": 0.55,
+      "unstaked_24h": 12872,
+      "apy": 0.09
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 5.25,
+        "high": 5.28,
+        "low": 5.2,
+        "close": 5.28,
+        "volume": 42283
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 5.02,
+        "high": 5.06,
+        "low": 5,
+        "close": 5.02,
+        "volume": 46346
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 5.09,
+          "amount": 695
+        },
+        {
+          "price": 5.06,
+          "amount": 658
+        }
+      ],
+      "asks": [
+        {
+          "price": 5.19,
+          "amount": 823
+        },
+        {
+          "price": 5.22,
+          "amount": 647
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "mediprompt_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 5.14,
+        "amount": 140,
+        "total_value": 770.37,
+        "trader_info": {
+          "user_id": "mediprompt_whale",
+          "name": "MWhale",
+          "avatar": "https://assets.dbtf.com/avatars/mediprompt_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "mediprompt_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 5.11,
+        "amount": 68,
+        "total_value": 399.15,
+        "trader_info": {
+          "user_id": "mediprompt_pro",
+          "name": "MTrader",
+          "avatar": "https://assets.dbtf.com/avatars/mediprompt_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 35,
+      "active_builders_count": 188
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "mediprompt_resource",
+        "unit_name": "Unit",
+        "description": "MediPrompt 核心资源贡献",
+        "reward_token": 7.4
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "mediprompt_task_1",
+        "title": "扩展 MediPrompt 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 225280,
+        "progress_target": 500622,
+        "reward_display": "M 奖励"
+      },
+      {
+        "task_id": "mediprompt_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "M 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "mediprompt_alpha",
+        "name": "MAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/mediprompt_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 12040,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "mediprompt_beta",
+        "name": "MBeta",
+        "avatar": "https://assets.dbtf.com/avatars/mediprompt_beta.png",
+        "role": "Developer",
+        "contribution_points": 8781,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "mediprompt_hist_1",
+        "user_id": "mediprompt_alpha",
+        "user_name": "MAlpha",
+        "task_title": "MediPrompt 节点贡献",
+        "amount": 133,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "mediprompt_gov_1",
+        "title": "关于 MediPrompt 奖励参数的提案",
+        "proposer": {
+          "name": "M DAO",
+          "avatar": "https://assets.dbtf.com/avatars/mediprompt_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 MediPrompt 在 Healthcare 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 376000,
+          "against": 94000,
+          "abstain": 47000
+        },
+        "recent_votes": [
+          {
+            "user_id": "mediprompt_governor_a",
+            "name": "MGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/mediprompt_gov_a.png",
+            "vote_option": "for",
+            "weight": 5900,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "mediprompt_governor_b",
+            "name": "MGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/mediprompt_gov_b.png",
+            "vote_option": "against",
+            "weight": 1564,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

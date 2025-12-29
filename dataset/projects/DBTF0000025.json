@@ -1,0 +1,302 @@
+{
+  "system_id": "DBTF0000025",
+  "slug": "wellguide",
+  "status": "completed",
+  "profile": {
+    "name": "WellGuide",
+    "symbol": "W",
+    "type_en": "AI Agent",
+    "category_cn": "健康助理",
+    "slogan": "Your daily companion for healthier decisions.",
+    "summary": "WellGuide delivers AI Agent capabilities for Healthcare teams.",
+    "description_md": "## 关于 WellGuide\nYour daily companion for healthier decisions.\n\n### 交互形态\n- Text / Natural Language\n\n### 适用领域\n- Healthcare / Public Health\n\n### 核心能力\n- Analyze · Explain · Predict · Clarify\n\n### 运营概览\n- 贡献者：223\n- 市值：$28.6M\n- 建设进度：100%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/wellguide.svg",
+      "banner": "https://assets.dbtf.com/banners/wellguide.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/wellguide_hero.jpg",
+          "context": "project_home_hero",
+          "description": "WellGuide 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/wellguide_intro.mp4",
+          "context": "project_story",
+          "description": "WellGuide 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://wellguide.io",
+      "whitepaper": "https://docs.wellguide.io/whitepaper",
+      "github": "https://github.com/dbtf/wellguide"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Healthcare",
+      "Public Health"
+    ],
+    "object": [
+      "Text",
+      "Data"
+    ],
+    "action": [
+      "Analyze",
+      "Explain",
+      "Predict",
+      "Clarify"
+    ],
+    "interaction_form": [
+      "Text",
+      "Natural Language"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-29",
+      "progress": 1,
+      "contributors_count": 223,
+      "total_commits": 6536
+    },
+    "operation": {
+      "total_users": 633,
+      "new_users_24h": 16,
+      "revenue_total": 837866,
+      "revenue_24h": 5680
+    },
+    "rating": {
+      "score": 4.6,
+      "review_count": 56
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Great Support",
+      "Low Latency",
+      "Needs Polish"
+    ],
+    "list": [
+      {
+        "id": "wellguide_rev_1",
+        "user_id": "wellguide_builder",
+        "user_name": "WBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/wellguide_1.png",
+        "rating": 5,
+        "content": "WellGuide 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 25
+      },
+      {
+        "id": "wellguide_rev_2",
+        "user_id": "wellguide_ops",
+        "user_name": "WOps",
+        "avatar": "https://assets.dbtf.com/avatars/wellguide_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 21
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 31.57,
+      "market_cap": 28600000,
+      "change_24h_percent": -2.9,
+      "volume_24h": 1527883
+    },
+    "supply": {
+      "total_supply": 906056,
+      "circulating": 827388,
+      "minted_24h": 377,
+      "burned_24h": 85
+    },
+    "staking": {
+      "total_staked": 484843,
+      "staking_ratio": 0.54,
+      "unstaked_24h": 18199,
+      "apy": 0.15
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 32.29,
+        "high": 32.57,
+        "low": 31.69,
+        "close": 32.3,
+        "volume": 1463772
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 31.32,
+        "high": 31.57,
+        "low": 30.85,
+        "close": 31.3,
+        "volume": 1476093
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 31.25,
+          "amount": 990
+        },
+        {
+          "price": 31.1,
+          "amount": 674
+        }
+      ],
+      "asks": [
+        {
+          "price": 31.89,
+          "amount": 488
+        },
+        {
+          "price": 32.04,
+          "amount": 384
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "wellguide_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 31.57,
+        "amount": 128,
+        "total_value": 3563.97,
+        "trader_info": {
+          "user_id": "wellguide_whale",
+          "name": "WWhale",
+          "avatar": "https://assets.dbtf.com/avatars/wellguide_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "wellguide_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 31.41,
+        "amount": 62,
+        "total_value": 2910.14,
+        "trader_info": {
+          "user_id": "wellguide_pro",
+          "name": "WTrader",
+          "avatar": "https://assets.dbtf.com/avatars/wellguide_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 52,
+      "active_builders_count": 223
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "wellguide_resource",
+        "unit_name": "Unit",
+        "description": "WellGuide 核心资源贡献",
+        "reward_token": 11.4
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "wellguide_task_1",
+        "title": "扩展 WellGuide 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 218179,
+        "progress_target": 484843,
+        "reward_display": "W 奖励"
+      },
+      {
+        "task_id": "wellguide_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "W 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "wellguide_alpha",
+        "name": "WAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/wellguide_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 14601,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "wellguide_beta",
+        "name": "WBeta",
+        "avatar": "https://assets.dbtf.com/avatars/wellguide_beta.png",
+        "role": "Developer",
+        "contribution_points": 8408,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "wellguide_hist_1",
+        "user_id": "wellguide_alpha",
+        "user_name": "WAlpha",
+        "task_title": "WellGuide 节点贡献",
+        "amount": 123,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "wellguide_gov_1",
+        "title": "关于 WellGuide 奖励参数的提案",
+        "proposer": {
+          "name": "W DAO",
+          "avatar": "https://assets.dbtf.com/avatars/wellguide_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 WellGuide 在 Healthcare 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 2288000,
+          "against": 572000,
+          "abstain": 286000
+        },
+        "recent_votes": [
+          {
+            "user_id": "wellguide_governor_a",
+            "name": "WGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/wellguide_gov_a.png",
+            "vote_option": "for",
+            "weight": 5801,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "wellguide_governor_b",
+            "name": "WGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/wellguide_gov_b.png",
+            "vote_option": "against",
+            "weight": 1066,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

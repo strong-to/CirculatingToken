@@ -1,0 +1,304 @@
+{
+  "system_id": "DBTF0000029",
+  "slug": "petbot",
+  "status": "completed",
+  "profile": {
+    "name": "PetBot",
+    "symbol": "P",
+    "type_en": "AI Agent",
+    "category_cn": "电子宠物",
+    "slogan": "A virtual pet that grows with you.",
+    "summary": "PetBot delivers AI Agent capabilities for Entertainment teams.",
+    "description_md": "## 关于 PetBot\nA virtual pet that grows with you.\n\n### 交互形态\n- Image / Text / Audio\n\n### 适用领域\n- Entertainment / Social\n\n### 核心能力\n- Dialogue · Generate · Explain · Encourage\n\n### 运营概览\n- 贡献者：152\n- 市值：$14.3M\n- 建设进度：100%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/petbot.svg",
+      "banner": "https://assets.dbtf.com/banners/petbot.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/petbot_hero.jpg",
+          "context": "project_home_hero",
+          "description": "PetBot 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/petbot_intro.mp4",
+          "context": "project_story",
+          "description": "PetBot 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://petbot.io",
+      "whitepaper": "https://docs.petbot.io/whitepaper",
+      "github": "https://github.com/dbtf/petbot"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Entertainment",
+      "Social"
+    ],
+    "object": [
+      "Image",
+      "Audio",
+      "Emotion"
+    ],
+    "action": [
+      "Dialogue",
+      "Generate",
+      "Explain",
+      "Encourage"
+    ],
+    "interaction_form": [
+      "Image",
+      "Text",
+      "Audio"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2026-01-02",
+      "progress": 1,
+      "contributors_count": 152,
+      "total_commits": 4711
+    },
+    "operation": {
+      "total_users": 432,
+      "new_users_24h": 11,
+      "revenue_total": 362455,
+      "revenue_24h": 3120
+    },
+    "rating": {
+      "score": 4.6,
+      "review_count": 38
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Feature Rich",
+      "Low Latency",
+      "Great Support"
+    ],
+    "list": [
+      {
+        "id": "petbot_rev_1",
+        "user_id": "petbot_builder",
+        "user_name": "PBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/petbot_1.png",
+        "rating": 5,
+        "content": "PetBot 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 50
+      },
+      {
+        "id": "petbot_rev_2",
+        "user_id": "petbot_ops",
+        "user_name": "POps",
+        "avatar": "https://assets.dbtf.com/avatars/petbot_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 22
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 10.42,
+      "market_cap": 14300000,
+      "change_24h_percent": -3,
+      "volume_24h": 566707
+    },
+    "supply": {
+      "total_supply": 1372162,
+      "circulating": 1288804,
+      "minted_24h": 584,
+      "burned_24h": 274
+    },
+    "staking": {
+      "total_staked": 550180,
+      "staking_ratio": 0.4,
+      "unstaked_24h": 7881,
+      "apy": 0.15
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 10.77,
+        "high": 10.98,
+        "low": 10.62,
+        "close": 10.82,
+        "volume": 470600
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 10.49,
+        "high": 10.67,
+        "low": 10.38,
+        "close": 10.56,
+        "volume": 562980
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 10.32,
+          "amount": 610
+        },
+        {
+          "price": 10.26,
+          "amount": 461
+        }
+      ],
+      "asks": [
+        {
+          "price": 10.52,
+          "amount": 646
+        },
+        {
+          "price": 10.58,
+          "amount": 620
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "petbot_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 10.42,
+        "amount": 119,
+        "total_value": 1442.39,
+        "trader_info": {
+          "user_id": "petbot_whale",
+          "name": "PWhale",
+          "avatar": "https://assets.dbtf.com/avatars/petbot_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "petbot_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 10.37,
+        "amount": 85,
+        "total_value": 832.37,
+        "trader_info": {
+          "user_id": "petbot_pro",
+          "name": "PTrader",
+          "avatar": "https://assets.dbtf.com/avatars/petbot_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 36,
+      "active_builders_count": 152
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "petbot_resource",
+        "unit_name": "Unit",
+        "description": "PetBot 核心资源贡献",
+        "reward_token": 5.6
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "petbot_task_1",
+        "title": "扩展 PetBot 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 247581,
+        "progress_target": 550180,
+        "reward_display": "P 奖励"
+      },
+      {
+        "task_id": "petbot_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "P 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "petbot_alpha",
+        "name": "PAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/petbot_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 16905,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "petbot_beta",
+        "name": "PBeta",
+        "avatar": "https://assets.dbtf.com/avatars/petbot_beta.png",
+        "role": "Developer",
+        "contribution_points": 6784,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "petbot_hist_1",
+        "user_id": "petbot_alpha",
+        "user_name": "PAlpha",
+        "task_title": "PetBot 节点贡献",
+        "amount": 102,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "petbot_gov_1",
+        "title": "关于 PetBot 奖励参数的提案",
+        "proposer": {
+          "name": "P DAO",
+          "avatar": "https://assets.dbtf.com/avatars/petbot_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 PetBot 在 Entertainment 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 1144000,
+          "against": 286000,
+          "abstain": 143000
+        },
+        "recent_votes": [
+          {
+            "user_id": "petbot_governor_a",
+            "name": "PGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/petbot_gov_a.png",
+            "vote_option": "for",
+            "weight": 5661,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "petbot_governor_b",
+            "name": "PGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/petbot_gov_b.png",
+            "vote_option": "against",
+            "weight": 1513,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

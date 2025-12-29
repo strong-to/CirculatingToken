@@ -1,0 +1,301 @@
+{
+  "system_id": "DBTF0000016",
+  "slug": "pixelstream",
+  "status": "completed",
+  "profile": {
+    "name": "PixelStream",
+    "symbol": "P",
+    "type_en": "Workflow",
+    "category_cn": "图像创作",
+    "slogan": "Turning ideas into visuals, instantly.",
+    "summary": "PixelStream delivers Workflow capabilities for Media teams.",
+    "description_md": "## 关于 PixelStream\nTurning ideas into visuals, instantly.\n\n### 交互形态\n- Image / Image+Text\n\n### 适用领域\n- Media / Art\n\n### 核心能力\n- Generate · Classify · Explain · Analyze\n\n### 运营概览\n- 贡献者：214\n- 市值：$15.8M\n- 建设进度：100%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/pixelstream.svg",
+      "banner": "https://assets.dbtf.com/banners/pixelstream.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/pixelstream_hero.jpg",
+          "context": "project_home_hero",
+          "description": "PixelStream 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/pixelstream_intro.mp4",
+          "context": "project_story",
+          "description": "PixelStream 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://pixelstream.io",
+      "whitepaper": "https://docs.pixelstream.io/whitepaper",
+      "github": "https://github.com/dbtf/pixelstream"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Media",
+      "Art"
+    ],
+    "object": [
+      "Image"
+    ],
+    "action": [
+      "Generate",
+      "Classify",
+      "Explain",
+      "Analyze"
+    ],
+    "interaction_form": [
+      "Image",
+      "Image+Text"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-20",
+      "progress": 1,
+      "contributors_count": 214,
+      "total_commits": 6141
+    },
+    "operation": {
+      "total_users": 603,
+      "new_users_24h": 15,
+      "revenue_total": 273280,
+      "revenue_24h": 3310
+    },
+    "rating": {
+      "score": 4.5,
+      "review_count": 54
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Scalable",
+      "Great Support",
+      "Needs Polish"
+    ],
+    "list": [
+      {
+        "id": "pixelstream_rev_1",
+        "user_id": "pixelstream_builder",
+        "user_name": "PBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/pixelstream_1.png",
+        "rating": 5,
+        "content": "PixelStream 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 41
+      },
+      {
+        "id": "pixelstream_rev_2",
+        "user_id": "pixelstream_ops",
+        "user_name": "POps",
+        "avatar": "https://assets.dbtf.com/avatars/pixelstream_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 12
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 17.36,
+      "market_cap": 15800000,
+      "change_24h_percent": 1.7,
+      "volume_24h": 898498
+    },
+    "supply": {
+      "total_supply": 910265,
+      "circulating": 880784,
+      "minted_24h": 626,
+      "burned_24h": 214
+    },
+    "staking": {
+      "total_staked": 310654,
+      "staking_ratio": 0.34,
+      "unstaked_24h": 5165,
+      "apy": 0.12
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 17.39,
+        "high": 17.68,
+        "low": 17.32,
+        "close": 17.44,
+        "volume": 822348
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 17.09,
+        "high": 17.39,
+        "low": 16.92,
+        "close": 17.09,
+        "volume": 863638
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 17.19,
+          "amount": 843
+        },
+        {
+          "price": 17.1,
+          "amount": 466
+        }
+      ],
+      "asks": [
+        {
+          "price": 17.53,
+          "amount": 655
+        },
+        {
+          "price": 17.62,
+          "amount": 516
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "pixelstream_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 17.36,
+        "amount": 134,
+        "total_value": 1760.04,
+        "trader_info": {
+          "user_id": "pixelstream_whale",
+          "name": "PWhale",
+          "avatar": "https://assets.dbtf.com/avatars/pixelstream_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "pixelstream_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 17.27,
+        "amount": 65,
+        "total_value": 1128.72,
+        "trader_info": {
+          "user_id": "pixelstream_pro",
+          "name": "PTrader",
+          "avatar": "https://assets.dbtf.com/avatars/pixelstream_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 48,
+      "active_builders_count": 214
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "pixelstream_resource",
+        "unit_name": "Unit",
+        "description": "PixelStream 核心资源贡献",
+        "reward_token": 14.4
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "pixelstream_task_1",
+        "title": "扩展 PixelStream 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 139794,
+        "progress_target": 310654,
+        "reward_display": "P 奖励"
+      },
+      {
+        "task_id": "pixelstream_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "P 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "pixelstream_alpha",
+        "name": "PAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/pixelstream_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 17321,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "pixelstream_beta",
+        "name": "PBeta",
+        "avatar": "https://assets.dbtf.com/avatars/pixelstream_beta.png",
+        "role": "Developer",
+        "contribution_points": 8595,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "pixelstream_hist_1",
+        "user_id": "pixelstream_alpha",
+        "user_name": "PAlpha",
+        "task_title": "PixelStream 节点贡献",
+        "amount": 103,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "pixelstream_gov_1",
+        "title": "关于 PixelStream 奖励参数的提案",
+        "proposer": {
+          "name": "P DAO",
+          "avatar": "https://assets.dbtf.com/avatars/pixelstream_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 PixelStream 在 Media 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 1264000,
+          "against": 316000,
+          "abstain": 158000
+        },
+        "recent_votes": [
+          {
+            "user_id": "pixelstream_governor_a",
+            "name": "PGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/pixelstream_gov_a.png",
+            "vote_option": "for",
+            "weight": 5851,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "pixelstream_governor_b",
+            "name": "PGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/pixelstream_gov_b.png",
+            "vote_option": "against",
+            "weight": 1315,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

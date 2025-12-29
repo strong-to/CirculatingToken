@@ -1,0 +1,303 @@
+{
+  "system_id": "DBTF0000023",
+  "slug": "vocabridge",
+  "status": "completed",
+  "profile": {
+    "name": "VocaBridge",
+    "symbol": "V",
+    "type_en": "AI Agent",
+    "category_cn": "口语翻译",
+    "slogan": "Your voice, in every language.",
+    "summary": "VocaBridge delivers AI Agent capabilities for Communications teams.",
+    "description_md": "## 关于 VocaBridge\nYour voice, in every language.\n\n### 交互形态\n- Speech / Audio / Voice + Text\n\n### 适用领域\n- Communications / Culture\n\n### 核心能力\n- Translate · Explain · Understand · Dialogue\n\n### 运营概览\n- 贡献者：214\n- 市值：$23.4M\n- 建设进度：100%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/vocabridge.svg",
+      "banner": "https://assets.dbtf.com/banners/vocabridge.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/vocabridge_hero.jpg",
+          "context": "project_home_hero",
+          "description": "VocaBridge 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/vocabridge_intro.mp4",
+          "context": "project_story",
+          "description": "VocaBridge 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://vocabridge.io",
+      "whitepaper": "https://docs.vocabridge.io/whitepaper",
+      "github": "https://github.com/dbtf/vocabridge"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Communications",
+      "Culture"
+    ],
+    "object": [
+      "Audio",
+      "Text"
+    ],
+    "action": [
+      "Translate",
+      "Explain",
+      "Understand",
+      "Dialogue"
+    ],
+    "interaction_form": [
+      "Speech",
+      "Audio",
+      "Voice + Text"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-27",
+      "progress": 1,
+      "contributors_count": 214,
+      "total_commits": 5888
+    },
+    "operation": {
+      "total_users": 607,
+      "new_users_24h": 15,
+      "revenue_total": 511781,
+      "revenue_24h": 4960
+    },
+    "rating": {
+      "score": 4.7,
+      "review_count": 54
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Needs Polish",
+      "Reliable",
+      "Great Support"
+    ],
+    "list": [
+      {
+        "id": "vocabridge_rev_1",
+        "user_id": "vocabridge_builder",
+        "user_name": "VBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/vocabridge_1.png",
+        "rating": 5,
+        "content": "VocaBridge 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 13
+      },
+      {
+        "id": "vocabridge_rev_2",
+        "user_id": "vocabridge_ops",
+        "user_name": "VOps",
+        "avatar": "https://assets.dbtf.com/avatars/vocabridge_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 20
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 17.04,
+      "market_cap": 23400000,
+      "change_24h_percent": 1.2,
+      "volume_24h": 241460
+    },
+    "supply": {
+      "total_supply": 1373004,
+      "circulating": 1304544,
+      "minted_24h": 274,
+      "burned_24h": 69
+    },
+    "staking": {
+      "total_staked": 826811,
+      "staking_ratio": 0.6,
+      "unstaked_24h": 28230,
+      "apy": 0.15
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 16.57,
+        "high": 16.79,
+        "low": 16.39,
+        "close": 16.54,
+        "volume": 198445
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 16.78,
+        "high": 16.84,
+        "low": 16.49,
+        "close": 16.71,
+        "volume": 278269
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 16.87,
+          "amount": 680
+        },
+        {
+          "price": 16.78,
+          "amount": 580
+        }
+      ],
+      "asks": [
+        {
+          "price": 17.21,
+          "amount": 859
+        },
+        {
+          "price": 17.3,
+          "amount": 646
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "vocabridge_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 17.04,
+        "amount": 132,
+        "total_value": 1706.11,
+        "trader_info": {
+          "user_id": "vocabridge_whale",
+          "name": "VWhale",
+          "avatar": "https://assets.dbtf.com/avatars/vocabridge_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "vocabridge_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 16.95,
+        "amount": 70,
+        "total_value": 1675.54,
+        "trader_info": {
+          "user_id": "vocabridge_pro",
+          "name": "VTrader",
+          "avatar": "https://assets.dbtf.com/avatars/vocabridge_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 47,
+      "active_builders_count": 214
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "vocabridge_resource",
+        "unit_name": "Unit",
+        "description": "VocaBridge 核心资源贡献",
+        "reward_token": 14.2
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "vocabridge_task_1",
+        "title": "扩展 VocaBridge 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 372065,
+        "progress_target": 826811,
+        "reward_display": "V 奖励"
+      },
+      {
+        "task_id": "vocabridge_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "V 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "vocabridge_alpha",
+        "name": "VAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/vocabridge_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 17449,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "vocabridge_beta",
+        "name": "VBeta",
+        "avatar": "https://assets.dbtf.com/avatars/vocabridge_beta.png",
+        "role": "Developer",
+        "contribution_points": 9221,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "vocabridge_hist_1",
+        "user_id": "vocabridge_alpha",
+        "user_name": "VAlpha",
+        "task_title": "VocaBridge 节点贡献",
+        "amount": 108,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "vocabridge_gov_1",
+        "title": "关于 VocaBridge 奖励参数的提案",
+        "proposer": {
+          "name": "V DAO",
+          "avatar": "https://assets.dbtf.com/avatars/vocabridge_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 VocaBridge 在 Communications 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 1872000,
+          "against": 468000,
+          "abstain": 234000
+        },
+        "recent_votes": [
+          {
+            "user_id": "vocabridge_governor_a",
+            "name": "VGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/vocabridge_gov_a.png",
+            "vote_option": "for",
+            "weight": 6871,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "vocabridge_governor_b",
+            "name": "VGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/vocabridge_gov_b.png",
+            "vote_option": "against",
+            "weight": 1243,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

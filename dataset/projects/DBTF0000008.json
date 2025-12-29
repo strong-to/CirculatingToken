@@ -1,0 +1,302 @@
+{
+  "system_id": "DBTF0000008",
+  "slug": "transitflow",
+  "status": "completed",
+  "profile": {
+    "name": "TransitFlow",
+    "symbol": "T",
+    "type_en": "Dataset",
+    "category_cn": "交通行业数据集",
+    "slogan": "Structured instructions for transport intelligence.",
+    "summary": "TransitFlow delivers Dataset capabilities for Transportation teams.",
+    "description_md": "## 关于 TransitFlow\nStructured instructions for transport intelligence.\n\n### 交互形态\n- Text / Table\n\n### 适用领域\n- Transportation / Industry\n\n### 核心能力\n- Analyze · Predict · Classify · Explain\n\n### 运营概览\n- 贡献者：141\n- 市值：$3.9M\n- 建设进度：100%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/transitflow.svg",
+      "banner": "https://assets.dbtf.com/banners/transitflow.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/transitflow_hero.jpg",
+          "context": "project_home_hero",
+          "description": "TransitFlow 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/transitflow_intro.mp4",
+          "context": "project_story",
+          "description": "TransitFlow 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://transitflow.io",
+      "whitepaper": "https://docs.transitflow.io/whitepaper",
+      "github": "https://github.com/dbtf/transitflow"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Transportation",
+      "Industry"
+    ],
+    "object": [
+      "Data",
+      "Text"
+    ],
+    "action": [
+      "Analyze",
+      "Predict",
+      "Classify",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Text",
+      "Table"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-12",
+      "progress": 1,
+      "contributors_count": 141,
+      "total_commits": 3769
+    },
+    "operation": {
+      "total_users": 394,
+      "new_users_24h": 10,
+      "revenue_total": 83813,
+      "revenue_24h": 840
+    },
+    "rating": {
+      "score": 4.3,
+      "review_count": 35
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Feature Rich",
+      "Reliable",
+      "Low Latency"
+    ],
+    "list": [
+      {
+        "id": "transitflow_rev_1",
+        "user_id": "transitflow_builder",
+        "user_name": "TBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/transitflow_1.png",
+        "rating": 4,
+        "content": "TransitFlow 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 24
+      },
+      {
+        "id": "transitflow_rev_2",
+        "user_id": "transitflow_ops",
+        "user_name": "TOps",
+        "avatar": "https://assets.dbtf.com/avatars/transitflow_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 23
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.82,
+      "market_cap": 3900000,
+      "change_24h_percent": -3.8,
+      "volume_24h": 124267
+    },
+    "supply": {
+      "total_supply": 1381000,
+      "circulating": 1316877,
+      "minted_24h": 927,
+      "burned_24h": 273
+    },
+    "staking": {
+      "total_staked": 709701,
+      "staking_ratio": 0.51,
+      "unstaked_24h": 8807,
+      "apy": 0.15
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 2.81,
+        "high": 2.82,
+        "low": 2.8,
+        "close": 2.8,
+        "volume": 141732
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 2.76,
+        "high": 2.79,
+        "low": 2.73,
+        "close": 2.74,
+        "volume": 107258
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 2.79,
+          "amount": 600
+        },
+        {
+          "price": 2.78,
+          "amount": 505
+        }
+      ],
+      "asks": [
+        {
+          "price": 2.85,
+          "amount": 637
+        },
+        {
+          "price": 2.86,
+          "amount": 706
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "transitflow_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 2.82,
+        "amount": 138,
+        "total_value": 356.06,
+        "trader_info": {
+          "user_id": "transitflow_whale",
+          "name": "TWhale",
+          "avatar": "https://assets.dbtf.com/avatars/transitflow_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "transitflow_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 2.81,
+        "amount": 84,
+        "total_value": 210.32,
+        "trader_info": {
+          "user_id": "transitflow_pro",
+          "name": "TTrader",
+          "avatar": "https://assets.dbtf.com/avatars/transitflow_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 29,
+      "active_builders_count": 141
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "transitflow_resource",
+        "unit_name": "Unit",
+        "description": "TransitFlow 核心资源贡献",
+        "reward_token": 6
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "transitflow_task_1",
+        "title": "扩展 TransitFlow 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 319365,
+        "progress_target": 709701,
+        "reward_display": "T 奖励"
+      },
+      {
+        "task_id": "transitflow_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "T 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "transitflow_alpha",
+        "name": "TAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/transitflow_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 10616,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "transitflow_beta",
+        "name": "TBeta",
+        "avatar": "https://assets.dbtf.com/avatars/transitflow_beta.png",
+        "role": "Developer",
+        "contribution_points": 8375,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "transitflow_hist_1",
+        "user_id": "transitflow_alpha",
+        "user_name": "TAlpha",
+        "task_title": "TransitFlow 节点贡献",
+        "amount": 140,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "transitflow_gov_1",
+        "title": "关于 TransitFlow 奖励参数的提案",
+        "proposer": {
+          "name": "T DAO",
+          "avatar": "https://assets.dbtf.com/avatars/transitflow_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 TransitFlow 在 Transportation 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 312000,
+          "against": 78000,
+          "abstain": 39000
+        },
+        "recent_votes": [
+          {
+            "user_id": "transitflow_governor_a",
+            "name": "TGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/transitflow_gov_a.png",
+            "vote_option": "for",
+            "weight": 5365,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "transitflow_governor_b",
+            "name": "TGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/transitflow_gov_b.png",
+            "vote_option": "against",
+            "weight": 1476,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

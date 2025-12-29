@@ -1,0 +1,304 @@
+{
+  "system_id": "DBTF0000021",
+  "slug": "quantloop",
+  "status": "active",
+  "profile": {
+    "name": "QuantLoop",
+    "symbol": "Q",
+    "type_en": "Workflow",
+    "category_cn": "量化交易",
+    "slogan": "Algorithmic trading, refined by AI.",
+    "summary": "QuantLoop delivers Workflow capabilities for Finance teams.",
+    "description_md": "## 关于 QuantLoop\nAlgorithmic trading, refined by AI.\n\n### 交互形态\n- Table / Chart / Data\n\n### 适用领域\n- Finance / Markets & Trade\n\n### 核心能力\n- Predict · Analyze · Classify · Summarize\n\n### 运营概览\n- 贡献者：214\n- 市值：$7.2M\n- 建设进度：90%",
+    "media": {
+      "logo": "https://assets.dbtf.com/logos/quantloop.svg",
+      "banner": "https://assets.dbtf.com/banners/quantloop.jpg",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/quantloop_hero.jpg",
+          "context": "project_home_hero",
+          "description": "QuantLoop 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/quantloop_intro.mp4",
+          "context": "project_story",
+          "description": "QuantLoop 产品介绍"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://quantloop.io",
+      "whitepaper": "https://docs.quantloop.io/whitepaper",
+      "github": "https://github.com/dbtf/quantloop"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Finance",
+      "Markets & Trade"
+    ],
+    "object": [
+      "Data",
+      "Chart",
+      "Flow"
+    ],
+    "action": [
+      "Predict",
+      "Analyze",
+      "Classify",
+      "Summarize"
+    ],
+    "interaction_form": [
+      "Table",
+      "Chart",
+      "Data"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-25",
+      "progress": 0.9,
+      "contributors_count": 214,
+      "total_commits": 4880
+    },
+    "operation": {
+      "total_users": 607,
+      "new_users_24h": 14,
+      "revenue_total": 0,
+      "revenue_24h": 0
+    },
+    "rating": {
+      "score": 4.7,
+      "review_count": 54
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Reliable",
+      "Great Support",
+      "Needs Polish"
+    ],
+    "list": [
+      {
+        "id": "quantloop_rev_1",
+        "user_id": "quantloop_builder",
+        "user_name": "QBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/quantloop_1.png",
+        "rating": 5,
+        "content": "QuantLoop 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 41
+      },
+      {
+        "id": "quantloop_rev_2",
+        "user_id": "quantloop_ops",
+        "user_name": "QOps",
+        "avatar": "https://assets.dbtf.com/avatars/quantloop_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 20
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 6.32,
+      "market_cap": 7200000,
+      "change_24h_percent": -2.8,
+      "volume_24h": 123949
+    },
+    "supply": {
+      "total_supply": 1139951,
+      "circulating": 1125246,
+      "minted_24h": 1070,
+      "burned_24h": 300
+    },
+    "staking": {
+      "total_staked": 762934,
+      "staking_ratio": 0.67,
+      "unstaked_24h": 23459,
+      "apy": 0.15
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 6.4,
+        "high": 6.51,
+        "low": 6.38,
+        "close": 6.37,
+        "volume": 134567
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 6.18,
+        "high": 6.29,
+        "low": 6.06,
+        "close": 6.13,
+        "volume": 116361
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 6.26,
+          "amount": 871
+        },
+        {
+          "price": 6.23,
+          "amount": 486
+        }
+      ],
+      "asks": [
+        {
+          "price": 6.38,
+          "amount": 780
+        },
+        {
+          "price": 6.41,
+          "amount": 528
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "quantloop_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 6.32,
+        "amount": 137,
+        "total_value": 931.3,
+        "trader_info": {
+          "user_id": "quantloop_whale",
+          "name": "QWhale",
+          "avatar": "https://assets.dbtf.com/avatars/quantloop_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "quantloop_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 6.29,
+        "amount": 78,
+        "total_value": 408.77,
+        "trader_info": {
+          "user_id": "quantloop_pro",
+          "name": "QTrader",
+          "avatar": "https://assets.dbtf.com/avatars/quantloop_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 39,
+      "active_builders_count": 214
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "quantloop_resource",
+        "unit_name": "Unit",
+        "description": "QuantLoop 核心资源贡献",
+        "reward_token": 7.1
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "quantloop_task_1",
+        "title": "扩展 QuantLoop 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 343320,
+        "progress_target": 762934,
+        "reward_display": "Q 奖励"
+      },
+      {
+        "task_id": "quantloop_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "Q 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "quantloop_alpha",
+        "name": "QAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/quantloop_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 12297,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "quantloop_beta",
+        "name": "QBeta",
+        "avatar": "https://assets.dbtf.com/avatars/quantloop_beta.png",
+        "role": "Developer",
+        "contribution_points": 6033,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "quantloop_hist_1",
+        "user_id": "quantloop_alpha",
+        "user_name": "QAlpha",
+        "task_title": "QuantLoop 节点贡献",
+        "amount": 143,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "quantloop_gov_1",
+        "title": "关于 QuantLoop 奖励参数的提案",
+        "proposer": {
+          "name": "Q DAO",
+          "avatar": "https://assets.dbtf.com/avatars/quantloop_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 QuantLoop 在 Finance 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 576000,
+          "against": 144000,
+          "abstain": 72000
+        },
+        "recent_votes": [
+          {
+            "user_id": "quantloop_governor_a",
+            "name": "QGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/quantloop_gov_a.png",
+            "vote_option": "for",
+            "weight": 5941,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "quantloop_governor_b",
+            "name": "QGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/quantloop_gov_b.png",
+            "vote_option": "against",
+            "weight": 1419,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,7 @@
 import homepageIndex from '@/dataset/index.json'
 import projectsMap from '@/dataset/projects'
 import { toCdnUrl } from '@/utils/cdn'
+import { buildLendingVaultPath } from '@/config/app'
 import type {
   HomepageIndexConfig,
   HomepageProjectCard,
@@ -31,6 +32,7 @@ function resolveProject(projectId: string): HomepageProjectCard | null {
     taxonomy: project.taxonomy,
     metrics: project.metrics,
     tokenomics: project.tokenomics,
+    detailHref: buildLendingVaultPath(project.system_id),
   }
 }
 

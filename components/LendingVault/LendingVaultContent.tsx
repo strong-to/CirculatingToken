@@ -8,6 +8,7 @@ import UserComments from './com/UserComments'
 import ProjectConstruction from './com/ProjectConstruction'
 import ProjectGovernance from './com/ProjectGovernance'
 import TokenTrading from './com/TokenTrading'
+import TokenLending from './com/TokenLending'
 import ProjectsYouMayBeInterestedIn from './com/ProjectsYouMayBeInterestedIn'
 import { useState } from 'react'
 import Footer from '../Footer/Footer'
@@ -28,7 +29,7 @@ export default function LendingVaultContent() {
       </div>
 
       {/* 第二屏 */}
-      {/* <SecondScreen /> */}
+      <SecondScreen />
 
 
      
@@ -95,12 +96,12 @@ export default function LendingVaultContent() {
         </div>
         
       {/* 根据 activeTab 显示不同的组件 */}
-      {activeTab === 'Project Introduction' && <SecondScreen />}
+      {activeTab === 'Project Introduction' && <ProjectIntroduction />}
       {activeTab === 'User Comments' && <UserComments />}
       {activeTab === 'Project Construction' && <ProjectConstruction />}
       {activeTab === 'Project Governance' && <ProjectGovernance />}
-      {activeTab === 'Token Trading' && <ProjectGovernance />}
-      {activeTab === 'Token Lending' && <ProjectGovernance />}
+      {activeTab === 'Token Trading' && <TokenTrading />}
+      {activeTab === 'Token Lending' && <TokenLending />}
 
       {/* Projects You May Be Interested In */}
      
@@ -112,4 +113,3 @@ export default function LendingVaultContent() {
     </div>
   )
 }
-

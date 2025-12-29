@@ -145,19 +145,18 @@ export default function ImageWithSkeleton({
   const skeletonWidth = fill ? "100%" : width;
   const skeletonHeight = fill ? "100%" : height;
 
+  const containerStyles: React.CSSProperties = {
+    position: "relative",
+    width: fill ? "100%" : width,
+    height: fill ? "100%" : height,
+    aspectRatio: fill ? aspectRatio : undefined,
+    borderRadius: borderRadius || 0,
+    overflow: "hidden",
+    ...style,
+  };
+
   return (
-    <div
-      className={className}
-      style={{
-        position: fill ? "relative" : "static",
-        width: fill ? "100%" : width,
-        height: fill ? "100%" : height,
-        aspectRatio: fill ? aspectRatio : undefined,
-        borderRadius: borderRadius || 0,
-        overflow: "hidden",
-        ...style,
-      }}
-    >
+    <div className={className} style={containerStyles}>
       {/* 骨架屏 */}
       {isLoading && !hasError && (
         <ImageSkeleton
@@ -170,9 +169,14 @@ export default function ImageWithSkeleton({
 
       {/* 图片 */}
       {/* 使用CDN优化后的URL */}
-      {(() => {
+      {!hasError && (() => {
         const optimizedSrc = getOptimizedImageUrl(src, typeof width === "number" ? width : undefined)
         const imageLoading = loading || getImageLoading(src, priority === true)
+        const baseImageStyle: React.CSSProperties = {
+          objectFit: finalObjectFit,
+          opacity: isLoading ? 0 : 1,
+          transition: "opacity 0.3s ease-in-out",
+        }
         
         // 如果 width 或 height 是字符串，或者 fill=true，使用 fill 模式
         if (fill || typeof width === "string" || typeof height === "string") {
@@ -183,9 +187,7 @@ export default function ImageWithSkeleton({
               fill
               className={className}
               style={{
-                objectFit: finalObjectFit,
-                opacity: isLoading ? 0 : 1,
-                transition: "opacity 0.3s ease-in-out",
+                ...baseImageStyle,
                 ...style,
               }}
               priority={priority}
@@ -203,12 +205,7 @@ export default function ImageWithSkeleton({
               height={typeof height === "number" ? height : undefined}
               className={className}
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: finalObjectFit,
-                opacity: isLoading ? 0 : 1,
-                transition: "opacity 0.3s ease-in-out",
-                ...style,
+                ...baseImageStyle,
               }}
               priority={priority}
               loading={imageLoading}
@@ -228,18 +225,19 @@ export default function ImageWithSkeleton({
             left: 0,
             width: "100%",
             height: "100%",
-            backgroundColor: "#E5E5E5",
+            backgroundColor: "#F5F5F5",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             color: "#999999",
             fontSize: px(14),
+            padding: px(12),
+            textAlign: "center",
           }}
         >
-          加载失败
+          图片加载失败
         </div>
       )}
     </div>
   );
 }
-

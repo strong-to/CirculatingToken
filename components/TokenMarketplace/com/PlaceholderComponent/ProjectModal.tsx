@@ -3,7 +3,9 @@
 import { useState } from 'react'
 import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
+import Link from 'next/link'
 import type { ProjectData } from '@/app/data'
+import type { ReactNode } from 'react'
 
 interface ProjectModalProps {
   selectedCard: ProjectData | null
@@ -12,6 +14,88 @@ interface ProjectModalProps {
   getIconImagePath: (index: number) => string
   formatNumber: (value: number | undefined) => string
   formatCurrency: (value: number | undefined) => string
+}
+
+const renderMarkdown = (markdown?: string): ReactNode => {
+  if (!markdown) return null
+
+  const blocks = markdown
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+
+  return blocks.map((block, index) => {
+    if (block.startsWith('### ')) {
+      return (
+        <h4
+          key={`modal-md-h3-${index}`}
+          style={{
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 500,
+            fontSize: px(20),
+            marginTop: index === 0 ? 0 : px(20),
+          }}
+        >
+          {block.replace(/^###\s+/, '')}
+        </h4>
+      )
+    }
+
+    if (block.startsWith('## ')) {
+      return (
+        <h3
+          key={`modal-md-h2-${index}`}
+          style={{
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 500,
+            fontSize: px(24),
+            marginTop: index === 0 ? 0 : px(24),
+          }}
+        >
+          {block.replace(/^##\s+/, '')}
+        </h3>
+      )
+    }
+
+    const lines = block.split('\n')
+    const listLines = lines.filter((line) => line.trim().startsWith('- '))
+    if (listLines.length === lines.length) {
+      return (
+        <ul key={`modal-md-list-${index}`} style={{ paddingLeft: px(20), marginTop: index === 0 ? 0 : px(16) }}>
+          {listLines.map((line, itemIndex) => (
+            <li
+              key={`modal-md-li-${index}-${itemIndex}`}
+              style={{
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                lineHeight: px(24),
+                color: '#000000',
+              }}
+            >
+              {line.replace(/^-+\s*/, '')}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+
+    return (
+      <p
+        key={`modal-md-p-${index}`}
+        style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(16),
+          lineHeight: px(26),
+          color: '#000000',
+          marginTop: index === 0 ? 0 : px(14),
+        }}
+      >
+        {block}
+      </p>
+    )
+  })
 }
 
 export default function ProjectModal({
@@ -27,11 +111,9 @@ export default function ProjectModal({
 
   if (selectedCard === null) return null
 
-  console.log('selectedCard-----------------1212',selectedCard);
-  
-
   // 从 system_id 中提取索引（例如 DBTF0000001 -> 0, DBTF0000002 -> 1）
   const cardIndex = selectedCard.system_id ? parseInt(selectedCard.system_id.replace('DBTF', '')) - 1 : 0
+  const detailHref = selectedCard.system_id ? `/LendingVault/${selectedCard.system_id}` : '#'
 
   return (
     <div
@@ -277,29 +359,38 @@ export default function ProjectModal({
             )}
 
             {/* 大文本框 */}
-            <div style={{
-              minHeight: px(140),
-              border: '0.7px solid #000000',
-              borderRadius: px(4),
-              padding: px(16),
-              marginBottom: px(60),
-              overflow: 'auto',
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontSize: px(18),
-              fontWeight: 300,
-              color: '#000000'
-            }}>
-              {selectedCard?.profile?.description_md || selectedCard?.profile?.summary || selectedCard?.profile?.slogan || ''}
+            <div
+              style={{
+                minHeight: px(140),
+                border: '0.7px solid #000000',
+                borderRadius: px(4),
+                padding: px(16),
+                marginBottom: px(60),
+                overflow: 'auto',
+              }}
+            >
+              {renderMarkdown(
+                selectedCard?.profile?.description_md ||
+                  selectedCard?.profile?.summary ||
+                  selectedCard?.profile?.slogan ||
+                  ''
+              )}
             </div>
 
             {/* 底部按钮 */}
             <div className='flex justify-center items-center' style={{ gap: px(20) }}>
-              <button
+              <Link
+                href={detailHref}
+                prefetch={false}
                 onMouseEnter={() => setIsDetailsHovered(true)}
                 onMouseLeave={() => setIsDetailsHovered(false)}
+                onClick={() => onClose()}
                 style={{
-                    width: px(130),
+                  width: px(130),
                   height: px(30),
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                   backgroundColor: isDetailsHovered ? '#000000' : '#FFFFFF',
                   color: isDetailsHovered ? '#FFFFFF' : '#000000',
                   border: isDetailsHovered ? 'none' : '0.7px solid #000000',
@@ -309,10 +400,11 @@ export default function ProjectModal({
                   fontWeight: 300,
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
+                  textDecoration: 'none',
                 }}
               >
                 Details
-              </button>
+              </Link>
               <button
                 onMouseEnter={() => setIsFavoritesHovered(true)}
                 onMouseLeave={() => setIsFavoritesHovered(false)}
@@ -339,4 +431,3 @@ export default function ProjectModal({
     </div>
   )
 }
-

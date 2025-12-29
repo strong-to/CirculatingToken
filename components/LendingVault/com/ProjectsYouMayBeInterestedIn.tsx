@@ -1,117 +1,97 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { px } from '@/utils/pxToRem'
 import { LearnMoreArrowIcon } from '@/components/icons/Icons'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
-import type { Swiper as SwiperType } from 'swiper'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import { CDN_PREFIX } from '@/utils/cdn'
+import { useProjectDetail } from '../ProjectDetailProvider'
+import { toCdnUrl } from '@/utils/cdn'
+import { buildLendingVaultPath } from '@/config/app'
 
 export default function ProjectsYouMayBeInterestedIn() {
-  const CDN = CDN_PREFIX
-  const [isWindows, setIsWindows] = useState(false)
-  const [isHovered, setIsHovered] = useState(false)
-  const swiperRef = useRef<SwiperType | null>(null)
-  
-  const gap = 22.7 // 1.41875rem = 22.7px
+  const { relatedProjects } = useProjectDetail()
+  const projects = relatedProjects.slice(0, 6)
 
-  // 检测操作系统
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const platform = navigator.platform.toLowerCase()
-      const userAgent = navigator.userAgent.toLowerCase()
-      // 检测 Windows 系统
-      const isWindowsOS = platform.includes('win') || userAgent.includes('windows')
-      setIsWindows(isWindowsOS)
-    }
-  }, [])
-
-  // 6张图片路径
-  const images = Array.from(
-    { length: 6 },
-    (_, i) => `${CDN}/LendingVault/ProjectsYouMayBeInterestedIn/img/Mask${i + 1}.png`
-  )
+  if (projects.length === 0) {
+    return null
+  }
 
   return (
-    
-
-
-
-    <div className="w-full" style={{ marginTop: px(50) , height: px(600) }}>
-      {/* 标题和 Learn more 链接 */}
-      <div 
-        className="flex items-center justify-between"
-        style={{ 
-          marginLeft: px(80),
-          marginRight: px(80),
-          marginBottom: px(41),
-        }}
-      >
+    <div className="w-full" style={{ marginTop: px(50), paddingLeft: px(80), paddingRight: px(80), paddingBottom: px(60) }}>
+      <div className="flex items-center justify-between" style={{ marginBottom: px(32) }}>
         <div
-          className="text-black"
-          style={{ 
+          style={{
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
+            fontWeight: 500,
             fontSize: px(28),
-            lineHeight: '100%',
-            letterSpacing: '0%',
           }}
         >
           Projects You May Be Interested In
         </div>
-        <a
-          href="#"
+        <Link
+          href={buildLendingVaultPath(projects[0].system_id)}
           className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
-          style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(24),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-          }}
         >
-          <span>Learn more details</span>
+          <span>View featured project</span>
           <LearnMoreArrowIcon style={{ width: px(24), height: px(24) }} />
-        </a>
+        </Link>
       </div>
 
-      <div 
-        className="flex"
-        style={{
-          marginLeft: px(80),
-          marginRight: px(80),
-          gap: px(14),
-          height: px(383),
-        }}
-      >
-        {images.map((src, index) => (
-          <div 
-            key={index}
-            className="relative flex-1 flex-shrink-0"
-            style={{ 
-                height: px(383),
-            }}
-          >
-            <ImageWithSkeleton
-              src={src}
-              alt={`Project ${index + 1}`}
-              fill
-              objectFit="cover"
-              priority={index < 2}
-              loading={index < 2 ? undefined : 'lazy'}
-            />
-          </div>
-        ))}
+      <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: px(16) }}>
+        {projects.map((project) => {
+          const hero = toCdnUrl(project.profile.media?.banner)
+          return (
+            <Link
+              key={project.system_id}
+              href={buildLendingVaultPath(project.system_id)}
+              className="relative flex flex-col overflow-hidden"
+              style={{ borderRadius: px(12), border: '1px solid #e5e5e5' }}
+            >
+              <div style={{ position: 'relative', width: '100%', aspectRatio: '16 / 10' }}>
+                <ImageWithSkeleton
+                  src={hero}
+                  alt={project.profile.name}
+                  fill
+                  objectFit="cover"
+                />
+              </div>
+              <div style={{ padding: px(16) }}>
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 500,
+                    fontSize: px(18),
+                  }}
+                >
+                  {project.profile.name}
+                </div>
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#8C8C8C',
+                    marginTop: px(4),
+                  }}
+                >
+                  {project.system_id}
+                </div>
+                <p
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    marginTop: px(12),
+                    lineHeight: px(20),
+                  }}
+                >
+                  {project.profile.summary}
+                </p>
+              </div>
+            </Link>
+          )
+        })}
       </div>
-
-      
     </div>
-
   )
 }

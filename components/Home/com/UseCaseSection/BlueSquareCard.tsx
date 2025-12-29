@@ -1,6 +1,7 @@
 "use client"
 
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 import styles from './BlueSquareCard.module.css'
 import { px } from '@/utils/pxToRem'
@@ -68,7 +69,6 @@ function RatingStars({ score }: { score: number }) {
 }
 
 export default function BlueSquareCard({ project, accentColor: _accentColor }: BlueSquareCardProps) {
-  const [showDetail, setShowDetail] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const [buttonHovered, setButtonHovered] = useState<string | null>(null)
 
@@ -82,7 +82,7 @@ export default function BlueSquareCard({ project, accentColor: _accentColor }: B
   const buttonWidths = calculateButtonWidths(taxonomyButtons)
   const iconSrc = project.icon ?? `${CDN_PREFIX}/home/icons/img/games.png`
   const arrowIcon = `${CDN_PREFIX}/home/icons/img/arr.png`
-  const overlayColor = showDetail ? DETAIL_OVERLAY_COLOR : HOVER_OVERLAY_COLOR
+  const overlayColor = isHovered ? DETAIL_OVERLAY_COLOR : HOVER_OVERLAY_COLOR
 
   const descriptions = [project.summary, project.slogan ?? project.summary]
   const detailMetrics: Array<{
@@ -117,14 +117,12 @@ export default function BlueSquareCard({ project, accentColor: _accentColor }: B
   ]
 
   return (
-    <div
+    <Link
+      href={project.detailHref}
       className={`relative overflow-hidden shadow-lg ${styles.card}`}
-      onMouseEnter={() => {
-        setIsHovered(true)
-      }}
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => {
         setIsHovered(false)
-        setShowDetail(false)
         setButtonHovered(null)
       }}
     >
@@ -142,16 +140,12 @@ export default function BlueSquareCard({ project, accentColor: _accentColor }: B
         style={{
           padding: px(30),
           backgroundColor: overlayColor,
-          opacity: isHovered || showDetail ? 1 : 0,
-          transform: isHovered || showDetail ? 'translateY(0)' : 'translateY(20px)',
-          pointerEvents: isHovered || showDetail ? 'auto' : 'none',
-        }}
-        onClick={(e) => {
-          e.stopPropagation()
-          setShowDetail(true)
+          opacity: isHovered ? 1 : 0,
+          transform: isHovered ? 'translateY(0)' : 'translateY(20px)',
+          pointerEvents: isHovered ? 'auto' : 'none',
         }}
       >
-        {!showDetail && (
+        {!isHovered && (
           <>
             <div>
               <div className="flex items-center justify-center" style={{ width: px(60), height: px(60), borderRadius: px(3) }}>
@@ -244,7 +238,7 @@ export default function BlueSquareCard({ project, accentColor: _accentColor }: B
           </>
         )}
 
-        {showDetail && (
+        {isHovered && (
           <>
             <div>
               <div className="flex items-center justify-start" style={{ height: px(60) }}>
@@ -319,6 +313,6 @@ export default function BlueSquareCard({ project, accentColor: _accentColor }: B
           </>
         )}
       </div>
-    </div>
+    </Link>
   )
 }

@@ -1,70 +1,76 @@
 'use client'
 
-import { useRef, useState, useEffect } from 'react'
-import { px } from "@/utils/pxToRem"
+import { useRef, useState, useEffect, useMemo } from 'react'
+import { px } from '@/utils/pxToRem'
 import { LearnMoreArrowIcon } from '@/components/icons/Icons'
+import { useProjectDetail } from '../ProjectDetailProvider'
+
+const FALLBACK_TERMS = [
+  'Workflow',
+  'Video+Audio',
+  'Image',
+  'Text',
+  'Media',
+  'Entertainment',
+  'Generate',
+  'Edit',
+  'Model',
+]
 
 export default function SecondScreen() {
-  const texts = [
-    'Workflow',
-    'Video+Audio',
-    'Image',
-    'Text',
-    'Media',
-    'Entertainment',
-    'Generate',
-    'Edit',
-    'Text',
-    'Model'
-  ]
-
+  const { project } = useProjectDetail()
   const containerRef = useRef<HTMLDivElement>(null)
   const [spacing, setSpacing] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
 
-  // 计算每个文案的实际占用宽度（包括间距）
+  const marqueeTexts = useMemo(() => {
+    const tokens = new Set<string>([
+      ...(project.taxonomy?.interaction_form ?? []),
+      ...(project.taxonomy?.action ?? []),
+      ...(project.taxonomy?.domain ?? []),
+      project.profile?.type_en ?? '',
+    ].filter(Boolean))
+    if (tokens.size === 0) {
+      return FALLBACK_TERMS
+    }
+    return Array.from(tokens)
+  }, [project])
+
   useEffect(() => {
     const updateSpacing = () => {
       if (!containerRef.current) return
       const containerWidth = containerRef.current.offsetWidth
-      const padding = 80 * 2 // 左右padding
+      const padding = 80 * 2
       const availableWidth = containerWidth - padding
-      // 计算每个文案的宽度（均分剩余空间）
-      setSpacing(availableWidth / texts.length)
+      setSpacing(availableWidth / marqueeTexts.length)
     }
 
     updateSpacing()
     window.addEventListener('resize', updateSpacing)
     return () => window.removeEventListener('resize', updateSpacing)
-  }, [texts.length])
+  }, [marqueeTexts.length])
 
-  // 复制多组文案以实现无缝循环
-  const extendedTexts = [...texts, ...texts, ...texts]
-  const totalWidth = spacing * texts.length // 一组的总宽度
-  const animationDuration = 20 // 动画持续时间（秒）
+  const extendedTexts = [...marqueeTexts, ...marqueeTexts, ...marqueeTexts]
+  const totalWidth = spacing * marqueeTexts.length
+  const animationDuration = 20
 
-  // 动态生成 CSS keyframes
   useEffect(() => {
     const styleId = 'second-screen-text-animation'
-    let styleElement = document.getElementById(styleId) as HTMLStyleElement
-    
+    let styleElement = document.getElementById(styleId) as HTMLStyleElement | null
+
     if (!styleElement) {
       styleElement = document.createElement('style')
       styleElement.id = styleId
       document.head.appendChild(styleElement)
     }
-    
+
     styleElement.textContent = `
       @keyframes scrollLeft {
-        0% {
-          transform: translateX(0);
-        }
-        100% {
-          transform: translateX(-${totalWidth}px);
-        }
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-${totalWidth}px); }
       }
     `
-    
+
     return () => {
       const element = document.getElementById(styleId)
       if (element) {
@@ -73,11 +79,11 @@ export default function SecondScreen() {
     }
   }, [totalWidth])
 
+  const learnMoreHref = project.profile.links?.website || '#'
+
   return (
-  
-    // <div className="w-full flex flex-col" style={{ minHeight:'calc(100vh - 89px)', scrollMarginTop: px(89) }}>
-      <>
-      <div 
+    <>
+      <div
         ref={containerRef}
         className="flex-shrink-0"
         style={{
@@ -93,10 +99,9 @@ export default function SecondScreen() {
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
-        {/* 内容区域，使用 mask 实现左右渐变效果 */}
         <div
           className="overflow-hidden"
-          style={{ 
+          style={{
             maskImage: `linear-gradient(to right, transparent 0px, black ${px(80)}, black calc(100% - ${px(80)}), transparent 100%)`,
             WebkitMaskImage: `linear-gradient(to right, transparent 0px, black ${px(80)}, black calc(100% - ${px(80)}), transparent 100%)`,
           }}
@@ -132,14 +137,13 @@ export default function SecondScreen() {
           </div>
         </div>
       </div>
-      
-      {/* 第二个屏的内容 */}
+
       <div
         style={{
           marginTop: px(50),
           marginLeft: px(80),
           marginRight: px(80),
-          height: px(396),
+          minHeight: px(200),
           backgroundColor: '#ffffff',
           boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
           display: 'flex',
@@ -153,9 +157,7 @@ export default function SecondScreen() {
             flex: 1,
             overflowY: 'auto',
             overflowX: 'hidden',
-            paddingTop: px(40),
-            paddingLeft: px(50),
-            paddingRight: px(50),
+            padding: px(40),
           }}
         >
           <div
@@ -164,33 +166,36 @@ export default function SecondScreen() {
               fontWeight: 300,
               fontStyle: 'normal',
               fontSize: px(24),
-              lineHeight: px(44),
+              lineHeight: px(36),
               letterSpacing: '0%',
               color: '#000000',
             }}
           >
-            Whether you are already using THE4 apps and earning from them, or you&apos;ve just arrived and are still exploring what this AI ecosystem can do, you can invite friends to join with your referral link. Once your invitees start using THE4 and connect with specific AI projects (Contracts), they will receive rights tokens for those projects as well as tokens from the THE4 Community (Covenant). As the referrer, you&apos;ll also receive a share of both the Contract tokens and Covenant tokens.
-           
+            {project.profile.summary}
           </div>
         </div>
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'flex-end', 
-          flexShrink: 0,
-          paddingBottom: px(40),
-          paddingLeft: px(50),
-          paddingRight: px(50),
-          paddingTop: px(16),
-        }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'flex-end',
+            flexShrink: 0,
+            paddingBottom: px(32),
+            paddingLeft: px(50),
+            paddingRight: px(50),
+            paddingTop: px(16),
+          }}
+        >
           <a
-            href="#"
+            href={learnMoreHref}
+            target="_blank"
+            rel="noreferrer"
             className="flex items-center gap-2 hover:opacity-80 transition-opacity"
             style={{
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
               fontStyle: 'normal',
               fontSize: px(24),
-              lineHeight: px(44),
+              lineHeight: px(36),
               letterSpacing: '0%',
               color: '#000000',
               cursor: 'pointer',
@@ -201,75 +206,6 @@ export default function SecondScreen() {
           </a>
         </div>
       </div>
-
-
-
-      <div className='flex items-center justify-center' style={{ marginTop: px(70), gap: px(16) }}>
-        <button
-          className="flex items-center justify-center transition-colors cursor-pointer"
-          style={{
-            width: px(206),
-            height: px(44),
-            backgroundColor: '#ffffff',
-            border: '1px solid #000000',
-            borderRadius: px(4),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            color: '#000000',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#000000'
-            e.currentTarget.style.color = '#ffffff'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#ffffff'
-            e.currentTarget.style.color = '#000000'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-        >
-          Favorite Project
-        </button>
-
-        <button
-          className="flex items-center justify-center transition-colors cursor-pointer"
-          style={{
-            height: px(44),
-            paddingLeft: px(24),
-            paddingRight: px(24),
-            backgroundColor: '#ffffff',
-            border: '1px solid #000000',
-            borderRadius: px(4),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            color: '#000000',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#000000'
-            e.currentTarget.style.color = '#ffffff'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#ffffff'
-            e.currentTarget.style.color = '#000000'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-        >
-          Experience the Project
-        </button>
-      </div>
-      </>
-    // </div>
+    </>
   )
 }
-

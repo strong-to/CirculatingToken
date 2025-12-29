@@ -1,112 +1,183 @@
 'use client'
 
-import { px } from "@/utils/pxToRem"
-import Image from 'next/image'
-import { useState } from "react"
-import EcosystemContent from './EcosystemContent'
-import TokenContent from './TokenContent'
-import FinanceContent from './FinanceContent'
-import ProposalContent from './ProposalContent'
+import { px } from '@/utils/pxToRem'
+import { useProjectDetail } from '../ProjectDetailProvider'
+
+const formatVotes = (votes?: { for?: number; against?: number; abstain?: number }) => {
+  if (!votes) return '—'
+  const total = (votes.for ?? 0) + (votes.against ?? 0) + (votes.abstain ?? 0)
+  if (total === 0) return '—'
+  const toPercent = (value?: number) => (((value ?? 0) / total) * 100).toFixed(1)
+  return `${toPercent(votes.for)}% For · ${toPercent(votes.against)}% Against · ${toPercent(votes.abstain)}% Abstain`
+}
 
 export default function ProjectGovernance() {
-  const [selectedTab, setSelectedTab] = useState<'Ecosystem' | 'Token' | 'Finance' | 'Proposal'>('Ecosystem')
+  const { project } = useProjectDetail()
+  const governance = project.governance
+  const proposals = governance?.proposals ?? []
 
+  return (
+    <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(80) }}>
+      <div
+        className="grid"
+        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: px(16) }}
+      >
+        <Stat label="Active proposals" value={governance?.active_proposal_count} />
+        <Stat label="Total votes" value={proposals.reduce((sum, proposal) => sum + ((proposal.votes_summary?.for ?? 0) + (proposal.votes_summary?.against ?? 0) + (proposal.votes_summary?.abstain ?? 0)), 0)} />
+        <Stat label="Token price" value={`$${project.tokenomics.price_info.current_price.toFixed(2)}`} />
+        <Stat label="24h change" value={`${project.tokenomics.price_info.change_24h_percent.toFixed(2)}%`} />
+      </div>
 
-
-    return (
-        <div className="w-full"  style={{marginTop:px(123)}}>
-            <div className='flex items-center w-full justify-start' style={{height:px(25),gap:px(20),paddingLeft:px(80),paddingBottom:px(25)}}>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               construction response count：1,503
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of constructors：667
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of completed response subjects：7
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of ongoing response subjects：05
-             </div>
-         </div>
-
-        <div className="w-full bg-black relative flex items-center justify-between"  style={{ height:px(140), paddingLeft:px(80), paddingRight:px(80) }}>
-          <div className="flex items-center " style={{gap:px(20) }}>
-            {(['Ecosystem', 'Token', 'Finance', 'Proposal'] as const).map((label) => {
-              const isSelected = selectedTab === label
-              return (
-                <button
-                  key={label}
-                  onClick={() => setSelectedTab(label)}
-                  className="transition-colors cursor-pointer"
-                  style={{
-                    width: px(230),
-                    height: px(60),
-                    border: '0.5px solid #ffffff',
-                    borderRadius: px(4),
-                    backgroundColor: isSelected ? '#ffffff' : 'transparent',
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontStyle: 'normal',
-                    fontSize: px(20),
-                    letterSpacing: '0%',
-                    textAlign: 'center',
-                    color: isSelected ? '#000000' : '#ffffff',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = '#ffffff'
-                      e.currentTarget.style.color = '#000000'
-                      e.currentTarget.style.borderColor = '#ffffff'
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isSelected) {
-                      e.currentTarget.style.backgroundColor = 'transparent'
-                      e.currentTarget.style.color = '#ffffff'
-                      e.currentTarget.style.borderColor = '#ffffff'
-                    }
-                  }}
-                >
-                  {label}
-                </button>
-              )
-            })}
-          </div>
-          
-          <div
+      {proposals.length > 0 ? (
+        <div style={{ marginTop: px(32), marginBottom: px(32) }}>
+          <h3
             style={{
-              position:"absolute",
-              right:px(83),
-              bottom:(41),
-              width: px(200),
-              height: px(200),
-              // backgroundColor: '#f5f5f5',
-              borderRadius: px(4),
-              flexShrink: 0,
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 500,
+              fontSize: px(22),
+              marginBottom: px(16),
             }}
           >
-            {/* <Image
-              src="https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/logo2.png"
-              alt="Project Construction Logo2"
-              width={200}
-              height={200}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: px(4) }}
-            /> */}
+            Governance proposals
+          </h3>
+          <div className="flex flex-col" style={{ gap: px(16) }}>
+            {proposals.map((proposal) => (
+              <div
+                key={proposal.proposal_id}
+                style={{
+                  border: '1px solid #e5e5e5',
+                  borderRadius: px(8),
+                  padding: px(20),
+                  backgroundColor: '#fff',
+                }}
+              >
+                <div className="flex items-center justify-between" style={{ gap: px(12) }}>
+                  <div
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 500,
+                      fontSize: px(18),
+                    }}
+                  >
+                    {proposal.title}
+                  </div>
+                  <span
+                    style={{
+                      border: '1px solid #000000',
+                      borderRadius: px(999),
+                      padding: `${px(4)} ${px(12)}`,
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontSize: px(14),
+                    }}
+                  >
+                    {proposal.status}
+                  </span>
+                </div>
+                <p
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(16),
+                    lineHeight: px(24),
+                    marginTop: px(12),
+                  }}
+                >
+                  {proposal.description}
+                </p>
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#8C8C8C',
+                    marginTop: px(12),
+                  }}
+                >
+                  {formatVotes(proposal.votes_summary)}
+                </div>
+                {proposal.recent_votes && proposal.recent_votes.length > 0 && (
+                  <div style={{ marginTop: px(12) }}>
+                    <div
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 500,
+                        fontSize: px(14),
+                        marginBottom: px(6),
+                      }}
+                    >
+                      Recent votes
+                    </div>
+                    <div className="flex flex-wrap" style={{ gap: px(8) }}>
+                      {proposal.recent_votes.slice(0, 3).map((vote, index) => (
+                        <span
+                          key={`${proposal.proposal_id}-vote-${index}`}
+                          style={{
+                            border: '1px solid #e5e5e5',
+                            borderRadius: px(4),
+                            padding: `${px(4)} ${px(8)}`,
+                            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                            fontSize: px(13),
+                          }}
+                        >
+                          {vote.name || vote.user_id}: {vote.vote_option}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
-
-      {/* 根据选中的 tab 显示对应的内容 */}
-      {selectedTab === 'Ecosystem' && <EcosystemContent />}
-      {selectedTab === 'Token' && <TokenContent />}
-      {selectedTab === 'Finance' && <FinanceContent />}
-      {selectedTab === 'Proposal' && <ProposalContent />}
-
-
-
+      ) : (
+        <div
+          style={{
+            marginTop: px(32),
+            border: '1px dashed #cccccc',
+            borderRadius: px(8),
+            padding: px(32),
+            textAlign: 'center',
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontSize: px(18),
+          }}
+        >
+          This project has no governance proposals yet.
         </div>
-      )
+      )}
+    </div>
+  )
+}
+
+function Stat({ label, value }: { label: string; value?: number | string }) {
+  return (
+    <div
+      style={{
+        border: '1px solid #e5e5e5',
+        borderRadius: px(8),
+        padding: px(20),
+        backgroundColor: '#fff',
+      }}
+    >
+      <div
+        style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(14),
+          color: '#8C8C8C',
+        }}
+      >
+        {label}
+      </div>
+      <div
+        style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 500,
+          fontSize: px(22),
+          marginTop: px(10),
+        }}
+      >
+        {value !== undefined && value !== null ? value : '—'}
+      </div>
+    </div>
+  )
 }

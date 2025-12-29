@@ -8,6 +8,7 @@ import { usePathname } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import { images } from './resources'
 import { preloadPageImages } from '@/utils/imagePreloader'
+import { buildLendingVaultPath } from '@/config/app'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -65,7 +66,7 @@ export default function Header() {
                 // href = '/TokenMarketplace'
 
               } else if (item === 'Lending Vault') {
-                href = '/LendingVault'
+                href = buildLendingVaultPath()
               } else if (item === 'Conference Room') {
                 href = '/ConferenceRoom'
               } else if (item === 'Mortgage  market') {
@@ -77,7 +78,7 @@ export default function Header() {
               const isActive = (item === 'Project Hub' && pathname === '/ProjectHub') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
-                               (item === 'Lending Vault' && pathname === '/LendingVault') ||
+                               (item === 'Lending Vault' && pathname?.startsWith('/LendingVault')) ||
                                (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
                                (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
                                (item === 'Project Construction' && pathname === '/ProjectConstruction')
@@ -208,7 +209,7 @@ export default function Header() {
               } else if (item === 'Token Marketplace') {
                 // href = '/TokenMarketplace'
               } else if (item === 'Lending Vault') {
-                href = '/LendingVault'
+                href = buildLendingVaultPath()
               } else if (item === 'Conference Room') {
                 href = '/ConferenceRoom'
               } else if (item === 'Mortgage  market') {
@@ -220,7 +221,7 @@ export default function Header() {
               const isActive = (item === 'Project Hub' && pathname === '/ProjectHub') || 
                                (item === 'Launchpad' && pathname === '/Launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
-                               (item === 'Lending Vault' && pathname === '/LendingVault') ||
+                               (item === 'Lending Vault' && pathname?.startsWith('/LendingVault')) ||
                                (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
                                (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
                                (item === 'Project Construction' && pathname === '/ProjectConstruction')

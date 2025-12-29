@@ -165,6 +165,18 @@ export const pageImageMap: Record<string, string[]> = {
   '/ProjectConstruction': imageResources.projectConstructionImages,
 }
 
+const normalizePathname = (pathname: string) => {
+  if (!pathname) return pathname
+  let normalized = pathname
+  if (normalized !== '/' && normalized.endsWith('/')) {
+    normalized = normalized.slice(0, -1)
+  }
+  if (normalized.startsWith('/LendingVault/')) {
+    return '/LendingVault'
+  }
+  return normalized
+}
+
 /**
  * 检测网络连接速度并返回合适的并发数
  * @returns 并发数（3-16之间）
@@ -270,7 +282,8 @@ export const preloadPageImages = (
   pathname: string,
   priority: 'high' | 'normal' | 'low' = 'normal'
 ): void => {
-  const images = pageImageMap[pathname]
+  const normalizedPath = normalizePathname(pathname)
+  const images = pageImageMap[normalizedPath]
   if (!images || images.length === 0) return
 
   const concurrency = getOptimalConcurrency()

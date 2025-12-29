@@ -1,272 +1,255 @@
 'use client'
 
-import { useState } from 'react'
-import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
-import { CDN_PREFIX } from '@/utils/cdn'
-import DataTable, { Column } from './DataTable'
-import ConstructorImageModal from './ConstructorImageModal'
-import ProjectCardList from '@/components/ProjectConstruction/com/ProjectCardList'
+import { px } from '@/utils/pxToRem'
+import { useProjectDetail } from '../ProjectDetailProvider'
+import { toCdnUrl, CDN_PREFIX } from '@/utils/cdn'
+
+const FALLBACK_AVATARS = Array.from({ length: 16 }, (_, i) => `${CDN_PREFIX}/LendingVault/ProjectConstruction/item/img${i + 1}.png`)
+
+const fillAvatars = (avatars: string[], size: number) => {
+  if (avatars.length === 0) {
+    return FALLBACK_AVATARS.slice(0, size)
+  }
+  const filled: string[] = []
+  while (filled.length < size) {
+    filled.push(avatars[filled.length % avatars.length])
+  }
+  return filled
+}
 
 export default function ProjectConstruction() {
-  const CDN = CDN_PREFIX
-  const [currentPage, setCurrentPage] = useState(1)
-  const [itemsPerPage, setItemsPerPage] = useState(10)
-  const totalPages = 7
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
-  const [activeTab, setActiveTab] = useState("All");
-  // 表格列定义
-  const columns: Column[] = [
-    { key: 'annotation', label: 'multi-modal data annotation', width: 200 },
-    { key: 'content', label: 'job content', width: 'flex' },
-    { key: 'filter', label: 'filter/sort', width: 120 },
-    { key: 'tokens', label: 'contribution consideration/Tokens', width: 180 },
-    { key: 'unit', label: 'workload unit', width: 120 },
-    { key: 'demand', label: 'total demand', width: 120 },
-    { key: 'participants', label: 'number of participants', width: 150 },
-    { key: 'difficulty', label: 'difficulty coefficient', width: 140 },
-    { key: 'timeLimit', label: 'time limit', width: 120 },
-    { key: 'status', label: 'status', width: 120 },
-  ]
-
-  // 表格数据
-  const tableData = Array.from({ length: 6 }, () => ({
-    annotation: 'multi-modal data annotation',
-    content: 'job content',
-    filter: 'filter/sort',
-    tokens: '80',
-    unit: 'item',
-    demand: '200000',
-    participants: '110',
-    difficulty: '4.1/5.0',
-    timeLimit: 'Nov 30 2026',
-    status: 'under construction',
-  }))
+  const { project } = useProjectDetail()
+  const coCreation = project.co_creation
+  const summary = coCreation?.summary
+  const avatarCandidates = (project.profile.media?.assets ?? [])
+    .filter((asset) => asset.context === 'project_construction_avatar')
+    .map((asset) => toCdnUrl(asset.url))
+  const avatars = fillAvatars(avatarCandidates, 16)
+  const openTasks = coCreation?.open_tasks ?? []
+  const contributors = coCreation?.contributors_leaderboard ?? []
 
   return (
-    <>
-  
-      {/* 顶部区域 */}
-      <div className="w-full" style={{ marginTop: px(120), gap: px(30) }}>
-         <div className='flex items-center w-full justify-end' style={{height:px(25),gap:px(20),paddingRight:px(70),paddingBottom:px(25)}}>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               construction response count：1,503
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of constructors：667
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of completed response subjects：7
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of ongoing response subjects：05
-             </div>
-         </div>
-      <div className="bg-black w-full relative flex items-center justify-end" style={{height:px(140)}}>
+    <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(80) }}>
       <div
-          style={{
-            position: 'absolute',
-            bottom: px(41),
-            left: px(80),
-            width: px(200),
-            height: px(200),
-            backgroundColor: '#f5f5f5',
-            borderRadius: px(4),
-            flexShrink: 0,
-          }}
-        >
-    
-          <Image
-            src={`${CDN}/LendingVault/ProjectConstruction/logo.png`}
-            alt="Project Construction Logo"
-            width={200}
-            height={200}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: px(4) }}
-          />
-        </div> 
-
-         <div className="flex items-center" style={{height:px(80),paddingRight:px(80), gap: px(15)}}>
-           {Array.from({ length: 16 }, (_, i) => (
-             <div
-               key={i}
-               onClick={() => setSelectedImageIndex(i)}
-               style={{
-                 width: px(80),
-                 height: px(80),
-                 borderRadius: '50%',
-                 flexShrink: 0,
-                 overflow: 'hidden',
-                 cursor: 'pointer',
-                 transition: 'transform 0.2s',
-               }}
-               onMouseEnter={(e) => {
-                 e.currentTarget.style.transform = 'scale(1.1)'
-               }}
-               onMouseLeave={(e) => {
-                 e.currentTarget.style.transform = 'scale(1)'
-               }}
-             >
-               <Image
-                 src={`${CDN}/LendingVault/ProjectConstruction/item/img${i + 1}.png`}
-                 alt={`Constructor ${i + 1}`}
-                 width={80}
-                 height={80}
-                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-               />
-             </div>
-           ))}
-         </div>
+        className="grid"
+        style={{
+          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+          gap: px(16),
+        }}
+      >
+        <StatCard label="Construction responses" value={summary?.total_contributions_recorded} />
+        <StatCard label="Active builders" value={summary?.active_builders_count} />
+        <StatCard label="Contributors" value={project.metrics.development.contributors_count} />
+        <StatCard label="Total commits" value={project.metrics.development.total_commits} />
       </div>
 
+      <div style={{ marginTop: px(32) }}>
+        <h3
+          style={{
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 500,
+            fontSize: px(22),
+            marginBottom: px(16),
+          }}
+        >
+          Builder network
+        </h3>
+        <div className="flex flex-wrap" style={{ gap: px(15) }}>
+          {avatars.map((src, index) => (
+            <div
+              key={`${src}-${index}`}
+              style={{
+                width: px(64),
+                height: px(64),
+                borderRadius: '50%',
+                overflow: 'hidden',
+              }}
+            >
+              <Image src={src} alt="Builder avatar" width={64} height={64} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+          ))}
+        </div>
+      </div>
 
+      {openTasks.length > 0 && (
+        <div style={{ marginTop: px(40) }}>
+          <SectionTitle title="Open tasks" />
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: px(16) }}>
+            {openTasks.map((task) => (
+              <div
+                key={task.task_id}
+                style={{
+                  border: '1px solid #e5e5e5',
+                  borderRadius: px(8),
+                  padding: px(20),
+                  backgroundColor: '#fff',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 500,
+                    fontSize: px(18),
+                  }}
+                >
+                  {task.title}
+                </div>
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#8C8C8C',
+                    marginTop: px(8),
+                  }}
+                >
+                  {task.category} · {task.type}
+                </div>
+                {task.progress_current !== undefined && task.progress_target ? (
+                  <div style={{ marginTop: px(12) }}>
+                    <div
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontSize: px(14),
+                      }}
+                    >
+                      Progress: {task.progress_current}/{task.progress_target}
+                    </div>
+                    <div style={{ width: '100%', height: px(6), background: '#f1f1f1', borderRadius: px(3), marginTop: px(6) }}>
+                      <div
+                        style={{
+                          width: `${Math.min(100, (task.progress_current / task.progress_target) * 100)}%`,
+                          height: '100%',
+                          background: '#000',
+                          borderRadius: px(3),
+                        }}
+                      />
+                    </div>
+                  </div>
+                ) : null}
+                {task.reward_display && (
+                  <div
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontSize: px(14),
+                      marginTop: px(12),
+                    }}
+                  >
+                    Reward: {task.reward_display}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
-       {/* 数据表格 */}
-       <div className="w-full" style={{ marginTop: px(20), paddingLeft: px(80), paddingRight: px(80) }}>
-         {/* <DataTable columns={columns} data={tableData} /> */}
-
-         <ProjectCardList filterTab={activeTab} />
-
-         {/* Pagination Controls */}
-         <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>
-           <div className="flex items-center" style={{ gap: px(16), marginRight: px(30) }}>
-             <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-               Total {tableData.length} items
-             </span>
-             <select
-               value={itemsPerPage}
-               onChange={(e) => setItemsPerPage(Number(e.target.value))}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(4),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-               }}
-             >
-               <option value={10}>10 items/page</option>
-               <option value={20}>20 items/page</option>
-               <option value={50}>50 items/page</option>
-             </select>
-           </div>
-
-           <div className="flex items-center" style={{ gap: px(8) }}>
-             <button
-               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-               disabled={currentPage === 1}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(8),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-                 backgroundColor: currentPage === 1 ? '#f5f5f5' : '#ffffff',
-                 cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                 color: currentPage === 1 ? '#999999' : '#000000',
-               }}
-             >
-               &lt;
-             </button>
-             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-               <button
-                 key={page}
-                 onClick={() => setCurrentPage(page)}
-                 style={{
-                   fontFamily: 'PingFang SC',
-                   fontWeight: 400,
-                   fontStyle: 'normal',
-                   fontSize: px(16),
-                   lineHeight: '100%',
-                   letterSpacing: '0%',
-                   width: px(30),
-                   height: px(30),
-                   display: 'flex',
-                   alignItems: 'center',
-                   justifyContent: 'center',
-                   border: '1px solid #e0e0e0',
-                   borderRadius: px(4),
-                   backgroundColor: currentPage === page ? '#000000' : '#F0F2F5',
-                   color: currentPage === page ? '#ffffff' : '#000000',
-                   cursor: 'pointer',
-                 }}
-               >
-                 {page}
-               </button>
-             ))}
-             <button
-               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-               disabled={currentPage === totalPages}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(8),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-                 backgroundColor: currentPage === totalPages ? '#f5f5f5' : '#ffffff',
-                 cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                 color: currentPage === totalPages ? '#999999' : '#000000',
-               }}
-             >
-               &gt;
-             </button>
-             <div className="flex items-center" style={{ gap: px(8), marginLeft: px(16) }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 Go to
-               </span>
-               <input
-                 type="number"
-                 min={1}
-                 max={totalPages}
-                 value={currentPage}
-                 onChange={(e) => {
-                   const page = Number(e.target.value)
-                   if (page >= 1 && page <= totalPages) {
-                     setCurrentPage(page)
-                   }
-                 }}
-                 style={{
-                   fontFamily: 'PingFang SC',
-                   fontWeight: 400,
-                   fontStyle: 'normal',
-                   fontSize: px(16),
-                   lineHeight: '100%',
-                   letterSpacing: '0%',
-                   width: px(50),
-                   padding: px(4),
-                   border: '1px solid #e0e0e0',
-                   borderRadius: px(4),
-                   textAlign: 'center',
-                 }}
-               />
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 page
-               </span>
-             </div>
-           </div>
-         </div>
-       </div>
+      {contributors.length > 0 && (
+        <div style={{ marginTop: px(40), marginBottom: px(32) }}>
+          <SectionTitle title="Top contributors" />
+          <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: px(16) }}>
+            {contributors.slice(0, 6).map((contributor) => (
+              <div
+                key={`${contributor.user_id}-${contributor.rank}`}
+                style={{
+                  border: '1px solid #e5e5e5',
+                  borderRadius: px(8),
+                  padding: px(20),
+                  backgroundColor: '#fff',
+                }}
+              >
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 500,
+                    fontSize: px(18),
+                  }}
+                >
+                  #{contributor.rank} {contributor.name || contributor.user_id}
+                </div>
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#8C8C8C',
+                    marginTop: px(6),
+                  }}
+                >
+                  {contributor.role}
+                </div>
+                <div
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    marginTop: px(10),
+                  }}
+                >
+                  {formatNumber(contributor.contribution_points)} pts
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
-
-    {/* 构造函数图片弹窗 */}
-    {selectedImageIndex !== null && (
-      <ConstructorImageModal
-        isOpen={selectedImageIndex !== null}
-        onClose={() => setSelectedImageIndex(null)}
-        imageSrc={`${CDN}/LendingVault/ProjectConstruction/item/img${selectedImageIndex + 1}.png`}
-        imageIndex={selectedImageIndex}
-      />
-    )}
-    </>
   )
+}
+
+function StatCard({ label, value }: { label: string; value?: number }) {
+  return (
+    <div
+      style={{
+        border: '1px solid #e5e5e5',
+        borderRadius: px(8),
+        padding: px(24),
+        backgroundColor: '#fff',
+      }}
+    >
+      <div
+        style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(16),
+          color: '#8C8C8C',
+        }}
+      >
+        {label}
+      </div>
+      <div
+        style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 500,
+          fontSize: px(28),
+          marginTop: px(10),
+        }}
+      >
+        {value !== undefined ? value.toLocaleString('en-US') : '—'}
+      </div>
+    </div>
+  )
+}
+
+function SectionTitle({ title }: { title: string }) {
+  return (
+    <h3
+      style={{
+        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+        fontWeight: 500,
+        fontSize: px(22),
+        marginBottom: px(16),
+      }}
+    >
+      {title}
+    </h3>
+  )
+}
+
+function formatNumber(value?: number) {
+  if (value === undefined || value === null) return '—'
+  return value.toLocaleString('en-US')
 }

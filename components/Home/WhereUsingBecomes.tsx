@@ -26,7 +26,6 @@ export default function WhereUsingBecomes() {
 
   const showNoResults = hasActiveFilters && cards.length === 0
   const swiperKey = cards.map((card) => card.systemId).join('-')
-
   // 检测操作系统
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -41,6 +40,10 @@ export default function WhereUsingBecomes() {
   if (!sectionData) {
     return null
   }
+
+  const primaryDetailHref = cards[0]?.detailHref
+  const learnMoreHref = primaryDetailHref ?? sectionData.learnMoreHref ?? '#'
+  const viewAllHref = primaryDetailHref ?? sectionData.cta.href ?? '#'
 
   const headingTop = sectionData.titleLines.slice(0, sectionData.titleLines.length - 1).join(' ')
   const headingBottom = sectionData.titleLines.at(-1) ?? ''
@@ -179,21 +182,21 @@ export default function WhereUsingBecomes() {
             
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
-              <a
-                href={sectionData.learnMoreHref}
+              <Link
+                href={learnMoreHref}
                 className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
                   fontStyle: 'normal',
-                  fontSize: '1.73rem', // 27.68px = 1.73rem
+                  fontSize: '1.73rem',
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
               >
                 <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -218,7 +221,7 @@ export default function WhereUsingBecomes() {
             >
               Top Use-to-Earn Picks
             </div>
-            <Link href={sectionData.cta.href}>
+            <Link href={viewAllHref}>
               <button
                 className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
                 style={{

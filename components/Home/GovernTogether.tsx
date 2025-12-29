@@ -1,0 +1,265 @@
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+// import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
+import CollapsiblePanelContent from '@/components/Home/com/GovernTogether/CollapsiblePanelContent'
+
+import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
+import { images } from '@/components/Home/com/GovernTogether/resources'
+
+import { px } from '@/utils/pxToRem'
+
+export default function GovernTogether() {
+  const [isExpanded, setIsExpanded] = useState(false)
+  const [isHovered, setIsHovered] = useState(false)
+  const router = useRouter()
+
+  return ( 
+    <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]" style={{paddingBottom:px(120)}}>
+      <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
+        
+        <div className="flex flex-col items-start justify-between ">
+          <div className=" flex  items-start justify-between w-full ">
+            <div
+              className="text-black"
+              style={{ 
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: 'normal',
+                fontSize: '5.125rem', // 82px = 5.125rem
+                lineHeight: '100%',
+                letterSpacing: '0%'
+              }}
+            >
+            
+            Govern Together, 
+           
+            </div>
+
+            <div className="relative flex items-center">
+              <div 
+                style={{ 
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
+                  opacity:   0,
+                }}
+              ></div>  
+              <div className="" style={{ width: px(92), height: px(92) }}></div>
+              <div 
+                
+                style={{ 
+                  width: isExpanded ? px(38) : '0',
+                  height: isExpanded ? px(58) : '0',
+                  opacity:  0,
+                }}
+              ></div>  
+            </div>
+          </div>
+          
+          <div className='w-full flex items-end justify-between' style={{ marginTop: px(15) }}>
+              
+              <div
+                className="text-black"
+                style={{ 
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: '5.125rem', // 82px = 5.125rem
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}
+              >
+           Grow Together
+              </div>
+              
+              <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="flex items-center gap-3 text-[#000000] cursor-pointer hover:opacity-80 transition-opacity"
+              style={{
+                marginTop: '2.5rem', // 40px
+                fontSize: '1.75rem' // 28px
+              }}
+            >
+              <span style={{ marginRight: '0.625rem', fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif' }} className='whitespace-nowrap,z' >Shape Projects and Community With Your Tokens</span>
+              <div className="relative" style={{ width: '31px', height: '31px' }}>
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{
+                    opacity: isExpanded ? 0 : 1,
+                    transform: isExpanded ? 'rotate(90deg) scale(0.8)' : 'rotate(0deg) scale(1)',
+                    transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
+                >
+                  <PlusIcon style={{ width: '31px', height: '31px' }} />
+                </div>
+                <div
+                  className="absolute inset-0 flex items-center justify-center"
+                  style={{
+                    opacity: isExpanded ? 1 : 0,
+                    transform: isExpanded ? 'rotate(0deg) scale(1)' : 'rotate(-90deg) scale(0.8)',
+                    transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                  }}
+                >
+                  <MinusIcon style={{ width: '31px', height: '2px' }} />
+                </div>
+              </div>
+            </button>
+  
+              </div>
+        </div>
+
+
+
+
+
+
+        {/* 折叠面板内容 - 撑满整个屏幕，固定时长的动画 */}
+        <div 
+          className="w-full overflow-hidden"
+          style={{
+            display: 'grid',
+            gridTemplateRows: isExpanded ? '1fr' : '0fr',
+            transition: 'grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
+          <div 
+            className="w-full min-h-0"
+            style={{ 
+              paddingBottom: '3.8125rem', // 61px = 3.8125rem
+              opacity: isExpanded ? 1 : 0,
+              transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+            }}
+          >
+            <div 
+              className="w-full"
+              style={{ 
+                marginTop: '1.5rem',
+                paddingTop: '1rem',
+              }}
+            >
+              <CollapsiblePanelContent />
+            </div>
+            
+            {/* Learn more details 链接 - 在下边框外面紧挨着 */}
+            <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
+              <a
+                href="#"
+                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontStyle: 'normal',
+                  fontSize: '1.73rem', // 27.68px = 1.73rem
+                  lineHeight: '100%',
+                  letterSpacing: '0%'
+                }}
+              >
+                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 下面的卡片区域 - 会自动往下推，平滑过渡 */}
+        <div 
+          className="space-y-4"
+          style={{
+            transition: 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
+          <div 
+            className="flex items-center justify-between"
+            style={{ marginBottom: '2.5625rem' }} // 41px
+          >
+            <div
+              className="text-black"
+              style={{ 
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontSize: '1.75rem' // 28px
+              }}
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
+      <div
+        className="w-full relative"
+        style={{
+          height: px(520),
+          paddingRight: px(66),
+          paddingBottom: px(22),
+          overflow: "hidden",
+          backgroundColor: "#000000",
+          cursor: "pointer",
+        }}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => router.push("/ConferenceRoom")}
+      >
+        {/* 初始化背景图片 */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: isHovered ? 0 : 1,
+          transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          willChange: 'opacity'
+        }}>
+          <Image
+            src={images.background}
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        {/* hover gif */}
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          opacity: isHovered ? 1 : 0,
+          transition: 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+          willChange: 'opacity'
+        }}>
+          <Image
+            src={images.hover}
+            alt="Background Hover"
+            fill
+            className="object-cover"
+          />
+        </div>
+
+         {/* Learn more details 链接 - 在下边框外面紧挨着 */}
+         <Link 
+           href="/ConferenceRoom"
+           className="flex items-center justify-end absolute z-10 cursor-pointer hover:opacity-80 transition-opacity" 
+           style={{ bottom: px(22), right: px(66) }}
+         >
+           <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
+           
+          </span>
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+              <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+          </svg>
+        </Link>
+       
+
+      </div>
+
+      
+    </section>
+  )
+}
+

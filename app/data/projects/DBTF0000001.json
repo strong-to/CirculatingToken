@@ -1,0 +1,366 @@
+{
+  "system_id": "DBTF0000001",
+  "slug": "primecore",
+  "status": "voting",
+  "profile": {
+    "name": "PrimeCore",
+    "symbol": "P",
+    "type_en": "Compute Pool",
+    "category_cn": "中央处理器（CPU）集群",
+    "slogan": "Reliable CPU compute at scale.",
+    "summary": "PrimeCore delivers Compute Pool capabilities for AI / Computing teams.",
+    "description_md": "## 关于 PrimeCore\nReliable CPU compute at scale.\n\n### 交互形态\n- Code / Table\n\n### 适用领域\n- AI / Computing / Industry\n\n### 核心能力\n- Analyze · Optimize · Monitor · Coordinate\n\n### 运营概览\n- 贡献者：48\n- 市值：$2.3M\n- 建设进度：62%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_001.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask1.png",
+      
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000001_001"
+        },
+        {
+          "text": "Text", 
+          "id": "maskTextListDBTF0000001_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000001_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000001_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000001_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000001_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000001_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000001_008"
+        }
+      ],
+
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000001_001"
+        },
+        {
+          "text": "Market Cap", 
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000001_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000001_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000001_004"
+        }
+       
+      ],
+
+
+
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/primecore_hero.jpg",
+          "context": "project_home_hero",
+          "description": "PrimeCore 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/primecore_intro.mp4",
+          "context": "project_story",
+          "description": "PrimeCore 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000001",
+      "introduction": "Reliable CPU compute at scale. 001"
+    },
+    "links": {
+      "website": "https://primecore.io",
+      "whitepaper": "https://docs.primecore.io/whitepaper",
+      "github": "https://github.com/dbtf/primecore"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI / Computing",
+      "Industry"
+    ],
+    "object": [
+      "Data",
+      "Code"
+    ],
+    "action": [
+      "Analyze",
+      "Optimize",
+      "Monitor",
+      "Coordinate"
+    ],
+    "interaction_form": [
+      "Code",
+      "Table"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-01",
+      "progress": 0.62,
+      "contributors_count": 48,
+      "total_commits": 1763
+    },
+    "operation": {
+      "total_users": 134,
+      "new_users_24h": 3,
+      "revenue_total": 0,
+      "revenue_24h": 0
+    },
+    "rating": {
+      "score": 4.4,
+      "review_count": 12
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Reliable",
+      "Feature Rich",
+      "Scalable"
+    ],
+    "list": [
+      {
+        "id": "primecore_rev_1",
+        "user_id": "primecore_builder",
+        "user_name": "PBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/primecore_1.png",
+        "rating": 4,
+        "content": "PrimeCore 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 21
+      },
+      {
+        "id": "primecore_rev_2",
+        "user_id": "primecore_ops",
+        "user_name": "POps",
+        "avatar": "https://assets.dbtf.com/avatars/primecore_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 21
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.51,
+      "market_cap": 2300000,
+      "change_24h_percent": 2.3,
+      "volume_24h": 71301
+    },
+    "supply": {
+      "total_supply": 915315,
+      "circulating": 853930,
+      "minted_24h": 565,
+      "burned_24h": 136
+    },
+    "staking": {
+      "total_staked": 319148,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 4957,
+      "apy": 0.08
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 2.54,
+        "high": 2.58,
+        "low": 2.52,
+        "close": 2.53,
+        "volume": 61597
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 2.52,
+        "high": 2.56,
+        "low": 2.49,
+        "close": 2.54,
+        "volume": 79523
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 2.48,
+          "amount": 765
+        },
+        {
+          "price": 2.47,
+          "amount": 776
+        }
+      ],
+      "asks": [
+        {
+          "price": 2.54,
+          "amount": 586
+        },
+        {
+          "price": 2.55,
+          "amount": 674
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "primecore_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 2.51,
+        "amount": 153,
+        "total_value": 280.06,
+        "trader_info": {
+          "user_id": "primecore_whale",
+          "name": "PWhale",
+          "avatar": "https://assets.dbtf.com/avatars/primecore_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "primecore_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 2.5,
+        "amount": 93,
+        "total_value": 241.22,
+        "trader_info": {
+          "user_id": "primecore_pro",
+          "name": "PTrader",
+          "avatar": "https://assets.dbtf.com/avatars/primecore_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 12,
+      "active_builders_count": 48
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "primecore_resource",
+        "unit_name": "Unit",
+        "description": "PrimeCore 核心资源贡献",
+        "reward_token": 6
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "primecore_task_1",
+        "title": "扩展 PrimeCore 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 143617,
+        "progress_target": 319148,
+        "reward_display": "P 奖励"
+      },
+      {
+        "task_id": "primecore_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "P 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "primecore_alpha",
+        "name": "PAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/primecore_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 12584,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "primecore_beta",
+        "name": "PBeta",
+        "avatar": "https://assets.dbtf.com/avatars/primecore_beta.png",
+        "role": "Developer",
+        "contribution_points": 7218,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "primecore_hist_1",
+        "user_id": "primecore_alpha",
+        "user_name": "PAlpha",
+        "task_title": "PrimeCore 节点贡献",
+        "amount": 139,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "primecore_gov_1",
+        "title": "关于 PrimeCore 奖励参数的提案",
+        "proposer": {
+          "name": "P DAO",
+          "avatar": "https://assets.dbtf.com/avatars/primecore_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 PrimeCore 在 AI / Computing 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 184000,
+          "against": 46000,
+          "abstain": 23000
+        },
+        "recent_votes": [
+          {
+            "user_id": "primecore_governor_a",
+            "name": "PGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/primecore_gov_a.png",
+            "vote_option": "for",
+            "weight": 5110,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "primecore_governor_b",
+            "name": "PGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/primecore_gov_b.png",
+            "vote_option": "against",
+            "weight": 1294,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

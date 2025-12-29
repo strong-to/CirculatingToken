@@ -75,9 +75,9 @@
 
   @media (min-width: 48rem) {
     .container-responsive {
-      /* 平板及以上使用统一的内边距：65px = 4.0625rem */
-      padding-left: 4.0625rem;
-      padding-right: 4.0625rem;
+      /* 平板及以上使用统一的内边距：80px = 5rem */
+      padding-left: 5rem;
+      padding-right: 5rem;
     }
   }
 
@@ -126,6 +126,142 @@
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* 隐藏滚动条但保持滚动功能 */
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 和 Edge */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  .hide-scrollbar {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE 和 Edge */
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none !important; /* Chrome, Safari, Opera */
+  }
+  
+  /* 确保所有按钮都有指针光标 */
+  button {
+    cursor: pointer !important;
+  }
+  
+  /* 只读输入框样式 - 禁用 focus 变色，placeholder 颜色为 #000000 */
+  .readonly-input {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  
+  .readonly-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: #000000 !important;
+  }
+  
+  .readonly-input::placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
+  
+  .readonly-input::-webkit-input-placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
+  
+  .readonly-input::-moz-placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
+  
+  .readonly-input:-ms-input-placeholder {
+    color: #000000 !important;
+    opacity: 1;
+  }
+  
+  /* 下拉框菜单动画 */
+  .dropdown-menu {
+    animation: dropdownFadeIn 0.3s ease-out;
+  }
+  
+  @keyframes dropdownFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 步骤内容切换动画 */
+  .step-content-transition {
+    animation: stepContentFadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  @keyframes stepContentFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* 表格中的下拉框样式覆盖 - 去掉边框和圆角 */
+  .table-dropdown-wrapper {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+  
+  .table-dropdown-wrapper > div {
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    overflow: visible !important;
+  }
+  
+  .table-dropdown-wrapper .relative,
+  .table-dropdown-wrapper .relative.flex-1 {
+    width: 100% !important;
+    height: 100% !important;
+    flex: none !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+  
+  .table-dropdown-wrapper .relative > div:first-child,
+  .table-dropdown-wrapper .relative.flex-1 > div:first-child {
+    border: none !important;
+    border-radius: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    padding-left: 12px !important;
+    padding-right: 12px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* 隐藏下拉框滚动条 */
+  .dropdown-menu::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .dropdown-menu {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 

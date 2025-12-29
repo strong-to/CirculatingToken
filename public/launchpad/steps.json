@@ -1,0 +1,33 @@
+{
+  "steps": [
+    {
+      "title": "Purpose / Description # and / Function Sorting",
+      "comment": "选中时: Purpose\\nDescription and\\nFunction Sorting (三行), 未选中时: Purpose Description\\nand Function Sorting (两行)"
+    },
+    {
+      "title": "Naming and / Brand # Image / Establishment",
+      "comment": "选中: Naming and\\nBrand Image\\nEstablishment；未选中: Naming and Brand\\nImage Establishment"
+    },
+    {
+      "title": "Model Selection / and # Technical #/ Documentation #/ Compilation",
+      "comment": "选中: Model Selection and Technical\\nDocumentation\\nCompilation；未选中: Model Selection and\\nTechnical\\nDocumentation\\nCompilation"
+    },
+    {
+      "title": "Construction #/ Requirements / and #/ Contribution #/ Quantification",
+      "comment": "选中&未选中相同: Construction\\nRequirements and\\nContribution\\nQuantification"
+    },
+    {
+      "title": "Rights / Allocation #  / and Project #  / Governance",
+      "comment": "选中: Rights Allocation\\nand Project\\nGovernance；未选中: Rights Allocation and Project\\nGovernance"
+    },
+    {
+      "title": "Fee Standards / and #  Economic / Data # Estimation",
+      "comment": "选中: Fee Standards and\\nEconomic Data\\nEstimation；未选中: Fee Standards and Economic Data\\nEstimation"
+    },
+    {
+      "title": "Preview and / Release",
+      "comment": "选中: Preview and\\nRelease；未选中: Preview and Release"
+    }
+  ]
+}
+

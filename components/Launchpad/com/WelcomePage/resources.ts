@@ -1,0 +1,18 @@
+/**
+ * WelcomePage 组件资源文件
+ * 包含该组件使用的所有文案
+ */
+
+// ==================== 文案资源 ====================
+export const texts = {
+  welcomeMessage: {
+    line1: 'Welcome to the Project Initiation Center, our AI will assist you throughout ',
+    line2: 'the creation process',
+  },
+  description: {
+    line1: 'The entire process will take about 30 minutes or less. Click Start to let your ',
+    line2: 'ideas take flight!',
+  },
+  buttonStart: 'Start',
+} as const
+

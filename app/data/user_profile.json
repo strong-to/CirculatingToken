@@ -1,0 +1,195 @@
+{
+    // ==================================================================================
+    // 1. 用户身份与元数据 (User Identity)
+    // [作用]: 用于渲染个人中心头部 (Header)、侧边栏用户信息
+    // ==================================================================================
+    // [DB Key] 用户唯一 ID。所有项目文件中的 user_id 都指向这里
+    "user_id": "u_8848",
+    // [Display] 钱包地址 (前端需做脱敏处理，如 0x71C...9A21)
+    "wallet_address": "0x71C7656EC7ab88b098defB751B7401B5f6d89A21",
+    // [Display] 用户昵称 (支持 Emoji)
+    "nickname": "CryptoBuilder",
+    // [Image] 用户头像 URL
+    "avatar": "https://assets.dbtf.com/avatars/user_8848.png",
+    // [Status] 账号状态: 'verified'(已认证), 'unverified'(未认证), 'banned'(封禁)
+    // UI逻辑: 'verified' 状态下，昵称旁显示蓝色对勾徽章
+    "kyc_status": "verified",
+    // [Tags] 用户标签/徽章 (基于链上行为自动生成)
+    // UI逻辑: 渲染为 Profile 页面的一排小勋章
+    "badges": [
+        "Early Adopter",
+        "Top Contributor",
+        "Whale"
+    ],
+    // [Info] 注册时间
+    "join_date": "2024-01-15",
+    // ==================================================================================
+    // 2. 资产投资组合 (Portfolio / Assets)
+    // [作用]: 渲染 "我的钱包" 或 "资产概览" 卡片
+    // [关联]: 通过 system_id 关联 project.json 获取 Logo 和全名
+    // ==================================================================================
+    "assets": [
+        {
+            // [Link] 关键外键：通过这个 ID 去 project.json 查找币价、Logo、项目全名
+            "system_id": "DBTF0000001",
+            // [Display] 代币符号 (冗余字段，避免列表页频繁查表，提升性能)
+            "symbol": "PRIME",
+            // ---------------------------------------------------
+            // [Core Data] 持有数量 (这里是纯数字)
+            // ---------------------------------------------------
+            // 1. 可用余额 (Wallet Balance)
+            // 含义: 钱包里躺着的，随时可以卖出或转账的币
+            "balance_available": 1500.50,
+            // 2. 质押中 (Staking)
+            // 含义: 锁在协议里赚利息的币 (不能卖，但属于你的资产)
+            "balance_staked": 500.00,
+            // 3. 锁仓/线性释放 (Vesting)
+            // 含义: 比如早期投资或团队份额，还没解锁的币
+            "balance_locked": 0,
+            // [Helper] 总持仓量 (前端可选择是否由后端计算好下发)
+            // 逻辑: available + staked + locked
+            "balance_total": 2000.50,
+            // ---------------------------------------------------
+            // [Profit & Loss] 盈亏分析数据
+            // ---------------------------------------------------
+            // 待领取奖励 (Unclaimed)
+            // 含义: 质押产生的利息，还没点 "Claim" 到钱包里的
+            "unclaimed_rewards": 12.5,
+            // 平均买入成本 (Avg Price)
+            // 含义: 用于前端计算 "收益率" (PnL)。
+            // 逻辑: (当前价 2.30 - 平均成本 1.80) * 持仓量 = 浮动盈亏
+            "avg_buy_price": 1.80
+        },
+        // 下一个项目的持仓...
+        {
+            "system_id": "DBTF0000003",
+            "symbol": "VRB",
+            "balance_available": 10000,
+            "balance_staked": 2000,
+            "balance_locked": 5000,
+            "balance_total": 17000,
+            "unclaimed_rewards": 450.0,
+            "avg_buy_price": 0.5
+        }
+    ],
+    // ==================================================================================
+    // 3. 交易历史 (Transaction History)
+    // [作用]: 渲染 "钱包流水" 或 "账单" 页面
+    // [逻辑]: 这是一个混合列表，包含买卖、质押、领奖等所有链上交互
+    // ==================================================================================
+    "transactions": [
+        {
+            "tx_hash": "0xab...cd12", // [Link] 浏览器跳转链接
+            "timestamp": 1735344000, // [Time] 交易时间
+            // [Type] 交易类型
+            // 枚举: 'buy'(买入), 'sell'(卖出), 'stake'(质押), 'unstake'(解押), 'claim'(领奖)
+            // UI逻辑: 根据类型显示不同图标 (如 Buy显示绿色进账箭头)
+            "type": "buy",
+            "system_id": "DBTF0000001", // [Link] 关联项目
+            "amount": 100, // 数量
+            "price_at_moment": 2.30, // 当时成交价
+            "total_value_usd": 230.00, // 总价值 (USD)
+            "status": "success" // success / pending / failed
+        },
+        {
+            "tx_hash": "0xef...gh34",
+            "timestamp": 1735257600,
+            "type": "stake", // 质押操作
+            "system_id": "DBTF0000001",
+            "amount": 500,
+            "status": "success"
+        }
+    ],
+    // ==================================================================================
+    // 4. 我的共创履历 (My Contributions)
+    // [作用]: 渲染 "我的工作台" 或 "贡献记录"
+    // [场景]: 用户在此查看自己接的任务状态、审核进度和工资结算
+    // ==================================================================================
+    "contributions": {
+        // 概览统计
+        "summary": {
+            "total_tasks_completed": 5, // 已完成任务数
+            "total_earned_tokens": 12500, // 累计赚取 (估值)
+            "current_level": "Lv.3 Expert" // 贡献者等级
+        },
+        // 详细记录列表
+        "history": [
+            {
+                "record_id": "my_work_001",
+                "system_id": "DBTF0000001", // [Link] 关联项目
+                "project_name": "PrimeCore", // [Display] 冗余名
+                "task_id": "task_res_001", // [Link] 对应 project.json 里的任务 ID
+                "task_title": "提供 CPU 算力节点",
+                // [Type] 贡献类型: 'resource'(挂机), 'dev'(代码), 'marketing'(推广)
+                "type": "resource",
+                // [Status] 状态流转
+                // pending (审核中) -> approved (已通过) -> rejected (被拒绝) -> paid (已打款)
+                "status": "paid",
+                "amount_contributed": 100, // 贡献量
+                "unit": "Core Hour",
+                "reward_earned": 500, // 获得的代币数量
+                "timestamp": 1735344000
+            },
+            {
+                "record_id": "my_work_002",
+                "system_id": "DBTF0000003",
+                "project_name": "Verba",
+                "task_id": "task_label_05",
+                "task_title": "医学数据标注",
+                "type": "work",
+                "status": "pending", // 还在审核中
+                "amount_contributed": 50,
+                "unit": "Items",
+                "reward_earned": 0, // 尚未发放
+                "timestamp": 1735444000
+            }
+        ]
+    },
+    // ==================================================================================
+    // 5. 治理投票记录 (My Votes)
+    // [作用]: 渲染 "我的治理" 页面，查看参与过的 DAO 投票
+    // ==================================================================================
+    "governance_votes": [
+        {
+            "system_id": "DBTF0000001", // [Link] 关联项目
+            "proposal_id": "prop_gov_01", // [Link] 关联议案
+            "proposal_title": "关于调整节点奖励系数的提案",
+            "my_vote": "for", // 我的选择: for/against/abstain
+            "vote_weight": 1500.5, // 投票时的权重 (通常等于持仓)
+            "timestamp": 1735340000
+        }
+    ],
+    // ==================================================================================
+    // 6. 我发起的项目 (Projects Created)
+    // [作用]: 如果该用户是项目方，渲染 "开发者控制台"
+    // ==================================================================================
+    "created_projects": [
+        {
+            "system_id": "DBTF0000015", // [Link] 跳转到该项目的管理后台
+            "name": "SoundForge",
+            "role": "Owner", // Owner / Admin / Operator
+            "status": "active"
+        }
+    ],
+    // ==================================================================================
+    // 7. 用户设置 (Settings)
+    // [作用]: 渲染 "设置" 页面，控制应用偏好
+    // ==================================================================================
+    "settings": {
+        // [UI] 界面偏好
+        "theme": "dark", // light / dark / system
+        "language": "zh-CN", // en-US / zh-CN
+        "currency_display": "USD", // 资产显示的计价单位 (USD/CNY/BTC)
+        // [Notification] 通知开关
+        "notifications": {
+            "price_alert": true, // 价格波动提醒
+            "task_audit": true, // 任务审核结果通知
+            "governance_proposal": false // 新提案通知
+        },
+        // [Security] 安全设置状态 (仅显示状态，不存密码)
+        "security": {
+            "2fa_enabled": true,
+            "email_verified": true
+        }
+    }
+}

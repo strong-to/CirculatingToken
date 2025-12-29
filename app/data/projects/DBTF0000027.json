@@ -1,0 +1,360 @@
+{
+  "system_id": "DBTF0000027",
+  "slug": "companio",
+  "status": "completed",
+  "profile": {
+    "name": "Companio",
+    "symbol": "C",
+    "type_en": "AI Agent",
+    "category_cn": "电子伴侣",
+    "slogan": "A companion who listens—and understands.",
+    "summary": "Companio delivers AI Agent capabilities for Social teams.",
+    "description_md": "## 关于 Companio\nA companion who listens—and understands.\n\n### 交互形态\n- Text / Dialogue\n\n### 适用领域\n- Social / Entertainment\n\n### 核心能力\n- Dialogue · Soothe · Encourage · Explain\n\n### 运营概览\n- 贡献者：219\n- 市值：$29.4M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_027.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask27.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/companio_hero.jpg",
+          "context": "project_home_hero",
+          "description": "Companio 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/companio_intro.mp4",
+          "context": "project_story",
+          "description": "Companio 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000027",
+      "introduction": "Reliable CPU compute at scale. 027",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000027_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000027_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000027_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000027_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000027_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000027_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000027_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000027_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000027_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000027_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000027_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000027_004"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://companio.io",
+      "whitepaper": "https://docs.companio.io/whitepaper",
+      "github": "https://github.com/dbtf/companio"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Social",
+      "Entertainment"
+    ],
+    "object": [
+      "Text",
+      "Emotion"
+    ],
+    "action": [
+      "Dialogue",
+      "Soothe",
+      "Encourage",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Text",
+      "Dialogue"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-31",
+      "progress": 1,
+      "contributors_count": 219,
+      "total_commits": 6223
+    },
+    "operation": {
+      "total_users": 622,
+      "new_users_24h": 16,
+      "revenue_total": 443981,
+      "revenue_24h": 6180
+    },
+    "rating": {
+      "score": 4.6,
+      "review_count": 55
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Great Support",
+      "Reliable",
+      "Feature Rich"
+    ],
+    "list": [
+      {
+        "id": "companio_rev_1",
+        "user_id": "companio_builder",
+        "user_name": "CBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/companio_1.png",
+        "rating": 5,
+        "content": "Companio 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 37
+      },
+      {
+        "id": "companio_rev_2",
+        "user_id": "companio_ops",
+        "user_name": "COps",
+        "avatar": "https://assets.dbtf.com/avatars/companio_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 22
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 25.81,
+      "market_cap": 29400000,
+      "change_24h_percent": 1.1,
+      "volume_24h": 1367870
+    },
+    "supply": {
+      "total_supply": 1139109,
+      "circulating": 1112013,
+      "minted_24h": 481,
+      "burned_24h": 239
+    },
+    "staking": {
+      "total_staked": 533144,
+      "staking_ratio": 0.47,
+      "unstaked_24h": 5828,
+      "apy": 0.15
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 25.36,
+        "high": 25.47,
+        "low": 25.21,
+        "close": 25.44,
+        "volume": 1496759
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 25.79,
+        "high": 26.11,
+        "low": 25.47,
+        "close": 25.88,
+        "volume": 1613763
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 25.55,
+          "amount": 800
+        },
+        {
+          "price": 25.42,
+          "amount": 767
+        }
+      ],
+      "asks": [
+        {
+          "price": 26.07,
+          "amount": 567
+        },
+        {
+          "price": 26.2,
+          "amount": 502
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "companio_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 25.81,
+        "amount": 123,
+        "total_value": 3243.24,
+        "trader_info": {
+          "user_id": "companio_whale",
+          "name": "CWhale",
+          "avatar": "https://assets.dbtf.com/avatars/companio_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "companio_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 25.68,
+        "amount": 93,
+        "total_value": 2220.47,
+        "trader_info": {
+          "user_id": "companio_pro",
+          "name": "CTrader",
+          "avatar": "https://assets.dbtf.com/avatars/companio_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 49,
+      "active_builders_count": 219
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "companio_resource",
+        "unit_name": "Unit",
+        "description": "Companio 核心资源贡献",
+        "reward_token": 8.5
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "companio_task_1",
+        "title": "扩展 Companio 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 239915,
+        "progress_target": 533144,
+        "reward_display": "C 奖励"
+      },
+      {
+        "task_id": "companio_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "C 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "companio_alpha",
+        "name": "CAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/companio_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 11753,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "companio_beta",
+        "name": "CBeta",
+        "avatar": "https://assets.dbtf.com/avatars/companio_beta.png",
+        "role": "Developer",
+        "contribution_points": 7596,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "companio_hist_1",
+        "user_id": "companio_alpha",
+        "user_name": "CAlpha",
+        "task_title": "Companio 节点贡献",
+        "amount": 137,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "companio_gov_1",
+        "title": "关于 Companio 奖励参数的提案",
+        "proposer": {
+          "name": "C DAO",
+          "avatar": "https://assets.dbtf.com/avatars/companio_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 Companio 在 Social 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 2352000,
+          "against": 588000,
+          "abstain": 294000
+        },
+        "recent_votes": [
+          {
+            "user_id": "companio_governor_a",
+            "name": "CGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/companio_gov_a.png",
+            "vote_option": "for",
+            "weight": 6731,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "companio_governor_b",
+            "name": "CGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/companio_gov_b.png",
+            "vote_option": "against",
+            "weight": 1689,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

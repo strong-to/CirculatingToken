@@ -1,0 +1,22 @@
+{
+  "dataCardLabels": {
+    "revenue24h": "24h Revenue",
+    "marketCap": "Market cap",
+    "totalUsers": "Total Users",
+    "userRating": "User Rating"
+  },
+  "dataCardButtons": {
+    "details": "Details",
+    "share": "Share",
+    "market": "Market",
+    "favorites": "Favorites"
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,359 @@
+{
+  "system_id": "DBTF0000015",
+  "slug": "soundforge",
+  "status": "completed",
+  "profile": {
+    "name": "SoundForge",
+    "symbol": "S",
+    "type_en": "Workflow",
+    "category_cn": "音频创作",
+    "slogan": "Craft sound the way professionals do.",
+    "summary": "SoundForge delivers Workflow capabilities for Media teams.",
+    "description_md": "## 关于 SoundForge\nCraft sound the way professionals do.\n\n### 交互形态\n- Audio / Audio Features\n\n### 适用领域\n- Media / Entertainment\n\n### 核心能力\n- Generate · Edit · Classify · Explain\n\n### 运营概览\n- 贡献者：173\n- 市值：$12.4M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_015.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask15.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/soundforge_hero.jpg",
+          "context": "project_home_hero",
+          "description": "SoundForge 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/soundforge_intro.mp4",
+          "context": "project_story",
+          "description": "SoundForge 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000015",
+      "introduction": "Reliable CPU compute at scale. 015",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000015_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000015_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000015_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000015_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000015_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000015_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000015_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000015_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000015_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000015_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000015_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000015_004"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://soundforge.io",
+      "whitepaper": "https://docs.soundforge.io/whitepaper",
+      "github": "https://github.com/dbtf/soundforge"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Media",
+      "Entertainment"
+    ],
+    "object": [
+      "Audio"
+    ],
+    "action": [
+      "Generate",
+      "Edit",
+      "Classify",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Audio",
+      "Audio Features"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-19",
+      "progress": 1,
+      "contributors_count": 173,
+      "total_commits": 5077
+    },
+    "operation": {
+      "total_users": 487,
+      "new_users_24h": 12,
+      "revenue_total": 298584,
+      "revenue_24h": 2480
+    },
+    "rating": {
+      "score": 4.5,
+      "review_count": 43
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Scalable",
+      "Feature Rich",
+      "Low Latency"
+    ],
+    "list": [
+      {
+        "id": "soundforge_rev_1",
+        "user_id": "soundforge_builder",
+        "user_name": "SBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/soundforge_1.png",
+        "rating": 5,
+        "content": "SoundForge 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 35
+      },
+      {
+        "id": "soundforge_rev_2",
+        "user_id": "soundforge_ops",
+        "user_name": "SOps",
+        "avatar": "https://assets.dbtf.com/avatars/soundforge_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 12
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 10.84,
+      "market_cap": 12400000,
+      "change_24h_percent": 3.7,
+      "volume_24h": 437907
+    },
+    "supply": {
+      "total_supply": 1143739,
+      "circulating": 1070647,
+      "minted_24h": 574,
+      "burned_24h": 118
+    },
+    "staking": {
+      "total_staked": 428693,
+      "staking_ratio": 0.37,
+      "unstaked_24h": 12830,
+      "apy": 0.18
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 10.59,
+        "high": 10.79,
+        "low": 10.48,
+        "close": 10.5,
+        "volume": 458556
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 10.63,
+        "high": 10.79,
+        "low": 10.62,
+        "close": 10.72,
+        "volume": 461717
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 10.73,
+          "amount": 938
+        },
+        {
+          "price": 10.68,
+          "amount": 619
+        }
+      ],
+      "asks": [
+        {
+          "price": 10.95,
+          "amount": 841
+        },
+        {
+          "price": 11,
+          "amount": 457
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "soundforge_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 10.84,
+        "amount": 136,
+        "total_value": 1355.01,
+        "trader_info": {
+          "user_id": "soundforge_whale",
+          "name": "SWhale",
+          "avatar": "https://assets.dbtf.com/avatars/soundforge_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "soundforge_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 10.79,
+        "amount": 89,
+        "total_value": 738.13,
+        "trader_info": {
+          "user_id": "soundforge_pro",
+          "name": "STrader",
+          "avatar": "https://assets.dbtf.com/avatars/soundforge_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 41,
+      "active_builders_count": 173
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "soundforge_resource",
+        "unit_name": "Unit",
+        "description": "SoundForge 核心资源贡献",
+        "reward_token": 5.8
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "soundforge_task_1",
+        "title": "扩展 SoundForge 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 192912,
+        "progress_target": 428693,
+        "reward_display": "S 奖励"
+      },
+      {
+        "task_id": "soundforge_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "S 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "soundforge_alpha",
+        "name": "SAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/soundforge_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 10745,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "soundforge_beta",
+        "name": "SBeta",
+        "avatar": "https://assets.dbtf.com/avatars/soundforge_beta.png",
+        "role": "Developer",
+        "contribution_points": 9001,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "soundforge_hist_1",
+        "user_id": "soundforge_alpha",
+        "user_name": "SAlpha",
+        "task_title": "SoundForge 节点贡献",
+        "amount": 146,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "soundforge_gov_1",
+        "title": "关于 SoundForge 奖励参数的提案",
+        "proposer": {
+          "name": "S DAO",
+          "avatar": "https://assets.dbtf.com/avatars/soundforge_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 SoundForge 在 Media 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 992000,
+          "against": 248000,
+          "abstain": 124000
+        },
+        "recent_votes": [
+          {
+            "user_id": "soundforge_governor_a",
+            "name": "SGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/soundforge_gov_a.png",
+            "vote_option": "for",
+            "weight": 6386,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "soundforge_governor_b",
+            "name": "SGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/soundforge_gov_b.png",
+            "vote_option": "against",
+            "weight": 1403,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

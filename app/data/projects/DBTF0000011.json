@@ -1,0 +1,362 @@
+{
+  "system_id": "DBTF0000011",
+  "slug": "econoset",
+  "status": "completed",
+  "profile": {
+    "name": "EconoSet",
+    "symbol": "E",
+    "type_en": "Dataset",
+    "category_cn": "经济行业数据集",
+    "slogan": "Where markets, trends, and decisions meet.",
+    "summary": "EconoSet delivers Dataset capabilities for Finance teams.",
+    "description_md": "## 关于 EconoSet\nWhere markets, trends, and decisions meet.\n\n### 交互形态\n- Text / Table / Chart\n\n### 适用领域\n- Finance / Markets & Trade\n\n### 核心能力\n- Analyze · Predict · Summarize · Classify\n\n### 运营概览\n- 贡献者：172\n- 市值：$5.9M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_011.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask11.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/econoset_hero.jpg",
+          "context": "project_home_hero",
+          "description": "EconoSet 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/econoset_intro.mp4",
+          "context": "project_story",
+          "description": "EconoSet 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000011",
+      "introduction": "Reliable CPU compute at scale. 011",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000011_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000011_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000011_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000011_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000011_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000011_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000011_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000011_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000011_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000011_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000011_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000011_004"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://econoset.io",
+      "whitepaper": "https://docs.econoset.io/whitepaper",
+      "github": "https://github.com/dbtf/econoset"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Finance",
+      "Markets & Trade"
+    ],
+    "object": [
+      "Data",
+      "Text",
+      "Chart"
+    ],
+    "action": [
+      "Analyze",
+      "Predict",
+      "Summarize",
+      "Classify"
+    ],
+    "interaction_form": [
+      "Text",
+      "Table",
+      "Chart"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-15",
+      "progress": 1,
+      "contributors_count": 172,
+      "total_commits": 4621
+    },
+    "operation": {
+      "total_users": 484,
+      "new_users_24h": 12,
+      "revenue_total": 203327,
+      "revenue_24h": 1340
+    },
+    "rating": {
+      "score": 4.5,
+      "review_count": 43
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Feature Rich",
+      "Low Latency",
+      "Scalable"
+    ],
+    "list": [
+      {
+        "id": "econoset_rev_1",
+        "user_id": "econoset_builder",
+        "user_name": "EBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/econoset_1.png",
+        "rating": 5,
+        "content": "EconoSet 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 11
+      },
+      {
+        "id": "econoset_rev_2",
+        "user_id": "econoset_ops",
+        "user_name": "EOps",
+        "avatar": "https://assets.dbtf.com/avatars/econoset_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 10
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 4.28,
+      "market_cap": 5900000,
+      "change_24h_percent": 3.8,
+      "volume_24h": 289735
+    },
+    "supply": {
+      "total_supply": 1377633,
+      "circulating": 1253671,
+      "minted_24h": 368,
+      "burned_24h": 96
+    },
+    "staking": {
+      "total_staked": 701177,
+      "staking_ratio": 0.51,
+      "unstaked_24h": 16225,
+      "apy": 0.17
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 4.14,
+        "high": 4.17,
+        "low": 4.08,
+        "close": 4.17,
+        "volume": 340375
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 4.35,
+        "high": 4.38,
+        "low": 4.33,
+        "close": 4.35,
+        "volume": 297573
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 4.24,
+          "amount": 818
+        },
+        {
+          "price": 4.22,
+          "amount": 431
+        }
+      ],
+      "asks": [
+        {
+          "price": 4.32,
+          "amount": 683
+        },
+        {
+          "price": 4.34,
+          "amount": 601
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "econoset_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 4.28,
+        "amount": 145,
+        "total_value": 682.52,
+        "trader_info": {
+          "user_id": "econoset_whale",
+          "name": "EWhale",
+          "avatar": "https://assets.dbtf.com/avatars/econoset_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "econoset_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 4.26,
+        "amount": 65,
+        "total_value": 344.07,
+        "trader_info": {
+          "user_id": "econoset_pro",
+          "name": "ETrader",
+          "avatar": "https://assets.dbtf.com/avatars/econoset_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 38,
+      "active_builders_count": 172
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "econoset_resource",
+        "unit_name": "Unit",
+        "description": "EconoSet 核心资源贡献",
+        "reward_token": 11.6
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "econoset_task_1",
+        "title": "扩展 EconoSet 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 315530,
+        "progress_target": 701177,
+        "reward_display": "E 奖励"
+      },
+      {
+        "task_id": "econoset_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "E 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "econoset_alpha",
+        "name": "EAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/econoset_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 16440,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "econoset_beta",
+        "name": "EBeta",
+        "avatar": "https://assets.dbtf.com/avatars/econoset_beta.png",
+        "role": "Developer",
+        "contribution_points": 6626,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "econoset_hist_1",
+        "user_id": "econoset_alpha",
+        "user_name": "EAlpha",
+        "task_title": "EconoSet 节点贡献",
+        "amount": 116,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "econoset_gov_1",
+        "title": "关于 EconoSet 奖励参数的提案",
+        "proposer": {
+          "name": "E DAO",
+          "avatar": "https://assets.dbtf.com/avatars/econoset_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 EconoSet 在 Finance 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 472000,
+          "against": 118000,
+          "abstain": 59000
+        },
+        "recent_votes": [
+          {
+            "user_id": "econoset_governor_a",
+            "name": "EGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/econoset_gov_a.png",
+            "vote_option": "for",
+            "weight": 6526,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "econoset_governor_b",
+            "name": "EGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/econoset_gov_b.png",
+            "vote_option": "against",
+            "weight": 1756,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

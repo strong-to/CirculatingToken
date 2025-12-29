@@ -1,0 +1,360 @@
+{
+  "system_id": "DBTF0000006",
+  "slug": "lexguide",
+  "status": "active",
+  "profile": {
+    "name": "LexGuide",
+    "symbol": "L",
+    "type_en": "Dataset",
+    "category_cn": "法律行业数据集",
+    "slogan": "Legal instructions for reasoning and compliance.",
+    "summary": "LexGuide delivers Dataset capabilities for Law teams.",
+    "description_md": "## 关于 LexGuide\nLegal instructions for reasoning and compliance.\n\n### 交互形态\n- Text / Document\n\n### 适用领域\n- Law / Policy\n\n### 核心能力\n- Summarize · Classify · Analyze · Explain\n\n### 运营概览\n- 贡献者：96\n- 市值：$1.8M\n- 建设进度：78%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_006.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask6.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/lexguide_hero.jpg",
+          "context": "project_home_hero",
+          "description": "LexGuide 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/lexguide_intro.mp4",
+          "context": "project_story",
+          "description": "LexGuide 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000006",
+      "introduction": "Reliable CPU compute at scale. 006",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000006_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000006_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000006_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000006_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000006_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000006_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000006_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000006_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000006_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000006_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000006_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000006_004"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://lexguide.io",
+      "whitepaper": "https://docs.lexguide.io/whitepaper",
+      "github": "https://github.com/dbtf/lexguide"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Law",
+      "Policy"
+    ],
+    "object": [
+      "Text",
+      "Document"
+    ],
+    "action": [
+      "Summarize",
+      "Classify",
+      "Analyze",
+      "Explain"
+    ],
+    "interaction_form": [
+      "Text",
+      "Document"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-10",
+      "progress": 0.78,
+      "contributors_count": 96,
+      "total_commits": 2882
+    },
+    "operation": {
+      "total_users": 268,
+      "new_users_24h": 6,
+      "revenue_total": 0,
+      "revenue_24h": 0
+    },
+    "rating": {
+      "score": 4.3,
+      "review_count": 24
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Great Support",
+      "Feature Rich",
+      "Scalable"
+    ],
+    "list": [
+      {
+        "id": "lexguide_rev_1",
+        "user_id": "lexguide_builder",
+        "user_name": "LBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/lexguide_1.png",
+        "rating": 4,
+        "content": "LexGuide 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 11
+      },
+      {
+        "id": "lexguide_rev_2",
+        "user_id": "lexguide_ops",
+        "user_name": "LOps",
+        "avatar": "https://assets.dbtf.com/avatars/lexguide_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 23
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 1.57,
+      "market_cap": 1800000,
+      "change_24h_percent": 0.2,
+      "volume_24h": 69767
+    },
+    "supply": {
+      "total_supply": 1147947,
+      "circulating": 1137076,
+      "minted_24h": 823,
+      "burned_24h": 265
+    },
+    "staking": {
+      "total_staked": 666936,
+      "staking_ratio": 0.58,
+      "unstaked_24h": 26021,
+      "apy": 0.15
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 1.56,
+        "high": 1.58,
+        "low": 1.54,
+        "close": 1.55,
+        "volume": 70071
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 1.61,
+        "high": 1.61,
+        "low": 1.58,
+        "close": 1.62,
+        "volume": 73218
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 1.55,
+          "amount": 790
+        },
+        {
+          "price": 1.55,
+          "amount": 411
+        }
+      ],
+      "asks": [
+        {
+          "price": 1.59,
+          "amount": 558
+        },
+        {
+          "price": 1.59,
+          "amount": 588
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "lexguide_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 1.57,
+        "amount": 142,
+        "total_value": 178.19,
+        "trader_info": {
+          "user_id": "lexguide_whale",
+          "name": "LWhale",
+          "avatar": "https://assets.dbtf.com/avatars/lexguide_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "lexguide_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 1.56,
+        "amount": 92,
+        "total_value": 126.75,
+        "trader_info": {
+          "user_id": "lexguide_pro",
+          "name": "LTrader",
+          "avatar": "https://assets.dbtf.com/avatars/lexguide_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 22,
+      "active_builders_count": 96
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "lexguide_resource",
+        "unit_name": "Unit",
+        "description": "LexGuide 核心资源贡献",
+        "reward_token": 8.9
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "lexguide_task_1",
+        "title": "扩展 LexGuide 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 300121,
+        "progress_target": 666936,
+        "reward_display": "L 奖励"
+      },
+      {
+        "task_id": "lexguide_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "L 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "lexguide_alpha",
+        "name": "LAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/lexguide_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 13464,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "lexguide_beta",
+        "name": "LBeta",
+        "avatar": "https://assets.dbtf.com/avatars/lexguide_beta.png",
+        "role": "Developer",
+        "contribution_points": 9187,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "lexguide_hist_1",
+        "user_id": "lexguide_alpha",
+        "user_name": "LAlpha",
+        "task_title": "LexGuide 节点贡献",
+        "amount": 126,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "lexguide_gov_1",
+        "title": "关于 LexGuide 奖励参数的提案",
+        "proposer": {
+          "name": "L DAO",
+          "avatar": "https://assets.dbtf.com/avatars/lexguide_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 LexGuide 在 Law 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 144000,
+          "against": 36000,
+          "abstain": 18000
+        },
+        "recent_votes": [
+          {
+            "user_id": "lexguide_governor_a",
+            "name": "LGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/lexguide_gov_a.png",
+            "vote_option": "for",
+            "weight": 6435,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "lexguide_governor_b",
+            "name": "LGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/lexguide_gov_b.png",
+            "vote_option": "against",
+            "weight": 1652,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

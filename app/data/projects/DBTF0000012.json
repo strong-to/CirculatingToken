@@ -1,0 +1,360 @@
+{
+  "system_id": "DBTF0000012",
+  "slug": "eduform",
+  "status": "completed",
+  "profile": {
+    "name": "EduForm",
+    "symbol": "E",
+    "type_en": "Dataset",
+    "category_cn": "教育行业数据集",
+    "slogan": "Ground truth for teaching, learning, and coaching.",
+    "summary": "EduForm delivers Dataset capabilities for Education teams.",
+    "description_md": "## 关于 EduForm\nGround truth for teaching, learning, and coaching.\n\n### 交互形态\n- Text / Document\n\n### 适用领域\n- Education / Training\n\n### 核心能力\n- Teach · Explain · Summarize · Classify\n\n### 运营概览\n- 贡献者：139\n- 市值：$4.1M\n- 建设进度：100%",
+    "media": {
+      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_012.png",
+      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask12.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/eduform_hero.jpg",
+          "context": "project_home_hero",
+          "description": "EduForm 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/eduform_intro.mp4",
+          "context": "project_story",
+          "description": "EduForm 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF0000012",
+      "introduction": "Reliable CPU compute at scale. 012",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000012_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000012_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000012_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000012_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000012_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000012_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000012_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000012_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000012_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000012_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000012_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000012_004"
+        }
+      ]
+    },
+    "links": {
+      "website": "https://eduform.io",
+      "whitepaper": "https://docs.eduform.io/whitepaper",
+      "github": "https://github.com/dbtf/eduform"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Education",
+      "Training"
+    ],
+    "object": [
+      "Text",
+      "Document"
+    ],
+    "action": [
+      "Teach",
+      "Explain",
+      "Summarize",
+      "Classify"
+    ],
+    "interaction_form": [
+      "Text",
+      "Document"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2025-12-16",
+      "progress": 1,
+      "contributors_count": 139,
+      "total_commits": 3885
+    },
+    "operation": {
+      "total_users": 391,
+      "new_users_24h": 10,
+      "revenue_total": 116180,
+      "revenue_24h": 1020
+    },
+    "rating": {
+      "score": 4.5,
+      "review_count": 35
+    }
+  },
+  "reviews": {
+    "summary_tags": [
+      "Low Latency",
+      "Needs Polish",
+      "Great Support"
+    ],
+    "list": [
+      {
+        "id": "eduform_rev_1",
+        "user_id": "eduform_builder",
+        "user_name": "EBuilder",
+        "avatar": "https://assets.dbtf.com/avatars/eduform_1.png",
+        "rating": 5,
+        "content": "EduForm 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+        "date": "2025-12-10",
+        "likes": 17
+      },
+      {
+        "id": "eduform_rev_2",
+        "user_id": "eduform_ops",
+        "user_name": "EOps",
+        "avatar": "https://assets.dbtf.com/avatars/eduform_2.png",
+        "rating": 4,
+        "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+        "date": "2025-12-12",
+        "likes": 11
+      }
+    ]
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 3.58,
+      "market_cap": 4100000,
+      "change_24h_percent": 1.7,
+      "volume_24h": 84704
+    },
+    "supply": {
+      "total_supply": 1144160,
+      "circulating": 1077269,
+      "minted_24h": 419,
+      "burned_24h": 166
+    },
+    "staking": {
+      "total_staked": 543972,
+      "staking_ratio": 0.48,
+      "unstaked_24h": 21670,
+      "apy": 0.12
+    }
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766512797,
+        "open": 3.55,
+        "high": 3.57,
+        "low": 3.52,
+        "close": 3.54,
+        "volume": 88336
+      },
+      {
+        "timestamp": 1766599197,
+        "open": 3.65,
+        "high": 3.68,
+        "low": 3.6,
+        "close": 3.62,
+        "volume": 79103
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 3.54,
+          "amount": 723
+        },
+        {
+          "price": 3.53,
+          "amount": 678
+        }
+      ],
+      "asks": [
+        {
+          "price": 3.62,
+          "amount": 498
+        },
+        {
+          "price": 3.63,
+          "amount": 660
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "eduform_trade_buy",
+        "timestamp": 1766681997,
+        "type": "buy",
+        "price": 3.58,
+        "amount": 143,
+        "total_value": 486.35,
+        "trader_info": {
+          "user_id": "eduform_whale",
+          "name": "EWhale",
+          "avatar": "https://assets.dbtf.com/avatars/eduform_whale.png",
+          "wallet_short": "0x71...9A"
+        }
+      },
+      {
+        "id": "eduform_trade_sell",
+        "timestamp": 1766683197,
+        "type": "sell",
+        "price": 3.56,
+        "amount": 81,
+        "total_value": 276.79,
+        "trader_info": {
+          "user_id": "eduform_pro",
+          "name": "ETrader",
+          "avatar": "https://assets.dbtf.com/avatars/eduform_trader.png",
+          "wallet_short": "0xAB...CD"
+        }
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 30,
+      "active_builders_count": 139
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "eduform_resource",
+        "unit_name": "Unit",
+        "description": "EduForm 核心资源贡献",
+        "reward_token": 10.1
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "eduform_task_1",
+        "title": "扩展 EduForm 能力池",
+        "type": "long_term",
+        "category": "resource",
+        "status": "active",
+        "progress_current": 244787,
+        "progress_target": 543972,
+        "reward_display": "E 奖励"
+      },
+      {
+        "task_id": "eduform_task_2",
+        "title": "算法调优 / 工作流脚本",
+        "type": "one_time",
+        "category": "development",
+        "status": "active",
+        "reward_display": "E 赏金"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "eduform_alpha",
+        "name": "EAlpha",
+        "avatar": "https://assets.dbtf.com/avatars/eduform_alpha.png",
+        "role": "Lead Builder",
+        "contribution_points": 15017,
+        "last_active": "2025-12-24"
+      },
+      {
+        "rank": 2,
+        "user_id": "eduform_beta",
+        "name": "EBeta",
+        "avatar": "https://assets.dbtf.com/avatars/eduform_beta.png",
+        "role": "Developer",
+        "contribution_points": 6220,
+        "last_active": "2025-12-22"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "eduform_hist_1",
+        "user_id": "eduform_alpha",
+        "user_name": "EAlpha",
+        "task_title": "EduForm 节点贡献",
+        "amount": 124,
+        "unit": "Unit",
+        "timestamp": 1766678397
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 1,
+    "proposals": [
+      {
+        "proposal_id": "eduform_gov_1",
+        "title": "关于 EduForm 奖励参数的提案",
+        "proposer": {
+          "name": "E DAO",
+          "avatar": "https://assets.dbtf.com/avatars/eduform_dao.png",
+          "address": "0xAdmin...001"
+        },
+        "status": "voting",
+        "end_timestamp": 1766944797,
+        "description": "提升 EduForm 在 Education 的激励倍数，以吸引更多建设者。",
+        "votes_summary": {
+          "for": 328000,
+          "against": 82000,
+          "abstain": 41000
+        },
+        "recent_votes": [
+          {
+            "user_id": "eduform_governor_a",
+            "name": "EGovernorA",
+            "avatar": "https://assets.dbtf.com/avatars/eduform_gov_a.png",
+            "vote_option": "for",
+            "weight": 5991,
+            "timestamp": 1766683797
+          },
+          {
+            "user_id": "eduform_governor_b",
+            "name": "EGovernorB",
+            "avatar": "https://assets.dbtf.com/avatars/eduform_gov_b.png",
+            "vote_option": "against",
+            "weight": 1668,
+            "timestamp": 1766684397
+          }
+        ]
+      }
+    ]
+  }
+}

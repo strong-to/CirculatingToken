@@ -11,6 +11,7 @@ export interface ProjectMedia {
   logo: string
   banner: string
   assets: ProjectMediaAsset[]
+  card_icon?: string
 }
 
 export interface ProjectLinks {
@@ -99,7 +100,6 @@ export interface HomepageSectionConfig {
   }
   accentColor: string
   badgeIcon?: string
-  cardIconOverrides?: string[]
   backgroundColor?: string
   filterKeys: string[]
   projectIds: string[]

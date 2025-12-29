@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS A METEOROLOGY INSTRUCTION AI DATASET."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_1.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000009",
@@ -56,14 +57,14 @@
       "revenue_24h": 5000
     },
     "rating": {
-      "score": 4.0,
+      "score": 4,
       "review_count": 20
     }
   },
   "tokenomics": {
     "base_currency": "USDT",
     "price_info": {
-      "current_price": 1.0,
+      "current_price": 1,
       "market_cap": 500000,
       "change_24h_percent": 1.5,
       "volume_24h": 20000

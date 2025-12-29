@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS A DIGITAL COMPANION AI AGENT."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_25.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000027",

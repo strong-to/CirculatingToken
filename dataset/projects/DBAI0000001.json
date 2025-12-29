@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS A CPU COMPUTE AI TOOL."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_8.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000001",

@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS AN ECONOMIC INSTRUCTION AI DATASET."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_11.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000011",
@@ -56,7 +57,7 @@
       "revenue_24h": 6000
     },
     "rating": {
-      "score": 4.0,
+      "score": 4,
       "review_count": 30
     }
   },

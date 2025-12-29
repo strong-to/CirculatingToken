@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS AN IMAGE CREATION AI WORKFLOW."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_23.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000016",

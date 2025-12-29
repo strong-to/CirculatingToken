@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS A HEALTH GUIDANCE AI AGENT."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_13.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000025",

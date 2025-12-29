@@ -32,7 +32,8 @@
           "context": "project_construction_avatar",
           "description": "Construction 模块建设者头像"
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_3.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000017",

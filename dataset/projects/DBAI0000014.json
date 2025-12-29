@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS A SCIENTIFIC INSTRUCTION AI DATASET."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_22.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000014",

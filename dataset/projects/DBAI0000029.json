@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS A VIRTUAL PET AI AGENT."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_19.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000029",

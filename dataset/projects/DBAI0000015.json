@@ -20,7 +20,8 @@
           "context": "homepage_hero",
           "description": "THIS IS AN AUDIO CREATION AI WORKFLOW."
         }
-      ]
+      ],
+      "card_icon": "/tokenMarketplace/ContentCard/img/icon/icon_21.png"
     },
     "links": {
       "website": "https://deepblue.example/dbai0000015",
@@ -56,14 +57,14 @@
       "revenue_24h": 7000
     },
     "rating": {
-      "score": 4.0,
+      "score": 4,
       "review_count": 40
     }
   },
   "tokenomics": {
     "base_currency": "USDT",
     "price_info": {
-      "current_price": 2.0,
+      "current_price": 2,
       "market_cap": 700000,
       "change_24h_percent": 1.5,
       "volume_24h": 30000

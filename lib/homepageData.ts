@@ -13,11 +13,13 @@ const config = homepageIndex as HomepageIndexConfig
 
 const PROJECTS: Record<string, Project> = projectsMap
 
-function resolveProject(projectId: string, icon?: string): HomepageProjectCard | null {
+function resolveProject(projectId: string): HomepageProjectCard | null {
   const project = PROJECTS[projectId]
   if (!project) return null
   const heroAsset = project.profile.media.assets[0]
   const heroImage = toCdnUrl(heroAsset?.url ?? project.profile.media.banner)
+  const rawIcon = project.profile.media.card_icon ?? project.profile.media.logo
+  const icon = rawIcon ? toCdnUrl(rawIcon) : undefined
   return {
     systemId: project.system_id,
     name: project.profile.name,
@@ -43,14 +45,7 @@ export const homepageSections: HomepageSectionData[] = Object.entries(config.sec
     })
 
     const projects = section.projectIds
-      .map((projectId, index) =>
-        resolveProject(
-          projectId,
-          section.cardIconOverrides?.[index]
-            ? toCdnUrl(section.cardIconOverrides[index])
-            : undefined
-        )
-      )
+      .map((projectId) => resolveProject(projectId))
       .filter((card): card is HomepageProjectCard => Boolean(card))
 
     return {

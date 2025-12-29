@@ -176,7 +176,6 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
   const [secondTextareaValue, setSecondTextareaValue] = useState('')
   const [uploadedFileInfo, setUploadedFileInfo] = useState<UploadedFileInfo | null>(data?.uploadedFileInfo || null)
   const [isNextHovered, setIsNextHovered] = useState(false)
-  const [isRefreshClicked, setIsRefreshClicked] = useState(false)
   const [presetContent, setPresetContent] = useState<string>(data?.presetContent || '')
 
   // 同步外部数据变化
@@ -265,12 +264,9 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
 
   // 处理 Refresh 按钮点击
   const handleRefreshClick = () => {
-    if (!isRefreshClicked) {
-      const randomContent = generateRandomContent()
-      setPresetContent(randomContent)
-      setIsRefreshClicked(true)
-      onDataChange?.({ presetContent: randomContent })
-    }
+    const randomContent = generateRandomContent()
+    setPresetContent(randomContent)
+    onDataChange?.({ presetContent: randomContent })
   }
 
   return (
@@ -358,28 +354,26 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
             </div>
 
             <div
-                onClick={handleRefreshClick}
-                style={{
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
-                  borderRadius: px(4),
-                  marginLeft: px(32),
-                  paddingLeft: px(26),
-                  paddingRight: px(26),
-                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
-                  opacity: isRefreshClicked ? 0.6 : 1,
-                }}
-              >
-             Refresh
-              
-              </div>
+              onClick={handleRefreshClick}
+              style={{
+                height: px(40),
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(14),
+                color: '#ffffff',
+                backgroundColor: '#000000',
+                borderRadius: px(4),
+                marginLeft: px(32),
+                paddingLeft: px(26),
+                paddingRight: px(26),
+                cursor: 'pointer',
+              }}
+            >
+              Refresh
+            </div>
 
       
           </div>
@@ -394,7 +388,6 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
               setPresetContent('')
               setUploadedFileInfo(null)
               onDataChange?.({ presetContent: '', uploadedFileInfo: null })
-              // 不重置 isRefreshClicked，保持按钮禁用状态
             }}
             presetContent={presetContent}
             uploadedFileInfo={uploadedFileInfo}

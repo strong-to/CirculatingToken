@@ -236,9 +236,6 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
     }
   }, [data])
 
-  // Refresh按钮是否已点击（只能点击一次）
-  const [isRefreshClicked, setIsRefreshClicked] = useState(false)
-
   // 数字格式化：千分位 + 保留两位小数（没有小数则补 .00）
   // 限制输入只能为数字（包括小数点和千分位逗号）
   const handleNumericInput = (value: string): string => {
@@ -257,55 +254,33 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
     })
   }
 
-  // 从JSON文件加载值并填入所有字段
-  const loadValuesFromJSON = async () => {
-    try {
-      const timestamp = Date.now()
-      const response = await fetch(`/launchpad/StepFive/values.json?t=${timestamp}`, {
-        cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        }
-      })
+  const randomPercent = (min: number, max: number) => (Math.random() * (max - min) + min).toFixed(2)
+  const randomLargeNumber = (min: number, max: number) =>
+    formatNumberWithThousands((Math.random() * (max - min) + min).toFixed(2))
+  const randomSmallNumber = (min: number, max: number) =>
+    formatNumberWithThousands((Math.random() * (max - min) + min).toFixed(2))
+  const randomIndex = () => (1 + Math.random() * 0.2).toFixed(3)
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
+  const generateRandomFieldValues = () => ({
+    founderTokenProportion: randomPercent(5, 35),
+    proposalInitiationTokenProportion: randomPercent(1, 15),
+    adjustmentPassRateOfContributionWeight: randomPercent(50, 90),
+    passiveResponsePassRate: randomPercent(30, 80),
+    adjustmentPassRateOfMintingIndex: randomPercent(40, 85),
+    projectLiquidationPassRate: randomPercent(60, 100),
+    tokenMintingQuantityPerPhase: randomLargeNumber(100000, 5000000),
+    tokenMintingIncrementalDifference: randomPercent(0.5, 3),
+    tokenMintingIndex: randomIndex(),
+    aaa: randomSmallNumber(0, 1000),
+    bbb: randomSmallNumber(0, 1000),
+    ccc: randomSmallNumber(0, 1000),
+  })
 
-      const data = await response.json()
-      
-      // 将JSON中的值填入所有字段
-      const newFieldValues = {
-        founderTokenProportion: data.founderTokenProportion || '',
-        proposalInitiationTokenProportion: data.proposalInitiationTokenProportion || '',
-        adjustmentPassRateOfContributionWeight: data.adjustmentPassRateOfContributionWeight || '',
-        passiveResponsePassRate: data.passiveResponsePassRate || '',
-        adjustmentPassRateOfMintingIndex: data.adjustmentPassRateOfMintingIndex || '',
-        projectLiquidationPassRate: data.projectLiquidationPassRate || '',
-        tokenMintingQuantityPerPhase: data.tokenMintingQuantityPerPhase || '',
-        tokenMintingIncrementalDifference: data.tokenMintingIncrementalDifference || '',
-        tokenMintingIndex: data.tokenMintingIndex || '',
-        aaa: data.aaa || '',
-        bbb: data.bbb || '',
-        ccc: data.ccc || '',
-      }
-      setFieldValues(newFieldValues)
-      onDataChange?.({ fieldValues: newFieldValues })
-    } catch (error) {
-      console.warn('无法从 public 目录加载值，使用默认值', error)
-    }
-  }
-
-  // Refresh按钮点击处理：从JSON文件加载值并填入所有字段
-  const handleRefreshClick = async () => {
-    if (isRefreshClicked) return // 已经点击过，不再执行
-
-    await loadValuesFromJSON()
-
-    // 标记为已点击，禁用按钮
-    setIsRefreshClicked(true)
+  // Refresh按钮点击处理：生成随机值填入所有字段
+  const handleRefreshClick = () => {
+    const newFieldValues = generateRandomFieldValues()
+    setFieldValues(newFieldValues)
+    onDataChange?.({ fieldValues: newFieldValues })
   }
   
   // 检查 Confirm Requirements 部分所有输入框是否都有值
@@ -350,7 +325,6 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
       
         <button
                 onClick={handleRefreshClick}
-                disabled={isRefreshClicked}
           style={{
                   paddingLeft: px(26),
                   paddingRight: px(26),
@@ -362,11 +336,10 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                   fontWeight: 300,
                   fontSize: px(14),
                   color: '#ffffff',
-                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
+                  backgroundColor: '#000000',
                   borderRadius: px(4),
                   border: 'none',
-                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
-                  opacity: isRefreshClicked ? 0.6 : 1,
+                  cursor: 'pointer',
                 }}
               >
                 Refresh

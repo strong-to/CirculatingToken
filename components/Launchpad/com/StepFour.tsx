@@ -227,9 +227,6 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
     }
   }, [data])
   
-  // 按钮是否已被点击
-  const [isRefreshClicked, setIsRefreshClicked] = useState(false)
-  
   // 更新某一行数据
   const handleRowDataChange = (index: number, rowData: RequirementRowData) => {
     const newRows = [...requirementRows]
@@ -252,11 +249,7 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
   
   // 处理刷新按钮点击
   const handleRefreshClick = () => {
-    if (isRefreshClicked) return // 如果已经点击过，直接返回
-    
-    // 生成随机数据填充所有行
     const newRows = requirementRows.map(() => {
-      // 随机选择一个需求项（排除"Custom"）
       const nonCustomOptions = requirementOptions.filter(opt => opt !== 'Custom')
       const randomRequirement = nonCustomOptions[Math.floor(Math.random() * nonCustomOptions.length)]
       const randomUnit = requirementUnitMap[randomRequirement] || ''
@@ -272,7 +265,6 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
     })
     
     setRequirementRows(newRows)
-    setIsRefreshClicked(true)
     onDataChange?.({ requirementRows: newRows })
   }
   
@@ -389,28 +381,26 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
                 <span  />
             </div>
 
-              <div
-                onClick={handleRefreshClick}
-                style={{
-                  paddingLeft: px(26),
-                  paddingRight: px(26),
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
-                  borderRadius: px(4),
-                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
-                  opacity: isRefreshClicked ? 0.6 : 1,
-                }}
-              >
-             Refresh
-              
-              </div>
+            <div
+              onClick={handleRefreshClick}
+              style={{
+                paddingLeft: px(26),
+                paddingRight: px(26),
+                height: px(40),
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(14),
+                color: '#ffffff',
+                backgroundColor: '#000000',
+                borderRadius: px(4),
+                cursor: 'pointer',
+              }}
+            >
+              Refresh
+            </div>
           </div>
 
 
@@ -455,4 +445,3 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
     </>
   )
 }
-

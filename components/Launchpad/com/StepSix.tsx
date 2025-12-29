@@ -64,12 +64,6 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
     }
   }, [data])
 
-  // 上面 Fee Standard 区域的 Refresh 按钮是否已点击
-  const [hasRefreshed, setHasRefreshed] = useState(false)
-
-  // 下面 Economic Data Estimation 区域的 Refresh 按钮是否已点击
-  const [hasEconomicRefreshed, setHasEconomicRefreshed] = useState(false)
-
   // 右侧小格子的文案，根据下拉框选择切换
   const bySubscriptionDurationRows: [string, string][] = [
     ['30 Days', '60.00'],
@@ -130,8 +124,6 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
   }
 
   const handleRefreshAll = () => {
-    if (hasRefreshed) return
-
     // 随机填充数量和价格
     const genQuantities = () =>
       Array.from({ length: 4 }, (_, i) => `${(i + 1) * 10}`)
@@ -149,18 +141,13 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
       basicCustomPrices: genPrices(),
       advancedCustomPrices: genPrices(),
     })
-
-    setHasRefreshed(true)
   }
 
   const handleEconomicRefresh = () => {
-    if (hasEconomicRefreshed) return
-
     const next = accountRows.map(() =>
       monthColumns.map(() => randomPrice())
     )
     updateStepSixData({ economicTableValues: next })
-    setHasEconomicRefreshed(true)
   }
 
   return (
@@ -209,8 +196,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                   borderRadius: px(4),
                   paddingLeft: px(26),
                   paddingRight: px(26),
-                  cursor: hasRefreshed ? 'default' : 'pointer',
-                  opacity: hasRefreshed ? 0.4 : 1,
+                  cursor: 'pointer',
                 }}
               >
                 Refresh 
@@ -757,8 +743,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                   borderRadius: px(4),
                   paddingLeft: px(26),
                   paddingRight: px(26),
-                  cursor: hasEconomicRefreshed ? 'default' : 'pointer',
-                  opacity: hasEconomicRefreshed ? 0.4 : 1,
+                  cursor: 'pointer',
                  
                 }}
               >
@@ -905,4 +890,3 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
     </>
   )
 }
-

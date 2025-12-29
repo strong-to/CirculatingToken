@@ -4,12 +4,42 @@ import { useState, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import FilterDropdown from '@/components/TokenMarketplace/com/FilterDropdown'
 import SearchInput from '@/components/TokenMarketplace/com/SearchInput'
-import {
-  interactionFormCategories,
-  domainCategories,
-  objectOptions,
-  actionCategories,actionSortBy
-} from '../data/FilterSectionData'
+import filterSelectData from '@/app/data/projectHubSelect/select.json'
+
+// 类型定义
+interface SubCategory {
+  label: string
+  description?: string
+}
+
+interface Category {
+  label: string
+  subCategories: (SubCategory | string)[]
+  description?: string
+}
+
+// 从 JSON 数据中提取筛选配置
+const interactionFormCategories: Category[] = filterSelectData.filters.interactionForm.categories.map((cat: any) => ({
+  label: cat.label,
+  description: cat.description,
+  subCategories: cat.subCategories || []
+}))
+
+const domainCategories: Category[] = filterSelectData.filters.domain.categories.map((cat: any) => ({
+  label: cat.label,
+  description: cat.description,
+  subCategories: cat.subCategories || []
+}))
+
+const objectOptions: string[] = filterSelectData.filters.object.options || []
+
+const actionCategories: Category[] = filterSelectData.filters.action.categories.map((cat: any) => ({
+  label: cat.label,
+  description: cat.description,
+  subCategories: cat.subCategories || []
+}))
+
+const actionSortBy: string[] = filterSelectData.filters.sortBy.options || []
 
 interface FilterSectionProps {
   onViewChange?: (view: 'Chat' | 'List') => void
@@ -72,39 +102,39 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
   return (
     <div className='flex items-center' style={{ width: '100%',  marginTop: px(15), gap: px(15) }}>
       <FilterDropdown
-        placeholder="Interaction / Form"
-        description="Which of the following ways would you like to interact with AI?"
+        placeholder={filterSelectData.filters.interactionForm.placeholder}
+        description={filterSelectData.filters.interactionForm.description}
         categories={interactionFormCategories}
         value={filterValues.interactionForm}
         onChange={(value) => handleFilterChange('interactionForm', value)}
       />
       
       <FilterDropdown
-        placeholder="Domain"
-        description="Which domain are you interested in?"
+        placeholder={filterSelectData.filters.domain.placeholder}
+        description={filterSelectData.filters.domain.description}
         categories={domainCategories}
         value={filterValues.domain}
         onChange={(value) => handleFilterChange('domain', value)}
       />
       
       <FilterDropdown
-        placeholder="Object"
-        description="What type of object are you looking for?"
+        placeholder={filterSelectData.filters.object.placeholder}
+        description={filterSelectData.filters.object.description}
         options={objectOptions}
         value={filterValues.object}
         onChange={(value) => handleFilterChange('object', value)}
       />
       
       <FilterDropdown
-        placeholder="Action"
-        description="What action would you like to perform?"
+        placeholder={filterSelectData.filters.action.placeholder}
+        description={filterSelectData.filters.action.description}
         categories={actionCategories}
         value={filterValues.action}
         onChange={(value) => handleFilterChange('action', value)}
       />
       <FilterDropdown
-        placeholder="Sort by"
-        description=""
+        placeholder={filterSelectData.filters.sortBy.placeholder}
+        description={filterSelectData.filters.sortBy.description}
         options={actionSortBy}
         value={selectedView}
         onChange={(value) => {

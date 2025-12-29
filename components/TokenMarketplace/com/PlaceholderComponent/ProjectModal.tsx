@@ -33,6 +33,13 @@ export default function ProjectModal({
   // 从 system_id 中提取索引（例如 DBTF0000001 -> 0, DBTF0000002 -> 1）
   const cardIndex = selectedCard.system_id ? parseInt(selectedCard.system_id.replace('DBTF', '')) - 1 : 0
 
+  // 将 maskTextList 按每行最多 4 个拆分成多行
+  const maskTextList = selectedCard.profile?.media?.maskTextList ?? []
+  const maskTextRows: typeof maskTextList[] = []
+  for (let i = 0; i < maskTextList.length; i += 4) {
+    maskTextRows.push(maskTextList.slice(i, i + 4))
+  }
+
   return (
     <div
       className="fixed inset-0"
@@ -227,52 +234,70 @@ export default function ProjectModal({
               textAlign: 'left',
               marginBottom: px(22),
             }}>
-                {selectedCard?.profile?.slogan || selectedCard?.profile?.summary || ''}
+                {selectedCard?.profile?.media?.introduction  ||  ''}
             </div>
 
-            {/* 标签按钮区域 */}
-            {selectedCard && (
+            {/* 标签按钮区域：一行最多 4 个，宽度由内容 + padding 决定 */}
+            {selectedCard && maskTextRows.length > 0 && (
               <div style={{ marginBottom: px(20) }}>
-                <div className='flex flex-wrap' style={{ gap: px(8), marginBottom: px(8) }}>
-                    
-                <div  style={{
-                      padding: `${px(7)} ${px(12)}`,
-                      border: '0.7px solid #000000',
-                      borderRadius: px(4),
-                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                      fontSize: px(14),
-                      fontWeight: 300,
-                      color: '#000000',
-                    }}>
-                        11111
-                </div>
-                
-                </div>
-               
+                {maskTextRows.map((row, rowIndex) => (
+                  <div
+                    key={`maskText-row-${rowIndex}`}
+                    className="flex"
+                    style={{ gap: px(8), marginBottom: rowIndex === maskTextRows.length - 1 ? 0 : px(8) }}
+                  >
+                    {row.map((item, index) => (
+                      <div
+                        key={item.id ?? `maskText-${rowIndex}-${index}`}
+                        className="whitespace-nowrap flex items-center justify-center"
+                        style={{
+                          padding: `${px(7)} ${px(12)}`,
+                          border: '0.7px solid #000000',
+                          borderRadius: px(4),
+                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                          fontSize: px(14),
+                          fontWeight: 300,
+                          color: '#000000',
+                          boxSizing: 'border-box',
+                        }}
+                      >
+                        {item.text}
+                      </div>
+                    ))}
+                  </div>
+                ))}
               </div>
             )}
 
             {/* 指标数据 */}
             {selectedCard && (
-              <div className='flex flex-wrap' style={{ gap: px(20), marginBottom: px(20) }}>
-                <div>
-                  <div style={{
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontSize: px(15),
-                    fontWeight: 300,
-                    color: '#8C8C8C',
-                    marginBottom: px(4),
-                  }}>24h Revenue</div>
+              <div style={{ display: 'flex', marginBottom: px(20) }}>
+                {selectedCard?.profile?.media?.maskInfoList?.map((item, index) => (
+                  <div key={item.id ?? `maskInfo-${index}`} style={{ flex: 1 }}>
+                    <div
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontSize: px(15),
+                        fontWeight: 300,
+                        color: '#8C8C8C',
+                        marginBottom: px(4),
+                      }}
+                    >
+                      {item.text}
+                    </div>
 
-                  <div style={{
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontSize: px(20),
-                    fontWeight: 300,
-                    color: '#000000',
-                  }}>
-                    {formatCurrency(selectedCard?.metrics?.operation?.revenue_24h)}</div>
-                </div>
-               
+                    <div
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontSize: px(20),
+                        fontWeight: 300,
+                        color: '#000000',
+                      }}
+                    >
+                      {item.info}
+                    </div>
+                  </div>
+                ))}
               </div>
             )}
 
@@ -289,7 +314,7 @@ export default function ProjectModal({
               fontWeight: 300,
               color: '#000000'
             }}>
-              {selectedCard?.profile?.description_md || selectedCard?.profile?.summary || selectedCard?.profile?.slogan || ''}
+              {selectedCard?.profile?.media?.projectDetails || ''}
             </div>
 
             {/* 底部按钮 */}

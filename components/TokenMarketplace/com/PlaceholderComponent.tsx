@@ -42,7 +42,6 @@ const formatCurrency = (value: number | undefined): string => {
 export default function PlaceholderComponent({}: PlaceholderComponentProps = {}) {
   // 使用真实数据
   const displayData = projectsList
-  console.log('displayData--------------------------------1212',displayData)
   const [selectedCard, setSelectedCard] = useState<ProjectData | null>(null)
   const timersRef = useRef<Map<number, NodeJS.Timeout[]>>(new Map())
 

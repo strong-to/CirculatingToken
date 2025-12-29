@@ -15,6 +15,16 @@ export interface ProjectProfile {
     banner?: string;
     introduction?: string;
     description?: string;
+    projectDetails?: string;
+    maskTextList?: Array<{
+      text?: string;
+      id?: string;
+    }>;
+    maskInfoList?: Array<{
+      text?: string;
+      info?: string;
+      id?: string;
+    }>;
     assets?: Array<{
       type?: string;
       url?: string;

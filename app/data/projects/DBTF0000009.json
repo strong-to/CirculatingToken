@@ -11,8 +11,8 @@
     "summary": "AtmoSet delivers Dataset capabilities for Meteorology teams.",
     "description_md": "## 关于 AtmoSet\nSignals behind storms, seasons, and the climate.\n\n### 交互形态\n- Text / Table\n\n### 适用领域\n- Meteorology / Environment\n\n### 核心能力\n- Predict · Analyze · Summarize · Classify\n\n### 运营概览\n- 贡献者：112\n- 市值：$3.2M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_009.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask9.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_009.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask9.png",
       "assets": [
         {
           "type": "image",

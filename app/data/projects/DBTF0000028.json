@@ -11,8 +11,8 @@
     "summary": "StyleCraft delivers AI Agent capabilities for Art teams.",
     "description_md": "## 关于 StyleCraft\nLook good. Feel bold. Dress smart.\n\n### 交互形态\n- Image / Text\n\n### 适用领域\n- Art / Culture\n\n### 核心能力\n- Generate · Classify · Explain · Analyze\n\n### 运营概览\n- 贡献者：124\n- 市值：$12.6M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_028.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask28.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_028.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask28.png",
       "assets": [
         {
           "type": "image",

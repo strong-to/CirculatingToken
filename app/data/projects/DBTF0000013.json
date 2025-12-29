@@ -11,8 +11,8 @@
     "summary": "ArtRefer delivers Dataset capabilities for Art teams.",
     "description_md": "## 关于 ArtRefer\nCreative cues for style, critique, and expression.\n\n### 交互形态\n- Text / Image\n\n### 适用领域\n- Art / Culture\n\n### 核心能力\n- Classify · Explain · Analyze · Generate\n\n### 运营概览\n- 贡献者：85\n- 市值：$2.5M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_013.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask13.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_013.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask13.png",
       "assets": [
         {
           "type": "image",

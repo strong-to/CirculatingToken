@@ -11,8 +11,8 @@
     "summary": "PixelStream delivers Workflow capabilities for Media teams.",
     "description_md": "## 关于 PixelStream\nTurning ideas into visuals, instantly.\n\n### 交互形态\n- Image / Image+Text\n\n### 适用领域\n- Media / Art\n\n### 核心能力\n- Generate · Classify · Explain · Analyze\n\n### 运营概览\n- 贡献者：214\n- 市值：$15.8M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_016.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask16.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_016.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask16.png",
       "assets": [
         {
           "type": "image",

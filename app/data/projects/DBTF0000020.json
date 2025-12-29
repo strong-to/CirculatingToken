@@ -11,8 +11,8 @@
     "summary": "CodeWeaver delivers Workflow capabilities for AI / Computing teams.",
     "description_md": "## 关于 CodeWeaver\nCode faster. Think deeper. Ship sooner.\n\n### 交互形态\n- Code / Text\n\n### 适用领域\n- AI / Computing\n\n### 核心能力\n- Generate · Edit · Analyze · Explain\n\n### 运营概览\n- 贡献者：263\n- 市值：$28.1M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_020.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask20.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_020.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask20.png",
       "assets": [
         {
           "type": "image",

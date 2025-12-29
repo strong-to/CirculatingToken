@@ -11,8 +11,8 @@
     "summary": "TripMate delivers AI Agent capabilities for Social teams.",
     "description_md": "## 关于 TripMate\nTravel smarter, wander further.\n\n### 交互形态\n- Text / Image+Text\n\n### 适用领域\n- Social / Transportation\n\n### 核心能力\n- Analyze · Explain · Predict · Summarize\n\n### 运营概览\n- 贡献者：176\n- 市值：$17.2M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_024.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask24.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_024.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask24.png",
       "assets": [
         {
           "type": "image",

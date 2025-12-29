@@ -11,8 +11,8 @@
     "summary": "ResLabSet delivers Dataset capabilities for Research teams.",
     "description_md": "## 关于 ResLabSet\nStructured knowledge for scientific reasoning.\n\n### 交互形态\n- Text / Document\n\n### 适用领域\n- Research / Science\n\n### 核心能力\n- Analyze · Explain · Summarize · Classify\n\n### 运营概览\n- 贡献者：112\n- 市值：$1.9M\n- 建设进度：83%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_014.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask14.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_014.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask14.png",
       "assets": [
         {
           "type": "image",

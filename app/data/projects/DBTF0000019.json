@@ -11,8 +11,8 @@
     "summary": "ArchiPilot delivers Workflow capabilities for Industry teams.",
     "description_md": "## 关于 ArchiPilot\nBlueprint intelligence for modern architecture.\n\n### 交互形态\n- Image / Document\n\n### 适用领域\n- Industry / Art\n\n### 核心能力\n- Generate · Analyze · Explain · Clarify\n\n### 运营概览\n- 贡献者：134\n- 市值：$14.7M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_019.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask19.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_019.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask19.png",
       "assets": [
         {
           "type": "image",

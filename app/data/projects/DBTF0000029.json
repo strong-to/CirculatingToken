@@ -11,8 +11,8 @@
     "summary": "PetBot delivers AI Agent capabilities for Entertainment teams.",
     "description_md": "## 关于 PetBot\nA virtual pet that grows with you.\n\n### 交互形态\n- Image / Text / Audio\n\n### 适用领域\n- Entertainment / Social\n\n### 核心能力\n- Dialogue · Generate · Explain · Encourage\n\n### 运营概览\n- 贡献者：152\n- 市值：$14.3M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_029.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask29.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_029.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask29.png",
       "assets": [
         {
           "type": "image",

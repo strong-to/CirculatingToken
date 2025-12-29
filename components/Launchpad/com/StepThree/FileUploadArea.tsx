@@ -2,48 +2,84 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
-import { uploadFile, getFileDownloadUrl, isDocxFile, isPreviewableFile, type UploadedFileInfo } from '@/utils/fileUpload'
+import { uploadFile, getFileDownloadUrl, isDocxFile, type UploadedFileInfo } from '@/utils/fileUpload'
 import { parseDocxFile } from '@/utils/docxParser'
 
 interface FileUploadAreaProps {
   onFileUploaded?: (fileInfo: UploadedFileInfo) => void
   onFileDeleted?: () => void
   presetContent?: string
+  uploadedFileInfo?: UploadedFileInfo | null
 }
 
-export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetContent }: FileUploadAreaProps) {
+const DEFAULT_SUCCESS_MESSAGE = 'File uploaded successfully and saved.'
+const DEFAULT_DESCRIPTION = 'If the document cannot be previewed here, you can download it again in Step Seven or upload a new file.'
+const DEFAULT_ERROR_MESSAGE = 'File upload failed, please try again.'
+
+export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetContent, uploadedFileInfo }: FileUploadAreaProps) {
   const [uploadedFile, setUploadedFile] = useState<UploadedFileInfo | null>(null)
   const [docxContent, setDocxContent] = useState<string>('')
   const [isUploading, setIsUploading] = useState(false)
   const [uploadProgress, setUploadProgress] = useState(0)
-  const [containerHeight, setContainerHeight] = useState<number>(170) // 存储像素值
+  const [containerHeight, setContainerHeight] = useState<number>(170)
   const [isResizing, setIsResizing] = useState(false)
+  const [statusMessage, setStatusMessage] = useState('')
+  const [uploadError, setUploadError] = useState('')
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
 
-  // 当 presetContent 传入时，模拟上传了一个 docx 文件
+  // 同步来自父组件的上传信息
   useEffect(() => {
-    if (presetContent && presetContent.trim() !== '' && !uploadedFile) {
-      const mockFileInfo: UploadedFileInfo = {
-        fileId: `preset-${Date.now()}`,
-        fileName: 'AI Generated Content.docx',
-        fileSize: presetContent.length,
-        fileType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-      }
-      setUploadedFile(mockFileInfo)
-      // 将纯文本转换为 HTML，保持换行
-      const htmlContent = presetContent.split('\n\n').map(para => `<p>${para}</p>`).join('')
-      setDocxContent(htmlContent)
-      onFileUploaded?.(mockFileInfo)
-    } else if (!presetContent || presetContent.trim() === '') {
-      // 如果 presetContent 被清除，也清除文件状态
-      if (uploadedFile && uploadedFile.fileId.startsWith('preset-')) {
-        setUploadedFile(null)
-        setDocxContent('')
+    if (uploadedFileInfo) {
+      setUploadedFile(uploadedFileInfo)
+      setStatusMessage(DEFAULT_SUCCESS_MESSAGE)
+      setUploadError('')
+
+      if (uploadedFileInfo.fileId.startsWith('preset-') && presetContent?.trim()) {
+        const htmlContent = presetContent
+          .split('\n\n')
+          .map((para) => `<p>${para}</p>`)
+          .join('')
+        setDocxContent(htmlContent)
         setContainerHeight(170)
+      } else {
+        setDocxContent('')
       }
+      return
     }
-  }, [presetContent, uploadedFile, onFileUploaded])
+
+    if (!presetContent || !presetContent.trim()) {
+      setUploadedFile(null)
+      setDocxContent('')
+      setStatusMessage('')
+      setUploadError('')
+    }
+  }, [uploadedFileInfo, presetContent])
+
+  // 处理 AI 预设内容首次渲染
+  useEffect(() => {
+    if (!presetContent || !presetContent.trim() || uploadedFileInfo) {
+      return
+    }
+
+    const mockFileInfo: UploadedFileInfo = {
+      fileId: `preset-${Date.now()}`,
+      fileName: 'AI Generated Content.docx',
+      fileSize: presetContent.length,
+      fileType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    }
+
+    setUploadedFile(mockFileInfo)
+    const htmlContent = presetContent
+      .split('\n\n')
+      .map((para) => `<p>${para}</p>`)
+      .join('')
+    setDocxContent(htmlContent)
+    setContainerHeight(170)
+    setStatusMessage(DEFAULT_SUCCESS_MESSAGE)
+    setUploadError('')
+    onFileUploaded?.(mockFileInfo)
+  }, [presetContent, uploadedFileInfo, onFileUploaded])
 
   const handleFileSelect = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
@@ -51,30 +87,36 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
 
     setIsUploading(true)
     setUploadProgress(0)
+    setUploadError('')
 
     try {
-      // 上传文件
       const fileInfo = await uploadFile(file, {
         onProgress: (progress) => setUploadProgress(progress),
       })
 
       setUploadedFile(fileInfo)
+      setStatusMessage(DEFAULT_SUCCESS_MESSAGE)
+      setUploadError('')
 
-      // 如果是 docx 文件，解析内容
       if (isDocxFile(fileInfo.fileName)) {
         try {
           const result = await parseDocxFile(file)
           setDocxContent(result.html)
         } catch (error) {
           console.error('Failed to parse DOCX:', error)
-          // 解析失败不影响上传，只显示文件名
+          setDocxContent('')
         }
+      } else {
+        setDocxContent('')
       }
 
       onFileUploaded?.(fileInfo)
     } catch (error) {
       console.error('Upload failed:', error)
-      alert('文件上传失败，请重试')
+      setUploadedFile(null)
+      setDocxContent('')
+      setStatusMessage('')
+      setUploadError(error instanceof Error && error.message ? error.message : DEFAULT_ERROR_MESSAGE)
     } finally {
       setIsUploading(false)
       setUploadProgress(0)
@@ -82,12 +124,10 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
   }
 
   const handleClick = (e: React.MouseEvent) => {
-    // 如果点击的是文件名区域，不触发上传
-    if ((e.target as HTMLElement).tagName === 'SPAN' || 
-        (e.target as HTMLElement).closest('span')) {
+    if ((e.target as HTMLElement).tagName === 'SPAN' || (e.target as HTMLElement).closest('span')) {
       return
     }
-    
+
     if (!uploadedFile && !isUploading) {
       fileInputRef.current?.click()
     }
@@ -96,120 +136,86 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
   const handleFileNameClick = async (e: React.MouseEvent) => {
     e.stopPropagation()
     e.preventDefault()
-    
+
     if (!uploadedFile) return
 
-    // docx 文件：只显示内容，不可点击
     if (isDocxFile(uploadedFile.fileName)) {
       return
     }
 
     const downloadUrl = getFileDownloadUrl(uploadedFile.fileId)
-    console.log('File URL:', downloadUrl, 'File ID:', uploadedFile.fileId, 'File Name:', uploadedFile.fileName)
-    
+
     try {
       const fileExt = uploadedFile.fileName.split('.').pop()?.toLowerCase()
-      const isPDF = fileExt === 'pdf'
-      const isPPT = fileExt === 'ppt' || fileExt === 'pptx'
-      
-      if (isPDF) {
-        // PDF 文件：在新标签页中打开预览
+
+      if (fileExt === 'pdf') {
         window.open(downloadUrl, '_blank')
-      } else if (isPPT) {
-        // PPT 文件：浏览器不支持直接预览，直接下载
-        // 使用 fetch 获取文件，创建 blob URL 来触发下载
-        try {
-          const response = await fetch(downloadUrl)
-          if (response.ok) {
-            const blob = await response.blob()
-            const blobUrl = URL.createObjectURL(blob)
-            const link = document.createElement('a')
-            link.href = blobUrl
-            link.download = uploadedFile.fileName
-            link.style.display = 'none'
-            document.body.appendChild(link)
-            link.click()
-            
-            // 清理
-            setTimeout(() => {
-              document.body.removeChild(link)
-              URL.revokeObjectURL(blobUrl)
-            }, 100)
-          } else {
-            // 如果 fetch 失败，回退到直接下载
-            const link = document.createElement('a')
-            link.href = downloadUrl
-            link.download = uploadedFile.fileName
-            link.style.display = 'none'
-            document.body.appendChild(link)
-            link.click()
-            setTimeout(() => {
-              document.body.removeChild(link)
-            }, 100)
-          }
-        } catch (fetchError) {
-          console.error('Fetch error:', fetchError)
-          // 如果 fetch 出错，回退到直接下载
+        return
+      }
+
+      if (fileExt === 'ppt' || fileExt === 'pptx') {
+        const response = await fetch(downloadUrl)
+        if (response.ok) {
+          const blob = await response.blob()
+          const blobUrl = URL.createObjectURL(blob)
           const link = document.createElement('a')
-          link.href = downloadUrl
+          link.href = blobUrl
           link.download = uploadedFile.fileName
           link.style.display = 'none'
           document.body.appendChild(link)
           link.click()
+
           setTimeout(() => {
             document.body.removeChild(link)
+            URL.revokeObjectURL(blobUrl)
           }, 100)
+          return
         }
-      } else {
-        // 其他文件类型：下载
-        const link = document.createElement('a')
-        link.href = downloadUrl
-        link.download = uploadedFile.fileName
-        link.style.display = 'none'
-        document.body.appendChild(link)
-        link.click()
-        
-        // 延迟移除链接，确保下载开始
-        setTimeout(() => {
-          document.body.removeChild(link)
-        }, 100)
       }
+
+      const link = document.createElement('a')
+      link.href = downloadUrl
+      link.download = uploadedFile.fileName
+      link.style.display = 'none'
+      document.body.appendChild(link)
+      link.click()
+      setTimeout(() => {
+        document.body.removeChild(link)
+      }, 100)
     } catch (error) {
       console.error('File open error:', error)
-      alert('打开文件失败，请重试')
+      setUploadError('Unable to open the file. Please try again shortly.')
     }
   }
 
   const handleDelete = (e: React.MouseEvent) => {
     e.stopPropagation()
     e.preventDefault()
-    
-    // 清除文件状态，允许重新上传
+
     setUploadedFile(null)
     setDocxContent('')
-    setContainerHeight(170) // 重置高度
-    
-    // 重置文件输入
+    setContainerHeight(170)
+    setStatusMessage('')
+    setUploadError('')
+
     if (fileInputRef.current) {
       fileInputRef.current.value = ''
     }
-    
-    // 通知父组件文件已删除（用于清除预设内容）
+
     onFileDeleted?.()
   }
 
-  // 调整大小处理
   const handleResizeStart = (e: React.MouseEvent) => {
     e.stopPropagation()
     e.preventDefault()
     setIsResizing(true)
-    
+
     const startY = e.clientY
     const startHeight = containerHeight
 
     const handleMouseMove = (moveEvent: MouseEvent) => {
       const deltaY = moveEvent.clientY - startY
-      const newHeight = Math.max(170, startHeight + deltaY) // 最小高度 170px
+      const newHeight = Math.max(170, startHeight + deltaY)
       setContainerHeight(newHeight)
     }
 
@@ -230,7 +236,6 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
         width: '100%',
       }}
     >
-      {/* 删除按钮 - 固定在外层，不随内容滚动 */}
       {uploadedFile && (
         <div
           onClick={handleDelete}
@@ -268,7 +273,6 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
         </div>
       )}
 
-      {/* 内容容器 - 可滚动 */}
       <div
         ref={containerRef}
         onClick={handleClick}
@@ -294,9 +298,8 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
           gap: px(12),
           justifyContent: uploadedFile || isUploading ? 'flex-start' : 'center',
           alignItems: uploadedFile || isUploading ? 'flex-start' : 'center',
-          // 隐藏滚动条但保持滚动功能
-          scrollbarWidth: 'none', // Firefox
-          msOverflowStyle: 'none', // IE/Edge
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
         }}
         className="hide-scrollbar"
       >
@@ -310,20 +313,16 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
 
         {isUploading ? (
           <div style={{ width: '100%', textAlign: 'center' }}>
-            <div>上传中... {Math.round(uploadProgress)}%</div>
+            <div>Uploading... {Math.round(uploadProgress)}%</div>
           </div>
         ) : uploadedFile ? (
-          <div
-            style={{
-              width: '100%',
-            }}
-          >
+          <div style={{ width: '100%' }}>
             <div
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 alignSelf: 'flex-start',
-                marginBottom: px(20)
+                marginBottom: px(12),
               }}
             >
               <span
@@ -346,8 +345,20 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
               </span>
             </div>
 
-            {/* DOCX 文件内容显示 */}
-            {docxContent && (
+            {statusMessage && (
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: px(14),
+                  color: '#2F8A15',
+                  marginBottom: px(12),
+                }}
+              >
+                {statusMessage}
+              </div>
+            )}
+
+            {docxContent ? (
               <div
                 style={{
                   width: '100%',
@@ -361,6 +372,16 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
                 }}
                 dangerouslySetInnerHTML={{ __html: docxContent }}
               />
+            ) : (
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontSize: px(14),
+                  color: '#8C8C8C',
+                }}
+              >
+                {DEFAULT_DESCRIPTION}
+              </div>
             )}
           </div>
         ) : (
@@ -371,7 +392,6 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
               gap: px(8),
             }}
           >
-            {/* 上传图标 */}
             <svg
               width="91"
               height="19"
@@ -398,9 +418,21 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
             </span>
           </div>
         )}
+
+        {uploadError && (
+          <div
+            style={{
+              marginTop: px(8),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontSize: px(14),
+              color: '#D92D20',
+            }}
+          >
+            {uploadError}
+          </div>
+        )}
       </div>
 
-      {/* 调整大小手柄 - 右下角 */}
       {uploadedFile && docxContent && (
         <div
           onMouseDown={handleResizeStart}
@@ -418,16 +450,13 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
             padding: px(2),
           }}
         >
-          {/* Resize 图标 - 类似 textarea 右下角的图标 */}
           <svg
             width="12"
             height="12"
             viewBox="0 0 12 12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            style={{
-              opacity: 0.5,
-            }}
+            style={{ opacity: 0.5 }}
           >
             <path
               d="M2 10L10 2M10 8V10H8M2 4V2H4"
@@ -442,4 +471,3 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
     </div>
   )
 }
-

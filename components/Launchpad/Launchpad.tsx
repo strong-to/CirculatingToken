@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAtom } from 'jotai'
 import { px } from '@/utils/pxToRem'
 import StepsBar from './com/StepsBar'
@@ -16,6 +16,9 @@ import SuccessPage from './com/SuccessPage'
 import { currentStepAtom } from '@/store/atoms'
 import type { RequirementRowData } from './com/RequirementRow'
 import type { UploadedFileInfo } from '@/utils/fileUpload'
+
+const LAUNCHPAD_STORAGE_KEY = 'launchpad-data'
+const LAUNCHPAD_STEP_KEY = 'launchpad-current-step'
 
 // 定义各步骤的数据类型
 export interface StepOneData {
@@ -84,6 +87,141 @@ export interface LaunchpadData {
   stepSix: StepSixData
 }
 
+const createDefaultLaunchpadData = (): LaunchpadData => ({
+  stepOne: {
+    firstTextareaValue: '',
+    secondTextareaValue: '',
+  },
+  stepTwo: {
+    inputValues: ['', '', '', ''],
+    uploadImages: Array(7).fill(null),
+  },
+  stepThree: {
+    filterValues: {},
+    uploadedFileInfo: null,
+    presetContent: '',
+  },
+  stepFour: {
+    requirementRows: Array.from({ length: 12 }, () => ({
+      selectedRequirement: '',
+      selectedUnit: '',
+      customRequirement: '',
+      customUnit: '',
+      quantity: '',
+      cause: '',
+    })),
+  },
+  stepFive: {
+    fieldValues: {
+      founderTokenProportion: '',
+      proposalInitiationTokenProportion: '',
+      adjustmentPassRateOfContributionWeight: '',
+      passiveResponsePassRate: '',
+      adjustmentPassRateOfMintingIndex: '',
+      projectLiquidationPassRate: '',
+      tokenMintingQuantityPerPhase: '',
+      tokenMintingIncrementalDifference: '',
+      tokenMintingIndex: '',
+      aaa: '',
+      bbb: '',
+      ccc: '',
+    },
+  },
+  stepSix: {
+    basicPricingMethod: '',
+    basicCustomLeftText: '',
+    basicCustomQuantities: ['', '', '', ''],
+    basicCustomPrices: ['', '', '', ''],
+    advancedPricingMethod: '',
+    advancedCustomLeftText: '',
+    advancedCustomQuantities: ['', '', '', ''],
+    advancedCustomPrices: ['', '', '', ''],
+    economicTableValues: Array(6)
+      .fill(null)
+      .map(() => Array(7).fill('')),
+  },
+})
+
+const mergeLaunchpadData = (incoming?: Partial<LaunchpadData>): LaunchpadData => {
+  const base = createDefaultLaunchpadData()
+  if (!incoming) return base
+  return {
+    stepOne: {
+      ...base.stepOne,
+      ...incoming.stepOne,
+    },
+    stepTwo: {
+      inputValues: incoming.stepTwo?.inputValues
+        ? [...incoming.stepTwo.inputValues]
+        : [...base.stepTwo.inputValues],
+      uploadImages: incoming.stepTwo?.uploadImages
+        ? [...incoming.stepTwo.uploadImages]
+        : [...base.stepTwo.uploadImages],
+    },
+    stepThree: {
+      filterValues: { ...base.stepThree.filterValues, ...incoming.stepThree?.filterValues },
+      uploadedFileInfo: incoming.stepThree?.uploadedFileInfo ?? base.stepThree.uploadedFileInfo,
+      presetContent: incoming.stepThree?.presetContent ?? base.stepThree.presetContent,
+    },
+    stepFour: {
+      requirementRows: incoming.stepFour?.requirementRows
+        ? [...incoming.stepFour.requirementRows]
+        : [...base.stepFour.requirementRows],
+    },
+    stepFive: {
+      fieldValues: {
+        ...base.stepFive.fieldValues,
+        ...incoming.stepFive?.fieldValues,
+      },
+    },
+    stepSix: {
+      basicPricingMethod: incoming.stepSix?.basicPricingMethod ?? base.stepSix.basicPricingMethod,
+      basicCustomLeftText: incoming.stepSix?.basicCustomLeftText ?? base.stepSix.basicCustomLeftText,
+      basicCustomQuantities: incoming.stepSix?.basicCustomQuantities
+        ? [...incoming.stepSix.basicCustomQuantities]
+        : [...base.stepSix.basicCustomQuantities],
+      basicCustomPrices: incoming.stepSix?.basicCustomPrices
+        ? [...incoming.stepSix.basicCustomPrices]
+        : [...base.stepSix.basicCustomPrices],
+      advancedPricingMethod:
+        incoming.stepSix?.advancedPricingMethod ?? base.stepSix.advancedPricingMethod,
+      advancedCustomLeftText:
+        incoming.stepSix?.advancedCustomLeftText ?? base.stepSix.advancedCustomLeftText,
+      advancedCustomQuantities: incoming.stepSix?.advancedCustomQuantities
+        ? [...incoming.stepSix.advancedCustomQuantities]
+        : [...base.stepSix.advancedCustomQuantities],
+      advancedCustomPrices: incoming.stepSix?.advancedCustomPrices
+        ? [...incoming.stepSix.advancedCustomPrices]
+        : [...base.stepSix.advancedCustomPrices],
+      economicTableValues: incoming.stepSix?.economicTableValues
+        ? incoming.stepSix.economicTableValues.map(row => [...row])
+        : base.stepSix.economicTableValues.map(row => [...row]),
+    },
+  }
+}
+
+const hasAnyUserInput = (data: LaunchpadData): boolean => {
+  if (data.stepOne.firstTextareaValue || data.stepOne.secondTextareaValue) return true
+  if (data.stepTwo.inputValues.some(value => value && value.trim() !== '')) return true
+  if (data.stepTwo.uploadImages.some(Boolean)) return true
+  if (data.stepThree.presetContent?.trim()) return true
+  if (data.stepThree.uploadedFileInfo) return true
+  if (data.stepFour.requirementRows.some(row => row.quantity || row.cause || row.selectedRequirement || row.customRequirement)) return true
+  if (Object.values(data.stepFive.fieldValues).some(value => value && value.trim() !== '')) return true
+  if (
+    data.stepSix.basicPricingMethod ||
+    data.stepSix.advancedPricingMethod ||
+    data.stepSix.basicCustomQuantities.some(Boolean) ||
+    data.stepSix.basicCustomPrices.some(Boolean) ||
+    data.stepSix.advancedCustomQuantities.some(Boolean) ||
+    data.stepSix.advancedCustomPrices.some(Boolean) ||
+    data.stepSix.economicTableValues.some(row => row.some(Boolean))
+  ) {
+    return true
+  }
+  return false
+}
+
 const steps = [
   { title: 'Purpose Description and Function Sorting' }, // UI: 三行
   { title: 'Naming and Brand Image Establishment' }, // UI: 两行
@@ -98,60 +236,69 @@ export default function Launchpad() {
   const [currentStep, setCurrentStep] = useAtom(currentStepAtom)
   const [showWelcome, setShowWelcome] = useState(true)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [isHydrated, setIsHydrated] = useState(false)
 
   // 统一的状态管理 - 所有步骤的数据
-  const [launchpadData, setLaunchpadData] = useState<LaunchpadData>({
-    stepOne: {
-      firstTextareaValue: '',
-      secondTextareaValue: '',
-    },
-    stepTwo: {
-      inputValues: ['', '', '', ''],
-      uploadImages: Array(7).fill(null),
-    },
-    stepThree: {
-      filterValues: {},
-      uploadedFileInfo: null,
-      presetContent: '',
-    },
-    stepFour: {
-      requirementRows: Array.from({ length: 12 }, () => ({
-        selectedRequirement: '',
-        selectedUnit: '',
-        customRequirement: '',
-        customUnit: '',
-        quantity: '',
-        cause: '',
-      })),
-    },
-    stepFive: {
-      fieldValues: {
-        founderTokenProportion: '',
-        proposalInitiationTokenProportion: '',
-        adjustmentPassRateOfContributionWeight: '',
-        passiveResponsePassRate: '',
-        adjustmentPassRateOfMintingIndex: '',
-        projectLiquidationPassRate: '',
-        tokenMintingQuantityPerPhase: '',
-        tokenMintingIncrementalDifference: '',
-        tokenMintingIndex: '',
-        aaa: '',
-        bbb: '',
-        ccc: '',
-      },
-    },
-    stepSix: {
-      basicPricingMethod: '',
-      basicCustomLeftText: '',
-      basicCustomQuantities: ['', '', '', ''],
-      basicCustomPrices: ['', '', '', ''],
-      advancedPricingMethod: '',
-      advancedCustomLeftText: '',
-      advancedCustomQuantities: ['', '', '', ''],
-      advancedCustomPrices: ['', '', '', ''],
-      economicTableValues: Array(6).fill(null).map(() => Array(7).fill('')),
-    },
-  })
+  const [launchpadData, setLaunchpadData] = useState<LaunchpadData>(() => createDefaultLaunchpadData())
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    try {
+      const savedDataRaw = window.localStorage.getItem(LAUNCHPAD_STORAGE_KEY)
+      if (savedDataRaw) {
+        const parsed = JSON.parse(savedDataRaw) as Partial<LaunchpadData>
+        const merged = mergeLaunchpadData(parsed)
+        setLaunchpadData(merged)
+        if (hasAnyUserInput(merged)) {
+          setShowWelcome(false)
+        }
+      }
+
+      const savedStepRaw = window.localStorage.getItem(LAUNCHPAD_STEP_KEY)
+      if (savedStepRaw) {
+        const savedStep = Number(savedStepRaw)
+        if (!Number.isNaN(savedStep) && savedStep >= 1 && savedStep <= steps.length) {
+          setCurrentStep(savedStep)
+          if (savedStep > 1) {
+            setShowWelcome(false)
+          }
+        }
+      }
+    } catch (error) {
+      console.warn('Failed to hydrate Launchpad progress', error)
+    } finally {
+      setIsHydrated(true)
+    }
+  }, [setCurrentStep])
+
+  useEffect(() => {
+    if (!isHydrated || typeof window === 'undefined') return
+    try {
+      window.localStorage.setItem(LAUNCHPAD_STORAGE_KEY, JSON.stringify(launchpadData))
+    } catch (error) {
+      console.warn('Failed to persist Launchpad data', error)
+    }
+  }, [launchpadData, isHydrated])
+
+  useEffect(() => {
+    if (!isHydrated || typeof window === 'undefined') return
+    try {
+      window.localStorage.setItem(LAUNCHPAD_STEP_KEY, String(currentStep))
+    } catch (error) {
+      console.warn('Failed to persist Launchpad step', error)
+    }
+  }, [currentStep, isHydrated])
+
+  const clearPersistedProgress = () => {
+    if (typeof window === 'undefined') return
+    try {
+      window.localStorage.removeItem(LAUNCHPAD_STORAGE_KEY)
+      window.localStorage.removeItem(LAUNCHPAD_STEP_KEY)
+    } catch (error) {
+      console.warn('Failed to clear Launchpad progress', error)
+    }
+  }
 
   // 处理开始按钮点击
   const handleStart = () => {
@@ -169,6 +316,7 @@ export default function Launchpad() {
     } else {
       // 所有步骤完成后显示成功页
       setShowSuccess(true)
+      clearPersistedProgress()
     }
   }
 
@@ -333,4 +481,3 @@ export default function Launchpad() {
     </section>
   )
 }
-

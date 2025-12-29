@@ -397,6 +397,7 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
               // 不重置 isRefreshClicked，保持按钮禁用状态
             }}
             presetContent={presetContent}
+            uploadedFileInfo={uploadedFileInfo}
           />
 
 
@@ -418,4 +419,3 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
     </>
   )
 }
-

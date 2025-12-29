@@ -9,11 +9,16 @@ import {
   UserRatingIcon,
 } from '@/components/icons/Icons'
 import styles from './BlueSquareCard.module.css'
+import { CDN_PREFIX } from '@/utils/cdn'
 
 interface BlueSquareCardProps {
   src: string
   alt: string
 }
+
+const CDN = CDN_PREFIX
+const ICON_GAMES = `${CDN}/home/icons/img/games.png`
+const ICON_ARROW = `${CDN}/home/icons/img/arr.png`
 
 export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
   const [showDetail, setShowDetail] = useState(false)
@@ -49,7 +54,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
                 <ImageWithSkeleton 
-                  src="/home/icons/img/games.png" 
+                  src={ICON_GAMES} 
                   alt="games" 
                   fill 
                   objectFit="contain"
@@ -66,7 +71,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
                 </div>
               </div>
               <div className="h-full">
-                {/* <Image src="/home/icons/img/arr.png" alt="arrow" width={24} height={24} /> */}
+                {/* <Image src={ICON_ARROW} alt="arrow" width={24} height={24} /> */}
               </div>
             </div>
 
@@ -153,7 +158,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             <div className={`border border-white flex items-center justify-center ${styles.iconContainerSmallsh}`}>
             <div className={` flex items-center justify-center ${styles.iconContainerSmall} ${styles.iconImageWrapper}`}>
                 <ImageWithSkeleton 
-                  src="/home/icons/img/games.png" 
+                  src={ICON_GAMES} 
                   alt="games" 
                   fill 
                   objectFit="contain"
@@ -170,7 +175,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
                 </div>
               </div>
               <div className="h-full">
-                <ImageWithSkeleton src="/home/icons/img/arr.png" alt="arrow" width={24} height={24} objectFit="contain" />
+                <ImageWithSkeleton src={ICON_ARROW} alt="arrow" width={24} height={24} objectFit="contain" />
               </div>
             </div>
 
@@ -222,5 +227,4 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
     </div>
   )
 }
-
 

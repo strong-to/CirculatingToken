@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 import styles from './BlueSquareCard.module.css'
 import { px } from '@/utils/pxToRem'
-import { CDN_PREFIX, toCdnUrl } from '@/utils/cdn'
+import { CDN_PREFIX } from '@/utils/cdn'
 import type { HomepageProjectCard } from '@/lib/types'
 
 interface BlueSquareCardProps {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useId } from 'react'
 import { px } from '@/utils/pxToRem'
 
 interface SubCategory {
@@ -40,7 +40,7 @@ export default function FilterDropdown({
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)
   const firstLevelRef = useRef<HTMLDivElement>(null)
-  const maskId = useRef(`dropdown-arrow-${Math.random().toString(36).substring(7)}`).current
+  const maskId = useId().replace(/:/g, '')
   const [dropdownWidth, setDropdownWidth] = useState<number>(0)
   const [firstLevelHeight, setFirstLevelHeight] = useState<number>(0)
 
@@ -412,4 +412,3 @@ export default function FilterDropdown({
     </div>
   )
 }
-

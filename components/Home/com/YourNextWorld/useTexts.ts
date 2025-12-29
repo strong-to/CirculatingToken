@@ -6,6 +6,9 @@
 
 import { useState, useEffect } from 'react';
 import { texts as defaultTexts } from './resources';
+import { CDN_PREFIX } from '@/utils/cdn';
+
+const TEXTS_URL = `${CDN_PREFIX}/home/YourNextWorld/text/texts.json`;
 
 export function useTexts() {
   const [texts, setTexts] = useState(defaultTexts);
@@ -16,7 +19,7 @@ export function useTexts() {
     const loadTexts = async () => {
       try {
         const timestamp = Date.now();
-        const response = await fetch(`/home/YourNextWorld/text/texts.json?t=${timestamp}`, {
+        const response = await fetch(`${TEXTS_URL}?t=${timestamp}`, {
           cache: 'no-store',
           headers: {
             'Cache-Control': 'no-cache, no-store, must-revalidate',
@@ -70,4 +73,3 @@ export function useTexts() {
 
   return texts;
 }
-

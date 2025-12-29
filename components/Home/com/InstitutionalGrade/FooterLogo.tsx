@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from 'react'
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
-
+import { toCdnUrl } from '@/utils/cdn'
 import { images } from './resources'
 
 export default function FooterLogo() {
@@ -13,7 +13,7 @@ export default function FooterLogo() {
     { src: images.footerLogo.opal, alt: 'Opal' },
     { src: images.footerLogo.dune, alt: 'Dune' },
     { src: images.footerLogo.oas, alt: 'Oas' },
-  ]
+  ].map((logo) => ({ ...logo, src: toCdnUrl(logo.src) }))
 
   const containerRef = useRef<HTMLDivElement>(null)
   const [spacing, setSpacing] = useState(200)
@@ -121,4 +121,3 @@ export default function FooterLogo() {
     </div>
   )
 }
-

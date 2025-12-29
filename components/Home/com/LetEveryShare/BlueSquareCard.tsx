@@ -4,11 +4,16 @@ import Image from "next/image";
 import { useState } from "react";
 import styles from "./BlueSquareCard.module.css";
 import { px } from "@/utils/pxToRem";
+import { CDN_PREFIX } from "@/utils/cdn";
 
 interface BlueSquareCardProps {
   src: string;
   alt: string;
 }
+
+const CDN = CDN_PREFIX;
+const ICON_SWORD = `${CDN}/home/icons/img/sword.png`;
+const ICON_ARROW = `${CDN}/home/icons/img/arr.png`;
 
 export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
   const [showDetail, setShowDetail] = useState(false);
@@ -67,7 +72,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               style={{ width: px(60), height: px(60) }}
             >
               <Image
-                src="/home/icons/img/sword.png"
+                src={ICON_SWORD}
                 alt="games"
                 fill
                 className="object-contain"
@@ -113,7 +118,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
             style={{ width: px(24), height: px(24) }}
           >
             <Image
-              src="/home/icons/img/arr.png"
+              src={ICON_ARROW}
               alt="arrow"
               width={24}
               height={24}
@@ -258,7 +263,7 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
               style={{ width: px(60), height: px(60),marginRight: px(15) }}
             >
               <Image
-                src="/home/icons/img/sword.png"
+                src={ICON_SWORD}
                 alt="games"
                 fill
                 className="object-contain"

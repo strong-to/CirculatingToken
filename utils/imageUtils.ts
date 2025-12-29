@@ -3,6 +3,8 @@
  * 用于处理CDN、图片优化和懒加载
  */
 
+import { CDN_PREFIX } from '@/utils/cdn'
+
 /**
  * 获取优化后的图片URL
  * @param src 原始图片路径
@@ -59,11 +61,11 @@ export function getOptimizedImageUrl(
 export function shouldUsePriority(src: string, isAboveFold: boolean = false): boolean {
   // 首屏关键图片列表
   const criticalImages = [
-    '/header/img/logo.png',
-    '/header/img/search.png',
-    '/header/img/language.png',
-    '/header/img/Group.png',
-    '/header/img/user.png',
+    `${CDN_PREFIX}/header/img/logo.png`,
+    `${CDN_PREFIX}/header/img/search.png`,
+    `${CDN_PREFIX}/header/img/language.png`,
+    `${CDN_PREFIX}/header/img/Group.png`,
+    `${CDN_PREFIX}/header/img/user.png`,
   ]
 
   // 如果是关键图片或在首屏，使用priority
@@ -84,11 +86,11 @@ export function shouldLazyLoad(src: string, isAboveFold: boolean = false): boole
 
   // 关键图片不懒加载
   const criticalImages = [
-    '/header/img/logo.png',
-    '/header/img/search.png',
-    '/header/img/language.png',
-    '/header/img/Group.png',
-    '/header/img/user.png',
+    `${CDN_PREFIX}/header/img/logo.png`,
+    `${CDN_PREFIX}/header/img/search.png`,
+    `${CDN_PREFIX}/header/img/language.png`,
+    `${CDN_PREFIX}/header/img/Group.png`,
+    `${CDN_PREFIX}/header/img/user.png`,
   ]
 
   if (criticalImages.some(critical => src.includes(critical))) {
@@ -133,4 +135,3 @@ export function preloadImage(src: string): void {
     document.head.appendChild(link)
   }
 }
-

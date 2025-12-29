@@ -30,10 +30,10 @@ The system SHALL resolve every project id referenced by the homepage config agai
 - **WHEN** the homepage data is assembled
 - **THEN** every image/asset URL SHALL be rewritten to `https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/...`, and the UI SHALL NOT depend on the local filesystem for those resources.
 
-### Requirement: Client-side taxonomy filtering
-The system SHALL expose at least domain and action filters on each dataset-driven section so visitors can toggle filter chips and immediately re-render the cards, showing only projects whose taxonomy arrays include the selected values.
+### Requirement: Homepage sections render without filter controls
+The curated homepage sections SHALL render the project list defined in `dataset/index.json` without exposing taxonomy filter chips; audiences browse the editorial list as-is.
 
-#### Scenario: Filtering by domain updates cards
-- **GIVEN** a visitor selects the "AI / Computing" filter chip in a section
-- **WHEN** the filter state updates
-- **THEN** only projects whose `taxonomy.domain` contains "AI / Computing" SHALL remain visible, and clearing the chip restores all curated projects without a full page reload.
+#### Scenario: No filter UI is displayed
+- **GIVEN** a visitor views any dataset-driven homepage section
+- **WHEN** the section renders
+- **THEN** no filter toggle UI is shown, and the section displays the curated cards in the order provided by the dataset config.

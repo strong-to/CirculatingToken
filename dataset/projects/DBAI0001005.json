@@ -11,12 +11,12 @@
     "summary": "Spin up feedback loops where every action boosts creator vaults.",
     "description_md": "## 关于 Signal Loop\nSpin up feedback loops where every action boosts creator vaults.\n\n### 功能亮点\n- Communities that pay back.",
     "media": {
-      "logo": "/images/Investing/games.png",
-      "banner": "/images/Investing/Investing5.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/games.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/Investing5.png",
       "assets": [
         {
           "type": "image",
-          "url": "/images/Investing/Investing5.png",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/Investing5.png",
           "context": "usecase_card_5",
           "description": "Spin up feedback loops where every action boosts creator vaults."
         }

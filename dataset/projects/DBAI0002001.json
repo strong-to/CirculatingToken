@@ -11,12 +11,12 @@
     "summary": "Drop short-form explainers that split revenue with every embed.",
     "description_md": "## 关于 Mirror Stage\nDrop short-form explainers that split revenue with every embed.\n\n### 功能亮点\n- Share-to-earn video walls.",
     "media": {
-      "logo": "/images/Investing/games.png",
-      "banner": "/images/LetEveryShare/Investing1.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/games.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/LetEveryShare/Investing1.png",
       "assets": [
         {
           "type": "image",
-          "url": "/images/LetEveryShare/Investing1.png",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/LetEveryShare/Investing1.png",
           "context": "letshare_card_1",
           "description": "Drop short-form explainers that split revenue with every embed."
         }

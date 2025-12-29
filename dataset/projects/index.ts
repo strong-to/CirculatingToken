@@ -1,0 +1,152 @@
+import type { Project } from '@/lib/types'
+import project_DBAI0000001 from './DBAI0000001.json'
+import project_DBAI0000002 from './DBAI0000002.json'
+import project_DBAI0000003 from './DBAI0000003.json'
+import project_DBAI0000004 from './DBAI0000004.json'
+import project_DBAI0000005 from './DBAI0000005.json'
+import project_DBAI0000006 from './DBAI0000006.json'
+import project_DBAI0000007 from './DBAI0000007.json'
+import project_DBAI0000008 from './DBAI0000008.json'
+import project_DBAI0000009 from './DBAI0000009.json'
+import project_DBAI0000010 from './DBAI0000010.json'
+import project_DBAI0000011 from './DBAI0000011.json'
+import project_DBAI0000012 from './DBAI0000012.json'
+import project_DBAI0000013 from './DBAI0000013.json'
+import project_DBAI0000014 from './DBAI0000014.json'
+import project_DBAI0000015 from './DBAI0000015.json'
+import project_DBAI0000016 from './DBAI0000016.json'
+import project_DBAI0000017 from './DBAI0000017.json'
+import project_DBAI0000018 from './DBAI0000018.json'
+import project_DBAI0000019 from './DBAI0000019.json'
+import project_DBAI0000020 from './DBAI0000020.json'
+import project_DBAI0000021 from './DBAI0000021.json'
+import project_DBAI0000022 from './DBAI0000022.json'
+import project_DBAI0000023 from './DBAI0000023.json'
+import project_DBAI0000024 from './DBAI0000024.json'
+import project_DBAI0000025 from './DBAI0000025.json'
+import project_DBAI0000026 from './DBAI0000026.json'
+import project_DBAI0000027 from './DBAI0000027.json'
+import project_DBAI0000028 from './DBAI0000028.json'
+import project_DBAI0000029 from './DBAI0000029.json'
+import project_DBAI0000030 from './DBAI0000030.json'
+import project_DBAI0000211 from './DBAI0000211.json'
+import project_DBAI0001001 from './DBAI0001001.json'
+import project_DBAI0001002 from './DBAI0001002.json'
+import project_DBAI0001004 from './DBAI0001004.json'
+import project_DBAI0001005 from './DBAI0001005.json'
+import project_DBAI0002001 from './DBAI0002001.json'
+import project_DBAI0002003 from './DBAI0002003.json'
+import project_DBAI0002004 from './DBAI0002004.json'
+import project_DBAI0002005 from './DBAI0002005.json'
+import project_DBAI0003002 from './DBAI0003002.json'
+import project_DBAI0003003 from './DBAI0003003.json'
+import project_DBAI0003004 from './DBAI0003004.json'
+import project_DBAI0003005 from './DBAI0003005.json'
+import project_DBTF0000001 from './DBTF0000001.json'
+import project_DBTF0000002 from './DBTF0000002.json'
+import project_DBTF0000003 from './DBTF0000003.json'
+import project_DBTF0000004 from './DBTF0000004.json'
+import project_DBTF0000005 from './DBTF0000005.json'
+import project_DBTF0000006 from './DBTF0000006.json'
+import project_DBTF0000007 from './DBTF0000007.json'
+import project_DBTF0000008 from './DBTF0000008.json'
+import project_DBTF0000009 from './DBTF0000009.json'
+import project_DBTF0000010 from './DBTF0000010.json'
+import project_DBTF0000011 from './DBTF0000011.json'
+import project_DBTF0000012 from './DBTF0000012.json'
+import project_DBTF0000013 from './DBTF0000013.json'
+import project_DBTF0000014 from './DBTF0000014.json'
+import project_DBTF0000015 from './DBTF0000015.json'
+import project_DBTF0000016 from './DBTF0000016.json'
+import project_DBTF0000017 from './DBTF0000017.json'
+import project_DBTF0000018 from './DBTF0000018.json'
+import project_DBTF0000019 from './DBTF0000019.json'
+import project_DBTF0000020 from './DBTF0000020.json'
+import project_DBTF0000021 from './DBTF0000021.json'
+import project_DBTF0000022 from './DBTF0000022.json'
+import project_DBTF0000023 from './DBTF0000023.json'
+import project_DBTF0000024 from './DBTF0000024.json'
+import project_DBTF0000025 from './DBTF0000025.json'
+import project_DBTF0000026 from './DBTF0000026.json'
+import project_DBTF0000027 from './DBTF0000027.json'
+import project_DBTF0000028 from './DBTF0000028.json'
+import project_DBTF0000029 from './DBTF0000029.json'
+import project_DBTF0000030 from './DBTF0000030.json'
+
+const projectsMap: Record<string, Project> = {
+  'DBAI0000001': project_DBAI0000001 as Project,
+  'DBAI0000002': project_DBAI0000002 as Project,
+  'DBAI0000003': project_DBAI0000003 as Project,
+  'DBAI0000004': project_DBAI0000004 as Project,
+  'DBAI0000005': project_DBAI0000005 as Project,
+  'DBAI0000006': project_DBAI0000006 as Project,
+  'DBAI0000007': project_DBAI0000007 as Project,
+  'DBAI0000008': project_DBAI0000008 as Project,
+  'DBAI0000009': project_DBAI0000009 as Project,
+  'DBAI0000010': project_DBAI0000010 as Project,
+  'DBAI0000011': project_DBAI0000011 as Project,
+  'DBAI0000012': project_DBAI0000012 as Project,
+  'DBAI0000013': project_DBAI0000013 as Project,
+  'DBAI0000014': project_DBAI0000014 as Project,
+  'DBAI0000015': project_DBAI0000015 as Project,
+  'DBAI0000016': project_DBAI0000016 as Project,
+  'DBAI0000017': project_DBAI0000017 as Project,
+  'DBAI0000018': project_DBAI0000018 as Project,
+  'DBAI0000019': project_DBAI0000019 as Project,
+  'DBAI0000020': project_DBAI0000020 as Project,
+  'DBAI0000021': project_DBAI0000021 as Project,
+  'DBAI0000022': project_DBAI0000022 as Project,
+  'DBAI0000023': project_DBAI0000023 as Project,
+  'DBAI0000024': project_DBAI0000024 as Project,
+  'DBAI0000025': project_DBAI0000025 as Project,
+  'DBAI0000026': project_DBAI0000026 as Project,
+  'DBAI0000027': project_DBAI0000027 as Project,
+  'DBAI0000028': project_DBAI0000028 as Project,
+  'DBAI0000029': project_DBAI0000029 as Project,
+  'DBAI0000030': project_DBAI0000030 as Project,
+  'DBAI0000211': project_DBAI0000211 as Project,
+  'DBAI0001001': project_DBAI0001001 as Project,
+  'DBAI0001002': project_DBAI0001002 as Project,
+  'DBAI0001004': project_DBAI0001004 as Project,
+  'DBAI0001005': project_DBAI0001005 as Project,
+  'DBAI0002001': project_DBAI0002001 as Project,
+  'DBAI0002003': project_DBAI0002003 as Project,
+  'DBAI0002004': project_DBAI0002004 as Project,
+  'DBAI0002005': project_DBAI0002005 as Project,
+  'DBAI0003002': project_DBAI0003002 as Project,
+  'DBAI0003003': project_DBAI0003003 as Project,
+  'DBAI0003004': project_DBAI0003004 as Project,
+  'DBAI0003005': project_DBAI0003005 as Project,
+  'DBTF0000001': project_DBTF0000001 as Project,
+  'DBTF0000002': project_DBTF0000002 as Project,
+  'DBTF0000003': project_DBTF0000003 as Project,
+  'DBTF0000004': project_DBTF0000004 as Project,
+  'DBTF0000005': project_DBTF0000005 as Project,
+  'DBTF0000006': project_DBTF0000006 as Project,
+  'DBTF0000007': project_DBTF0000007 as Project,
+  'DBTF0000008': project_DBTF0000008 as Project,
+  'DBTF0000009': project_DBTF0000009 as Project,
+  'DBTF0000010': project_DBTF0000010 as Project,
+  'DBTF0000011': project_DBTF0000011 as Project,
+  'DBTF0000012': project_DBTF0000012 as Project,
+  'DBTF0000013': project_DBTF0000013 as Project,
+  'DBTF0000014': project_DBTF0000014 as Project,
+  'DBTF0000015': project_DBTF0000015 as Project,
+  'DBTF0000016': project_DBTF0000016 as Project,
+  'DBTF0000017': project_DBTF0000017 as Project,
+  'DBTF0000018': project_DBTF0000018 as Project,
+  'DBTF0000019': project_DBTF0000019 as Project,
+  'DBTF0000020': project_DBTF0000020 as Project,
+  'DBTF0000021': project_DBTF0000021 as Project,
+  'DBTF0000022': project_DBTF0000022 as Project,
+  'DBTF0000023': project_DBTF0000023 as Project,
+  'DBTF0000024': project_DBTF0000024 as Project,
+  'DBTF0000025': project_DBTF0000025 as Project,
+  'DBTF0000026': project_DBTF0000026 as Project,
+  'DBTF0000027': project_DBTF0000027 as Project,
+  'DBTF0000028': project_DBTF0000028 as Project,
+  'DBTF0000029': project_DBTF0000029 as Project,
+  'DBTF0000030': project_DBTF0000030 as Project,
+}
+
+export default projectsMap

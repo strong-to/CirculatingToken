@@ -6,17 +6,22 @@
 
 // 从组件目录读取文案（JSON 文件从 public 目录同步过来）
 import textsData from './text/texts.json'
+import { CDN_PREFIX } from '@/utils/cdn'
+
+const CDN = CDN_PREFIX
 
 // ==================== 图片资源 ====================
-export const images = {
-  footerLogo: {
-    asterisk: '/home/FooterLogo/img/asterisk.png',
-    books: '/home/FooterLogo/img/books.png',
-    opal: '/home/FooterLogo/img/opal.png',
-    dune: '/home/FooterLogo/img/dune.png',
-    oas: '/home/FooterLogo/img/oas.png',
-  },
+const footerLogoPaths = {
+  asterisk: `${CDN}/home/FooterLogo/img/asterisk.png`,
+  books: `${CDN}/home/FooterLogo/img/books.png`,
+  opal: `${CDN}/home/FooterLogo/img/opal.png`,
+  dune: `${CDN}/home/FooterLogo/img/dune.png`,
+  oas: `${CDN}/home/FooterLogo/img/oas.png`,
 } as const
+
+export const images = {
+  footerLogo: footerLogoPaths,
+}
 
 // ==================== 文案资源 ====================
 // 从 public 目录读取文案

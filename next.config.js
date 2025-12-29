@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
+const CDN_HOSTNAME = 'miaocode-ai.oss-ap-southeast-1.aliyuncs.com'
+
 const nextConfig = {
   reactStrictMode: true,
   // 启用静态导出，打包文件将输出到 out 目录
@@ -12,14 +14,20 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     // 允许的图片域名（如果使用CDN）
-    remotePatterns: process.env.NEXT_PUBLIC_CDN_BASE_URL
-      ? [
-          {
-            protocol: 'https',
-            hostname: new URL(process.env.NEXT_PUBLIC_CDN_BASE_URL).hostname,
-          },
-        ]
-      : [],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: CDN_HOSTNAME,
+      },
+      ...(process.env.NEXT_PUBLIC_CDN_BASE_URL
+        ? [
+            {
+              protocol: 'https',
+              hostname: new URL(process.env.NEXT_PUBLIC_CDN_BASE_URL).hostname,
+            },
+          ]
+        : []),
+    ],
   },
   
   // 压缩配置
@@ -61,6 +69,5 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
-
 
 

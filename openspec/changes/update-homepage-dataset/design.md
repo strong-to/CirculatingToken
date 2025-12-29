@@ -9,7 +9,7 @@
 1. **首页配置**：新增 `dataset/index.json`，包含 `sections`（section id -> 文案、按钮、项目 id 列表）与 `filters`（筛选标签及对应 taxonomy 字段）两部分，便于运营只改 JSON 即可生效。
 2. **数据加载器**：实现 `lib/homepageData.ts`，静态导入配置并与 `dataset/projects` 合并，返回类型化对象 `{ sectionId, title, projects[], filters }`，内部缓存解析结果，避免多个组件重复解析。
 3. **筛选策略**：在每个 section 组件内使用 React state 做客户端筛选，过滤逻辑直接基于项目里的 taxonomy 数组；各 section 互不干扰，但共享相同的筛选维度定义。
-4. **素材与文案对齐**：逐项更新会上线的项目 JSON，把 `profile.media` 中的 hero/asset URL 改成 `/public/images/...`，并确保 `summary`、CTA 文案等与当前页面展示完全一致（若有冲突以现有页面为准），必要时扩展 `heroImage`、`posterDescription` 字段。
+4. **素材与文案对齐**：逐项更新会上线的项目 JSON，把 `profile.media` 中的 hero/asset URL 改成 OSS 远程路径 `https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/...`，并确保 `summary`、CTA 文案等与当前页面展示完全一致（若有冲突以现有页面为准），必要时扩展 `heroImage`、`posterDescription` 字段。
 
 ## 风险与取舍
 - 额外导入 JSON 可能增加 bundle 体积，可通过 loader 仅暴露必要字段来控制大小。

@@ -6,14 +6,19 @@
 
 // 从组件目录读取文案（JSON 文件从 public 目录同步过来）
 import textsData from './text/texts.json'
+import { CDN_PREFIX } from '@/utils/cdn'
+
+const CDN = CDN_PREFIX
 
 // ==================== 图片资源 ====================
-export const images = {
+const imagePaths = {
   // 背景图片（初始化状态）
-  background: '/home/FreedomToEnter/img/bgc.png',
+  background: `${CDN}/home/FreedomToEnter/img/bgc.png`,
   // Hover 状态 GIF 动画
-  hover: '/home/FreedomToEnter/img/hover.gif',
+  hover: `${CDN}/home/FreedomToEnter/img/hover.gif`,
 } as const
+
+export const images = imagePaths
 
 // ==================== 文案资源 ====================
 // 从 public 目录读取文案

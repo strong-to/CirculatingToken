@@ -2,11 +2,12 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/BuildWithThe/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-import { images } from '@/components/Home/com/BuildWithThe/resources'
+import { useHomepageSection } from '@/components/Home/hooks/useHomepageSection'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -22,12 +23,16 @@ export default function  BuildWithThe() {
   const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 15 // 1.41875rem = 22.7px
-
-  // 小图标：使用 /tokenMarketplace/ContentCard/img/icon 里的最后 10 个 icon（icon_21 到 icon_30）
-  const buildWithIconImages = Array.from({ length: 10 }, (_, i) => {
-    const num = 21 + i // 21..30
-    return `/tokenMarketplace/ContentCard/img/icon/icon_${num}.png`
-  })
+  const {
+    sectionData,
+    cards,
+    filterOptions,
+    hasActiveFilters,
+    toggleFilter,
+    activeFilters,
+  } = useHomepageSection('build-with-the')
+  const showNoResults = hasActiveFilters && cards.length === 0
+  const swiperKey = cards.map((card) => card.systemId).join('-')
 
   // 检测操作系统
   useEffect(() => {
@@ -40,6 +45,13 @@ export default function  BuildWithThe() {
     }
   }, [])
 
+  if (!sectionData) {
+    return null
+  }
+
+  const headingTop = sectionData.titleLines.slice(0, sectionData.titleLines.length - 1).join(' ')
+  const headingBottom = sectionData.titleLines.at(-1) ?? ''
+
   return ( 
     <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]">
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
@@ -51,12 +63,12 @@ export default function  BuildWithThe() {
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
                 fontStyle: 'normal',
-                fontSize: '5.125rem', // 82px = 5.125rem
+                fontSize: '5.125rem',
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
             >
-             Build With The Brightest Minds 
+             {headingTop}
             </div>
 
             <div className="relative flex items-center">
@@ -90,12 +102,12 @@ export default function  BuildWithThe() {
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
                   fontStyle: 'normal',
-                  fontSize: '5.125rem', // 82px = 5.125rem
+                  fontSize: '5.125rem',
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
               >
-            Worldwide
+            {headingBottom}
               </div>
               
               <button
@@ -106,7 +118,7 @@ export default function  BuildWithThe() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >Contribute AI Projects and Earn</span>
+              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >{sectionData.panelTriggerLabel}</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -167,7 +179,7 @@ export default function  BuildWithThe() {
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
+                href={sectionData.learnMoreHref}
                 className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -178,7 +190,7 @@ export default function  BuildWithThe() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <span style={{ marginRight: '0.625rem' }}>{sectionData.learnMoreLabel}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -205,19 +217,58 @@ export default function  BuildWithThe() {
             >
               Top Use-to-Earn Picks
             </div>
-            {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-            <button
-              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
-              style={{
-                width: '17.296875rem', // 276.75px
-                height: '3.9375rem', // 63px
-                fontSize: '1.75rem', // 28px
-                borderRadius: '0.25rem' // 4px
-              }}
-            >
-              View all projects
-            </button>
+            <Link href={sectionData.cta.href}>
+              <button
+                className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
+                style={{
+                  width: '17.296875rem',
+                  height: '3.9375rem',
+                  fontSize: '1.75rem',
+                  borderRadius: '0.25rem'
+                }}
+              >
+                {sectionData.cta.label}
+              </button>
+            </Link>
           </div>
+
+          {filterOptions.length > 0 && (
+            <div className="flex flex-wrap gap-4 mb-6">
+              {filterOptions.map((filter) => (
+                <div key={filter.key} className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="text-black"
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontSize: px(18),
+                    }}
+                  >
+                    {filter.label}:
+                  </span>
+                  {filter.options.map((option) => {
+                    const selected = activeFilters[filter.key] === option
+                    return (
+                      <button
+                        key={option}
+                        className="border px-3 py-1 rounded-full transition-colors"
+                        style={{
+                          borderColor: '#000',
+                          backgroundColor: selected ? '#000' : 'transparent',
+                          color: selected ? '#fff' : '#000',
+                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                          fontWeight: 300,
+                        }}
+                        onClick={() => toggleFilter(filter.key, option)}
+                      >
+                        {option}
+                      </button>
+                    )
+                  })}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div 
             className="relative"
@@ -286,145 +337,55 @@ export default function  BuildWithThe() {
 
 
 
-            <Swiper
-              modules={[Navigation, Mousewheel]}
-              spaceBetween={gap}
-              loop={true}
-              grabCursor={true}
-              watchSlidesProgress={true}
-              // 滚动逻辑与 WhereUsingBecomes 保持一致：freeMode + mousewheel 惯性左右滑
-              freeMode={{
-                enabled: true,
-                momentum: true,
-                momentumRatio: 1.5,
-                momentumBounce: false,
-              }}
-              mousewheel={{
-                forceToAxis: true,
-                releaseOnEdges: true,
-                sensitivity: 1.2,
-                thresholdDelta: 1,
-              }}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper
-              }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                640: {
-                  slidesPerView: 3,
-                },
-                1024: {
-                  slidesPerView: 5,
-                },
-              }}
-            >
-              {/* 原始5张卡片（映射 ChatContent 第 21~25 条：索引 20~24），使用 icon21~25 */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing1}
-                    alt="Investing card 1"
-                    cardIndex={20}
-                    iconSrcOverride={buildWithIconImages[0]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing2}
-                    alt="Investing card 2"
-                    cardIndex={21}
-                    iconSrcOverride={buildWithIconImages[1]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing3}
-                    alt="Investing card 3"
-                    cardIndex={22}
-                    iconSrcOverride={buildWithIconImages[2]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing4}
-                    alt="Investing card 4"
-                    cardIndex={23}
-                    iconSrcOverride={buildWithIconImages[3]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing5}
-                    alt="Investing card 5"
-                    cardIndex={24}
-                    iconSrcOverride={buildWithIconImages[4]}
-                  />
-                </div>
-              </SwiperSlide>
-              
-              {/* 复制卡片以支持循环模式（映射 ChatContent 第 26~30 条：索引 25~29），使用 icon26~30 */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing6}
-                    alt="Investing card 1"
-                    cardIndex={25}
-                    iconSrcOverride={buildWithIconImages[5]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing7}
-                    alt="Investing card 2"
-                    cardIndex={26}
-                    iconSrcOverride={buildWithIconImages[6]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing8}
-                    alt="Investing card 3"
-                    cardIndex={27}
-                    iconSrcOverride={buildWithIconImages[7]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing9}
-                    alt="Investing card 4"
-                    cardIndex={28}
-                    iconSrcOverride={buildWithIconImages[8]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing10}
-                    alt="Investing card 5"
-                    cardIndex={29}
-                    iconSrcOverride={buildWithIconImages[9]}
-                  />
-                </div>
-              </SwiperSlide>
-              
-            </Swiper>
+            {showNoResults ? (
+              <div
+                className="flex items-center justify-center text-black border border-dashed border-black/40 rounded-md p-6"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(20),
+                }}
+              >
+                暂无符合筛选条件的项目
+              </div>
+            ) : (
+              <Swiper
+                key={swiperKey}
+                modules={[Navigation, Mousewheel]}
+                spaceBetween={gap}
+                loop={cards.length > 3}
+                grabCursor
+                watchSlidesProgress
+                freeMode={{
+                  enabled: true,
+                  momentum: true,
+                  momentumRatio: 1.5,
+                  momentumBounce: false,
+                }}
+                mousewheel={{
+                  forceToAxis: true,
+                  releaseOnEdges: true,
+                  sensitivity: 1.2,
+                  thresholdDelta: 1,
+                }}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper
+                }}
+                breakpoints={{
+                  0: { slidesPerView: 1 },
+                  640: { slidesPerView: 3 },
+                  1024: { slidesPerView: 5 },
+                }}
+              >
+                {cards.map((project) => (
+                  <SwiperSlide key={project.systemId}>
+                    <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
+                      <BlueSquareCard project={project} accentColor={sectionData.accentColor} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
 
 
 
@@ -435,4 +396,3 @@ export default function  BuildWithThe() {
     </section>
   )
 }
-

@@ -11,12 +11,12 @@
     "summary": "Commerce toolkit that rewards referrals with locked staking slots.",
     "description_md": "## 关于 Pulse Gate\nCommerce toolkit that rewards referrals with locked staking slots.\n\n### 功能亮点\n- Launchpads with loyalty bonds.",
     "media": {
-      "logo": "/images/Investing/games.png",
-      "banner": "/images/LetEveryShare/Investing4.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/games.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/LetEveryShare/Investing4.png",
       "assets": [
         {
           "type": "image",
-          "url": "/images/LetEveryShare/Investing4.png",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/LetEveryShare/Investing4.png",
           "context": "letshare_card_4",
           "description": "Commerce toolkit that rewards referrals with locked staking slots."
         }

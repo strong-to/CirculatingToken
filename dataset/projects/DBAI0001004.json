@@ -11,12 +11,12 @@
     "summary": "Bridge idle treasuries into permissioned AI vaults with automated exits.",
     "description_md": "## 关于 Atlas Yield\nBridge idle treasuries into permissioned AI vaults with automated exits.\n\n### 功能亮点\n- Route stable savings into AI ops.",
     "media": {
-      "logo": "/images/Investing/games.png",
-      "banner": "/images/Investing/Investing4.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/games.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/Investing4.png",
       "assets": [
         {
           "type": "image",
-          "url": "/images/Investing/Investing4.png",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/Investing4.png",
           "context": "usecase_card_4",
           "description": "Bridge idle treasuries into permissioned AI vaults with automated exits."
         }

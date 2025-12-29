@@ -11,12 +11,12 @@
     "summary": "Composable console turning everyday AI usage into staking-grade missions.",
     "description_md": "## 关于 Nebula Console\nComposable console turning everyday AI usage into staking-grade missions.\n\n### 功能亮点\n- Self-custodial compute orchestration.",
     "media": {
-      "logo": "/images/Investing/games.png",
-      "banner": "/images/Investing/Investing1.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/games.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/Investing1.png",
       "assets": [
         {
           "type": "image",
-          "url": "/images/Investing/Investing1.png",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/Investing1.png",
           "context": "usecase_card_1",
           "description": "Composable console turning everyday AI usage into staking-grade missions."
         }

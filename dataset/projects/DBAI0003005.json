@@ -11,12 +11,12 @@
     "summary": "Managed data plane that rewards operators for low-latency replicas.",
     "description_md": "## 关于 Node Atlas\nManaged data plane that rewards operators for low-latency replicas.\n\n### 功能亮点\n- Index once, serve everywhere.",
     "media": {
-      "logo": "/images/Investing/games.png",
-      "banner": "/images/BuildWithThe/Investing5.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/Investing/games.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/BuildWithThe/Investing5.png",
       "assets": [
         {
           "type": "image",
-          "url": "/images/BuildWithThe/Investing5.png",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/images/BuildWithThe/Investing5.png",
           "context": "build_card_5",
           "description": "Managed data plane that rewards operators for low-latency replicas."
         }

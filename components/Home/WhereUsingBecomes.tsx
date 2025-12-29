@@ -5,9 +5,9 @@ import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/UseCaseSection/CollapsiblePanelContent'
-import { PlusIcon, MinusIcon, LearnMoreArrowIcon, TopBadgeIcon } from '@/components/icons/Icons'
-import { images } from '@/components/Home/com/WhereUsingBecomes/resources'
+import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { px } from '@/utils/pxToRem'
+import { useHomepageSection } from '@/components/Home/hooks/useHomepageSection'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Mousewheel } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
@@ -21,6 +21,11 @@ export default function WhereUsingBecomes() {
   const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 15 // 1.41875rem = 22.7px
+  const { sectionData, cards, filterOptions, hasActiveFilters, toggleFilter, activeFilters } =
+    useHomepageSection('where-using-becomes-investing')
+
+  const showNoResults = hasActiveFilters && cards.length === 0
+  const swiperKey = cards.map((card) => card.systemId).join('-')
 
   // 检测操作系统
   useEffect(() => {
@@ -32,6 +37,13 @@ export default function WhereUsingBecomes() {
       setIsWindows(isWindowsOS)
     }
   }, [])
+
+  if (!sectionData) {
+    return null
+  }
+
+  const headingTop = sectionData.titleLines.slice(0, sectionData.titleLines.length - 1).join(' ')
+  const headingBottom = sectionData.titleLines.at(-1) ?? ''
 
   return ( 
     <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]">
@@ -49,7 +61,7 @@ export default function WhereUsingBecomes() {
                 letterSpacing: '0%'
               }}
             >
-              Where Using Becomes
+              {headingTop}
             </div>
 
             <div className="relative flex items-center ">
@@ -86,7 +98,7 @@ export default function WhereUsingBecomes() {
                   letterSpacing: '0%'
                 }}
               >
-             Investing
+             {headingBottom}
               </div>
   
               <button
@@ -109,7 +121,7 @@ export default function WhereUsingBecomes() {
                     textAlign: "right",
                   }}
                 >
-                  Use AI Apps and Earn
+                  {sectionData.panelTriggerLabel}
                 </span>
                 <div className="relative" style={{ width: '31px', height: '31px' }}>
                   <div
@@ -168,7 +180,7 @@ export default function WhereUsingBecomes() {
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
+                href={sectionData.learnMoreHref}
                 className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -206,8 +218,7 @@ export default function WhereUsingBecomes() {
             >
               Top Use-to-Earn Picks
             </div>
-            {/* 右侧按钮：View all projects，点击跳转 /ProjectHub */}
-            <Link href="/ProjectHub">
+            <Link href={sectionData.cta.href}>
               <button
                 className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
                 style={{
@@ -226,11 +237,49 @@ export default function WhereUsingBecomes() {
                     letterSpacing: "0%",
                   }}
                 >
-                  View all projects
+                  {sectionData.cta.label}
                 </span>
               </button>
             </Link>
           </div>
+
+          {filterOptions.length > 0 && (
+            <div className="flex flex-wrap gap-4 mb-6">
+              {filterOptions.map((filter) => (
+                <div key={filter.key} className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="text-black"
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontSize: px(18),
+                    }}
+                  >
+                    {filter.label}:
+                  </span>
+                  {filter.options.map((option) => {
+                    const selected = activeFilters[filter.key] === option
+                    return (
+                      <button
+                        key={option}
+                        className="border px-3 py-1 rounded-full transition-colors"
+                        style={{
+                          borderColor: '#000',
+                          backgroundColor: selected ? '#000' : 'transparent',
+                          color: selected ? '#fff' : '#000',
+                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                          fontWeight: 300,
+                        }}
+                        onClick={() => toggleFilter(filter.key, option)}
+                      >
+                        {option}
+                      </button>
+                    )
+                  })}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div 
             className="relative"
@@ -297,148 +346,55 @@ export default function WhereUsingBecomes() {
               </button>
             )}
 
-            <Swiper
-              modules={[Navigation, Mousewheel]}
-              spaceBetween={gap}
-              loop={true}
-              grabCursor={true}
-              watchSlidesProgress={true}
-              // 使用 freeMode + mousewheel，让左右滚动有“惯性”而不是一次滚动一个卡片
-              freeMode={{
-                enabled: true,
-                momentum: true,
-                momentumRatio: 1.5,      // 惯性更明显一些
-                momentumBounce: false,
-              }}
-              mousewheel={{
-                forceToAxis: true,      // 只根据水平方向滚动
-                releaseOnEdges: true,   // 滑到边缘时把滚动交还给页面
-                sensitivity: 1.2,       // 提高灵敏度，滑一下走得更多
-                thresholdDelta: 1,      // 较小的滑动也能触发滚动
-              }}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper
-              }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                640: {
-                  slidesPerView: 3,
-                },
-                1024: {
-                  slidesPerView: 5,
-                },
-              }}
-            >
-              {/* 原始5张卡片 */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing1}
-                    alt="Investing card 1"
-                    cardIndex={0}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_1.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing2}
-                    alt="Investing card 2"
-                    cardIndex={1}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_2.png"
-                  />
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing3}
-                    alt="Investing card 3"
-                    cardIndex={2}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_3.png"
-                  />
-                </div>
-              </SwiperSlide>
-
-              
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing4}
-                    alt="Investing card 4"
-                    cardIndex={3}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_4.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing5}
-                    alt="Investing card 5"
-                    cardIndex={4}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_5.png"
-                  />
-                </div>
-              </SwiperSlide>
-              
-              {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing6}
-                    alt="Investing card 1"
-                    cardIndex={5}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_6.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing7}
-                    alt="Investing card 2"
-                    cardIndex={6}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_7.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing8}
-                    alt="Investing card 3"
-                    cardIndex={7}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_8.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing9}
-                    alt="Investing card 4"
-                    cardIndex={8}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_9.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing10}
-                    alt="Investing card 5"
-                    cardIndex={9}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_10.png"
-                  />
-                </div>
-              </SwiperSlide>
-              
-            </Swiper>
+            {showNoResults ? (
+              <div
+                className="flex items-center justify-center text-black border border-dashed border-black/40 rounded-md p-6"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(20),
+                }}
+              >
+                暂无符合筛选条件的项目
+              </div>
+            ) : (
+              <Swiper
+                key={swiperKey}
+                modules={[Navigation, Mousewheel]}
+                spaceBetween={gap}
+                loop={cards.length > 3}
+                grabCursor={true}
+                watchSlidesProgress={true}
+                freeMode={{
+                  enabled: true,
+                  momentum: true,
+                  momentumRatio: 1.5,
+                  momentumBounce: false,
+                }}
+                mousewheel={{
+                  forceToAxis: true,
+                  releaseOnEdges: true,
+                  sensitivity: 1.2,
+                  thresholdDelta: 1,
+                }}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper
+                }}
+                breakpoints={{
+                  0: { slidesPerView: 1 },
+                  640: { slidesPerView: 3 },
+                  1024: { slidesPerView: 5 },
+                }}
+              >
+                {cards.map((project) => (
+                  <SwiperSlide key={project.systemId}>
+                    <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
+                      <BlueSquareCard project={project} accentColor={sectionData.accentColor} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
 
 
 
@@ -450,4 +406,3 @@ export default function WhereUsingBecomes() {
     </section>
   )
 }
-

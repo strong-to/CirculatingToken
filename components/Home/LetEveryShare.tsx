@@ -3,12 +3,11 @@
 
 import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LetEveryShare/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-import { images, texts } from '@/components/Home/com/LetEveryShare/resources'
+import { useHomepageSection } from '@/components/Home/hooks/useHomepageSection'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -24,6 +23,16 @@ export default function LetEveryShare() {
   const swiperRef = useRef<SwiperType | null>(null)
   
   const gap = 15 // 1.41875rem = 22.7px
+  const {
+    sectionData,
+    cards,
+    filterOptions,
+    hasActiveFilters,
+    toggleFilter,
+    activeFilters,
+  } = useHomepageSection('let-every-share')
+  const showNoResults = hasActiveFilters && cards.length === 0
+  const swiperKey = cards.map((card) => card.systemId).join('-')
 
   // 检测操作系统
   useEffect(() => {
@@ -35,6 +44,13 @@ export default function LetEveryShare() {
       setIsWindows(isWindowsOS)
     }
   }, [])
+
+  if (!sectionData) {
+    return null
+  }
+
+  const headingTop = sectionData.titleLines.slice(0, sectionData.titleLines.length - 1).join(' ')
+  const headingBottom = sectionData.titleLines.at(-1) ?? ''
 
   return ( 
     <section className="bg-white flex flex-col min-h-[calc(100vh-4.5rem)]">
@@ -50,12 +66,12 @@ export default function LetEveryShare() {
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 fontWeight: 300,
                 fontStyle: 'normal',
-                fontSize: '5.125rem', // 82px = 5.125rem
+                fontSize: '5.125rem',
                 lineHeight: '100%',
                 letterSpacing: '0%'
               }}
             >
-              Let Every Share Come 
+              {headingTop}
             </div>
 
             <div className="relative" style={{ width: px(88), height: px(88) }}>
@@ -104,12 +120,12 @@ export default function LetEveryShare() {
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
                   fontStyle: 'normal',
-                  fontSize: '5.125rem', // 82px = 5.125rem
+                  fontSize: '5.125rem',
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
               >
-             With Joy
+             {headingBottom}
               </div>
   
               <button
@@ -132,7 +148,7 @@ export default function LetEveryShare() {
                     textAlign: "right",
                   }}
                 >
-                  Share AI Projects and Earn
+                  {sectionData.panelTriggerLabel}
                 </span>
                 <div className="relative" style={{ width: '31px', height: '31px' }}>
                   <div
@@ -196,7 +212,7 @@ export default function LetEveryShare() {
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
+                href={sectionData.learnMoreHref}
                 className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -206,8 +222,8 @@ export default function LetEveryShare() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
-              >
-                <span style={{ marginRight: '0.625rem' }}>{texts.linkLearnMore}</span>
+                >
+                  <span style={{ marginRight: '0.625rem' }}>{sectionData.learnMoreLabel}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -235,7 +251,7 @@ export default function LetEveryShare() {
               Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，点击跳转 /ProjectHub */}
-            <Link href="/ProjectHub">
+            <Link href={sectionData.cta.href}>
               <button
                 className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
                 style={{
@@ -254,11 +270,49 @@ export default function LetEveryShare() {
                     letterSpacing: "0%",
                   }}
                 >
-                  View all projects
+                  {sectionData.cta.label}
                 </span>
               </button>
             </Link>
           </div>
+
+          {filterOptions.length > 0 && (
+            <div className="flex flex-wrap gap-4 mb-6">
+              {filterOptions.map((filter) => (
+                <div key={filter.key} className="flex flex-wrap items-center gap-2">
+                  <span
+                    className="text-black"
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontSize: px(18),
+                    }}
+                  >
+                    {filter.label}:
+                  </span>
+                  {filter.options.map((option) => {
+                    const selected = activeFilters[filter.key] === option
+                    return (
+                      <button
+                        key={option}
+                        className="border px-3 py-1 rounded-full transition-colors"
+                        style={{
+                          borderColor: '#000',
+                          backgroundColor: selected ? '#000' : 'transparent',
+                          color: selected ? '#fff' : '#000',
+                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                          fontWeight: 300,
+                        }}
+                        onClick={() => toggleFilter(filter.key, option)}
+                      >
+                        {option}
+                      </button>
+                    )
+                  })}
+                </div>
+              ))}
+            </div>
+          )}
 
           <div 
             className="relative"
@@ -326,149 +380,56 @@ export default function LetEveryShare() {
             )}
 
 
-
-            <Swiper
-              modules={[Navigation, Mousewheel]}
-              spaceBetween={gap}
-              loop={true}
-              grabCursor={true}
-              watchSlidesProgress={true}
-              // 滚动逻辑与 WhereUsingBecomes 保持一致：freeMode + mousewheel 惯性左右滑
-              freeMode={{
-                enabled: true,
-                momentum: true,
-                momentumRatio: 1.5,
-                momentumBounce: false,
-              }}
-              mousewheel={{
-                forceToAxis: true,
-                releaseOnEdges: true,
-                sensitivity: 1.2,
-                thresholdDelta: 1,
-              }}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper
-              }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                640: {
-                  slidesPerView: 3,
-                },
-                1024: {
-                  slidesPerView: 5,
-                },
-              }}
-            >
-              {/* 原始5张卡片（使用 icon_11 到 icon_15） */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing1}
-                    alt="Investing card 1"
-                    cardIndex={20}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_11.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing2}
-                    alt="Investing card 2"
-                    cardIndex={21}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_12.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing3}
-                    alt="Investing card 3"
-                    cardIndex={22}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_13.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing4}
-                    alt="Investing card 4"
-                    cardIndex={23}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_14.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing5}
-                    alt="Investing card 5"
-                    cardIndex={24}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_15.png"
-                  />
-                </div>
-              </SwiperSlide>
+            {showNoResults ? (
+              <div
+                className="flex items-center justify-center text-black border border-dashed border-black/40 rounded-md p-6"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(20),
+                }}
+              >
+                暂无符合筛选条件的项目
+              </div>
+            ) : (
+              <Swiper
+                key={swiperKey}
+                modules={[Navigation, Mousewheel]}
+                spaceBetween={gap}
+                loop={cards.length > 3}
+                grabCursor
+                watchSlidesProgress
+                freeMode={{
+                  enabled: true,
+                  momentum: true,
+                  momentumRatio: 1.5,
+                  momentumBounce: false,
+                }}
+                mousewheel={{
+                  forceToAxis: true,
+                  releaseOnEdges: true,
+                  sensitivity: 1.2,
+                  thresholdDelta: 1,
+                }}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper
+                }}
+                breakpoints={{
+                  0: { slidesPerView: 1 },
+                  640: { slidesPerView: 3 },
+                  1024: { slidesPerView: 5 },
+                }}
+              >
+                {cards.map((project) => (
+                  <SwiperSlide key={project.systemId}>
+                    <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
+                      <BlueSquareCard project={project} accentColor={sectionData.accentColor} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
               
-              {/* 复制卡片以支持循环模式（使用 icon_16 到 icon_20） */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing6}
-                    alt="Investing card 1"
-                    cardIndex={25}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_16.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing7}
-                    alt="Investing card 2"
-                    cardIndex={26}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_17.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing8}
-                    alt="Investing card 3"
-                    cardIndex={27}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_18.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing9}
-                    alt="Investing card 4"
-                    cardIndex={28}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_19.png"
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing10}
-                    alt="Investing card 5"
-                    cardIndex={29}
-                    iconSrcOverride="/tokenMarketplace/ContentCard/img/icon/icon_20.png"
-                  />
-                </div>
-              </SwiperSlide>
-              
-            </Swiper>
-
-
-
           </div>
 
         </div>
@@ -476,4 +437,3 @@ export default function LetEveryShare() {
     </section>
   )
 }
-

@@ -1,3 +1,5 @@
+import { toCdnUrl } from '@/utils/cdn'
+
 /**
  * 图片预加载工具函数
  * 用于在 Header hover 和页面切换时预加载图片
@@ -142,6 +144,17 @@ export const imageResources = {
 /**
  * 页面名称到图片资源的映射
  */
+const mapToCdn = (paths: string[]) => paths.map((path) => toCdnUrl(path))
+
+imageResources.criticalImages = mapToCdn(imageResources.criticalImages)
+imageResources.homeImages = mapToCdn(imageResources.homeImages)
+imageResources.launchpadImages = mapToCdn(imageResources.launchpadImages)
+imageResources.tokenMarketplaceImages = mapToCdn(imageResources.tokenMarketplaceImages)
+imageResources.lendingVaultImages = mapToCdn(imageResources.lendingVaultImages)
+imageResources.conferenceRoomImages = mapToCdn(imageResources.conferenceRoomImages)
+imageResources.mortgageMarketImages = mapToCdn(imageResources.mortgageMarketImages)
+imageResources.projectConstructionImages = mapToCdn(imageResources.projectConstructionImages)
+
 export const pageImageMap: Record<string, string[]> = {
   '/': [...imageResources.criticalImages, ...imageResources.homeImages],
   '/Launchpad': imageResources.launchpadImages,
@@ -288,4 +301,3 @@ export const preloadPageImages = (
     }
   }
 }
-

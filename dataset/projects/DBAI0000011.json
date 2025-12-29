@@ -1,0 +1,84 @@
+{
+  "system_id": "DBAI0000011",
+  "slug": "dbai0000011",
+  "status": "active",
+  "profile": {
+    "name": "ECONOSET",
+    "symbol": "DAI0000011",
+    "type_en": "AI Program",
+    "category_cn": "智能产品",
+    "slogan": "THIS IS AN ECONOMIC",
+    "summary": "THIS IS AN ECONOMIC INSTRUCTION AI DATASET.",
+    "description_md": "## 关于 ECONOSET\nTHIS IS AN ECONOMIC INSTRUCTION AI DATASET.\n\n### 卡片说明\n- Text\n- Markets & Trade\n- Summarize\n- Data",
+    "media": {
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/home/icons/img/games.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/home/LetEveryShare/img/Investing1.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/home/LetEveryShare/img/Investing1.png",
+          "context": "homepage_hero",
+          "description": "THIS IS AN ECONOMIC INSTRUCTION AI DATASET."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/dbai0000011",
+      "whitepaper": "https://deepblue.example/dbai0000011/paper.pdf",
+      "github": "https://github.com/deepblue/dbai0000011"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Markets & Trade"
+    ],
+    "object": [
+      "Data"
+    ],
+    "action": [
+      "Summarize"
+    ],
+    "interaction_form": [
+      "Text"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.6,
+      "contributors_count": 40,
+      "total_commits": 600
+    },
+    "operation": {
+      "total_users": 65000,
+      "new_users_24h": 250,
+      "revenue_total": 125000,
+      "revenue_24h": 6000
+    },
+    "rating": {
+      "score": 4.0,
+      "review_count": 30
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 1.5,
+      "market_cap": 600000,
+      "change_24h_percent": 1.5,
+      "volume_24h": 25000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1000,
+      "burned_24h": 50
+    },
+    "staking": {
+      "total_staked": 300000,
+      "staking_ratio": 0.3,
+      "unstaked_24h": 500,
+      "apy": 0.12
+    }
+  }
+}

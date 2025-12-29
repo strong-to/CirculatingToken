@@ -5,126 +5,120 @@
       "taxonomyKey": "domain"
     },
     "action": {
-      "label": "行动",
+      "label": "能力",
       "taxonomyKey": "action"
     }
   },
   "sections": {
     "where-using-becomes-investing": {
-      "title": "Where Using Becomes Investing",
+      "titleLines": ["Where Using Becomes", "Investing"],
       "panelTriggerLabel": "Use AI Apps and Earn",
       "learnMoreLabel": "Learn more details",
       "learnMoreHref": "#",
       "cta": {
         "label": "View all projects",
-        "href": "#projects"
+        "href": "/ProjectHub"
       },
       "accentColor": "#0045FF",
+      "backgroundColor": "#F5F5F5",
       "filterKeys": ["domain", "action"],
-      "projectSlots": [
-        {
-          "projectId": "DBAI0001001",
-          "variant": "poster",
-          "assetContext": "usecase_card_1"
-        },
-        {
-          "projectId": "DBAI0001002",
-          "variant": "poster",
-          "assetContext": "usecase_card_2"
-        },
-        {
-          "projectId": "DBAI0000211",
-          "variant": "feature",
-          "assetContext": "usecase_feature"
-        },
-        {
-          "projectId": "DBAI0001004",
-          "variant": "poster",
-          "assetContext": "usecase_card_4"
-        },
-        {
-          "projectId": "DBAI0001005",
-          "variant": "poster",
-          "assetContext": "usecase_card_5"
-        }
+      "projectIds": [
+        "DBAI0000009",
+        "DBAI0000020",
+        "DBAI0000017",
+        "DBAI0000005",
+        "DBAI0000002",
+        "DBAI0000007",
+        "DBAI0000006",
+        "DBAI0000001",
+        "DBAI0000012",
+        "DBAI0000022"
+      ],
+      "cardIconOverrides": [
+        "/tokenMarketplace/ContentCard/img/icon/icon_1.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_2.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_3.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_4.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_5.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_6.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_7.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_8.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_9.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_10.png"
       ]
     },
     "let-every-share": {
-      "title": "Let Every Share Come With Joy",
+      "titleLines": ["Let Every Share Come", "With Joy"],
       "panelTriggerLabel": "Share AI Projects and Earn",
       "learnMoreLabel": "Learn more details",
       "learnMoreHref": "#",
       "cta": {
         "label": "View all projects",
-        "href": "#projects"
+        "href": "/ProjectHub"
       },
       "accentColor": "#E1050D",
+      "backgroundColor": "#FFFFFF",
       "filterKeys": ["domain", "action"],
-      "projectSlots": [
-        {
-          "projectId": "DBAI0002001",
-          "variant": "poster",
-          "assetContext": "letshare_card_1"
-        },
-        {
-          "projectId": "DBAI0000211",
-          "variant": "feature",
-          "assetContext": "letshare_feature"
-        },
-        {
-          "projectId": "DBAI0002003",
-          "variant": "poster",
-          "assetContext": "letshare_card_3"
-        },
-        {
-          "projectId": "DBAI0002004",
-          "variant": "poster",
-          "assetContext": "letshare_card_4"
-        },
-        {
-          "projectId": "DBAI0002005",
-          "variant": "poster",
-          "assetContext": "letshare_card_5"
-        }
+      "projectIds": [
+        "DBAI0000011",
+        "DBAI0000008",
+        "DBAI0000025",
+        "DBAI0000013",
+        "DBAI0000010",
+        "DBAI0000003",
+        "DBAI0000024",
+        "DBAI0000018",
+        "DBAI0000029",
+        "DBAI0000004"
+      ],
+      "cardIconOverrides": [
+        "/tokenMarketplace/ContentCard/img/icon/icon_11.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_12.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_13.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_14.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_15.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_16.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_17.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_18.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_19.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_20.png"
       ]
     },
     "build-with-the": {
-      "title": "Build With The Brightest Minds Worldwide",
+      "titleLines": ["Build With The", "Brightest Minds Worldwide"],
       "panelTriggerLabel": "Contribute AI Projects and Earn",
       "learnMoreLabel": "Learn more details",
       "learnMoreHref": "#",
       "cta": {
         "label": "View all projects",
-        "href": "#projects"
+        "href": "/ProjectHub"
       },
       "accentColor": "#8000EA",
+      "backgroundColor": "#FFFFFF",
       "filterKeys": ["domain", "action"],
-      "projectSlots": [
-        {
-          "projectId": "DBAI0000211",
-          "variant": "feature",
-          "assetContext": "build_feature"
-        },
-        {
-          "projectId": "DBAI0003002",
-          "variant": "poster",
-          "assetContext": "build_card_2"
-        },
-        {
-          "projectId": "DBAI0003003",
-          "variant": "poster",
-          "assetContext": "build_card_3"
-        },
-        {
-          "projectId": "DBAI0003004",
-          "variant": "poster",
-          "assetContext": "build_card_4"
-        },
-        {
-          "projectId": "DBAI0003005",
-          "variant": "poster",
-          "assetContext": "build_card_5"
-        }
+      "projectIds": [
+        "DBAI0000015",
+        "DBAI0000014",
+        "DBAI0000016",
+        "DBAI0000026",
+        "DBAI0000027",
+        "DBAI0000019",
+        "DBAI0000021",
+        "DBAI0000030",
+        "DBAI0000023",
+        "DBAI0000028"
+      ],
+      "cardIconOverrides": [
+        "/tokenMarketplace/ContentCard/img/icon/icon_21.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_22.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_23.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_24.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_25.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_26.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_27.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_28.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_29.png",
+        "/tokenMarketplace/ContentCard/img/icon/icon_30.png"
       ]
     }
   }

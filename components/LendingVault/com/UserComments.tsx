@@ -2,7 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react'
 import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
-import { px } from "@/utils/pxToRem"
+import { px } from '@/utils/pxToRem'
+import { CDN_PREFIX } from '@/utils/cdn'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
@@ -10,6 +11,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 
 export default function UserComments() {
+  const CDN = CDN_PREFIX
   const [checkedItems, setCheckedItems] = useState<{ [key: string]: boolean }>({
     'Excellent': true,
     'Good': false,
@@ -314,7 +316,7 @@ export default function UserComments() {
                       }}
                     >
                       <ImageWithSkeleton
-                        src={`/LendingVault/UserComments/${item.img}`}
+                        src={`${CDN}/LendingVault/UserComments/${item.img}`}
                         alt={item.name}
                         width={60}
                         height={60}
@@ -451,8 +453,8 @@ export default function UserComments() {
                             overflow: 'hidden',
                           }}
                         >
-                          <ImageWithSkeleton
-                            src={`/LendingVault/UserComments/${item.img}`}
+                      <ImageWithSkeleton
+                        src={`${CDN}/LendingVault/UserComments/${item.img}`}
                             alt={item.name}
                             width={60}
                             height={60}
@@ -627,4 +629,3 @@ export default function UserComments() {
        </>
       )
 }
-

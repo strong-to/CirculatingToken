@@ -90,7 +90,7 @@ export default function ProjectGovernance() {
             }}
           >
             {/* <Image
-              src="/LendingVault/ProjectConstruction/logo2.png"
+              src="https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/logo2.png"
               alt="Project Construction Logo2"
               width={200}
               height={200}
@@ -110,4 +110,3 @@ export default function ProjectGovernance() {
         </div>
       )
 }
-

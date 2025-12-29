@@ -3,11 +3,14 @@
 import { useState, useRef, useEffect } from 'react'
 import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { px } from '@/utils/pxToRem'
+import { CDN_PREFIX } from '@/utils/cdn'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
+
+const CDN = CDN_PREFIX
 
 export default function Banner() {
   const [isWindows, setIsWindows] = useState(false)
@@ -47,14 +50,14 @@ export default function Banner() {
 
 
   // 图片路径数组
-  const images = Array.from({ length: 6 }, (_, i) => `/LendingVault/banner/item/Mask${i + 1}.png`)
+  const images = Array.from({ length: 6 }, (_, i) => `${CDN}/LendingVault/banner/item/Mask${i + 1}.png`)
 
   return (
     <>
       {/* 主 Banner 图片 */}
       <div className="w-full" style={{ height: px(540) }}>
         <ImageWithSkeleton
-          src="/LendingVault/banner/MaskGroup.png"
+          src={`${CDN}/LendingVault/banner/MaskGroup.png`}
           alt="Banner"
           width={1920}
           height={540}

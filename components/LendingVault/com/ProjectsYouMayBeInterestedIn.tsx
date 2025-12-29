@@ -9,8 +9,10 @@ import { Navigation } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { CDN_PREFIX } from '@/utils/cdn'
 
 export default function ProjectsYouMayBeInterestedIn() {
+  const CDN = CDN_PREFIX
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const swiperRef = useRef<SwiperType | null>(null)
@@ -29,7 +31,10 @@ export default function ProjectsYouMayBeInterestedIn() {
   }, [])
 
   // 6张图片路径
-  const images = Array.from({ length: 6 }, (_, i) => `/LendingVault/ProjectsYouMayBeInterestedIn/img/Mask${i + 1}.png`)
+  const images = Array.from(
+    { length: 6 },
+    (_, i) => `${CDN}/LendingVault/ProjectsYouMayBeInterestedIn/img/Mask${i + 1}.png`
+  )
 
   return (
     

@@ -13,6 +13,8 @@ interface BlueSquareCardProps {
 }
 
 const FALLBACK_BUTTONS = ['AI', 'Data', 'Earn', 'Share']
+const HOVER_OVERLAY_COLOR = '#083FD8'
+const DETAIL_OVERLAY_COLOR = '#CB2C22'
 
 function calculateButtonWidths(buttons: string[]): string[] {
   if (buttons.length !== 4) {
@@ -41,7 +43,31 @@ function formatNumber(value: number): string {
   return `${value}`
 }
 
-export default function BlueSquareCard({ project, accentColor }: BlueSquareCardProps) {
+function RatingStars({ score }: { score: number }) {
+  const filledStars = Math.round(score)
+  return (
+    <div className="flex items-center gap-1">
+      {Array.from({ length: 5 }, (_, idx) => (
+        <svg
+          key={`star-${idx}`}
+          width={18}
+          height={18}
+          viewBox="0 0 18 18"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M9.00012 0.818359L10.8371 6.47186H16.7815L11.9723 9.96591L13.8093 15.6194L9.00012 12.1254L4.19097 15.6194L6.0279 9.96591L1.21875 6.47186H7.16319L9.00012 0.818359Z"
+            fill={idx < filledStars ? 'white' : 'none'}
+            stroke="white"
+          />
+        </svg>
+      ))}
+    </div>
+  )
+}
+
+export default function BlueSquareCard({ project, accentColor: _accentColor }: BlueSquareCardProps) {
   const [showDetail, setShowDetail] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const [buttonHovered, setButtonHovered] = useState<string | null>(null)
@@ -56,13 +82,38 @@ export default function BlueSquareCard({ project, accentColor }: BlueSquareCardP
   const buttonWidths = calculateButtonWidths(taxonomyButtons)
   const iconSrc = project.icon ?? `${CDN_PREFIX}/home/icons/img/games.png`
   const arrowIcon = `${CDN_PREFIX}/home/icons/img/arr.png`
+  const overlayColor = showDetail ? DETAIL_OVERLAY_COLOR : HOVER_OVERLAY_COLOR
 
   const descriptions = [project.summary, project.slogan ?? project.summary]
-  const metrics = [
-    { label: 'Market Cap', value: formatCurrency(project.tokenomics.price_info.market_cap) },
-    { label: '24h Revenue', value: formatCurrency(project.metrics.operation.revenue_24h) },
-    { label: 'Total Users', value: formatNumber(project.metrics.operation.total_users) },
-    { label: 'User Rating', value: `${project.metrics.rating.score.toFixed(1)} / 5` },
+  const detailMetrics: Array<{
+    label: string
+    value: string
+    actionLabel: string
+    type?: 'rating'
+    ratingScore?: number
+  }> = [
+    {
+      label: '24h Revenue',
+      value: formatCurrency(project.metrics.operation.revenue_24h),
+      actionLabel: 'Details',
+    },
+    {
+      label: 'Market Cap',
+      value: formatCurrency(project.tokenomics.price_info.market_cap),
+      actionLabel: 'Share',
+    },
+    {
+      label: 'Total Users',
+      value: formatNumber(project.metrics.operation.total_users),
+      actionLabel: 'Market',
+    },
+    {
+      label: 'User Rating',
+      value: `${project.metrics.rating.score.toFixed(1)} / 5`,
+      actionLabel: 'Favorites',
+      type: 'rating',
+      ratingScore: project.metrics.rating.score,
+    },
   ]
 
   return (
@@ -90,7 +141,7 @@ export default function BlueSquareCard({ project, accentColor }: BlueSquareCardP
         className="absolute bottom-0 left-0 w-full aspect-square text-white flex flex-col justify-start cursor-pointer transition-all duration-300 ease-in-out"
         style={{
           padding: px(30),
-          backgroundColor: showDetail ? accentColor : `${accentColor}CC`,
+          backgroundColor: overlayColor,
           opacity: isHovered || showDetail ? 1 : 0,
           transform: isHovered || showDetail ? 'translateY(0)' : 'translateY(20px)',
           pointerEvents: isHovered || showDetail ? 'auto' : 'none',
@@ -194,24 +245,78 @@ export default function BlueSquareCard({ project, accentColor }: BlueSquareCardP
         )}
 
         {showDetail && (
-          <div className="mt-4 grid grid-cols-2 gap-4">
-            {metrics.map((metric) => (
-              <div key={`${project.systemId}-${metric.label}`}>
-                <div
-                  className="text-white/70 flex items-center gap-2"
-                  style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontSize: px(14) }}
-                >
-                  {metric.label}
+          <>
+            <div>
+              <div className="flex items-center justify-start" style={{ height: px(60) }}>
+                <div className="relative flex items-center justify-center" style={{ width: px(60), height: px(60), marginRight: px(15) }}>
+                  <Image src={iconSrc} alt="icon" fill className="object-contain" />
                 </div>
-                <div
-                  className="font-semibold text-white"
-                  style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontSize: px(18), marginTop: px(4) }}
-                >
-                  {metric.value}
+
+                <div className="h-full flex flex-col justify-between" style={{ paddingTop: px(2), paddingBottom: px(2) }}>
+                  <div
+                    className="leading-[1] tracking-[0] text-white"
+                    style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontSize: px(23), lineHeight: px(25) }}
+                  >
+                    {project.name}
+                  </div>
+                  <div
+                    className="leading-[1] tracking-[0] text-white"
+                    style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontSize: px(23), lineHeight: px(25) }}
+                  >
+                    {project.systemId}
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+
+            <div style={{ marginTop: px(26) }}>
+              {detailMetrics.map((metric, idx) => (
+                <div
+                  key={`${project.systemId}-${metric.label}`}
+                  className="flex items-center justify-between"
+                  style={{
+                    height: px(36),
+                    marginTop: idx === 0 ? 0 : px(20),
+                  }}
+                >
+                  <div className="flex flex-col items-start justify-between" style={{ height: '100%' }}>
+                    <div
+                      className="flex items-center"
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontSize: px(15),
+                        color: '#FFC8C5',
+                      }}
+                    >
+                      {metric.label}
+                    </div>
+                    <div
+                      className="flex items-center"
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontSize: px(17),
+                        color: '#FFFFFF',
+                      }}
+                    >
+                      {metric.type === 'rating' && metric.ratingScore !== undefined ? (
+                        <div className="flex items-center gap-2">
+                          <RatingStars score={metric.ratingScore} />
+                          <span>{metric.value}</span>
+                        </div>
+                      ) : (
+                        metric.value
+                      )}
+                    </div>
+                  </div>
+                  <button type="button" className={styles.buttonactionButton}>
+                    {metric.actionLabel}
+                  </button>
+                </div>
+              ))}
+            </div>
+          </>
         )}
       </div>
     </div>

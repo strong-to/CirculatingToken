@@ -7,18 +7,30 @@
     "symbol": "DAI0000017",
     "type_en": "AI Program",
     "category_cn": "智能产品",
-    "slogan": "THIS IS A VIDEO",
-    "summary": "THIS IS A VIDEO CREATION AI WORKFLOW.",
-    "description_md": "## 关于 FRAME FLOW\nTHIS IS A VIDEO CREATION AI WORKFLOW.\n\n### 卡片说明\n- Details\n- Share\n- Market\n- Favorites",
+    "slogan": "多模态创作即借贷",
+    "summary": "FRAME FLOW 是 THE4 Lending Vault 默认展示的多模态 Workflow，覆盖 Workflow、Video+Audio、Image、Text、Media、Entertainment、Generate、Edit、Model 等能力，邀请好友即可同步领取 Covenant 与 Contract Token。",
+    "description_md": "## 关于 FRAME FLOW\nFRAME FLOW 是 THE4 Lending Vault 中的多模态创作项目，用户无论已经通过 THE4 应用获得收益，或刚进入生态，只要邀请好友连接指定 AI 合约，就能同时获得合约 Token 与 THE4 Covenant。\n\n### 卡片说明\n- Workflow / Video+Audio / Image / Text / Media / Entertainment / Generate / Edit / Model\n- construction response count: 1,503 | number of constructors: 667\n- number of completed response subjects: 7 | number of ongoing response subjects: 05\n- 社区评分 4.5/5，累计 120,518 条反馈",
     "media": {
-      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/home/icons/img/games.png",
-      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/home/WhereUsingBecomes/img/Investing3.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/logo.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
       "assets": [
         {
           "type": "image",
-          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/home/WhereUsingBecomes/img/Investing3.png",
-          "context": "homepage_hero",
-          "description": "THIS IS A VIDEO CREATION AI WORKFLOW."
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask1.png",
+          "context": "lending_vault_banner_carousel",
+          "description": "LendingVault 首屏滚动卡片"
+        },
+        {
+          "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectsYouMayBeInterestedIn/img/Mask1.png",
+          "context": "lending_vault_related_projects",
+          "description": "Projects You May Be Interested In 展示位"
+        },
+        {
+          "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img1.png",
+          "context": "project_construction_avatar",
+          "description": "Construction 模块建设者头像"
         }
       ]
     },
@@ -30,16 +42,24 @@
   },
   "taxonomy": {
     "domain": [
-      "Share"
+      "Workflow",
+      "Media",
+      "Entertainment"
     ],
     "object": [
-      "Favorites"
+      "Video",
+      "Audio",
+      "Image",
+      "Text"
     ],
     "action": [
-      "Market"
+      "Generate",
+      "Edit",
+      "Share"
     ],
     "interaction_form": [
-      "Details"
+      "Referral",
+      "Contribution Tasks"
     ]
   },
   "metrics": {

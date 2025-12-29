@@ -1,14 +1,15 @@
 "use client";
 
-import { px } from "@/utils/pxToRem";
-import { useState } from "react";
-import ImageWithSkeleton from "@/components/common/ImageWithSkeleton";
-import Modal from "./Modal/Modal";
-import ProjectFundingModal from "./Modal/ProjectFundingModal";
-import CollectDataModal from "./Modal/CollectDataModal";
-import GPUComputeModal from "./Modal/GPUComputeModal";
-import OptimizeImageModal from "./Modal/OptimizeImageModal";
-import APIDocumentationModal from "./Modal/APIDocumentationModal";
+import { px } from '@/utils/pxToRem'
+import { useState } from 'react'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
+import Modal from './Modal/Modal'
+import ProjectFundingModal from './Modal/ProjectFundingModal'
+import CollectDataModal from './Modal/CollectDataModal'
+import GPUComputeModal from './Modal/GPUComputeModal'
+import OptimizeImageModal from './Modal/OptimizeImageModal'
+import APIDocumentationModal from './Modal/APIDocumentationModal'
+import { CDN_PREFIX } from '@/utils/cdn'
 
 interface Tag {
   type: "bordered" | "icon";
@@ -24,9 +25,11 @@ interface CardData {
   buttons: string[];
 }
 
+const CDN = CDN_PREFIX
+
 const cardData: CardData[] = [
   {
-    icon: "/ConferenceRoom/img/icon1.png",
+    icon: `${CDN}/ConferenceRoom/img/icon1.png`,
     title: "Project funding support",
     subtitle: "Support the project with USDC to earn tokens and special benefits",
     tags: [
@@ -39,7 +42,7 @@ const cardData: CardData[] = [
     buttons: ["Open", "Funding"],
   },
   {
-    icon: "/ConferenceRoom/img/icon2.png",
+    icon: `${CDN}/ConferenceRoom/img/icon2.png`,
     title: "Collect labeled data for specific",
     subtitle: "Collect labeled data in medical imaging for fine-tuning and accuracy improvement",
     tags: [
@@ -51,7 +54,7 @@ const cardData: CardData[] = [
     buttons: ["Open", "Data"],
   },
   {
-    icon: "/ConferenceRoom/img/icon3.png",
+    icon: `${CDN}/ConferenceRoom/img/icon3.png`,
     title: "NVIDIA A100 GPU Computing Power",
     subtitle: "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning...",
     tags: [
@@ -63,7 +66,7 @@ const cardData: CardData[] = [
     buttons: ["Open", "GPU Compute"],
   },
   {
-    icon: "/ConferenceRoom/img/icon4.png",
+    icon: `${CDN}/ConferenceRoom/img/icon4.png`,
     title: "Optimize image recognition performance",
     subtitle: "Optimize inference speed for high-resolution images; target 30% reduction in processing time",
     tags: [
@@ -75,7 +78,7 @@ const cardData: CardData[] = [
     buttons: ["Open", "Development"],
   },
   {
-    icon: "/ConferenceRoom/img/icon5.png",
+    icon: `${CDN}/ConferenceRoom/img/icon5.png`,
     title: "Write detailed API documentation",
     subtitle: "Document the new scene analysis feature with examples",
     tags: [
@@ -437,4 +440,3 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
     </>
   );
 }
-

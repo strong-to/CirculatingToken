@@ -1,13 +1,15 @@
 'use client'
 
 import { useState } from 'react'
-import { px } from "@/utils/pxToRem"
+import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
+import { CDN_PREFIX } from '@/utils/cdn'
 import DataTable, { Column } from './DataTable'
 import ConstructorImageModal from './ConstructorImageModal'
 import ProjectCardList from '@/components/ProjectConstruction/com/ProjectCardList'
 
 export default function ProjectConstruction() {
+  const CDN = CDN_PREFIX
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
   const totalPages = 7
@@ -75,7 +77,7 @@ export default function ProjectConstruction() {
         >
     
           <Image
-            src="/LendingVault/ProjectConstruction/logo.png"
+            src={`${CDN}/LendingVault/ProjectConstruction/logo.png`}
             alt="Project Construction Logo"
             width={200}
             height={200}
@@ -105,7 +107,7 @@ export default function ProjectConstruction() {
                }}
              >
                <Image
-                 src={`/LendingVault/ProjectConstruction/item/img${i + 1}.png`}
+                 src={`${CDN}/LendingVault/ProjectConstruction/item/img${i + 1}.png`}
                  alt={`Constructor ${i + 1}`}
                  width={80}
                  height={80}
@@ -261,7 +263,7 @@ export default function ProjectConstruction() {
       <ConstructorImageModal
         isOpen={selectedImageIndex !== null}
         onClose={() => setSelectedImageIndex(null)}
-        imageSrc={`/LendingVault/ProjectConstruction/item/img${selectedImageIndex + 1}.png`}
+        imageSrc={`${CDN}/LendingVault/ProjectConstruction/item/img${selectedImageIndex + 1}.png`}
         imageIndex={selectedImageIndex}
       />
     )}

@@ -28,7 +28,63 @@
         }
       ],
       "description": "Reliable CPU compute at scale. DBTF0000008",
-      "introduction": "Reliable CPU compute at scale. 008"
+      "introduction": "Reliable CPU compute at scale. 008",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000008_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000008_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000008_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000008_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000008_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000008_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000008_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000008_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000008_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000008_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000008_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000008_004"
+        }
+      ]
     },
     "links": {
       "website": "https://transitflow.io",

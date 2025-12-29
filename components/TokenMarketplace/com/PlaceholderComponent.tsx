@@ -43,15 +43,15 @@ export default function PlaceholderComponent({}: PlaceholderComponentProps = {})
   // 使用真实数据
   const displayData = projectsList
   console.log('displayData--------------------------------1212',displayData)
-  const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(null)
+  const [selectedCard, setSelectedCard] = useState<ProjectData | null>(null)
   const timersRef = useRef<Map<number, NodeJS.Timeout[]>>(new Map())
 
-  const handleCardClick = (index: number) => {
-    setSelectedCardIndex(index)
+  const handleCardClick = (card: ProjectData) => {
+    setSelectedCard(card)
   }
 
   const handleCloseModal = () => {
-    setSelectedCardIndex(null)
+    setSelectedCard(null)
   }
 
   const clearCardTimers = (index: number) => {
@@ -123,7 +123,7 @@ export default function PlaceholderComponent({}: PlaceholderComponentProps = {})
               // 立即重置状态
               e.currentTarget.style.transform = 'scale(1) translateX(0) translateY(0)'
             }}
-            onClick={() => handleCardClick(index)}
+            onClick={() => handleCardClick(card)}
           >
             <div 
               className='w-full relative overflow-hidden' 
@@ -221,8 +221,7 @@ export default function PlaceholderComponent({}: PlaceholderComponentProps = {})
       
       {/* 弹窗 */}
       <ProjectModal
-        selectedCardIndex={selectedCardIndex}
-        displayData={displayData}
+        selectedCard={selectedCard}
         onClose={handleCloseModal}
         getMaskImagePath={getMaskImagePath}
         getIconImagePath={getIconImagePath}

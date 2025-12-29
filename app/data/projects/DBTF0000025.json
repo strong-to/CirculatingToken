@@ -28,7 +28,63 @@
         }
       ],
       "description": "Reliable CPU compute at scale. DBTF0000025",
-      "introduction": "Reliable CPU compute at scale. 025"
+      "introduction": "Reliable CPU compute at scale. 025",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000025_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000025_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000025_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000025_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000025_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000025_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000025_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000025_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000025_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000025_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000025_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000025_004"
+        }
+      ]
     },
     "links": {
       "website": "https://wellguide.io",

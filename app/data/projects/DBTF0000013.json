@@ -28,7 +28,63 @@
         }
       ],
       "description": "Reliable CPU compute at scale. DBTF0000013",
-      "introduction": "Reliable CPU compute at scale. 013"
+      "introduction": "Reliable CPU compute at scale. 013",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000013_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000013_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000013_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000013_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000013_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000013_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000013_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000013_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000013_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000013_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000013_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000013_004"
+        }
+      ]
     },
     "links": {
       "website": "https://artrefer.io",

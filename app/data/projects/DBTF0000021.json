@@ -28,7 +28,63 @@
         }
       ],
       "description": "Reliable CPU compute at scale. DBTF0000021",
-      "introduction": "Reliable CPU compute at scale. 021"
+      "introduction": "Reliable CPU compute at scale. 021",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000021_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000021_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000021_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000021_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000021_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000021_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000021_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000021_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000021_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000021_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000021_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000021_004"
+        }
+      ]
     },
     "links": {
       "website": "https://quantloop.io",

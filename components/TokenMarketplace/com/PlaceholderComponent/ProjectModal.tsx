@@ -6,8 +6,7 @@ import Image from 'next/image'
 import type { ProjectData } from '@/app/data'
 
 interface ProjectModalProps {
-  selectedCardIndex: number | null
-  displayData: ProjectData[]
+  selectedCard: ProjectData | null
   onClose: () => void
   getMaskImagePath: (index: number) => string
   getIconImagePath: (index: number) => string
@@ -16,8 +15,7 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({
-  selectedCardIndex,
-  displayData,
+  selectedCard,
   onClose,
   getMaskImagePath,
   getIconImagePath,
@@ -27,7 +25,10 @@ export default function ProjectModal({
   const [isDetailsHovered, setIsDetailsHovered] = useState(false)
   const [isFavoritesHovered, setIsFavoritesHovered] = useState(false)
 
-  if (selectedCardIndex === null) return null
+  if (selectedCard === null) return null
+
+  // 从 system_id 中提取索引（例如 DBTF0000001 -> 0, DBTF0000002 -> 1）
+  const cardIndex = selectedCard.system_id ? parseInt(selectedCard.system_id.replace('DBTF', '')) - 1 : 0
 
   return (
     <div
@@ -106,8 +107,8 @@ export default function ProjectModal({
             borderRadius: 0,
           }}>
             <Image
-              src={displayData[selectedCardIndex]?.profile?.media?.banner?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || getMaskImagePath(selectedCardIndex)}
-              alt={displayData[selectedCardIndex]?.profile?.name || displayData[selectedCardIndex]?.system_id || ''}
+              src={selectedCard?.profile?.media?.banner?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || getMaskImagePath(cardIndex)}
+              alt={selectedCard?.profile?.name || selectedCard?.system_id || ''}
               fill
               className="object-cover"
               style={{
@@ -173,8 +174,8 @@ export default function ProjectModal({
             <div className='flex items-center' style={{ gap: px(12), marginBottom: px(20) }}>
               <div style={{ width: px(60), height: px(60), position: 'relative' }}>
                 <Image
-                  src={getIconImagePath(selectedCardIndex)}
-                  alt={displayData[selectedCardIndex]?.profile?.name || displayData[selectedCardIndex]?.system_id || ''}
+                  src={getIconImagePath(cardIndex)}
+                  alt={selectedCard?.profile?.name || selectedCard?.system_id || ''}
                   fill
                   className="object-cover"
                 />
@@ -190,7 +191,7 @@ export default function ProjectModal({
                   color: '#000000',
                   height: px(20),
                 }}>
-                    {displayData[selectedCardIndex]?.profile?.name || displayData[selectedCardIndex]?.system_id}
+                    {selectedCard?.profile?.name || selectedCard?.system_id}
                 </div>
 
                 <div style={{
@@ -204,7 +205,7 @@ export default function ProjectModal({
                   color: '#000000',
                   height: px(20),
                 }}>
-                    {displayData[selectedCardIndex]?.system_id}
+                    {selectedCard?.system_id}
                 </div>
               </div>
             </div>
@@ -219,11 +220,11 @@ export default function ProjectModal({
               textAlign: 'left',
               marginBottom: px(22),
             }}>
-                
-                {displayData[selectedCardIndex]?.profile?.slogan || displayData[selectedCardIndex]?.profile?.summary || ''}</div>
+                {selectedCard?.profile?.slogan || selectedCard?.profile?.summary || ''}
+            </div>
 
             {/* 标签按钮区域 */}
-            {displayData[selectedCardIndex] && (
+            {selectedCard && (
               <div style={{ marginBottom: px(20) }}>
                 <div className='flex flex-wrap' style={{ gap: px(8), marginBottom: px(8) }}>
                     
@@ -245,7 +246,7 @@ export default function ProjectModal({
             )}
 
             {/* 指标数据 */}
-            {displayData[selectedCardIndex] && (
+            {selectedCard && (
               <div className='flex flex-wrap' style={{ gap: px(20), marginBottom: px(20) }}>
                 <div>
                   <div style={{
@@ -262,7 +263,7 @@ export default function ProjectModal({
                     fontWeight: 300,
                     color: '#000000',
                   }}>
-                    {formatCurrency(displayData[selectedCardIndex]?.metrics?.operation?.revenue_24h)}</div>
+                    {formatCurrency(selectedCard?.metrics?.operation?.revenue_24h)}</div>
                 </div>
                
               </div>
@@ -281,7 +282,7 @@ export default function ProjectModal({
               fontWeight: 300,
               color: '#000000'
             }}>
-              {displayData[selectedCardIndex]?.profile?.description_md || displayData[selectedCardIndex]?.profile?.summary || displayData[selectedCardIndex]?.profile?.slogan || ''}
+              {selectedCard?.profile?.description_md || selectedCard?.profile?.summary || selectedCard?.profile?.slogan || ''}
             </div>
 
             {/* 底部按钮 */}
@@ -290,7 +291,7 @@ export default function ProjectModal({
                 onMouseEnter={() => setIsDetailsHovered(true)}
                 onMouseLeave={() => setIsDetailsHovered(false)}
                 style={{
-                    width: px(160),
+                    width: px(130),
                   height: px(30),
                   backgroundColor: isDetailsHovered ? '#000000' : '#FFFFFF',
                   color: isDetailsHovered ? '#FFFFFF' : '#000000',
@@ -310,7 +311,7 @@ export default function ProjectModal({
                 onMouseLeave={() => setIsFavoritesHovered(false)}
                 style={{
                   width: px(130),
-                  height: px(40),
+                  height: px(30),
                   backgroundColor: isFavoritesHovered ? '#000000' : '#FFFFFF',
                   color: isFavoritesHovered ? '#FFFFFF' : '#000000',
                   border: isFavoritesHovered ? 'none' : '0.7px solid #000000',

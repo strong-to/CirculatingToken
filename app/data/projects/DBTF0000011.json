@@ -28,7 +28,63 @@
         }
       ],
       "description": "Reliable CPU compute at scale. DBTF0000011",
-      "introduction": "Reliable CPU compute at scale. 011"
+      "introduction": "Reliable CPU compute at scale. 011",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000011_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000011_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF0000011_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF0000011_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000011_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000011_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF0000011_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF0000011_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF0000011_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF0000011_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF0000011_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF0000011_004"
+        }
+      ]
     },
     "links": {
       "website": "https://econoset.io",

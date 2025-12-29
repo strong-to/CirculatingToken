@@ -27,6 +27,9 @@ export default function ProjectModal({
 
   if (selectedCard === null) return null
 
+  console.log('selectedCard-----------------1212',selectedCard);
+  
+
   // 从 system_id 中提取索引（例如 DBTF0000001 -> 0, DBTF0000002 -> 1）
   const cardIndex = selectedCard.system_id ? parseInt(selectedCard.system_id.replace('DBTF', '')) - 1 : 0
 
@@ -174,7 +177,11 @@ export default function ProjectModal({
             <div className='flex items-center' style={{ gap: px(12), marginBottom: px(20) }}>
               <div style={{ width: px(60), height: px(60), position: 'relative' }}>
                 <Image
-                  src={getIconImagePath(cardIndex)}
+                  src={
+                    selectedCard?.profile?.media?.logo
+                      ? selectedCard?.profile?.media?.logo.replace(/^\.\.\/\.\.\/\.\.\/public/, '')
+                      : '/default-logo.png'
+                  }
                   alt={selectedCard?.profile?.name || selectedCard?.system_id || ''}
                   fill
                   className="object-cover"

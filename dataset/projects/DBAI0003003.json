@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0003003",
+  "slug": "quartz-mesh",
+  "status": "active",
+  "profile": {
+    "name": "Quartz Mesh",
+    "symbol": "QUAR",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "Ship fine-tuned agents faster.",
+    "summary": "Toolchain that turns forked notebooks into production-grade agent meshes.",
+    "description_md": "## 关于 Quartz Mesh\nToolchain that turns forked notebooks into production-grade agent meshes.\n\n### 功能亮点\n- Ship fine-tuned agents faster.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/BuildWithThe/Investing3.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/BuildWithThe/Investing3.png",
+          "context": "build_card_3",
+          "description": "Toolchain that turns forked notebooks into production-grade agent meshes."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/quartz-mesh",
+      "whitepaper": "https://deepblue.example/quartz-mesh/paper.pdf",
+      "github": "https://github.com/deepblue/quartz-mesh"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI / Computing"
+    ],
+    "object": [
+      "Models"
+    ],
+    "action": [
+      "Train",
+      "Ship"
+    ],
+    "interaction_form": [
+      "CLI"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.69,
+      "contributors_count": 57,
+      "total_commits": 1693
+    },
+    "operation": {
+      "total_users": 112000,
+      "new_users_24h": 590,
+      "revenue_total": 310000,
+      "revenue_24h": 64000
+    },
+    "rating": {
+      "score": 4.6,
+      "review_count": 52
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.02,
+      "market_cap": 1380000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 64000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

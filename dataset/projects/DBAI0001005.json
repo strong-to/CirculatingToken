@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0001005",
+  "slug": "signal-loop",
+  "status": "active",
+  "profile": {
+    "name": "Signal Loop",
+    "symbol": "SIGN",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "Communities that pay back.",
+    "summary": "Spin up feedback loops where every action boosts creator vaults.",
+    "description_md": "## 关于 Signal Loop\nSpin up feedback loops where every action boosts creator vaults.\n\n### 功能亮点\n- Communities that pay back.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/Investing/Investing5.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/Investing/Investing5.png",
+          "context": "usecase_card_5",
+          "description": "Spin up feedback loops where every action boosts creator vaults."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/signal-loop",
+      "whitepaper": "https://deepblue.example/signal-loop/paper.pdf",
+      "github": "https://github.com/deepblue/signal-loop"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Social"
+    ],
+    "object": [
+      "Community"
+    ],
+    "action": [
+      "Engage",
+      "Reward"
+    ],
+    "interaction_form": [
+      "Feed"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.66,
+      "contributors_count": 41,
+      "total_commits": 1093
+    },
+    "operation": {
+      "total_users": 410000,
+      "new_users_24h": 2100,
+      "revenue_total": 270000,
+      "revenue_24h": 38000
+    },
+    "rating": {
+      "score": 4.6,
+      "review_count": 47
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 1.45,
+      "market_cap": 870000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 38000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

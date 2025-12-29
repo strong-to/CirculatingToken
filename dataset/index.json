@@ -1,0 +1,131 @@
+{
+  "filters": {
+    "domain": {
+      "label": "领域",
+      "taxonomyKey": "domain"
+    },
+    "action": {
+      "label": "行动",
+      "taxonomyKey": "action"
+    }
+  },
+  "sections": {
+    "where-using-becomes-investing": {
+      "title": "Where Using Becomes Investing",
+      "panelTriggerLabel": "Use AI Apps and Earn",
+      "learnMoreLabel": "Learn more details",
+      "learnMoreHref": "#",
+      "cta": {
+        "label": "View all projects",
+        "href": "#projects"
+      },
+      "accentColor": "#0045FF",
+      "filterKeys": ["domain", "action"],
+      "projectSlots": [
+        {
+          "projectId": "DBAI0001001",
+          "variant": "poster",
+          "assetContext": "usecase_card_1"
+        },
+        {
+          "projectId": "DBAI0001002",
+          "variant": "poster",
+          "assetContext": "usecase_card_2"
+        },
+        {
+          "projectId": "DBAI0000211",
+          "variant": "feature",
+          "assetContext": "usecase_feature"
+        },
+        {
+          "projectId": "DBAI0001004",
+          "variant": "poster",
+          "assetContext": "usecase_card_4"
+        },
+        {
+          "projectId": "DBAI0001005",
+          "variant": "poster",
+          "assetContext": "usecase_card_5"
+        }
+      ]
+    },
+    "let-every-share": {
+      "title": "Let Every Share Come With Joy",
+      "panelTriggerLabel": "Share AI Projects and Earn",
+      "learnMoreLabel": "Learn more details",
+      "learnMoreHref": "#",
+      "cta": {
+        "label": "View all projects",
+        "href": "#projects"
+      },
+      "accentColor": "#E1050D",
+      "filterKeys": ["domain", "action"],
+      "projectSlots": [
+        {
+          "projectId": "DBAI0002001",
+          "variant": "poster",
+          "assetContext": "letshare_card_1"
+        },
+        {
+          "projectId": "DBAI0000211",
+          "variant": "feature",
+          "assetContext": "letshare_feature"
+        },
+        {
+          "projectId": "DBAI0002003",
+          "variant": "poster",
+          "assetContext": "letshare_card_3"
+        },
+        {
+          "projectId": "DBAI0002004",
+          "variant": "poster",
+          "assetContext": "letshare_card_4"
+        },
+        {
+          "projectId": "DBAI0002005",
+          "variant": "poster",
+          "assetContext": "letshare_card_5"
+        }
+      ]
+    },
+    "build-with-the": {
+      "title": "Build With The Brightest Minds Worldwide",
+      "panelTriggerLabel": "Contribute AI Projects and Earn",
+      "learnMoreLabel": "Learn more details",
+      "learnMoreHref": "#",
+      "cta": {
+        "label": "View all projects",
+        "href": "#projects"
+      },
+      "accentColor": "#8000EA",
+      "filterKeys": ["domain", "action"],
+      "projectSlots": [
+        {
+          "projectId": "DBAI0000211",
+          "variant": "feature",
+          "assetContext": "build_feature"
+        },
+        {
+          "projectId": "DBAI0003002",
+          "variant": "poster",
+          "assetContext": "build_card_2"
+        },
+        {
+          "projectId": "DBAI0003003",
+          "variant": "poster",
+          "assetContext": "build_card_3"
+        },
+        {
+          "projectId": "DBAI0003004",
+          "variant": "poster",
+          "assetContext": "build_card_4"
+        },
+        {
+          "projectId": "DBAI0003005",
+          "variant": "poster",
+          "assetContext": "build_card_5"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "system_id": "DBAI0000211",
+  "slug": "wall-e-eve",
+  "status": "active",
+  "profile": {
+    "name": "WALL-E & EVE",
+    "symbol": "WALL",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "AI companions that invest back.",
+    "summary": "Emotionally-aware AI avatars that redirect engagement into treasury growth.",
+    "description_md": "## 关于 WALL-E & EVE\nEmotionally-aware AI avatars that redirect engagement into treasury growth.\n\n### 功能亮点\n- AI companions that invest back.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/Investing/Investing3.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/Investing/Investing3.png",
+          "context": "usecase_feature",
+          "description": "Emotionally-aware AI avatars that redirect engagement into treasury growth."
+        },
+        {
+          "type": "image",
+          "url": "/images/LetEveryShare/Investing2.png",
+          "context": "letshare_feature",
+          "description": "Emotionally-aware AI avatars that redirect engagement into treasury growth."
+        },
+        {
+          "type": "image",
+          "url": "/images/BuildWithThe/Investing1.png",
+          "context": "build_feature",
+          "description": "Emotionally-aware AI avatars that redirect engagement into treasury growth."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/wall-e-eve",
+      "whitepaper": "https://deepblue.example/wall-e-eve/paper.pdf",
+      "github": "https://github.com/deepblue/wall-e-eve"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI Companions"
+    ],
+    "object": [
+      "Users"
+    ],
+    "action": [
+      "Care",
+      "Grow"
+    ],
+    "interaction_form": [
+      "App",
+      "Avatar"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.78,
+      "contributors_count": 73,
+      "total_commits": 2218
+    },
+    "operation": {
+      "total_users": 512000,
+      "new_users_24h": 3200,
+      "revenue_total": 870000,
+      "revenue_24h": 99000
+    },
+    "rating": {
+      "score": 4.9,
+      "review_count": 112
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.95,
+      "market_cap": 2100000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 99000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0002004",
+  "slug": "pulse-gate",
+  "status": "active",
+  "profile": {
+    "name": "Pulse Gate",
+    "symbol": "PULS",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "Launchpads with loyalty bonds.",
+    "summary": "Commerce toolkit that rewards referrals with locked staking slots.",
+    "description_md": "## 关于 Pulse Gate\nCommerce toolkit that rewards referrals with locked staking slots.\n\n### 功能亮点\n- Launchpads with loyalty bonds.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/LetEveryShare/Investing4.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/LetEveryShare/Investing4.png",
+          "context": "letshare_card_4",
+          "description": "Commerce toolkit that rewards referrals with locked staking slots."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/pulse-gate",
+      "whitepaper": "https://deepblue.example/pulse-gate/paper.pdf",
+      "github": "https://github.com/deepblue/pulse-gate"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Commerce"
+    ],
+    "object": [
+      "Campaigns"
+    ],
+    "action": [
+      "Launch",
+      "Track"
+    ],
+    "interaction_form": [
+      "App"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.63,
+      "contributors_count": 31,
+      "total_commits": 745
+    },
+    "operation": {
+      "total_users": 189000,
+      "new_users_24h": 1100,
+      "revenue_total": 275000,
+      "revenue_24h": 36000
+    },
+    "rating": {
+      "score": 4.3,
+      "review_count": 29
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 1.66,
+      "market_cap": 710000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 36000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0001001",
+  "slug": "nebula-console",
+  "status": "active",
+  "profile": {
+    "name": "Nebula Console",
+    "symbol": "NEBU",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "Self-custodial compute orchestration.",
+    "summary": "Composable console turning everyday AI usage into staking-grade missions.",
+    "description_md": "## 关于 Nebula Console\nComposable console turning everyday AI usage into staking-grade missions.\n\n### 功能亮点\n- Self-custodial compute orchestration.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/Investing/Investing1.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/Investing/Investing1.png",
+          "context": "usecase_card_1",
+          "description": "Composable console turning everyday AI usage into staking-grade missions."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/nebula-console",
+      "whitepaper": "https://deepblue.example/nebula-console/paper.pdf",
+      "github": "https://github.com/deepblue/nebula-console"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "AI / Computing"
+    ],
+    "object": [
+      "Data"
+    ],
+    "action": [
+      "Use",
+      "Earn"
+    ],
+    "interaction_form": [
+      "App"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.72,
+      "contributors_count": 62,
+      "total_commits": 1842
+    },
+    "operation": {
+      "total_users": 325000,
+      "new_users_24h": 1800,
+      "revenue_total": 620000,
+      "revenue_24h": 128000
+    },
+    "rating": {
+      "score": 4.7,
+      "review_count": 58
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.35,
+      "market_cap": 1800000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 128000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

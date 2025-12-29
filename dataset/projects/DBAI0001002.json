@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0001002",
+  "slug": "circuit-drop",
+  "status": "active",
+  "profile": {
+    "name": "Circuit Drop",
+    "symbol": "CIRC",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "Fan moments that auto-yield.",
+    "summary": "Launch interactive drops where every interaction becomes a micro-investment.",
+    "description_md": "## 关于 Circuit Drop\nLaunch interactive drops where every interaction becomes a micro-investment.\n\n### 功能亮点\n- Fan moments that auto-yield.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/Investing/Investing2.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/Investing/Investing2.png",
+          "context": "usecase_card_2",
+          "description": "Launch interactive drops where every interaction becomes a micro-investment."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/circuit-drop",
+      "whitepaper": "https://deepblue.example/circuit-drop/paper.pdf",
+      "github": "https://github.com/deepblue/circuit-drop"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Creative"
+    ],
+    "object": [
+      "Media"
+    ],
+    "action": [
+      "Share",
+      "Monetize"
+    ],
+    "interaction_form": [
+      "Mobile"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.64,
+      "contributors_count": 34,
+      "total_commits": 932
+    },
+    "operation": {
+      "total_users": 212000,
+      "new_users_24h": 1200,
+      "revenue_total": 480000,
+      "revenue_24h": 72000
+    },
+    "rating": {
+      "score": 4.5,
+      "review_count": 41
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 1.84,
+      "market_cap": 980000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 72000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

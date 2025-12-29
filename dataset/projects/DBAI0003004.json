@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0003004",
+  "slug": "signal-yard",
+  "status": "active",
+  "profile": {
+    "name": "Signal Yard",
+    "symbol": "SIGN",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "DAO-native treasury desks.",
+    "summary": "Multisig workspace with on-chain credit scoring for contributors.",
+    "description_md": "## 关于 Signal Yard\nMultisig workspace with on-chain credit scoring for contributors.\n\n### 功能亮点\n- DAO-native treasury desks.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/BuildWithThe/Investing4.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/BuildWithThe/Investing4.png",
+          "context": "build_card_4",
+          "description": "Multisig workspace with on-chain credit scoring for contributors."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/signal-yard",
+      "whitepaper": "https://deepblue.example/signal-yard/paper.pdf",
+      "github": "https://github.com/deepblue/signal-yard"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "DeFi"
+    ],
+    "object": [
+      "Treasury"
+    ],
+    "action": [
+      "Lend",
+      "Borrow"
+    ],
+    "interaction_form": [
+      "Dashboard"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.62,
+      "contributors_count": 44,
+      "total_commits": 1305
+    },
+    "operation": {
+      "total_users": 132000,
+      "new_users_24h": 610,
+      "revenue_total": 410000,
+      "revenue_24h": 72000
+    },
+    "rating": {
+      "score": 4.4,
+      "review_count": 36
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 1.78,
+      "market_cap": 990000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 72000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

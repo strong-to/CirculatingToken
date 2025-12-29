@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0001004",
+  "slug": "atlas-yield",
+  "status": "active",
+  "profile": {
+    "name": "Atlas Yield",
+    "symbol": "ATLA",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "Route stable savings into AI ops.",
+    "summary": "Bridge idle treasuries into permissioned AI vaults with automated exits.",
+    "description_md": "## 关于 Atlas Yield\nBridge idle treasuries into permissioned AI vaults with automated exits.\n\n### 功能亮点\n- Route stable savings into AI ops.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/Investing/Investing4.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/Investing/Investing4.png",
+          "context": "usecase_card_4",
+          "description": "Bridge idle treasuries into permissioned AI vaults with automated exits."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/atlas-yield",
+      "whitepaper": "https://deepblue.example/atlas-yield/paper.pdf",
+      "github": "https://github.com/deepblue/atlas-yield"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Finance"
+    ],
+    "object": [
+      "Liquidity"
+    ],
+    "action": [
+      "Stake",
+      "Earn"
+    ],
+    "interaction_form": [
+      "Dashboard"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.58,
+      "contributors_count": 29,
+      "total_commits": 721
+    },
+    "operation": {
+      "total_users": 98000,
+      "new_users_24h": 460,
+      "revenue_total": 320000,
+      "revenue_24h": 54000
+    },
+    "rating": {
+      "score": 4.4,
+      "review_count": 32
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 3.12,
+      "market_cap": 1450000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 54000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

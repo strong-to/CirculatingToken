@@ -1,0 +1,85 @@
+{
+  "system_id": "DBAI0003005",
+  "slug": "node-atlas",
+  "status": "active",
+  "profile": {
+    "name": "Node Atlas",
+    "symbol": "NODE",
+    "type_en": "AI Utility",
+    "category_cn": "智能应用",
+    "slogan": "Index once, serve everywhere.",
+    "summary": "Managed data plane that rewards operators for low-latency replicas.",
+    "description_md": "## 关于 Node Atlas\nManaged data plane that rewards operators for low-latency replicas.\n\n### 功能亮点\n- Index once, serve everywhere.",
+    "media": {
+      "logo": "/images/Investing/games.png",
+      "banner": "/images/BuildWithThe/Investing5.png",
+      "assets": [
+        {
+          "type": "image",
+          "url": "/images/BuildWithThe/Investing5.png",
+          "context": "build_card_5",
+          "description": "Managed data plane that rewards operators for low-latency replicas."
+        }
+      ]
+    },
+    "links": {
+      "website": "https://deepblue.example/node-atlas",
+      "whitepaper": "https://deepblue.example/node-atlas/paper.pdf",
+      "github": "https://github.com/deepblue/node-atlas"
+    }
+  },
+  "taxonomy": {
+    "domain": [
+      "Data"
+    ],
+    "object": [
+      "Datasets"
+    ],
+    "action": [
+      "Index",
+      "Serve"
+    ],
+    "interaction_form": [
+      "API"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "start_date": "2024-01-01",
+      "progress": 0.71,
+      "contributors_count": 52,
+      "total_commits": 1539
+    },
+    "operation": {
+      "total_users": 167000,
+      "new_users_24h": 750,
+      "revenue_total": 360000,
+      "revenue_24h": 68000
+    },
+    "rating": {
+      "score": 4.5,
+      "review_count": 44
+    }
+  },
+  "tokenomics": {
+    "base_currency": "USDT",
+    "price_info": {
+      "current_price": 2.18,
+      "market_cap": 1250000,
+      "change_24h_percent": 2.1,
+      "volume_24h": 68000
+    },
+    "supply": {
+      "total_supply": 1000000,
+      "circulating": 800000,
+      "minted_24h": 1200,
+      "burned_24h": 120
+    },
+    "staking": {
+      "total_staked": 320000,
+      "staking_ratio": 0.35,
+      "unstaked_24h": 1500,
+      "apy": 0.12
+    }
+  }
+}

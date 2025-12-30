@@ -22,6 +22,18 @@
         },
         {
           "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask2.png",
+          "context": "lending_vault_banner_carousel",
+          "description": "LendingVault 首屏滚动卡片"
+        },
+        {
+          "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask3.png",
+          "context": "lending_vault_banner_carousel",
+          "description": "LendingVault 首屏滚动卡片"
+        },
+        {
+          "type": "image",
           "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectsYouMayBeInterestedIn/img/Mask1.png",
           "context": "lending_vault_related_projects",
           "description": "Projects You May Be Interested In 展示位"
@@ -29,6 +41,24 @@
         {
           "type": "image",
           "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img1.png",
+          "context": "project_construction_avatar",
+          "description": "Construction 模块建设者头像"
+        },
+        {
+          "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img2.png",
+          "context": "project_construction_avatar",
+          "description": "Construction 模块建设者头像"
+        },
+        {
+          "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img3.png",
+          "context": "project_construction_avatar",
+          "description": "Construction 模块建设者头像"
+        },
+        {
+          "type": "image",
+          "url": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img4.png",
           "context": "project_construction_avatar",
           "description": "Construction 模块建设者头像"
         }
@@ -101,5 +131,324 @@
       "unstaked_24h": 500,
       "apy": 0.12
     }
+  },
+  "reviews": {
+    "summary_tags": [
+      "多模态资产",
+      "协同创作",
+      "收益透明"
+    ],
+    "list": [
+      {
+        "id": "frameflow_review_1",
+        "user_id": "workflow_alpha",
+        "user_name": "Workflow Alpha",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/reviews/frameflow_1.png",
+        "rating": 5,
+        "content": "多模态模板覆盖得非常全，尤其是视频工作流的参数化配置，为我们节省了大量测试时间。",
+        "date": "2025-12-28",
+        "likes": 86
+      },
+      {
+        "id": "frameflow_review_2",
+        "user_id": "audio_node",
+        "user_name": "Audio Node",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/reviews/frameflow_2.png",
+        "rating": 4,
+        "content": "返佣机制与借贷联动紧密，但运营面板还有很多英文字段，需要统一。",
+        "date": "2025-12-24",
+        "likes": 41
+      },
+      {
+        "id": "frameflow_review_3",
+        "user_id": "flow_designer",
+        "user_name": "Flow Designer",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/reviews/frameflow_3.png",
+        "rating": 4,
+        "content": "协作者排行榜与任务联动顺畅，但建议开放自定义标签，方便区分视频/图像需求。",
+        "date": "2025-12-20",
+        "likes": 29
+      },
+      {
+        "id": "frameflow_review_4",
+        "user_id": "referral_ops",
+        "user_name": "Referral Ops",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/reviews/frameflow_4.png",
+        "rating": 3,
+        "content": "邀请任务的可视化稍显简单，若能直接展示链上领取情况会更安心。",
+        "date": "2025-12-18",
+        "likes": 15
+      }
+    ]
+  },
+  "market": {
+    "price_history": [
+      {
+        "timestamp": 1766426400,
+        "open": 1.08,
+        "high": 1.12,
+        "low": 1.06,
+        "close": 1.1,
+        "volume": 18800
+      },
+      {
+        "timestamp": 1766512800,
+        "open": 1.1,
+        "high": 1.13,
+        "low": 1.08,
+        "close": 1.12,
+        "volume": 21400
+      },
+      {
+        "timestamp": 1766599200,
+        "open": 1.12,
+        "high": 1.16,
+        "low": 1.11,
+        "close": 1.14,
+        "volume": 23100
+      },
+      {
+        "timestamp": 1766685600,
+        "open": 1.14,
+        "high": 1.17,
+        "low": 1.12,
+        "close": 1.15,
+        "volume": 24650
+      },
+      {
+        "timestamp": 1766772000,
+        "open": 1.15,
+        "high": 1.18,
+        "low": 1.13,
+        "close": 1.16,
+        "volume": 25900
+      }
+    ],
+    "order_book": {
+      "bids": [
+        {
+          "price": 1.15,
+          "amount": 10250
+        },
+        {
+          "price": 1.14,
+          "amount": 8600
+        }
+      ],
+      "asks": [
+        {
+          "price": 1.17,
+          "amount": 7900
+        },
+        {
+          "price": 1.18,
+          "amount": 6200
+        }
+      ]
+    },
+    "recent_trades": [
+      {
+        "id": "frameflow_trade_buy_1",
+        "timestamp": 1766775600,
+        "type": "buy",
+        "price": 1.16,
+        "amount": 980,
+        "total_value": 1136.8,
+        "trader_info": {
+          "user_id": "flow_quant",
+          "name": "FlowQuant",
+          "wallet_short": "0xA6...F1"
+        }
+      },
+      {
+        "id": "frameflow_trade_sell_1",
+        "timestamp": 1766777400,
+        "type": "sell",
+        "price": 1.15,
+        "amount": 750,
+        "total_value": 862.5,
+        "trader_info": {
+          "user_id": "media_liquidity",
+          "name": "MediaMaker",
+          "wallet_short": "0xB4...92"
+        }
+      },
+      {
+        "id": "frameflow_trade_buy_2",
+        "timestamp": 1766779200,
+        "type": "buy",
+        "price": 1.16,
+        "amount": 430,
+        "total_value": 498.8
+      }
+    ]
+  },
+  "co_creation": {
+    "summary": {
+      "total_contributions_recorded": 1503,
+      "active_builders_count": 667,
+      "completed_subjects": 7,
+      "ongoing_subjects": 5
+    },
+    "exchange_rates": [
+      {
+        "resource_key": "workflow_template",
+        "unit_name": "Workflow Template",
+        "description": "标准化视频/图像工作流一次产出",
+        "reward_token": 420
+      },
+      {
+        "resource_key": "audio_editing_hour",
+        "unit_name": "Audio Hour",
+        "description": "音频剪辑与混音小时",
+        "reward_token": 55
+      },
+      {
+        "resource_key": "referral_activation",
+        "unit_name": "Referral Activation",
+        "description": "成功邀请激活一名创作者",
+        "reward_token": 30
+      }
+    ],
+    "open_tasks": [
+      {
+        "task_id": "frameflow_task_1",
+        "title": "扩充 Workflow / Video 模板类目",
+        "type": "sustained",
+        "category": "workflow",
+        "status": "active",
+        "progress_current": 48,
+        "progress_target": 80,
+        "reward_display": "每套模板 420 TOKEN"
+      },
+      {
+        "task_id": "frameflow_task_2",
+        "title": "构建娱乐频道直播素材库",
+        "type": "batch",
+        "category": "media",
+        "status": "active",
+        "progress_current": 12,
+        "progress_target": 40,
+        "reward_display": "全包 18,000 TOKEN"
+      },
+      {
+        "task_id": "frameflow_task_3",
+        "title": "Referral 运营训练营",
+        "type": "campaign",
+        "category": "community",
+        "status": "planning",
+        "reward_display": "预付 6,000 TOKEN"
+      }
+    ],
+    "contributors_leaderboard": [
+      {
+        "rank": 1,
+        "user_id": "creator_studio",
+        "name": "Creator Studio",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img1.png",
+        "role": "Workflow Architect",
+        "contribution_points": 18940,
+        "last_active": "2025-12-27"
+      },
+      {
+        "rank": 2,
+        "user_id": "hybrid_audio",
+        "name": "Hybrid Audio",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img2.png",
+        "role": "Audio Producer",
+        "contribution_points": 14560,
+        "last_active": "2025-12-25"
+      },
+      {
+        "rank": 3,
+        "user_id": "media_ops",
+        "name": "Media Ops",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img3.png",
+        "role": "Operations",
+        "contribution_points": 12210,
+        "last_active": "2025-12-22"
+      },
+      {
+        "rank": 4,
+        "user_id": "referral_wave",
+        "name": "Referral Wave",
+        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/ProjectConstruction/item/img4.png",
+        "role": "Community Lead",
+        "contribution_points": 9870,
+        "last_active": "2025-12-20"
+      }
+    ],
+    "contribution_history": [
+      {
+        "record_id": "frameflow_contribution_1",
+        "user_id": "creator_studio",
+        "user_name": "Creator Studio",
+        "task_title": "Workflow 模板 v2",
+        "amount": 3,
+        "unit": "Workflow Template",
+        "timestamp": 1766764800
+      },
+      {
+        "record_id": "frameflow_contribution_2",
+        "user_id": "referral_wave",
+        "user_name": "Referral Wave",
+        "task_title": "Referral 训练营",
+        "amount": 12,
+        "unit": "Referral Activation",
+        "timestamp": 1766692800
+      }
+    ]
+  },
+  "governance": {
+    "active_proposal_count": 2,
+    "proposals": [
+      {
+        "proposal_id": "frameflow_gov_1",
+        "title": "启用 Workflow 质押奖励翻倍周",
+        "proposer": {
+          "name": "FRAME FLOW Council",
+          "address": "0xFf...1717"
+        },
+        "status": "voting",
+        "end_timestamp": 1767038400,
+        "description": "为顶级 Workflow 创作者提供一周翻倍奖励，鼓励多模态资产补全。",
+        "votes_summary": {
+          "for": 520000,
+          "against": 82000,
+          "abstain": 22000
+        },
+        "recent_votes": [
+          {
+            "user_id": "creator_studio",
+            "name": "Creator Studio",
+            "vote_option": "for",
+            "weight": 1200,
+            "timestamp": 1766768400
+          },
+          {
+            "user_id": "media_ops",
+            "name": "Media Ops",
+            "vote_option": "for",
+            "weight": 860,
+            "timestamp": 1766770200
+          }
+        ]
+      },
+      {
+        "proposal_id": "frameflow_gov_2",
+        "title": "新增 Referral 激励透明度仪表盘",
+        "proposer": {
+          "name": "Referral Collective"
+        },
+        "status": "discussion",
+        "end_timestamp": 1767124800,
+        "description": "要求在借贷面板中直观展示 Referral 领取与质押挂钩的实时状态。",
+        "votes_summary": {
+          "for": 184000,
+          "against": 36000,
+          "abstain": 9000
+        }
+      }
+    ]
   }
 }

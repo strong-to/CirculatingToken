@@ -4,19 +4,22 @@ import { useRef, useState, useEffect } from 'react'
 import { px } from "@/utils/pxToRem"
 import { LearnMoreArrowIcon } from '@/components/icons/Icons'
 
-export default function SecondScreen() {
-  const texts = [
-    'Workflow',
-    'Video+Audio',
-    'Image',
-    'Text',
-    'Media',
-    'Entertainment',
-    'Generate',
-    'Edit',
-    'Text',
-    'Model'
-  ]
+interface SecondScreenProps {
+  projectIntroduction?: {
+    ratingData?: string[];
+    content?: string;
+    arrowContent?: string;
+    buttonList?: Array<{
+      id: string;
+      name: string;
+      url: string;
+    }>;
+  };
+}
+
+export default function SecondScreen({ projectIntroduction }: SecondScreenProps) {
+  // 从 projectIntroduction 对象中获取 ratingData，如果没有则使用空数组
+  const texts = projectIntroduction?.ratingData || []
 
   const containerRef = useRef<HTMLDivElement>(null)
   const [spacing, setSpacing] = useState(0)
@@ -169,8 +172,7 @@ export default function SecondScreen() {
               color: '#000000',
             }}
           >
-            Whether you are already using THE4 apps and earning from them, or you&apos;ve just arrived and are still exploring what this AI ecosystem can do, you can invite friends to join with your referral link. Once your invitees start using THE4 and connect with specific AI projects (Contracts), they will receive rights tokens for those projects as well as tokens from the THE4 Community (Covenant). As the referrer, you&apos;ll also receive a share of both the Contract tokens and Covenant tokens.
-           
+            {projectIntroduction?.content}
           </div>
         </div>
         <div style={{ 
@@ -196,7 +198,7 @@ export default function SecondScreen() {
               cursor: 'pointer',
             }}
           >
-            <span>Learn more details</span>
+            <span>{projectIntroduction?.arrowContent}</span>
             <LearnMoreArrowIcon style={{ width: px(24), height: px(24) }} />
           </a>
         </div>
@@ -204,70 +206,48 @@ export default function SecondScreen() {
 
 
 
-      <div className='flex items-center justify-center' style={{ marginTop: px(70), gap: px(16) }}>
-        <button
-          className="flex items-center justify-center transition-colors cursor-pointer"
-          style={{
-            width: px(206),
-            height: px(44),
-            backgroundColor: '#ffffff',
-            border: '1px solid #000000',
-            borderRadius: px(4),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            color: '#000000',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#000000'
-            e.currentTarget.style.color = '#ffffff'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#ffffff'
-            e.currentTarget.style.color = '#000000'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-        >
-          Favorite Project
-        </button>
-
-        <button
-          className="flex items-center justify-center transition-colors cursor-pointer"
-          style={{
-            height: px(44),
-            paddingLeft: px(24),
-            paddingRight: px(24),
-            backgroundColor: '#ffffff',
-            border: '1px solid #000000',
-            borderRadius: px(4),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            color: '#000000',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#000000'
-            e.currentTarget.style.color = '#ffffff'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#ffffff'
-            e.currentTarget.style.color = '#000000'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-        >
-          Experience the Project
-        </button>
-      </div>
+      {projectIntroduction?.buttonList && projectIntroduction.buttonList.length > 0 && (
+        <div className='flex items-center justify-center' style={{ marginTop: px(70), gap: px(16) }}>
+          {projectIntroduction.buttonList.map((button, index) => (
+            <button
+              key={button.id}
+              className="flex items-center justify-center transition-colors cursor-pointer"
+              onClick={() => {
+                if (button.url) {
+                  window.open(button.url, '_blank', 'noopener,noreferrer')
+                }
+              }}
+              style={{
+                width: px(226),
+                height: px(44),
+                backgroundColor: '#ffffff',
+                border: '1px solid #000000',
+                borderRadius: px(4),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: 'normal',
+                fontSize: px(16),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: '#000000',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#000000'
+                e.currentTarget.style.color = '#ffffff'
+                e.currentTarget.style.borderColor = '#000000'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffffff'
+                e.currentTarget.style.color = '#000000'
+                e.currentTarget.style.borderColor = '#000000'
+              }}
+            >
+              {button.name}
+            </button>
+          ))}
+        </div>
+      )}
       </>
     // </div>
   )

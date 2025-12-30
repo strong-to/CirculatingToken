@@ -101,6 +101,66 @@
         "/LendingVault/banner/item/Mask4.png",
         "/LendingVault/banner/item/Mask5.png",
         "/LendingVault/banner/item/Mask6.png"
+      ],
+      "tabList": [
+        {
+          "id": "DBTF0000001ProjectIntroduction",
+          "name": "Project Introduction"
+        },
+        {
+          "id": "DBTF0000001UserComments",
+          "name": "User Comments"
+        },
+        {
+          "id": "DBTF0000001ProjectConstruction",
+          "name": "Project Construction"
+        },
+        {
+          "id": "DBTF0000001ProjectGovernance",
+          "name": "Project Governance"
+        },
+        {
+          "id": "DBTF0000001TokenTrading",
+          "name": "Token Trading"
+        },
+        {
+          "id": "DBTF0000001TokenLending",
+          "name": "Token Lending"
+        }
+      ],
+      "projectIntroduction": {  
+        "ratingData": [
+        "Workflow",
+        "Video+Audio",
+        "Image",
+        "Text",
+        "Media",
+        "Entertainment",
+        "Generate",
+        "Edit",
+        "Text",
+        "Model"
+      ],
+      "content": "Whether you are already using THE4 apps and earning from them, or you've just arrived and are still exploring what this AI ecosystem can do, you can invite friends to join with your referral link. Once your invitees start using THE4 and connect with specific AI projects (Contracts), they will receive rights tokens for those projects as well as tokens from the THE4 Community (Covenant). As the referrer, you'll also receive a share of both the Contract tokens and Covenant tokens.",
+      "arrowContent": "Learn more details",
+      "buttonList": [
+        {
+          "id": "DBTF0000001FavoriteProject",
+          "name": "Favorite Project",
+          "url": "https://primecore.io"
+        },
+        {
+          "id": "DBTF0000001Button2",
+          "name": "Experience the Project",
+          "url": "https://primecore.io"
+        }
+      ],
+      "projectsYouMayBeInterestedIn": [
+        {
+          "id": "DBTF0000001Project1",
+          "name": "Project 1",
+          "url": "https://primecore.io"
+        }
       ]
     },
     "links": {
@@ -374,4 +434,4 @@
       }
     ]
   }
-}
+}   }

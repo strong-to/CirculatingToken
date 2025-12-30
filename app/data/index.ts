@@ -35,6 +35,20 @@ export interface ProjectProfile {
   projectDetailsPage?: {
     banner?: string;
     carouselImages?: string[];
+    tabList?: Array<{
+      id: string;
+      name: string;
+    }>;
+    projectIntroduction?: {
+      ratingData?: string[];
+      content?: string;
+      arrowContent?: string;
+      buttonList?: Array<{
+        id: string;
+        name: string;
+        url: string;
+      }>;
+    };
   };
 }
 

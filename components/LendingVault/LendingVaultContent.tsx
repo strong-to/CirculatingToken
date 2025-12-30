@@ -27,8 +27,16 @@ export default function LendingVaultContent() {
 
   console.log('system_id-----------------1212', system_id)
   console.log('projectData-----------------', projectData)
-
-  const [activeTab, setActiveTab] = useState('Project Introduction')
+  
+  const pageData = projectData?.profile?.projectDetailsPage
+  // 从项目数据中获取 tabList，如果没有则使用默认值
+  // 提供一个默认的 tabList，当 pageData?.tabList 不存在时使用
+  const defaultTabList = [
+    { id: 'tab-1', name: 'Project Introduction' }
+  ];
+  const tabList = pageData?.tabList ?? defaultTabList;
+  
+  const [activeTab, setActiveTab] = useState(tabList[0]?.name || 'Project Introduction');
 
   return (
     <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
@@ -62,19 +70,12 @@ export default function LendingVaultContent() {
             marginTop: px(40),
           }}
         >
-          {[
-            'Project Introduction',
-            'User Comments',
-            'Project Construction',
-            'Project Governance',
-            'Token Trading',
-            'Token Lending'
-          ].map((text) => {
-            const isActive = activeTab === text
+          {tabList.map((tab: { id: string; name: string }) => {
+            const isActive = activeTab === tab.name
             return (
               <button
-                key={text}
-                onClick={() => setActiveTab(text)}
+                key={tab.id}
+                onClick={() => setActiveTab(tab.name)}
                 className="flex items-center justify-center transition-colors"
                 style={{
                   flex: 1,
@@ -106,14 +107,14 @@ export default function LendingVaultContent() {
                   }
                 }}
               >
-                {text}
+                {tab.name}
               </button>
             )
           })}
         </div>
         
       {/* 根据 activeTab 显示不同的组件 */}
-      {activeTab === 'Project Introduction' && <SecondScreen />}
+      {activeTab === 'Project Introduction' && <SecondScreen projectIntroduction={pageData?.projectIntroduction} />}
       {activeTab === 'User Comments' && <UserComments />}
       {activeTab === 'Project Construction' && <ProjectConstruction />}
       {activeTab === 'Project Governance' && <ProjectGovernance />}

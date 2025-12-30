@@ -101,6 +101,32 @@
         "/LendingVault/banner/item/Mask5.png",
         "/LendingVault/banner/item/Mask5.png",
         "/LendingVault/banner/item/Mask5.png"
+      ],
+      "tabList": [
+        {
+          "id": "DBTF0000005ProjectIntroduction",
+          "name": "Project Introduction"
+        },
+        {
+          "id": "DBTF0000005UserComments",
+          "name": "User Comments"
+        },
+        {
+          "id": "DBTF0000005ProjectConstruction",
+          "name": "Project Construction"
+        },
+        {
+          "id": "DBTF0000005ProjectGovernance",
+          "name": "Project Governance"
+        },
+        {
+          "id": "DBTF0000005TokenTrading",
+          "name": "Token Trading"
+        },
+        {
+          "id": "DBTF0000005TokenLending",
+          "name": "Token Lending"
+        }
       ]
     }
   },

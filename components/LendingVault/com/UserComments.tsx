@@ -18,6 +18,15 @@ interface UserCommentsProps {
       count: number;
       percentage: number;
     }>;
+    commentList?: Array<{
+      img: string;
+      name: string;
+      id: string;
+      stars: number;
+      comment: string;
+      emoji: string;
+      date: string;
+    }>;
   };
 }
 
@@ -204,13 +213,8 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                 overflow: 'visible',
               }}
             >
-              {/* 原始4张卡片 */}
-              {[
-                { img: 'img1.png', name: 'AtmoSet', id: 'DBAI000000', stars: 5, comment: 'Great tool.......', emoji: '👍👍', date: 'Dec 09 2025' },
-                { img: 'img2.png', name: 'Nero', id: 'DB000000137', stars: 5, comment: 'It is very convenient and can be easily used without professional skills!', emoji: '', date: 'Dec 09 2025' },
-                { img: 'img3.png', name: 'Ashley', id: 'DBAI0000009', stars: 5, comment: 'It is very efficient, and it would be even better if it could have voice interaction function.', emoji: '', date: 'Dec 09 2025' },
-                { img: 'img4.png', name: 'Shi san', id: 'DBAI0000009', stars: 5, comment: 'It\'s the best software I\'ve ever used, and it replaces almost every other tool, perfect!', emoji: '', date: 'Dec 09 2025' },
-              ].map((item, cardIndex) => (
+              {/* 评论卡片 */}
+              {(userComments?.commentList || []).map((item, cardIndex) => (
                 <SwiperSlide 
                   key={cardIndex}
                   style={{
@@ -288,9 +292,9 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                       </div>
                     </div>
                     
-                    {/* 5颗实心星星 */}
+                    {/* 星级显示 */}
                     <div className="flex items-center" style={{ gap: px(4), flexShrink: 0 }}>
-                      {Array.from({ length: 5 }).map((_, starIndex) => (
+                      {Array.from({ length: item.stars }).map((_, starIndex) => (
                         <svg key={starIndex} width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path d="M13.418 8.32031L13.5303 8.66602H20.9404L15.2393 12.8086L14.9453 13.0225L15.0576 13.3672L17.2344 20.0693L11.5332 15.9277L11.2402 15.7139L10.9463 15.9277L5.24414 20.0693L7.42188 13.3672L7.53418 13.0225L7.24023 12.8086L1.53906 8.66602H8.94922L9.06152 8.32031L11.2393 1.61621L13.418 8.32031Z" fill="black"/>
                         </svg>
@@ -341,12 +345,7 @@ export default function UserComments({ userComments }: UserCommentsProps) {
               ))}
               
               {/* 复制卡片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
-              {[
-                { img: 'img1.png', name: 'AtmoSet', id: 'DBAI000000', stars: 5, comment: 'Great tool.......', emoji: '👍👍', date: 'Dec 09 2025' },
-                { img: 'img2.png', name: 'Nero', id: 'DB000000137', stars: 5, comment: 'It is very convenient and can be easily used without professional skills!', emoji: '', date: 'Dec 09 2025' },
-                { img: 'img3.png', name: 'Ashley', id: 'DBAI0000009', stars: 5, comment: 'It is very efficient, and it would be even better if it could have voice interaction function.', emoji: '', date: 'Dec 09 2025' },
-                { img: 'img4.png', name: 'Shi san', id: 'DBAI0000009', stars: 5, comment: 'It\'s the best software I\'ve ever used, and it replaces almost every other tool, perfect!', emoji: '', date: 'Dec 09 2025' },
-              ].map((item, cardIndex) => (
+              {(userComments?.commentList || []).map((item, cardIndex) => (
                 <SwiperSlide 
                   key={`duplicate-${cardIndex}`}
                   style={{

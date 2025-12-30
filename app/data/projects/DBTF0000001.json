@@ -172,6 +172,12 @@
           { "stars": 3, "count": 21322, "percentage": 50 },
           { "stars": 2, "count": 6427, "percentage": 25 },
           { "stars": 1, "count": 1259, "percentage": 5 }
+        ],
+        "commentList": [
+          { "img": "img1.png", "name": "AtmoSet", "id": "DBAI000000", "stars": 5, "comment": "Great tool.......", "emoji": "👍👍", "date": "Dec 09 2025" },
+          { "img": "img2.png", "name": "Nero", "id": "DB000000137", "stars": 5, "comment": "It is very convenient and can be easily used without professional skills!", "emoji": "", "date": "Dec 09 2025" },
+          { "img": "img3.png", "name": "Ashley", "id": "DBAI0000009", "stars": 5, "comment": "It is very efficient, and it would be even better if it could have voice interaction function.", "emoji": "", "date": "Dec 09 2025" },
+          { "img": "img4.png", "name": "Shi san", "id": "DBAI0000009", "stars": 5, "comment": "It's the best software I've ever used, and it replaces almost every other tool, perfect!", "emoji": "", "date": "Dec 09 2025" }
         ]
       },
 

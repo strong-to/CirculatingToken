@@ -57,6 +57,15 @@ export interface ProjectProfile {
         count: number;
         percentage: number;
       }>;
+      commentList?: Array<{
+        img: string;
+        name: string;
+        id: string;
+        stars: number;
+        comment: string;
+        emoji: string;
+        date: string;
+      }>;
     };
   };
 }

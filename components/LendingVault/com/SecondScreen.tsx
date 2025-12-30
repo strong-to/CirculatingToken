@@ -142,7 +142,7 @@ export default function SecondScreen({ projectIntroduction }: SecondScreenProps)
           marginTop: px(50),
           marginLeft: px(80),
           marginRight: px(80),
-          height: px(396),
+          // height: px(396),
           backgroundColor: '#ffffff',
           boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
           display: 'flex',
@@ -178,8 +178,9 @@ export default function SecondScreen({ projectIntroduction }: SecondScreenProps)
         <div style={{ 
           display: 'flex', 
           justifyContent: 'flex-end', 
+          marginTop: px(50),
           flexShrink: 0,
-          paddingBottom: px(40),
+          paddingBottom: px(128),
           paddingLeft: px(50),
           paddingRight: px(50),
           paddingTop: px(16),
@@ -203,51 +204,6 @@ export default function SecondScreen({ projectIntroduction }: SecondScreenProps)
           </a>
         </div>
       </div>
-
-
-
-      {projectIntroduction?.buttonList && projectIntroduction.buttonList.length > 0 && (
-        <div className='flex items-center justify-center' style={{ marginTop: px(70), gap: px(16) }}>
-          {projectIntroduction.buttonList.map((button, index) => (
-            <button
-              key={button.id}
-              className="flex items-center justify-center transition-colors cursor-pointer"
-              onClick={() => {
-                if (button.url) {
-                  window.open(button.url, '_blank', 'noopener,noreferrer')
-                }
-              }}
-              style={{
-                width: px(226),
-                height: px(44),
-                backgroundColor: '#ffffff',
-                border: '1px solid #000000',
-                borderRadius: px(4),
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontStyle: 'normal',
-                fontSize: px(16),
-                lineHeight: '100%',
-                letterSpacing: '0%',
-                textAlign: 'center',
-                color: '#000000',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#000000'
-                e.currentTarget.style.color = '#ffffff'
-                e.currentTarget.style.borderColor = '#000000'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#ffffff'
-                e.currentTarget.style.color = '#000000'
-                e.currentTarget.style.borderColor = '#000000'
-              }}
-            >
-              {button.name}
-            </button>
-          ))}
-        </div>
-      )}
       </>
     // </div>
   )

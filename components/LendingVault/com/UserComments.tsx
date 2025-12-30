@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { px } from "@/utils/pxToRem"
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Mousewheel } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -193,11 +193,25 @@ export default function UserComments({ userComments }: UserCommentsProps) {
             
             {/* 4个评论卡片 - 使用 Swiper 实现按下滚动 */}
             <Swiper
-              modules={[Navigation]}
+              modules={[Navigation, Mousewheel]}
               spaceBetween={gap}
               loop={true}
               grabCursor={true}
               watchSlidesProgress={true}
+              // 使用 freeMode + mousewheel，让左右滚动有"惯性"而不是一次滚动一个卡片
+              freeMode={{
+                enabled: true,
+                momentum: true,
+                momentumRatio: 1.5,      // 惯性更明显一些
+                momentumBounce: false,
+                sticky: true,           // 滚动结束时自动对齐到最近的完整卡片
+              }}
+              mousewheel={{
+                forceToAxis: true,      // 只根据水平方向滚动
+                releaseOnEdges: true,   // 滑到边缘时把滚动交还给页面
+                sensitivity: 1.2,       // 提高灵敏度，滑一下走得更多
+                thresholdDelta: 1,      // 较小的滑动也能触发滚动
+              }}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper
               }}
@@ -293,13 +307,42 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                     </div>
                     
                     {/* 星级显示 */}
-                    <div className="flex items-center" style={{ gap: px(4), flexShrink: 0 }}>
-                      {Array.from({ length: item.stars }).map((_, starIndex) => (
-                        <svg key={starIndex} width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M13.418 8.32031L13.5303 8.66602H20.9404L15.2393 12.8086L14.9453 13.0225L15.0576 13.3672L17.2344 20.0693L11.5332 15.9277L11.2402 15.7139L10.9463 15.9277L5.24414 20.0693L7.42188 13.3672L7.53418 13.0225L7.24023 12.8086L1.53906 8.66602H8.94922L9.06152 8.32031L11.2393 1.61621L13.418 8.32031Z" fill="black"/>
-                        </svg>
-                      ))}
+                    <div className="" style={{ gap: px(4), flexShrink: 0 }}>
+
+                    <div
+                    className="flex items-center justify-start"
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontStyle: 'normal',
+                        fontSize: px(16),
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        color: '#888888',
+                        pointerEvents: 'none',
+                        marginBottom: px(3),
+                      }}
+                    >
+                      {item.date}
                     </div>
+                    <div className="flex items-center" style={{ gap: px(2), flexShrink: 0 }}>
+                    {Array.from({ length: item.stars }).map((_, starIndex) => (
+                        
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black"/>
+<path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black" fill-opacity="0.2"/>
+<path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black" fill-opacity="0.2"/>
+<path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black" fill-opacity="0.2"/>
+<path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black" fill-opacity="0.2"/>
+</svg>
+
+                      ))}
+
+                    </div>
+                     
+                      
+                    </div>
+                    
                   </div>
                   
                   {/* 评论内容区域 */}
@@ -321,23 +364,7 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                       {`${item.comment}${item.emoji}`}
                     </div>
                     {/* 日期 - 显示在右下角 */}
-                    <div
-                      style={{
-                        position: 'absolute',
-                        bottom: px(16),
-                        right: px(16),
-                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                        fontWeight: 300,
-                        fontStyle: 'normal',
-                        fontSize: px(14),
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#888888',
-                        pointerEvents: 'none',
-                      }}
-                    >
-                      {item.date}
-                    </div>
+                   
                   </div>
                 </div>
                   </div>
@@ -485,71 +512,6 @@ export default function UserComments({ userComments }: UserCommentsProps) {
 
 
 
-
-    <div className='flex items-center justify-center' style={{ marginTop: px(30), gap: px(16) }}>
-        <button
-          className="flex items-center justify-center transition-colors cursor-pointer"
-          style={{
-            width: px(206),
-            height: px(44),
-            backgroundColor: '#ffffff',
-            border: '1px solid #000000',
-            borderRadius: px(4),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            color: '#000000',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#000000'
-            e.currentTarget.style.color = '#ffffff'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#ffffff'
-            e.currentTarget.style.color = '#000000'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-        >
-          Favorite Project
-        </button>
-
-        <button
-          className="flex items-center justify-center transition-colors cursor-pointer"
-          style={{
-            height: px(44),
-            paddingLeft: px(24),
-            paddingRight: px(24),
-            backgroundColor: '#ffffff',
-            border: '1px solid #000000',
-            borderRadius: px(4),
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 300,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            textAlign: 'center',
-            color: '#000000',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#000000'
-            e.currentTarget.style.color = '#ffffff'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#ffffff'
-            e.currentTarget.style.color = '#000000'
-            e.currentTarget.style.borderColor = '#000000'
-          }}
-        >
-          Experience the Project
-        </button>
-      </div>
 
         </div>
        </>

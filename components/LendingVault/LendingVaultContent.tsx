@@ -123,7 +123,54 @@ export default function LendingVaultContent() {
 
       {/* Projects You May Be Interested In */}
      
-      </div>
+   
+
+      {/* 按钮：只在 Project Introduction 或 User Comments 标签页时显示 */}
+      {(activeTab === 'Project Introduction' || activeTab === 'User Comments') && 
+        pageData?.projectIntroduction?.buttonList && 
+        pageData.projectIntroduction.buttonList.length > 0 && (
+        <div className='flex items-center justify-center' style={{ gap: px(16), marginTop: px(70) }}>
+          {pageData.projectIntroduction.buttonList.map((button) => (
+            <button
+              key={button.id}
+              className="flex items-center justify-center transition-colors cursor-pointer"
+              onClick={() => {
+                if (button.url) {
+                  window.open(button.url, '_blank', 'noopener,noreferrer')
+                }
+              }}
+              style={{
+                width: px(226),
+                height: px(44),
+                backgroundColor: '#ffffff',
+                border: '1px solid #000000',
+                borderRadius: px(4),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontStyle: 'normal',
+                fontSize: px(16),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                textAlign: 'center',
+                color: '#000000',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#000000'
+                e.currentTarget.style.color = '#ffffff'
+                e.currentTarget.style.borderColor = '#000000'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffffff'
+                e.currentTarget.style.color = '#000000'
+                e.currentTarget.style.borderColor = '#000000'
+              }}
+            >
+              {button.name}
+            </button>
+          ))}
+        </div>
+      )}
+   </div>
 
       <ProjectsYouMayBeInterestedIn />
       <div style={{marginTop: px(89)}}> <Footer /></div>

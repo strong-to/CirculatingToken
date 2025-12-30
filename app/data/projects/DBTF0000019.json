@@ -91,6 +91,17 @@
       "website": "https://archipilot.io",
       "whitepaper": "https://docs.archipilot.io/whitepaper",
       "github": "https://github.com/dbtf/archipilot"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask19.png",
+        "/LendingVault/banner/item/Mask19.png",
+        "/LendingVault/banner/item/Mask19.png",
+        "/LendingVault/banner/item/Mask19.png",
+        "/LendingVault/banner/item/Mask19.png",
+        "/LendingVault/banner/item/Mask19.png"
+      ]
     }
   },
   "taxonomy": {

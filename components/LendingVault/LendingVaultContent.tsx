@@ -9,19 +9,37 @@ import ProjectConstruction from './com/ProjectConstruction'
 import ProjectGovernance from './com/ProjectGovernance'
 import TokenTrading from './com/TokenTrading'
 import ProjectsYouMayBeInterestedIn from './com/ProjectsYouMayBeInterestedIn'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import Footer from '../Footer/Footer'
+import { useSearchParams } from 'next/navigation'
+import { projectsMap } from '@/app/data'
+import type { ProjectData } from '@/app/data'
 
 export default function LendingVaultContent() {
+  const searchParams = useSearchParams()
+  const system_id = searchParams.get('system_id')
+
+  // 根据 system_id 获取对应的项目数据
+  const projectData: ProjectData | undefined = useMemo(() => {
+    if (!system_id) return undefined
+    return projectsMap[system_id]
+  }, [system_id])
+
+  console.log('system_id-----------------1212', system_id)
+  console.log('projectData-----------------', projectData)
 
   const [activeTab, setActiveTab] = useState('Project Introduction')
+
   return (
     <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
+      {/* 项目数据调试显示区域 - 可以后续移除或隐藏 */}
+     
+
       {/* 第一屏 */}
       <div className="flex flex-col" style={{ height: 'calc(100vh - 89px)' }}>
         {/* Banner 组件 */}
         <div className="flex-1 min-h-0">
-          <Banner />
+          <Banner projectData={projectData} />
         </div>
 
         

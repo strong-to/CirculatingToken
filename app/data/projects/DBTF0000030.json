@@ -91,6 +91,17 @@
       "website": "https://kidlearn.io",
       "whitepaper": "https://docs.kidlearn.io/whitepaper",
       "github": "https://github.com/dbtf/kidlearn"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask30.png",
+        "/LendingVault/banner/item/Mask30.png",
+        "/LendingVault/banner/item/Mask30.png",
+        "/LendingVault/banner/item/Mask30.png",
+        "/LendingVault/banner/item/Mask30.png",
+        "/LendingVault/banner/item/Mask30.png"
+      ]
     }
   },
   "taxonomy": {

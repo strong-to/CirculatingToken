@@ -68,7 +68,7 @@ export default function StepSeven({ onEnter, launchpadData }: StepSevenProps = {
         marginBottom: px(60),
         color: '#8C8C8C',
       }}>Click the image below to preview the comprehensive information of the project in full.</div>
-
+      
       <StepSevenPreview showStatus launchpadData={launchpadData} />
       {/* Enter 按钮 */}
       <div className="flex items-center justify-center" style={{ marginTop: px(60), width: px(1154),marginLeft: px(110) }}>

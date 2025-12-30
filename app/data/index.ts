@@ -32,6 +32,10 @@ export interface ProjectProfile {
       description?: string;
     }>;
   };
+  projectDetailsPage?: {
+    banner?: string;
+    carouselImages?: string[];
+  };
 }
 
 export interface ProjectMetrics {

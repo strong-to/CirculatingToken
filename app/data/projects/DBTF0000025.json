@@ -91,6 +91,17 @@
       "website": "https://wellguide.io",
       "whitepaper": "https://docs.wellguide.io/whitepaper",
       "github": "https://github.com/dbtf/wellguide"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask25.png",
+        "/LendingVault/banner/item/Mask25.png",
+        "/LendingVault/banner/item/Mask25.png",
+        "/LendingVault/banner/item/Mask25.png",
+        "/LendingVault/banner/item/Mask25.png",
+        "/LendingVault/banner/item/Mask25.png"
+      ]
     }
   },
   "taxonomy": {

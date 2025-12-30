@@ -91,6 +91,17 @@
       "website": "https://vocabridge.io",
       "whitepaper": "https://docs.vocabridge.io/whitepaper",
       "github": "https://github.com/dbtf/vocabridge"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask23.png",
+        "/LendingVault/banner/item/Mask23.png",
+        "/LendingVault/banner/item/Mask23.png",
+        "/LendingVault/banner/item/Mask23.png",
+        "/LendingVault/banner/item/Mask23.png",
+        "/LendingVault/banner/item/Mask23.png"
+      ]
     }
   },
   "taxonomy": {

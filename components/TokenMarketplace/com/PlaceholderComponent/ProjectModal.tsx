@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
 import type { ProjectData } from '@/app/data'
@@ -18,12 +19,16 @@ export default function ProjectModal({
   selectedCard,
   onClose,
   getMaskImagePath,
-  getIconImagePath,
-  formatNumber,
-  formatCurrency,
 }: ProjectModalProps) {
+  const router = useRouter()
   const [isDetailsHovered, setIsDetailsHovered] = useState(false)
   const [isFavoritesHovered, setIsFavoritesHovered] = useState(false)
+
+  const handleDetailsClick = () => {
+    if (selectedCard?.system_id) {
+      router.push(`/LendingVault?system_id=${selectedCard.system_id}`)
+    }
+  }
 
   if (selectedCard === null) return null
 
@@ -251,7 +256,11 @@ export default function ProjectModal({
                         key={item.id ?? `maskText-${rowIndex}-${index}`}
                         className="whitespace-nowrap flex items-center justify-center"
                         style={{
-                          padding: `${px(7)} ${px(12)}`,
+                          flex: 1,
+                          paddingTop: px(7),
+                          paddingBottom: px(7),
+                          // padding: `${px(7)} ${px(12)}`,
+
                           border: '0.7px solid #000000',
                           borderRadius: px(4),
                           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -322,6 +331,7 @@ export default function ProjectModal({
               <button
                 onMouseEnter={() => setIsDetailsHovered(true)}
                 onMouseLeave={() => setIsDetailsHovered(false)}
+                onClick={handleDetailsClick}
                 style={{
                     width: px(130),
                   height: px(30),
@@ -338,6 +348,7 @@ export default function ProjectModal({
               >
                 Details
               </button>
+
               <button
                 onMouseEnter={() => setIsFavoritesHovered(true)}
                 onMouseLeave={() => setIsFavoritesHovered(false)}

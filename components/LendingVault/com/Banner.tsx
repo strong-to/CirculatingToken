@@ -4,12 +4,18 @@ import { useState, useRef, useEffect } from 'react'
 import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Mousewheel } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
+import type { ProjectData } from '@/app/data'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { log } from 'console'
 
-export default function Banner() {
+interface BannerProps {
+  projectData?: ProjectData
+}
+
+export default function Banner({ projectData }: BannerProps) {
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -46,15 +52,39 @@ export default function Banner() {
   }, [isWindows])
 
 
-  // 图片路径数组
-  const images = Array.from({ length: 6 }, (_, i) => `/LendingVault/banner/item/Mask${i + 1}.png`)
+  // 路径转换函数：将相对路径转换为 Next.js 可用的绝对路径
+  const convertPathToPublic = (path: string | undefined): string => {
+    if (!path) return '' // 默认值
+    // 如果已经是绝对路径（以 / 开头），直接返回
+    if (path.startsWith('/')) return path
+    // 如果是相对路径，提取 public 之后的部分
+    // 处理类似 "../../../public/LendingVault/banner/MaskGroup.png" 的路径
+    const publicIndex = path.indexOf('/public/')
+    if (publicIndex !== -1) {
+      return path.substring(publicIndex + '/public'.length)
+    }
+    // 如果包含 public，尝试其他方式提取
+    const publicMatch = path.match(/public\/(.+)/)
+    if (publicMatch) {
+      return '/' + publicMatch[1]
+    }
+    // 如果都不匹配，返回默认值
+    return ''
+  }
+  // console.log('Banner - convertPathToPublic:', projectData.profile.projectDetailsPage.banner)
 
+  // 从项目数据中获取图片路径，如果没有则使用默认值
+  const bannerImage = convertPathToPublic(projectData?.profile?.projectDetailsPage?.banner)
+  
+  const images = projectData?.profile?.projectDetailsPage?.carouselImages 
+    || Array.from({ length: 6 }, (_, i) => `/LendingVault/banner/item/Mask${i + 1}.png`) 
+ 
   return (
     <>
       {/* 主 Banner 图片 */}
       <div className="w-full" style={{ height: px(540) }}>
         <ImageWithSkeleton
-          src="/LendingVault/banner/MaskGroup.png"
+          src={bannerImage}
           alt="Banner"
           width={1920}
           height={540}
@@ -138,12 +168,25 @@ export default function Banner() {
           }}
         >
           <Swiper
-            modules={[Navigation]}
+            modules={[Navigation, Mousewheel]}
             spaceBetween={gap}
             slidesPerView="auto"
             loop={true}
             grabCursor={true}
             watchSlidesProgress={true}
+            // 使用 freeMode + mousewheel，让左右滚动有"惯性"而不是一次滚动一个卡片
+            freeMode={{
+              enabled: true,
+              momentum: true,
+              momentumRatio: 1.5,      // 惯性更明显一些
+              momentumBounce: false,
+            }}
+            mousewheel={{
+              forceToAxis: true,      // 只根据水平方向滚动
+              releaseOnEdges: true,   // 滑到边缘时把滚动交还给页面
+              sensitivity: 1.2,       // 提高灵敏度，滑一下走得更多
+              thresholdDelta: 1,      // 较小的滑动也能触发滚动
+            }}
             onSwiper={(swiper) => {
               swiperRef.current = swiper
             }}

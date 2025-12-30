@@ -91,6 +91,17 @@
       "website": "https://atmoset.io",
       "whitepaper": "https://docs.atmoset.io/whitepaper",
       "github": "https://github.com/dbtf/atmoset"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask9.png",
+        "/LendingVault/banner/item/Mask9.png",
+        "/LendingVault/banner/item/Mask9.png",
+        "/LendingVault/banner/item/Mask9.png",
+        "/LendingVault/banner/item/Mask9.png",
+        "/LendingVault/banner/item/Mask9.png"
+      ]
     }
   },
   "taxonomy": {

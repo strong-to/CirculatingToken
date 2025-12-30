@@ -91,6 +91,17 @@
       "website": "https://starsage.io",
       "whitepaper": "https://docs.starsage.io/whitepaper",
       "github": "https://github.com/dbtf/starsage"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask22.png",
+        "/LendingVault/banner/item/Mask22.png",
+        "/LendingVault/banner/item/Mask22.png",
+        "/LendingVault/banner/item/Mask22.png",
+        "/LendingVault/banner/item/Mask22.png",
+        "/LendingVault/banner/item/Mask22.png"
+      ]
     }
   },
   "taxonomy": {

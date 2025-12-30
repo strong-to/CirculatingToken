@@ -91,6 +91,17 @@
       "website": "https://petbot.io",
       "whitepaper": "https://docs.petbot.io/whitepaper",
       "github": "https://github.com/dbtf/petbot"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask29.png",
+        "/LendingVault/banner/item/Mask29.png",
+        "/LendingVault/banner/item/Mask29.png",
+        "/LendingVault/banner/item/Mask29.png",
+        "/LendingVault/banner/item/Mask29.png",
+        "/LendingVault/banner/item/Mask29.png"
+      ]
     }
   },
   "taxonomy": {

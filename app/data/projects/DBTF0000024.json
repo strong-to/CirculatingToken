@@ -91,6 +91,17 @@
       "website": "https://tripmate.io",
       "whitepaper": "https://docs.tripmate.io/whitepaper",
       "github": "https://github.com/dbtf/tripmate"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask24.png",
+        "/LendingVault/banner/item/Mask24.png",
+        "/LendingVault/banner/item/Mask24.png",
+        "/LendingVault/banner/item/Mask24.png",
+        "/LendingVault/banner/item/Mask24.png",
+        "/LendingVault/banner/item/Mask24.png"
+      ]
     }
   },
   "taxonomy": {

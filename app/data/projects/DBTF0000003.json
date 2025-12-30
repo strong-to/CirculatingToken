@@ -91,6 +91,17 @@
       "website": "https://verba.io",
       "whitepaper": "https://docs.verba.io/whitepaper",
       "github": "https://github.com/dbtf/verba"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask3.png",
+        "/LendingVault/banner/item/Mask3.png",
+        "/LendingVault/banner/item/Mask3.png",
+        "/LendingVault/banner/item/Mask3.png",
+        "/LendingVault/banner/item/Mask3.png",
+        "/LendingVault/banner/item/Mask3.png"
+      ]
     }
   },
   "taxonomy": {

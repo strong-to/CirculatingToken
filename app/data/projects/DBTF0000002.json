@@ -91,6 +91,17 @@
       "website": "https://tensorgrid.io",
       "whitepaper": "https://docs.tensorgrid.io/whitepaper",
       "github": "https://github.com/dbtf/tensorgrid"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask2.png",
+        "/LendingVault/banner/item/Mask2.png",
+        "/LendingVault/banner/item/Mask2.png",
+        "/LendingVault/banner/item/Mask2.png",
+        "/LendingVault/banner/item/Mask2.png",
+        "/LendingVault/banner/item/Mask2.png"
+      ]
     }
   },
   "taxonomy": {

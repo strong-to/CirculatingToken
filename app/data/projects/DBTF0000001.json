@@ -92,6 +92,17 @@
       "description": "Reliable CPU compute at scale. DBTF0000001",
       "introduction": "Reliable CPU compute at scale. 001"
     },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask1.png",
+        "/LendingVault/banner/item/Mask2.png",
+        "/LendingVault/banner/item/Mask3.png",
+        "/LendingVault/banner/item/Mask4.png",
+        "/LendingVault/banner/item/Mask5.png",
+        "/LendingVault/banner/item/Mask6.png"
+      ]
+    },
     "links": {
       "website": "https://primecore.io",
       "whitepaper": "https://docs.primecore.io/whitepaper",

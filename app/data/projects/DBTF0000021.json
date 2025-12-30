@@ -91,6 +91,17 @@
       "website": "https://quantloop.io",
       "whitepaper": "https://docs.quantloop.io/whitepaper",
       "github": "https://github.com/dbtf/quantloop"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask21.png",
+        "/LendingVault/banner/item/Mask21.png",
+        "/LendingVault/banner/item/Mask21.png",
+        "/LendingVault/banner/item/Mask21.png",
+        "/LendingVault/banner/item/Mask21.png",
+        "/LendingVault/banner/item/Mask21.png"
+      ]
     }
   },
   "taxonomy": {

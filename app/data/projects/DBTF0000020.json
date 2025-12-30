@@ -91,6 +91,17 @@
       "website": "https://codeweaver.io",
       "whitepaper": "https://docs.codeweaver.io/whitepaper",
       "github": "https://github.com/dbtf/codeweaver"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask20.png",
+        "/LendingVault/banner/item/Mask20.png",
+        "/LendingVault/banner/item/Mask20.png",
+        "/LendingVault/banner/item/Mask20.png",
+        "/LendingVault/banner/item/Mask20.png",
+        "/LendingVault/banner/item/Mask20.png"
+      ]
     }
   },
   "taxonomy": {

@@ -91,6 +91,17 @@
       "website": "https://pixelstream.io",
       "whitepaper": "https://docs.pixelstream.io/whitepaper",
       "github": "https://github.com/dbtf/pixelstream"
+    },
+    "projectDetailsPage": {
+      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "/LendingVault/banner/item/Mask16.png",
+        "/LendingVault/banner/item/Mask16.png",
+        "/LendingVault/banner/item/Mask16.png",
+        "/LendingVault/banner/item/Mask16.png",
+        "/LendingVault/banner/item/Mask16.png",
+        "/LendingVault/banner/item/Mask16.png"
+      ]
     }
   },
   "taxonomy": {

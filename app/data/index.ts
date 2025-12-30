@@ -49,6 +49,15 @@ export interface ProjectProfile {
         url: string;
       }>;
     };
+    userComments?: {
+      overallRating?: string;
+      totalReviews?: number;
+      ratingData?: Array<{
+        stars: number;
+        count: number;
+        percentage: number;
+      }>;
+    };
   };
 }
 

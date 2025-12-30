@@ -163,6 +163,18 @@
         }
       ]
     },
+      "userComments": {
+        "overallRating": "4.5/5",
+        "totalReviews": 120518,
+        "ratingData": [
+          { "stars": 5, "count": 52079, "percentage": 95 },
+          { "stars": 4, "count": 38895, "percentage": 75 },
+          { "stars": 3, "count": 21322, "percentage": 50 },
+          { "stars": 2, "count": 6427, "percentage": 25 },
+          { "stars": 1, "count": 1259, "percentage": 5 }
+        ]
+      },
+
     "links": {
       "website": "https://primecore.io",
       "whitepaper": "https://docs.primecore.io/whitepaper",

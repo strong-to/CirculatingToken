@@ -1,10 +1,55 @@
 "use client";
 
 import { px } from "@/utils/pxToRem";
-import FilterDropdown from "@/components/ProjectConstruction/com/Modal/FilterDropdown";
 import { useEffect, useRef, useState } from "react";
 
-export default function ProjectFundingModal() {
+interface CardData {
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+  tags?: Array<{
+    type?: "bordered" | "icon";
+    text?: string;
+    icon?: "lightning" | "clock" | "person" | "gvp";
+  }>;
+  modal?: {
+    formSection?: {
+      title?: string;
+      description?: string;
+      contributionInput?: {
+        label?: string;
+        placeholder?: string;
+        minimumText?: string;
+      };
+      quickAmounts?: string[];
+      lockPeriod?: {
+        title?: string;
+        minLabel?: string;
+        minBonus?: string;
+        maxLabel?: string;
+        maxValue?: string;
+        infoText?: string;
+      };
+      estimatedReward?: {
+        title?: string;
+        badge?: string;
+        totalAmount?: string;
+        breakdown?: Array<{
+          label?: string;
+          value?: string;
+        }>;
+      };
+      submitButton?: string;
+    };
+  };
+}
+
+interface ProjectFundingModalProps {
+  card?: CardData;
+}
+
+export default function ProjectFundingModal({ card }: ProjectFundingModalProps) {
+  console.log('ProjectFundingModal card data:', card);
   const [sliderValue, setSliderValue] = useState(33); // 初始值33%
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -53,7 +98,7 @@ export default function ProjectFundingModal() {
             width: px(20),
             height: px(20),
             marginTop: px(-10),
-            marginRight: px(40),
+            marginRight: px(10),
           }}
         >
           <svg
@@ -88,7 +133,8 @@ export default function ProjectFundingModal() {
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           }}
         >
-          Project funding support
+            
+            {card?.title}
         </h2>
       </div>
       <div
@@ -103,7 +149,8 @@ export default function ProjectFundingModal() {
           marginBottom: px(30),
         }}
       >
-        Support the project with USDC to earn tokens and special benefits
+        {card?.subtitle}
+
       </div>
       <div className="w-full h-[1px] bg-[#000000]" />
 
@@ -136,7 +183,7 @@ export default function ProjectFundingModal() {
               lineHeight: px(26),
             }}
           >
-            Contribute Funds
+            {card?.modal?.formSection?.title || "Contribute Funds"}
           </div>
 
           {/* 12 */}
@@ -151,7 +198,7 @@ export default function ProjectFundingModal() {
               marginBottom: px(16),
             }}
           >
-            Support the project with USDC to earn tokens and special benefits
+            {card?.modal?.formSection?.description || card?.subtitle || "Support the project with USDC to earn tokens and special benefits"}
           </div>
 
           <div>
@@ -165,11 +212,11 @@ export default function ProjectFundingModal() {
                 marginBottom: px(5),
               }}
             >
-              Contribution Amount (USDC)
+              {card?.modal?.formSection?.contributionInput?.label || "Contribution Amount (USDC)"}
             </label>
             <input
               type="text"
-              placeholder="$ 100"
+              placeholder={card?.modal?.formSection?.contributionInput?.placeholder || "$ 100"}
               style={{
                 width: "100%",
                 height: px(44),
@@ -195,54 +242,24 @@ export default function ProjectFundingModal() {
               marginTop: px(10),
             }}
           >
-            Minimum contribution: 50 USDC
+            {card?.modal?.formSection?.contributionInput?.minimumText || "Minimum contribution: 50 USDC"}
           </div>
 
           <div className="flex" style={{ marginTop: px(11), gap: px(20) }}>
-            <div
-              className=" flex items-center justify-center "
-              style={{
-                width: px(80),
-                height: px(40),
-                border: "0.5px solid #000000",
-                borderRadius: px(4),
-              }}
-            >
-              $100
-            </div>
-            <div
-              className=" flex items-center justify-center "
-              style={{
-                width: px(80),
-                height: px(40),
-                border: "0.5px solid #000000",
-                borderRadius: px(4),
-              }}
-            >
-              $500
-            </div>
-            <div
-              className=" flex items-center justify-center "
-              style={{
-                width: px(80),
-                height: px(40),
-                border: "0.5px solid #000000",
-                borderRadius: px(4),
-              }}
-            >
-              $1000
-            </div>
-            <div
-              className=" flex items-center justify-center "
-              style={{
-                width: px(80),
-                height: px(40),
-                border: "0.5px solid #000000",
-                borderRadius: px(4),
-              }}
-            >
-              $5000
-            </div>
+            {(card?.modal?.formSection?.quickAmounts || ["$100", "$500", "$1000", "$5000"]).map((amount, index) => (
+              <div
+                key={index}
+                className=" flex items-center justify-center "
+                style={{
+                  width: px(80),
+                  height: px(40),
+                  border: "0.5px solid #000000",
+                  borderRadius: px(4),
+                }}
+              >
+                {amount}
+              </div>
+            ))}
           </div>
 
           <div
@@ -255,7 +272,7 @@ export default function ProjectFundingModal() {
               lineHeight: px(26),
             }}
           >
-            Lock Period (extra rewards)
+            {card?.modal?.formSection?.lockPeriod?.title || "Lock Period (extra rewards)"}
           </div>
 
           <div
@@ -271,7 +288,7 @@ export default function ProjectFundingModal() {
                 lineHeight: px(19),
               }}
             >
-              6 months
+              {card?.modal?.formSection?.lockPeriod?.minLabel || "6 months"}
             </div>
 
             <div
@@ -294,7 +311,7 @@ export default function ProjectFundingModal() {
                   color: "#000000",
                 }}
               >
-                +10% Bonus
+                {card?.modal?.formSection?.lockPeriod?.minBonus || "+10% Bonus"}
               </span>
             </div>
           </div>
@@ -402,7 +419,7 @@ export default function ProjectFundingModal() {
                 lineHeight: px(19),
               }}
             >
-              No lock
+              {card?.modal?.formSection?.lockPeriod?.maxLabel || "No lock"}
             </div>
 
             <div
@@ -416,7 +433,7 @@ export default function ProjectFundingModal() {
                 color: "#555555",
               }}
             >
-              24months
+              {card?.modal?.formSection?.lockPeriod?.maxValue || "24months"}
             </div>
           </div>
 
@@ -448,21 +465,19 @@ export default function ProjectFundingModal() {
                 fill="black"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M10 4.6875L9.99679 11.8875L9.09679 11.8871L9.1 4.6871L10 4.6875Z"
                 fill="#252525"
               />
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M9.99609 14.6094L9.99667 13.3157L9.09667 13.3153L9.09609 14.609L9.99609 14.6094Z"
                 fill="#252525"
               />
             </svg>
-            Longer lock periods yield more token rewards. Tokens unlock
-            gradually during the lock, and you still retain governance voting
-            rights.
+            {card?.modal?.formSection?.lockPeriod?.infoText || "Longer lock periods yield more token rewards. Tokens unlock gradually during the lock, and you still retain governance voting rights."}
           </div>
 
           <div
@@ -522,7 +537,7 @@ export default function ProjectFundingModal() {
                     margin: 0,
                   }}
                 >
-                  Estimated Reward
+                  {card?.modal?.formSection?.estimatedReward?.title || "Estimated Reward"}
                 </h2>
               </div>
 
@@ -543,7 +558,7 @@ export default function ProjectFundingModal() {
                   color: "#FFFFFF",
                 }}
               >
-                Supporter
+                {card?.modal?.formSection?.estimatedReward?.badge || "Supporter"}
               </div>
             </div>
 
@@ -561,63 +576,35 @@ export default function ProjectFundingModal() {
                 opacity: 1,
               }}
             >
-              1,150 GVP
+              {card?.modal?.formSection?.estimatedReward?.totalAmount || "1,150 GVP"}
             </h1>
 
             <div
               className="flex flex-col"
               style={{ gap: px(10), marginTop: px(20) }}
             >
-              {/* Base reward (10x) */}
-              <div
-                className="flex items-center justify-between"
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(16),
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  color: "#555555",
-                  height: px(19),
-                }}
-              >
-                <span>Base reward (10x):</span>
-                <span>1.000 GVP</span>
-              </div>
-
-              {/* Tier bonus (5%) */}
-              <div
-                className="flex items-center justify-between"
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(16),
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  color: "#555555",
-                  height: px(19),
-                }}
-              >
-                <span>Tier bonus (5%):</span>
-                <span>+50</span>
-              </div>
-
-              {/* Lock bonus (10%) */}
-              <div
-                className="flex items-center justify-between"
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(16),
-                  lineHeight: "100%",
-                  letterSpacing: "0%",
-                  color: "#555555",
-                  height: px(19),
-                }}
-              >
-                <span>Lock bonus (10%):</span>
-                <span>+100</span>
-              </div>
+              {(card?.modal?.formSection?.estimatedReward?.breakdown || [
+                { label: "Base reward (10x):", value: "1.000 GVP" },
+                { label: "Tier bonus (5%):", value: "+50" },
+                { label: "Lock bonus (10%):", value: "+100" }
+              ]).map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-between"
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(16),
+                    lineHeight: "100%",
+                    letterSpacing: "0%",
+                    color: "#555555",
+                    height: px(19),
+                  }}
+                >
+                  <span>{item.label}</span>
+                  <span>{item.value}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -639,7 +626,7 @@ export default function ProjectFundingModal() {
                 letterSpacing: "0%",
               }}
             >
-              Confirm Contribution
+              {card?.modal?.formSection?.submitButton || "Confirm Contribution"}
             </button>
           </div>
         </div>

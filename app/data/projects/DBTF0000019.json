@@ -127,7 +127,724 @@
           "id": "DBTF0000019TokenLending",
           "name": "Token Lending"
         }
-      ]
+      ],
+      "projectIntroduction": {
+        "ratingData": [
+          "Workflow",
+          "Video+Audio",
+          "Image",
+          "Text",
+          "Media",
+          "Entertainment",
+          "Generate",
+          "Edit",
+          "Text",
+          "Model"
+        ],
+        "content": "Whether you are already using THE4 apps and earning from them, or you've just arrived and are still exploring what this AI ecosystem can do, you can invite friends to join with your referral link. Once your invitees start using THE4 and connect with specific AI projects (Contracts), they will receive rights tokens for those projects as well as tokens from the THE4 Community (Covenant). As the referrer, you'll also receive a share of both the Contract tokens and Covenant tokens.",
+        "arrowContent": "Learn more details",
+        "buttonList": [
+          {
+            "id": "DBTF0000019FavoriteProject",
+            "name": "Favorite Project",
+            "url": "https://primecore.io"
+          },
+          {
+            "id": "DBTF0000019Button2",
+            "name": "Experience the Project",
+            "url": "https://primecore.io"
+          }
+        ],
+        "projectsYouMayBeInterestedIn": [
+          {
+            "id": "DBTF0000019Project1",
+            "name": "Project 1",
+            "url": "https://primecore.io"
+          }
+        ]
+      },
+      "userComments": {
+        "overallRating": "4.5/5",
+        "totalReviews": 120518,
+        "ratingData": [
+          {
+            "stars": 5,
+            "count": 52079,
+            "percentage": 95
+          },
+          {
+            "stars": 4,
+            "count": 38895,
+            "percentage": 75
+          },
+          {
+            "stars": 3,
+            "count": 21322,
+            "percentage": 50
+          },
+          {
+            "stars": 2,
+            "count": 6427,
+            "percentage": 25
+          },
+          {
+            "stars": 1,
+            "count": 1259,
+            "percentage": 5
+          }
+        ],
+        "commentList": [
+          {
+            "img": "img1.png",
+            "name": "AtmoSet",
+            "id": "DBAI000000",
+            "stars": 5,
+            "comment": "Great tool.......",
+            "emoji": "👍👍",
+            "date": "Dec 09 2025"
+          },
+          {
+            "img": "img2.png",
+            "name": "Nero",
+            "id": "DB000000137",
+            "stars": 5,
+            "comment": "It is very convenient and can be easily used without professional skills!",
+            "emoji": "",
+            "date": "Dec 09 2025"
+          },
+          {
+            "img": "img3.png",
+            "name": "Ashley",
+            "id": "DBAI0000009",
+            "stars": 5,
+            "comment": "It is very efficient, and it would be even better if it could have voice interaction function.",
+            "emoji": "",
+            "date": "Dec 09 2025"
+          },
+          {
+            "img": "img4.png",
+            "name": "Shi san",
+            "id": "DBAI0000009",
+            "stars": 5,
+            "comment": "It's the best software I've ever used, and it replaces almost every other tool, perfect!",
+            "emoji": "",
+            "date": "Dec 09 2025"
+          }
+        ]
+      },
+      "projectConstruction": {
+        "statistics": {
+          "totalResponses": 1503,
+          "totalResponsesLabel": "construction response count：",
+          "totalConstructors": 667,
+          "totalConstructorsLabel": "number of constructors：",
+          "completedSubjects": 7,
+          "completedSubjectsLabel": "number of completed response subjects：",
+          "ongoingSubjects": 5,
+          "ongoingSubjectsLabel": "number of ongoing response subjects："
+        },
+        "logo": {
+          "src": "/LendingVault/ProjectConstruction/logo.png",
+          "name": "PrimeCore",
+          "address": "0x1a2b...Core",
+          "totalContributions": 1503,
+          "tokensEarned": "45,200 GVP",
+          "tagLabel": "Project Overview"
+        },
+        "constructors": [
+          {
+            "id": 1,
+            "avatar": "/LendingVault/ProjectConstruction/item/img1.png",
+            "name": "Quantum",
+            "address": "0x2b3c...Otla",
+            "totalContributions": 287,
+            "tokensEarned": "12,800 GVP",
+            "tagLabel": "Data Annotation"
+          },
+          {
+            "id": 2,
+            "avatar": "/LendingVault/ProjectConstruction/item/img2.png",
+            "name": "Nexus",
+            "address": "0x3c4d...Nexu",
+            "totalContributions": 245,
+            "tokensEarned": "10,500 GVP",
+            "tagLabel": "Code Review"
+          },
+          {
+            "id": 3,
+            "avatar": "/LendingVault/ProjectConstruction/item/img3.png",
+            "name": "Apex",
+            "address": "0x4d5e...Apex",
+            "totalContributions": 312,
+            "tokensEarned": "14,200 GVP",
+            "tagLabel": "Testing"
+          },
+          {
+            "id": 4,
+            "avatar": "/LendingVault/ProjectConstruction/item/img4.png",
+            "name": "Vortex",
+            "address": "0x5e6f...Vort",
+            "totalContributions": 198,
+            "tokensEarned": "8,900 GVP",
+            "tagLabel": "Documentation"
+          },
+          {
+            "id": 5,
+            "avatar": "/LendingVault/ProjectConstruction/item/img5.png",
+            "name": "Zenith",
+            "address": "0x6f7a...Zeni",
+            "totalContributions": 356,
+            "tokensEarned": "16,100 GVP",
+            "tagLabel": "Design"
+          },
+          {
+            "id": 6,
+            "avatar": "/LendingVault/ProjectConstruction/item/img6.png",
+            "name": "Phoenix",
+            "address": "0x7a8b...Phoe",
+            "totalContributions": 223,
+            "tokensEarned": "9,800 GVP",
+            "tagLabel": "Optimization"
+          },
+          {
+            "id": 7,
+            "avatar": "/LendingVault/ProjectConstruction/item/img7.png",
+            "name": "Titan",
+            "address": "0x8b9c...Tita",
+            "totalContributions": 289,
+            "tokensEarned": "13,200 GVP",
+            "tagLabel": "Security"
+          },
+          {
+            "id": 8,
+            "avatar": "/LendingVault/ProjectConstruction/item/img8.png",
+            "name": "Nova",
+            "address": "0x9c0d...Nova",
+            "totalContributions": 267,
+            "tokensEarned": "11,600 GVP",
+            "tagLabel": "Integration"
+          },
+          {
+            "id": 9,
+            "avatar": "/LendingVault/ProjectConstruction/item/img9.png",
+            "name": "Atlas",
+            "address": "0x0d1e...Atla",
+            "totalContributions": 334,
+            "tokensEarned": "15,300 GVP",
+            "tagLabel": "Architecture"
+          },
+          {
+            "id": 10,
+            "avatar": "/LendingVault/ProjectConstruction/item/img10.png",
+            "name": "Orion",
+            "address": "0x1e2f...Orion",
+            "totalContributions": 201,
+            "tokensEarned": "9,100 GVP",
+            "tagLabel": "Debugging"
+          },
+          {
+            "id": 11,
+            "avatar": "/LendingVault/ProjectConstruction/item/img11.png",
+            "name": "Helix",
+            "address": "0x2f3a...Heli",
+            "totalContributions": 278,
+            "tokensEarned": "12,500 GVP",
+            "tagLabel": "Refactoring"
+          },
+          {
+            "id": 12,
+            "avatar": "/LendingVault/ProjectConstruction/item/img12.png",
+            "name": "Cipher",
+            "address": "0x3a4b...Ciph",
+            "totalContributions": 256,
+            "tokensEarned": "11,400 GVP",
+            "tagLabel": "Encryption"
+          },
+          {
+            "id": 13,
+            "avatar": "/LendingVault/ProjectConstruction/item/img13.png",
+            "name": "Echo",
+            "address": "0x4b5c...Echo",
+            "totalContributions": 245,
+            "tokensEarned": "10,700 GVP",
+            "tagLabel": "API Design"
+          },
+          {
+            "id": 14,
+            "avatar": "/LendingVault/ProjectConstruction/item/img14.png",
+            "name": "Flux",
+            "address": "0x5c6d...Flux",
+            "totalContributions": 302,
+            "tokensEarned": "13,800 GVP",
+            "tagLabel": "Performance"
+          },
+          {
+            "id": 15,
+            "avatar": "/LendingVault/ProjectConstruction/item/img15.png",
+            "name": "Prism",
+            "address": "0x6d7e...Prism",
+            "totalContributions": 219,
+            "tokensEarned": "9,600 GVP",
+            "tagLabel": "UI/UX"
+          },
+          {
+            "id": 16,
+            "avatar": "/LendingVault/ProjectConstruction/item/img16.png",
+            "name": "Vector",
+            "address": "0x7e8f...Vect",
+            "totalContributions": 291,
+            "tokensEarned": "13,100 GVP",
+            "tagLabel": "Algorithm"
+          }
+        ],
+        "jobs": [
+          {
+            "id": 1,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 2,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 3,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 4,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 5,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 6,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          }
+        ],
+        "pagination": {
+          "defaultItemsPerPage": 10,
+          "itemsPerPageOptions": [
+            10,
+            20,
+            50
+          ],
+          "totalPages": 7
+        },
+        "cardData": [
+          {
+            "icon": "/ConferenceRoom/img/icon1.png",
+            "title": "Project funding support",
+            "subtitle": "Support the project with USDC to earn tokens and special benefits",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Online contribution",
+                "icon": "lightning"
+              },
+              {
+                "type": "bordered",
+                "text": "Easy"
+              },
+              {
+                "type": "icon",
+                "text": "1,200GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "Immediate",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "35applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "formSection": {
+                "title": "Contribute Funds",
+                "description": "Support the project with USDC to earn tokens and special benefits",
+                "contributionInput": {
+                  "label": "Contribution Amount (USDC)",
+                  "placeholder": "$ 100",
+                  "minimumText": "Minimum contribution: 50 USDC"
+                },
+                "quickAmounts": [
+                  "$100",
+                  "$500",
+                  "$1000",
+                  "$5000"
+                ],
+                "lockPeriod": {
+                  "title": "Lock Period (extra rewards)",
+                  "minLabel": "6 months",
+                  "minBonus": "+10% Bonus",
+                  "maxLabel": "No lock",
+                  "maxValue": "24months",
+                  "infoText": "Longer lock periods yield more token rewards. Tokens unlock gradually during the lock, and you still retain governance voting rights."
+                },
+                "estimatedReward": {
+                  "title": "Estimated Reward",
+                  "badge": "Supporter",
+                  "totalAmount": "1,150 GVP",
+                  "breakdown": [
+                    {
+                      "label": "Base reward (10x):",
+                      "value": "1.000 GVP"
+                    },
+                    {
+                      "label": "Tier bonus (5%):",
+                      "value": "+50"
+                    },
+                    {
+                      "label": "Lock bonus (10%):",
+                      "value": "+100"
+                    }
+                  ]
+                },
+                "submitButton": "Confirm Contribution"
+              }
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon2.png",
+            "title": "Collect labeled data for specific",
+            "subtitle": "Collect labeled data in medical imaging for fine-tuning and accuracy improvement",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Medium"
+              },
+              {
+                "type": "icon",
+                "text": "2000 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "1-2 weeks 2",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "5 applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "statistics": [
+                {
+                  "label": "This round",
+                  "value": "1",
+                  "icon": "C"
+                },
+                {
+                  "label": "Accuracy",
+                  "value": "96.5%",
+                  "icon": "C"
+                },
+                {
+                  "label": "Rewards Earned",
+                  "value": "2",
+                  "icon": "C"
+                },
+                {
+                  "label": "Avg Time",
+                  "value": "45s",
+                  "icon": "C"
+                }
+              ],
+              "task": {
+                "title": "Tasio Transcription Verification",
+                "progress": "Task 5 / 5",
+                "reward": "+2 GVP"
+              },
+              "audioPlayer": {
+                "label": "Audio Player"
+              },
+              "transcription": {
+                "text": "Artificial intelligence is changing our way of life"
+              },
+              "verification": {
+                "prompt": "Verify if the transcription is accurate",
+                "options": [
+                  "Completely accurate",
+                  "Mostly accurate (minor errors)",
+                  "Partially accurate",
+                  "Inaccurate"
+                ]
+              },
+              "buttons": {
+                "skip": "Skip",
+                "submit": "Submit labels"
+              }
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon3.png",
+            "title": "NVIDIA A100 GPU Computing Power",
+            "subtitle": "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning...",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Medium"
+              },
+              {
+                "type": "icon",
+                "text": "8000-15000 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "Ongoing",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "5 applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "description": "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning. Please provide GPU specs and accessible address (IP + port or API endpoint). Expected contribution: 100-200 GPU hours per week.",
+              "leftCard": {
+                "title": "NVIDIA A100 GPU Computing Power",
+                "description": "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning. Please provide GPU specs ...",
+                "tags": [
+                  {
+                    "text": "8000-15000 GVP",
+                    "type": "primary"
+                  },
+                  {
+                    "text": "medium",
+                    "type": "secondary"
+                  },
+                  {
+                    "text": "Ongoing",
+                    "type": "secondary"
+                  }
+                ]
+              },
+              "rightCard": {
+                "title": "Compute Type",
+                "description": "Select the type of compute resource you can provide",
+                "filterDropdown": {
+                  "placeholder": "GPU Computing",
+                  "description": "Select the type of compute resource you can provide",
+                  "options": [
+                    "GPU Computing",
+                    "GPU Computing1",
+                    "GPU Computing2"
+                  ],
+                  "value": "GPU Computing"
+                }
+              },
+              "gpuSpecifications": {
+                "title": "GPU Specifications",
+                "gpuModel": {
+                  "label": "GPU Model",
+                  "placeholder": "GPU Model",
+                  "options": [
+                    "NVIDIA A100, 80GB",
+                    "NVIDIA A100, 40GB",
+                    "NVIDIA A6000, 48GB",
+                    "NVIDIA V100, 32GB",
+                    "NVIDIA V100, 16GB",
+                    "NVIDIA RTX 4090, 24GB",
+                    "NVIDIA RTX 3090, 24GB",
+                    "NVIDIA RTX 3080, 10GB",
+                    "NVIDIA L40, 48GB",
+                    "NVIDIA T4, 16GB",
+                    "Other"
+                  ]
+                },
+                "gpuCount": {
+                  "label": "GPU Count",
+                  "placeholder": "1",
+                  "options": [
+                    "1",
+                    "2",
+                    "4",
+                    "8",
+                    "16",
+                    "32+"
+                  ],
+                  "value": "1"
+                }
+              },
+              "accessInformation": {
+                "title": "Access Information",
+                "ipAddress": {
+                  "label": "IP Address / Domain",
+                  "placeholder": "e.g. 192.168.1.100 or example.com"
+                },
+                "port": {
+                  "label": "Port",
+                  "placeholder": "e.g., 8080"
+                },
+                "sshKey": {
+                  "label": "SSH Public Key (optional)",
+                  "placeholder": "ssh-rsa AAAAB3..."
+                }
+              },
+              "availabilityDuration": {
+                "title": "Availability & Duration",
+                "availability": {
+                  "label": "Availability",
+                  "placeholder": "24/7",
+                  "options": [
+                    "24/7",
+                    "Business Hours",
+                    "Custom"
+                  ],
+                  "value": "24/7"
+                },
+                "commitmentDuration": {
+                  "label": "Commitment Duration",
+                  "placeholder": "1 Month",
+                  "options": [
+                    "1 Week",
+                    "Month",
+                    "3 Months",
+                    "6 Months",
+                    "1 Year"
+                  ],
+                  "value": "Month"
+                }
+              },
+              "additionalInformation": {
+                "title": "Additional Information",
+                "placeholder": "e.g., SLA guarantees, special configurations, maintenance windows..."
+              },
+              "submitButton": "Submit Compute Resource"
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon4.png",
+            "title": "Optimize image recognition performance",
+            "subtitle": "Optimize inference speed for high-resolution images; target 30% reduction in processing time",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Hard"
+              },
+              {
+                "type": "icon",
+                "text": "5000 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "2-3 weeks",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "3 applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "notSupportedMessage": "This task type is not supported for online contributions yet",
+              "contactMessage": "Please contact the project team for details",
+              "taskInfoLabel": "Task Info:",
+              "taskInfoText": "Optimize inference speed for high-resolution images; target 30% reduction in processing time",
+              "actionButtons": {
+                "leftButton": "1500 GVP",
+                "rightButton": "medium"
+              }
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon5.png",
+            "title": "Write detailed API documentation",
+            "subtitle": "Document the new scene analysis feature with examples",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Medium"
+              },
+              {
+                "type": "icon",
+                "text": "1500 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "1 week",
+                "icon": "clock"
+              }
+            ],
+            "modal": {
+              "notSupportedMessage": "This task type is not supported for online contributions yet",
+              "contactMessage": "Please contact the project team for details",
+              "taskInfoLabel": "Task Info:",
+              "taskInfoText": "Create comprehensive documentation and code examples for new scene analysis features",
+              "actionButtons": {
+                "leftButton": "1500 GVP",
+                "rightButton": "medium"
+              }
+            }
+          }
+        ]
+      }
     }
   },
   "taxonomy": {

@@ -116,7 +116,7 @@ export default function LendingVaultContent() {
       {/* 根据 activeTab 显示不同的组件 */}
       {activeTab === 'Project Introduction' && <SecondScreen projectIntroduction={pageData?.projectIntroduction} />}
       {activeTab === 'User Comments' && <UserComments userComments={pageData?.userComments} />}
-      {activeTab === 'Project Construction' && <ProjectConstruction />}
+      {activeTab === 'Project Construction' && <ProjectConstruction projectData={pageData?.projectConstruction} />}
       {activeTab === 'Project Governance' && <ProjectGovernance />}
       {activeTab === 'Token Trading' && <ProjectGovernance />}
       {activeTab === 'Token Lending' && <ProjectGovernance />}

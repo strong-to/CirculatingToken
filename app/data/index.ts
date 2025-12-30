@@ -67,6 +67,7 @@ export interface ProjectProfile {
         date: string;
       }>;
     };
+    projectConstruction?: ProjectConstructionData;
   };
 }
 
@@ -110,6 +111,194 @@ export interface ProjectGovernanceProposal {
   };
 }
 
+export interface ProjectConstructionData {
+  statistics?: {
+    totalResponses?: number;
+    totalResponsesLabel?: string;
+    totalConstructors?: number;
+    totalConstructorsLabel?: string;
+    completedSubjects?: number;
+    completedSubjectsLabel?: string;
+    ongoingSubjects?: number;
+    ongoingSubjectsLabel?: string;
+  };
+  logo?: {
+    src?: string;
+    name?: string;
+    address?: string;
+    totalContributions?: number;
+    tokensEarned?: string;
+    tagLabel?: string;
+  } | string;
+  constructors?: Array<{
+    id: number;
+    avatar: string;
+    name?: string;
+    address?: string;
+    totalContributions?: number;
+    tokensEarned?: string;
+    tagLabel?: string;
+  }>;
+  jobs?: Array<{
+    id: number;
+    annotation?: string;
+    content?: string;
+    filter?: string;
+    tokens?: string;
+    unit?: string;
+    demand?: string;
+    participants?: string;
+    difficulty?: string;
+    timeLimit?: string;
+    status?: string;
+  }>;
+  pagination?: {
+    defaultItemsPerPage?: number;
+    itemsPerPageOptions?: number[];
+    totalPages?: number;
+  };
+  cardData?: Array<{
+    icon?: string;
+    title?: string;
+    subtitle?: string;
+    tags?: Array<{
+      type?: "bordered" | "icon";
+      text?: string;
+      icon?: "lightning" | "clock" | "person" | "gvp";
+    }>;
+    modal?: {
+      formSection?: {
+        title?: string;
+        description?: string;
+        contributionInput?: {
+          label?: string;
+          placeholder?: string;
+          minimumText?: string;
+        };
+        quickAmounts?: string[];
+        lockPeriod?: {
+          title?: string;
+          minLabel?: string;
+          minBonus?: string;
+          maxLabel?: string;
+          maxValue?: string;
+          infoText?: string;
+        };
+        estimatedReward?: {
+          title?: string;
+          badge?: string;
+          totalAmount?: string;
+          breakdown?: Array<{
+            label?: string;
+            value?: string;
+          }>;
+        };
+        submitButton?: string;
+      };
+      statistics?: Array<{
+        label?: string;
+        value?: string;
+        icon?: string;
+      }>;
+      task?: {
+        title?: string;
+        progress?: string;
+        reward?: string;
+      };
+      audioPlayer?: {
+        label?: string;
+      };
+      transcription?: {
+        text?: string;
+      };
+      verification?: {
+        prompt?: string;
+        options?: string[];
+      };
+      buttons?: {
+        skip?: string;
+        submit?: string;
+      };
+      description?: string;
+      leftCard?: {
+        title?: string;
+        description?: string;
+        tags?: Array<{
+          text?: string;
+          type?: "primary" | "secondary";
+        }>;
+      };
+      rightCard?: {
+        title?: string;
+        description?: string;
+        filterDropdown?: {
+          placeholder?: string;
+          description?: string;
+          options?: string[];
+          value?: string;
+        };
+      };
+      gpuSpecifications?: {
+        title?: string;
+        gpuModel?: {
+          label?: string;
+          placeholder?: string;
+          options?: string[];
+        };
+        gpuCount?: {
+          label?: string;
+          placeholder?: string;
+          options?: string[];
+          value?: string;
+        };
+      };
+      accessInformation?: {
+        title?: string;
+        ipAddress?: {
+          label?: string;
+          placeholder?: string;
+        };
+        port?: {
+          label?: string;
+          placeholder?: string;
+        };
+        sshKey?: {
+          label?: string;
+          placeholder?: string;
+        };
+      };
+      availabilityDuration?: {
+        title?: string;
+        availability?: {
+          label?: string;
+          placeholder?: string;
+          options?: string[];
+          value?: string;
+        };
+        commitmentDuration?: {
+          label?: string;
+          placeholder?: string;
+          options?: string[];
+          value?: string;
+        };
+      };
+      additionalInformation?: {
+        title?: string;
+        placeholder?: string;
+      };
+      submitButton?: string;
+      notSupportedMessage?: string;
+      contactMessage?: string;
+      taskInfoLabel?: string;
+      taskInfoText?: string;
+      actionButtons?: {
+        leftButton?: string;
+        rightButton?: string;
+      };
+    };
+  }>;
+}
+
 export interface ProjectData {
   system_id: string;
   slug?: string;
@@ -127,6 +316,7 @@ export interface ProjectData {
     active_proposal_count?: number;
     proposals?: ProjectGovernanceProposal[];
   };
+  projectConstruction?: ProjectConstructionData;
 }
 
 export interface UserProfileAsset {

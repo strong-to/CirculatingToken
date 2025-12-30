@@ -9,6 +9,13 @@ interface ConstructorImageModalProps {
   onClose: () => void;
   imageSrc: string;
   imageIndex: number;
+  name?: string;
+  address?: string;
+  totalContributions?: number;
+  tokensEarned?: string;
+  tagLabel?: string;
+  totalContributionsLabel?: string;
+  tokensEarnedLabel?: string;
 }
 
 export default function ConstructorImageModal({
@@ -16,6 +23,13 @@ export default function ConstructorImageModal({
   onClose,
   imageSrc,
   imageIndex,
+  name = "Quantum",
+  address = "0x2b3c...Otla",
+  totalContributions = 287,
+  tokensEarned = "12,800 GVP",
+  tagLabel = "Data Annotation",
+  totalContributionsLabel = "Total contributions",
+  tokensEarnedLabel = "Tokens earned",
 }: ConstructorImageModalProps) {
   const [isAnimating, setIsAnimating] = useState(false);
   const [shouldRender, setShouldRender] = useState(false);
@@ -166,7 +180,7 @@ export default function ConstructorImageModal({
                 color: "#000000",
               }}
             >
-              Quantum
+              {name}
             </div>
             <div
               style={{
@@ -179,7 +193,7 @@ export default function ConstructorImageModal({
                 color: "#606060",
               }}
             >
-              0x2b3c...Otla
+              {address}
             </div>
           </div>
         </div>
@@ -215,7 +229,7 @@ export default function ConstructorImageModal({
                 height:px(34),
               }}
             >
-              Total contributions
+              {totalContributionsLabel}
             </div>
             <div
               style={{
@@ -229,7 +243,7 @@ export default function ConstructorImageModal({
                 height:px(28),
               }}
             >
-              287
+              {totalContributions.toLocaleString()}
             </div>
           </div>
 
@@ -247,7 +261,7 @@ export default function ConstructorImageModal({
                 height:px(34),
               }}
             >
-              Tokens earned
+              {tokensEarnedLabel}
             </div>
             <div
               style={{
@@ -261,7 +275,7 @@ export default function ConstructorImageModal({
                 height:px(28),
               }}
             >
-              12,800 GVP
+              {tokensEarned}
             </div>
           </div>
         </div>
@@ -279,7 +293,7 @@ export default function ConstructorImageModal({
               color: "#606060",
             }}
           >
-            Total contributions
+            {totalContributionsLabel}
           </div>
           <button
             className="flex items-center justify-center transition-colors whitespace-nowrap"
@@ -306,7 +320,7 @@ export default function ConstructorImageModal({
               e.currentTarget.style.borderColor = "#606060";
             }}
           >
-            Data Annotation
+            {tagLabel}
           </button>
         </div>
         {/* <div></div> */}

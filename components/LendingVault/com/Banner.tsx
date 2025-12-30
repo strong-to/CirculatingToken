@@ -76,8 +76,11 @@ export default function Banner({ projectData }: BannerProps) {
   // 从项目数据中获取图片路径，如果没有则使用默认值
   const bannerImage = convertPathToPublic(projectData?.profile?.projectDetailsPage?.banner)
   
-  const images = projectData?.profile?.projectDetailsPage?.carouselImages 
-    || Array.from({ length: 6 }, (_, i) => `/LendingVault/banner/item/Mask${i + 1}.png`) 
+  // 转换 carouselImages 中的每个路径
+  const rawImages = projectData?.profile?.projectDetailsPage?.carouselImages 
+  const images = rawImages?.map(img => convertPathToPublic(img)) || Array.from({ length: 6 }, (_, i) => `/LendingVault/banner/item/Mask${i + 1}.png`)
+
+  console.log('images-----------------1212', images)
  
   return (
     <>
@@ -197,7 +200,7 @@ export default function Banner({ projectData }: BannerProps) {
             }}
           >
             {/* 原始6张图片 */}
-            {images.map((src, index) => {
+            {images?.map((src, index) => {
               return (
                 <SwiperSlide
                   key={index}
@@ -224,7 +227,7 @@ export default function Banner({ projectData }: BannerProps) {
             })}
             
             {/* 复制图片以支持循环模式（Swiper loop 需要至少 slidesPerView * 2 个 slides） */}
-            {images.map((src, index) => {
+            {images?.map((src, index) => {
               return (
                 <SwiperSlide
                   key={`duplicate-${index}`}

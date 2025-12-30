@@ -4,7 +4,49 @@ import { px } from "@/utils/pxToRem";
 import FilterDropdown from "./FilterDropdown";
 import { useState } from "react";
 
-export default function CollectDataModal() {
+interface CardData {
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+  tags?: Array<{
+    type?: "bordered" | "icon";
+    text?: string;
+    icon?: "lightning" | "clock" | "person" | "gvp";
+  }>;
+  modal?: {
+    statistics?: Array<{
+      label?: string;
+      value?: string;
+      icon?: string;
+    }>;
+    task?: {
+      title?: string;
+      progress?: string;
+      reward?: string;
+    };
+    audioPlayer?: {
+      label?: string;
+    };
+    transcription?: {
+      text?: string;
+    };
+    verification?: {
+      prompt?: string;
+      options?: string[];
+    };
+    buttons?: {
+      skip?: string;
+      submit?: string;
+    };
+  };
+}
+
+interface CollectDataModalProps {
+  card?: CardData;
+}
+
+export default function CollectDataModal({ card }: CollectDataModalProps) {
+  console.log('CollectDataModal card data:', card);
   const [skipHovered, setSkipHovered] = useState(false);
   const [submitHovered, setSubmitHovered] = useState(false);
   return (
@@ -40,7 +82,7 @@ export default function CollectDataModal() {
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           }}
         >
-         Collect labeled data for specific scenes
+          {card?.title}
         </h2>
       </div>
       <div
@@ -55,7 +97,7 @@ export default function CollectDataModal() {
           marginBottom: px(30),
         }}
       >
-       Collec abeled data in medical imaging for fine-tuning and accuracy improvement
+        {card?.subtitle}
       </div>
       <div className="w-full h-[1px] bg-[#000000]" />
 
@@ -70,274 +112,75 @@ export default function CollectDataModal() {
           gap: px(25),
         }}
       >
-        {/* Card 1: This round */}
-        <div
-          className="flex-1 flex items-center justify-between"
-          style={{
-            border: `1px solid rgba(0, 0, 0, 0.25)`,
-            borderRadius: px(4),
-            paddingLeft: px(25),
-            paddingRight: px(25),
-            paddingTop: px(15),
-            paddingBottom: px(15),
-          }}
-        >
-          <div className="flex flex-col justify-between items-start">
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#555555",
-                height:px(18),
-                marginBottom: px(10),
-              }}
-            >
-              This round
-            </div>
-            <div
-            className="flex items-end"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(24),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#000000",
-                height:px(29),
-              }}
-            >
-              1
-            </div>
-          </div>
-
+        {(card?.modal?.statistics || []).map((stat, index) => (
           <div
+            key={index}
+            className="flex-1 flex items-center justify-between"
             style={{
-              width: px(30),
-              height: px(30),
-              borderRadius: "50%",
-              border: "1px dashed #000000",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
+              border: `1px solid rgba(0, 0, 0, 0.25)`,
+              borderRadius: px(4),
+              paddingLeft: px(25),
+              paddingRight: px(25),
+              paddingTop: px(15),
+              paddingBottom: px(15),
             }}
           >
-            <span
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                color: "#000000",
-              }}
-            >
-              C
-            </span>
-          </div>
-        </div>
+            <div className="flex flex-col justify-between items-start">
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#555555",
+                  height: px(18),
+                  marginBottom: px(10),
+                }}
+              >
+                {stat.label}
+              </div>
+              <div
+                className="flex items-end"
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(24),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: "#000000",
+                  height: px(29),
+                }}
+              >
+                {stat.value}
+              </div>
+            </div>
 
-        {/* Card 2: Accuracy */}
-        <div
-          className="flex-1 flex items-center justify-between"
-          style={{
-            border: `1px solid rgba(0, 0, 0, 0.25)`,
-            borderRadius: px(4),
-            paddingLeft: px(25),
-            paddingRight: px(25),
-            paddingTop: px(15),
-            paddingBottom: px(15),
-          }}
-        >
-          <div className="flex flex-col justify-between items-start">
             <div
               style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#555555",
-                height: px(18),
-                marginBottom: px(10),
+                width: px(30),
+                height: px(30),
+                borderRadius: "50%",
+                border: "1px dashed #000000",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
               }}
             >
-              Accuracy
-            </div>
-            <div
-              className="flex items-end"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(24),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#000000",
-                height: px(29),
-              }}
-            >
-              96.5%
+              <span
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  color: "#000000",
+                }}
+              >
+                {stat.icon}
+              </span>
             </div>
           </div>
-          <div
-            style={{
-              width: px(30),
-              height: px(30),
-              borderRadius: "50%",
-              border: "1px dashed #000000",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                color: "#000000",
-              }}
-            >
-              C
-            </span>
-          </div>
-        </div>
-
-        {/* Card 3: Rewards Earned */}
-        <div
-          className="flex-1 flex items-center justify-between"
-          style={{
-            border: `1px solid rgba(0, 0, 0, 0.25)`,
-            borderRadius: px(4),
-            paddingLeft: px(25),
-            paddingRight: px(25),
-            paddingTop: px(15),
-            paddingBottom: px(15),
-          }}
-        >
-          <div className="flex flex-col justify-between items-start">
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#555555",
-                height: px(18),
-                marginBottom: px(10),
-              }}
-            >
-              Rewards Earned
-            </div>
-            <div
-              className="flex items-end"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(24),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#000000",
-                height: px(29),
-              }}
-            >
-              2
-            </div>
-          </div>
-          <div
-            style={{
-              width: px(30),
-              height: px(30),
-              borderRadius: "50%",
-              border: "1px dashed #000000",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                color: "#000000",
-              }}
-            >
-              C
-            </span>
-          </div>
-        </div>
-
-        {/* Card 4: Avg Time */}
-        <div
-          className="flex-1 flex items-center justify-between"
-          style={{
-            border: `1px solid rgba(0, 0, 0, 0.25)`,
-            borderRadius: px(4),
-            paddingLeft: px(25),
-            paddingRight: px(25),
-            paddingTop: px(15),
-            paddingBottom: px(15),
-          }}
-        >
-          <div className="flex flex-col justify-between items-start">
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#555555",
-                height: px(18),
-                marginBottom: px(10),
-              }}
-            >
-              Avg Time
-            </div>
-            <div
-              className="flex items-end"
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(24),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#000000",
-                height: px(29),
-              }}
-            >
-              45s
-            </div>
-          </div>
-          <div
-            style={{
-              width: px(30),
-              height: px(30),
-              borderRadius: "50%",
-              border: "1px dashed #000000",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexShrink: 0,
-            }}
-          >
-            <span
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                color: "#000000",
-              }}
-            >
-              C
-            </span>
-          </div>
-        </div> 
+        ))}
       </div>
 
 <div style={{paddingLeft:px(30),paddingRight:px(30),paddingTop:px(20),paddingBottom:px(20)}}>
@@ -368,7 +211,7 @@ export default function CollectDataModal() {
                   height:px(22),
                 }}
               >
-                Tasio Transcription Verification
+                {card?.modal?.task?.title || "Tasio Transcription Verification"}
               </h4>
               <div
                 style={{
@@ -381,7 +224,7 @@ export default function CollectDataModal() {
                   height:px(19),
                 }}
               >
-                Task 5 / 5
+                {card?.modal?.task?.progress || "Task 5 / 5"}
               </div>
             </div>
 
@@ -432,7 +275,7 @@ export default function CollectDataModal() {
                   color: "#000000",
                 }}
               >
-                +2 GVP
+                {card?.modal?.task?.reward}
               </span>
             </div>
           </div>
@@ -489,7 +332,7 @@ export default function CollectDataModal() {
                 color: "#000000",
               }}
             >
-              Audio Player
+              {card?.modal?.audioPlayer?.label || "Audio Player"}
             </div>
           </div>
 
@@ -522,7 +365,7 @@ export default function CollectDataModal() {
                 color: "#000000",
               }}
             >
-              Artificial intelligence is changing our way of life
+              {card?.modal?.transcription?.text || "Artificial intelligence is changing our way of life"}
             </div>
           </div>
 
@@ -548,7 +391,7 @@ export default function CollectDataModal() {
                 textAlign: "center",
               }}
             >
-              Verify if the transcription is accurate
+              {card?.modal?.verification?.prompt || "Verify if the transcription is accurate"}
             </div>
 
           </div>
@@ -556,85 +399,32 @@ export default function CollectDataModal() {
 
 
 <div className="flex flex-col" style={{ gap: px(20),marginTop:px(35) }}>
-          {/* Completely accurate */}
-          <div
-            className="flex items-center justify-start"
-            style={{
-              paddingLeft: px(15),
-              height: px(44),
-              backgroundColor: "#F5F5F5",
-              borderRadius: px(4),
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(16),
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              color: "#555555",
-              cursor: "pointer",
-            }}
-          >
-            Completely accurate
-          </div>
-
-          {/* Mostly accurate (minor errors) */}
-          <div
-            className="flex items-center justify-start"
-            style={{
-              paddingLeft: px(15),
-              height: px(44),
-              backgroundColor: "#F5F5F5",
-              borderRadius: px(4),
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(16),
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              color: "#555555",
-              cursor: "pointer",
-            }}
-          >
-            Mostly accurate (minor errors)
-          </div>
-
-          {/* Partially accurate */}
-          <div
-            className="flex items-center justify-start "
-            style={{
-              paddingLeft: px(15),
-              height: px(44),
-              backgroundColor: "#F5F5F5",
-              borderRadius: px(4),
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(16),
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              color: "#555555",
-              cursor: "pointer",
-            }}
-          >
-            Partially accurate
-          </div>
-
-          {/* Inaccurate */}
-          <div
-            className="flex items-center justify-start"
-            style={{
-              paddingLeft: px(15),
-              height: px(44),
-              backgroundColor: "#F5F5F5",
-              borderRadius: px(4),
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontWeight: 300,
-              fontSize: px(16),
-              lineHeight: "100%",
-              letterSpacing: "0%",
-              color: "#555555",
-              cursor: "pointer",
-            }}
-          >
-            Inaccurate
-          </div>
+          {(card?.modal?.verification?.options || [
+            "Completely accurate",
+            "Mostly accurate (minor errors)",
+            "Partially accurate",
+            "Inaccurate"
+          ]).map((option, index) => (
+            <div
+              key={index}
+              className="flex items-center justify-start"
+              style={{
+                paddingLeft: px(15),
+                height: px(44),
+                backgroundColor: "#F5F5F5",
+                borderRadius: px(4),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                fontWeight: 300,
+                fontSize: px(16),
+                lineHeight: "100%",
+                letterSpacing: "0%",
+                color: "#555555",
+                cursor: "pointer",
+              }}
+            >
+              {option}
+            </div>
+          ))}
         </div>
 
         <div className="w-full flex items-center justify-center" style={{marginTop:px(60),marginBottom:px(20),gap:px(20)}}>
@@ -657,7 +447,7 @@ export default function CollectDataModal() {
             onMouseEnter={() => setSkipHovered(true)}
             onMouseLeave={() => setSkipHovered(false)}
           >
-            Skip
+            {card?.modal?.buttons?.skip || "Skip"}
           </button>
           <button
             className="flex items-center justify-center w-full"
@@ -678,7 +468,7 @@ export default function CollectDataModal() {
             onMouseEnter={() => setSubmitHovered(true)}
             onMouseLeave={() => setSubmitHovered(false)}
           >
-            Submit labels
+            {card?.modal?.buttons?.submit || "Submit labels"}
           </button>
         </div>
         

@@ -4,7 +4,93 @@ import { px } from "@/utils/pxToRem";
 import FilterDropdown from "@/components/ProjectConstruction/com/Modal/FilterDropdown";
 import { useState, useRef, useEffect } from "react";
 
-export default function GPUComputeModal() {
+interface CardData {
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+  tags?: Array<{
+    type?: "bordered" | "icon";
+    text?: string;
+    icon?: "lightning" | "clock" | "person" | "gvp";
+  }>;
+  modal?: {
+    description?: string;
+    leftCard?: {
+      title?: string;
+      description?: string;
+      tags?: Array<{
+        text?: string;
+        type?: "primary" | "secondary";
+      }>;
+    };
+    rightCard?: {
+      title?: string;
+      description?: string;
+      filterDropdown?: {
+        placeholder?: string;
+        description?: string;
+        options?: string[];
+        value?: string;
+      };
+    };
+    gpuSpecifications?: {
+      title?: string;
+      gpuModel?: {
+        label?: string;
+        placeholder?: string;
+        options?: string[];
+      };
+      gpuCount?: {
+        label?: string;
+        placeholder?: string;
+        options?: string[];
+        value?: string;
+      };
+    };
+    accessInformation?: {
+      title?: string;
+      ipAddress?: {
+        label?: string;
+        placeholder?: string;
+      };
+      port?: {
+        label?: string;
+        placeholder?: string;
+      };
+      sshKey?: {
+        label?: string;
+        placeholder?: string;
+      };
+    };
+    availabilityDuration?: {
+      title?: string;
+      availability?: {
+        label?: string;
+        placeholder?: string;
+        options?: string[];
+        value?: string;
+      };
+      commitmentDuration?: {
+        label?: string;
+        placeholder?: string;
+        options?: string[];
+        value?: string;
+      };
+    };
+    additionalInformation?: {
+      title?: string;
+      placeholder?: string;
+    };
+    submitButton?: string;
+  };
+}
+
+interface GPUComputeModalProps {
+  card?: CardData;
+}
+
+export default function GPUComputeModal({ card }: GPUComputeModalProps) {
+  console.log('GPUComputeModal card data:', card);
   const [sliderValue, setSliderValue] = useState(33); // 初始值33%
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -82,7 +168,7 @@ export default function GPUComputeModal() {
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           }}
         >
-          NVIDIA A100 GPU Computing Power
+          {card?.title}
         </h2>
       </div>
       <div
@@ -97,11 +183,7 @@ export default function GPUComputeModal() {
           marginBottom: px(30),
         }}
       >
-        Provide NVIDIA A100 or equivalent GPU computing power for model
-        training. At least 40GB VRAM GPU required for large-scale image
-        recognition model training and fine-tuning. Please provide GPU specs and
-        accessible address (IP + port or API endpoint). Expected contribution:
-        100-200 GPU hours per week.
+        {card?.modal?.description || card?.subtitle}
       </div>
       <div className="w-full h-[1px] bg-[#000000]" />
 
@@ -150,7 +232,7 @@ export default function GPUComputeModal() {
                 lineHeight: px(26),
               }}
             >
-              NVIDIA A100 GPU Computing Power
+              {card?.modal?.leftCard?.title}
             </div>
           </div>
           <div
@@ -163,67 +245,34 @@ export default function GPUComputeModal() {
               marginBottom: px(16),
             }}
           >
-            Provide NVIDIA A100 or equivalent GPU computing power for model
-            training. At least 40GB VRAM GPU required for large-scale image
-            recognition model training and fine-tuning. Please provide GPU specs
-            ...
+            {card?.modal?.leftCard?.description}
           </div>
           {/* 标签按钮组 */}
           <div
             className="flex items-center"
             style={{ gap: px(12), flexWrap: "wrap" }}
           >
-            <button
-              className="flex items-center justify-center"
-              style={{
-                height: px(32),
-                paddingLeft: px(16),
-                paddingRight: px(16),
-                borderRadius: px(2),
-                backgroundColor: "#000000",
-                color: "#ffffff",
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                cursor: "pointer",
-              }}
-            >
-              8000-15000 GVP
-            </button>
-            <button
-              className="flex items-center justify-center"
-              style={{
-                height: px(32),
-                paddingLeft: px(16),
-                paddingRight: px(16),
-                borderRadius: px(2),
-                border: "1px solid #000000",
-                color: "#000000",
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                cursor: "pointer",
-              }}
-            >
-              medium
-            </button>
-            <button
-              className="flex items-center justify-center"
-              style={{
-                height: px(32),
-                paddingLeft: px(16),
-                paddingRight: px(16),
-                borderRadius: px(2),
-                border: "1px solid #000000",
-                color: "#000000",
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                cursor: "pointer",
-              }}
-            >
-              Ongoing
-            </button>
+            {(card?.modal?.leftCard?.tags || []).map((tag, index) => (
+              <button
+                key={index}
+                className="flex items-center justify-center"
+                style={{
+                  height: px(32),
+                  paddingLeft: px(16),
+                  paddingRight: px(16),
+                  borderRadius: px(2),
+                  backgroundColor: tag.type === "primary" ? "#000000" : "transparent",
+                  border: tag.type === "primary" ? "none" : "1px solid #000000",
+                  color: tag.type === "primary" ? "#ffffff" : "#000000",
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  cursor: "pointer",
+                }}
+              >
+                {tag.text}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -248,7 +297,7 @@ export default function GPUComputeModal() {
               marginBottom: px(5),
             }}
           >
-            Compute Type
+            {card?.modal?.rightCard?.title}
           </h3>
           <p
             style={{
@@ -260,13 +309,13 @@ export default function GPUComputeModal() {
               marginBottom: px(16),
             }}
           >
-            Select the type of compute resource you can provide
+            {card?.modal?.rightCard?.description}
           </p>
           <FilterDropdown
-            placeholder="GPU Computing"
-            description="Select the type of compute resource you can provide"
-            options={["GPU Computing", "GPU Computing1", "GPU Computing2"]}
-            value="GPU Computing"
+            placeholder={card?.modal?.rightCard?.filterDropdown?.placeholder || ""}
+            description={card?.modal?.rightCard?.filterDropdown?.description}
+            options={card?.modal?.rightCard?.filterDropdown?.options}
+            value={card?.modal?.rightCard?.filterDropdown?.value}
             backgroundColor="#F5F5F5"
           />
         </div>
@@ -302,7 +351,7 @@ export default function GPUComputeModal() {
               marginBottom: px(20),
             }}
           >
-            GPU Specifications
+            {card?.modal?.gpuSpecifications?.title}
           </h3>
 
           {/* GPU Model */}
@@ -330,24 +379,12 @@ export default function GPUComputeModal() {
                   fill="#CB2C22"
                 />
               </svg>
-              GPU Model
+              {card?.modal?.gpuSpecifications?.gpuModel?.label}
             </label>
 
             <FilterDropdown
-              placeholder="GPU Model"
-              options={[
-                "NVIDIA A100, 80GB",
-                "NVIDIA A100, 40GB",
-                "NVIDIA A6000, 48GB",
-                "NVIDIA V100, 32GB",
-                "NVIDIA V100, 16GB",
-                "NVIDIA RTX 4090, 24GB",
-                "NVIDIA RTX 3090, 24GB",
-                "NVIDIA RTX 3080, 10GB",
-                "NVIDIA L40, 48GB",
-                "NVIDIA T4, 16GB",
-                "Other"
-              ]}
+              placeholder={card?.modal?.gpuSpecifications?.gpuModel?.placeholder || ""}
+              options={card?.modal?.gpuSpecifications?.gpuModel?.options}
             />
           </div>
 
@@ -376,13 +413,13 @@ export default function GPUComputeModal() {
                   fill="#CB2C22"
                 />
               </svg>
-              GPU Count
+              {card?.modal?.gpuSpecifications?.gpuCount?.label}
             </label>
 
             <FilterDropdown
-              placeholder="1"
-              options={["1", "2", "4", "8", "16", "32+"]}
-              value="1"
+              placeholder={card?.modal?.gpuSpecifications?.gpuCount?.placeholder || ""}
+              options={card?.modal?.gpuSpecifications?.gpuCount?.options}
+              value={card?.modal?.gpuSpecifications?.gpuCount?.value}
             />
           </div>
         </div>
@@ -409,7 +446,7 @@ export default function GPUComputeModal() {
                 marginRight: px(4),
               }}
             >
-              Access Information
+              {card?.modal?.accessInformation?.title}
             </h3>
             <svg
               width="18"
@@ -458,11 +495,11 @@ export default function GPUComputeModal() {
                     fill="#CB2C22"
                   />
                 </svg>
-                IP Address / Domain
+                {card?.modal?.accessInformation?.ipAddress?.label}
               </label>
               <input
                 type="text"
-                placeholder="e.g. 192.168.1.100 or example.com"
+                placeholder={card?.modal?.accessInformation?.ipAddress?.placeholder}
                 style={{
                   width: "100%",
                   height: px(44),
@@ -503,11 +540,11 @@ export default function GPUComputeModal() {
                     fill="#CB2C22"
                   />
                 </svg>
-                Port
+                {card?.modal?.accessInformation?.port?.label}
               </label>
               <input
                 type="text"
-                placeholder="e.g., 8080"
+                placeholder={card?.modal?.accessInformation?.port?.placeholder}
                 style={{
                   width: "100%",
                   height: px(44),
@@ -549,11 +586,11 @@ export default function GPUComputeModal() {
                   fill="#CB2C22"
                 />
               </svg>
-              SSH Public Key (optional)
+              {card?.modal?.accessInformation?.sshKey?.label}
             </label>
             <input
               type="text"
-              placeholder="ssh-rsa AAAAB3..."
+              placeholder={card?.modal?.accessInformation?.sshKey?.placeholder}
               style={{
                 width: "100%",
                 height: px(44),
@@ -601,7 +638,7 @@ export default function GPUComputeModal() {
               marginBottom: px(20),
             }}
           >
-            Availability & Duration
+            {card?.modal?.availabilityDuration?.title}
           </h3>
 
           {/* Availability */}
@@ -629,12 +666,12 @@ export default function GPUComputeModal() {
                   fill="#CB2C22"
                 />
               </svg>
-              Availability
+              {card?.modal?.availabilityDuration?.availability?.label}
             </label>
             <FilterDropdown
-              placeholder="24/7"
-              options={["24/7", "Business Hours", "Custom"]}
-              value="24/7"
+              placeholder={card?.modal?.availabilityDuration?.availability?.placeholder || ""}
+              options={card?.modal?.availabilityDuration?.availability?.options}
+              value={card?.modal?.availabilityDuration?.availability?.value}
             />
           </div>
 
@@ -663,12 +700,12 @@ export default function GPUComputeModal() {
                   fill="#CB2C22"
                 />
               </svg>
-              Commitment Duration
+              {card?.modal?.availabilityDuration?.commitmentDuration?.label}
             </label>
             <FilterDropdown
-              placeholder="1 Month"
-              options={["1 Week", "Month", "3 Months", "6 Months", "1 Year"]}
-              value="Month"
+              placeholder={card?.modal?.availabilityDuration?.commitmentDuration?.placeholder || ""}
+              options={card?.modal?.availabilityDuration?.commitmentDuration?.options}
+              value={card?.modal?.availabilityDuration?.commitmentDuration?.value}
             />
           </div>
         </div>
@@ -693,10 +730,10 @@ export default function GPUComputeModal() {
               marginBottom: px(20),
             }}
           >
-            Additional Information
+            {card?.modal?.additionalInformation?.title}
           </h3>
           <textarea
-            placeholder="e.g., SLA guarantees, special configurations, maintenance windows..."
+            placeholder={card?.modal?.additionalInformation?.placeholder}
             style={{
               width: "100%",
               minHeight: px(159),
@@ -716,7 +753,7 @@ export default function GPUComputeModal() {
 
       <div style={{height:px(44),paddingLeft:px(50),paddingRight:px(50),marginTop:px(60)}} className="flex items-center justify-center w-full">
  <button className="cursor-pointer w-full" style={{  height:px(44), backgroundColor:"#000000",borderRadius:px(4), color:"#ffffff",fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',fontWeight: 300,fontSize: px(16),lineHeight: "100%",letterSpacing: "0%"}}>
- Submit Compute Resource
+ {card?.modal?.submitButton}
  </button>
       
 

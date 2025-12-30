@@ -1,7 +1,7 @@
 "use client";
 
 import { px } from "@/utils/pxToRem";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import ImageWithSkeleton from "@/components/common/ImageWithSkeleton";
 import Modal from "./Modal/Modal";
 import ProjectFundingModal from "./Modal/ProjectFundingModal";
@@ -11,81 +11,17 @@ import OptimizeImageModal from "./Modal/OptimizeImageModal";
 import APIDocumentationModal from "./Modal/APIDocumentationModal";
 
 interface Tag {
-  type: "bordered" | "icon";
-  text: string;
+  type?: "bordered" | "icon";
+  text?: string;
   icon?: "lightning" | "clock" | "person" | "gvp";
 }
 
 interface CardData {
-  icon: string;
-  title: string;
-  subtitle: string;
-  tags: Tag[];
-  buttons: string[];
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+  tags?: Tag[];
 }
-
-const cardData: CardData[] = [
-  {
-    icon: "/ConferenceRoom/img/icon1.png",
-    title: "Project funding support",
-    subtitle: "Support the project with USDC to earn tokens and special benefits",
-    tags: [
-      { type: "bordered", text: "Online contribution", icon: "lightning" },
-      { type: "bordered", text: "Easy" },
-      { type: "icon", text: "1,200GVP", icon: "gvp" },
-      { type: "icon", text: "Immediate", icon: "clock" },
-      { type: "icon", text: "35applicants", icon: "person" },
-    ],
-    buttons: ["Open", "Funding"],
-  },
-  {
-    icon: "/ConferenceRoom/img/icon2.png",
-    title: "Collect labeled data for specific",
-    subtitle: "Collect labeled data in medical imaging for fine-tuning and accuracy improvement",
-    tags: [
-      { type: "bordered", text: "Medium" },
-      { type: "icon", text: "2000 GVP", icon: "gvp" },
-      { type: "icon", text: "1-2 weeks 2", icon: "clock" },
-      { type: "icon", text: "5 applicants", icon: "person" },
-    ],
-    buttons: ["Open", "Data"],
-  },
-  {
-    icon: "/ConferenceRoom/img/icon3.png",
-    title: "NVIDIA A100 GPU Computing Power",
-    subtitle: "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning...",
-    tags: [
-      { type: "bordered", text: "Medium" },
-      { type: "icon", text: "8000-15000 GVP", icon: "gvp" },
-      { type: "icon", text: "Ongoing", icon: "clock" },
-      { type: "icon", text: "5 applicants", icon: "person" },
-    ],
-    buttons: ["Open", "GPU Compute"],
-  },
-  {
-    icon: "/ConferenceRoom/img/icon4.png",
-    title: "Optimize image recognition performance",
-    subtitle: "Optimize inference speed for high-resolution images; target 30% reduction in processing time",
-    tags: [
-      { type: "bordered", text: "Hard" },
-      { type: "icon", text: "5000 GVP", icon: "gvp" },
-      { type: "icon", text: "2-3 weeks", icon: "clock" },
-      { type: "icon", text: "3 applicants", icon: "person" },
-    ],
-    buttons: ["Open", "Development"],
-  },
-  {
-    icon: "/ConferenceRoom/img/icon5.png",
-    title: "Write detailed API documentation",
-    subtitle: "Document the new scene analysis feature with examples",
-    tags: [
-      { type: "bordered", text: "Medium" },
-      { type: "icon", text: "1500 GVP", icon: "gvp" },
-      { type: "icon", text: "1 week", icon: "clock" },
-    ],
-    buttons: ["Open", "Documentation"],
-  },
-];
 
 const modalComponents = [
   ProjectFundingModal,
@@ -97,37 +33,19 @@ const modalComponents = [
 
 interface ProjectCardListProps {
   filterTab?: string;
+  cards?: CardData[];
 }
 
-export default function ProjectCardList({ filterTab = "All" }: ProjectCardListProps) {
+export default function ProjectCardList({ filterTab = "All", cards = [] }: ProjectCardListProps) {
   // 初始化时，所有 "Open" 按钮默认选中
-  const initialActiveButtons: Record<string, boolean> = {};
-  cardData.forEach((card, index) => {
-    if (card.buttons.includes("Open")) {
-      const buttonKey = `${index}-Open`;
-      initialActiveButtons[buttonKey] = true;
-    }
-  });
 
-  const [activeButtons, setActiveButtons] = useState<Record<string, boolean>>(initialActiveButtons);
   const [openModalIndex, setOpenModalIndex] = useState<number | null>(null);
+  const [selectedCard, setSelectedCard] = useState<CardData | null>(null);
+  // 存储每个卡片的 interval ID
+  const shakeIntervalsRef = useRef<Map<number, NodeJS.Timeout>>(new Map());
 
-  // 按钮到卡片标题的映射
-  const filterMap: Record<string, string> = {
-    Funding: "Project funding support",
-    Data: "Collect labeled data for specific",
-    Compute: "NVIDIA A100 GPU Computing Power",
-    Development: "Optimize image recognition performance",
-    Documentation: "Write detailed API documentation",
-  };
-
-  // 根据选中的按钮过滤卡片，同时保留原始索引
-  const filteredCardsWithIndex =
-    filterTab === "All"
-      ? cardData.map((card, index) => ({ card, originalIndex: index }))
-      : cardData
-          .map((card, index) => ({ card, originalIndex: index }))
-          .filter(({ card }) => card.title === filterMap[filterTab]);
+  // 显示所有卡片，保留原始索引
+  const filteredCardsWithIndex = cards.map((card, index) => ({ card, originalIndex: index }));
 
   return (
     <>
@@ -136,7 +54,7 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
         style={{ marginTop: px(30), gap: px(20) }}
       >
         {filteredCardsWithIndex.map(({ card, originalIndex }, index) => {
-          const ModalComponent = modalComponents[originalIndex];
+          // const ModalComponent = modalComponents[originalIndex];
           return (
             <div
               key={originalIndex}
@@ -146,16 +64,56 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
                 height: px(155),
                 padding: px(25),
                 borderRadius: px(4),
+                transition: 'transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out',
               }}
-              onClick={() => setOpenModalIndex(originalIndex)}
+              onClick={() => {
+                setSelectedCard(card);
+                setOpenModalIndex(originalIndex);
+              }}
+              onMouseEnter={(e) => {
+                const element = e.currentTarget;
+                // 先清理之前的 interval（如果存在）
+                const existingInterval = shakeIntervalsRef.current.get(originalIndex);
+                if (existingInterval) {
+                  clearInterval(existingInterval);
+                  shakeIntervalsRef.current.delete(originalIndex);
+                }
+                
+                element.style.transform = 'scale(1) translateY(-4px)';
+                element.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.15)';
+                // 添加轻微的抖动效果
+                let shakeCount = 0;
+                const shakeInterval = setInterval(() => {
+                  if (shakeCount < 3) {
+                    element.style.transform = `scale(1.03) translateY(-4px) translateX(${shakeCount % 2 === 0 ? '1px' : '-1px'})`;
+                    shakeCount++;
+                  } else {
+                    clearInterval(shakeInterval);
+                    shakeIntervalsRef.current.delete(originalIndex);
+                    element.style.transform = 'scale(1.03) translateY(-4px)';
+                  }
+                }, 50);
+                shakeIntervalsRef.current.set(originalIndex, shakeInterval);
+              }}
+              onMouseLeave={(e) => {
+                const element = e.currentTarget;
+                // 清理 interval
+                const existingInterval = shakeIntervalsRef.current.get(originalIndex);
+                if (existingInterval) {
+                  clearInterval(existingInterval);
+                  shakeIntervalsRef.current.delete(originalIndex);
+                }
+                element.style.transform = 'scale(1) translateY(0)';
+                element.style.boxShadow = 'none';
+              }}
             >
           <div
             className="relative flex-shrink-0 flex items-center justify-center"
             style={{ width: px(70), height: px(70), marginRight: px(15), borderRadius: px(4) }}
           >
             <ImageWithSkeleton
-              src={card.icon}
-              alt={card.title}
+              src={card.icon || ""}
+              alt={card.title || ""}
               fill
               objectFit="contain"
               loading={originalIndex < 2 ? "eager" : "lazy"}
@@ -206,7 +164,7 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
               className="flex items-center"
               style={{ gap: px(12), flexWrap: "wrap", marginTop: px(13) }}
             >
-              {card.tags.map((tag, tagIndex) => {
+              {(card.tags || []).map((tag, tagIndex) => {
                 if (tag.type === "bordered") {
                   return (
                     <div
@@ -351,86 +309,22 @@ export default function ProjectCardList({ filterTab = "All" }: ProjectCardListPr
               })}
             </div>
           </div>
-
-          {/* 按钮 */}
-          {/* <div
-            className="flex flex-col flex-shrink-0 items-center justify-center"
-            style={{
-              width: px(130),
-              height: "100%",
-              gap: px(15),
-              marginLeft: px(9),
-            }}
-          >
-            {card.buttons.map((btnText) => {
-              const buttonKey = `${originalIndex}-${btnText}`;
-              const isBtnActive = activeButtons[buttonKey] || false;
-              return (
-                <button
-                  key={buttonKey}
-                  onClick={() => {
-                    setActiveButtons((prev) => {
-                      // 先取消同卡片中所有按钮的选中状态
-                      const newState = { ...prev };
-                      card.buttons.forEach((btn) => {
-                        const key = `${originalIndex}-${btn}`;
-                        newState[key] = false;
-                      });
-                      // 然后设置当前点击的按钮为选中状态
-                      newState[buttonKey] = true;
-                      return newState;
-                    });
-                  }}
-                  className="flex items-center justify-center transition-colors"
-                  style={{
-                    width: px(130),
-                    height: px(30),
-                    borderRadius: px(4),
-                    backgroundColor: isBtnActive ? "#000000" : "transparent",
-                    color: isBtnActive ? "#ffffff" : "#000000",
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 300,
-                    fontStyle: "normal",
-                    fontSize: px(14),
-                    lineHeight: "100%",
-                    letterSpacing: "0%",
-                    textAlign: "center",
-                    border: "0.5px solid #000000",
-                    cursor: "pointer",
-                  }}
-                  onMouseEnter={(e) => {
-                    if (!isBtnActive) {
-                      e.currentTarget.style.backgroundColor = "#000000";
-                      e.currentTarget.style.color = "#ffffff";
-                      e.currentTarget.style.borderColor = "#000000";
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (!isBtnActive) {
-                      e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "#000000";
-                      e.currentTarget.style.borderColor = "#000000";
-                    }
-                  }}
-                >
-                  {btnText}
-                </button>
-              );
-            })}
-          </div> */}
         </div>
           );
         })}
       </div>
 
-      {openModalIndex !== null && (
+      {openModalIndex !== null && selectedCard && (
         <Modal
           isOpen={true}
-          onClose={() => setOpenModalIndex(null)}
+          onClose={() => {
+            setOpenModalIndex(null);
+            setSelectedCard(null);
+          }}
         >
           {(() => {
             const ModalComponent = modalComponents[openModalIndex];
-            return ModalComponent ? <ModalComponent /> : null;
+            return ModalComponent ? <ModalComponent card={selectedCard} /> : null;
           })()}
         </Modal>
       )}

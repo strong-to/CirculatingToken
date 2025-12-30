@@ -3,7 +3,33 @@
 import { px } from "@/utils/pxToRem";
 import { useState } from "react";
 
-export default function APIDocumentationModal() {
+interface CardData {
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+  tags?: Array<{
+    type?: "bordered" | "icon";
+    text?: string;
+    icon?: "lightning" | "clock" | "person" | "gvp";
+  }>;
+  modal?: {
+    notSupportedMessage?: string;
+    contactMessage?: string;
+    taskInfoLabel?: string;
+    taskInfoText?: string;
+    actionButtons?: {
+      leftButton?: string;
+      rightButton?: string;
+    };
+  };
+}
+
+interface APIDocumentationModalProps {
+  card?: CardData;
+}
+
+export default function APIDocumentationModal({ card }: APIDocumentationModalProps) {
+  console.log('APIDocumentationModal card data:', card);
   const [skipHovered, setSkipHovered] = useState(false);
   const [submitHovered, setSubmitHovered] = useState(false);
   return (
@@ -41,7 +67,7 @@ export default function APIDocumentationModal() {
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           }}
         >
-         © Write detailed API documentation
+          {card?.title}
         </h2>
       </div>
       <div
@@ -56,7 +82,7 @@ export default function APIDocumentationModal() {
           marginBottom: px(30),
         }}
       >
-      Document the new scene analysis feature with examples
+      {card?.subtitle}
       </div>
       <div className="w-full h-[1px] bg-[#000000]" /> 
 
@@ -76,7 +102,7 @@ export default function APIDocumentationModal() {
             color: "#555555",
           }}
         >
-          This task type is not supported for online contributions yet
+          {card?.modal?.notSupportedMessage}
         </div>
         <div
           style={{
@@ -90,7 +116,7 @@ export default function APIDocumentationModal() {
             color: "#555555",
           }}
         >
-          Please contact the project team for details
+          {card?.modal?.contactMessage}
         </div>
         <div
           style={{
@@ -104,7 +130,7 @@ export default function APIDocumentationModal() {
             color: "#555555",
           }}
         >
-          Task Info:
+          {card?.modal?.taskInfoLabel}
         </div>
         <div style={{height:px(20),
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -116,7 +142,7 @@ export default function APIDocumentationModal() {
             color: "#555555",
           }}
         >
-          Create comprehensive documentation and code examples for new scene analysis features
+          {card?.modal?.taskInfoText}
         </div>
 
 
@@ -148,7 +174,7 @@ export default function APIDocumentationModal() {
             onMouseEnter={() => setSkipHovered(true)}
             onMouseLeave={() => setSkipHovered(false)}
           >
-            1500 GVP
+            {card?.modal?.actionButtons?.leftButton}
           </button>
           <button
             className="flex items-center justify-center w-full"
@@ -170,7 +196,7 @@ export default function APIDocumentationModal() {
             onMouseEnter={() => setSubmitHovered(true)}
             onMouseLeave={() => setSubmitHovered(false)}
           >
-           medium
+           {card?.modal?.actionButtons?.rightButton}
           </button>
         </div>
 

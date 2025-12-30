@@ -3,7 +3,33 @@
 import { px } from "@/utils/pxToRem";
 import { useState } from "react";
 
-export default function OptimizeImageModal() {
+interface CardData {
+  icon?: string;
+  title?: string;
+  subtitle?: string;
+  tags?: Array<{
+    type?: "bordered" | "icon";
+    text?: string;
+    icon?: "lightning" | "clock" | "person" | "gvp";
+  }>;
+  modal?: {
+    notSupportedMessage?: string;
+    contactMessage?: string;
+    taskInfoLabel?: string;
+    taskInfoText?: string;
+    actionButtons?: {
+      leftButton?: string;
+      rightButton?: string;
+    };
+  };
+}
+
+interface OptimizeImageModalProps {
+  card?: CardData;
+}
+
+export default function OptimizeImageModal({ card }: OptimizeImageModalProps) {
+  console.log('OptimizeImageModal card data:', card);
   const [skipHovered, setSkipHovered] = useState(false);
   const [submitHovered, setSubmitHovered] = useState(false);
   return (
@@ -40,7 +66,7 @@ export default function OptimizeImageModal() {
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           }}
         >
-         Optimize image recognition performance
+         {card?.title}
         </h2>
       </div>
       <div
@@ -55,7 +81,7 @@ export default function OptimizeImageModal() {
           marginBottom: px(30),
         }}
       >
-      Optimize inference speed for high-resolution images; target 30% reduction in processing time
+      {card?.subtitle}
       </div>
       <div className="w-full h-[1px] bg-[#000000]" /> 
 
@@ -69,23 +95,23 @@ export default function OptimizeImageModal() {
          fontSize: px(20),
          color:'#555555'
 
-        }}>This task type is not supported for online contributions yet</div>
+        }}>{card?.modal?.notSupportedMessage}</div>
         <div style={{height:px(20),
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,
          fontSize: px(20),
-         color:'#555555'}}>Please contact the project team for details</div>
+         color:'#555555'}}>{card?.modal?.contactMessage}</div>
         <div style={{height:px(20),
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,
          fontSize: px(20),
-         color:'#555555'}}>Task Info:</div>
+         color:'#555555'}}>{card?.modal?.taskInfoLabel}</div>
         <div style={{height:px(20),
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,
          fontSize: px(20),
          color:'#555555'}}>
-          Optimize inference speed for high-resolution images; target 30% reduction in processing time
+          {card?.modal?.taskInfoText}
           </div>
 
 
@@ -117,7 +143,7 @@ export default function OptimizeImageModal() {
             onMouseEnter={() => setSkipHovered(true)}
             onMouseLeave={() => setSkipHovered(false)}
           >
-            1500 GVP
+            {card?.modal?.actionButtons?.leftButton}
           </button>
           <button
             className="flex items-center justify-center w-full"
@@ -139,7 +165,7 @@ export default function OptimizeImageModal() {
             onMouseEnter={() => setSubmitHovered(true)}
             onMouseLeave={() => setSubmitHovered(false)}
           >
-           medium
+           {card?.modal?.actionButtons?.rightButton}
           </button>
         </div>
 

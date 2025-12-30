@@ -1,5 +1,7 @@
 'use client'
 
+'use client'
+
 import { px } from '@/utils/pxToRem'
 import { useProjectDetail } from '../ProjectDetailProvider'
 
@@ -21,13 +23,22 @@ export default function TokenLending() {
   return (
     <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(80), marginBottom: px(60) }}>
       <div
-        className="grid"
-        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: px(16) }}
+        style={{
+          backgroundColor: '#000000',
+          borderRadius: px(12),
+          padding: px(32),
+          color: '#ffffff',
+        }}
       >
-        <Stat label="Total staked" value={formatCurrency(staking.total_staked)} />
-        <Stat label="Staking ratio" value={formatPercent(staking.staking_ratio)} />
-        <Stat label="APY" value={formatPercent(staking.apy)} />
-        <Stat label="Unstaked (24h)" value={formatCurrency(staking.unstaked_24h)} />
+        <div
+          className="grid"
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: px(16) }}
+        >
+          <Stat label="Total staked" value={formatCurrency(staking.total_staked)} inverted />
+          <Stat label="Staking ratio" value={formatPercent(staking.staking_ratio)} inverted />
+          <Stat label="APY" value={formatPercent(staking.apy)} inverted />
+          <Stat label="Unstaked (24h)" value={formatCurrency(staking.unstaked_24h)} inverted />
+        </div>
       </div>
 
       {exchangeRates.length > 0 ? (
@@ -47,7 +58,7 @@ export default function TokenLending() {
               <div
                 key={rate.resource_key || rate.unit_name}
                 style={{
-                  border: '1px solid #e5e5e5',
+                  border: '1px solid #000000',
                   borderRadius: px(8),
                   padding: px(20),
                   backgroundColor: '#fff',
@@ -96,14 +107,14 @@ export default function TokenLending() {
   )
 }
 
-function Stat({ label, value }: { label: string; value?: string }) {
+function Stat({ label, value, inverted = false }: { label: string; value?: string; inverted?: boolean }) {
   return (
     <div
       style={{
-        border: '1px solid #e5e5e5',
+        border: inverted ? '1px solid rgba(255,255,255,0.2)' : '1px solid #e5e5e5',
         borderRadius: px(8),
         padding: px(20),
-        backgroundColor: '#fff',
+        backgroundColor: inverted ? 'rgba(255,255,255,0.08)' : '#fff',
       }}
     >
       <div
@@ -111,7 +122,7 @@ function Stat({ label, value }: { label: string; value?: string }) {
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontWeight: 300,
           fontSize: px(14),
-          color: '#8C8C8C',
+          color: inverted ? '#CFCFCF' : '#8C8C8C',
         }}
       >
         {label}
@@ -122,6 +133,7 @@ function Stat({ label, value }: { label: string; value?: string }) {
           fontWeight: 500,
           fontSize: px(24),
           marginTop: px(10),
+          color: inverted ? '#ffffff' : '#000000',
         }}
       >
         {value ?? '—'}

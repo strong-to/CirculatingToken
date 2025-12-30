@@ -16,3 +16,11 @@
 ## 4. Validation
 - [x] 4.1 运行 `npm run lint` 并确保通过。
 - [x] 4.2 手动验证 `/LendingVault/DBAI0000001`、`/LendingVault/DBTF0000017`、不存在的 ID、以及首页卡片跳转行为。
+
+## 5. UI Parity & Data Fixes
+- [ ] 5.1 恢复 `UserComments` 原有评分概览 + 柱状计数 + 轮播布局，评分、头像、条数全部来自项目数据并确保空缺时降级占位。
+- [ ] 5.2 `ProjectIntroduction` 底部补齐 “Favorite Project / Experience the Project” CTA，保持交互效果。
+- [ ] 5.3 `ProjectConstruction` 重新套用黑底+头像栏布局，指标数据来自 `co_creation` / `metrics`，头像可循环补齐 16 个。
+- [ ] 5.4 `ProjectGovernance` 恢复顶部黑色 tab 壳体并渲染 `Ecosystem/Token/Finance/Proposal` 内容，展示项目治理 / 市场数据但不改动既有外观。
+- [ ] 5.5 `TokenTrading`、`TokenLending` 对齐旧样式（含按钮、格栅），并绑定 `tokenomics` / `market` 数据；图片错误需保持占位尺寸。
+- [ ] 5.6 `ProjectsYouMayBeInterestedIn` 若关联不足 6 条，用非重复随机项目补齐，确保 `generateStaticParams` 等静态导出要求满足。

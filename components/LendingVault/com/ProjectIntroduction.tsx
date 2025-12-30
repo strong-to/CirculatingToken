@@ -92,6 +92,7 @@ export default function ProjectIntroduction() {
   }, [project])
 
   const links = project.profile.links || {}
+  const learnMoreHref = links.website || links.whitepaper || links.github || '#'
 
   return (
     <div
@@ -232,6 +233,66 @@ export default function ProjectIntroduction() {
           </div>
         </div>
       )}
+
+      <div
+        className="flex items-center justify-center"
+        style={{
+          marginTop: px(40),
+          gap: px(16),
+        }}
+      >
+        <button
+          type="button"
+          className="transition-colors"
+          style={{
+            width: px(206),
+            height: px(44),
+            backgroundColor: '#ffffff',
+            border: '1px solid #000000',
+            borderRadius: px(4),
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 300,
+            fontSize: px(16),
+            color: '#000000',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#000000'
+            e.currentTarget.style.color = '#ffffff'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#ffffff'
+            e.currentTarget.style.color = '#000000'
+          }}
+        >
+          Favorite Project
+        </button>
+        <button
+          type="button"
+          className="transition-colors"
+          style={{
+            height: px(44),
+            paddingLeft: px(24),
+            paddingRight: px(24),
+            backgroundColor: '#ffffff',
+            border: '1px solid #000000',
+            borderRadius: px(4),
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontWeight: 300,
+            fontSize: px(16),
+            color: '#000000',
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor = '#000000'
+            e.currentTarget.style.color = '#ffffff'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor = '#ffffff'
+            e.currentTarget.style.color = '#000000'
+          }}
+        >
+          Experience the Project
+        </button>
+      </div>
     </div>
   )
 }

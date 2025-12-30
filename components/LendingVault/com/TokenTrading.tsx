@@ -1,5 +1,7 @@
 'use client'
 
+'use client'
+
 import { px } from '@/utils/pxToRem'
 import { useProjectDetail } from '../ProjectDetailProvider'
 
@@ -17,24 +19,40 @@ export default function TokenTrading() {
   return (
     <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(80) }}>
       <div
-        className="grid"
-        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: px(16) }}
+        style={{
+          backgroundColor: '#000000',
+          borderRadius: px(12),
+          padding: px(32),
+          color: '#ffffff',
+        }}
       >
-        <Stat label="Current price" value={`$${priceInfo.current_price.toFixed(2)}`} />
-        <Stat label="24h change" value={`${priceInfo.change_24h_percent.toFixed(2)}%`} />
-        <Stat label="Market cap" value={`$${formatNumber(priceInfo.market_cap)}`} />
-        <Stat label="24h volume" value={`$${formatNumber(priceInfo.volume_24h)}`} />
-      </div>
+        <div
+          className="grid"
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: px(16) }}
+        >
+          <Stat label="Current price" value={`$${priceInfo.current_price.toFixed(2)}`} inverted />
+          <Stat label="24h change" value={`${priceInfo.change_24h_percent.toFixed(2)}%`} inverted />
+          <Stat label="Market cap" value={`$${formatNumber(priceInfo.market_cap)}`} inverted />
+          <Stat label="24h volume" value={`$${formatNumber(priceInfo.volume_24h)}`} inverted />
+        </div>
 
-      <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: px(16), marginTop: px(24) }}>
-        <Stat label="Total supply" value={formatNumber(supply.total_supply)} />
-        <Stat label="Circulating" value={formatNumber(supply.circulating)} />
-        <Stat label="Minted 24h" value={formatNumber(supply.minted_24h)} />
-        <Stat label="Burned 24h" value={formatNumber(supply.burned_24h)} />
+        <div
+          className="grid"
+          style={{
+            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gap: px(16),
+            marginTop: px(24),
+          }}
+        >
+          <Stat label="Total supply" value={formatNumber(supply.total_supply)} inverted />
+          <Stat label="Circulating" value={formatNumber(supply.circulating)} inverted />
+          <Stat label="Minted 24h" value={formatNumber(supply.minted_24h)} inverted />
+          <Stat label="Burned 24h" value={formatNumber(supply.burned_24h)} inverted />
+        </div>
       </div>
 
       {market?.price_history && market.price_history.length > 0 && (
-        <div style={{ marginTop: px(32) }}>
+        <div style={{ marginTop: px(32), backgroundColor: '#ffffff', borderRadius: px(12), padding: px(24) }}>
           <SectionTitle title="Recent price history" />
           <div className="overflow-auto">
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
@@ -82,7 +100,7 @@ export default function TokenTrading() {
               <div
                 key={trade.id}
                 style={{
-                  border: '1px solid #e5e5e5',
+                  border: '1px solid #000000',
                   borderRadius: px(8),
                   padding: px(20),
                   backgroundColor: '#fff',
@@ -140,14 +158,14 @@ export default function TokenTrading() {
   )
 }
 
-function Stat({ label, value }: { label: string; value?: string }) {
+function Stat({ label, value, inverted = false }: { label: string; value?: string; inverted?: boolean }) {
   return (
     <div
       style={{
-        border: '1px solid #e5e5e5',
+        border: inverted ? '1px solid rgba(255,255,255,0.2)' : '1px solid #e5e5e5',
         borderRadius: px(8),
         padding: px(20),
-        backgroundColor: '#fff',
+        backgroundColor: inverted ? 'rgba(255,255,255,0.08)' : '#fff',
       }}
     >
       <div
@@ -155,7 +173,7 @@ function Stat({ label, value }: { label: string; value?: string }) {
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontWeight: 300,
           fontSize: px(14),
-          color: '#8C8C8C',
+          color: inverted ? '#CFCFCF' : '#8C8C8C',
         }}
       >
         {label}
@@ -166,6 +184,7 @@ function Stat({ label, value }: { label: string; value?: string }) {
           fontWeight: 500,
           fontSize: px(24),
           marginTop: px(10),
+          color: inverted ? '#ffffff' : '#000000',
         }}
       >
         {value ?? '—'}

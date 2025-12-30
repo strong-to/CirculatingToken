@@ -2,6 +2,9 @@
 
 import { px } from '@/utils/pxToRem'
 import { useProjectDetail } from '../ProjectDetailProvider'
+import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
+
+const STAR_PERCENTAGES = [5, 4, 3, 2, 1]
 
 const formatNumber = (value?: number) => {
   if (value === undefined || value === null) return '—'
@@ -38,18 +41,12 @@ const RatingStars = ({ score }: { score: number }) => {
 }
 
 export default function UserComments() {
-  const { project } = useProjectDetail()
+  const { project, computed } = useProjectDetail()
   const rating = project.metrics.rating
   const reviews = project.reviews?.list ?? []
   const summaryTags = project.reviews?.summary_tags ?? []
   const displayReviews = reviews.slice(0, 6)
-
-  const stats = [
-    { label: 'Total Users', value: formatNumber(project.metrics.operation.total_users) },
-    { label: '24h Revenue', value: `$${formatNumber(project.metrics.operation.revenue_24h)}` },
-    { label: 'Contributors', value: formatNumber(project.metrics.development.contributors_count) },
-    { label: 'Progress', value: formatPercent(project.metrics.development.progress) },
-  ]
+  const histogram = computed.ratingHistogram
 
   return (
     <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(50) }}>
@@ -66,6 +63,8 @@ export default function UserComments() {
             border: '1px solid #000000',
             borderRadius: px(8),
             padding: px(24),
+            backgroundColor: '#000000',
+            color: '#ffffff',
           }}
         >
           <div
@@ -73,7 +72,7 @@ export default function UserComments() {
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontWeight: 300,
               fontSize: px(18),
-              color: '#606060',
+              color: '#CFCFCF',
             }}
           >
             Community Score
@@ -102,39 +101,218 @@ export default function UserComments() {
           <div style={{ marginTop: px(16) }}>
             <RatingStars score={rating.score} />
           </div>
+          <div style={{ marginTop: px(16), display: 'flex', flexDirection: 'column', gap: px(8) }}>
+            {STAR_PERCENTAGES.map((stars) => {
+              const bucket = histogram.find((item) => item.stars === stars)
+              return (
+                <div key={stars} style={{ display: 'flex', alignItems: 'center', gap: px(12) }}>
+                  <span
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontSize: px(14),
+                      width: px(40),
+                    }}
+                  >
+                    {stars}★
+                  </span>
+                  <div
+                    style={{
+                      flex: 1,
+                      height: px(8),
+                      backgroundColor: '#2A2A2A',
+                      borderRadius: px(4),
+                      overflow: 'hidden',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: `${Math.min(100, (bucket?.percentage ?? 0) * 100)}%`,
+                        height: '100%',
+                        backgroundColor: '#ffffff',
+                      }}
+                    />
+                  </div>
+                  <span
+                    style={{
+                      fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                      fontWeight: 300,
+                      fontSize: px(14),
+                      width: px(40),
+                      textAlign: 'right',
+                    }}
+                  >
+                    {bucket?.count ?? 0}
+                  </span>
+                </div>
+              )
+            })}
+          </div>
         </div>
 
-        {stats.map((stat) => (
+        <div
+          style={{
+            border: '1px solid #000000',
+            borderRadius: px(8),
+            padding: px(24),
+            backgroundColor: '#ffffff',
+          }}
+        >
           <div
-            key={stat.label}
             style={{
-              border: '1px solid #000000',
-              borderRadius: px(8),
-              padding: px(24),
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(16),
+              color: '#8C8C8C',
             }}
           >
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                color: '#8C8C8C',
-              }}
-            >
-              {stat.label}
-            </div>
-            <div
-              style={{
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 500,
-                fontSize: px(24),
-                marginTop: px(12),
-              }}
-            >
-              {stat.value}
-            </div>
+            Total Users
           </div>
-        ))}
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 500,
+              fontSize: px(32),
+              marginTop: px(12),
+            }}
+          >
+            {formatNumber(project.metrics.operation.total_users)}
+          </div>
+          <p
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(14),
+              color: '#8C8C8C',
+              marginTop: px(4),
+            }}
+          >
+            +{formatNumber(project.metrics.operation.new_users_24h)} in 24h
+          </p>
+        </div>
+
+        <div
+          style={{
+            border: '1px solid #000000',
+            borderRadius: px(8),
+            padding: px(24),
+            backgroundColor: '#ffffff',
+          }}
+        >
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(16),
+              color: '#8C8C8C',
+            }}
+          >
+            Revenue
+          </div>
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 500,
+              fontSize: px(32),
+              marginTop: px(12),
+            }}
+          >
+            ${formatNumber(project.metrics.operation.revenue_total)}
+          </div>
+          <p
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(14),
+              color: '#8C8C8C',
+              marginTop: px(4),
+            }}
+          >
+            ${formatNumber(project.metrics.operation.revenue_24h)} past 24h
+          </p>
+        </div>
+
+        <div
+          style={{
+            border: '1px solid #000000',
+            borderRadius: px(8),
+            padding: px(24),
+            backgroundColor: '#ffffff',
+          }}
+        >
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(16),
+              color: '#8C8C8C',
+            }}
+          >
+            Contributors
+          </div>
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 500,
+              fontSize: px(32),
+              marginTop: px(12),
+            }}
+          >
+            {formatNumber(project.metrics.development.contributors_count)}
+          </div>
+          <p
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(14),
+              color: '#8C8C8C',
+              marginTop: px(4),
+            }}
+          >
+            {formatNumber(project.metrics.development.total_commits)} total commits
+          </p>
+        </div>
+
+        <div
+          style={{
+            border: '1px solid #000000',
+            borderRadius: px(8),
+            padding: px(24),
+            backgroundColor: '#ffffff',
+          }}
+        >
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(16),
+              color: '#8C8C8C',
+            }}
+          >
+            Progress
+          </div>
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 500,
+              fontSize: px(32),
+              marginTop: px(12),
+            }}
+          >
+            {formatPercent(project.metrics.development.progress)}
+          </div>
+          <p
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(14),
+              color: '#8C8C8C',
+              marginTop: px(4),
+            }}
+          >
+            Started {project.metrics.development.start_date}
+          </p>
+        </div>
       </div>
 
       {summaryTags.length > 0 && (
@@ -169,60 +347,79 @@ export default function UserComments() {
       )}
 
       {displayReviews.length > 0 ? (
-        <div
-          className="grid"
-          style={{
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: px(20),
-          }}
-        >
-          {displayReviews.map((review) => (
-            <div
-              key={review.id}
-              style={{
-                border: '1px solid #e5e5e5',
-                borderRadius: px(8),
-                padding: px(20),
-                display: 'flex',
-                flexDirection: 'column',
-                gap: px(12),
-                backgroundColor: '#fff',
-              }}
-            >
-              <div>
-                <div
-                  style={{
-                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                    fontWeight: 500,
-                    fontSize: px(18),
-                  }}
-                >
-                  {review.user_name || review.user_id || 'Anonymous'}
+        <div style={{ overflowX: 'auto', paddingBottom: px(8) }} className="scrollbar-hide">
+          <div
+            style={{
+              display: 'flex',
+              gap: px(20),
+              minWidth: 'fit-content',
+            }}
+          >
+            {displayReviews.map((review) => (
+              <div
+                key={review.id}
+                style={{
+                  border: '1px solid #e5e5e5',
+                  borderRadius: px(8),
+                  padding: px(20),
+                  width: px(320),
+                  flexShrink: 0,
+                  backgroundColor: '#fff',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: px(12),
+                }}
+              >
+                <div className="flex items-center" style={{ gap: px(12) }}>
+                  <div
+                    style={{
+                      width: px(48),
+                      height: px(48),
+                      borderRadius: '50%',
+                      overflow: 'hidden',
+                      backgroundColor: '#f4f4f4',
+                    }}
+                  >
+                    {review.avatar ? (
+                      <ImageWithSkeleton src={review.avatar} alt={review.user_name ?? 'Reviewer avatar'} width={48} height={48} className="w-full h-full object-cover" />
+                    ) : null}
+                  </div>
+                  <div>
+                    <div
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 500,
+                        fontSize: px(18),
+                      }}
+                    >
+                      {review.user_name || review.user_id || 'Anonymous'}
+                    </div>
+                    <div
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontSize: px(14),
+                        color: '#8C8C8C',
+                      }}
+                    >
+                      {review.date}
+                    </div>
+                  </div>
                 </div>
-                <div
+                {typeof review.rating === 'number' && <RatingStars score={review.rating} />}
+                <p
                   style={{
                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
-                    fontSize: px(14),
-                    color: '#8C8C8C',
+                    fontSize: px(16),
+                    lineHeight: px(24),
                   }}
                 >
-                  {review.date}
-                </div>
+                  {review.content}
+                </p>
               </div>
-              {typeof review.rating === 'number' && <RatingStars score={review.rating} />}
-              <p
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(16),
-                  lineHeight: px(24),
-                }}
-              >
-                {review.content}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       ) : (
         <div

@@ -3,72 +3,92 @@
 import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
 import { useProjectDetail } from '../ProjectDetailProvider'
-import { toCdnUrl, CDN_PREFIX } from '@/utils/cdn'
-
-const FALLBACK_AVATARS = Array.from({ length: 16 }, (_, i) => `${CDN_PREFIX}/LendingVault/ProjectConstruction/item/img${i + 1}.png`)
-
-const fillAvatars = (avatars: string[], size: number) => {
-  if (avatars.length === 0) {
-    return FALLBACK_AVATARS.slice(0, size)
-  }
-  const filled: string[] = []
-  while (filled.length < size) {
-    filled.push(avatars[filled.length % avatars.length])
-  }
-  return filled
-}
+import { CDN_PREFIX } from '@/utils/cdn'
 
 export default function ProjectConstruction() {
-  const { project } = useProjectDetail()
+  const { project, computed } = useProjectDetail()
   const coCreation = project.co_creation
   const summary = coCreation?.summary
-  const avatarCandidates = (project.profile.media?.assets ?? [])
-    .filter((asset) => asset.context === 'project_construction_avatar')
-    .map((asset) => toCdnUrl(asset.url))
-  const avatars = fillAvatars(avatarCandidates, 16)
   const openTasks = coCreation?.open_tasks ?? []
   const contributors = coCreation?.contributors_leaderboard ?? []
+  const avatars = computed.builderAvatars.length > 0 ? computed.builderAvatars : Array.from({ length: 16 }, (_, idx) => `${CDN_PREFIX}/LendingVault/ProjectConstruction/item/img${(idx % 16) + 1}.png`)
+  const statCards = [
+    { label: 'Construction responses', value: summary?.total_contributions_recorded },
+    { label: 'Active builders', value: summary?.active_builders_count },
+    { label: 'Contributors', value: project.metrics.development.contributors_count },
+    { label: 'Total commits', value: project.metrics.development.total_commits },
+  ]
 
   return (
     <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(80) }}>
       <div
-        className="grid"
         style={{
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: px(16),
+          backgroundColor: '#000000',
+          borderRadius: px(12),
+          padding: px(32),
+          color: '#ffffff',
         }}
       >
-        <StatCard label="Construction responses" value={summary?.total_contributions_recorded} />
-        <StatCard label="Active builders" value={summary?.active_builders_count} />
-        <StatCard label="Contributors" value={project.metrics.development.contributors_count} />
-        <StatCard label="Total commits" value={project.metrics.development.total_commits} />
-      </div>
-
-      <div style={{ marginTop: px(32) }}>
-        <h3
+        <div
+          className="grid"
           style={{
-            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-            fontWeight: 500,
-            fontSize: px(22),
-            marginBottom: px(16),
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: px(16),
           }}
         >
-          Builder network
-        </h3>
-        <div className="flex flex-wrap" style={{ gap: px(15) }}>
-          {avatars.map((src, index) => (
-            <div
-              key={`${src}-${index}`}
-              style={{
-                width: px(64),
-                height: px(64),
-                borderRadius: '50%',
-                overflow: 'hidden',
-              }}
-            >
-              <Image src={src} alt="Builder avatar" width={64} height={64} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          {statCards.map((stat) => (
+            <div key={stat.label}>
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(15),
+                  color: '#CFCFCF',
+                }}
+              >
+                {stat.label}
+              </div>
+              <div
+                style={{
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 500,
+                  fontSize: px(32),
+                  marginTop: px(8),
+                }}
+              >
+                {formatNumber(stat.value)}
+              </div>
             </div>
           ))}
+        </div>
+
+        <div style={{ marginTop: px(32) }}>
+          <div
+            style={{
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 500,
+              fontSize: px(22),
+              marginBottom: px(16),
+            }}
+          >
+            Builder network
+          </div>
+          <div className="flex flex-wrap" style={{ gap: px(15) }}>
+            {avatars.map((src, index) => (
+              <div
+                key={`${src}-${index}`}
+                style={{
+                  width: px(64),
+                  height: px(64),
+                  borderRadius: '50%',
+                  overflow: 'hidden',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                }}
+              >
+                <Image src={src} alt="Builder avatar" width={64} height={64} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -80,10 +100,11 @@ export default function ProjectConstruction() {
               <div
                 key={task.task_id}
                 style={{
-                  border: '1px solid #e5e5e5',
+                  border: '1px solid #000000',
                   borderRadius: px(8),
                   padding: px(20),
-                  backgroundColor: '#fff',
+                  backgroundColor: '#ffffff',
+                  minHeight: px(200),
                 }}
               >
                 <div
@@ -155,10 +176,10 @@ export default function ProjectConstruction() {
               <div
                 key={`${contributor.user_id}-${contributor.rank}`}
                 style={{
-                  border: '1px solid #e5e5e5',
+                  border: '1px solid #000000',
                   borderRadius: px(8),
                   padding: px(20),
-                  backgroundColor: '#fff',
+                  backgroundColor: '#ffffff',
                 }}
               >
                 <div
@@ -196,40 +217,6 @@ export default function ProjectConstruction() {
           </div>
         </div>
       )}
-    </div>
-  )
-}
-
-function StatCard({ label, value }: { label: string; value?: number }) {
-  return (
-    <div
-      style={{
-        border: '1px solid #e5e5e5',
-        borderRadius: px(8),
-        padding: px(24),
-        backgroundColor: '#fff',
-      }}
-    >
-      <div
-        style={{
-          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-          fontWeight: 300,
-          fontSize: px(16),
-          color: '#8C8C8C',
-        }}
-      >
-        {label}
-      </div>
-      <div
-        style={{
-          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-          fontWeight: 500,
-          fontSize: px(28),
-          marginTop: px(10),
-        }}
-      >
-        {value !== undefined ? value.toLocaleString('en-US') : '—'}
-      </div>
     </div>
   )
 }

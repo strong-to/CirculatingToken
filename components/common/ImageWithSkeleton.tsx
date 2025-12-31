@@ -119,6 +119,8 @@ export default function ImageWithSkeleton({
 }: ImageWithSkeletonProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const fallbackSrc = '/ProjectHub/PlaceholderComponent/img/Mask1.png';
+  const safeSrc = src && src.trim().length > 0 ? src : fallbackSrc;
 
   // 从 className 中提取 objectFit（如果未通过 props 提供）
   const finalObjectFit = objectFit || (() => {
@@ -171,8 +173,8 @@ export default function ImageWithSkeleton({
       {/* 图片 */}
       {/* 使用CDN优化后的URL */}
       {(() => {
-        const optimizedSrc = getOptimizedImageUrl(src, typeof width === "number" ? width : undefined)
-        const imageLoading = loading || getImageLoading(src, priority === true)
+        const optimizedSrc = getOptimizedImageUrl(safeSrc, typeof width === "number" ? width : undefined)
+        const imageLoading = loading || getImageLoading(safeSrc, priority === true)
         
         // 如果 width 或 height 是字符串，或者 fill=true，使用 fill 模式
         if (fill || typeof width === "string" || typeof height === "string") {
@@ -242,4 +244,3 @@ export default function ImageWithSkeleton({
     </div>
   );
 }
-

@@ -2,11 +2,12 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import Link from 'next/link'
 import BlueSquareCard from '@/components/Home/com/UseCaseSection/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/BuildWithThe/CollapsiblePanelContent'
 
 import { PlusIcon, MinusIcon, LearnMoreArrowIcon } from '@/components/icons/Icons'
-import { images } from '@/components/Home/com/BuildWithThe/resources'
+import { homeSectionsMap, type HomeSection } from '@/app/data'
 
 import { px } from '@/utils/pxToRem'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -14,6 +15,24 @@ import { Navigation, Mousewheel } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
+
+const SECTION_ID = 'build-with-the'
+const FALLBACK_SECTION: HomeSection = {
+  id: SECTION_ID,
+  titleLines: ['Build With The', 'Brightest Minds Worldwide'],
+  panelTriggerLabel: 'Contribute AI Projects and Earn',
+  learnMoreLabel: 'Learn more details',
+  learnMoreHref: '#',
+  cta: {
+    label: 'View all projects',
+    href: '/ProjectHub',
+  },
+  accentColor: '#8000EA',
+  backgroundColor: '#F5F5F5',
+  filterKeys: [],
+  projectIds: [],
+  projects: [],
+}
 
 export default function  BuildWithThe() {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -23,11 +42,21 @@ export default function  BuildWithThe() {
   
   const gap = 15 // 1.41875rem = 22.7px
 
-  // 小图标：使用 /tokenMarketplace/ContentCard/img/icon 里的最后 10 个 icon（icon_21 到 icon_30）
-  const buildWithIconImages = Array.from({ length: 10 }, (_, i) => {
-    const num = 21 + i // 21..30
-    return `/tokenMarketplace/ContentCard/img/icon/icon_${num}.png`
-  })
+  const section = homeSectionsMap[SECTION_ID] ?? FALLBACK_SECTION
+  const titleLines = section.titleLines && section.titleLines.length > 0 ? section.titleLines : FALLBACK_SECTION.titleLines
+  const primaryTitle = titleLines?.[0] ?? FALLBACK_SECTION.titleLines?.[0] ?? ''
+  const secondaryTitle = titleLines?.[1] ?? FALLBACK_SECTION.titleLines?.[1] ?? ''
+  const accentColor = section.accentColor ?? FALLBACK_SECTION.accentColor ?? '#8000EA'
+  const backgroundColor = section.backgroundColor ?? FALLBACK_SECTION.backgroundColor ?? '#F5F5F5'
+  const panelTriggerLabel = section.panelTriggerLabel ?? FALLBACK_SECTION.panelTriggerLabel ?? ''
+  const learnMoreLabel = section.learnMoreLabel ?? FALLBACK_SECTION.learnMoreLabel ?? 'Learn more details'
+  const learnMoreHref = section.learnMoreHref ?? FALLBACK_SECTION.learnMoreHref ?? '#'
+  const cta = section.cta ?? FALLBACK_SECTION.cta ?? { label: 'View all projects', href: '/ProjectHub' }
+  const ctaHref = cta.href ?? '/ProjectHub'
+  const ctaLabel = cta.label ?? 'View all projects'
+  const projects = section.projects ?? []
+  const hasProjects = projects.length > 0
+  const shouldLoop = projects.length >= 5
 
   // 检测操作系统
   useEffect(() => {
@@ -41,7 +70,7 @@ export default function  BuildWithThe() {
   }, [])
 
   return ( 
-    <section className="bg-[#F5F5F5] flex flex-col min-h-[calc(100vh-4.5rem)]">
+    <section className="flex flex-col min-h-[calc(100vh-4.5rem)]" style={{ backgroundColor }}>
       <div className="container-responsive flex-1 flex flex-col justify-between" style={{ paddingTop: '4.625rem', paddingBottom: '3.25rem' }}> {/* 74px, 52px */}
         <div className="flex flex-col items-start justify-between ">
           <div className=" flex  items-start justify-between w-full ">
@@ -56,23 +85,25 @@ export default function  BuildWithThe() {
                 letterSpacing: '0%'
               }}
             >
-             Build With The Brightest Minds 
+             {primaryTitle}
             </div>
 
             <div className="relative flex items-center">
               <div 
-                className="bg-[#8000EA] overflow-hidden"
+                className="overflow-hidden"
                 style={{ 
+                  backgroundColor: accentColor,
                   width: isExpanded ? px(38) : '0',
                   height: isExpanded ? px(58) : '0',
                   opacity: isExpanded ? 1 : 0,
                   transition: 'width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
                 }}
               ></div>  
-              <div className="bg-[#8000EA]" style={{ width: px(92), height: px(92) }}></div>
+              <div className="" style={{ backgroundColor: accentColor, width: px(92), height: px(92) }}></div>
               <div 
-                className="bg-[#8000EA] overflow-hidden"
+                className="overflow-hidden"
                 style={{ 
+                  backgroundColor: accentColor,
                   width: isExpanded ? px(38) : '0',
                   height: isExpanded ? px(58) : '0',
                   opacity: isExpanded ? 1 : 0,
@@ -94,8 +125,8 @@ export default function  BuildWithThe() {
                   lineHeight: '100%',
                   letterSpacing: '0%'
                 }}
-              >
-            Worldwide
+            >
+            {secondaryTitle}
               </div>
               
               <button
@@ -106,7 +137,7 @@ export default function  BuildWithThe() {
                 fontSize: '1.75rem' // 28px
               }}
             >
-              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >Contribute AI Projects and Earn</span>
+              <span style={{ marginRight: '0.625rem' ,}} className='whitespace-nowrap' >{panelTriggerLabel}</span>
               <div className="relative" style={{ width: '31px', height: '31px' }}>
                 <div
                   className="absolute inset-0 flex items-center justify-center"
@@ -167,7 +198,7 @@ export default function  BuildWithThe() {
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
+                href={learnMoreHref}
                 className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -178,7 +209,7 @@ export default function  BuildWithThe() {
                   letterSpacing: '0%'
                 }}
               >
-                <span style={{ marginRight: '0.625rem' }}>Learn more details</span>
+                <span style={{ marginRight: '0.625rem' }}>{learnMoreLabel}</span>
                 <LearnMoreArrowIcon style={{ width: '31px', height: '31px' }} />
               </a>
             </div>
@@ -206,17 +237,19 @@ export default function  BuildWithThe() {
               Top Use-to-Earn Picks
             </div>
             {/* 右侧按钮：View all projects，边框 #000000，圆角 1px，点击(active) 时黑底白字 */}
-            <button
-              className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
-              style={{
-                width: '17.296875rem', // 276.75px
-                height: '3.9375rem', // 63px
-                fontSize: '1.75rem', // 28px
-                borderRadius: '0.25rem' // 4px
-              }}
-            >
-              View all projects
-            </button>
+            <Link href={ctaHref}>
+              <button
+                className="flex items-center justify-center text-black border border-[#000000] transition-colors active:bg-black active:text-white"
+                style={{
+                  width: '17.296875rem', // 276.75px
+                  height: '3.9375rem', // 63px
+                  fontSize: '1.75rem', // 28px
+                  borderRadius: '0.25rem' // 4px
+                }}
+              >
+                {ctaLabel}
+              </button>
+            </Link>
           </div>
 
           <div 
@@ -225,7 +258,7 @@ export default function  BuildWithThe() {
             onMouseLeave={() => setIsHovered(false)}
           >
             {/* 左箭头按钮 - 只在 Windows 系统且鼠标悬浮时显示 */}
-            {isWindows && isHovered && (
+            {hasProjects && isWindows && isHovered && (
               <button
                 onClick={() => swiperRef.current?.slidePrev()}
                 className="absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
@@ -255,7 +288,7 @@ export default function  BuildWithThe() {
             )}
 
             {/* 右箭头按钮 - 只在 Windows 系统且鼠标悬浮时显示 */}
-            {isWindows && isHovered && (
+            {hasProjects && isWindows && isHovered && (
               <button
                 onClick={() => swiperRef.current?.slideNext()}
                 className="absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity"
@@ -286,145 +319,54 @@ export default function  BuildWithThe() {
 
 
 
-            <Swiper
-              modules={[Navigation, Mousewheel]}
-              spaceBetween={gap}
-              loop={true}
-              grabCursor={true}
-              watchSlidesProgress={true}
-              // 滚动逻辑与 WhereUsingBecomes 保持一致：freeMode + mousewheel 惯性左右滑
-              freeMode={{
-                enabled: true,
-                momentum: true,
-                momentumRatio: 1.5,
-                momentumBounce: false,
-              }}
-              mousewheel={{
-                forceToAxis: true,
-                releaseOnEdges: true,
-                sensitivity: 1.2,
-                thresholdDelta: 1,
-              }}
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper
-              }}
-              breakpoints={{
-                0: {
-                  slidesPerView: 1,
-                },
-                640: {
-                  slidesPerView: 3,
-                },
-                1024: {
-                  slidesPerView: 5,
-                },
-              }}
-            >
-              {/* 原始5张卡片（映射 ChatContent 第 21~25 条：索引 20~24），使用 icon21~25 */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing1}
-                    alt="Investing card 1"
-                    cardIndex={20}
-                    iconSrcOverride={buildWithIconImages[0]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing2}
-                    alt="Investing card 2"
-                    cardIndex={21}
-                    iconSrcOverride={buildWithIconImages[1]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing3}
-                    alt="Investing card 3"
-                    cardIndex={22}
-                    iconSrcOverride={buildWithIconImages[2]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing4}
-                    alt="Investing card 4"
-                    cardIndex={23}
-                    iconSrcOverride={buildWithIconImages[3]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing5}
-                    alt="Investing card 5"
-                    cardIndex={24}
-                    iconSrcOverride={buildWithIconImages[4]}
-                  />
-                </div>
-              </SwiperSlide>
-              
-              {/* 复制卡片以支持循环模式（映射 ChatContent 第 26~30 条：索引 25~29），使用 icon26~30 */}
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing6}
-                    alt="Investing card 1"
-                    cardIndex={25}
-                    iconSrcOverride={buildWithIconImages[5]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing7}
-                    alt="Investing card 2"
-                    cardIndex={26}
-                    iconSrcOverride={buildWithIconImages[6]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing8}
-                    alt="Investing card 3"
-                    cardIndex={27}
-                    iconSrcOverride={buildWithIconImages[7]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing9}
-                    alt="Investing card 4"
-                    cardIndex={28}
-                    iconSrcOverride={buildWithIconImages[8]}
-                  />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard
-                    src={images.investing10}
-                    alt="Investing card 5"
-                    cardIndex={29}
-                    iconSrcOverride={buildWithIconImages[9]}
-                  />
-                </div>
-              </SwiperSlide>
-              
-            </Swiper>
+            {hasProjects ? (
+              <Swiper
+                modules={[Navigation, Mousewheel]}
+                spaceBetween={gap}
+                loop={shouldLoop}
+                grabCursor={true}
+                watchSlidesProgress={true}
+                // 滚动逻辑与 WhereUsingBecomes 保持一致：freeMode + mousewheel 惯性左右滑
+                freeMode={{
+                  enabled: true,
+                  momentum: true,
+                  momentumRatio: 1.5,
+                  momentumBounce: false,
+                }}
+                mousewheel={{
+                  forceToAxis: true,
+                  releaseOnEdges: true,
+                  sensitivity: 1.2,
+                  thresholdDelta: 1,
+                }}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper
+                }}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  640: {
+                    slidesPerView: 3,
+                  },
+                  1024: {
+                    slidesPerView: 5,
+                  },
+                }}
+              >
+                {projects.map((project, index) => (
+                  <SwiperSlide key={`${project.projectId}-${index}`}>
+                    <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
+                      <BlueSquareCard card={project} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <div className="flex items-center justify-center py-10 text-black/60 text-lg">
+                Projects will be available soon.
+              </div>
+            )}
 
 
 
@@ -435,4 +377,3 @@ export default function  BuildWithThe() {
     </section>
   )
 }
-

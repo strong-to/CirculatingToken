@@ -117,7 +117,9 @@ export default function LendingVaultContent() {
       {activeTab === 'Project Introduction' && <SecondScreen projectIntroduction={pageData?.projectIntroduction} />}
       {activeTab === 'User Comments' && <UserComments userComments={pageData?.userComments} />}
       {activeTab === 'Project Construction' && <ProjectConstruction projectData={pageData?.projectConstruction} />}
-      {activeTab === 'Project Governance' && <ProjectGovernance />}
+
+      {activeTab === 'Project Governance' && <ProjectGovernance projectData={pageData?.projectGovernance} system_id={system_id || undefined} />}
+      
       {activeTab === 'Token Trading' && <ProjectGovernance />}
       {activeTab === 'Token Lending' && <ProjectGovernance />}
 

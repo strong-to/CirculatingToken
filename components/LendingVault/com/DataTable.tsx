@@ -1,6 +1,7 @@
 'use client'
 
 import { px } from '@/utils/pxToRem'
+import { useRouter } from 'next/navigation'
 
 export interface Column {
   key: string
@@ -14,6 +15,7 @@ export interface DataTableProps {
   rowHeight?: number
   rowGap?: number
   cellPadding?: number
+  system_id?: string
 }
 
 export default function DataTable({
@@ -22,87 +24,183 @@ export default function DataTable({
   rowHeight = 70,
   rowGap = 20,
   cellPadding = 16,
+  system_id,
 }: DataTableProps) {
+  const router = useRouter()
+
+  const handleRowClick = (row: Record<string, any>, index: number) => {
+    // 跳转到提案详情页，传递 system_id 和提案索引
+    const params = new URLSearchParams()
+    if (system_id) {
+      params.set('system_id', system_id)
+    }
+    params.set('proposal_index', index.toString())
+    router.push(`/ProposalDetail?${params.toString()}`)
+  }
+
   return (
     <div className="w-full">
       {/* 表头 */}
-      <div
-        className="flex"
-        style={{
-          marginBottom: px(rowGap),
-          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
-          backgroundColor: '#ffffff',
-          borderRadius: px(4),
-        }}
-      >
-        {columns.map((column, index) => (
-          <div
-            key={column.key}
-            style={{
-              width: column.width === 'flex' ? undefined : typeof column.width === 'number' ? px(column.width) : column.width,
-              flex: column.width === 'flex' ? 1 : undefined,
-              height: px(rowHeight),
-              padding: px(cellPadding),
-              display: 'flex',
-              alignItems: 'center',
-            }}
-          >
-            <span
-              style={{
-                fontFamily: 'PingFang SC',
-                fontWeight: 400,
-                fontStyle: 'normal',
-                fontSize: px(16),
-                lineHeight: '100%',
-                letterSpacing: '0%',
-                color: '#000000',
-              }}
-            >
-              {column.label}
-            </span>
-          </div>
-        ))}
-      </div>
+      
 
       {/* 表格数据行 */}
-      {data.map((row, rowIndex) => (
+      {data.map((row, index) => (
         <div
-          key={rowIndex}
-          className="flex"
+          key={index}
+          onClick={() => handleRowClick(row, index)}
+          className="flex items-center"
           style={{
-            marginBottom: rowIndex < data.length - 1 ? px(rowGap) : 0,
             boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)',
             backgroundColor: '#ffffff',
             borderRadius: px(4),
+            paddingTop: px(20),
+            paddingBottom: px(20),
+            paddingLeft: px(20),
+            paddingRight: px(20),
+            marginBottom: index < data.length - 1 ? px(rowGap) : 0,
+            gap: px(20),
+            cursor: 'pointer',
+            transition: 'transform 0.2s, box-shadow 0.2s'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-2px)'
+            e.currentTarget.style.boxShadow = '0 12px 32px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(0, 0, 0, 0.1)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)'
+            e.currentTarget.style.boxShadow = '0 8px 24px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.08)'
           }}
         >
-          {columns.map((column) => (
+          {/* 左侧：图标和提案文本 */}
+          <div className="flex items-start" style={{ gap: px(16), flex: '0 0 auto' }}>
+            {/* 图标 70x70 */}
             <div
-              key={column.key}
               style={{
-                width: column.width === 'flex' ? undefined : typeof column.width === 'number' ? px(column.width) : column.width,
-                flex: column.width === 'flex' ? 1 : undefined,
-                height: px(rowHeight),
-                padding: px(cellPadding),
+                width: px(70),
+                height: px(70),
+                backgroundColor: '#000000',
+                borderRadius: px(4),
                 display: 'flex',
                 alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
               }}
             >
-              <span
-                style={{
-                  fontFamily: 'PingFang SC',
-                  fontWeight: 400,
-                  fontStyle: 'normal',
-                  fontSize: px(16),
-                  lineHeight: '100%',
-                  letterSpacing: '0%',
-                  color: '#000000',
-                }}
-              >
-                {row[column.key] ?? ''}
-              </span>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="6" width="24" height="6" rx="1" stroke="white" strokeWidth="1.5" fill="none"/>
+                <rect x="8" y="16" width="24" height="6" rx="1" stroke="white" strokeWidth="1.5" fill="none"/>
+                <rect x="8" y="26" width="24" height="6" rx="1" stroke="white" strokeWidth="1.5" fill="none"/>
+              </svg>
             </div>
-          ))}
+            {/* 提案文本 */}
+            <div style={{ flex: 1, width: px(420)}}>
+              <div style={{
+                fontFamily: 'PingFang SC',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: px(20),
+                lineHeight: '140%',
+                letterSpacing: '0%',
+                color: '#000000'
+              }}>
+                {row.subject || 'Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%'}
+              </div>
+            </div>
+          </div>
+          
+          {/* 中间区域：3个均分的盒子 */}
+          <div className="flex items-center" style={{ flex: 1, gap: px(16), paddingLeft: px(125) }}>
+            {/* 第一列 */}
+            <div className="flex flex-col" style={{ flex: 1, gap: px(8) }}>
+              <div
+               className="flex items-center justify-center"
+               style={{
+                fontFamily: 'PingFang SC',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: px(22),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#000000'
+              }}>
+                {row.turnout}
+              </div>
+              <div
+               className="flex items-center justify-center" style={{
+                fontFamily: 'PingFang SC',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: px(22),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#666666'
+              }}>
+                {row.proposer}
+              </div>
+            </div>
+
+            {/* 第二列 */}
+            <div className="flex flex-col" style={{ flex: 1, gap: px(8) }}>
+              <div
+                className="flex items-center justify-center"
+               style={{
+                fontFamily: 'PingFang SC',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: px(22),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#666666'
+              }}>
+                {row.timing}
+              </div>
+              <div
+                className="flex items-center justify-center" style={{
+                fontFamily: 'PingFang SC',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: px(22),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#666666'
+              }}>
+                {row.type}
+              </div>
+            </div>
+
+            {/* 第三列 */}
+            <div className="flex flex-col items-center justify-center" style={{ flex: 1, gap: px(8) }}>
+              <div 
+                className="flex items-center justify-center"
+                style={{
+                fontFamily: 'PingFang SC',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: px(22),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: row.status === 'Approved' ? '#52C41A' : row.status === 'Failled' ? '#FF4D4F' : '#083FD8'
+              }}>
+                {row.status}
+              </div>
+              <div 
+                className="flex items-center justify-center"
+                style={{
+                fontFamily: 'PingFang SC',
+                fontWeight: 400,
+                fontStyle: 'normal',
+                fontSize: px(22),
+                lineHeight: '100%',
+                letterSpacing: '0%',
+                color: '#666666'
+              }}>
+                YAE {row.yae} / NAY {row.nay}
+              </div>
+            </div>
+          </div>
+
+          
+
         </div>
       ))}
     </div>

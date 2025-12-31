@@ -7,8 +7,17 @@ import { px } from "@/utils/pxToRem"
 import { useState, useRef, useEffect } from "react"
 import * as echarts from 'echarts'
 import DataTable, { Column } from './DataTable'
+import PageSelector from "./PageSelector"
+import { useRouter } from 'next/navigation'
 
-export default function ProposalContent() {
+interface ProposalContentProps {
+  data?: any
+  system_id?: string
+}
+
+export default function ProposalContent({ data, system_id }: ProposalContentProps) {
+  console.log('ProposalContent data:', data)
+  const router = useRouter()
   const [selectedView, setSelectedView] = useState<'Diagram' | 'List'>('List')
   const chartRef = useRef<HTMLDivElement>(null)
   const chartInstanceRef = useRef<echarts.ECharts | null>(null)
@@ -17,24 +26,14 @@ export default function ProposalContent() {
   const totalPages = 7
 
 
-  // 表格列定义
-  const columns: Column[] = [
-    { key: 'type', label: 'Type', width: 'flex' },
-    { key: 'subject', label: 'Subject', width: 'flex' },
-    { key: 'proposer', label: 'Proposer', width: 'flex' },
-    { key: 'turnout', label: 'Turnout', width: 'flex' },
-    { key: 'timing', label: 'Timing', width: 'flex' },
-    { key: 'status', label: 'Status', width: 'flex' },
-  ]
-    // 表格数据
-    const tableData = [
-      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: '' },
-      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'Pass' },
-      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'Reject' },
-      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'In Progress' },
-      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'In Progress' },
-      { type: 'Type', subject: 'Subject', proposer: 'Proposer', turnout: 'Turnout', timing: 'Timing', status: 'In Progress' },
-    ]
+  // 从 JSON 数据中读取表格列定义
+  const columns: Column[] = data?.columns || []
+  
+  // 从 JSON 数据中读取表格数据
+  const tableData = data?.tableData || []
+
+
+  
   
 
   const handleViewChange = (value: string) => {
@@ -42,30 +41,6 @@ export default function ProposalContent() {
     setSelectedView(view)
   }
 
-  // 列表表格列定义
-  const listColumns: Column[] = [
-    { key: 'time', label: 'time', width: 200 },
-    { key: 'newUsage', label: 'Newly Added Usage Count', width: 'flex' },
-    { key: 'cumulativeUsage', label: 'Cumulative Usage Count', width: 'flex' },
-    { key: 'newRecommendation', label: 'Newly Added Recommendation Count', width: 'flex' },
-    { key: 'cumulativeRecommendation', label: 'Cumulative Recommendation Count', width: 'flex' },
-    { key: 'newConstruction', label: 'Newly Added Construction Count', width: 'flex' },
-    { key: 'cumulativeConstruction', label: 'Cumulative Construction Count', width: 'flex' },
-  ]
-
-  // 列表表格数据
-  const listData = Array.from({ length: 6 }, (_, index) => {
-    const dates = ['14:59-08-07-2026', '14:59-07-07-2026', '14:59-06-07-2026', '14:59-05-07-2026', '14:59-04-07-2026', '14:59-03-07-2026']
-    return {
-      time: dates[index],
-      newUsage: '666',
-      cumulativeUsage: '888',
-      newRecommendation: '222',
-      cumulativeRecommendation: '333',
-      newConstruction: '220',
-      cumulativeConstruction: '110',
-    }
-  })
 
   // 初始化图表
   useEffect(() => {
@@ -138,7 +113,7 @@ export default function ProposalContent() {
 
           
           <FilterDropdown
-            placeholder="Sort by"
+            placeholder={data?.sortByPlaceholder}
             description=""
             options={projectGovernanceData}
             value={selectedView}
@@ -152,8 +127,8 @@ export default function ProposalContent() {
 
         <div className="flex-1">
           <FilterDropdown
-            placeholder="Interaction / Form"
-            description="Which of the following ways would you like to interact with AI?"
+            placeholder={data?.interactionFormPlaceholder}
+            description={data?.interactionFormDescription}
             categories={interactionFormCategories}
           />
         </div>
@@ -187,7 +162,7 @@ export default function ProposalContent() {
               e.currentTarget.style.borderColor = '#000000'
             }}
           >
-            Submit a Proposal
+            {data?.submitProposalButton}
           </button>
         </div>
 
@@ -196,137 +171,49 @@ export default function ProposalContent() {
 
       {/* 图表 */}
       <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(20) }}>
-      <DataTable columns={columns} data={tableData} />
+
+        <div 
+          onClick={() => router.push(`/InitiateProposal${system_id ? `?system_id=${system_id}` : ''}`)}
+          style={{
+            width: px(230), 
+            cursor: 'pointer', 
+            borderRadius: px(4), 
+            marginBottom: px(20), 
+            height: px(44), 
+            backgroundColor: '#000000',
+            color: '#ffffff',
+            fontFamily: 'PingFang SC',
+            fontWeight: 400,
+            fontStyle: 'normal',
+            fontSize: px(16),
+            lineHeight: '100%',
+            letterSpacing: '0%',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transition: 'opacity 0.2s'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.opacity = '0.8'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.opacity = '1'
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.625 9.375H18.125V10.625H10.625V18.125H9.375V10.625H1.875V9.375H9.375V1.875H10.625V9.375Z" fill="white"/>
+          </svg>
+          <span style={{marginLeft: px(8)}}>Initiate Proposal</span>
+        </div>
+          
+      <DataTable columns={columns} data={tableData} system_id={system_id} />
 
        {/* Pagination Controls */}
-       <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>
-           <div className="flex items-center" style={{ gap: px(16), marginRight: px(30) }}>
-             <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-               Total {listData.length} items
-             </span>
-             <select
-               value={itemsPerPage}
-               onChange={(e) => setItemsPerPage(Number(e.target.value))}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(4),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-               }}
-             >
-               <option value={10}>10 items/page</option>
-               <option value={20}>20 items/page</option>
-               <option value={50}>50 items/page</option>
-             </select>
-           </div>
-
-           <div className="flex items-center" style={{ gap: px(8) }}>
-             <button
-               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-               disabled={currentPage === 1}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(8),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-                 backgroundColor: currentPage === 1 ? '#f5f5f5' : '#ffffff',
-                 cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                 color: currentPage === 1 ? '#999999' : '#000000',
-               }}
-             >
-               &lt;
-             </button>
-             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-               <button
-                 key={page}
-                 onClick={() => setCurrentPage(page)}
-                 style={{
-                   fontFamily: 'PingFang SC',
-                   fontWeight: 400,
-                   fontStyle: 'normal',
-                   fontSize: px(16),
-                   lineHeight: '100%',
-                   letterSpacing: '0%',
-                   width: px(30),
-                   height: px(30),
-                   display: 'flex',
-                   alignItems: 'center',
-                   justifyContent: 'center',
-                   border: '1px solid #e0e0e0',
-                   borderRadius: px(4),
-                   backgroundColor: currentPage === page ? '#000000' : '#F0F2F5',
-                   color: currentPage === page ? '#ffffff' : '#000000',
-                   cursor: 'pointer',
-                 }}
-               >
-                 {page}
-               </button>
-             ))}
-             <button
-               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-               disabled={currentPage === totalPages}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(8),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-                 backgroundColor: currentPage === totalPages ? '#f5f5f5' : '#ffffff',
-                 cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                 color: currentPage === totalPages ? '#999999' : '#000000',
-               }}
-             >
-               &gt;
-             </button>
-             <div className="flex items-center" style={{ gap: px(8), marginLeft: px(16) }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 Go to
-               </span>
-               <input
-                 type="number"
-                 min={1}
-                 max={totalPages}
-                 value={currentPage}
-                 onChange={(e) => {
-                   const page = Number(e.target.value)
-                   if (page >= 1 && page <= totalPages) {
-                     setCurrentPage(page)
-                   }
-                 }}
-                 style={{
-                   fontFamily: 'PingFang SC',
-                   fontWeight: 400,
-                   fontStyle: 'normal',
-                   fontSize: px(16),
-                   lineHeight: '100%',
-                   letterSpacing: '0%',
-                   width: px(50),
-                   padding: px(4),
-                   border: '1px solid #e0e0e0',
-                   borderRadius: px(4),
-                   textAlign: 'center',
-                 }}
-               />
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 page
-               </span>
-             </div>
-           </div>
-         </div>
+       <PageSelector 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
       </div>
     </div>
   )

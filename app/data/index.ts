@@ -68,6 +68,7 @@ export interface ProjectProfile {
       }>;
     };
     projectConstruction?: ProjectConstructionData;
+    projectGovernance?: ProjectGovernanceData;
   };
 }
 
@@ -296,6 +297,23 @@ export interface ProjectConstructionData {
         rightButton?: string;
       };
     };
+  }>;
+}
+
+export interface ProjectGovernanceData {
+  statistics?: {
+    constructionResponseCount?: number;
+    constructionResponseCountLabel?: string;
+    numberOfConstructors?: number;
+    numberOfConstructorsLabel?: string;
+    numberOfCompletedResponseSubjects?: number;
+    numberOfCompletedResponseSubjectsLabel?: string;
+  };
+  tabs?: Array<{
+    id: string;
+    name: string;
+    component: 'Ecosystem' | 'Token' | 'Finance' | 'Proposal';
+    data?: any;
   }>;
 }
 

@@ -1,14 +1,19 @@
 'use client'
 
 import FilterDropdown from "@/components/LendingVault/com/FilterDropdown"
-import SearchInput from "@/components/LendingVault/com/SearchInput"
-import { projectGovernanceData, interactionFormCategories } from "@/components/TokenMarketplace/data/FilterSectionData"
+import { projectGovernanceData } from "@/components/TokenMarketplace/data/FilterSectionData"
 import { px } from "@/utils/pxToRem"
 import { useState, useRef, useEffect } from "react"
 import * as echarts from 'echarts'
 import { Column } from './DataTable'
+import PageSelector from "./PageSelector"
 
-export default function EcosystemContent() {
+interface TokenContentProps {
+  data?: any
+}
+
+export default function EcosystemContent({ data }: TokenContentProps) {
+  console.log('TokenContent data:', data)
   const [selectedView, setSelectedView] = useState<'Diagram' | 'List'>('List')
   const chartRef = useRef<HTMLDivElement>(null)
   const chartInstanceRef = useRef<echarts.ECharts | null>(null)
@@ -21,27 +26,11 @@ export default function EcosystemContent() {
     setSelectedView(view)
   }
 
-  // 列表表格列定义
-  const listColumns: Column[] = [
-    { key: 'time', label: 'time', width: 200 },
-    { key: 'action', label: 'action', width: 'flex' },
-    { key: 'subject', label: 'subject', width: 'flex' },
-    { key: 'party', label: 'party', width: 'flex' },
-    { key: 'consideration', label: 'consideration', width: 'flex' },
-    { key: 'occurrenceCount', label: 'occurrence count', width: 'flex' },
-    { key: 'cumulative', label: 'cumulative', width: 'flex' },
-    { key: 'stock', label: 'stock', width: 'flex' },
-  ]
+  // 从 JSON 数据中读取表格列定义
+  const listColumns: Column[] = data?.listColumns || []
 
-  // 列表表格数据
-  const listData = [
-    { time: '14:59-08-07-2026', action: 'Mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
-    { time: '14:59-07-07-2026', action: 'mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
-    { time: '14:59-06-07-2026', action: 'stake', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
-    { time: '14:59-05-07-2026', action: 'decompress', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
-    { time: '14:59-04-07-2026', action: 'mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
-    { time: '14:59-03-07-2026', action: 'mint', subject: 'subject', party: 'party', consideration: 'consideration', occurrenceCount: 'occurrence count', cumulative: 'cumulative', stock: 'stock' },
-  ]
+  // 从 JSON 数据中读取表格数据
+  const listData = data?.listData || []
 
   // 初始化图表
   useEffect(() => {
@@ -109,7 +98,7 @@ export default function EcosystemContent() {
       <div className='flex items-center' style={{ width: '100%', marginTop: px(15), gap: px(15), paddingLeft: px(80), paddingRight: px(80) }}>
         <div className="flex-1">
           <FilterDropdown
-            placeholder="Sort by"
+            placeholder={data?.sortByPlaceholder}
             description=""
             options={projectGovernanceData}
             value={selectedView}
@@ -121,15 +110,7 @@ export default function EcosystemContent() {
           />
         </div>
 
-        {/* <div className="flex-1">
-          <FilterDropdown
-            placeholder="Interaction / Form"
-            description="Which of the following ways would you like to interact with AI?"
-            categories={interactionFormCategories}
-          />
-        </div> */}
-
-        {[ 'Mint' ,'Burn', 'Staking', 'Decompress', '2024-11--2024-11-21'].map((label, index) => (
+        {(data?.filterButtons || []).map((label: string, index: number) => (
           <button
             key={index}
             className="flex-1 transition-colors cursor-pointer"
@@ -165,7 +146,7 @@ export default function EcosystemContent() {
         ))}
 
         <div className="flex-1 flex" style={{ gap: px(15) }}>
-          {['Search', 'Reset'].map((label, index) => {
+          {(data?.actionButtons || []).map((label: string, index: number) => {
             const isSearch = label === 'Search'
             return (
               <button
@@ -270,7 +251,7 @@ export default function EcosystemContent() {
                   e.currentTarget.style.borderColor = '#000000'
                 }}
               >
-                Favorite Project
+                {data?.favoriteProjectButton}
               </button>
 
               <button
@@ -302,7 +283,7 @@ export default function EcosystemContent() {
                   e.currentTarget.style.borderColor = '#000000'
                 }}
               >
-                Experience the Project
+                {data?.experienceProjectButton}
               </button>
             </div>
           </div>
@@ -344,7 +325,7 @@ export default function EcosystemContent() {
               </div>
 
               {/* 表格数据行 */}
-              {listData.map((row, rowIndex) => (
+              {listData.map((row: Record<string, any>, rowIndex: number) => (
                 <div
                   key={rowIndex}
                   className="flex"
@@ -383,143 +364,11 @@ export default function EcosystemContent() {
               ))}
             </div>
 
-            {/* Pagination Controls */}
-            <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>
-              <div className="flex items-center" style={{ gap: px(16), marginRight: px(30) }}>
-                <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                  Total {listData.length} items
-                </span>
-                <select
-                  value={itemsPerPage}
-                  onChange={(e) => setItemsPerPage(Number(e.target.value))}
-                  style={{
-                    fontFamily: 'PingFang SC',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: px(16),
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    padding: px(4),
-                    border: '1px solid #e0e0e0',
-                    borderRadius: px(4),
-                  }}
-                >
-                  <option value={10}>10 items/page</option>
-                  <option value={20}>20 items/page</option>
-                  <option value={50}>50 items/page</option>
-                </select>
-              </div>
-
-              <div className="flex items-center" style={{ gap: px(8) }}>
-                <button
-                  onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  disabled={currentPage === 1}
-                  style={{
-                    fontFamily: 'PingFang SC',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: px(16),
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    width: px(30),
-                    height: px(30),
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid #e0e0e0',
-                    borderRadius: px(4),
-                    backgroundColor: currentPage === 1 ? '#f5f5f5' : '#F0F2F5',
-                    cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                    color: currentPage === 1 ? '#999999' : '#000000',
-                  }}
-                >
-                  &lt;
-                </button>
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                  <button
-                    key={page}
-                    onClick={() => setCurrentPage(page)}
-                    style={{
-                      fontFamily: 'PingFang SC',
-                      fontWeight: 400,
-                      fontStyle: 'normal',
-                      fontSize: px(16),
-                      lineHeight: '100%',
-                      letterSpacing: '0%',
-                      width: px(30),
-                      height: px(30),
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      border: '1px solid #e0e0e0',
-                      borderRadius: px(4),
-                      backgroundColor: currentPage === page ? '#000000' : '#F0F2F5',
-                      color: currentPage === page ? '#ffffff' : '#000000',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {page}
-                  </button>
-                ))}
-                <button
-                  onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-                  disabled={currentPage === totalPages}
-                  style={{
-                    fontFamily: 'PingFang SC',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: px(16),
-                    lineHeight: '100%',
-                    letterSpacing: '0%',
-                    width: px(30),
-                    height: px(30),
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid #e0e0e0',
-                    borderRadius: px(4),
-                    backgroundColor: currentPage === totalPages ? '#f5f5f5' : '#F0F2F5',
-                    cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                    color: currentPage === totalPages ? '#999999' : '#000000',
-                  }}
-                >
-                  &gt;
-                </button>
-                <div className="flex items-center" style={{ gap: px(8), marginLeft: px(16) }}>
-                  <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                    Go to
-                  </span>
-                  <input
-                    type="number"
-                    min={1}
-                    max={totalPages}
-                    value={currentPage}
-                    onChange={(e) => {
-                      const page = Number(e.target.value)
-                      if (page >= 1 && page <= totalPages) {
-                        setCurrentPage(page)
-                      }
-                    }}
-                    style={{
-                      fontFamily: 'PingFang SC',
-                      fontWeight: 400,
-                      fontStyle: 'normal',
-                      fontSize: px(16),
-                      lineHeight: '100%',
-                      letterSpacing: '0%',
-                      width: px(50),
-                      padding: px(4),
-                      border: '1px solid #e0e0e0',
-                      borderRadius: px(4),
-                      textAlign: 'center',
-                    }}
-                  />
-                  <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                    page
-                  </span>
-                </div>
-              </div>
-            </div>
+            <PageSelector 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={setCurrentPage}
+            />
           </div>
    
       </div>

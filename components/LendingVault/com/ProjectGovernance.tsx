@@ -8,36 +8,89 @@ import TokenContent from './TokenContent'
 import FinanceContent from './FinanceContent'
 import ProposalContent from './ProposalContent'
 
-export default function ProjectGovernance() {
-  const [selectedTab, setSelectedTab] = useState<'Ecosystem' | 'Token' | 'Finance' | 'Proposal'>('Ecosystem')
+interface TabConfig {
+  id: string
+  name: string
+  component: 'Ecosystem' | 'Token' | 'Finance' | 'Proposal'
+  data?: any
+}
 
+interface ProjectGovernanceProps {
+  projectData?: {
+    statistics?: {
+      constructionResponseCount?: number
+      constructionResponseCountLabel?: string
+      numberOfConstructors?: number
+      numberOfConstructorsLabel?: string
+      numberOfCompletedResponseSubjects?: number
+      numberOfCompletedResponseSubjectsLabel?: string
+    }
+    tabs?: TabConfig[]
+  }
+  system_id?: string
+}
 
+export default function ProjectGovernance({ projectData, system_id }: ProjectGovernanceProps) {
+  console.log('ProjectGovernance projectData:', projectData)
+  
+  const statistics = projectData?.statistics || {}
+  const constructionResponseCount = statistics.constructionResponseCount ?? 0
+  const numberOfConstructors = statistics.numberOfConstructors ?? 0
+  const numberOfCompletedResponseSubjects = statistics.numberOfCompletedResponseSubjects ?? 0
+
+  // 从 JSON 读取 tabs 配置
+  const tabs: TabConfig[] = projectData?.tabs || []
+  const defaultTab = tabs[0]?.name || 'Ecosystem'
+  const [selectedTab, setSelectedTab] = useState<string>(defaultTab)
+
+  // 格式化数字，添加千位分隔符
+  const formatNumber = (num: number) => {
+    return num.toLocaleString('en-US')
+  }
+
+  // 根据选中的 tab 获取对应的 component 类型和数据
+  const selectedTabData = tabs.find((tab: TabConfig) => tab.name === selectedTab)
+  const selectedComponent = selectedTabData?.component || 'Ecosystem'
+  const selectedTabData_data = selectedTabData?.data
+
+  // 渲染对应的组件
+  const renderComponent = () => {
+    switch (selectedComponent) {
+      case 'Ecosystem':
+        return <EcosystemContent data={selectedTabData_data} />
+      case 'Token':
+        return <TokenContent data={selectedTabData_data} />
+      case 'Finance':
+        return <FinanceContent data={selectedTabData_data} />
+      case 'Proposal':
+        return <ProposalContent data={selectedTabData_data} system_id={system_id} />
+      default:
+        return <EcosystemContent data={selectedTabData_data} />
+    }
+  }
 
     return (
         <div className="w-full"  style={{marginTop:px(123)}}>
             <div className='flex items-center w-full justify-start' style={{height:px(25),gap:px(20),paddingLeft:px(80),paddingBottom:px(25)}}>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               construction response count：1,503
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(24), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+               {statistics.constructionResponseCountLabel || 'construction response count：'}{formatNumber(constructionResponseCount)}
              </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of constructors：667
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(24), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+               {statistics.numberOfConstructorsLabel || 'number of constructors：'}{formatNumber(numberOfConstructors)}
              </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of completed response subjects：7
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               number of ongoing response subjects：05
+             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(24), lineHeight: px(40), letterSpacing: '0%', color: '#083FD8' }}>
+               {statistics.numberOfCompletedResponseSubjectsLabel || 'number of completed response subjects：'}{formatNumber(numberOfCompletedResponseSubjects)}
              </div>
          </div>
 
         <div className="w-full bg-black relative flex items-center justify-between"  style={{ height:px(140), paddingLeft:px(80), paddingRight:px(80) }}>
           <div className="flex items-center " style={{gap:px(20) }}>
-            {(['Ecosystem', 'Token', 'Finance', 'Proposal'] as const).map((label) => {
-              const isSelected = selectedTab === label
+            {tabs.map((tab: TabConfig) => {
+              const isSelected = selectedTab === tab.name
               return (
                 <button
-                  key={label}
-                  onClick={() => setSelectedTab(label)}
+                  key={tab.id}
+                  onClick={() => setSelectedTab(tab.name)}
                   className="transition-colors cursor-pointer"
                   style={{
                     width: px(230),
@@ -71,7 +124,7 @@ export default function ProjectGovernance() {
                     }
                   }}
                 >
-                  {label}
+                  {tab.name}
                 </button>
               )
             })}
@@ -100,10 +153,7 @@ export default function ProjectGovernance() {
         </div>
 
       {/* 根据选中的 tab 显示对应的内容 */}
-      {selectedTab === 'Ecosystem' && <EcosystemContent />}
-      {selectedTab === 'Token' && <TokenContent />}
-      {selectedTab === 'Finance' && <FinanceContent />}
-      {selectedTab === 'Proposal' && <ProposalContent />}
+      {renderComponent()}
 
 
 

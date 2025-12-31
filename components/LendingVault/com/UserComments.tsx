@@ -328,7 +328,7 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                     <div className="flex items-center" style={{ gap: px(2), flexShrink: 0 }}>
                     {Array.from({ length: item.stars }).map((_, starIndex) => (
                         
-<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg key={starIndex} width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black"/>
 <path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black" fill-opacity="0.2"/>
 <path d="M7.50009 0.683594L9.03086 5.39484H13.9846L9.97693 8.30655L11.5077 13.0178L7.50009 10.1061L3.49247 13.0178L5.02324 8.30655L1.01562 5.39484H5.96931L7.50009 0.683594Z" fill="black" fill-opacity="0.2"/>

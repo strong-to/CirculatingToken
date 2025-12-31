@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import Header from '@/components/Header/Header'
 import LendingVaultContent from '@/components/LendingVault/LendingVaultContent'
 import ImagePreloader from '@/components/ImagePreloader'
@@ -14,7 +15,9 @@ export default function LendingVault() {
       </div>
       
       {/* 中间内容盒子 - 占满剩余空间 */}
-      <LendingVaultContent />
+      <Suspense fallback={<div>Loading...</div>}>
+        <LendingVaultContent />
+      </Suspense>
     </div>
   )
 }

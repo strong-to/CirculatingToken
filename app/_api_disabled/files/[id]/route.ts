@@ -3,6 +3,12 @@ import { readFile, stat } from 'fs/promises'
 import { join } from 'path'
 import { existsSync } from 'fs'
 
+// 静态导出模式下，API 路由需要 generateStaticParams
+// 返回空数组表示不预生成任何路由
+export async function generateStaticParams() {
+  return []
+}
+
 async function handleFileRequest(
   request: NextRequest,
   params: Promise<{ id: string }> | { id: string },

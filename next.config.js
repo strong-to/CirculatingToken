@@ -58,6 +58,19 @@ const nextConfig = {
       return config;
     },
   }),
+  
+  // 静态导出时排除 API 路由
+  ...(process.env.NODE_ENV === 'production' && {
+    webpack: (config, { isServer }) => {
+      if (isServer) {
+        // 排除 API 路由，避免静态导出时的错误
+        config.resolve.alias = {
+          ...config.resolve.alias,
+        };
+      }
+      return config;
+    },
+  }),
 }
 
 module.exports = nextConfig

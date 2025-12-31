@@ -174,23 +174,23 @@ export default function ProposalContent({ data, system_id }: ProposalContentProp
 
         <div 
           onClick={() => router.push(`/InitiateProposal${system_id ? `?system_id=${system_id}` : ''}`)}
-          style={{
+               style={{
             width: px(230), 
             cursor: 'pointer', 
-            borderRadius: px(4), 
+                 borderRadius: px(4),
             marginBottom: px(20), 
             height: px(44), 
             backgroundColor: '#000000',
             color: '#ffffff',
-            fontFamily: 'PingFang SC',
-            fontWeight: 400,
-            fontStyle: 'normal',
-            fontSize: px(16),
-            lineHeight: '100%',
-            letterSpacing: '0%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
+                   fontFamily: 'PingFang SC',
+                   fontWeight: 400,
+                   fontStyle: 'normal',
+                   fontSize: px(16),
+                   lineHeight: '100%',
+                   letterSpacing: '0%',
+                   display: 'flex',
+                   alignItems: 'center',
+                   justifyContent: 'center',
             transition: 'opacity 0.2s'
           }}
           onMouseEnter={(e) => {

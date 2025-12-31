@@ -29,12 +29,16 @@ export default function DataTable({
   const router = useRouter()
 
   const handleRowClick = (row: Record<string, any>, index: number) => {
-    // 跳转到提案详情页，传递 system_id 和提案索引
+    // 跳转到提案详情页，传递 system_id 和提案 id
     const params = new URLSearchParams()
     if (system_id) {
       params.set('system_id', system_id)
     }
-    params.set('proposal_index', index.toString())
+    if (row.id) {
+      params.set('proposal_id', row.id)
+    } else {
+      params.set('proposal_index', index.toString())
+    }
     router.push(`/ProposalDetail?${params.toString()}`)
   }
 
@@ -45,7 +49,7 @@ export default function DataTable({
 
       {/* 表格数据行 */}
       {data.map((row, index) => (
-        <div
+      <div
           key={index}
           onClick={() => handleRowClick(row, index)}
           className="flex items-center"

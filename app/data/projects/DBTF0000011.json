@@ -11,8 +11,8 @@
     "summary": "EconoSet delivers Dataset capabilities for Finance teams.",
     "description_md": "## 关于 EconoSet\nWhere markets, trends, and decisions meet.\n\n### 交互形态\n- Text / Table / Chart\n\n### 适用领域\n- Finance / Markets & Trade\n\n### 核心能力\n- Analyze · Predict · Summarize · Classify\n\n### 运营概览\n- 贡献者：172\n- 市值：$5.9M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_011.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask11.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_011.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask11.png",
       "projectDetails": "DBTF0000011_Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, ",
       "assets": [
         {
@@ -93,7 +93,7 @@
       "github": "https://github.com/dbtf/econoset"
     },
     "projectDetailsPage": {
-      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
       "carouselImages": [
         "/LendingVault/banner/item/Mask11.png",
         "/LendingVault/banner/item/Mask11.png",

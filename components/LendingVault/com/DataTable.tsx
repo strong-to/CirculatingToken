@@ -82,7 +82,6 @@ export default function DataTable({
               style={{
                 width: px(70),
                 height: px(70),
-                backgroundColor: '#000000',
                 borderRadius: px(4),
                 display: 'flex',
                 alignItems: 'center',
@@ -90,11 +89,11 @@ export default function DataTable({
                 flexShrink: 0
               }}
             >
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="8" y="6" width="24" height="6" rx="1" stroke="white" strokeWidth="1.5" fill="none"/>
-                <rect x="8" y="16" width="24" height="6" rx="1" stroke="white" strokeWidth="1.5" fill="none"/>
-                <rect x="8" y="26" width="24" height="6" rx="1" stroke="white" strokeWidth="1.5" fill="none"/>
-              </svg>
+               <img 
+                  src={row.avatar} 
+                  alt="avatar" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: px(4) }}
+                />
             </div>
             {/* 提案文本 */}
             <div style={{ flex: 1, width: px(420)}}>

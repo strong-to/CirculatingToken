@@ -1,6 +1,18 @@
 "use client";
 
+import { useState } from "react";
 import { px } from "@/utils/pxToRem";
+import ConstructorImageModal from "./ConstructorImageModal";
+
+interface ModalData {
+  name?: string;
+  address?: string;
+  totalContributions?: number;
+  tokensEarned?: string;
+  tagLabel?: string;
+  totalContributionsLabel?: string;
+  tokensEarnedLabel?: string;
+}
 
 interface ProposalDetailRightSidebarProps {
   data?: {
@@ -21,16 +33,21 @@ interface ProposalDetailRightSidebarProps {
     };
     proposer?: {
       title?: string;
+      avatar?: string;
+      modal?: ModalData;
     };
     voter?: {
       title?: string;
       items?: Array<{
         name?: string;
         value?: string;
+        avatar?: string;
+        modal?: ModalData;
       }>;
     };
     forumDiscussion?: {
       text?: string;
+      url?: string;
     };
   };
   proposalData?: {
@@ -43,7 +60,13 @@ export default function ProposalDetailRightSidebar({
   data,
   proposalData,
 }: ProposalDetailRightSidebarProps) {
+  const [isProposerModalOpen, setIsProposerModalOpen] = useState(false);
+  const [selectedVoterIndex, setSelectedVoterIndex] = useState<number | null>(null);
+
+  const selectedVoter = selectedVoterIndex !== null ? data?.voter?.items?.[selectedVoterIndex] : null;
+
   return (
+    <>
     <div style={{ backgroundColor: "#ffffff", flexShrink: 0 }}>
       {/* Your voting info */}
       {data?.votingInfo && (
@@ -66,7 +89,7 @@ export default function ProposalDetailRightSidebar({
               color: "#000000",
             }}
           >
-            {data.votingInfo.title || "Your voting info"}
+            {data.votingInfo.title }
           </div>
           <div
             style={{
@@ -74,7 +97,7 @@ export default function ProposalDetailRightSidebar({
               color: "#8C8C8C",
             }}
           >
-            {data.votingInfo.status || "Voting is on"}
+            {data.votingInfo.status }
           </div>
           {data.votingInfo.buttons && (
             <div style={{ display: "flex", gap: px(12), marginTop: px(10) }}>
@@ -174,29 +197,47 @@ export default function ProposalDetailRightSidebar({
         {data?.proposer && (
           <div style={{ marginBottom: px(12) }}>
             <div
-              style={{ display: "flex", alignItems: "center", gap: px(24) }}
+              onClick={() => data.proposer?.modal && setIsProposerModalOpen(true)}
+              style={{ 
+                display: "flex", 
+                alignItems: "center", 
+                gap: px(24),
+                cursor: data.proposer.modal ? "pointer" : "default",
+                transition: "opacity 0.2s",
+                padding: px(4),
+                borderRadius: px(4),
+              }}
+              onMouseEnter={(e) => {
+                if (data.proposer?.modal) {
+                  e.currentTarget.style.opacity = "0.7";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (data.proposer?.modal) {
+                  e.currentTarget.style.opacity = "1";
+                }
+              }}
             >
               <div
                 style={{
                   width: px(70),
                   height: px(70),
-                  borderRadius: "50%",
-                  backgroundColor: "#e0e0e0",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  overflow: "hidden",
+                  flexShrink: 0,
                 }}
               >
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path
-                    d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z"
-                    fill="#666666"
+                <img
+                    src={data.proposer.avatar}
+                    alt="proposer"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
                   />
-                  <path
-                    d="M10 12C5.58172 12 2 15.5817 2 20H18C18 15.5817 14.4183 12 10 12Z"
-                    fill="#666666"
-                  />
-                </svg>
               </div>
               <div style={{ fontSize: px(24), color: "#000000" }}>
                 {data.proposer.title || "Proposer"}
@@ -231,7 +272,6 @@ export default function ProposalDetailRightSidebar({
                 overflowY: "auto",
                 overflowX: "hidden",
                 padding: px(15),
-                backgroundColor: data.voter.items && data.voter.items.length > 0 ? "#F5F5F5" : "transparent",
               }}
               className="scrollbar-hide"
             >
@@ -239,12 +279,27 @@ export default function ProposalDetailRightSidebar({
                 data.voter.items.map((item, index) => (
                   <div
                     key={index}
+                    onClick={() => item.modal && setSelectedVoterIndex(index)}
                     style={{
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "space-between",
                       gap: px(12),
                       flexShrink: 0,
+                      cursor: item.modal ? "pointer" : "default",
+                      transition: "opacity 0.2s",
+                      padding: px(4),
+                      borderRadius: px(4),
+                    }}
+                    onMouseEnter={(e) => {
+                      if (item.modal) {
+                        e.currentTarget.style.opacity = "0.7";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (item.modal) {
+                        e.currentTarget.style.opacity = "1";
+                      }
                     }}
                   >
                     <div
@@ -252,28 +307,22 @@ export default function ProposalDetailRightSidebar({
                         width: px(45),
                         height: px(45),
                         borderRadius: "50%",
-                        backgroundColor: "#e0e0e0",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         flexShrink: 0,
+                        overflow: "hidden",
                       }}
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <path
-                          d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z"
-                          fill="#666666"
+                     <img
+                          src={item.avatar}
+                          alt="voter"
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
                         />
-                        <path
-                          d="M8 9.5C4.96243 9.5 2.5 11.9624 2.5 15H13.5C13.5 11.9624 11.0376 9.5 8 9.5Z"
-                          fill="#666666"
-                        />
-                      </svg>
                     </div>
                     <div className="flex items-center justify-center">
                       <div style={{ fontSize: px(18), color: "#000000" }}>
@@ -290,65 +339,10 @@ export default function ProposalDetailRightSidebar({
                       </div>
                     </div>
                   </div>
+
+
                 ))
-              ) : (
-                // 如果没有数据，显示默认的10个占位项
-                [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-                  <div
-                    key={i}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      gap: px(12),
-                      flexShrink: 0,
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: px(45),
-                        height: px(45),
-                        borderRadius: "50%",
-                        backgroundColor: "#e0e0e0",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        flexShrink: 0,
-                      }}
-                    >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                      >
-                        <path
-                          d="M8 8C9.65685 8 11 6.65685 11 5C11 3.34315 9.65685 2 8 2C6.34315 2 5 3.34315 5 5C5 6.65685 6.34315 8 8 8Z"
-                          fill="#666666"
-                        />
-                        <path
-                          d="M8 9.5C4.96243 9.5 2.5 11.9624 2.5 15H13.5C13.5 11.9624 11.0376 9.5 8 9.5Z"
-                          fill="#666666"
-                        />
-                      </svg>
-                    </div>
-                    <div className="flex items-center justify-center">
-                      <div style={{ fontSize: px(18), color: "#000000" }}>
-                        YAE
-                      </div>
-                      <div
-                        style={{
-                          marginLeft: px(25),
-                          fontSize: px(18),
-                          color: "#8C8C8C",
-                        }}
-                      >
-                        0,000,000{" "}
-                      </div>
-                    </div>
-                  </div>
-                ))
-              )}
+              ) : null}
             </div>
           </div>
         )}
@@ -357,6 +351,11 @@ export default function ProposalDetailRightSidebar({
         {data?.forumDiscussion && (
           <div>
             <button
+              onClick={() => {
+                if (data.forumDiscussion?.url) {
+                  window.open(data.forumDiscussion.url, '_blank');
+                }
+              }}
               style={{
                 width: px(206),
                 height: px(44),
@@ -384,6 +383,41 @@ export default function ProposalDetailRightSidebar({
         )}
       </div>
     </div>
+
+    {/* Proposer Modal */}
+    {isProposerModalOpen && data?.proposer?.modal && data.proposer.avatar && (
+      <ConstructorImageModal
+        isOpen={isProposerModalOpen}
+        onClose={() => setIsProposerModalOpen(false)}
+        imageSrc={data.proposer.avatar}
+        imageIndex={-1}
+        name={data.proposer.modal.name}
+        address={data.proposer.modal.address}
+        totalContributions={data.proposer.modal.totalContributions}
+        tokensEarned={data.proposer.modal.tokensEarned}
+        tagLabel={data.proposer.modal.tagLabel}
+        totalContributionsLabel={data.proposer.modal.totalContributionsLabel}
+        tokensEarnedLabel={data.proposer.modal.tokensEarnedLabel}
+      />
+    )}
+
+    {/* Voter Modal */}
+    {selectedVoterIndex !== null && selectedVoter?.modal && selectedVoter.avatar && (
+      <ConstructorImageModal
+        isOpen={selectedVoterIndex !== null}
+        onClose={() => setSelectedVoterIndex(null)}
+        imageSrc={selectedVoter.avatar}
+        imageIndex={selectedVoterIndex}
+        name={selectedVoter.modal.name}
+        address={selectedVoter.modal.address}
+        totalContributions={selectedVoter.modal.totalContributions}
+        tokensEarned={selectedVoter.modal.tokensEarned}
+        tagLabel={selectedVoter.modal.tagLabel}
+        totalContributionsLabel={selectedVoter.modal.totalContributionsLabel}
+        tokensEarnedLabel={selectedVoter.modal.tokensEarnedLabel}
+      />
+    )}
+    </>
   );
 }
 

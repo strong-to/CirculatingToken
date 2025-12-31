@@ -44,22 +44,12 @@ export default function LendingVaultContent() {
      
 
       {/* 第一屏 */}
-      <div className="flex flex-col" style={{ height: 'calc(100vh - 89px)' }}>
+      <div className="flex flex-col" style={{ height: 'calc(100vh - 89px)',paddingBottom: px(80) }}>
         {/* Banner 组件 */}
         <div className="flex-1 min-h-0">
           <Banner projectData={projectData} />
         </div>
 
-        
-      </div>
-
-      {/* 第二屏 */}
-      {/* <SecondScreen /> */}
-
-
-     
-
-        <div className="w-full flex flex-col" style={{ minHeight:'calc(100vh - 89px)' }}>
         <div 
           className="w-full flex flex-shrink-0" 
           style={{ 
@@ -112,6 +102,18 @@ export default function LendingVaultContent() {
             )
           })}
         </div>
+
+        
+      </div>
+
+      {/* 第二屏 */}
+      {/* <SecondScreen /> */}
+
+
+     
+
+        <div className="w-full flex flex-col" style={{ minHeight:'calc(100vh - 89px)' }}>
+       
         
       {/* 根据 activeTab 显示不同的组件 */}
       {activeTab === 'Project Introduction' && <SecondScreen projectIntroduction={pageData?.projectIntroduction} />}

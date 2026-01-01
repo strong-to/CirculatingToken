@@ -5,10 +5,9 @@ import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
 import { projectsList, type ProjectData } from '@/app/data'
 import ProjectModal from './PlaceholderComponent/ProjectModal'
-import { log } from 'console'
 
 interface PlaceholderComponentProps {
-  // 可以添加需要的 props
+  projects?: ProjectData[]
 }
 
 // 获取图片路径的辅助函数
@@ -39,9 +38,9 @@ const formatCurrency = (value: number | undefined): string => {
   })}`
 }
 
-export default function PlaceholderComponent({}: PlaceholderComponentProps = {}) {
-  // 使用真实数据
-  const displayData = projectsList
+export default function PlaceholderComponent({ projects }: PlaceholderComponentProps = {}) {
+  // 使用筛选后的数据，默认展示全部
+  const displayData = (projects && projects.length > 0 ? projects : projectsList)
   const [selectedCard, setSelectedCard] = useState<ProjectData | null>(null)
   const timersRef = useRef<Map<number, NodeJS.Timeout[]>>(new Map())
 
@@ -75,7 +74,22 @@ export default function PlaceholderComponent({}: PlaceholderComponentProps = {})
       {/* 在这里添加你的内容 */}
 
 
-      <div className='w-full flex flex-wrap' style={{ gap: px(16) }}>
+      {projects && projects.length === 0 ? (
+        <div
+          className='w-full flex items-center justify-center'
+          style={{
+            height: px(240),
+            border: '1px dashed #D9D9D9',
+            borderRadius: px(8),
+            fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+            fontSize: px(18),
+            color: '#8C8C8C',
+          }}
+        >
+          No projects match the selected filters.
+        </div>
+      ) : (
+        <div className='w-full flex flex-wrap' style={{ gap: px(16) }}>
         
         {displayData.map((card, index) => (
           <div
@@ -217,6 +231,7 @@ export default function PlaceholderComponent({}: PlaceholderComponentProps = {})
           </div>
         ))}
       </div>
+      )}
       
       {/* 弹窗 */}
       <ProjectModal

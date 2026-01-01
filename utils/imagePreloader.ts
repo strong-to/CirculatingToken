@@ -189,6 +189,10 @@ export const getOptimalConcurrency = (): number => {
  */
 export const preloadSingleImage = (src: string): Promise<boolean> => {
   return new Promise((resolve) => {
+    if (!src) {
+      resolve(false)
+      return
+    }
     // 检查图片是否已经加载过（通过检查是否有对应的 link 标签）
     const existingLink = document.querySelector(`link[rel="preload"][href="${src}"]`)
     if (existingLink) {
@@ -288,4 +292,3 @@ export const preloadPageImages = (
     }
   }
 }
-

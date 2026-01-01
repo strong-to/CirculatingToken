@@ -1,0 +1,79 @@
+{
+  "sections": {
+    "where-using-becomes-investing": {
+      "titleLines": ["Where Using Becomes", "Investing"],
+      "panelTriggerLabel": "Use AI Apps and Earn",
+      "learnMoreLabel": "Learn more details",
+      "learnMoreHref": "#",
+      "cta": {
+        "label": "View all projects",
+        "href": "/ProjectHub"
+      },
+      "accentColor": "#0045FF",
+      "backgroundColor": "#F5F5F5",
+      "filterKeys": [],
+      "projectIds": [
+        "DBAI0000009",
+        "DBAI0000020",
+        "DBAI0000017",
+        "DBAI0000005",
+        "DBAI0000002",
+        "DBAI0000007",
+        "DBAI0000006",
+        "DBAI0000001",
+        "DBAI0000012",
+        "DBAI0000022"
+      ]
+    },
+    "let-every-share": {
+      "titleLines": ["Let Every Share Come", "With Joy"],
+      "panelTriggerLabel": "Share AI Projects and Earn",
+      "learnMoreLabel": "Learn more details",
+      "learnMoreHref": "#",
+      "cta": {
+        "label": "View all projects",
+        "href": "/ProjectHub"
+      },
+      "accentColor": "#E1050D",
+      "backgroundColor": "#FFFFFF",
+      "filterKeys": [],
+      "projectIds": [
+        "DBAI0000011",
+        "DBAI0000008",
+        "DBAI0000025",
+        "DBAI0000013",
+        "DBAI0000010",
+        "DBAI0000003",
+        "DBAI0000024",
+        "DBAI0000018",
+        "DBAI0000029",
+        "DBAI0000004"
+      ]
+    },
+    "build-with-the": {
+      "titleLines": ["Build With The", "Brightest Minds Worldwide"],
+      "panelTriggerLabel": "Contribute AI Projects and Earn",
+      "learnMoreLabel": "Learn more details",
+      "learnMoreHref": "#",
+      "cta": {
+        "label": "View all projects",
+        "href": "/ProjectHub"
+      },
+      "accentColor": "#8000EA",
+      "backgroundColor": "#FFFFFF",
+      "filterKeys": [],
+      "projectIds": [
+        "DBAI0000015",
+        "DBAI0000014",
+        "DBAI0000016",
+        "DBAI0000026",
+        "DBAI0000027",
+        "DBAI0000019",
+        "DBAI0000021",
+        "DBAI0000030",
+        "DBAI0000023",
+        "DBAI0000028"
+      ]
+    }
+  }
+}

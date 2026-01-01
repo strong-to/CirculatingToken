@@ -11,8 +11,8 @@
     "summary": "SportCue delivers Dataset capabilities for Sports teams.",
     "description_md": "## 关于 SportCue\nData that reads the game as well as the players do.\n\n### 交互形态\n- Text / Video\n\n### 适用领域\n- Sports / Entertainment\n\n### 核心能力\n- Analyze · Predict · Classify · Explain\n\n### 运营概览\n- 贡献者：96\n- 市值：$2.8M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_010.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask10.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_010.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask10.png",
       "projectDetails": "DBTF0000010_Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, ",
       "assets": [
         {
@@ -93,7 +93,7 @@
       "github": "https://github.com/dbtf/sportcue"
     },
     "projectDetailsPage": {
-      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
       "carouselImages": [
         "/LendingVault/banner/item/Mask10.png",
         "/LendingVault/banner/item/Mask10.png",

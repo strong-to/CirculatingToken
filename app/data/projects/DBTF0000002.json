@@ -93,14 +93,14 @@
       "github": "https://github.com/dbtf/tensorgrid"
     },
     "projectDetailsPage": {
-      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
       "carouselImages": [
-        "../../../public/LendingVault/banner/item/Mask1.png",
-        "../../../public/LendingVault/banner/item/Mask2.png",
-        "../../../public/LendingVault/banner/item/Mask3.png",
-        "../../../public/LendingVault/banner/item/Mask4.png",
-        "../../../public/LendingVault/banner/item/Mask5.png",
-        "../../../public/LendingVault/banner/item/Mask6.png"
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask2.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask3.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask4.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask5.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask6.png"
       ],
       "tabList": [
         {

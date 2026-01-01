@@ -15,8 +15,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const htmlClassName = ['scroll-smooth', 'tongyi-design-pc'].join(' ').trim()
   return (
-    <html lang="zh-CN" className="scroll-smooth">
+    <html lang="zh-CN" className={htmlClassName} suppressHydrationWarning>
       <body className={inter.className}>
         <GlobalModalProvider>
           {children}
@@ -25,4 +26,3 @@ export default function RootLayout({
     </html>
   )
 }
-

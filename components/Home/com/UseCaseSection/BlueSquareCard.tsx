@@ -5,16 +5,10 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./BlueSquareCard.module.css";
 import { px } from "@/utils/pxToRem";
-import { chatContentData } from "@/components/TokenMarketplace/data/ChatContentData";
-import { chatContentImages } from "@/components/TokenMarketplace/com/ChatContent/resources";
+import type { HomeProjectCard } from "@/app/data";
 
 interface BlueSquareCardProps {
-  src: string;
-  alt: string;
-  // 可选：用于从 ChatContentData 中取对应的数据（前 10 条）
-  cardIndex?: number;
-  // 可选：父组件传入的小图标地址；如果提供则优先使用（例如 Home 页面自定义 icon）
-  iconSrcOverride?: string;
+  card?: HomeProjectCard;
 }
 
 // 计算按钮宽度（参考 ChatContent/InitialContent）
@@ -39,38 +33,55 @@ function calculateButtonWidths(buttons: string[]): string[] {
   return [row1Width0, row1Width1, row2Width2, row2Width3];
 }
 
-export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }: BlueSquareCardProps) {
+const FALLBACK_CARD: HomeProjectCard = {
+  systemId: "DBTF0000000",
+  projectId: "DBAI0000000",
+  title: "AI Project",
+  subtitle: "DBAI0000000",
+  image: "/ProjectHub/PlaceholderComponent/img/Mask1.png",
+  logo: "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+  buttons: ["Natural Language", "Text", "Analyze", "Public Health"],
+  descriptions: ["THIS IS A VIDEO", "CREATION AI WORKFLOW"],
+};
+
+const FALLBACK_BUTTONS = ["Details", "Share", "Market", "Favorites"];
+const FALLBACK_DESCRIPTIONS = ["AI project", ""];
+
+const ensureButtonLabels = (buttons: string[]) => {
+  const filtered = buttons.filter(Boolean);
+  const labels = [...filtered];
+  FALLBACK_BUTTONS.forEach((label) => {
+    if (labels.length < 4 && !labels.includes(label)) {
+      labels.push(label);
+    }
+  });
+  while (labels.length < 4) {
+    labels.push(FALLBACK_BUTTONS[labels.length] ?? FALLBACK_BUTTONS[0]);
+  }
+  return labels.slice(0, 4);
+};
+
+const ensureDescriptions = (descriptions: string[]) => {
+  const filtered = descriptions.filter((desc) => desc && desc.trim());
+  while (filtered.length < 2) {
+    filtered.push(FALLBACK_DESCRIPTIONS[filtered.length] ?? FALLBACK_DESCRIPTIONS[0]);
+  }
+  return filtered.slice(0, 2);
+};
+
+export default function BlueSquareCard({ card }: BlueSquareCardProps) {
   const router = useRouter();
   const [showDetail, setShowDetail] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [buttonHovered, setButtonHovered] = useState<string | null>(null);
 
-  // 当提供 cardIndex 时，从 ChatContentData 中取对应的数据；否则使用原本的默认文案
-  const cardData =
-    cardIndex !== undefined && cardIndex >= 0 && cardIndex < chatContentData.length
-      ? chatContentData[cardIndex]
-      : {
-          title: "WALL-E& EVE",
-          subtitle: "DBAI0000211",
-          buttons: ["Natural Language", "Text", "Analyze", "Public Health"],
-          descriptions: ["THIS IS A VIDEO", "CREATION AIWORKFLOW"],
-        };
+  const cardData = card ?? FALLBACK_CARD;
+  const cardImage = cardData.image || FALLBACK_CARD.image;
+  const iconSrc = cardData.logo || FALLBACK_CARD.logo;
+  const [btn0, btn1, btn2, btn3] = ensureButtonLabels(cardData.buttons ?? []);
+  const [desc0, desc1] = ensureDescriptions(cardData.descriptions ?? FALLBACK_DESCRIPTIONS);
 
-  // 内部小图标：
-  // 1. 如果父组件传了 iconSrcOverride，则优先使用（例如 Home/WhereUsingBecomes 专用 icon）
-  // 2. 否则优先使用 ChatContent 的图标
-  // 3. 再否则使用原来的 sword 图标
-  const iconSrc =
-    iconSrcOverride ??
-    (cardIndex !== undefined &&
-    cardIndex >= 0 &&
-    cardIndex < chatContentImages.length
-      ? chatContentImages[cardIndex]
-      : "/home/icons/img/sword.png");
-
-  const [btn0, btn1, btn2, btn3] = cardData.buttons;
-  const [desc0, desc1] = cardData.descriptions;
-  const buttonWidths = calculateButtonWidths(cardData.buttons);
+  const buttonWidths = calculateButtonWidths([btn0, btn1, btn2, btn3]);
 
   return (
     <div
@@ -86,8 +97,8 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
     >
       {/* 底层整张图片 */}
       <Image
-        src={src}
-        alt={alt}
+        src={cardImage}
+        alt={cardData.title ?? FALLBACK_CARD.title}
         width={340}
         height={500}
         className="w-full h-full object-cover"
@@ -117,7 +128,12 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
         <div className="">
           <div
             className="flex items-center justify-center "
-            style={{ width: px(60), height: px(60), borderRadius: px(3) }}
+            style={{
+              width: px(60),
+              height: px(60),
+              borderRadius: px(3),
+              border: `${px(1)} solid rgba(255,255,255,0.6)`,
+            }}
           >
             <div
               className="relative flex items-center justify-center"
@@ -145,7 +161,7 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
                 letterSpacing: "0%",
               }}
             >
-                    {cardData.title}
+                    {cardData.title ?? FALLBACK_CARD.title}
             </div>
             <div
               className="leading-[1] tracking-[0] text-white"
@@ -319,7 +335,13 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
           >
             <div
               className="relative flex items-start justify-center"
-                  style={{ width: px(60), height: px(60), marginRight: px(15) }}
+                  style={{
+                    width: px(60),
+                    height: px(60),
+                    marginRight: px(15),
+                    border: `${px(1)} solid rgba(255,255,255,0.6)`,
+                    borderRadius: px(3),
+                  }}
             >
               <Image
                     src={iconSrc}
@@ -357,7 +379,7 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
                 letterSpacing: "0%",
               }}
             >
-                    {cardData.subtitle}
+                    {cardData.subtitle ?? FALLBACK_CARD.subtitle}
             </div>
           </div>
           </div>
@@ -409,8 +431,8 @@ export default function BlueSquareCard({ src, alt, cardIndex, iconSrcOverride }:
           onMouseEnter={() => setButtonHovered('details')}
           onMouseLeave={() => setButtonHovered(null)}
           onClick={() => {
-            if (cardData.subtitle === 'DBAI0000017') {
-              router.push('/LendingVault');
+            if (cardData.systemId) {
+              router.push(`/LendingVault?system_id=${cardData.systemId}`);
             }
           }}
         >Details

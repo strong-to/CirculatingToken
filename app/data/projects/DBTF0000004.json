@@ -11,8 +11,8 @@
     "summary": "Spectra delivers Foundation Model capabilities for AI / Computing teams.",
     "description_md": "## 关于 Spectra\nSeeing structure, meaning, and detail—instantly.\n\n### 交互形态\n- Image / Image+Text / Video+Audio\n\n### 适用领域\n- AI / Computing / Media\n\n### 核心能力\n- Generate · Classify · Predict · Analyze · Explain\n\n### 运营概览\n- 贡献者：221\n- 市值：$52.0M\n- 建设进度：100%",
     "media": {
-      "logo": "../../../public/ProjectHub/PlaceholderComponent/icon/img_004.png",
-      "banner": "../../../public/ProjectHub/PlaceholderComponent/img/Mask4.png",
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_004.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask4.png",
       "projectDetails": "DBTF0000004_Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, ",
       "assets": [
         {
@@ -93,7 +93,7 @@
       "github": "https://github.com/dbtf/spectra"
     },
     "projectDetailsPage": {
-      "banner": "../../../public/LendingVault/banner/MaskGroup.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
       "carouselImages": [
         "/LendingVault/banner/item/Mask4.png",
         "/LendingVault/banner/item/Mask4.png",

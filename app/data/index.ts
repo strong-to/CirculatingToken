@@ -1,6 +1,41 @@
-
+import homeSectionsFile from './index.json';
 
 type StringArray = string[] | undefined;
+
+export interface HomeSectionCTA {
+  label?: string;
+  href?: string;
+}
+
+export interface HomeSectionConfig {
+  titleLines?: string[];
+  panelTriggerLabel?: string;
+  learnMoreLabel?: string;
+  learnMoreHref?: string;
+  cta?: HomeSectionCTA;
+  accentColor?: string;
+  backgroundColor?: string;
+  filterKeys?: string[];
+  projectIds?: string[];
+}
+
+export interface HomeProjectCard {
+  systemId: string;
+  projectId: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  logo: string;
+  buttons: string[];
+  descriptions: string[];
+  missing?: boolean;
+}
+
+export interface HomeSection extends HomeSectionConfig {
+  id: string;
+  projectIds: string[];
+  projects: HomeProjectCard[];
+}
 
 export interface ProjectProfile {
   name?: string;
@@ -539,5 +574,153 @@ export const projectsMap = projectEntries.reduce<Record<string, ProjectData>>((a
   return acc;
 }, {});
 
+const DEFAULT_CARD_IMAGE = '/ProjectHub/PlaceholderComponent/img/Mask1.png';
+const DEFAULT_CARD_LOGO = '/ProjectHub/PlaceholderComponent/icon/img_001.png';
+const FALLBACK_BUTTONS = ['Details', 'Share', 'Market', 'Favorites'];
+const FALLBACK_DESCRIPTIONS = ['AI project', ''];
 
+const normalizeMediaPath = (value?: string) => {
+  if (!value) return undefined;
+  if (/^https?:\/\//i.test(value)) {
+    return value;
+  }
 
+  const cleaned = value
+    .replace(/^(\.\.\/)+public/i, '')
+    .replace(/^public\//i, '')
+    .trim();
+
+  if (!cleaned) return undefined;
+
+  return cleaned.startsWith('/') ? cleaned : `/${cleaned}`;
+};
+
+const truncateText = (value?: string, maxLength = 80) => {
+  if (!value) return undefined;
+  const trimmed = value.trim();
+  if (!trimmed) return undefined;
+  return trimmed.length > maxLength ? `${trimmed.slice(0, maxLength - 1).trim()}…` : trimmed;
+};
+
+const ensureButtons = (buttons: string[]) => {
+  const unique = buttons.filter(Boolean);
+  const result: string[] = [];
+
+  unique.forEach((button) => {
+    if (button && !result.includes(button) && result.length < 4) {
+      result.push(button);
+    }
+  });
+
+  for (let i = 0; result.length < 4 && i < FALLBACK_BUTTONS.length; i += 1) {
+    if (!result.includes(FALLBACK_BUTTONS[i])) {
+      result.push(FALLBACK_BUTTONS[i]);
+    }
+  }
+
+  return result.slice(0, 4);
+};
+
+const ensureDescriptions = (descriptions: Array<string | undefined>) => {
+  const filtered = descriptions
+    .map((desc) => truncateText(desc, 90))
+    .filter((desc): desc is string => Boolean(desc));
+
+  if (filtered.length === 0) {
+    return [FALLBACK_DESCRIPTIONS[0], ''];
+  }
+
+  return [filtered[0], ''];
+};
+
+const gatherButtonCandidates = (project?: ProjectData) => {
+  const taxonomy = project?.taxonomy;
+  const sources: StringArray[] = [
+    taxonomy?.object,
+    taxonomy?.action,
+    taxonomy?.domain,
+    taxonomy?.interaction_form,
+  ];
+
+  const collected: string[] = [];
+  sources.forEach((list) => {
+    list?.forEach((entry) => {
+      const text = entry?.trim();
+      if (text && !collected.includes(text) && collected.length < 4) {
+        collected.push(text);
+      }
+    });
+  });
+
+  return collected;
+};
+
+const toSystemId = (projectId: string) => {
+  if (/^DBTF/i.test(projectId)) return projectId.toUpperCase();
+  if (/^DBAI/i.test(projectId)) return projectId.replace(/^DBAI/i, 'DBTF').toUpperCase();
+  return projectId.toUpperCase();
+};
+
+export const resolveHomeProjectCard = (projectId: string): HomeProjectCard => {
+  const cleanedId = projectId?.trim() || 'DBAI0000000';
+  const systemId = toSystemId(cleanedId);
+  const project = projectsMap[systemId];
+
+  if (!project) {
+    console.warn(`[homeSections] Project data not found for ID ${cleanedId}`);
+  }
+
+  const profile = project?.profile;
+  const media = profile?.media;
+
+  const heroImage =
+    normalizeMediaPath(media?.banner) ??
+    normalizeMediaPath(
+      media?.assets?.find(
+        (asset) => asset?.context === 'project_home_hero' && asset?.type === 'image' && asset?.url,
+      )?.url,
+    ) ??
+    DEFAULT_CARD_IMAGE;
+
+  const logo = normalizeMediaPath(media?.logo) ?? DEFAULT_CARD_LOGO;
+
+  const buttons = ensureButtons(gatherButtonCandidates(project));
+  const descriptions = ensureDescriptions([profile?.slogan]);
+
+  return {
+    systemId: project?.system_id ?? systemId,
+    projectId: cleanedId,
+    title: profile?.name ?? cleanedId,
+    subtitle: cleanedId,
+    image: heroImage,
+    logo,
+    buttons,
+    descriptions,
+    missing: !project,
+  };
+};
+
+type HomeSectionsFile = {
+  sections?: Record<string, HomeSectionConfig>;
+};
+
+const rawHomeSections = (homeSectionsFile as HomeSectionsFile).sections ?? {};
+
+const homeSectionsListInternal: HomeSection[] = Object.entries(rawHomeSections).map(
+  ([id, section]) => ({
+    id,
+    ...section,
+    titleLines: section.titleLines ?? [],
+    projectIds: section.projectIds ?? [],
+    projects: (section.projectIds ?? []).map(resolveHomeProjectCard),
+  }),
+);
+
+export const homeSectionsList = homeSectionsListInternal;
+export const homeSectionsMap = homeSectionsListInternal.reduce<Record<string, HomeSection>>(
+  (acc, section) => {
+    acc[section.id] = section;
+    return acc;
+  },
+  {},
+);

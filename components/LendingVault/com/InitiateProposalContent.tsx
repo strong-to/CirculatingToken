@@ -6,7 +6,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { uploadFile } from '@/utils/fileUpload'
 import type { UploadedFileInfo } from '@/utils/fileUpload'
 import ProposalContentTextarea from './ProposalContentTextarea'
-import ProposalRulesModal from './ProposalRulesModal'
 import { projectsMap } from '@/app/data'
 import type { ProjectData } from '@/app/data'
 
@@ -33,7 +32,6 @@ export default function InitiateProposalContent() {
   const [attachmentLink, setAttachmentLink] = useState('')
   const [uploadedFile, setUploadedFile] = useState<UploadedFileInfo | null>(null)
   const [isUploading, setIsUploading] = useState(false)
-  const [isRulesModalOpen, setIsRulesModalOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
@@ -115,7 +113,7 @@ export default function InitiateProposalContent() {
             {initiateProposalData?.title || 'Initiate Proposal'}
           </h1>
           <button
-            onClick={() => setIsRulesModalOpen(true)}
+            onClick={() => {}}
             style={{
               width: px(230),
               height: px(40),
@@ -613,13 +611,6 @@ export default function InitiateProposalContent() {
             {initiateProposalData?.actionButtons?.discussTheResolution }
           </button>
         </div>
-
-      {/* Proposal Rules Modal */}
-      <ProposalRulesModal
-        isOpen={isRulesModalOpen}
-        onClose={() => setIsRulesModalOpen(false)}
-        data={initiateProposalData?.proposalRulesModal}
-      />
       </div>
     </div>
   )

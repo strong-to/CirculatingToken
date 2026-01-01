@@ -119,8 +119,7 @@ export default function ImageWithSkeleton({
 }: ImageWithSkeletonProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const fallbackSrc = '/ProjectHub/PlaceholderComponent/img/Mask1.png';
-  const safeSrc = src && src.trim().length > 0 ? src : fallbackSrc;
+  const safeSrc = src && src.trim().length > 0 ? src : '';
 
   // 从 className 中提取 objectFit（如果未通过 props 提供）
   const finalObjectFit = objectFit || (() => {

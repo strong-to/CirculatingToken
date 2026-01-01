@@ -10,15 +10,15 @@ interface PlaceholderComponentProps {
   projects?: ProjectData[]
 }
 
-// 获取图片路径的辅助函数
-const getMaskImagePath = (index: number) => {
-  return `/ProjectHub/PlaceholderComponent/img/Mask${index + 1}.png`
-}
+// 获取图片路径的辅助函数（已废弃，现在从数据集中获取）
+// const getMaskImagePath = (index: number) => {
+//   return `/ProjectHub/PlaceholderComponent/img/Mask${index + 1}.png`
+// }
 
-const getIconImagePath = (index: number) => {
-  const iconNum = (index + 1).toString().padStart(3, '0')
-  return `/ProjectHub/PlaceholderComponent/icon/img_${iconNum}.png`
-}
+// const getIconImagePath = (index: number) => {
+//   const iconNum = (index + 1).toString().padStart(3, '0')
+//   return `/ProjectHub/PlaceholderComponent/icon/img_${iconNum}.png`
+// }
 
 // 格式化数字（千分位）
 const formatNumber = (value: number | undefined): string => {
@@ -237,8 +237,6 @@ export default function PlaceholderComponent({ projects }: PlaceholderComponentP
       <ProjectModal
         selectedCard={selectedCard}
         onClose={handleCloseModal}
-        getMaskImagePath={getMaskImagePath}
-        getIconImagePath={getIconImagePath}
         formatNumber={formatNumber}
         formatCurrency={formatCurrency}
       />

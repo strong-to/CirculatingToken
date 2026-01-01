@@ -95,12 +95,12 @@
     "projectDetailsPage": {
       "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
       "carouselImages": [
-        "/LendingVault/banner/item/Mask23.png",
-        "/LendingVault/banner/item/Mask23.png",
-        "/LendingVault/banner/item/Mask23.png",
-        "/LendingVault/banner/item/Mask23.png",
-        "/LendingVault/banner/item/Mask23.png",
-        "/LendingVault/banner/item/Mask23.png"
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask23.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask23.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask23.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask23.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask23.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask23.png"
       ],
       "tabList": [
         {
@@ -195,7 +195,7 @@
         ],
         "commentList": [
           {
-            "img": "img1.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "AtmoSet",
             "id": "DBAI000000",
             "stars": 5,
@@ -204,7 +204,7 @@
             "date": "Dec 09 2025"
           },
           {
-            "img": "img2.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Nero",
             "id": "DB000000137",
             "stars": 5,
@@ -213,7 +213,7 @@
             "date": "Dec 09 2025"
           },
           {
-            "img": "img3.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Ashley",
             "id": "DBAI0000009",
             "stars": 5,
@@ -222,7 +222,7 @@
             "date": "Dec 09 2025"
           },
           {
-            "img": "img4.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Shi san",
             "id": "DBAI0000009",
             "stars": 5,
@@ -244,7 +244,7 @@
           "ongoingSubjectsLabel": "number of ongoing response subjects："
         },
         "logo": {
-          "src": "/LendingVault/ProjectConstruction/logo.png",
+          "src": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask23.png",
           "name": "PrimeCore",
           "address": "0x1a2b...Core",
           "totalContributions": 1503,
@@ -254,7 +254,7 @@
         "constructors": [
           {
             "id": 1,
-            "avatar": "/LendingVault/ProjectConstruction/item/img1.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Quantum",
             "address": "0x2b3c...Otla",
             "totalContributions": 287,
@@ -263,7 +263,7 @@
           },
           {
             "id": 2,
-            "avatar": "/LendingVault/ProjectConstruction/item/img2.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Nexus",
             "address": "0x3c4d...Nexu",
             "totalContributions": 245,
@@ -272,7 +272,7 @@
           },
           {
             "id": 3,
-            "avatar": "/LendingVault/ProjectConstruction/item/img3.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Apex",
             "address": "0x4d5e...Apex",
             "totalContributions": 312,
@@ -281,7 +281,7 @@
           },
           {
             "id": 4,
-            "avatar": "/LendingVault/ProjectConstruction/item/img4.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Vortex",
             "address": "0x5e6f...Vort",
             "totalContributions": 198,
@@ -290,7 +290,7 @@
           },
           {
             "id": 5,
-            "avatar": "/LendingVault/ProjectConstruction/item/img5.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Zenith",
             "address": "0x6f7a...Zeni",
             "totalContributions": 356,
@@ -299,7 +299,7 @@
           },
           {
             "id": 6,
-            "avatar": "/LendingVault/ProjectConstruction/item/img6.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Phoenix",
             "address": "0x7a8b...Phoe",
             "totalContributions": 223,
@@ -308,7 +308,7 @@
           },
           {
             "id": 7,
-            "avatar": "/LendingVault/ProjectConstruction/item/img7.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Titan",
             "address": "0x8b9c...Tita",
             "totalContributions": 289,
@@ -317,7 +317,7 @@
           },
           {
             "id": 8,
-            "avatar": "/LendingVault/ProjectConstruction/item/img8.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Nova",
             "address": "0x9c0d...Nova",
             "totalContributions": 267,
@@ -326,7 +326,7 @@
           },
           {
             "id": 9,
-            "avatar": "/LendingVault/ProjectConstruction/item/img9.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Atlas",
             "address": "0x0d1e...Atla",
             "totalContributions": 334,
@@ -335,7 +335,7 @@
           },
           {
             "id": 10,
-            "avatar": "/LendingVault/ProjectConstruction/item/img10.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Orion",
             "address": "0x1e2f...Orion",
             "totalContributions": 201,
@@ -344,7 +344,7 @@
           },
           {
             "id": 11,
-            "avatar": "/LendingVault/ProjectConstruction/item/img11.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Helix",
             "address": "0x2f3a...Heli",
             "totalContributions": 278,
@@ -353,7 +353,7 @@
           },
           {
             "id": 12,
-            "avatar": "/LendingVault/ProjectConstruction/item/img12.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Cipher",
             "address": "0x3a4b...Ciph",
             "totalContributions": 256,
@@ -362,7 +362,7 @@
           },
           {
             "id": 13,
-            "avatar": "/LendingVault/ProjectConstruction/item/img13.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Echo",
             "address": "0x4b5c...Echo",
             "totalContributions": 245,
@@ -371,7 +371,7 @@
           },
           {
             "id": 14,
-            "avatar": "/LendingVault/ProjectConstruction/item/img14.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Flux",
             "address": "0x5c6d...Flux",
             "totalContributions": 302,
@@ -380,7 +380,7 @@
           },
           {
             "id": 15,
-            "avatar": "/LendingVault/ProjectConstruction/item/img15.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Prism",
             "address": "0x6d7e...Prism",
             "totalContributions": 219,
@@ -389,7 +389,7 @@
           },
           {
             "id": 16,
-            "avatar": "/LendingVault/ProjectConstruction/item/img16.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
             "name": "Vector",
             "address": "0x7e8f...Vect",
             "totalContributions": 291,
@@ -1259,7 +1259,7 @@
               "tableData": [
                 {
                   "id": "proposal-001",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -1727,7 +1727,7 @@
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -1743,7 +1743,7 @@
                         "title": "Voter",
                         "items": [
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1757,7 +1757,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1771,7 +1771,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1785,7 +1785,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1799,7 +1799,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1813,7 +1813,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1827,7 +1827,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1841,7 +1841,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1855,7 +1855,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1869,7 +1869,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -1893,7 +1893,7 @@
                 },
                 {
                   "id": "proposal-002",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -2361,7 +2361,7 @@
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -2377,7 +2377,7 @@
                         "title": "Voter",
                         "items": [
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2391,7 +2391,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2405,7 +2405,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2419,7 +2419,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2433,7 +2433,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2447,7 +2447,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2461,7 +2461,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2475,7 +2475,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2489,7 +2489,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2503,7 +2503,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -2527,7 +2527,7 @@
                 },
                 {
                   "id": "proposal-003",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -2995,7 +2995,7 @@
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -3011,7 +3011,7 @@
                         "title": "Voter",
                         "items": [
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3025,7 +3025,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3039,7 +3039,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3053,7 +3053,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3067,7 +3067,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3081,7 +3081,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3095,7 +3095,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3109,7 +3109,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3123,7 +3123,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3137,7 +3137,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3161,7 +3161,7 @@
                 },
                 {
                   "id": "proposal-004",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -3629,7 +3629,7 @@
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -3645,7 +3645,7 @@
                         "title": "Voter",
                         "items": [
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3659,7 +3659,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3673,7 +3673,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3687,7 +3687,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3701,7 +3701,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3715,7 +3715,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3729,7 +3729,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3743,7 +3743,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3757,7 +3757,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {
@@ -3771,7 +3771,7 @@
                             }
                           },
                           {
-                            "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_023.png",
                             "name": "YAE",
                             "value": "0,000,000",
                             "modal": {

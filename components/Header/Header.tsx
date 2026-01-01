@@ -1,13 +1,14 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
-import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
-import { images } from './resources'
-import { preloadPageImages } from '@/utils/imagePreloader'
+import SearchIcon from './icons/SearchIcon'
+import LanguageIcon from './icons/LanguageIcon'
+import SunIcon from './icons/SunIcon'
+import UserIcon from './icons/UserIcon'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -25,13 +26,6 @@ export default function Header() {
     
   ]
 
-  // 预加载指定页面的图片（hover 时触发）
-  const handleNavHover = useCallback((href: string) => {
-    if (href && href !== '#' && href !== pathname) {
-      // 使用低优先级预加载，避免影响当前页面性能
-      preloadPageImages(href, 'normal')
-    }
-  }, [pathname])
 
   return (
     <header className="w-full h-full bg-background-primary flex flex-col " >
@@ -107,7 +101,6 @@ export default function Header() {
                 <Link
                   key={item}
                   href={href}
-                  onMouseEnter={() => handleNavHover(href)}
                   onClick={(e) => {
                     if (isActive) {
                       e.preventDefault()
@@ -137,13 +130,7 @@ export default function Header() {
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               aria-label="Search"
             >
-              <ImageWithSkeleton
-                src={images.search}
-                alt="Search"
-                width={22}
-                height={22}
-                priority
-              />
+              <SearchIcon />
             </button>
 
             {/* 语言图标 */}
@@ -151,28 +138,16 @@ export default function Header() {
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               aria-label="Language"
             >
-              <ImageWithSkeleton
-                src={images.language}
-                alt="Language"
-                width={22}
-                height={22}
-                priority
-              />
+              <LanguageIcon />
             </button>
 
-            {/* Group 图标 - 菜单 */}
+            {/* 太阳图标 - 深色/浅色模式切换 */}
             <button
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Menu"
+              aria-label="Theme Toggle"
             >
-              <ImageWithSkeleton
-                src={images.menu}
-                alt="Menu"
-                width={22}
-                height={22}
-                priority
-              />
+              <SunIcon />
             </button>
 
             {/* 用户图标 */}
@@ -180,13 +155,7 @@ export default function Header() {
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               aria-label="User"
             >
-              <ImageWithSkeleton
-                src={images.user}
-                alt="User"
-                width={22}
-                height={22}
-                priority
-              />
+              <UserIcon />
             </button>
           </div>
         </div>
@@ -245,7 +214,6 @@ export default function Header() {
                 <Link
                   key={item}
                   href={href}
-                  onMouseEnter={() => handleNavHover(href)}
                   onClick={(e) => {
                     if (isActive) {
                       e.preventDefault()

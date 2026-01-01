@@ -38,8 +38,8 @@ const FALLBACK_CARD: HomeProjectCard = {
   projectId: "DBAI0000000",
   title: "AI Project",
   subtitle: "DBAI0000000",
-  image: "/ProjectHub/PlaceholderComponent/img/Mask1.png",
-  logo: "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+  image: "",
+  logo: "",
   buttons: ["Natural Language", "Text", "Analyze", "Public Health"],
   descriptions: ["THIS IS A VIDEO", "CREATION AI WORKFLOW"],
 };

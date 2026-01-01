@@ -90,12 +90,12 @@
     "projectDetailsPage": {
       "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
       "carouselImages": [
-        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask1.png",
-        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask2.png",
-        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask3.png",
-        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask4.png",
-        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask5.png",
-        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/item/Mask6.png"
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png"
       ],
       "tabList": [
         {
@@ -190,7 +190,7 @@
         ],
         "commentList": [
           {
-            "img": "img1.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "AtmoSet",
             "id": "DBAI000000",
             "stars": 5,
@@ -199,7 +199,7 @@
             "date": "Dec 09 2025"
           },
           {
-            "img": "img2.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Nero",
             "id": "DB000000137",
             "stars": 5,
@@ -208,7 +208,7 @@
             "date": "Dec 09 2025"
           },
           {
-            "img": "img3.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Ashley",
             "id": "DBAI0000009",
             "stars": 5,
@@ -217,7 +217,7 @@
             "date": "Dec 09 2025"
           },
           {
-            "img": "img4.png",
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Shi san",
             "id": "DBAI0000009",
             "stars": 5,
@@ -239,7 +239,7 @@
           "ongoingSubjectsLabel": "number of ongoing response subjects："
         },
         "logo": {
-          "src": "/LendingVault/ProjectConstruction/logo.png",
+          "src": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
           "name": "PrimeCore",
           "address": "0x1a2b...Core",
           "totalContributions": 1503,
@@ -249,7 +249,7 @@
         "constructors": [
           {
             "id": 1,
-            "avatar": "/LendingVault/ProjectConstruction/item/img1.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Quantum",
             "address": "0x2b3c...Otla",
             "totalContributions": 287,
@@ -258,7 +258,7 @@
           },
           {
             "id": 2,
-            "avatar": "/LendingVault/ProjectConstruction/item/img2.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Nexus",
             "address": "0x3c4d...Nexu",
             "totalContributions": 245,
@@ -267,7 +267,7 @@
           },
           {
             "id": 3,
-            "avatar": "/LendingVault/ProjectConstruction/item/img3.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Apex",
             "address": "0x4d5e...Apex",
             "totalContributions": 312,
@@ -276,7 +276,7 @@
           },
           {
             "id": 4,
-            "avatar": "/LendingVault/ProjectConstruction/item/img4.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Vortex",
             "address": "0x5e6f...Vort",
             "totalContributions": 198,
@@ -285,7 +285,7 @@
           },
           {
             "id": 5,
-            "avatar": "/LendingVault/ProjectConstruction/item/img5.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Zenith",
             "address": "0x6f7a...Zeni",
             "totalContributions": 356,
@@ -294,7 +294,7 @@
           },
           {
             "id": 6,
-            "avatar": "/LendingVault/ProjectConstruction/item/img6.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Phoenix",
             "address": "0x7a8b...Phoe",
             "totalContributions": 223,
@@ -303,7 +303,7 @@
           },
           {
             "id": 7,
-            "avatar": "/LendingVault/ProjectConstruction/item/img7.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Titan",
             "address": "0x8b9c...Tita",
             "totalContributions": 289,
@@ -312,7 +312,7 @@
           },
           {
             "id": 8,
-            "avatar": "/LendingVault/ProjectConstruction/item/img8.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Nova",
             "address": "0x9c0d...Nova",
             "totalContributions": 267,
@@ -321,7 +321,7 @@
           },
           {
             "id": 9,
-            "avatar": "/LendingVault/ProjectConstruction/item/img9.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Atlas",
             "address": "0x0d1e...Atla",
             "totalContributions": 334,
@@ -330,7 +330,7 @@
           },
           {
             "id": 10,
-            "avatar": "/LendingVault/ProjectConstruction/item/img10.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Orion",
             "address": "0x1e2f...Orion",
             "totalContributions": 201,
@@ -339,7 +339,7 @@
           },
           {
             "id": 11,
-            "avatar": "/LendingVault/ProjectConstruction/item/img11.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Helix",
             "address": "0x2f3a...Heli",
             "totalContributions": 278,
@@ -348,7 +348,7 @@
           },
           {
             "id": 12,
-            "avatar": "/LendingVault/ProjectConstruction/item/img12.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Cipher",
             "address": "0x3a4b...Ciph",
             "totalContributions": 256,
@@ -357,7 +357,7 @@
           },
           {
             "id": 13,
-            "avatar": "/LendingVault/ProjectConstruction/item/img13.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Echo",
             "address": "0x4b5c...Echo",
             "totalContributions": 245,
@@ -366,7 +366,7 @@
           },
           {
             "id": 14,
-            "avatar": "/LendingVault/ProjectConstruction/item/img14.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Flux",
             "address": "0x5c6d...Flux",
             "totalContributions": 302,
@@ -375,7 +375,7 @@
           },
           {
             "id": 15,
-            "avatar": "/LendingVault/ProjectConstruction/item/img15.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Prism",
             "address": "0x6d7e...Prism",
             "totalContributions": 219,
@@ -384,7 +384,7 @@
           },
           {
             "id": 16,
-            "avatar": "/LendingVault/ProjectConstruction/item/img16.png",
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
             "name": "Vector",
             "address": "0x7e8f...Vect",
             "totalContributions": 291,
@@ -858,24 +858,108 @@
               "title": "Ecosystem Data",
               "description": "This is ecosystem content data",
               "listColumns": [
-                { "key": "time", "label": "time", "width": 200 },
-                { "key": "newUsage", "label": "Newly Added Usage Count", "width": "flex" },
-                { "key": "cumulativeUsage", "label": "Cumulative Usage Count", "width": "flex" },
-                { "key": "newRecommendation", "label": "Newly Added Recommendation Count", "width": "flex" },
-                { "key": "cumulativeRecommendation", "label": "Cumulative Recommendation Count", "width": "flex" },
-                { "key": "newConstruction", "label": "Newly Added Construction Count", "width": "flex" },
-                { "key": "cumulativeConstruction", "label": "Cumulative Construction Count", "width": "flex" }
+                {
+                  "key": "time",
+                  "label": "time",
+                  "width": 200
+                },
+                {
+                  "key": "newUsage",
+                  "label": "Newly Added Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeUsage",
+                  "label": "Cumulative Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newRecommendation",
+                  "label": "Newly Added Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeRecommendation",
+                  "label": "Cumulative Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newConstruction",
+                  "label": "Newly Added Construction Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeConstruction",
+                  "label": "Cumulative Construction Count",
+                  "width": "flex"
+                }
               ],
               "listData": [
-                { "time": "14:59-08-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-07-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-06-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-05-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-04-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-03-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" }
+                {
+                  "time": "14:59-08-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-07-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-06-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-05-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-04-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-03-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                }
               ],
-              "filterButtons": ["Use", "Recommend", "Construct", "2024-11--2024-11-21"],
-              "actionButtons": ["Search", "Reset"],
+              "filterButtons": [
+                "Use",
+                "Recommend",
+                "Construct",
+                "2024-11--2024-11-21"
+              ],
+              "actionButtons": [
+                "Search",
+                "Reset"
+              ],
               "sortByPlaceholder": "Sort by",
               "interactionFormPlaceholder": "Interaction / Form",
               "interactionFormDescription": "Which of the following ways would you like to interact with AI?",
@@ -891,25 +975,120 @@
               "title": "Token Data",
               "description": "This is token content data",
               "listColumns": [
-                { "key": "time", "label": "time", "width": 200 },
-                { "key": "action", "label": "action", "width": "flex" },
-                { "key": "subject", "label": "subject", "width": "flex" },
-                { "key": "party", "label": "party", "width": "flex" },
-                { "key": "consideration", "label": "consideration", "width": "flex" },
-                { "key": "occurrenceCount", "label": "occurrence count", "width": "flex" },
-                { "key": "cumulative", "label": "cumulative", "width": "flex" },
-                { "key": "stock", "label": "stock", "width": "flex" }
+                {
+                  "key": "time",
+                  "label": "time",
+                  "width": 200
+                },
+                {
+                  "key": "action",
+                  "label": "action",
+                  "width": "flex"
+                },
+                {
+                  "key": "subject",
+                  "label": "subject",
+                  "width": "flex"
+                },
+                {
+                  "key": "party",
+                  "label": "party",
+                  "width": "flex"
+                },
+                {
+                  "key": "consideration",
+                  "label": "consideration",
+                  "width": "flex"
+                },
+                {
+                  "key": "occurrenceCount",
+                  "label": "occurrence count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulative",
+                  "label": "cumulative",
+                  "width": "flex"
+                },
+                {
+                  "key": "stock",
+                  "label": "stock",
+                  "width": "flex"
+                }
               ],
               "listData": [
-                { "time": "14:59-08-07-2026", "action": "Mint", "subject": "subject", "party": "party", "consideration": "consideration", "occurrenceCount": "occurrence count", "cumulative": "cumulative", "stock": "stock" },
-                { "time": "14:59-07-07-2026", "action": "mint", "subject": "subject", "party": "party", "consideration": "consideration", "occurrenceCount": "occurrence count", "cumulative": "cumulative", "stock": "stock" },
-                { "time": "14:59-06-07-2026", "action": "stake", "subject": "subject", "party": "party", "consideration": "consideration", "occurrenceCount": "occurrence count", "cumulative": "cumulative", "stock": "stock" },
-                { "time": "14:59-05-07-2026", "action": "decompress", "subject": "subject", "party": "party", "consideration": "consideration", "occurrenceCount": "occurrence count", "cumulative": "cumulative", "stock": "stock" },
-                { "time": "14:59-04-07-2026", "action": "mint", "subject": "subject", "party": "party", "consideration": "consideration", "occurrenceCount": "occurrence count", "cumulative": "cumulative", "stock": "stock" },
-                { "time": "14:59-03-07-2026", "action": "mint", "subject": "subject", "party": "party", "consideration": "consideration", "occurrenceCount": "occurrence count", "cumulative": "cumulative", "stock": "stock" }
+                {
+                  "time": "14:59-08-07-2026",
+                  "action": "Mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-07-07-2026",
+                  "action": "mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-06-07-2026",
+                  "action": "stake",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-05-07-2026",
+                  "action": "decompress",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-04-07-2026",
+                  "action": "mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-03-07-2026",
+                  "action": "mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                }
               ],
-              "filterButtons": ["Mint", "Burn", "Staking", "Decompress", "2024-11--2024-11-21"],
-              "actionButtons": ["Search", "Reset"],
+              "filterButtons": [
+                "Mint",
+                "Burn",
+                "Staking",
+                "Decompress",
+                "2024-11--2024-11-21"
+              ],
+              "actionButtons": [
+                "Search",
+                "Reset"
+              ],
               "sortByPlaceholder": "Sort by",
               "favoriteProjectButton": "Favorite Project",
               "experienceProjectButton": "Experience the Project"
@@ -923,24 +1102,107 @@
               "title": "Finance Data",
               "description": "This is finance content data",
               "listColumns": [
-                { "key": "time", "label": "time", "width": 200 },
-                { "key": "newUsage", "label": "Newly Added Usage Count", "width": "flex" },
-                { "key": "cumulativeUsage", "label": "Cumulative Usage Count", "width": "flex" },
-                { "key": "newRecommendation", "label": "Newly Added Recommendation Count", "width": "flex" },
-                { "key": "cumulativeRecommendation", "label": "Cumulative Recommendation Count", "width": "flex" },
-                { "key": "newConstruction", "label": "Newly Added Construction Count", "width": "flex" },
-                { "key": "cumulativeConstruction", "label": "Cumulative Construction Count", "width": "flex" }
+                {
+                  "key": "time",
+                  "label": "time",
+                  "width": 200
+                },
+                {
+                  "key": "newUsage",
+                  "label": "Newly Added Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeUsage",
+                  "label": "Cumulative Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newRecommendation",
+                  "label": "Newly Added Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeRecommendation",
+                  "label": "Cumulative Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newConstruction",
+                  "label": "Newly Added Construction Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeConstruction",
+                  "label": "Cumulative Construction Count",
+                  "width": "flex"
+                }
               ],
               "listData": [
-                { "time": "14:59-08-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-07-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-06-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-05-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-04-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" },
-                { "time": "14:59-03-07-2026", "newUsage": "666", "cumulativeUsage": "888", "newRecommendation": "222", "cumulativeRecommendation": "333", "newConstruction": "220", "cumulativeConstruction": "110" }
+                {
+                  "time": "14:59-08-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-07-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-06-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-05-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-04-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-03-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                }
               ],
-              "filterButtons": ["Revenue", "Expense", "2024-11--2024-11-21"],
-              "actionButtons": ["Search", "Reset"],
+              "filterButtons": [
+                "Revenue",
+                "Expense",
+                "2024-11--2024-11-21"
+              ],
+              "actionButtons": [
+                "Search",
+                "Reset"
+              ],
               "sortByPlaceholder": "Diagram/List",
               "subjectPlaceholder": "Subject",
               "subjectDescription": "Which of the following ways would you like to interact with AI?",
@@ -958,18 +1220,41 @@
               "title": "Proposal Data",
               "description": "This is proposal content data",
               "columns": [
-                { "key": "type", "label": "Type", "width": "flex" },
-                { "key": "subject", "label": "Subject", "width": "flex" },
-                { "key": "proposer", "label": "Proposer", "width": "flex" },
-                { "key": "turnout", "label": "Turnout", "width": "flex" },
-                { "key": "timing", "label": "Timing", "width": "flex" },
-                { "key": "status", "label": "Status", "width": "flex" }
+                {
+                  "key": "type",
+                  "label": "Type",
+                  "width": "flex"
+                },
+                {
+                  "key": "subject",
+                  "label": "Subject",
+                  "width": "flex"
+                },
+                {
+                  "key": "proposer",
+                  "label": "Proposer",
+                  "width": "flex"
+                },
+                {
+                  "key": "turnout",
+                  "label": "Turnout",
+                  "width": "flex"
+                },
+                {
+                  "key": "timing",
+                  "label": "Timing",
+                  "width": "flex"
+                },
+                {
+                  "key": "status",
+                  "label": "Status",
+                  "width": "flex"
+                }
               ],
-
               "tableData": [
-                { 
+                {
                   "id": "proposal-001",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -987,19 +1272,43 @@
                       "resultStatistics": {
                         "title": "Result Statistics",
                         "items": [
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" }
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
                         ]
                       },
                       "process": {
                         "title": "Process",
                         "steps": [
-                          { "name": "Created", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Open for voting", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Voting closed", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Payloads executed", "date": "DEC11,2025—DEC17,2025" }
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
                         ]
                       }
                     },
@@ -1011,9 +1320,18 @@
                         "title": "Proposal overview",
                         "subject": "Ethena February E-Modes Adjustments",
                         "actionButtons": [
-                          { "text": "Raw-Ipfs", "url": "#" },
-                          { "text": "Share on twitter", "url": "#" },
-                          { "text": "Share on Lens", "url": "#" }
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
                         ]
                       },
                       "simpleSummary": {
@@ -1038,43 +1356,302 @@
                         "tables": [
                           {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -1082,10 +1659,26 @@
                       "references": {
                         "title": "References",
                         "items": [
-                          { "text": "Implementation:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Tests:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Snapshot: Direct-to-AIP", "link": null, "url": null },
-                          { "text": "Discussion", "link": null, "url": "#" }
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
                         ]
                       },
                       "disclosure": {
@@ -1105,19 +1698,31 @@
                         "title": "Your voting info",
                         "status": "Voting is on",
                         "buttons": [
-                          { "text": "YAE" },
-                          { "text": "NAY" }
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
                         ]
                       },
                       "votingResults": {
                         "title": "Voting results",
                         "items": [
-                          { "label": "YAE", "value": "0.000.000", "color": "#34C759" },
-                          { "label": "NAY", "value": "0.000.000", "color": "#CB2C22" }
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -1132,17 +1737,146 @@
                       "voter": {
                         "title": "Voter",
                         "items": [
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum1", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum2", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum3", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum4", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum5", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum6", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum7", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum112", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} }
-
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
                         ]
                       },
                       "forumDiscussion": {
@@ -1152,9 +1886,9 @@
                     }
                   }
                 },
-                { 
+                {
                   "id": "proposal-002",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -1172,19 +1906,43 @@
                       "resultStatistics": {
                         "title": "Result Statistics",
                         "items": [
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" }
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
                         ]
                       },
                       "process": {
                         "title": "Process",
                         "steps": [
-                          { "name": "Created", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Open for voting", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Voting closed", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Payloads executed", "date": "DEC11,2025—DEC17,2025" }
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
                         ]
                       }
                     },
@@ -1196,9 +1954,18 @@
                         "title": "Proposal overview",
                         "subject": "Ethena February E-Modes Adjustments",
                         "actionButtons": [
-                          { "text": "Raw-Ipfs", "url": "#" },
-                          { "text": "Share on twitter", "url": "#" },
-                          { "text": "Share on Lens", "url": "#" }
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
                         ]
                       },
                       "simpleSummary": {
@@ -1223,43 +1990,302 @@
                         "tables": [
                           {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -1267,10 +2293,26 @@
                       "references": {
                         "title": "References",
                         "items": [
-                          { "text": "Implementation:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Tests:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Snapshot: Direct-to-AIP", "link": null, "url": null },
-                          { "text": "Discussion", "link": null, "url": "#" }
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
                         ]
                       },
                       "disclosure": {
@@ -1290,19 +2332,31 @@
                         "title": "Your voting info",
                         "status": "Voting is on",
                         "buttons": [
-                          { "text": "YAE" },
-                          { "text": "NAY" }
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
                         ]
                       },
                       "votingResults": {
                         "title": "Voting results",
                         "items": [
-                          { "label": "YAE", "value": "0.000.000", "color": "#34C759" },
-                          { "label": "NAY", "value": "0.000.000", "color": "#CB2C22" }
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -1317,17 +2371,146 @@
                       "voter": {
                         "title": "Voter",
                         "items": [
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum1", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum2", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum3", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum4", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum5", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum6", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum7", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum112", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} }
-
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
                         ]
                       },
                       "forumDiscussion": {
@@ -1337,9 +2520,9 @@
                     }
                   }
                 },
-                { 
+                {
                   "id": "proposal-003",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -1357,19 +2540,43 @@
                       "resultStatistics": {
                         "title": "Result Statistics",
                         "items": [
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" }
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
                         ]
                       },
                       "process": {
                         "title": "Process",
                         "steps": [
-                          { "name": "Created", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Open for voting", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Voting closed", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Payloads executed", "date": "DEC11,2025—DEC17,2025" }
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
                         ]
                       }
                     },
@@ -1381,9 +2588,18 @@
                         "title": "Proposal overview",
                         "subject": "Ethena February E-Modes Adjustments",
                         "actionButtons": [
-                          { "text": "Raw-Ipfs", "url": "#" },
-                          { "text": "Share on twitter", "url": "#" },
-                          { "text": "Share on Lens", "url": "#" }
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
                         ]
                       },
                       "simpleSummary": {
@@ -1408,43 +2624,302 @@
                         "tables": [
                           {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -1452,10 +2927,26 @@
                       "references": {
                         "title": "References",
                         "items": [
-                          { "text": "Implementation:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Tests:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Snapshot: Direct-to-AIP", "link": null, "url": null },
-                          { "text": "Discussion", "link": null, "url": "#" }
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
                         ]
                       },
                       "disclosure": {
@@ -1475,19 +2966,31 @@
                         "title": "Your voting info",
                         "status": "Voting is on",
                         "buttons": [
-                          { "text": "YAE" },
-                          { "text": "NAY" }
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
                         ]
                       },
                       "votingResults": {
                         "title": "Voting results",
                         "items": [
-                          { "label": "YAE", "value": "0.000.000", "color": "#34C759" },
-                          { "label": "NAY", "value": "0.000.000", "color": "#CB2C22" }
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -1502,17 +3005,146 @@
                       "voter": {
                         "title": "Voter",
                         "items": [
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum1", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum2", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum3", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum4", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum5", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum6", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum7", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum112", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} }
-
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
                         ]
                       },
                       "forumDiscussion": {
@@ -1522,9 +3154,9 @@
                     }
                   }
                 },
-                { 
+                {
                   "id": "proposal-004",
-                  "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                   "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
                   "turnout": "15.1%",
                   "proposer": "343,891 / 2,277,697",
@@ -1542,19 +3174,43 @@
                       "resultStatistics": {
                         "title": "Result Statistics",
                         "items": [
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" },
-                          { "label": "Quorum:", "value": "0,000,000" }
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
                         ]
                       },
                       "process": {
                         "title": "Process",
                         "steps": [
-                          { "name": "Created", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Open for voting", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Voting closed", "date": "DEC11,2025—DEC17,2025" },
-                          { "name": "Payloads executed", "date": "DEC11,2025—DEC17,2025" }
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
                         ]
                       }
                     },
@@ -1566,9 +3222,18 @@
                         "title": "Proposal overview",
                         "subject": "Ethena February E-Modes Adjustments",
                         "actionButtons": [
-                          { "text": "Raw-Ipfs", "url": "#" },
-                          { "text": "Share on twitter", "url": "#" },
-                          { "text": "Share on Lens", "url": "#" }
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
                         ]
                       },
                       "simpleSummary": {
@@ -1593,43 +3258,302 @@
                         "tables": [
                           {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
-                          },{
+                          },
+                          {
                             "title": "PT-sUSDe Stablecoins E-mode",
-                            "columns": ["Asset", "PT-sUSDe-5FEB2026", "PT-sUSDe-27NOV2025", "sUSDe", "USDC", "USDT", "USDe", "USDtb"],
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
                             "rows": [
-                              { "label": "Collateral", "values": ["Yes", "Yes", "Yes", "No", "No", "No", "No"] },
-                              { "label": "Borrowable", "values": ["No", "No", "No", "Yes", "Yes", "Yes", "Yes"] },
-                              { "label": "LTV", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "LT", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] },
-                              { "label": "Liquidation Bonus", "values": ["Subject to Risk Oracle", "Subject to Risk Oracle", "Subject to Risk Oracle", "-", "-", "-", "-"] }
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -1637,10 +3561,26 @@
                       "references": {
                         "title": "References",
                         "items": [
-                          { "text": "Implementation:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Tests:", "link": "AaveV3Ethereum", "url": "#" },
-                          { "text": "Snapshot: Direct-to-AIP", "link": null, "url": null },
-                          { "text": "Discussion", "link": null, "url": "#" }
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
                         ]
                       },
                       "disclosure": {
@@ -1660,19 +3600,31 @@
                         "title": "Your voting info",
                         "status": "Voting is on",
                         "buttons": [
-                          { "text": "YAE" },
-                          { "text": "NAY" }
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
                         ]
                       },
                       "votingResults": {
                         "title": "Voting results",
                         "items": [
-                          { "label": "YAE", "value": "0.000.000", "color": "#34C759" },
-                          { "label": "NAY", "value": "0.000.000", "color": "#CB2C22" }
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
                         ]
                       },
                       "proposer": {
-                        "avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
                         "title": "Proposer",
                         "modal": {
                           "name": "Quantum",
@@ -1687,17 +3639,146 @@
                       "voter": {
                         "title": "Voter",
                         "items": [
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum1", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum2", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum3", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum4", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum5", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum6", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum7", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum112", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} },
-                          {"avatar": "/ProjectHub/PlaceholderComponent/icon/img_001.png", "name": "YAE", "value": "0,000,000", "modal": {"name": "Quantum12", "address": "0x2b3c...Otla", "totalContributions": 287, "tokensEarned": "12,800 GVP", "tagLabel": "Data Annotation", "totalContributionsLabel": "Total contributions", "tokensEarnedLabel": "Tokens earned"} }
-
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
                         ]
                       },
                       "forumDiscussion": {
@@ -1708,11 +3789,6 @@
                   }
                 }
               ],
-
-
-
-              
-
               "sortByPlaceholder": "Sort by",
               "interactionFormPlaceholder": "Interaction / Form",
               "interactionFormDescription": "Which of the following ways would you like to interact with AI?",
@@ -1782,10 +3858,6 @@
           }
         ]
       },
-
-
-
-
       "links": {
         "website": "https://primecore.io",
         "whitepaper": "https://docs.primecore.io/whitepaper",

@@ -4,11 +4,9 @@
  */
 
 // ==================== 图片资源 ====================
+// 注意：图标已改为 SVG 组件，不再使用图片文件
 export const images = {
-  search: '/header/img/search.png',
-  language: '/header/img/language.png',
-  menu: '/header/img/Group.png',
-  user: '/header/img/user.png',
+  // 图标已改为 SVG 组件，见 components/Header/icons/
 } as const
 
 // ==================== 文案资源 ====================

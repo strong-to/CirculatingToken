@@ -57,13 +57,9 @@ export function getOptimizedImageUrl(
  * @returns 是否应该使用priority
  */
 export function shouldUsePriority(src: string, isAboveFold: boolean = false): boolean {
-  // 首屏关键图片列表
+  // 首屏关键图片列表（图标已改为 SVG，仅保留 logo）
   const criticalImages = [
     '/header/img/logo.png',
-    '/header/img/search.png',
-    '/header/img/language.png',
-    '/header/img/Group.png',
-    '/header/img/user.png',
   ]
 
   // 如果是关键图片或在首屏，使用priority
@@ -82,13 +78,9 @@ export function shouldLazyLoad(src: string, isAboveFold: boolean = false): boole
     return false
   }
 
-  // 关键图片不懒加载
+  // 关键图片不懒加载（图标已改为 SVG，仅保留 logo）
   const criticalImages = [
     '/header/img/logo.png',
-    '/header/img/search.png',
-    '/header/img/language.png',
-    '/header/img/Group.png',
-    '/header/img/user.png',
   ]
 
   if (criticalImages.some(critical => src.includes(critical))) {

@@ -55,10 +55,14 @@ export default function Banner({ projectData }: BannerProps) {
   // 路径转换函数：将相对路径转换为 Next.js 可用的绝对路径
   const convertPathToPublic = (path: string | undefined): string => {
     if (!path) return '' // 默认值
+    // 如果是完整的 URL（以 http:// 或 https:// 开头），直接返回
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path
+    }
     // 如果已经是绝对路径（以 / 开头），直接返回
     if (path.startsWith('/')) return path
     // 如果是相对路径，提取 public 之后的部分
-    // 处理类似 "../../../public/LendingVault/banner/MaskGroup.png" 的路径
+    // 处理相对路径（现在主要处理完整 URL）
     const publicIndex = path.indexOf('/public/')
     if (publicIndex !== -1) {
       return path.substring(publicIndex + '/public'.length)
@@ -78,9 +82,7 @@ export default function Banner({ projectData }: BannerProps) {
   
   // 转换 carouselImages 中的每个路径
   const rawImages = projectData?.profile?.projectDetailsPage?.carouselImages 
-  const images = rawImages?.map(img => convertPathToPublic(img)) || Array.from({ length: 6 }, (_, i) => `/LendingVault/banner/item/Mask${i + 1}.png`)
-
-  console.log('images-----------------1212', images)
+  const images = rawImages?.map(img => convertPathToPublic(img)) || []
  
   return (
     <>
@@ -100,7 +102,7 @@ export default function Banner({ projectData }: BannerProps) {
  {/* 图片轮播区域 */}
       <div 
         className="w-full relative" 
-        style={{ height: px(168), marginTop: px(80) }}
+        style={{ height: px(168), marginTop: px(60) }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >

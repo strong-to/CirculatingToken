@@ -142,13 +142,6 @@ export default function ProjectGovernance({ projectData, system_id }: ProjectGov
               flexShrink: 0,
             }}
           >
-            {/* <Image
-              src="/LendingVault/ProjectConstruction/logo2.png"
-              alt="Project Construction Logo2"
-              width={200}
-              height={200}
-              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: px(4) }}
-            /> */}
           </div>
         </div>
 

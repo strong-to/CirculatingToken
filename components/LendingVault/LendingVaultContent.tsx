@@ -44,7 +44,7 @@ export default function LendingVaultContent() {
      
 
       {/* 第一屏 */}
-      <div className="flex flex-col" style={{ height: 'calc(100vh - 89px)',paddingBottom: px(80) }}>
+      <div className="flex flex-col" style={{ height: 'calc(100vh - 89px)' }}>
         {/* Banner 组件 */}
         <div className="flex-1 min-h-0">
           <Banner projectData={projectData} />

@@ -267,7 +267,7 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                       }}
                     >
                       <ImageWithSkeleton
-                        src={`/LendingVault/UserComments/${item.img}`}
+                        src={item.img}
                         alt={item.name}
                         width={60}
                         height={60}
@@ -412,7 +412,7 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                           }}
                         >
                           <ImageWithSkeleton
-                            src={`/LendingVault/UserComments/${item.img}`}
+                            src={item.img}
                             alt={item.name}
                             width={60}
                             height={60}

@@ -5,6 +5,7 @@ import { px } from "@/utils/pxToRem"
 import Image from 'next/image'
 import ConstructorImageModal from './ConstructorImageModal'
 import ProjectCardList from '@/components/ProjectConstruction/com/ProjectCardList'
+import PageSelector from './PageSelector'
 import type { ProjectConstructionData } from '@/app/data'
 import { log } from 'console'
 
@@ -127,134 +128,11 @@ export default function ProjectConstruction({ projectData }: ProjectConstruction
          <ProjectCardList filterTab={activeTab} cards={cardData} />
 
          {/* Pagination Controls */}
-         <div className="flex items-center justify-end" style={{ marginTop: px(20), marginBottom: px(50) }}>
-           <div className="flex items-center" style={{ gap: px(16), marginRight: px(30) }}>
-             <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-               Total {tableData.length} items
-             </span>
-             <select
-               value={itemsPerPage}
-               onChange={(e) => setItemsPerPage(Number(e.target.value))}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(4),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-               }}
-             >
-               {pagination?.itemsPerPageOptions?.map(option => (
-                 <option key={option} value={option}>{option} items/page</option>
-               ))}
-             </select>
-           </div>
-
-           <div className="flex items-center" style={{ gap: px(8) }}>
-             <button
-               onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-               disabled={currentPage === 1}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(8),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-                 backgroundColor: currentPage === 1 ? '#f5f5f5' : '#ffffff',
-                 cursor: currentPage === 1 ? 'not-allowed' : 'pointer',
-                 color: currentPage === 1 ? '#999999' : '#000000',
-               }}
-             >
-               &lt;
-             </button>
-             {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-               <button
-                 key={page}
-                 onClick={() => setCurrentPage(page)}
-                 style={{
-                   fontFamily: 'PingFang SC',
-                   fontWeight: 400,
-                   fontStyle: 'normal',
-                   fontSize: px(16),
-                   lineHeight: '100%',
-                   letterSpacing: '0%',
-                   width: px(30),
-                   height: px(30),
-                   display: 'flex',
-                   alignItems: 'center',
-                   justifyContent: 'center',
-                   border: '1px solid #e0e0e0',
-                   borderRadius: px(4),
-                   backgroundColor: currentPage === page ? '#000000' : '#F0F2F5',
-                   color: currentPage === page ? '#ffffff' : '#000000',
-                   cursor: 'pointer',
-                 }}
-               >
-                 {page}
-               </button>
-             ))}
-             <button
-               onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-               disabled={currentPage === totalPages}
-               style={{
-                 fontFamily: 'PingFang SC',
-                 fontWeight: 400,
-                 fontStyle: 'normal',
-                 fontSize: px(16),
-                 lineHeight: '100%',
-                 letterSpacing: '0%',
-                 padding: px(8),
-                 border: '1px solid #e0e0e0',
-                 borderRadius: px(4),
-                 backgroundColor: currentPage === totalPages ? '#f5f5f5' : '#ffffff',
-                 cursor: currentPage === totalPages ? 'not-allowed' : 'pointer',
-                 color: currentPage === totalPages ? '#999999' : '#000000',
-               }}
-             >
-               &gt;
-             </button>
-             <div className="flex items-center" style={{ gap: px(8), marginLeft: px(16) }}>
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 Go to
-               </span>
-               <input
-                 type="number"
-                 min={1}
-                 max={totalPages}
-                 value={currentPage}
-                 onChange={(e) => {
-                   const page = Number(e.target.value)
-                   if (page >= 1 && page <= totalPages) {
-                     setCurrentPage(page)
-                   }
-                 }}
-                 style={{
-                   fontFamily: 'PingFang SC',
-                   fontWeight: 400,
-                   fontStyle: 'normal',
-                   fontSize: px(16),
-                   lineHeight: '100%',
-                   letterSpacing: '0%',
-                   width: px(50),
-                   padding: px(4),
-                   border: '1px solid #e0e0e0',
-                   borderRadius: px(4),
-                   textAlign: 'center',
-                 }}
-               />
-               <span style={{ fontFamily: 'PingFang SC', fontWeight: 400, fontStyle: 'normal', fontSize: px(16), lineHeight: '100%', letterSpacing: '0%', color: '#000000' }}>
-                 page
-               </span>
-             </div>
-           </div>
-         </div>
+         <PageSelector 
+           currentPage={currentPage}
+           totalPages={totalPages}
+           onPageChange={setCurrentPage}
+         />
        </div>
     </div>
 

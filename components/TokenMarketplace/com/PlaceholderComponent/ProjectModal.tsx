@@ -9,8 +9,6 @@ import type { ProjectData } from '@/app/data'
 interface ProjectModalProps {
   selectedCard: ProjectData | null
   onClose: () => void
-  getMaskImagePath: (index: number) => string
-  getIconImagePath: (index: number) => string
   formatNumber: (value: number | undefined) => string
   formatCurrency: (value: number | undefined) => string
 }
@@ -18,7 +16,6 @@ interface ProjectModalProps {
 export default function ProjectModal({
   selectedCard,
   onClose,
-  getMaskImagePath,
 }: ProjectModalProps) {
   const router = useRouter()
   const [isDetailsHovered, setIsDetailsHovered] = useState(false)
@@ -122,7 +119,7 @@ export default function ProjectModal({
             borderRadius: 0,
           }}>
             <Image
-              src={selectedCard?.profile?.media?.banner?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || getMaskImagePath(cardIndex)}
+              src={selectedCard?.profile?.media?.banner?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || ''}
               alt={selectedCard?.profile?.name || selectedCard?.system_id || ''}
               fill
               className="object-cover"

@@ -3,13 +3,11 @@
 import { px } from '@/utils/pxToRem'
 import Banner from './com/Banner'
 import SecondScreen from './com/SecondScreen'
-import ProjectIntroduction from './com/ProjectIntroduction'
 import UserComments from './com/UserComments'
 import ProjectConstruction from './com/ProjectConstruction'
 import ProjectGovernance from './com/ProjectGovernance'
-import TokenTrading from './com/TokenTrading'
 import ProjectsYouMayBeInterestedIn from './com/ProjectsYouMayBeInterestedIn'
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import Footer from '../Footer/Footer'
 import { useSearchParams } from 'next/navigation'
 import { projectsMap } from '@/app/data'
@@ -38,8 +36,161 @@ export default function LendingVaultContent() {
   
   const [activeTab, setActiveTab] = useState(tabList[0]?.name || 'Project Introduction');
 
+  // Tab 栏滚动效果相关状态和引用
+  const tabRef = useRef<HTMLDivElement>(null)
+  const buttonsRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const tabInitialTopRef = useRef<number>(0)
+  const [tabStyle, setTabStyle] = useState<{
+    position: 'relative' | 'fixed'
+    top?: string
+    left?: string
+    width?: string
+    opacity: number
+  }>({
+    position: 'relative',
+    opacity: 1,
+  })
+
+  // Header 高度和 tab 栏与 header 的间距
+  const headerHeight = 50 // px
+  const tabGap = 1 // px，tab 栏与 header 的间距
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!tabRef.current || !containerRef.current) return
+
+      const scrollTop = containerRef.current.scrollTop
+      const containerRect = containerRef.current.getBoundingClientRect()
+      const tabRect = tabRef.current.getBoundingClientRect()
+
+      // 获取 tab 栏的初始位置（相对于容器的 scrollTop）
+      if (tabInitialTopRef.current === 0) {
+        tabInitialTopRef.current = tabRect.top - containerRect.top + scrollTop
+      }
+
+      const tabInitialTop = tabInitialTopRef.current
+      const fixedTop = headerHeight + tabGap
+      const tabHeight = tabRef.current.offsetHeight
+
+      // 直接获取 tab 栏顶部相对于视口的位置（无论 tab 是 relative 还是 fixed）
+      const tabTopRelativeToViewport = tabRect.top
+
+      // 只有当 tab 栏顶部距离视口顶部等于或小于 fixedTop（即距离 header 底部 1px）时才固定
+      // 使用 <= 而不是 ==，因为滚动是连续的，当达到这个位置时就应该固定
+      const shouldBeFixed = tabTopRelativeToViewport <= fixedTop
+
+      // 计算 tab 栏是否应该固定
+      if (shouldBeFixed && tabStyle.position === 'relative') {
+        // Tab 栏应该固定在 header 下方
+        const tabRect = tabRef.current.getBoundingClientRect()
+        const left = tabRect.left - containerRect.left
+        const width = tabRect.width
+
+        // 计算按钮相对于视口的位置（如果按钮存在）
+        let opacity = 1
+        if (buttonsRef.current) {
+          const buttonsRect = buttonsRef.current.getBoundingClientRect()
+          
+          // tab 栏底部相对于视口的位置（固定位置）
+          const tabBottom = fixedTop + tabHeight
+          // 按钮顶部相对于视口的位置
+          const buttonsTop = buttonsRect.top
+
+          // 计算 tab 栏底部与按钮顶部的距离
+          // 当往上滚动时，按钮向上移动，距离会变小
+          // 当距离 <= 0 时，按钮和 tab 栏重叠或按钮在 tab 栏上方，应该完全消失
+          const distance = buttonsTop - tabBottom
+
+          // 当距离小于 100px 且大于 0 时开始淡化
+          // 当距离 <= 0 时，完全消失（opacity = 0）
+          if (distance < 100 && distance > 0) {
+            opacity = Math.max(0, distance / 100)
+          } else if (distance <= 0) {
+            opacity = 0
+          } else {
+            // 距离 >= 100px 时，完全不透明
+            opacity = 1
+          }
+        }
+
+        setTabStyle({
+          position: 'fixed',
+          top: `${fixedTop}px`,
+          left: `${left}px`,
+          width: `${width}px`,
+          opacity,
+        })
+      } else if (tabStyle.position === 'fixed') {
+        // 如果已经是 fixed 状态，继续计算淡化效果
+        const left = tabRect.left - containerRect.left
+        const width = tabRect.width
+
+        // 计算按钮相对于视口的位置（如果按钮存在）
+        let opacity = 1
+        if (buttonsRef.current) {
+          const buttonsRect = buttonsRef.current.getBoundingClientRect()
+          
+          // tab 栏底部相对于视口的位置（固定位置）
+          const tabBottom = fixedTop + tabHeight
+          // 按钮顶部相对于视口的位置
+          const buttonsTop = buttonsRect.top
+
+          // 计算 tab 栏底部与按钮顶部的距离
+          // 当往上滚动时，按钮向上移动，距离会变小
+          // 当距离 <= 0 时，按钮和 tab 栏重叠或按钮在 tab 栏上方，应该完全消失
+          const distance = buttonsTop - tabBottom
+
+          // 当距离小于 100px 且大于 0 时开始淡化
+          // 当距离 <= 0 时，完全消失（opacity = 0）
+          if (distance < 100 && distance > 0) {
+            opacity = Math.max(0, distance / 100)
+          } else if (distance <= 0) {
+            opacity = 0
+          } else {
+            // 距离 >= 100px 时，完全不透明
+            opacity = 1
+          }
+        }
+
+        // 检查是否应该回到初始位置（当滚动回到初始位置时）
+        if (scrollTop <= tabInitialTop - fixedTop) {
+          setTabStyle({
+            position: 'relative',
+            opacity: 1,
+          })
+          // 重置初始位置，以便下次计算
+          tabInitialTopRef.current = 0
+        } else {
+          // 更新 opacity
+          setTabStyle((prev) => ({
+            ...prev,
+            opacity,
+            left: `${left}px`,
+            width: `${width}px`,
+          }))
+        }
+      }
+    }
+
+    const container = containerRef.current
+    if (container) {
+      container.addEventListener('scroll', handleScroll)
+      // 初始计算
+      handleScroll()
+
+      // 窗口大小改变时重新计算
+      window.addEventListener('resize', handleScroll)
+
+      return () => {
+        container.removeEventListener('scroll', handleScroll)
+        window.removeEventListener('resize', handleScroll)
+      }
+    }
+  }, [tabStyle.position, headerHeight, tabGap])
+
   return (
-    <div className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
+    <div ref={containerRef} className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
       {/* 项目数据调试显示区域 - 可以后续移除或隐藏 */}
      
 
@@ -50,14 +201,28 @@ export default function LendingVaultContent() {
           <Banner projectData={projectData} />
         </div>
 
+        {/* 占位 div，防止 tab 栏固定时内容跳动 */}
+        {tabStyle.position === 'fixed' && (
+          <div style={{ height: px(44), marginTop: px(40) }} />
+        )}
+        
         <div 
+          ref={tabRef}
           className="w-full flex flex-shrink-0" 
           style={{ 
             paddingLeft: px(302),
             paddingRight: px(302),
             height: px(44),
             gap: px(16),
-            marginTop: px(40),
+            marginTop: tabStyle.position === 'relative' ? px(40) : 0,
+            position: tabStyle.position,
+            top: tabStyle.top,
+            left: tabStyle.left,
+            width: tabStyle.width,
+            opacity: tabStyle.opacity,
+            zIndex: tabStyle.position === 'fixed' ? 100 : 'auto',
+            backgroundColor: tabStyle.position === 'fixed' ? '#ffffff' : 'transparent',
+            transition: 'opacity 0.2s ease-in-out',
           }}
         >
           {tabList.map((tab: { id: string; name: string }) => {
@@ -133,7 +298,7 @@ export default function LendingVaultContent() {
       {(activeTab === 'Project Introduction' || activeTab === 'User Comments') && 
         pageData?.projectIntroduction?.buttonList && 
         pageData.projectIntroduction.buttonList.length > 0 && (
-        <div className='flex items-center justify-center' style={{ gap: px(16), marginTop: px(70) }}>
+        <div ref={buttonsRef} className='flex items-center justify-center' style={{ gap: px(16), marginTop: px(70) }}>
           {pageData.projectIntroduction.buttonList.map((button) => (
             <button
               key={button.id}

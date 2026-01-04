@@ -178,6 +178,21 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
   const [isNextHovered, setIsNextHovered] = useState(false)
   const [isRefreshClicked, setIsRefreshClicked] = useState(false)
   const [presetContent, setPresetContent] = useState<string>(data?.presetContent || '')
+  
+  // 从 data.texts 获取文案，如果没有则使用默认值
+  const texts = data?.texts || {
+    title: "Model Selection and Technical Documentation Compilation",
+    modelSelectionSection: {
+      label: "Type Template Selection",
+      description: "Please select one of the AI-recommended models as the project framework, or you can sort out the model selection scope through the screening menu below"
+    },
+    uploadSection: {
+      label: "Type Template Selection",
+      description: "Please upload materials according to the prompt information in the following frame, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service for once",
+      refreshButton: "Refresh"
+    },
+    nextButton: "Next"
+  }
 
   // 同步外部数据变化
   useEffect(() => {
@@ -241,7 +256,8 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
   
   // 生成随机文字内容
   const generateRandomContent = () => {
-    const paragraphs = [
+    // 从 JSON 数据中获取预设内容模板，如果没有则使用默认值
+    const paragraphs = data?.presetContentTemplates || [
       'This document outlines the technical specifications and requirements for the AI project development.',
       'The project aims to create an innovative solution that leverages advanced machine learning algorithms to solve complex problems.',
       'Key components include data preprocessing, model training, and deployment infrastructure.',
@@ -277,7 +293,7 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
     <>
       {!previewMode && (
         <StepTitleBar
-          title="Model Selection and Technical Documentation Compilation"
+          title={texts.title}
           barColor="rgba(132, 0, 249, 0.65)"
           width={1197}
           marginTop={5}
@@ -306,12 +322,10 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
               }}
             >
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
-              Type Template Selection
+              {texts.modelSelectionSection.label}
                 </span>
                 <span suppressHydrationWarning>
-
-                Please select one of the AI-recommended models as the project framework, or you can sort out the model selection scope through the screening menu below
-
+                {texts.modelSelectionSection.description}
                 </span>
             </div>
 
@@ -349,11 +363,10 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
               }}
             >
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
-              Type Template Selection
+              {texts.uploadSection.label}
                 </span>
                 <span suppressHydrationWarning>
-
-                Please upload materials according to the prompt information in the following frame, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service for once
+                {texts.uploadSection.description}
                 </span>
             </div>
 
@@ -377,7 +390,7 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
                   opacity: isRefreshClicked ? 0.6 : 1,
                 }}
               >
-             Refresh
+             {texts.uploadSection.refreshButton}
               
               </div>
 
@@ -410,7 +423,7 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
 
 
       {/* 底部 Next 按钮 */}
-      {!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
+      {!previewMode && <StepNextButton onClick={onEnter} label={texts.nextButton} />}
       
 
      

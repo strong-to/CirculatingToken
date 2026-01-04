@@ -178,8 +178,8 @@ interface StepFourProps {
 }
 
 export default function StepFour({ onEnter, previewMode, data, onDataChange }: StepFourProps = {} as StepFourProps) {
-  // 构造需求项选项和对应的单位映射
-  const requirementOptions = [
+  // 从 JSON 数据中获取需求项选项和对应的单位映射，如果没有则使用默认值
+  const requirementOptions = data?.requirementOptions || [
     'Custom', // 第一条添加自定义选项
     'CPU Computing Power',
     'GPU Computing Power',
@@ -194,7 +194,7 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
     'Other',
   ]
 
-  const requirementUnitMap: Record<string, string> = {
+  const requirementUnitMap: Record<string, string> = data?.requirementUnitMap || {
     'CPU Computing Power': 'GOPS',
     'GPU Computing Power': 'GOPS',
     'Language Generation Model API': 'Tokens',
@@ -208,22 +208,54 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
     'Other': 'USD',
   }
 
-  // 12 行数据的状态
-  const [requirementRows, setRequirementRows] = useState<RequirementRowData[]>(
-    data?.requirementRows || Array.from({ length: 12 }, () => ({
+  // 从 data.texts 获取文案，如果没有则使用默认值
+  const texts = data?.texts || {
+    title: "Construction Requirements and Contribution Quantification",
+    description: "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service once.",
+    refreshButton: "Refresh",
+    nextButton: "Next"
+  }
+
+  // 12 行数据的状态，确保至少有12行
+  const [requirementRows, setRequirementRows] = useState<RequirementRowData[]>(() => {
+    if (data?.requirementRows && data.requirementRows.length >= 12) {
+      return data.requirementRows
+    }
+    // 如果数据不足12行，补齐到12行
+    const existingRows = data?.requirementRows || []
+    const defaultRow = {
       selectedRequirement: '',
       selectedUnit: '',
       customRequirement: '',
       customUnit: '',
       quantity: '',
       cause: '',
-    }))
-  )
+    }
+    return Array.from({ length: 12 }, (_, i) => existingRows[i] || defaultRow)
+  })
 
   // 同步外部数据变化
   useEffect(() => {
     if (data?.requirementRows) {
-      setRequirementRows(data.requirementRows)
+      // 确保至少有12行
+      if (data.requirementRows.length >= 12) {
+        setRequirementRows(data.requirementRows)
+      } else {
+        // 如果不足12行，补齐
+        const defaultRow = {
+          selectedRequirement: '',
+          selectedUnit: '',
+          customRequirement: '',
+          customUnit: '',
+          quantity: '',
+          cause: '',
+        }
+        const paddedRows = [
+          ...data.requirementRows,
+          ...Array.from({ length: 12 - data.requirementRows.length }, () => defaultRow)
+        ]
+        setRequirementRows(paddedRows)
+      }
     }
   }, [data])
   
@@ -362,7 +394,7 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
     <>
       {!previewMode && (
         <StepTitleBar
-          title="Construction Requirements and Contribution Quantification"
+          title={texts.title}
           barColor="rgba(0, 132, 0, 0.65)"
           width={1175}
           marginTop={5}
@@ -382,9 +414,10 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
                 color: '#8C8C8C',
               }}
             >
-              <span style={{ color: '#8C8C8C', marginRight: px(8), fontSize: px(20), fontWeight: 300 }} >
-              Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you <br/> complete the relevant work. Note: The AI can provide this service once.
-                </span>
+              <span 
+                style={{ color: '#8C8C8C', marginRight: px(8), fontSize: px(20), fontWeight: 300 }} 
+                dangerouslySetInnerHTML={{ __html: texts.description.replace(/<br\/>/g, '<br/>') }}
+              />
 
                 <span  />
             </div>
@@ -408,7 +441,7 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
                   opacity: isRefreshClicked ? 0.6 : 1,
                 }}
               >
-             Refresh
+             {texts.refreshButton}
               
               </div>
           </div>
@@ -448,7 +481,7 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
 
 
     
-     {!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
+     {!previewMode && <StepNextButton onClick={onEnter} label={texts.nextButton} />}
       
 
      

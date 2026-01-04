@@ -14,16 +14,79 @@ interface StepSixProps {
 }
 
 export default function StepSix({ onEnter, previewMode, data, onDataChange }: StepSixProps = {} as StepSixProps) {
-  // Economic Data Estimation 表格：6 行（账户），7 列（月数）
-  const accountRows = [
-    'Total Users',
-    'Cumulative Operating Revenue',
-    'Cumulative Net Profit',
-    'Token Minting Amount',
-    'Token Bid and Ask Prices',
-    'Staking Ratio',
+  // 从 data.texts 获取文案，如果没有则使用默认值
+  const texts = data?.texts || {
+    title: "Fee Standards and Economic Data Estimation",
+    feeStandardSection: {
+      label: "Fee Standard",
+      description: "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service only once.",
+      refreshButton: "Refresh"
+    },
+    economicDataSection: {
+      label: "Economic Data Estimation",
+      description: "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service only once.",
+      refreshButton: "Refresh"
+    },
+    nextButton: "Next"
+  }
+
+  // 从 data.tableLabels 获取表格标签，如果没有则使用默认值
+  const tableLabels = data?.tableLabels || {
+    basicFunctions: "Basic Functions",
+    advancedFunctions: "Advanced Functions",
+    accountColumn: "Account",
+    monthColumns: ['3 Months', '6 Months', '12 Months', '24Months', '36Months', '48months', '60Months'],
+    accountRows: [
+      'Total Users',
+      'Cumulative Operating Revenue',
+      'Cumulative Net Profit',
+      'Token Minting Amount',
+      'Token Bid and Ask Prices',
+      'Staking Ratio',
+    ]
+  }
+
+  // 从 data.pricingOptions 获取定价选项，如果没有则使用默认值
+  const pricingOptions = data?.pricingOptions || [
+    'By Subscription Duration',
+    'By Achieved Results',
+    'By Consumed Resources',
+    'Custom',
   ]
-  const monthColumns = ['3 Months', '6 Months', '12 Months', '24Months', '36Months', '48months', '60Months']
+
+  // 从 data.pricingMethodLabels 获取定价方法标签，如果没有则使用默认值
+  const pricingMethodLabels = data?.pricingMethodLabels || {
+    placeholder: "Pricing/Charging Method",
+    quantityUnit: "Quantity/Unit",
+    price: "$",
+    pricePlaceholder: "0.00"
+  }
+
+  // 从 data.pricingMethodData 获取定价方法数据，如果没有则使用默认值
+  const pricingMethodData = data?.pricingMethodData || {
+    bySubscriptionDuration: [
+      ['30 Days', '60.00'],
+      ['90 Days', '150.00'],
+      ['180 Days', '280.00'],
+      ['360 Days', '500.00'],
+    ],
+    byAchievedResults: [
+      ['1 Item', '5.00'],
+      ['5 Item', '20.00'],
+      ['20 Item', '60.00'],
+      ['60 Item', '150.00'],
+    ],
+    byConsumedResources: [
+      ['1K Tokens', '0.10'],
+      ['1M Tokens', '80.00'],
+      ['1B Tokens', '50,000.00'],
+      ['1T Tokens', '25,000,000.00'],
+    ]
+  }
+
+  // Economic Data Estimation 表格：6 行（账户），7 列（月数）
+  const accountRows = tableLabels.accountRows
+  const monthColumns = tableLabels.monthColumns
 
   // Basic Functions 盒子状态
   const [basicPricingMethod, setBasicPricingMethod] = useState(data?.basicPricingMethod || '')
@@ -70,32 +133,11 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
   // 下面 Economic Data Estimation 区域的 Refresh 按钮是否已点击
   const [hasEconomicRefreshed, setHasEconomicRefreshed] = useState(false)
 
-  // 右侧小格子的文案，根据下拉框选择切换
-  const bySubscriptionDurationRows: [string, string][] = [
-    ['30 Days', '60.00'],
-    ['90 Days', '150.00'],
-    ['180 Days', '280.00'],
-    ['360 Days', '500.00'],
-  ]
-
-  const byAchievedResultsRows: [string, string][] = [
-    ['1 Item', '5.00'],
-    ['5 Item', '20.00'],
-    ['20 Item', '60.00'],
-    ['60 Item', '150.00'],
-  ]
-
-  const byConsumedResourcesRows: [string, string][] = [
-    ['1K Tokens', '0.10'],
-    ['1M Tokens', '80.00'],
-    ['1B Tokens', '50,000.00'],
-    ['1T Tokens', '25,000,000.00'],
-  ]
-
+  // 根据下拉框选择获取对应的定价方法数据
   const getRows = (method: string): [string, string][] => {
-    if (method === 'By Achieved Results') return byAchievedResultsRows
-    if (method === 'By Consumed Resources') return byConsumedResourcesRows
-    return bySubscriptionDurationRows
+    if (method === 'By Achieved Results') return pricingMethodData.byAchievedResults
+    if (method === 'By Consumed Resources') return pricingMethodData.byConsumedResources
+    return pricingMethodData.bySubscriptionDuration
   }
 
   const basicRows = getRows(basicPricingMethod)
@@ -167,7 +209,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
     <>
       {!previewMode && (
         <StepTitleBar
-          title="Fee Standards and Economic Data Estimation"
+          title={texts.title}
           barColor="rgba(151, 151, 151, 0.65)"
           width={910}
           marginTop={5}
@@ -187,9 +229,11 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
               }}
             >
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
-            Fee Standard
+            {texts.feeStandardSection.label}
                 </span>
-                Please enter the prompt information in the following text box, or click the control button on the right to let the AI <br/> help you complete the relevant work. Note: The AI can provide this service only once.
+                <span 
+                  dangerouslySetInnerHTML={{ __html: texts.feeStandardSection.description.replace(/<br\/>/g, '<br/>') }}
+                />
                 
           </div>
 
@@ -254,7 +298,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                 color: '#000000',
               }}
             >
-                    Basic Functions
+                    {tableLabels.basicFunctions}
             </div>
                 
             </div>
@@ -282,13 +326,8 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                   >
                     <div style={{ width: '100%', maxWidth: px(350) }}>
                       <StepSixDropdown
-                        placeholder="Pricing/Charging Method"
-                        options={[
-                          'By Subscription Duration',
-                          'By Achieved Results',
-                          'By Consumed Resources',
-                          'Custom',
-                        ]}
+                        placeholder={pricingMethodLabels.placeholder}
+                        options={pricingOptions}
                         value={basicPricingMethod}
                         onChange={(value) => updateStepSixData({ basicPricingMethod: value })}
                         isCustom={isBasicCustom}
@@ -331,7 +370,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                           }}
                         >
                           {!basicPricingMethod ? (
-                            'Quantity/Unit'
+                            pricingMethodLabels.quantityUnit
                           ) : isBasicCustom ? (
                             <input
                               type="text"
@@ -341,7 +380,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                 next[rowIndex] = e.target.value
                                 updateStepSixData({ basicCustomQuantities: next })
                               }}
-                              placeholder="Quantity / Unit"
+                              placeholder={pricingMethodLabels.quantityUnit}
                               style={{
                                 width: '100%',
                                 height: '100%',
@@ -381,7 +420,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                               height: '100%',
           }}
         >
-                            $
+                            {pricingMethodLabels.price}
         </div>
           <div
               style={{
@@ -422,7 +461,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                   next[rowIndex] = formatted
                                   updateStepSixData({ basicCustomPrices: next })
                                 }}
-                                placeholder="0.00"
+                                placeholder={pricingMethodLabels.pricePlaceholder}
               style={{
                                   width: '100%',
                                   height: '100%',
@@ -448,7 +487,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                   const formatted = formatNumberWithThousands(e.target.value)
                                   e.target.value = formatted
                                 }}
-                                placeholder="0.00"
+                                placeholder={pricingMethodLabels.pricePlaceholder}
               style={{
                                   width: '100%',
                                   height: '100%',
@@ -504,7 +543,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                 color: '#000000',
               }}
             >
-                   Advanced Functions
+                   {tableLabels.advancedFunctions}
             </div>
                 
             </div>
@@ -532,13 +571,8 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
         >
                     <div style={{ width: '100%', maxWidth: px(350) }}>
                       <StepSixDropdown
-                        placeholder="Pricing/Charging Method"
-                        options={[
-                          'By Subscription Duration',
-                          'By Achieved Results',
-                          'By Consumed Resources',
-                          'Custom',
-                        ]}
+                        placeholder={pricingMethodLabels.placeholder}
+                        options={pricingOptions}
                         value={advancedPricingMethod}
                         onChange={(value) => updateStepSixData({ advancedPricingMethod: value })}
                         isCustom={isAdvancedCustom}
@@ -581,7 +615,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                           }}
                         >
                           {!advancedPricingMethod ? (
-                            'Quantity/Unit'
+                            pricingMethodLabels.quantityUnit
                           ) : isAdvancedCustom ? (
                             <input
                               type="text"
@@ -591,7 +625,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                 next[rowIndex] = e.target.value
                                 updateStepSixData({ advancedCustomQuantities: next })
                               }}
-                              placeholder="Quantity / Unit"
+                              placeholder={pricingMethodLabels.quantityUnit}
               style={{
                                 width: '100%',
                                 height: '100%',
@@ -631,7 +665,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                               height: '100%',
                             }}
                           >
-                            $
+                            {pricingMethodLabels.price}
             </div>
             <div
               style={{
@@ -672,7 +706,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                   next[rowIndex] = formatted
                                   updateStepSixData({ advancedCustomPrices: next })
                                 }}
-                                placeholder="0.00"
+                                placeholder={pricingMethodLabels.pricePlaceholder}
               style={{
                                   width: '100%',
                                   height: '100%',
@@ -698,7 +732,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                                   const formatted = formatNumberWithThousands(e.target.value)
                                   e.target.value = formatted
                                 }}
-                                placeholder="0.00"
+                                placeholder={pricingMethodLabels.pricePlaceholder}
                                 style={{
                                   width: '100%',
                                   height: '100%',
@@ -737,9 +771,9 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
               }}
             >
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
-              Economic Data Estimation
+              {texts.economicDataSection.label}
                 </span>
-                Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service only once.
+                {texts.economicDataSection.description}
           </div>
 
               <div
@@ -762,7 +796,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                  
                 }}
               >
-                Refresh 
+                {texts.economicDataSection.refreshButton} 
               </div>
         </div>
 
@@ -796,7 +830,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                 color: '#000000',
               }}
             >
-                Account
+                {tableLabels.accountColumn}
             </div>
               {/* 其余 7 列表头 */}
               {monthColumns.map((col) => (
@@ -901,7 +935,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
       </div>
 
       {/* 底部 Enter 按钮 */}
-{!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
+{!previewMode && <StepNextButton onClick={onEnter} label={texts.nextButton} />}
     </>
   )
 }

@@ -1,0 +1,392 @@
+{
+  "id": "LAUNCHPAD0000001",
+  "status": "draft",
+  "createdAt": "2025-01-01T00:00:00Z",
+  "updatedAt": "2025-01-01T00:00:00Z",
+  "data": {
+    "stepOne": {
+      "firstTextareaValue": "",
+      "secondTextareaValue": "",
+      "texts": {
+        "title": "Purpose Description and Function Sorting",
+        "purposeLabel": "Purpose Description",
+        "purposeHelp": "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. The AI can provide this service for 5 times.",
+        "functionSortingLabel": "Function Sorting",
+        "functionSortingHelp": "The AI will generate an understandable manuscript in real time in the following text box based on the information you input for your confirmation",
+        "textarea1Placeholder": "The plan you are going to implement, the conception, the goal you want to achieve, or just a simple idea",
+        "textarea2Placeholder": "The AI will generate content here based on the plan above",
+        "nextButton": "Next"
+      }
+    },
+    "stepTwo": {
+      "inputValues": ["", "", "", ""],
+      "uploadImages": [null, null, null, null, null, null, null],
+      "texts": {
+        "title": "Naming and Brand Image Establishment",
+        "projectNameSection": {
+          "label": "Project Name and Token Name",
+          "description": "Please enter the prompt information in the following text box, or click the control button on the <br/> right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.",
+          "refreshButton": "Refresh",
+          "inputPlaceholders": {
+            "fullProjectName": "Full Project Name",
+            "shortProjectName": "Short Project Name",
+            "fullTokenName": "Full Token Name",
+            "shortTokenName": "Short Token Name"
+          }
+        },
+        "logoSection": {
+          "label": "Logo and Promotional Materials",
+          "description": "Please upload materials according to the prompt information in the following frame, or click the <br/> control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service for 5 times.",
+          "refreshButton": "Refresh",
+          "uploadLabels": {
+            "logo": "Logo",
+            "image": "Image"
+          }
+        },
+        "nextButton": "Next"
+      },
+      "imageGroups": [
+        {
+          "logo": "/launchpad/LogoPromotionalMaterials/img/logo.png",
+          "banner": "/launchpad/LogoPromotionalMaterials/img/banner.png",
+          "hero": "/launchpad/LogoPromotionalMaterials/img/hero.png",
+          "thumbnail": "/launchpad/LogoPromotionalMaterials/img/thumbnail.png",
+          "icon": "/launchpad/LogoPromotionalMaterials/img/icon.png",
+          "poster": "/launchpad/LogoPromotionalMaterials/img/poster.png",
+          "cover": "/launchpad/LogoPromotionalMaterials/img/cover.png"
+        },
+        {
+          "logo": "/launchpad/LogoPromotionalMaterials/img/logo2.png",
+          "showcase": "/launchpad/LogoPromotionalMaterials/img/showcase.png",
+          "feature": "/launchpad/LogoPromotionalMaterials/img/feature.png",
+          "preview": "/launchpad/LogoPromotionalMaterials/img/preview.png",
+          "display": "/launchpad/LogoPromotionalMaterials/img/display.png",
+          "visual": "/launchpad/LogoPromotionalMaterials/img/visual.png",
+          "graphic": "/launchpad/LogoPromotionalMaterials/img/graphic.png"
+        },
+        {
+          "logo": "/launchpad/LogoPromotionalMaterials/img/logo3.png",
+          "illustration": "/launchpad/LogoPromotionalMaterials/img/illustration.png",
+          "artwork": "/launchpad/LogoPromotionalMaterials/img/artwork.png",
+          "design": "/launchpad/LogoPromotionalMaterials/img/design.png",
+          "concept": "/launchpad/LogoPromotionalMaterials/img/concept.png",
+          "theme": "/launchpad/LogoPromotionalMaterials/img/theme.png",
+          "style": "/launchpad/LogoPromotionalMaterials/img/style.png"
+        },
+        {
+          "logo": "/launchpad/LogoPromotionalMaterials/img/logo4.png",
+          "branding": "/launchpad/LogoPromotionalMaterials/img/branding.png",
+          "identity": "/launchpad/LogoPromotionalMaterials/img/identity.png",
+          "marketing": "/launchpad/LogoPromotionalMaterials/img/marketing.png",
+          "promotion": "/launchpad/LogoPromotionalMaterials/img/promotion.png",
+          "campaign": "/launchpad/LogoPromotionalMaterials/img/campaign.png",
+          "advertisement": "/launchpad/LogoPromotionalMaterials/img/advertisement.png"
+        },
+        {
+          "logo": "/launchpad/LogoPromotionalMaterials/img/logo5.png",
+          "presentation": "/launchpad/LogoPromotionalMaterials/img/presentation.png",
+          "portfolio": "/launchpad/LogoPromotionalMaterials/img/portfolio.png",
+          "gallery": "/launchpad/LogoPromotionalMaterials/img/gallery.png",
+          "collection": "/launchpad/LogoPromotionalMaterials/img/collection.png",
+          "showcase2": "/launchpad/LogoPromotionalMaterials/img/showcase2.png",
+          "exhibition": "/launchpad/LogoPromotionalMaterials/img/exhibition.png"
+        }
+      ]
+    },
+    "stepThree": {
+      "filterValues": {
+        "interactionForm": "",
+        "domain": "",
+        "object": "",
+        "action": "",
+        "sortBy": "",
+        "search": ""
+      },
+      "uploadedFileInfo": null,
+      "presetContent": "",
+      "texts": {
+        "title": "Model Selection and Technical Documentation Compilation",
+        "modelSelectionSection": {
+          "label": "Type Template Selection",
+          "description": "Please select one of the AI-recommended models as the project framework, or you can sort out the model selection scope through the screening menu below"
+        },
+        "uploadSection": {
+          "label": "Type Template Selection",
+          "description": "Please upload materials according to the prompt information in the following frame, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service for once",
+          "refreshButton": "Refresh"
+        },
+        "nextButton": "Next"
+      },
+      "presetContentTemplates": [
+        "This document outlines the technical specifications and requirements for the AI project development.",
+        "The project aims to create an innovative solution that leverages advanced machine learning algorithms to solve complex problems.",
+        "Key components include data preprocessing, model training, and deployment infrastructure.",
+        "We will utilize state-of-the-art neural network architectures to achieve optimal performance.",
+        "The development process will follow agile methodologies with regular iterations and feedback cycles.",
+        "Quality assurance measures will be implemented throughout the project lifecycle.",
+        "Documentation and code reviews are essential for maintaining high standards.",
+        "The team will collaborate closely to ensure seamless integration of all system components."
+      ]
+    },
+    "stepFour": {
+      "requirementRows": [
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        },
+        {
+          "selectedRequirement": "",
+          "selectedUnit": "",
+          "customRequirement": "",
+          "customUnit": "",
+          "quantity": "",
+          "cause": ""
+        }
+      ],
+      "texts": {
+        "title": "Construction Requirements and Contribution Quantification",
+        "description": "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service once.",
+        "refreshButton": "Refresh",
+        "nextButton": "Next"
+      },
+      "requirementOptions": [
+        "Custom",
+        "CPU Computing Power",
+        "GPU Computing Power",
+        "Language Generation Model API",
+        "Image Generation Model API",
+        "System Architecture",
+        "Data Collection",
+        "Data Labeling",
+        "Visual Design",
+        "Interaction Design",
+        "System Testing",
+        "Other"
+      ],
+      "requirementUnitMap": {
+        "CPU Computing Power": "GOPS",
+        "GPU Computing Power": "GOPS",
+        "Language Generation Model API": "Tokens",
+        "Image Generation Model API": "Tokens",
+        "System Architecture": "ELOC",
+        "Data Collection": "DataPoint",
+        "Data Labeling": "DataPoint",
+        "Visual Design": "Tasks",
+        "Interaction Design": "Tasks",
+        "System Testing": "FP",
+        "Other": "USD"
+      }
+    },
+    "stepFive": {
+      "fieldValues": {
+        "founderTokenProportion": "",
+        "proposalInitiationTokenProportion": "",
+        "adjustmentPassRateOfContributionWeight": "",
+        "passiveResponsePassRate": "",
+        "adjustmentPassRateOfMintingIndex": "",
+        "projectLiquidationPassRate": "",
+        "tokenMintingQuantityPerPhase": "",
+        "tokenMintingIncrementalDifference": "",
+        "tokenMintingIndex": "",
+        "aaa": "",
+        "bbb": "",
+        "ccc": ""
+      },
+      "texts": {
+        "title": "Rights Allocation and Project Governance",
+        "description": "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service once.",
+        "refreshButton": "Refresh",
+        "nextButton": "Next"
+      },
+      "fieldLabels": {
+        "leftColumn": [
+          "Founder Token Proportion",
+          "Proposal Initiation Token Proportion",
+          "Adjustment Pass Rate of Contribution Weight",
+          "Passive Response Pass Rate",
+          "Adjustment Pass Rate of Minting Index",
+          "Project Liquidation Pass Rate"
+        ],
+        "rightColumn": [
+          "Token Minting Quantity per Phase",
+          "Token Minting Incremental Difference",
+          "Token Minting Index",
+          "AAA",
+          "BBB",
+          "CCC"
+        ]
+      }
+    },
+    "stepSix": {
+      "basicPricingMethod": "",
+      "basicCustomLeftText": "",
+      "basicCustomQuantities": ["", "", "", ""],
+      "basicCustomPrices": ["", "", "", ""],
+      "advancedPricingMethod": "",
+      "advancedCustomLeftText": "",
+      "advancedCustomQuantities": ["", "", "", ""],
+      "advancedCustomPrices": ["", "", "", ""],
+      "economicTableValues": [
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""],
+        ["", "", "", "", "", "", ""]
+      ],
+      "texts": {
+        "title": "Fee Standards and Economic Data Estimation",
+        "feeStandardSection": {
+          "label": "Fee Standard",
+          "description": "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service only once.",
+          "refreshButton": "Refresh"
+        },
+        "economicDataSection": {
+          "label": "Economic Data Estimation",
+          "description": "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service only once.",
+          "refreshButton": "Refresh"
+        },
+        "nextButton": "Next"
+      },
+      "pricingOptions": [
+        "By Subscription Duration",
+        "By Achieved Results",
+        "By Consumed Resources",
+        "Custom"
+      ],
+      "pricingMethodLabels": {
+        "placeholder": "Pricing/Charging Method",
+        "quantityUnit": "Quantity/Unit",
+        "price": "$",
+        "pricePlaceholder": "0.00"
+      },
+      "tableLabels": {
+        "basicFunctions": "Basic Functions",
+        "advancedFunctions": "Advanced Functions",
+        "accountColumn": "Account",
+        "monthColumns": [
+          "3 Months",
+          "6 Months",
+          "12 Months",
+          "24Months",
+          "36Months",
+          "48months",
+          "60Months"
+        ],
+        "accountRows": [
+          "Total Users",
+          "Cumulative Operating Revenue",
+          "Cumulative Net Profit",
+          "Token Minting Amount",
+          "Token Bid and Ask Prices",
+          "Staking Ratio"
+        ]
+      },
+      "pricingMethodData": {
+        "bySubscriptionDuration": [
+          ["30 Days", "60.00"],
+          ["90 Days", "150.00"],
+          ["180 Days", "280.00"],
+          ["360 Days", "500.00"]
+        ],
+        "byAchievedResults": [
+          ["1 Item", "5.00"],
+          ["5 Item", "20.00"],
+          ["20 Item", "60.00"],
+          ["60 Item", "150.00"]
+        ],
+        "byConsumedResources": [
+          ["1K Tokens", "0.10"],
+          ["1M Tokens", "80.00"],
+          ["1B Tokens", "50,000.00"],
+          ["1T Tokens", "25,000,000.00"]
+        ]
+      }
+    }
+  }
+}
+

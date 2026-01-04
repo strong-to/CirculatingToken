@@ -157,7 +157,9 @@ interface StepTwoProps {
 }
 
 export default function StepTwo({ onEnter, previewMode, data, onDataChange }: StepTwoProps = {} as StepTwoProps) {
-  const texts = useTexts()
+  // 从 data.texts 获取文案，如果没有则使用 useTexts hook
+  const defaultTexts = useTexts()
+  const texts = data?.texts ? { ...defaultTexts, ...data.texts } : defaultTexts
  
   const [inputValues, setInputValues] = useState<string[]>(data?.inputValues || ['', '', '', ''])
   // 上面"Project Name and Token Name"区域的刷新计数
@@ -197,26 +199,46 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
   // 下半部分：刷新 7 个 Logo/宣传素材盒子
   const handleRefreshLogos = () => {
     if (logoRefreshCount >= 5) return
-    // 从 LogoPromotionalMaterials 目录中随机取 7 张图片填充 7 个盒子
-    const presetImagePaths = [
-      '/launchpad/LogoPromotionalMaterials/img/logo.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask1.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask2.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask3.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask4.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask5.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask6.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask7.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask8.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask9.png',
-      '/launchpad/LogoPromotionalMaterials/img/Mask10.png',
-    ]
+    
+    // 从 JSON 数据中的 imageGroups 数组获取图片组
+    if (data?.imageGroups && data.imageGroups.length > 0) {
+      const currentGroupIndex = logoRefreshCount % data.imageGroups.length
+      const currentGroup = data.imageGroups[currentGroupIndex]
+      
+      // 将对象转换为数组，确保 logo 在第一位，其他按顺序
+      const imageArray = [
+        currentGroup.logo,
+        ...Object.keys(currentGroup)
+          .filter(key => key !== 'logo')
+          .map(key => currentGroup[key])
+          .slice(0, 6) // 只取前6个，加上logo共7个
+      ]
+      
+      setUploadImages(imageArray)
+      setLogoRefreshCount((count) => count + 1)
+      onDataChange?.({ uploadImages: imageArray })
+    } else {
+      // 如果没有 imageGroups，使用默认的随机方式（向后兼容）
+      const presetImagePaths = [
+        '/launchpad/LogoPromotionalMaterials/img/logo.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask1.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask2.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask3.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask4.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask5.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask6.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask7.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask8.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask9.png',
+        '/launchpad/LogoPromotionalMaterials/img/Mask10.png',
+      ]
 
-    const shuffled = [...presetImagePaths].sort(() => Math.random() - 0.5)
-    const selected = shuffled.slice(0, 7)
-    setUploadImages(selected)
-    setLogoRefreshCount((count) => count + 1)
-    onDataChange?.({ uploadImages: selected })
+      const shuffled = [...presetImagePaths].sort(() => Math.random() - 0.5)
+      const selected = shuffled.slice(0, 7)
+      setUploadImages(selected)
+      setLogoRefreshCount((count) => count + 1)
+      onDataChange?.({ uploadImages: selected })
+    }
   }
 
   // 处理上传图片

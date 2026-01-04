@@ -724,3 +724,192 @@ export const homeSectionsMap = homeSectionsListInternal.reduce<Record<string, Ho
   },
   {},
 );
+
+// ==================== Launchpad Data ====================
+
+// Launchpad 数据类型定义
+export interface LaunchpadDataItem {
+  id: string;
+  status?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  data: {
+    stepOne: {
+      firstTextareaValue: string;
+      secondTextareaValue: string;
+      texts?: {
+        title: string;
+        purposeLabel: string;
+        purposeHelp: string;
+        functionSortingLabel: string;
+        functionSortingHelp: string;
+        textarea1Placeholder: string;
+        textarea2Placeholder: string;
+        nextButton: string;
+      };
+    };
+    stepTwo: {
+      inputValues: string[];
+      uploadImages: (string | null)[];
+      texts?: {
+        title: string;
+        projectNameSection: {
+          label: string;
+          description: string;
+          refreshButton: string;
+          inputPlaceholders: {
+            fullProjectName: string;
+            shortProjectName: string;
+            fullTokenName: string;
+            shortTokenName: string;
+          };
+        };
+        logoSection: {
+          label: string;
+          description: string;
+          refreshButton: string;
+          uploadLabels: {
+            logo: string;
+            image: string;
+          };
+        };
+        nextButton: string;
+      };
+      imageGroups?: Array<{
+        logo: string;
+        [key: string]: string;
+      }>;
+    };
+    stepThree: {
+      filterValues: {
+        interactionForm?: string;
+        domain?: string;
+        object?: string;
+        action?: string;
+        sortBy?: string;
+        search?: string;
+      };
+      uploadedFileInfo: any;
+      presetContent: string;
+      texts?: {
+        title: string;
+        modelSelectionSection: {
+          label: string;
+          description: string;
+        };
+        uploadSection: {
+          label: string;
+          description: string;
+          refreshButton: string;
+        };
+        nextButton: string;
+      };
+      presetContentTemplates?: string[];
+    };
+    stepFour: {
+      requirementRows: Array<{
+        selectedRequirement: string;
+        selectedUnit: string;
+        customRequirement: string;
+        customUnit: string;
+        quantity: string;
+        cause: string;
+      }>;
+      texts?: {
+        title: string;
+        description: string;
+        refreshButton: string;
+        nextButton: string;
+      };
+      requirementOptions?: string[];
+      requirementUnitMap?: Record<string, string>;
+    };
+    stepFive: {
+      fieldValues: {
+        founderTokenProportion: string;
+        proposalInitiationTokenProportion: string;
+        adjustmentPassRateOfContributionWeight: string;
+        passiveResponsePassRate: string;
+        adjustmentPassRateOfMintingIndex: string;
+        projectLiquidationPassRate: string;
+        tokenMintingQuantityPerPhase: string;
+        tokenMintingIncrementalDifference: string;
+        tokenMintingIndex: string;
+        aaa: string;
+        bbb: string;
+        ccc: string;
+      };
+      texts?: {
+        title: string;
+        description: string;
+        refreshButton: string;
+        nextButton: string;
+      };
+      fieldLabels?: {
+        leftColumn: string[];
+        rightColumn: string[];
+      };
+    };
+    stepSix: {
+      basicPricingMethod: string;
+      basicCustomLeftText: string;
+      basicCustomQuantities: string[];
+      basicCustomPrices: string[];
+      advancedPricingMethod: string;
+      advancedCustomLeftText: string;
+      advancedCustomQuantities: string[];
+      advancedCustomPrices: string[];
+      economicTableValues: string[][];
+      texts?: {
+        title: string;
+        feeStandardSection: {
+          label: string;
+          description: string;
+          refreshButton: string;
+        };
+        economicDataSection: {
+          label: string;
+          description: string;
+          refreshButton: string;
+        };
+        nextButton: string;
+      };
+      pricingOptions?: string[];
+      pricingMethodLabels?: {
+        placeholder: string;
+        quantityUnit: string;
+        price: string;
+        pricePlaceholder: string;
+      };
+      tableLabels?: {
+        basicFunctions: string;
+        advancedFunctions: string;
+        accountColumn: string;
+        monthColumns: string[];
+        accountRows: string[];
+      };
+      pricingMethodData?: {
+        bySubscriptionDuration: [string, string][];
+        byAchievedResults: [string, string][];
+        byConsumedResources: [string, string][];
+      };
+    };
+  };
+}
+
+// 动态导入所有 Launchpad 数据
+import LAUNCHPAD0000001 from './launchpad/LAUNCHPAD0000001.json';
+
+const launchpadModules = {
+  LAUNCHPAD0000001,
+};
+
+const launchpadEntries: LaunchpadDataItem[] = Object.values(launchpadModules)
+  .map((data) => data as LaunchpadDataItem)
+  .sort((a, b) => a.id.localeCompare(b.id));
+
+export const launchpadList = launchpadEntries;
+export const launchpadMap = launchpadEntries.reduce<Record<string, LaunchpadDataItem>>((acc, launchpad) => {
+  acc[launchpad.id] = launchpad;
+  return acc;
+}, {});

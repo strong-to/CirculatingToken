@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useAtom } from 'jotai'
+import { useSearchParams } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import StepsBar from './com/StepsBar'
 import StepOne from './com/StepOne'
@@ -16,16 +17,55 @@ import SuccessPage from './com/SuccessPage'
 import { currentStepAtom } from '@/store/atoms'
 import type { RequirementRowData } from './com/RequirementRow'
 import type { UploadedFileInfo } from '@/utils/fileUpload'
+import { launchpadMap } from '@/app/data'
 
 // 定义各步骤的数据类型
 export interface StepOneData {
   firstTextareaValue: string
   secondTextareaValue: string
+  texts?: {
+    title: string
+    purposeLabel: string
+    purposeHelp: string
+    functionSortingLabel: string
+    functionSortingHelp: string
+    textarea1Placeholder: string
+    textarea2Placeholder: string
+    nextButton: string
+  }
 }
 
 export interface StepTwoData {
   inputValues: string[] // 4个输入框
   uploadImages: (string | null)[] // 7张图片
+  texts?: {
+    title: string
+    projectNameSection: {
+      label: string
+      description: string
+      refreshButton: string
+      inputPlaceholders: {
+        fullProjectName: string
+        shortProjectName: string
+        fullTokenName: string
+        shortTokenName: string
+      }
+    }
+    logoSection: {
+      label: string
+      description: string
+      refreshButton: string
+      uploadLabels: {
+        logo: string
+        image: string
+      }
+    }
+    nextButton: string
+  }
+  imageGroups?: Array<{
+    logo: string
+    [key: string]: string
+  }>
 }
 
 export interface StepThreeData {
@@ -39,10 +79,32 @@ export interface StepThreeData {
   }
   uploadedFileInfo: UploadedFileInfo | null
   presetContent: string
+  texts?: {
+    title: string
+    modelSelectionSection: {
+      label: string
+      description: string
+    }
+    uploadSection: {
+      label: string
+      description: string
+      refreshButton: string
+    }
+    nextButton: string
+  }
+  presetContentTemplates?: string[]
 }
 
 export interface StepFourData {
   requirementRows: RequirementRowData[] // 12行数据
+  texts?: {
+    title: string
+    description: string
+    refreshButton: string
+    nextButton: string
+  }
+  requirementOptions?: string[]
+  requirementUnitMap?: Record<string, string>
 }
 
 export interface StepFiveData {
@@ -60,6 +122,16 @@ export interface StepFiveData {
     bbb: string
     ccc: string
   }
+  texts?: {
+    title: string
+    description: string
+    refreshButton: string
+    nextButton: string
+  }
+  fieldLabels?: {
+    leftColumn: string[]
+    rightColumn: string[]
+  }
 }
 
 export interface StepSixData {
@@ -72,6 +144,39 @@ export interface StepSixData {
   advancedCustomQuantities: string[]
   advancedCustomPrices: string[]
   economicTableValues: string[][] // 6行 x 7列
+  texts?: {
+    title: string
+    feeStandardSection: {
+      label: string
+      description: string
+      refreshButton: string
+    }
+    economicDataSection: {
+      label: string
+      description: string
+      refreshButton: string
+    }
+    nextButton: string
+  }
+  pricingOptions?: string[]
+  pricingMethodLabels?: {
+    placeholder: string
+    quantityUnit: string
+    price: string
+    pricePlaceholder: string
+  }
+  tableLabels?: {
+    basicFunctions: string
+    advancedFunctions: string
+    accountColumn: string
+    monthColumns: string[]
+    accountRows: string[]
+  }
+  pricingMethodData?: {
+    bySubscriptionDuration: [string, string][]
+    byAchievedResults: [string, string][]
+    byConsumedResources: [string, string][]
+  }
 }
 
 // 所有步骤的数据
@@ -98,13 +203,21 @@ export default function Launchpad() {
   const [currentStep, setCurrentStep] = useAtom(currentStepAtom)
   const [showWelcome, setShowWelcome] = useState(true)
   const [showSuccess, setShowSuccess] = useState(false)
+  const searchParams = useSearchParams()
+  const launchpadId = searchParams.get('launchpad_id') || 'LAUNCHPAD0000001'
 
-  // 统一的状态管理 - 所有步骤的数据
-  const [launchpadData, setLaunchpadData] = useState<LaunchpadData>({
-    stepOne: {
-      firstTextareaValue: '',
-      secondTextareaValue: '',
-    },
+  // 从 JSON 数据中获取初始数据
+  const initialData = useMemo(() => {
+    const launchpadItem = launchpadMap[launchpadId]
+    if (launchpadItem?.data) {
+      return launchpadItem.data
+    }
+    // 如果没有找到数据，返回默认值
+    return {
+      stepOne: {
+        firstTextareaValue: '',
+        secondTextareaValue: '',
+      },
     stepTwo: {
       inputValues: ['', '', '', ''],
       uploadImages: Array(7).fill(null),
@@ -151,7 +264,16 @@ export default function Launchpad() {
       advancedCustomPrices: ['', '', '', ''],
       economicTableValues: Array(6).fill(null).map(() => Array(7).fill('')),
     },
-  })
+    }
+  }, [launchpadId])
+
+  // 统一的状态管理 - 所有步骤的数据，从 JSON 数据初始化
+  const [launchpadData, setLaunchpadData] = useState<LaunchpadData>(initialData)
+
+  // 当 launchpadId 变化时，更新数据
+  useEffect(() => {
+    setLaunchpadData(initialData)
+  }, [initialData])
 
   // 处理开始按钮点击
   const handleStart = () => {

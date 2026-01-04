@@ -32,7 +32,9 @@ type StepOneTexts = typeof defaultTexts
 export default function StepOne({ currentStep, onEnter, data, onDataChange }: StepOneProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState(data?.firstTextareaValue || '')
   const [secondTextareaValue, setSecondTextareaValue] = useState(data?.secondTextareaValue || '')
-  const [texts, setTexts] = useState<StepOneTexts>(defaultTexts)
+  
+  // 从 data.texts 获取文案，如果没有则使用默认文案
+  const texts: StepOneTexts = data?.texts ? { ...defaultTexts, ...data.texts } : defaultTexts
 
   // 同步外部数据变化
   useEffect(() => {
@@ -41,18 +43,6 @@ export default function StepOne({ currentStep, onEnter, data, onDataChange }: St
       setSecondTextareaValue(data.secondTextareaValue)
     }
   }, [data])
-
-  // 从 public 目录加载文案
-  useEffect(() => {
-    const url = `/launchpad/stepOne/texts.json?t=${Date.now()}`
-    fetch(url, { cache: 'no-store' })
-      .then((res) => res.json())
-      .then((data) => setTexts({ ...defaultTexts, ...data }))
-      .catch(() => {
-        // 加载失败时使用默认文案
-        setTexts(defaultTexts)
-      })
-  }, [])
 
   // 根据上方输入生成下方文案（目前先保持相同，后续可以在这里做加工）
   const generateFunctionSortingText = (input: string) => {

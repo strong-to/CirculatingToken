@@ -211,6 +211,34 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
     field7: { input: '', dropdown: '0.5' },
     field8: { input: '', dropdown: '1' },
   })
+  // 从 data.texts 获取文案，如果没有则使用默认值
+  const texts = data?.texts || {
+    title: "Rights Allocation and Project Governance",
+    description: "Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you complete the relevant work. Note: The AI can provide this service once.",
+    refreshButton: "Refresh",
+    nextButton: "Next"
+  }
+
+  // 从 data.fieldLabels 获取字段标签，如果没有则使用默认值
+  const fieldLabels = data?.fieldLabels || {
+    leftColumn: [
+      'Founder Token Proportion',
+      'Proposal Initiation Token Proportion',
+      'Adjustment Pass Rate of Contribution Weight',
+      'Passive Response Pass Rate',
+      'Adjustment Pass Rate of Minting Index',
+      'Project Liquidation Pass Rate',
+    ],
+    rightColumn: [
+      'Token Minting Quantity per Phase',
+      'Token Minting Incremental Difference',
+      'Token Minting Index',
+      'AAA',
+      'BBB',
+      'CCC',
+    ],
+  }
+
   // 12个字段的数值
   const [fieldValues, setFieldValues] = useState(
     data?.fieldValues || {
@@ -257,52 +285,35 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
     })
   }
 
-  // 从JSON文件加载值并填入所有字段
-  const loadValuesFromJSON = async () => {
-    try {
-      const timestamp = Date.now()
-      const response = await fetch(`/launchpad/StepFive/values.json?t=${timestamp}`, {
-        cache: 'no-store',
-        headers: {
-          'Cache-Control': 'no-cache, no-store, must-revalidate',
-          'Pragma': 'no-cache',
-          'Expires': '0',
-        }
-      })
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`)
-      }
-
-      const data = await response.json()
-      
-      // 将JSON中的值填入所有字段
-      const newFieldValues = {
-        founderTokenProportion: data.founderTokenProportion || '',
-        proposalInitiationTokenProportion: data.proposalInitiationTokenProportion || '',
-        adjustmentPassRateOfContributionWeight: data.adjustmentPassRateOfContributionWeight || '',
-        passiveResponsePassRate: data.passiveResponsePassRate || '',
-        adjustmentPassRateOfMintingIndex: data.adjustmentPassRateOfMintingIndex || '',
-        projectLiquidationPassRate: data.projectLiquidationPassRate || '',
-        tokenMintingQuantityPerPhase: data.tokenMintingQuantityPerPhase || '',
-        tokenMintingIncrementalDifference: data.tokenMintingIncrementalDifference || '',
-        tokenMintingIndex: data.tokenMintingIndex || '',
-        aaa: data.aaa || '',
-        bbb: data.bbb || '',
-        ccc: data.ccc || '',
-      }
-      setFieldValues(newFieldValues)
-      onDataChange?.({ fieldValues: newFieldValues })
-    } catch (error) {
-      console.warn('无法从 public 目录加载值，使用默认值', error)
-    }
-  }
-
-  // Refresh按钮点击处理：从JSON文件加载值并填入所有字段
-  const handleRefreshClick = async () => {
+  // Refresh按钮点击处理：生成随机值并填入所有字段
+  const handleRefreshClick = () => {
     if (isRefreshClicked) return // 已经点击过，不再执行
 
-    await loadValuesFromJSON()
+    // 生成随机值（千分位格式，保留两位小数）
+    const generateRandomValue = () => {
+      const num = Math.random() * 1000000
+      return num.toLocaleString('en-US', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })
+    }
+
+    const newFieldValues = {
+      founderTokenProportion: generateRandomValue(),
+      proposalInitiationTokenProportion: generateRandomValue(),
+      adjustmentPassRateOfContributionWeight: generateRandomValue(),
+      passiveResponsePassRate: generateRandomValue(),
+      adjustmentPassRateOfMintingIndex: generateRandomValue(),
+      projectLiquidationPassRate: generateRandomValue(),
+      tokenMintingQuantityPerPhase: generateRandomValue(),
+      tokenMintingIncrementalDifference: generateRandomValue(),
+      tokenMintingIndex: generateRandomValue(),
+      aaa: generateRandomValue(),
+      bbb: generateRandomValue(),
+      ccc: generateRandomValue(),
+    }
+    setFieldValues(newFieldValues)
+    onDataChange?.({ fieldValues: newFieldValues })
 
     // 标记为已点击，禁用按钮
     setIsRefreshClicked(true)
@@ -324,7 +335,7 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
     <>
       {!previewMode && (
         <StepTitleBar
-          title="Rights Allocation and Project Governance"
+          title={texts.title}
           barColor="rgba(225, 5, 13, 0.75)"
           width={843}
           marginTop={5}
@@ -341,9 +352,10 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                 color: '#8C8C8C',
               }}
             >
-              <span style={{ color: '#8C8C8C', marginRight: px(8), fontSize: px(20), fontWeight: 300 }} >
-              Please enter the prompt information in the following text box, or click the control button on the right to let the AI help you <br/> complete the relevant work. Note: The AI can provide this service once.
-                </span>
+              <span 
+                style={{ color: '#8C8C8C', marginRight: px(8), fontSize: px(20), fontWeight: 300 }} 
+                dangerouslySetInnerHTML={{ __html: texts.description.replace(/<br\/>/g, '<br/>') }}
+              />
 
                 <span  />
       </div>
@@ -369,49 +381,26 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                   opacity: isRefreshClicked ? 0.6 : 1,
                 }}
               >
-                Refresh
+                {texts.refreshButton}
         </button>
     </div>
 
           {/* 6行输入框布局 */}
-          {[
-            {
-              leftLabel: 'Founder Token Proportion',
-              leftField: 'founderTokenProportion',
-              rightLabel: 'Token Minting Quantity per Phase',
-              rightField: 'tokenMintingQuantityPerPhase',
-            },
-            {
-              leftLabel: 'Proposal Initiation Token Proportion',
-              leftField: 'proposalInitiationTokenProportion',
-              rightLabel: 'Token Minting Incremental Difference',
-              rightField: 'tokenMintingIncrementalDifference',
-            },
-            {
-              leftLabel: 'Adjustment Pass Rate of Contribution Weight',
-              leftField: 'adjustmentPassRateOfContributionWeight',
-              rightLabel: 'Token Minting Index',
-              rightField: 'tokenMintingIndex',
-            },
-            {
-              leftLabel: 'Passive Response Pass Rate',
-              leftField: 'passiveResponsePassRate',
-              rightLabel: 'AAA',
-              rightField: 'aaa',
-            },
-            {
-              leftLabel: 'Adjustment Pass Rate of Minting Index',
-              leftField: 'adjustmentPassRateOfMintingIndex',
-              rightLabel: 'BBB',
-              rightField: 'bbb',
-            },
-            {
-              leftLabel: 'Project Liquidation Pass Rate',
-              leftField: 'projectLiquidationPassRate',
-              rightLabel: 'CCC',
-              rightField: 'ccc',
-            },
-          ].map((row, index) => (
+          {fieldLabels.leftColumn.map((leftLabel, index) => {
+            const leftField = index === 0 ? 'founderTokenProportion' :
+                             index === 1 ? 'proposalInitiationTokenProportion' :
+                             index === 2 ? 'adjustmentPassRateOfContributionWeight' :
+                             index === 3 ? 'passiveResponsePassRate' :
+                             index === 4 ? 'adjustmentPassRateOfMintingIndex' :
+                             'projectLiquidationPassRate'
+            const rightLabel = fieldLabels.rightColumn[index]
+            const rightField = index === 0 ? 'tokenMintingQuantityPerPhase' :
+                              index === 1 ? 'tokenMintingIncrementalDifference' :
+                              index === 2 ? 'tokenMintingIndex' :
+                              index === 3 ? 'aaa' :
+                              index === 4 ? 'bbb' :
+                              'ccc'
+            return (
             <div key={index} className='w-full flex items-center justify-between' style={{ marginBottom: index < 5 ? px(20) : 0, gap: px(15) }}>
               {/* 左侧输入框（带%） */}
               <div
@@ -436,21 +425,21 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
             color: '#000000',
                   }}
                 >
-                  {row.leftLabel}
+                  {leftLabel}
         </div>
         
                 {/* 中间输入框 83px，千分位 + 两位小数 */}
                 <input
                   type="text"
-                  value={fieldValues[row.leftField as keyof typeof fieldValues]}
+                  value={fieldValues[leftField as keyof typeof fieldValues]}
                   onChange={(e) => {
                     const numericValue = handleNumericInput(e.target.value)
-                    const newValues = { ...fieldValues, [row.leftField]: numericValue }
+                    const newValues = { ...fieldValues, [leftField]: numericValue }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
                   onBlur={(e) => {
-                    const newValues = { ...fieldValues, [row.leftField]: formatNumberWithThousands(e.target.value) }
+                    const newValues = { ...fieldValues, [leftField]: formatNumberWithThousands(e.target.value) }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
@@ -466,7 +455,7 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                     fontWeight: 300,
             fontSize: px(14),
-                    color: fieldValues[row.leftField as keyof typeof fieldValues] ? '#000000' : '#8C8C8C',
+                    color: fieldValues[leftField as keyof typeof fieldValues] ? '#000000' : '#8C8C8C',
                     textAlign: 'center',
                   }}
                 />
@@ -512,21 +501,21 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                     color: '#000000',
           }}
         >
-                  {row.rightLabel}
+                  {rightLabel}
     </div>
 
                 {/* 输入框 127px，千分位 + 两位小数 */}
                 <input
                   type="text"
-                  value={fieldValues[row.rightField as keyof typeof fieldValues]}
+                  value={fieldValues[rightField as keyof typeof fieldValues]}
                   onChange={(e) => {
                     const numericValue = handleNumericInput(e.target.value)
-                    const newValues = { ...fieldValues, [row.rightField]: numericValue }
+                    const newValues = { ...fieldValues, [rightField]: numericValue }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
                   onBlur={(e) => {
-                    const newValues = { ...fieldValues, [row.rightField]: formatNumberWithThousands(e.target.value) }
+                    const newValues = { ...fieldValues, [rightField]: formatNumberWithThousands(e.target.value) }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
@@ -542,17 +531,18 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
          fontWeight: 300,
                      fontSize: px(14),
-                    color: fieldValues[row.rightField as keyof typeof fieldValues] ? '#000000' : '#8C8C8C',
+                    color: fieldValues[rightField as keyof typeof fieldValues] ? '#000000' : '#8C8C8C',
                     textAlign: 'center',
                   }}
                 />
    </div>
     </div>
-          ))}
+            )
+          })}
 
 
       {/* 底部 Next 按钮 */}
-      {!previewMode && <StepNextButton onClick={onEnter} label="Next" />}
+      {!previewMode && <StepNextButton onClick={onEnter} label={texts.nextButton} />}
     </>
   )
 }

@@ -2,6 +2,7 @@
 
 import ImageWithSkeleton from "@/components/common/ImageWithSkeleton";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./BlueSquareCard.module.css";
 import { px } from "@/utils/pxToRem";
 import { images } from "../BuildWithThe/resources";
@@ -12,6 +13,7 @@ interface BlueSquareCardProps {
 }
 
 export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
+  const router = useRouter();
   const [showDetail, setShowDetail] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [buttonHovered, setButtonHovered] = useState<string | null>(null);
@@ -485,6 +487,7 @@ GUIDANCE AI</div>
   }}
   onMouseEnter={() => setButtonHovered('favorites')}
   onMouseLeave={() => setButtonHovered(null)}
+  onClick={() => router.push('/Favorites')}
 >Favorites
 </div>
 </div>

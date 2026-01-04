@@ -2,6 +2,7 @@
 
 import ImageWithSkeleton from '@/components/common/ImageWithSkeleton'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import {
   MarketCapIcon,
   RevenueIcon,
@@ -16,6 +17,7 @@ interface BlueSquareCardProps {
 }
 
 export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
+  const router = useRouter();
   const [showDetail, setShowDetail] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -124,7 +126,10 @@ export default function BlueSquareCard({ src, alt }: BlueSquareCardProps) {
                 <div className={`font-semibold text-white ${styles.metricValue}`}>★★★★★</div>
               </div>
               <div>
-              <button className={`border border-white flex items-center justify-center ${styles.buttonactionButton}`}>
+              <button 
+                className={`border border-white flex items-center justify-center ${styles.buttonactionButton}`}
+                onClick={() => router.push('/Favorites')}
+              >
               Add to Favorites
                 </button>
             </div>

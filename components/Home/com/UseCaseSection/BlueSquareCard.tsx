@@ -573,7 +573,7 @@ export default function BlueSquareCard({ card }: BlueSquareCardProps) {
   </div>
 </div>
 <div 
-  className="border border-white flex items-center justify-center" 
+  className="border border-white flex items-center justify-center cursor-pointer" 
   style={{ 
     width: px(128),
     height: '100%',
@@ -591,6 +591,7 @@ export default function BlueSquareCard({ card }: BlueSquareCardProps) {
   }}
   onMouseEnter={() => setButtonHovered('favorites')}
   onMouseLeave={() => setButtonHovered(null)}
+  onClick={() => router.push('/Favorites')}
 >Favorites
 </div>
 </div>

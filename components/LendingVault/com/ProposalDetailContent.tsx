@@ -88,8 +88,7 @@ export default function ProposalDetailContent() {
         <div    
           className="flex scrollbar-hide"
           style={{ height: "100vh", alignItems: "flex-start" ,paddingBottom:px(300) ,
-            overflowY: "auto",
-            overflowX: "hidden",}}
+            }}
         >
           {/* 左侧边栏 */}
           <ProposalDetailLeftSidebar data={proposalData?.detail?.leftSidebar} />

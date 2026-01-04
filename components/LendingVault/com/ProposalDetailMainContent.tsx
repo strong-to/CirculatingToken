@@ -67,6 +67,9 @@ export default function ProposalDetailMainContent({
         marginLeft: px(15),
         marginRight: px(15),
         flexShrink: 0,
+        height: px(1004),
+        overflow: 'hidden',
+        overflowY: 'auto',
       }}
     >
       {/* Proposal overview */}

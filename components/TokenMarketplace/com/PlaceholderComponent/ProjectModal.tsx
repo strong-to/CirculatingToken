@@ -349,6 +349,7 @@ export default function ProjectModal({
               <button
                 onMouseEnter={() => setIsFavoritesHovered(true)}
                 onMouseLeave={() => setIsFavoritesHovered(false)}
+                onClick={() => router.push('/Favorites')}
                 style={{
                   width: px(130),
                   height: px(30),

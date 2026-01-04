@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image"
+import { useRouter } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 
 interface ClickedContentProps {
@@ -16,6 +17,8 @@ export default function ClickedContent({
   onMouseEnter,
   onMouseLeave
 }: ClickedContentProps) {
+  const router = useRouter()
+  
   return (
     <>
       <div className="">
@@ -263,6 +266,7 @@ export default function ClickedContent({
           }}
           onMouseEnter={() => onMouseEnter(cardIndex, 'Favorites')}
           onMouseLeave={() => onMouseLeave(cardIndex, 'Favorites')}
+          onClick={() => router.push('/Favorites')}
         >Favorites
         </div>
       </div>

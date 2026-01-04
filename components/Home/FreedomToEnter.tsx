@@ -64,7 +64,7 @@ export default function  FreedomToEnter() {
                   fontStyle: 'normal',
                   fontSize: '5.125rem', // 82px = 5.125rem
                   lineHeight: '100%',
-                  letterSpacing: '0%'
+                  letterSpacing: '0%', marginBottom: px(-9),
                 }}
               >
            Freedom to Grow

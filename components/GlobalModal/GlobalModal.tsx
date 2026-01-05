@@ -7,6 +7,8 @@ import { useTexts } from '@/components/Home/com/YourNextWorld/useTexts'
 interface GlobalModalContextType {
   selectedCard: string | null
   setSelectedCard: (card: string | null) => void
+  clickedCards: Set<string>
+  setClickedCards: (cards: Set<string> | ((prev: Set<string>) => Set<string>)) => void
 }
 
 const GlobalModalContext = createContext<GlobalModalContextType | undefined>(undefined)
@@ -21,6 +23,7 @@ export function useGlobalModal() {
 
 export function GlobalModalProvider({ children }: { children: ReactNode }) {
   const [selectedCard, setSelectedCard] = useState<string | null>(null)
+  const [clickedCards, setClickedCards] = useState<Set<string>>(new Set())
   const texts = useTexts()
 
   const handleCloseModal = () => {
@@ -47,7 +50,7 @@ export function GlobalModalProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <GlobalModalContext.Provider value={{ selectedCard, setSelectedCard }}>
+    <GlobalModalContext.Provider value={{ selectedCard, setSelectedCard, clickedCards, setClickedCards }}>
       {children}
       
       {/* 全局弹窗 */}

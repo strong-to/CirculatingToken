@@ -336,17 +336,18 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
 
           <div style={{marginBottom: px(30)}}>
           <FilterSection 
-            onViewChange={setViewMode}
-            onFilterChange={(filterValues) => {
+            onViewChange={previewMode ? undefined : setViewMode}
+            onFilterChange={previewMode ? undefined : (filterValues) => {
               onDataChange?.({ filterValues })
             }}
             initialFilterValues={data?.filterValues}
+            previewMode={previewMode}
           />
           </div>
 
           <div style={{marginBottom: px(82)}}>
             
-          <ModelCardSlider />
+          <ModelCardSlider previewMode={previewMode} />
           </div>
 
 
@@ -370,29 +371,31 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
                 </span>
             </div>
 
-            <div
-                onClick={handleRefreshClick}
-                style={{
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
-                  borderRadius: px(4),
-                  marginLeft: px(32),
-                  paddingLeft: px(26),
-                  paddingRight: px(26),
-                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
-                  opacity: isRefreshClicked ? 0.6 : 1,
-                }}
-              >
-             {texts.uploadSection.refreshButton}
-              
-              </div>
+            {!previewMode && (
+              <div
+                  onClick={handleRefreshClick}
+                  style={{
+                    height: px(40),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#ffffff',
+                    backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
+                    borderRadius: px(4),
+                    marginLeft: px(32),
+                    paddingLeft: px(26),
+                    paddingRight: px(26),
+                    cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
+                    opacity: isRefreshClicked ? 0.6 : 1,
+                  }}
+                >
+               {texts.uploadSection.refreshButton}
+                
+                </div>
+            )}
 
       
           </div>
@@ -410,6 +413,8 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
               // 不重置 isRefreshClicked，保持按钮禁用状态
             }}
             presetContent={presetContent}
+            uploadedFileInfo={uploadedFileInfo}
+            previewMode={previewMode}
           />
 
 

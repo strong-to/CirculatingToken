@@ -15,6 +15,7 @@ interface Category {
 }
 
 interface FilterDropdownProps {
+  previewMode?: boolean
   placeholder: string
   categories?: Category[]
   options?: string[] // 简单选项列表（如果没有分类）
@@ -29,9 +30,17 @@ export default function FilterDropdown({
   options,
   value, 
   onChange,
-  description
+  description,
+  previewMode = false
 }: FilterDropdownProps) {
   const [isOpen, setIsOpen] = useState(false)
+  
+  // 在预览模式下禁用下拉
+  useEffect(() => {
+    if (previewMode === true) {
+      setIsOpen(false)
+    }
+  }, [previewMode])
   const [selectedValue, setSelectedValue] = useState(value || '')
   const [hoveredCategory, setHoveredCategory] = useState<string | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null) // 点击的一级项
@@ -92,6 +101,7 @@ export default function FilterDropdown({
   }, [isOpen])
 
   const handleSelect = (option: string) => {
+    if (previewMode) return
     setSelectedValue(option)
     setIsOpen(false)
     setHoveredCategory(null)
@@ -102,6 +112,7 @@ export default function FilterDropdown({
   }
 
   const handleCategoryClick = (categoryLabel: string) => {
+    if (previewMode) return
     // 点击一级项，切换二级菜单的显示
     if (selectedCategory === categoryLabel) {
       setSelectedCategory(null)
@@ -113,6 +124,7 @@ export default function FilterDropdown({
   }
 
   const handleCategorySelect = (categoryLabel: string, subCategory: string) => {
+    if (previewMode) return
     setSelectedValue(`${categoryLabel} / ${subCategory}`)
     setIsOpen(false)
     setHoveredCategory(null)
@@ -125,9 +137,10 @@ export default function FilterDropdown({
     <div className="relative flex-1" ref={dropdownRef}>
       <div
         ref={triggerRef}
-        onClick={() => setIsOpen(!isOpen)}
-        className="cursor-pointer flex items-center justify-between"
+        onClick={previewMode ? undefined : () => setIsOpen(!isOpen)}
+        className={previewMode ? 'flex items-center justify-between' : 'cursor-pointer flex items-center justify-between'}
         style={{
+          cursor: previewMode ? 'default' : 'pointer',
           width: '100%',
           height: px(44),
           paddingLeft: px(12),
@@ -169,7 +182,7 @@ export default function FilterDropdown({
         </svg>
       </div>
       
-      {isOpen && dropdownWidth > 0 && (
+      {!previewMode && isOpen && dropdownWidth > 0 && (
         <div
           className="absolute z-50 dropdown-menu"
           style={{
@@ -226,7 +239,7 @@ export default function FilterDropdown({
                     >
                       <div
                         className="cursor-pointer flex items-center justify-between"
-                        onClick={(e) => {
+                        onClick={previewMode ? undefined : (e) => {
                           e.stopPropagation()
                           handleCategoryClick(category.label)
                         }}
@@ -327,7 +340,7 @@ export default function FilterDropdown({
                       return (
                         <div
                           key={subIndex}
-                          onClick={() => handleCategorySelect(selectedCategory, subLabel)}
+                          onClick={previewMode ? undefined : () => handleCategorySelect(selectedCategory, subLabel)}
                           className="cursor-pointer  flex items-center justify-start"
                           style={{
                             height: px(60),
@@ -383,7 +396,7 @@ export default function FilterDropdown({
                 return (
                   <div
                     key={index}
-                    onClick={() => handleSelect(option)}
+                    onClick={previewMode ? undefined : () => handleSelect(option)}
                     className="cursor-pointer flex items-center justify-start"
                     onMouseEnter={() => setHoveredOption(option)}
                     onMouseLeave={() => setHoveredOption(null)}

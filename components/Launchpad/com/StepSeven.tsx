@@ -23,7 +23,7 @@ function StepSevenPreview({ showStatus, launchpadData }: StepSevenPreviewProps) 
   const previewMode = !!showStatus
   return (
     <div>
-      <StepOne currentStep={0} data={launchpadData?.stepOne} />
+      <StepOne currentStep={0} previewMode={previewMode} data={launchpadData?.stepOne} />
       <StepTwo previewMode={previewMode} data={launchpadData?.stepTwo} />
       <StepThree previewMode={previewMode} data={launchpadData?.stepThree} /> 
       <StepFour previewMode={previewMode} data={launchpadData?.stepFour} />

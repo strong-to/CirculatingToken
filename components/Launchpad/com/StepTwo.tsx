@@ -315,28 +315,30 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
                 <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.projectNameSection.description }} />
             </div>
 
-              <div
-                style={{
-                  width: px(100),
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: '#000000',
-                  borderRadius: px(4),
-                  padding: px(8),
-                  cursor: nameRefreshCount >= 5 ? 'default' : 'pointer',
-                  opacity: nameRefreshCount >= 5 ? 0.4 : 1,
-                }}
-                onClick={handleRefreshInputs}
-              >
-              <span suppressHydrationWarning>{texts.projectNameSection.refreshButton}</span>
-              
-              </div>
+              {!previewMode && (
+                <div
+                  style={{
+                    width: px(100),
+                    height: px(40),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#ffffff',
+                    backgroundColor: '#000000',
+                    borderRadius: px(4),
+                    padding: px(8),
+                    cursor: nameRefreshCount >= 5 ? 'default' : 'pointer',
+                    opacity: nameRefreshCount >= 5 ? 0.4 : 1,
+                  }}
+                  onClick={handleRefreshInputs}
+                >
+                <span suppressHydrationWarning>{texts.projectNameSection.refreshButton}</span>
+                
+                </div>
+              )}
           </div>
 
 
@@ -360,14 +362,15 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
               <input
                 key={index}
                 type="text"
-                placeholder={placeholder}
+                placeholder={previewMode ? '' : placeholder}
                 value={inputValues[index] || ''}
-                onChange={(e) => {
+                onChange={previewMode ? undefined : (e) => {
                   const next = [...inputValues]
                   next[index] = e.target.value
                   setInputValues(next)
                   onDataChange?.({ inputValues: next })
                 }}
+                readOnly={previewMode}
                 style={{
                   width: '100%',
                   height: px(44),
@@ -382,6 +385,7 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
                   lineHeight: '100%',
                   letterSpacing: '0%',
                   color: inputValues[index] ? '#000000' : '#8C8C8C',
+                  cursor: previewMode ? 'default' : 'text',
                 }}
               />
             ))}
@@ -405,28 +409,30 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
                 <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.logoSection.description }} />
             </div>
 
-              <div
-                style={{
-                  width: px(100),
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: '#000000',
-                  borderRadius: px(4),
-                  padding: px(8),
-                  cursor: logoRefreshCount >= 5 ? 'default' : 'pointer',
-                  opacity: logoRefreshCount >= 5 ? 0.4 : 1,
-                }}
-                onClick={handleRefreshLogos}
-              >
-              <span suppressHydrationWarning>{texts.logoSection.refreshButton}</span>
-              
-              </div>
+              {!previewMode && (
+                <div
+                  style={{
+                    width: px(100),
+                    height: px(40),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#ffffff',
+                    backgroundColor: '#000000',
+                    borderRadius: px(4),
+                    padding: px(8),
+                    cursor: logoRefreshCount >= 5 ? 'default' : 'pointer',
+                    opacity: logoRefreshCount >= 5 ? 0.4 : 1,
+                  }}
+                  onClick={handleRefreshLogos}
+                >
+                <span suppressHydrationWarning>{texts.logoSection.refreshButton}</span>
+                
+                </div>
+              )}
           </div>
 
 
@@ -452,6 +458,9 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
             ].map((box, index) => (
               <div
                 key={`upload-box-${index}`}
+                onClick={previewMode ? undefined : () => handleBoxClick(index)}
+                onMouseEnter={previewMode ? undefined : () => setHoverBoxIndex(index)}
+                onMouseLeave={previewMode ? undefined : () => setHoverBoxIndex((prev) => (prev === index ? null : prev))}
                 style={{
                   width: '100%',
                   aspectRatio: box.ratio,
@@ -462,13 +471,10 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: px(8),
-                  cursor: 'pointer',
+                  cursor: previewMode ? 'default' : 'pointer',
                   overflow: 'hidden',
                   position: 'relative',
                 }}
-                onClick={() => handleBoxClick(index)}
-                onMouseEnter={() => setHoverBoxIndex(index)}
-                onMouseLeave={() => setHoverBoxIndex((prev) => (prev === index ? null : prev))}
               >
                 <input
                   type="file"
@@ -491,7 +497,7 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
                         objectFit: 'cover',
                       }}
                     />
-                    {hoverBoxIndex === index && (
+                    {!previewMode && hoverBoxIndex === index && (
                       <button
                         type="button"
                         onClick={(e) => handleRemoveImage(index, e)}
@@ -512,14 +518,14 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
                 ) : (
                   <>
                     <div
-                      onClick={(e) => handlePlusClick(index, e)}
+                      onClick={previewMode ? undefined : (e) => handlePlusClick(index, e)}
                       style={{
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
                         gap: px(8),
-                        cursor: 'pointer',
+                        cursor: previewMode ? 'default' : 'pointer',
                       }}
                     >
                       <PlusIcon />

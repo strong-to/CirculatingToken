@@ -237,28 +237,30 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                 
           </div>
 
-              <div
-                onClick={handleRefreshAll}
-        
-          style={{
-            height: px(40),
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: '#000000',
-                  borderRadius: px(4),
-                  paddingLeft: px(26),
-                  paddingRight: px(26),
-                  cursor: hasRefreshed ? 'default' : 'pointer',
-                  opacity: hasRefreshed ? 0.4 : 1,
-                }}
-              >
-                Refresh 
-              </div>
+              {!previewMode && (
+                <div
+                  onClick={handleRefreshAll}
+          
+            style={{
+              height: px(40),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#ffffff',
+                    backgroundColor: '#000000',
+                    borderRadius: px(4),
+                    paddingLeft: px(26),
+                    paddingRight: px(26),
+                    cursor: hasRefreshed ? 'default' : 'pointer',
+                    opacity: hasRefreshed ? 0.4 : 1,
+                  }}
+                >
+                  Refresh 
+                </div>
+              )}
             </div>
             
 
@@ -329,10 +331,11 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                         placeholder={pricingMethodLabels.placeholder}
                         options={pricingOptions}
                         value={basicPricingMethod}
-                        onChange={(value) => updateStepSixData({ basicPricingMethod: value })}
+                        onChange={previewMode ? undefined : (value) => updateStepSixData({ basicPricingMethod: value })}
                         isCustom={isBasicCustom}
                         customText={basicCustomLeftText}
-                        onCustomTextChange={(text) => updateStepSixData({ basicCustomLeftText: text })}
+                        onCustomTextChange={previewMode ? undefined : (text) => updateStepSixData({ basicCustomLeftText: text })}
+                        previewMode={previewMode}
                       />
                     </div>
             </div>
@@ -375,12 +378,13 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                             <input
                               type="text"
                               value={basicCustomQuantities[rowIndex]}
-                              onChange={(e) => {
+                              onChange={previewMode ? undefined : (e) => {
                                 const next = [...basicCustomQuantities]
                                 next[rowIndex] = e.target.value
                                 updateStepSixData({ basicCustomQuantities: next })
                               }}
-                              placeholder={pricingMethodLabels.quantityUnit}
+                              placeholder={previewMode ? '' : pricingMethodLabels.quantityUnit}
+                              readOnly={previewMode}
                               style={{
                                 width: '100%',
                                 height: '100%',
@@ -449,19 +453,20 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                               <input
                                 type="text"
                                 value={basicCustomPrices[rowIndex]}
-                                onChange={(e) => {
+                                onChange={previewMode ? undefined : (e) => {
                                   const numericValue = handleNumericInput(e.target.value)
                                   const next = [...basicCustomPrices]
                                   next[rowIndex] = numericValue
                                   updateStepSixData({ basicCustomPrices: next })
                                 }}
-                                onBlur={(e) => {
+                                onBlur={previewMode ? undefined : (e) => {
                                   const formatted = formatNumberWithThousands(e.target.value)
                                   const next = [...basicCustomPrices]
                                   next[rowIndex] = formatted
                                   updateStepSixData({ basicCustomPrices: next })
                                 }}
-                                placeholder={pricingMethodLabels.pricePlaceholder}
+                                placeholder={previewMode ? '' : pricingMethodLabels.pricePlaceholder}
+                                readOnly={previewMode}
               style={{
                                   width: '100%',
                                   height: '100%',
@@ -574,10 +579,11 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                         placeholder={pricingMethodLabels.placeholder}
                         options={pricingOptions}
                         value={advancedPricingMethod}
-                        onChange={(value) => updateStepSixData({ advancedPricingMethod: value })}
+                        onChange={previewMode ? undefined : (value) => updateStepSixData({ advancedPricingMethod: value })}
                         isCustom={isAdvancedCustom}
                         customText={advancedCustomLeftText}
-                        onCustomTextChange={(text) => updateStepSixData({ advancedCustomLeftText: text })}
+                        onCustomTextChange={previewMode ? undefined : (text) => updateStepSixData({ advancedCustomLeftText: text })}
+                        previewMode={previewMode}
                       />
         </div>
                   </div>
@@ -620,12 +626,13 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                             <input
                               type="text"
                               value={advancedCustomQuantities[rowIndex]}
-                              onChange={(e) => {
+                              onChange={previewMode ? undefined : (e) => {
                                 const next = [...advancedCustomQuantities]
                                 next[rowIndex] = e.target.value
                                 updateStepSixData({ advancedCustomQuantities: next })
                               }}
-                              placeholder={pricingMethodLabels.quantityUnit}
+                              placeholder={previewMode ? '' : pricingMethodLabels.quantityUnit}
+                              readOnly={previewMode}
               style={{
                                 width: '100%',
                                 height: '100%',
@@ -694,19 +701,20 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                               <input
                                 type="text"
                                 value={advancedCustomPrices[rowIndex]}
-                                onChange={(e) => {
+                                onChange={previewMode ? undefined : (e) => {
                                   const numericValue = handleNumericInput(e.target.value)
                                   const next = [...advancedCustomPrices]
                                   next[rowIndex] = numericValue
                                   updateStepSixData({ advancedCustomPrices: next })
                                 }}
-                                onBlur={(e) => {
+                                onBlur={previewMode ? undefined : (e) => {
                                   const formatted = formatNumberWithThousands(e.target.value)
                                   const next = [...advancedCustomPrices]
                                   next[rowIndex] = formatted
                                   updateStepSixData({ advancedCustomPrices: next })
                                 }}
-                                placeholder={pricingMethodLabels.pricePlaceholder}
+                                placeholder={previewMode ? '' : pricingMethodLabels.pricePlaceholder}
+                                readOnly={previewMode}
               style={{
                                   width: '100%',
                                   height: '100%',
@@ -776,28 +784,30 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                 {texts.economicDataSection.description}
           </div>
 
-              <div
-                onClick={handleEconomicRefresh}
-          style={{
-            height: px(40),
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: '#000000',
-                  borderRadius: px(4),
-                  paddingLeft: px(26),
-                  paddingRight: px(26),
-                  cursor: hasEconomicRefreshed ? 'default' : 'pointer',
-                  opacity: hasEconomicRefreshed ? 0.4 : 1,
-                 
-                }}
-              >
-                {texts.economicDataSection.refreshButton} 
-              </div>
+              {!previewMode && (
+                <div
+                  onClick={handleEconomicRefresh}
+            style={{
+              height: px(40),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#ffffff',
+                    backgroundColor: '#000000',
+                    borderRadius: px(4),
+                    paddingLeft: px(26),
+                    paddingRight: px(26),
+                    cursor: hasEconomicRefreshed ? 'default' : 'pointer',
+                    opacity: hasEconomicRefreshed ? 0.4 : 1,
+                   
+                  }}
+                >
+                  {texts.economicDataSection.refreshButton} 
+                </div>
+              )}
         </div>
 
 
@@ -899,19 +909,20 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
                     <input
                       type="text"
                       value={economicTableValues[rowIndex][colIndex]}
-                      onChange={(e) => {
+                      onChange={previewMode ? undefined : (e) => {
                         const numericValue = handleNumericInput(e.target.value)
                         const next = economicTableValues.map((row) => [...row])
                         next[rowIndex][colIndex] = numericValue
                         updateStepSixData({ economicTableValues: next })
                       }}
-                      onBlur={(e) => {
+                      onBlur={previewMode ? undefined : (e) => {
                         const formatted = formatNumberWithThousands(e.target.value)
                         const next = economicTableValues.map((row) => [...row])
                         next[rowIndex][colIndex] = formatted
                         updateStepSixData({ economicTableValues: next })
                       }}
-                      placeholder="0.00"
+                      placeholder={previewMode ? '' : "0.00"}
+                      readOnly={previewMode}
                       style={{
                         width: '100%',
                         height: '100%',

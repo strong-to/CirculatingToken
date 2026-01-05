@@ -17,7 +17,7 @@ interface RequirementInputProps {
   readonly?: boolean
 }
 
-function RequirementInput({ label, inputValue, dropdownValue, options, onInputChange, onDropdownChange, readonly = false }: RequirementInputProps) {
+function RequirementInput({ label, inputValue, dropdownValue, options, onInputChange, onDropdownChange, readonly = false, previewMode = false }: RequirementInputProps & { previewMode?: boolean }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const maskId = useRef(`mask-${Math.random().toString(36).substr(2, 9)}`).current
@@ -46,8 +46,8 @@ function RequirementInput({ label, inputValue, dropdownValue, options, onInputCh
           type="text"
           value={inputValue}
           onChange={(e) => onInputChange(e.target.value)}
-          placeholder={label || 'Please enter.'}
-          readOnly={readonly}
+          placeholder={previewMode ? '' : (label || 'Please enter.')}
+          readOnly={readonly || previewMode}
           tabIndex={readonly ? -1 : 0}
           style={{
             flex: 1,
@@ -422,28 +422,30 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
                 <span  />
             </div>
 
-              <div
-                onClick={handleRefreshClick}
-                style={{
-                  paddingLeft: px(26),
-                  paddingRight: px(26),
-                  height: px(40),
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
-                  borderRadius: px(4),
-                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
-                  opacity: isRefreshClicked ? 0.6 : 1,
-                }}
-              >
-             {texts.refreshButton}
-              
-              </div>
+              {previewMode !== true && (
+                <div
+                  onClick={handleRefreshClick}
+                  style={{
+                    paddingLeft: px(26),
+                    paddingRight: px(26),
+                    height: px(40),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                    color: '#ffffff',
+                    backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
+                    borderRadius: px(4),
+                    cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
+                    opacity: isRefreshClicked ? 0.6 : 1,
+                  }}
+                >
+               {texts.refreshButton}
+                
+                </div>
+              )}
           </div>
 
 
@@ -467,6 +469,7 @@ export default function StepFour({ onEnter, previewMode, data, onDataChange }: S
                   onDataChange={(data) => handleRowDataChange(index, data)}
                   handleNumberInput={handleNumberInput}
                   formatNumberOnBlur={formatNumberOnBlur}
+                  previewMode={previewMode}
                 />
               </div>
             ))}

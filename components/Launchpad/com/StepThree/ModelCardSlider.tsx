@@ -13,16 +13,20 @@ import { images } from '@/components/Home/com/YourNextWorld/resources'
 import { useTexts } from '@/components/Home/com/YourNextWorld/useTexts'
 import { useGlobalModal } from '@/components/GlobalModal/GlobalModal'
 
-export default function ModelCardSlider() {
+interface ModelCardSliderProps {
+  previewMode?: boolean
+}
+
+export default function ModelCardSlider({ previewMode = false }: ModelCardSliderProps = {}) {
   const texts = useTexts()
   const router = useRouter()
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
-  const [clickedCards, setClickedCards] = useState<Set<string>>(new Set())
-  const { setSelectedCard } = useGlobalModal()
+  const { setSelectedCard, clickedCards, setClickedCards } = useGlobalModal()
   const swiperRef = useRef<SwiperType | null>(null)
   const gap = 15 // 1.41875rem = 22.7px
 
   const handleCardClick = (cardType: string) => {
+    if (previewMode) return
     // 如果点击的是已经选中的卡片，则取消选中；否则选中该卡片
     setClickedCards(prev => {
       const newSet = new Set(prev)
@@ -98,16 +102,16 @@ export default function ModelCardSlider() {
           {/* 5 个盒子 */}
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg  flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
               }}
-              onMouseEnter={() => setHoveredCard("datasets")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("datasets")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("datasets")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("datasets")}
             >
               {/* 初始化图片 */}
               <div
@@ -163,16 +167,16 @@ export default function ModelCardSlider() {
 
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg flex items-end justify-center"
               style={{
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               }}
-              onMouseEnter={() => setHoveredCard("computePool")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("computePool")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("computePool")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("computePool")}
             >
               {/* 初始化图片 */}
               <div
@@ -228,16 +232,17 @@ export default function ModelCardSlider() {
 
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg  flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
+                cursor: previewMode ? 'default' : 'pointer',
               }}
-              onMouseEnter={() => setHoveredCard("foundationalModels")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("foundationalModels")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("foundationalModels")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("foundationalModels")}
             >
               {/* 初始化图片 */}
               <div
@@ -295,16 +300,17 @@ export default function ModelCardSlider() {
        
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
+                cursor: previewMode ? 'default' : 'pointer',
               }}
-              onMouseEnter={() => setHoveredCard("workflows")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("workflows")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("workflows")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("workflows")}
             >
               {/* 初始化图片 */}
               <div
@@ -360,16 +366,17 @@ export default function ModelCardSlider() {
           
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
+                cursor: previewMode ? 'default' : 'pointer',
               }}
-              onMouseEnter={() => setHoveredCard("aiAgents")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("aiAgents")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("aiAgents")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("aiAgents")}
             >
               {/* 初始化图片 */}
               <div
@@ -426,16 +433,16 @@ export default function ModelCardSlider() {
           {/* 额外再复制 5 个盒子，初始化时一共 10 张，滚动更顺畅 */}
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg  flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
               }}
-              onMouseEnter={() => setHoveredCard("datasets")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("datasets")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("datasets")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("datasets")}
             >
               <div
                 style={{
@@ -444,7 +451,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "datasets" ? 0 : 1,
+                  opacity: (hoveredCard === "datasets" || clickedCards.has("datasets")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -465,7 +472,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "datasets" ? 1 : 0,
+                  opacity: (hoveredCard === "datasets" || clickedCards.has("datasets")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -489,16 +496,16 @@ export default function ModelCardSlider() {
 
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg flex items-end justify-center"
               style={{
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               }}
-              onMouseEnter={() => setHoveredCard("computePool")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("computePool")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("computePool")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("computePool")}
             >
               <div
                 style={{
@@ -552,16 +559,17 @@ export default function ModelCardSlider() {
 
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg  flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg  flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
+                cursor: previewMode ? 'default' : 'pointer',
               }}
-              onMouseEnter={() => setHoveredCard("foundationalModels")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("foundationalModels")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("foundationalModels")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("foundationalModels")}
             >
               <div
                 style={{
@@ -617,16 +625,17 @@ export default function ModelCardSlider() {
 
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
+                cursor: previewMode ? 'default' : 'pointer',
               }}
-              onMouseEnter={() => setHoveredCard("workflows")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("workflows")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("workflows")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("workflows")}
             >
               <div
                 style={{
@@ -680,16 +689,17 @@ export default function ModelCardSlider() {
 
           <SwiperSlide>
             <div
-              className="relative overflow-hidden shadow-lg flex items-end justify-center cursor-pointer"
+              className="relative overflow-hidden shadow-lg flex items-end justify-center"
               style={{
                 paddingBottom: px(22),
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                 borderRadius: px(4),
                 aspectRatio: "2 / 3",
+                cursor: previewMode ? 'default' : 'pointer',
               }}
-              onMouseEnter={() => setHoveredCard("aiAgents")}
-              onMouseLeave={() => setHoveredCard(null)}
-              onClick={() => handleCardClick("aiAgents")}
+              onMouseEnter={previewMode ? undefined : () => setHoveredCard("aiAgents")}
+              onMouseLeave={previewMode ? undefined : () => setHoveredCard(null)}
+              onClick={previewMode ? undefined : () => handleCardClick("aiAgents")}
             >
               <div
                 style={{

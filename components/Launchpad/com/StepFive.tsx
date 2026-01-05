@@ -360,29 +360,31 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                 <span  />
       </div>
       
-        <button
-                onClick={handleRefreshClick}
-                disabled={isRefreshClicked}
-          style={{
-                  paddingLeft: px(26),
-                  paddingRight: px(26),
-                  height: px(40),
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontSize: px(14),
-                  color: '#ffffff',
-                  backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
-                  borderRadius: px(4),
-                  border: 'none',
-                  cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
-                  opacity: isRefreshClicked ? 0.6 : 1,
-                }}
-              >
-                {texts.refreshButton}
-        </button>
+        {previewMode !== true && (
+          <button
+            onClick={handleRefreshClick}
+            disabled={isRefreshClicked}
+            style={{
+              paddingLeft: px(26),
+              paddingRight: px(26),
+              height: px(40),
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              fontWeight: 300,
+              fontSize: px(14),
+              color: '#ffffff',
+              backgroundColor: isRefreshClicked ? '#8C8C8C' : '#000000',
+              borderRadius: px(4),
+              border: 'none',
+              cursor: isRefreshClicked ? 'not-allowed' : 'pointer',
+              opacity: isRefreshClicked ? 0.6 : 1,
+            }}
+          >
+            {texts.refreshButton}
+          </button>
+        )}
     </div>
 
           {/* 6行输入框布局 */}
@@ -432,18 +434,19 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                 <input
                   type="text"
                   value={fieldValues[leftField as keyof typeof fieldValues]}
-                  onChange={(e) => {
+                  onChange={previewMode ? undefined : (e) => {
                     const numericValue = handleNumericInput(e.target.value)
                     const newValues = { ...fieldValues, [leftField]: numericValue }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
-                  onBlur={(e) => {
+                  onBlur={previewMode ? undefined : (e) => {
                     const newValues = { ...fieldValues, [leftField]: formatNumberWithThousands(e.target.value) }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
-                  placeholder="0.00"
+                  placeholder={previewMode ? '' : "0.00"}
+                  readOnly={previewMode}
           style={{
                     width: px(83),
                     height: '100%',
@@ -508,18 +511,19 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                 <input
                   type="text"
                   value={fieldValues[rightField as keyof typeof fieldValues]}
-                  onChange={(e) => {
+                  onChange={previewMode ? undefined : (e) => {
                     const numericValue = handleNumericInput(e.target.value)
                     const newValues = { ...fieldValues, [rightField]: numericValue }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
-                  onBlur={(e) => {
+                  onBlur={previewMode ? undefined : (e) => {
                     const newValues = { ...fieldValues, [rightField]: formatNumberWithThousands(e.target.value) }
                     setFieldValues(newValues)
                     onDataChange?.({ fieldValues: newValues })
                   }}
-                  placeholder="0.00"
+                  placeholder={previewMode ? '' : "0.00"}
+                  readOnly={previewMode}
        style={{
                     width: px(127),
                     height: '100%',

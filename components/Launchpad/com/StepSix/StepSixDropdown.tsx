@@ -11,6 +11,7 @@ interface StepSixDropdownProps {
   isCustom?: boolean
   customText?: string
   onCustomTextChange?: (value: string) => void
+  previewMode?: boolean
 }
 
 export default function StepSixDropdown({
@@ -21,8 +22,16 @@ export default function StepSixDropdown({
   isCustom,
   customText,
   onCustomTextChange,
+  previewMode = false,
 }: StepSixDropdownProps) {
   const [isOpen, setIsOpen] = useState(false)
+  
+  // 在预览模式下禁用下拉
+  useEffect(() => {
+    if (previewMode && isOpen) {
+      setIsOpen(false)
+    }
+  }, [previewMode, isOpen])
   const [selectedValue, setSelectedValue] = useState(value || '')
   const dropdownRef = useRef<HTMLDivElement>(null)
   const triggerRef = useRef<HTMLDivElement>(null)
@@ -68,6 +77,7 @@ export default function StepSixDropdown({
   }, [isOpen])
 
   const handleSelect = (option: string) => {
+    if (previewMode) return
     setSelectedValue(option)
     setIsOpen(false)
     onChange?.(option)
@@ -98,7 +108,7 @@ export default function StepSixDropdown({
           <input
             type="text"
             value={customText || ''}
-            onChange={(e) => onCustomTextChange?.(e.target.value)}
+            onChange={previewMode ? undefined : (e) => onCustomTextChange?.(e.target.value)}
             placeholder={placeholder}
             onClick={(e) => e.stopPropagation()} // 点击输入不展开下拉
             style={{
@@ -170,7 +180,7 @@ export default function StepSixDropdown({
           {options.map((option, index) => (
             <div
               key={index}
-              onClick={() => handleSelect(option)}
+              onClick={previewMode ? undefined : () => handleSelect(option)}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               className="cursor-pointer"

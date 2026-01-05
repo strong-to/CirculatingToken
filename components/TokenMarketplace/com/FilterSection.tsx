@@ -59,9 +59,10 @@ interface FilterSectionProps {
     sortBy?: string
     search?: string
   }
+  previewMode?: boolean
 }
 
-export default function FilterSection({ onViewChange, onFilterChange, initialFilterValues }: FilterSectionProps) {
+export default function FilterSection({ onViewChange, onFilterChange, initialFilterValues, previewMode = false }: FilterSectionProps) {
   const [selectedView, setSelectedView] = useState<'Number of Users' | 'Latest Contribution'>(
     (initialFilterValues?.sortBy as 'Number of Users' | 'Latest Contribution') || 'Latest Contribution'
   )
@@ -147,7 +148,8 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
       <SearchInput
         placeholder="Search"
         value={filterValues.search}
-        onChange={(value) => handleFilterChange('search', value)}
+        onChange={previewMode ? undefined : (value) => handleFilterChange('search', value)}
+        previewMode={previewMode}
       />
     </div>
   )

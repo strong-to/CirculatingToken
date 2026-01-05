@@ -3,6 +3,7 @@
 import { px } from '@/utils/pxToRem'
 
 interface SearchInputProps {
+  previewMode?: boolean
   placeholder?: string
   value?: string
   onChange?: (value: string) => void
@@ -11,7 +12,8 @@ interface SearchInputProps {
 export default function SearchInput({ 
   placeholder = 'Search',
   value,
-  onChange
+  onChange,
+  previewMode = false
 }: SearchInputProps) {
   return (
     <div className="relative flex items-center flex-1">
@@ -42,7 +44,9 @@ export default function SearchInput({
           type="text"
           placeholder={placeholder}
           value={value}
-          onChange={(e) => onChange?.(e.target.value)}
+          onChange={previewMode ? undefined : (e) => onChange?.(e.target.value)}
+          readOnly={previewMode}
+          placeholder={previewMode ? '' : placeholder}
           style={{
             flex: 1,
             border: 'none',

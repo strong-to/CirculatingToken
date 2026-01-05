@@ -8,6 +8,7 @@ import type { StepOneData } from '../Launchpad'
 interface StepOneProps {
   currentStep: number
   onEnter?: () => void
+  previewMode?: boolean
   data?: StepOneData
   onDataChange?: (data: Partial<StepOneData>) => void
 }
@@ -29,7 +30,7 @@ const defaultTexts = {
 
 type StepOneTexts = typeof defaultTexts
 
-export default function StepOne({ currentStep, onEnter, data, onDataChange }: StepOneProps) {
+export default function StepOne({ currentStep, onEnter, previewMode, data, onDataChange }: StepOneProps) {
   const [firstTextareaValue, setFirstTextareaValue] = useState(data?.firstTextareaValue || '')
   const [secondTextareaValue, setSecondTextareaValue] = useState(data?.secondTextareaValue || '')
   
@@ -86,7 +87,7 @@ export default function StepOne({ currentStep, onEnter, data, onDataChange }: St
           <textarea
             className="rounded w-full"
             value={firstTextareaValue}
-            onChange={(e) => {
+            onChange={previewMode ? undefined : (e) => {
               const value = e.target.value
               setFirstTextareaValue(value)
               const generatedValue = generateFunctionSortingText(value)
@@ -97,15 +98,17 @@ export default function StepOne({ currentStep, onEnter, data, onDataChange }: St
                 secondTextareaValue: generatedValue,
               })
             }}
+            readOnly={previewMode}
             style={{
               minHeight: px(170),
               padding: px(12),
               border: `0.5px solid #000000`,
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontSize: px(16),
-              resize: 'vertical',
+              resize: previewMode ? 'none' : 'vertical',
+              cursor: previewMode ? 'default' : 'text',
             }}
-            placeholder={texts.textarea1Placeholder}
+            placeholder={previewMode ? '' : texts.textarea1Placeholder}
           />
         </div>
         
@@ -138,11 +141,11 @@ export default function StepOne({ currentStep, onEnter, data, onDataChange }: St
               border: `0.5px solid #000000`,
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
               fontSize: px(16),
-              resize: 'vertical',
+              resize: 'none',
               cursor: 'default',
               outline: 'none',
             }}
-            placeholder={texts.textarea2Placeholder}
+            placeholder={previewMode ? '' : texts.textarea2Placeholder}
           />
         </div>
         

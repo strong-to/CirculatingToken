@@ -15,7 +15,7 @@ interface TableDropdownPropsWithCallback extends TableDropdownProps {
   onOpenChange?: (isOpen: boolean) => void
 }
 
-function TableDropdown({ placeholder, options, value, onChange, onOpenChange }: TableDropdownPropsWithCallback) {
+function TableDropdown({ placeholder, options, value, onChange, onOpenChange, previewMode = false }: TableDropdownPropsWithCallback & { previewMode?: boolean }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
   const maskId = useRef(`table-dropdown-${Math.random().toString(36).substr(2, 9)}`).current
@@ -57,8 +57,11 @@ function TableDropdown({ placeholder, options, value, onChange, onOpenChange }: 
       }}
     >
       <div
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={previewMode ? undefined : () => setIsOpen(!isOpen)}
         className="cursor-pointer flex items-center justify-between"
+        style={{
+          cursor: previewMode ? 'default' : 'pointer',
+        }}
         style={{
           width: '100%',
           height: '100%',
@@ -180,6 +183,7 @@ export interface RequirementRowProps {
   // 格式化数字相关函数（已废弃，保留以兼容）
   handleNumberInput?: (value: string, setter: (value: string) => void) => void
   formatNumberOnBlur?: (value: string, setter: (value: string) => void) => void
+  previewMode?: boolean
 }
 
 export default function RequirementRow({
@@ -189,6 +193,7 @@ export default function RequirementRow({
   onDataChange,
   handleNumberInput,
   formatNumberOnBlur,
+  previewMode = false,
 }: RequirementRowProps) {
   const [localData, setLocalData] = useState<RequirementRowData>(data)
   const [isCustomDropdownOpen, setIsCustomDropdownOpen] = useState(false)
@@ -314,8 +319,9 @@ export default function RequirementRow({
             <input
               type="text"
               value={localData.customRequirement}
-              onChange={(e) => updateData({ customRequirement: e.target.value })}
-              placeholder="Construction Requirement Item"
+              onChange={previewMode ? undefined : (e) => updateData({ customRequirement: e.target.value })}
+              placeholder={previewMode ? '' : "Construction Requirement Item"}
+              readOnly={previewMode}
               style={{
                 width: '100%',
                 height: '100%',
@@ -330,9 +336,10 @@ export default function RequirementRow({
                 backgroundColor: '#FFFFFF',
               }}
             />
-            <div
-              onClick={() => setIsCustomDropdownOpen(!isCustomDropdownOpen)}
-              className="cursor-pointer flex items-center justify-center"
+            {!previewMode && (
+              <div
+                onClick={() => setIsCustomDropdownOpen(!isCustomDropdownOpen)}
+                className="cursor-pointer flex items-center justify-center"
               style={{
                 position: 'absolute',
                 right: px(12),
@@ -358,9 +365,10 @@ export default function RequirementRow({
                 <path d="M9.00008 12.5984L8.29297 13.3055L9.00008 14.0127L9.70718 13.3055L9.00008 12.5984ZM16.2 5.39844L15.4929 4.69133L8.29297 11.8913L9.00008 12.5984L9.70718 13.3055L16.9072 6.10554L16.2 5.39844ZM9.00008 12.5984L9.70718 11.8913L2.50715 4.69133L1.80005 5.39844L1.09294 6.10555L8.29297 13.3055L9.00008 12.5984Z" fill={localData.customRequirement || localData.selectedRequirement ? '#000000' : '#8C8C8C'} mask="url(#custom-dropdown-mask)"/>
               </svg>
             </div>
+            )}
             
             {/* 自定义模式下的下拉菜单 */}
-            {isCustomDropdownOpen && requirementOptions.length > 0 && (
+            {!previewMode && isCustomDropdownOpen && requirementOptions.length > 0 && (
               <div
                 className="absolute dropdown-menu"
                 style={{
@@ -442,6 +450,7 @@ export default function RequirementRow({
               updateData(updates)
             }}
             onOpenChange={setIsTableDropdownOpen}
+            previewMode={previewMode}
           />
         )}
       </div>
@@ -460,9 +469,10 @@ export default function RequirementRow({
           <input
             type="text"
             value={localData.customUnit}
-            onChange={(e) => handleInputChange(e.target.value, 'customUnit')}
-            onBlur={(e) => handleInputBlur(e.target.value, 'customUnit')}
-            placeholder="Units"
+            onChange={previewMode ? undefined : (e) => handleInputChange(e.target.value, 'customUnit')}
+            onBlur={previewMode ? undefined : (e) => handleInputBlur(e.target.value, 'customUnit')}
+            placeholder={previewMode ? '' : "Units"}
+            readOnly={previewMode}
             style={{
               width: '100%',
               height: '100%',
@@ -482,9 +492,10 @@ export default function RequirementRow({
           <input
             type="text"
             value={localData.selectedUnit}
-            onChange={(e) => handleInputChange(e.target.value, 'selectedUnit')}
-            onBlur={(e) => handleInputBlur(e.target.value, 'selectedUnit')}
-            placeholder="Units"
+            onChange={previewMode ? undefined : (e) => handleInputChange(e.target.value, 'selectedUnit')}
+            onBlur={previewMode ? undefined : (e) => handleInputBlur(e.target.value, 'selectedUnit')}
+            placeholder={previewMode ? '' : "Units"}
+            readOnly={previewMode}
             style={{
               width: '100%',
               height: '100%',
@@ -516,9 +527,10 @@ export default function RequirementRow({
         <input
           type="text"
           value={localData.quantity}
-          onChange={(e) => handleInputChange(e.target.value, 'quantity')}
-          onBlur={(e) => handleInputBlur(e.target.value, 'quantity')}
-          placeholder="Quantity"
+          onChange={previewMode ? undefined : (e) => handleInputChange(e.target.value, 'quantity')}
+          onBlur={previewMode ? undefined : (e) => handleInputBlur(e.target.value, 'quantity')}
+          placeholder={previewMode ? '' : "Quantity"}
+          readOnly={previewMode}
           style={{
             width: '100%',
             height: '100%',
@@ -550,9 +562,10 @@ export default function RequirementRow({
         <input
           type="text"
           value={localData.cause}
-          onChange={(e) => handleInputChange(e.target.value, 'cause')}
-          onBlur={(e) => handleInputBlur(e.target.value, 'cause')}
-          placeholder="Cause"
+          onChange={previewMode ? undefined : (e) => handleInputChange(e.target.value, 'cause')}
+          onBlur={previewMode ? undefined : (e) => handleInputBlur(e.target.value, 'cause')}
+          placeholder={previewMode ? '' : "Cause"}
+          readOnly={previewMode}
           style={{
             width: '100%',
             height: '100%',

@@ -42,7 +42,7 @@ const actionCategories: Category[] = filterSelectData.filters.action.categories.
 const actionSortBy: string[] = filterSelectData.filters.sortBy.options || []
 
 interface FilterSectionProps {
-  onViewChange?: (view: 'Chat' | 'List') => void
+  onViewChange?: (view: 'Number of Users' | 'Latest Contribution') => void
   onFilterChange?: (filterValues: {
     interactionForm?: string
     domain?: string
@@ -62,8 +62,8 @@ interface FilterSectionProps {
 }
 
 export default function FilterSection({ onViewChange, onFilterChange, initialFilterValues }: FilterSectionProps) {
-  const [selectedView, setSelectedView] = useState<'Chat' | 'List'>(
-    (initialFilterValues?.sortBy as 'Chat' | 'List') || 'List'
+  const [selectedView, setSelectedView] = useState<'Number of Users' | 'Latest Contribution'>(
+    (initialFilterValues?.sortBy as 'Number of Users' | 'Latest Contribution') || 'Latest Contribution'
   )
   const [filterValues, setFilterValues] = useState({
     interactionForm: initialFilterValues?.interactionForm || '',
@@ -78,14 +78,14 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
   useEffect(() => {
     if (initialFilterValues) {
       setFilterValues(prev => ({ ...prev, ...initialFilterValues }))
-      if (initialFilterValues.sortBy === 'Chat' || initialFilterValues.sortBy === 'List') {
-        setSelectedView(initialFilterValues.sortBy)
+      if (initialFilterValues.sortBy === 'Number of Users' || initialFilterValues.sortBy === 'Latest Contribution') {
+        setSelectedView(initialFilterValues.sortBy as 'Number of Users' | 'Latest Contribution')
       }
     }
   }, [initialFilterValues])
 
   const handleViewChange = (value: string) => {
-    const view = value as 'Chat' | 'List'
+    const view = value as 'Number of Users' | 'Latest Contribution'
     setSelectedView(view)
     onViewChange?.(view)
     const newFilterValues = { ...filterValues, sortBy: view }
@@ -138,7 +138,7 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
         options={actionSortBy}
         value={selectedView}
         onChange={(value) => {
-          if (value === 'Chat' || value === 'List') {
+          if (value === 'Number of Users' || value === 'Latest Contribution') {
             handleViewChange(value)
           }
         }}

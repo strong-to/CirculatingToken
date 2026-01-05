@@ -165,8 +165,11 @@ export default function YourNextWorld() {
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
-                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push('/Favorites')
+                }}
+                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity cursor-pointer"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,

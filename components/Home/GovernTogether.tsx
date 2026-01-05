@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 // import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/GovernTogether/CollapsiblePanelContent'
@@ -146,8 +145,11 @@ export default function GovernTogether() {
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
-                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push('/Favorites')
+                }}
+                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity cursor-pointer"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
@@ -241,8 +243,8 @@ export default function GovernTogether() {
         </div>
 
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
-         <Link 
-           href="/ConferenceRoom"
+         <div 
+           onClick={() => router.push('/Favorites')}
            className="flex items-center justify-end absolute z-10 cursor-pointer hover:opacity-80 transition-opacity" 
            style={{ bottom: px(22), right: px(66) }}
          >
@@ -253,7 +255,7 @@ export default function GovernTogether() {
               <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
               <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
           </svg>
-        </Link>
+        </div>
        
 
       </div>

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
 import type { ProjectData } from '@/app/data'
+import Toast from '@/components/common/Toast'
 
 interface ProjectModalProps {
   selectedCard: ProjectData | null
@@ -20,6 +21,8 @@ export default function ProjectModal({
   const router = useRouter()
   const [isDetailsHovered, setIsDetailsHovered] = useState(false)
   const [isFavoritesHovered, setIsFavoritesHovered] = useState(false)
+  const [showLoginToast, setShowLoginToast] = useState(false)
+
 
   const handleDetailsClick = () => {
     if (selectedCard?.system_id) {
@@ -28,12 +31,6 @@ export default function ProjectModal({
   }
 
   if (selectedCard === null) return null
-
-  console.log('selectedCard-----------------1212',selectedCard);
-  
-
-  // 从 system_id 中提取索引（例如 DBTF0000001 -> 0, DBTF0000002 -> 1）
-  const cardIndex = selectedCard.system_id ? parseInt(selectedCard.system_id.replace('DBTF', '')) - 1 : 0
 
   // 将 maskTextList 按每行最多 4 个拆分成多行
   const maskTextList = selectedCard.profile?.media?.maskTextList ?? []
@@ -308,19 +305,28 @@ export default function ProjectModal({
             )}
 
             {/* 大文本框 */}
-            <div style={{
-              minHeight: px(140),
-              border: '0.7px solid #000000',
-              borderRadius: px(4),
-              padding: px(16),
-              marginBottom: px(60),
-              overflow: 'auto',
-              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-              fontSize: px(18),
-              fontWeight: 300,
-              color: '#000000'
-            }}>
-              {selectedCard?.profile?.media?.projectDetails || ''}
+            <div 
+              className="scroll-container"
+              style={{
+                minHeight: px(140),
+                maxHeight: px(400),
+                border: '0.7px solid #000000',
+                borderRadius: px(4),
+                marginBottom: px(60),
+                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+              }}
+            >
+              <div 
+                className="scroll-content custom-scrollbar"
+                style={{
+                  padding: px(16),
+                  fontSize: px(18),
+                  fontWeight: 300,
+                  color: '#000000',
+                }}
+              >
+                {selectedCard?.profile?.media?.projectDetails || ''}
+              </div>
             </div>
 
             {/* 底部按钮 */}
@@ -349,7 +355,9 @@ export default function ProjectModal({
               <button
                 onMouseEnter={() => setIsFavoritesHovered(true)}
                 onMouseLeave={() => setIsFavoritesHovered(false)}
-                onClick={() => router.push('/Favorites')}
+                onClick={() => {
+                  setShowLoginToast(true)
+                }}
                 style={{
                   width: px(130),
                   height: px(30),
@@ -366,6 +374,13 @@ export default function ProjectModal({
               >
                 Favorites
               </button>
+              {showLoginToast && (
+                <Toast
+                  message="Collection successful"
+                  duration={3000}
+                  onClose={() => setShowLoginToast(false)}
+                />
+              )}
             </div>
           </div>
         </div>

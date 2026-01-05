@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 // import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/FreedomToEnter/CollapsiblePanelContent'
 
@@ -11,6 +12,7 @@ import { images } from '@/components/Home/com/FreedomToEnter/resources'
 import { px } from '@/utils/pxToRem'
 
 export default function  FreedomToEnter() {
+  const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -150,8 +152,11 @@ export default function  FreedomToEnter() {
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
-                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push('/Favorites')
+                }}
+                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity cursor-pointer"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,
@@ -250,9 +255,13 @@ export default function  FreedomToEnter() {
         
        
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
-         <div className="flex items-center justify-end relative z-10" style={{ marginTop: '1.4rem' }}>
+         <div 
+           onClick={() => router.push('/Favorites')}
+           className="flex items-center justify-end relative z-10 cursor-pointer hover:opacity-80 transition-opacity" 
+           style={{ marginTop: '1.4rem' }}
+         >
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
-           {/* Explore More */}
+           
           </span>
           <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>

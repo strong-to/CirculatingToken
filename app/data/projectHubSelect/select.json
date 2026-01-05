@@ -258,7 +258,7 @@
     "sortBy": {
       "placeholder": "Sort by",
       "description": "",
-      "options": ["Chat", "List"]
+      "options": ["Number of Users", "Latest Contribution"]
     }
   },
   "taxonomy": {

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 // import BlueSquareCard from '@/components/Home/com/GovernTogether/BlueSquareCard'
 import CollapsiblePanelContent from '@/components/Home/com/LiquidityThat/CollapsiblePanelContent'
 
@@ -11,6 +12,7 @@ import { images } from '@/components/Home/com/LiquidityThat/resources'
 import { px } from '@/utils/pxToRem'
 
 export default function  LiquidityThat() {
+  const router = useRouter()
   const [isExpanded, setIsExpanded] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -152,8 +154,11 @@ For You
             {/* Learn more details 链接 - 在下边框外面紧挨着 */}
             <div className="flex items-center justify-end" style={{ marginTop: px(74) }}>
               <a
-                href="#"
-                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
+                onClick={(e) => {
+                  e.preventDefault()
+                  router.push('/Favorites')
+                }}
+                className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity cursor-pointer"
                 style={{
                   fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
                   fontWeight: 300,

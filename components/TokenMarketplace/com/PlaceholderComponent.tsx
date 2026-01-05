@@ -67,7 +67,6 @@ export default function PlaceholderComponent({ projects }: PlaceholderComponentP
         
         paddingLeft: px(29),
         paddingRight: px(29),
-        paddingTop: px(20),
         paddingBottom: px(120),
       }}
     >

@@ -24,7 +24,7 @@ export default function Favorites() {
                 lineHeight: '120%',
               }}
             >
-              This page is under development
+              Under Development - Stay Tuned!
             </h1>
           </div>
         </div>

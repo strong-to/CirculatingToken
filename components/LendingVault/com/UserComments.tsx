@@ -258,7 +258,7 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                         width: px(60),
                         height: px(60),
                         border: '0.5px solid #000000',
-                        borderRadius: px(4),
+                        borderRadius: '50%',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -346,10 +346,10 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                   </div>
                   
                   {/* 评论内容区域 */}
-                  <div className="flex-1 flex flex-col" style={{ position: 'relative' }}>
+                  <div className="flex-1 flex flex-col scroll-container" style={{ position: 'relative', minHeight: 0 }}>
                     <div
+                      className="scroll-content custom-scrollbar"
                       style={{
-                        flex: 1,
                         padding: px(16),
                         paddingBottom: px(40),
                         fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -462,10 +462,10 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                       </div>
                       
                       {/* 评论内容区域 */}
-                      <div className="flex-1 flex flex-col" style={{ position: 'relative' }}>
+                      <div className="flex-1 flex flex-col scroll-container" style={{ position: 'relative', minHeight: 0 }}>
                         <div
+                          className="scroll-content custom-scrollbar"
                           style={{
-                            flex: 1,
                             padding: px(16),
                             paddingBottom: px(40),
                             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -474,6 +474,7 @@ export default function UserComments({ userComments }: UserCommentsProps) {
                             fontSize: px(16),
                             lineHeight: '150%',
                             letterSpacing: '0%',
+                            backgroundColor: '#F5F5F5',
                             color: '#000000',
                           }}
                         >

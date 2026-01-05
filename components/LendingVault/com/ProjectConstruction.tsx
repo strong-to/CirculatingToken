@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { px } from "@/utils/pxToRem"
 import Image from 'next/image'
 import ConstructorImageModal from './ConstructorImageModal'
@@ -34,24 +34,157 @@ export default function ProjectConstruction({ projectData }: ProjectConstruction
   
   const selectedConstructor = selectedImageIndex !== null ? constructors[selectedImageIndex] : null
 
+  // 滚动动画相关状态和引用
+  const statisticsContainerRef = useRef<HTMLDivElement>(null)
+  const statisticsItemsRef = useRef<(HTMLDivElement | null)[]>([])
+  const [totalWidth, setTotalWidth] = useState(0)
+  const [containerWidth, setContainerWidth] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  const gapValue = 20 // 固定间距值（px），对应原来的 gap:px(20)
+  const gap = px(gapValue) // CSS 值
+
+  // 构建统计信息数组
+  const statisticsItems = [
+    { label: statistics?.totalResponsesLabel, value: statistics?.totalResponses?.toLocaleString() },
+    { label: statistics?.totalConstructorsLabel, value: statistics?.totalConstructors?.toLocaleString() },
+    { label: statistics?.completedSubjectsLabel, value: statistics?.completedSubjects },
+    { label: statistics?.ongoingSubjectsLabel, value: String(statistics?.ongoingSubjects || '').padStart(2, '0') },
+  ].filter(item => item.label && item.value !== undefined)
+
+  // 复制多组统计信息以实现无缝循环
+  const extendedStatisticsItems = [...statisticsItems, ...statisticsItems, ...statisticsItems]
+  const animationDuration = 20 // 动画持续时间（秒）
+
+  // 计算容器宽度和统计信息的总宽度
+  useEffect(() => {
+    const calculateWidths = () => {
+      // 计算容器宽度
+      if (statisticsContainerRef.current) {
+        const container = statisticsContainerRef.current
+        const width = container.offsetWidth
+        setContainerWidth(width)
+      }
+
+      // 计算统计信息总宽度
+      if (statisticsItemsRef.current.length === 0 || statisticsItems.length === 0) return
+      
+      // 只计算第一组统计信息（前 statisticsItems.length 个）
+      let width = 0
+      for (let i = 0; i < statisticsItems.length; i++) {
+        const element = statisticsItemsRef.current[i]
+        if (element) {
+          width += element.offsetWidth
+          // 除了最后一个，每个统计信息后面都有间距
+          if (i < statisticsItems.length - 1) {
+            width += gapValue
+          }
+        }
+      }
+      setTotalWidth(width)
+    }
+
+    // 延迟计算，确保DOM已渲染
+    const timer = setTimeout(calculateWidths, 100)
+    window.addEventListener('resize', calculateWidths)
+    return () => {
+      clearTimeout(timer)
+      window.removeEventListener('resize', calculateWidths)
+    }
+  }, [statisticsItems.length, gapValue])
+
+  // 动态生成 CSS keyframes
+  useEffect(() => {
+    if (totalWidth === 0) return
+
+    const styleId = 'project-construction-statistics-animation'
+    let styleElement = document.getElementById(styleId) as HTMLStyleElement
+    
+    if (!styleElement) {
+      styleElement = document.createElement('style')
+      styleElement.id = styleId
+      document.head.appendChild(styleElement)
+    }
+    
+    styleElement.textContent = `
+      @keyframes scrollLeftStatistics {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-${totalWidth}px);
+        }
+      }
+    `
+    
+    return () => {
+      const element = document.getElementById(styleId)
+      if (element) {
+        element.remove()
+      }
+    }
+  }, [totalWidth])
+
   return (
     <>
   
       {/* 顶部区域 */}
       <div className="w-full" style={{ marginTop: px(120), gap: px(30) }}>
-         <div className='flex items-center w-full justify-end' style={{height:px(25),gap:px(20),paddingRight:px(70),paddingBottom:px(25)}}>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               {statistics?.totalResponsesLabel}{statistics?.totalResponses?.toLocaleString()}
+         <div 
+           ref={statisticsContainerRef}
+           className='flex items-center w-full justify-end' 
+           style={{
+             height: px(25),
+             paddingRight: px(70),
+             paddingBottom: px(25),
+             overflow: 'visible',
+             position: 'relative',
+           }}
+           onMouseEnter={() => setIsPaused(true)}
+           onMouseLeave={() => setIsPaused(false)}
+         >
+           {/* 内容区域，使用 mask 实现左右渐变效果 */}
+           {/* 大头像位置：left: px(80), width: px(200)，距离头像左边50px就是 px(80 - 50) = px(30) */}
+           <div
+             className="overflow-hidden"
+             style={{ 
+               maskImage: `linear-gradient(to right, transparent 0px, black ${px(30)}, black calc(100% - ${px(70)}), transparent 100%)`,
+               WebkitMaskImage: `linear-gradient(to right, transparent 0px, black ${px(30)}, black calc(100% - ${px(70)}), transparent 100%)`,
+             }}
+           >
+             <div
+               className="flex items-center"
+               style={{
+                 animation: totalWidth > 0 ? `scrollLeftStatistics ${animationDuration}s linear infinite` : 'none',
+                 animationPlayState: isPaused ? 'paused' : 'running',
+                 width: `${containerWidth - 300}px` ,
+                 gap: gap,
+               }}
+             >
+               {extendedStatisticsItems.map((item, index) => (
+                 <div
+                   key={`${item.label}-${index}`}
+                   ref={(el) => {
+                     // 只保存第一组统计信息的ref用于计算宽度
+                     if (index < statisticsItems.length) {
+                       statisticsItemsRef.current[index] = el
+                     }
+                   }}
+                   className="flex items-center justify-center flex-shrink-0 whitespace-nowrap"
+                   style={{
+                     fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                     fontWeight: 300,
+                     fontStyle: 'normal',
+                     fontSize: px(20),
+                     lineHeight: px(40),
+                     letterSpacing: '0%',
+                     color: '#000000',
+                   }}
+                 >
+                   {item.label}{item.value}
+                 </div>
+               ))}
              </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               {statistics?.totalConstructorsLabel}{statistics?.totalConstructors?.toLocaleString()}
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               {statistics?.completedSubjectsLabel}{statistics?.completedSubjects}
-             </div>
-             <div style={{ fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif', fontWeight: 300, fontStyle: 'normal', fontSize: px(20), lineHeight: px(40), letterSpacing: '0%', color: '#000000' }}>
-               {statistics?.ongoingSubjectsLabel}{String(statistics?.ongoingSubjects || '').padStart(2, '0')}
-             </div>
+           </div>
          </div>
       <div className="bg-black w-full relative flex items-center justify-end" style={{height:px(140)}}>
         

@@ -18,6 +18,7 @@ interface BannerProps {
 export default function Banner({ projectData }: BannerProps) {
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
+  const [currentBannerImage, setCurrentBannerImage] = useState<string>('')
 
   const swiperRef = useRef<SwiperType | null>(null)
   
@@ -83,18 +84,30 @@ export default function Banner({ projectData }: BannerProps) {
   // 转换 carouselImages 中的每个路径
   const rawImages = projectData?.profile?.projectDetailsPage?.carouselImages 
   const images = rawImages?.map(img => convertPathToPublic(img)) || []
+
+  // 初始化当前大图
+  useEffect(() => {
+    if (bannerImage && !currentBannerImage) {
+      setCurrentBannerImage(bannerImage)
+    }
+  }, [bannerImage, currentBannerImage])
+
+  // 处理小图点击事件
+  const handleImageClick = (imageSrc: string) => {
+    setCurrentBannerImage(imageSrc)
+  }
  
   return (
     <>
       {/* 主 Banner 图片 */}
       <div className="w-full" style={{ height: px(540) }}>
         <ImageWithSkeleton
-          src={bannerImage}
+          src={currentBannerImage || bannerImage}
           alt="Banner"
           width={1920}
           height={540}
           className="w-full h-full"
-          style={{ width: '100%', height: '100%' }}
+          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
           objectFit="cover"
           priority
         />
@@ -211,7 +224,19 @@ export default function Banner({ projectData }: BannerProps) {
                     height: '100%',
                   }}
                 >
-                  <div className="h-full overflow-hidden">
+                  <div 
+                    className="h-full overflow-hidden cursor-pointer"
+                    onClick={() => handleImageClick(src)}
+                    style={{
+                      transition: 'opacity 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.opacity = '0.8'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.opacity = '1'
+                    }}
+                  >
                     <ImageWithSkeleton
                       src={src}
                       alt={`Banner item ${index + 1}`}
@@ -238,7 +263,19 @@ export default function Banner({ projectData }: BannerProps) {
                     height: '100%',
                   }}
                 >
-                  <div className="h-full overflow-hidden">
+                  <div 
+                    className="h-full overflow-hidden cursor-pointer"
+                    onClick={() => handleImageClick(src)}
+                    style={{
+                      transition: 'opacity 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.opacity = '0.8'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.opacity = '1'
+                    }}
+                  >
                     <ImageWithSkeleton
                       src={src}
                       alt={`Banner item ${index + 1}`}

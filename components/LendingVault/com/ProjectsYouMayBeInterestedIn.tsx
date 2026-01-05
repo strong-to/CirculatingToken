@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import { LearnMoreArrowIcon } from '@/components/icons/Icons'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -30,6 +31,7 @@ const FALLBACK_SECTION: HomeSection = {
 }
 
 export default function ProjectsYouMayBeInterestedIn() {
+  const router = useRouter()
   const [isWindows, setIsWindows] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
   const swiperRef = useRef<SwiperType | null>(null)
@@ -79,7 +81,11 @@ export default function ProjectsYouMayBeInterestedIn() {
         </div>
         <a
           href="#"
-          className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity"
+          onClick={(e) => {
+            e.preventDefault()
+            router.push('/Favorites')
+          }}
+          className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity cursor-pointer"
           style={{
             fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
             fontWeight: 300,

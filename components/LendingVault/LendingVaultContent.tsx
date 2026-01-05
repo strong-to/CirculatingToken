@@ -12,6 +12,7 @@ import Footer from '../Footer/Footer'
 import { useSearchParams } from 'next/navigation'
 import { projectsMap } from '@/app/data'
 import type { ProjectData } from '@/app/data'
+import Toast from '@/components/common/Toast'
 
 export default function LendingVaultContent() {
   const searchParams = useSearchParams()
@@ -23,8 +24,7 @@ export default function LendingVaultContent() {
     return projectsMap[system_id]
   }, [system_id])
 
-  console.log('system_id-----------------1212', system_id)
-  console.log('projectData-----------------', projectData)
+ 
   
   const pageData = projectData?.profile?.projectDetailsPage
   // 从项目数据中获取 tabList，如果没有则使用默认值
@@ -35,6 +35,7 @@ export default function LendingVaultContent() {
   const tabList = pageData?.tabList ?? defaultTabList;
   
   const [activeTab, setActiveTab] = useState(tabList[0]?.name || 'Project Introduction');
+  const [showFavoriteToast, setShowFavoriteToast] = useState(false)
 
   // Tab 栏滚动效果相关状态和引用
   const tabRef = useRef<HTMLDivElement>(null)
@@ -87,71 +88,18 @@ export default function LendingVaultContent() {
         const left = tabRect.left - containerRect.left
         const width = tabRect.width
 
-        // 计算按钮相对于视口的位置（如果按钮存在）
-        let opacity = 1
-        if (buttonsRef.current) {
-          const buttonsRect = buttonsRef.current.getBoundingClientRect()
-          
-          // tab 栏底部相对于视口的位置（固定位置）
-          const tabBottom = fixedTop + tabHeight
-          // 按钮顶部相对于视口的位置
-          const buttonsTop = buttonsRect.top
-
-          // 计算 tab 栏底部与按钮顶部的距离
-          // 当往上滚动时，按钮向上移动，距离会变小
-          // 当距离 <= 0 时，按钮和 tab 栏重叠或按钮在 tab 栏上方，应该完全消失
-          const distance = buttonsTop - tabBottom
-
-          // 当距离小于 100px 且大于 0 时开始淡化
-          // 当距离 <= 0 时，完全消失（opacity = 0）
-          if (distance < 100 && distance > 0) {
-            opacity = Math.max(0, distance / 100)
-          } else if (distance <= 0) {
-            opacity = 0
-          } else {
-            // 距离 >= 100px 时，完全不透明
-            opacity = 1
-          }
-        }
-
+        // tab 栏始终保持显示，不消失
         setTabStyle({
           position: 'fixed',
           top: `${fixedTop}px`,
           left: `${left}px`,
           width: `${width}px`,
-          opacity,
+          opacity: 1,
         })
       } else if (tabStyle.position === 'fixed') {
-        // 如果已经是 fixed 状态，继续计算淡化效果
+        // 如果已经是 fixed 状态，更新位置和宽度
         const left = tabRect.left - containerRect.left
         const width = tabRect.width
-
-        // 计算按钮相对于视口的位置（如果按钮存在）
-        let opacity = 1
-        if (buttonsRef.current) {
-          const buttonsRect = buttonsRef.current.getBoundingClientRect()
-          
-          // tab 栏底部相对于视口的位置（固定位置）
-          const tabBottom = fixedTop + tabHeight
-          // 按钮顶部相对于视口的位置
-          const buttonsTop = buttonsRect.top
-
-          // 计算 tab 栏底部与按钮顶部的距离
-          // 当往上滚动时，按钮向上移动，距离会变小
-          // 当距离 <= 0 时，按钮和 tab 栏重叠或按钮在 tab 栏上方，应该完全消失
-          const distance = buttonsTop - tabBottom
-
-          // 当距离小于 100px 且大于 0 时开始淡化
-          // 当距离 <= 0 时，完全消失（opacity = 0）
-          if (distance < 100 && distance > 0) {
-            opacity = Math.max(0, distance / 100)
-          } else if (distance <= 0) {
-            opacity = 0
-          } else {
-            // 距离 >= 100px 时，完全不透明
-            opacity = 1
-          }
-        }
 
         // 检查是否应该回到初始位置（当滚动回到初始位置时）
         if (scrollTop <= tabInitialTop - fixedTop) {
@@ -162,10 +110,10 @@ export default function LendingVaultContent() {
           // 重置初始位置，以便下次计算
           tabInitialTopRef.current = 0
         } else {
-          // 更新 opacity
+          // 更新位置和宽度，opacity 始终保持为 1
           setTabStyle((prev) => ({
             ...prev,
-            opacity,
+            opacity: 1,
             left: `${left}px`,
             width: `${width}px`,
           }))
@@ -195,9 +143,9 @@ export default function LendingVaultContent() {
      
 
       {/* 第一屏 */}
-      <div className="flex flex-col" style={{ height: 'calc(100vh - 89px)' }}>
+      <div className="flex flex-col" style={{ minHeight: 'calc(100vh - 89px)' }}>
         {/* Banner 组件 */}
-        <div className="flex-1 min-h-0">
+        <div className="flex-shrink-0" style={{ overflow: 'hidden' }}>
           <Banner projectData={projectData} />
         </div>
 
@@ -214,13 +162,13 @@ export default function LendingVaultContent() {
             paddingRight: px(302),
             height: px(44),
             gap: px(16),
-            marginTop: tabStyle.position === 'relative' ? px(40) : 0,
+            marginTop: tabStyle.position === 'relative' ? px(200) : 0,
             position: tabStyle.position,
             top: tabStyle.top,
             left: tabStyle.left,
             width: tabStyle.width,
             opacity: tabStyle.opacity,
-            zIndex: tabStyle.position === 'fixed' ? 100 : 'auto',
+            zIndex: tabStyle.position === 'fixed' ? 1000 : 'auto',
             backgroundColor: tabStyle.position === 'fixed' ? '#ffffff' : 'transparent',
             transition: 'opacity 0.2s ease-in-out',
           }}
@@ -304,7 +252,10 @@ export default function LendingVaultContent() {
               key={button.id}
               className="flex items-center justify-center transition-colors cursor-pointer"
               onClick={() => {
-                if (button.url) {
+                // 如果是 "Favorite Project" 按钮，显示 Toast 而不是跳转
+                if (button.name === 'Favorite Project') {
+                  setShowFavoriteToast(true)
+                } else if (button.url) {
                   window.open(button.url, '_blank', 'noopener,noreferrer')
                 }
               }}
@@ -337,6 +288,13 @@ export default function LendingVaultContent() {
               {button.name}
             </button>
           ))}
+          {showFavoriteToast && (
+            <Toast
+              message="Collection successful"
+              duration={3000}
+              onClose={() => setShowFavoriteToast(false)}
+            />
+          )}
         </div>
       )}
    </div>

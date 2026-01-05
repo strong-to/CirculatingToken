@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import { uploadFile, getFileDownloadUrl, isDocxFile, isPreviewableFile, type UploadedFileInfo } from '@/utils/fileUpload'
 import { parseDocxFile } from '@/utils/docxParser'
+import Toast from '@/components/common/Toast'
 
 interface FileUploadAreaProps {
   onFileUploaded?: (fileInfo: UploadedFileInfo) => void
@@ -18,8 +19,17 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
   const [uploadProgress, setUploadProgress] = useState(0)
   const [containerHeight, setContainerHeight] = useState<number>(170) // 存储像素值
   const [isResizing, setIsResizing] = useState(false)
+  const [showUploadErrorToast, setShowUploadErrorToast] = useState(false)
+  const [showUploadSuccessToast, setShowUploadSuccessToast] = useState(false)
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const containerRef = useRef<HTMLDivElement | null>(null)
+
+  // 调试：监听成功提示状态变化
+  useEffect(() => {
+    if (showUploadSuccessToast) {
+      console.log('✅ showUploadSuccessToast 为 true，Toast 应该显示')
+    }
+  }, [showUploadSuccessToast])
 
   // 当 presetContent 传入时，模拟上传了一个 docx 文件
   useEffect(() => {
@@ -53,11 +63,17 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
     setUploadProgress(0)
 
     try {
+      console.log('开始上传文件:', file.name, file.size, file.type)
+      
       // 上传文件
       const fileInfo = await uploadFile(file, {
-        onProgress: (progress) => setUploadProgress(progress),
+        onProgress: (progress) => {
+          console.log('上传进度:', progress)
+          setUploadProgress(progress)
+        },
       })
 
+      console.log('文件上传成功:', fileInfo)
       setUploadedFile(fileInfo)
 
       // 如果是 docx 文件，解析内容
@@ -72,9 +88,14 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
       }
 
       onFileUploaded?.(fileInfo)
+      console.log('准备显示成功提示，设置 showUploadSuccessToast 为 true')
+      setShowUploadSuccessToast(true)
+      console.log('showUploadSuccessToast 状态已设置，应该显示 Toast')
     } catch (error) {
       console.error('Upload failed:', error)
-      alert('文件上传失败，请重试')
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+      console.error('Error message:', errorMessage)
+      setShowUploadErrorToast(true)
     } finally {
       setIsUploading(false)
       setUploadProgress(0)
@@ -438,6 +459,24 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
             />
           </svg>
         </div>
+      )}
+
+      {/* 上传失败提示 Toast */}
+      {showUploadErrorToast && (
+        <Toast
+          message="File upload failed, please try again"
+          duration={3000}
+          onClose={() => setShowUploadErrorToast(false)}
+        />
+      )}
+
+      {/* 上传成功提示 Toast */}
+      {showUploadSuccessToast && (
+        <Toast
+          message="File uploaded successfully"
+          duration={3000}
+          onClose={() => setShowUploadSuccessToast(false)}
+        />
       )}
     </div>
   )

@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { px } from '@/utils/pxToRem'
 import { useTexts } from './StepTwo/useTexts'
 import { StepTitleBar, StepNextButton } from './StepCommon'
+import ImagePreviewModal from '@/components/common/ImagePreviewModal'
 
 // 自定义下拉框组件
 interface CustomSelectProps {
@@ -177,6 +178,7 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
   }, [data])
   const fileInputRefs = useRef<(HTMLInputElement | null)[]>([])
   const [hoverBoxIndex, setHoverBoxIndex] = useState<number | null>(null)
+  const [previewImageIndex, setPreviewImageIndex] = useState<number | null>(null)
 
   // 上半部分：刷新 4 个输入框，最多 5 次
   const handleRefreshInputs = () => {
@@ -241,8 +243,18 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
     }
   }
 
-  // 处理上传图片
+  // 处理盒子点击：如果有图片就放大预览，如果没有图片就不做任何事
   const handleBoxClick = (index: number) => {
+    if (uploadImages[index]) {
+      // 如果有图片，显示放大预览
+      setPreviewImageIndex(index)
+    }
+    // 如果没有图片，不触发任何操作（只有点击加号才能上传）
+  }
+
+  // 处理加号点击：触发文件选择器
+  const handlePlusClick = (index: number, e: React.MouseEvent) => {
+    e.stopPropagation()
     fileInputRefs.current[index]?.click()
   }
 
@@ -499,20 +511,32 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
                   </>
                 ) : (
                   <>
-                    <PlusIcon />
-                    <span
+                    <div
+                      onClick={(e) => handlePlusClick(index, e)}
                       style={{
-                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                        fontWeight: 300,
-                        fontStyle: 'normal', // Book
-                        fontSize: px(16),
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#8C8C8C',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: px(8),
+                        cursor: 'pointer',
                       }}
                     >
-                      {box.label}
-                    </span>
+                      <PlusIcon />
+                      <span
+                        style={{
+                          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                          fontWeight: 300,
+                          fontStyle: 'normal', // Book
+                          fontSize: px(16),
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          color: '#8C8C8C',
+                        }}
+                      >
+                        {box.label}
+                      </span>
+                    </div>
                   </>
                 )}
               </div>
@@ -522,6 +546,12 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
       {!previewMode && (
         <StepNextButton onClick={onEnter} label={texts.nextButton} marginTop={0} />
       )}
+
+      {/* 图片预览模态框 */}
+      <ImagePreviewModal
+        imageSrc={previewImageIndex !== null && uploadImages[previewImageIndex] ? (uploadImages[previewImageIndex] as string) : null}
+        onClose={() => setPreviewImageIndex(null)}
+      />
       </>
   )
 }

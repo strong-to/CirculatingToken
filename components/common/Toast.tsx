@@ -49,7 +49,7 @@ export default function Toast({ message, duration = 3000, onClose }: ToastProps)
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 9999,
+        zIndex: 99999,
         opacity: isVisible ? 1 : 0,
         transform: isVisible 
           ? 'translateX(-50%) translateY(0)' 

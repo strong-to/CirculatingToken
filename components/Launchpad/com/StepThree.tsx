@@ -203,7 +203,7 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
   }, [data])
 
 
-  const [viewMode, setViewMode] = useState<'Chat' | 'List'>('List')
+  const [viewMode, setViewMode] = useState<'Number of Users' | 'Latest Contribution'>('Latest Contribution')
   
   const [recommendedValues, setRecommendedValues] = useState({
     gpuComputing: { input: '', dropdown: '100,000' },

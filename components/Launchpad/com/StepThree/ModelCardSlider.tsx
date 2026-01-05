@@ -17,11 +17,22 @@ export default function ModelCardSlider() {
   const texts = useTexts()
   const router = useRouter()
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
+  const [clickedCards, setClickedCards] = useState<Set<string>>(new Set())
   const { setSelectedCard } = useGlobalModal()
   const swiperRef = useRef<SwiperType | null>(null)
   const gap = 15 // 1.41875rem = 22.7px
 
   const handleCardClick = (cardType: string) => {
+    // 如果点击的是已经选中的卡片，则取消选中；否则选中该卡片
+    setClickedCards(prev => {
+      const newSet = new Set(prev)
+      if (newSet.has(cardType)) {
+        newSet.delete(cardType)
+      } else {
+        newSet.add(cardType)
+      }
+      return newSet
+    })
     setSelectedCard(cardType)
   }
 
@@ -53,12 +64,14 @@ export default function ModelCardSlider() {
           loop={true}
           grabCursor={true}
           watchSlidesProgress={true}
-          // 滚动逻辑与 WhereUsingBecomes 保持一致：freeMode + mousewheel 惯性左右滑
+          centeredSlides={false}
+          // 滚动逻辑：freeMode + mousewheel 惯性左右滑，参考 ProjectsYouMayBeInterestedIn
           freeMode={{
             enabled: true,
             momentum: true,
             momentumRatio: 1.5,
             momentumBounce: false,
+            sticky: false,
           }}
           mousewheel={{
             forceToAxis: true,
@@ -78,6 +91,7 @@ export default function ModelCardSlider() {
             },
             1024: {
               slidesPerView: 5,
+              slidesPerGroup: 1,
             },
           }}
         >
@@ -103,7 +117,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "datasets" ? 0 : 1,
+                  opacity: (hoveredCard === "datasets" || clickedCards.has("datasets")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -125,7 +139,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "datasets" ? 1 : 0,
+                  opacity: (hoveredCard === "datasets" || clickedCards.has("datasets")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -168,7 +182,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "computePool" ? 0 : 1,
+                  opacity: (hoveredCard === "computePool" || clickedCards.has("computePool")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -190,7 +204,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "computePool" ? 1 : 0,
+                  opacity: (hoveredCard === "computePool" || clickedCards.has("computePool")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -234,7 +248,7 @@ export default function ModelCardSlider() {
                   width: "100%",
                   height: "100%",
                   opacity:
-                    hoveredCard === "foundationalModels" ? 0 : 1,
+                    (hoveredCard === "foundationalModels" || clickedCards.has("foundationalModels")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -257,7 +271,7 @@ export default function ModelCardSlider() {
                   width: "100%",
                   height: "100%",
                   opacity:
-                    hoveredCard === "foundationalModels" ? 1 : 0,
+                    (hoveredCard === "foundationalModels" || clickedCards.has("foundationalModels")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -300,7 +314,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "workflows" ? 0 : 1,
+                  opacity: (hoveredCard === "workflows" || clickedCards.has("workflows")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -322,7 +336,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "workflows" ? 1 : 0,
+                  opacity: (hoveredCard === "workflows" || clickedCards.has("workflows")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -365,7 +379,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "aiAgents" ? 0 : 1,
+                  opacity: (hoveredCard === "aiAgents" || clickedCards.has("aiAgents")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -387,7 +401,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "aiAgents" ? 1 : 0,
+                  opacity: (hoveredCard === "aiAgents" || clickedCards.has("aiAgents")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -493,7 +507,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "computePool" ? 0 : 1,
+                  opacity: (hoveredCard === "computePool" || clickedCards.has("computePool")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                     willChange: "opacity",
@@ -514,7 +528,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "computePool" ? 1 : 0,
+                  opacity: (hoveredCard === "computePool" || clickedCards.has("computePool")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                     willChange: "opacity",
@@ -557,7 +571,7 @@ export default function ModelCardSlider() {
                   width: "100%",
                   height: "100%",
                   opacity:
-                    hoveredCard === "foundationalModels" ? 0 : 1,
+                    (hoveredCard === "foundationalModels" || clickedCards.has("foundationalModels")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -579,7 +593,7 @@ export default function ModelCardSlider() {
                   width: "100%",
                   height: "100%",
                   opacity:
-                    hoveredCard === "foundationalModels" ? 1 : 0,
+                    (hoveredCard === "foundationalModels" || clickedCards.has("foundationalModels")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -621,7 +635,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "workflows" ? 0 : 1,
+                  opacity: (hoveredCard === "workflows" || clickedCards.has("workflows")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                     willChange: "opacity",
@@ -642,7 +656,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "workflows" ? 1 : 0,
+                  opacity: (hoveredCard === "workflows" || clickedCards.has("workflows")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                     willChange: "opacity",
@@ -684,7 +698,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "aiAgents" ? 0 : 1,
+                  opacity: (hoveredCard === "aiAgents" || clickedCards.has("aiAgents")) ? 0 : 1,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",
@@ -705,7 +719,7 @@ export default function ModelCardSlider() {
                   left: 0,
                   width: "100%",
                   height: "100%",
-                  opacity: hoveredCard === "aiAgents" ? 1 : 0,
+                  opacity: (hoveredCard === "aiAgents" || clickedCards.has("aiAgents")) ? 1 : 0,
                   transition:
                     "opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
                   willChange: "opacity",

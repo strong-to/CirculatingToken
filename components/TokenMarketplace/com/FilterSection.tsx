@@ -132,7 +132,7 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
         value={filterValues.action}
         onChange={(value) => handleFilterChange('action', value)}
       />
-      <FilterDropdown
+      {/* <FilterDropdown
         placeholder={filterSelectData.filters.sortBy.placeholder}
         description={filterSelectData.filters.sortBy.description}
         options={actionSortBy}
@@ -142,7 +142,7 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
             handleViewChange(value)
           }
         }}
-      />
+      /> */}
       
       <SearchInput
         placeholder="Search"

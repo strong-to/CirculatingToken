@@ -37,6 +37,7 @@ export async function uploadFile(
     }
 
     xhr.addEventListener('load', () => {
+      console.log('XHR load event, status:', xhr.status, 'response:', xhr.responseText)
       if (xhr.status === 200) {
         try {
           const response = JSON.parse(xhr.responseText)
@@ -51,6 +52,7 @@ export async function uploadFile(
             reject(new Error(response.error || 'Upload failed'))
           }
         } catch (error) {
+          console.error('Failed to parse response:', error, 'Response text:', xhr.responseText)
           reject(new Error('Failed to parse response'))
         }
       } else {
@@ -63,10 +65,17 @@ export async function uploadFile(
       }
     })
 
-    xhr.addEventListener('error', () => {
+    xhr.addEventListener('error', (e) => {
+      console.error('XHR error event:', e)
       reject(new Error('Network error'))
     })
 
+    xhr.addEventListener('abort', () => {
+      console.error('XHR abort event')
+      reject(new Error('Upload aborted'))
+    })
+
+    console.log('Starting upload to /api/upload')
     xhr.open('POST', '/api/upload')
     xhr.send(formData)
   })

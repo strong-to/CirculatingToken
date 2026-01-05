@@ -216,7 +216,7 @@ export default function FilterDropdown({
                 )}
                 
                 {/* 单列布局 - 一级分类 */}
-                <div style={{ overflowY: 'auto', flex: 1, maxHeight: `calc(100vh - ${px(300)})` }}>
+                {/* <div style={{ overflowY: 'auto', flex: 1, maxHeight: `calc(100vh - ${px(300)})` }}>
                   {categories.map((category, index) => (
                     <div
                       key={index}
@@ -252,7 +252,7 @@ export default function FilterDropdown({
                       </div>
                     </div>
                   ))}
-                </div>
+                </div> */}
               </div>
               
               {/* 右侧 - 二级分类，点击一级项后显示 */}

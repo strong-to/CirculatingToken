@@ -950,6 +950,400 @@
                   "cumulativeConstruction": "110"
                 }
               ],
+              "listDataPages": [
+                [
+                  {
+                    "time": "10:15-01-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "11:30-02-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "12:45-03-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "13:20-04-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "14:10-05-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "15:25-06-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  }
+                ],
+                [
+                  {
+                    "time": "09:00-07-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "10:30-08-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "11:15-09-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "12:00-10-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "13:45-11-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "14:20-12-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  }
+                ],
+                [
+                  {
+                    "time": "08:15-13-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "09:30-14-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "10:45-15-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "11:20-16-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "12:35-17-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "13:50-18-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  }
+                ],
+                [
+                  {
+                    "time": "07:00-19-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "08:25-20-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "09:40-21-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "10:55-22-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "11:10-23-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "12:25-24-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  }
+                ],
+                [
+                  {
+                    "time": "06:00-25-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "07:20-26-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "08:40-27-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "09:00-28-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "10:20-29-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "11:40-30-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  }
+                ],
+                [
+                  {
+                    "time": "05:10-31-07-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "06:30-01-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "07:50-02-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "08:10-03-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "09:30-04-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "10:50-05-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  }
+                ],
+                [
+                  {
+                    "time": "04:00-06-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "05:15-07-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "06:30-08-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "07:45-09-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "08:00-10-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "09:15-11-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  }
+                ]
+              ],
               "filterButtons": [
                 "Use",
                 "Recommend",
@@ -1078,6 +1472,442 @@
                   "stock": "stock"
                 }
               ],
+              "listDataPages": [
+                [
+                  {
+                    "time": "10:15-01-07-2026",
+                    "action": "Mint",
+                    "subject": "subject",
+                    "party": "party",
+                    "consideration": "consideration",
+                    "occurrenceCount": "occurrence count",
+                    "cumulative": "cumulative",
+                    "stock": "stock"
+                  },
+                  {
+                    "time": "11:30-02-07-2026",
+                    "action": "mint",
+                    "subject": "subject",
+                    "party": "party",
+                    "consideration": "consideration",
+                    "occurrenceCount": "occurrence count",
+                    "cumulative": "cumulative",
+                    "stock": "stock"
+                  },
+                  {
+                    "time": "12:45-03-07-2026",
+                    "action": "stake",
+                    "subject": "subject",
+                    "party": "party",
+                    "consideration": "consideration",
+                    "occurrenceCount": "occurrence count",
+                    "cumulative": "cumulative",
+                    "stock": "stock"
+                  },
+                  {
+                    "time": "13:20-04-07-2026",
+                    "action": "decompress",
+                    "subject": "subject",
+                    "party": "party",
+                    "consideration": "consideration",
+                    "occurrenceCount": "occurrence count",
+                    "cumulative": "cumulative",
+                    "stock": "stock"
+                  },
+                  {
+                    "time": "14:10-05-07-2026",
+                    "action": "mint",
+                    "subject": "subject",
+                    "party": "party",
+                    "consideration": "consideration",
+                    "occurrenceCount": "occurrence count",
+                    "cumulative": "cumulative",
+                    "stock": "stock"
+                  },
+                  {
+                    "time": "15:25-06-07-2026",
+                    "action": "mint",
+                    "subject": "subject",
+                    "party": "party",
+                    "consideration": "consideration",
+                    "occurrenceCount": "occurrence count",
+                    "cumulative": "cumulative",
+                    "stock": "stock"
+                  }
+                ],
+                [
+                  {
+                    "time": "09:00-07-07-2026",
+                    "action": "Burn",
+                    "subject": "subject 2",
+                    "party": "party 2",
+                    "consideration": "consideration 2",
+                    "occurrenceCount": "occurrence count 2",
+                    "cumulative": "cumulative 2",
+                    "stock": "stock 2"
+                  },
+                  {
+                    "time": "10:30-08-07-2026",
+                    "action": "burn",
+                    "subject": "subject 2",
+                    "party": "party 2",
+                    "consideration": "consideration 2",
+                    "occurrenceCount": "occurrence count 2",
+                    "cumulative": "cumulative 2",
+                    "stock": "stock 2"
+                  },
+                  {
+                    "time": "11:15-09-07-2026",
+                    "action": "stake",
+                    "subject": "subject 2",
+                    "party": "party 2",
+                    "consideration": "consideration 2",
+                    "occurrenceCount": "occurrence count 2",
+                    "cumulative": "cumulative 2",
+                    "stock": "stock 2"
+                  },
+                  {
+                    "time": "12:00-10-07-2026",
+                    "action": "mint",
+                    "subject": "subject 2",
+                    "party": "party 2",
+                    "consideration": "consideration 2",
+                    "occurrenceCount": "occurrence count 2",
+                    "cumulative": "cumulative 2",
+                    "stock": "stock 2"
+                  },
+                  {
+                    "time": "13:45-11-07-2026",
+                    "action": "burn",
+                    "subject": "subject 2",
+                    "party": "party 2",
+                    "consideration": "consideration 2",
+                    "occurrenceCount": "occurrence count 2",
+                    "cumulative": "cumulative 2",
+                    "stock": "stock 2"
+                  },
+                  {
+                    "time": "14:20-12-07-2026",
+                    "action": "decompress",
+                    "subject": "subject 2",
+                    "party": "party 2",
+                    "consideration": "consideration 2",
+                    "occurrenceCount": "occurrence count 2",
+                    "cumulative": "cumulative 2",
+                    "stock": "stock 2"
+                  }
+                ],
+                [
+                  {
+                    "time": "08:15-13-07-2026",
+                    "action": "Staking",
+                    "subject": "subject 3",
+                    "party": "party 3",
+                    "consideration": "consideration 3",
+                    "occurrenceCount": "occurrence count 3",
+                    "cumulative": "cumulative 3",
+                    "stock": "stock 3"
+                  },
+                  {
+                    "time": "09:30-14-07-2026",
+                    "action": "stake",
+                    "subject": "subject 3",
+                    "party": "party 3",
+                    "consideration": "consideration 3",
+                    "occurrenceCount": "occurrence count 3",
+                    "cumulative": "cumulative 3",
+                    "stock": "stock 3"
+                  },
+                  {
+                    "time": "10:45-15-07-2026",
+                    "action": "mint",
+                    "subject": "subject 3",
+                    "party": "party 3",
+                    "consideration": "consideration 3",
+                    "occurrenceCount": "occurrence count 3",
+                    "cumulative": "cumulative 3",
+                    "stock": "stock 3"
+                  },
+                  {
+                    "time": "11:20-16-07-2026",
+                    "action": "burn",
+                    "subject": "subject 3",
+                    "party": "party 3",
+                    "consideration": "consideration 3",
+                    "occurrenceCount": "occurrence count 3",
+                    "cumulative": "cumulative 3",
+                    "stock": "stock 3"
+                  },
+                  {
+                    "time": "12:35-17-07-2026",
+                    "action": "stake",
+                    "subject": "subject 3",
+                    "party": "party 3",
+                    "consideration": "consideration 3",
+                    "occurrenceCount": "occurrence count 3",
+                    "cumulative": "cumulative 3",
+                    "stock": "stock 3"
+                  },
+                  {
+                    "time": "13:50-18-07-2026",
+                    "action": "decompress",
+                    "subject": "subject 3",
+                    "party": "party 3",
+                    "consideration": "consideration 3",
+                    "occurrenceCount": "occurrence count 3",
+                    "cumulative": "cumulative 3",
+                    "stock": "stock 3"
+                  }
+                ],
+                [
+                  {
+                    "time": "07:00-19-07-2026",
+                    "action": "Decompress",
+                    "subject": "subject 4",
+                    "party": "party 4",
+                    "consideration": "consideration 4",
+                    "occurrenceCount": "occurrence count 4",
+                    "cumulative": "cumulative 4",
+                    "stock": "stock 4"
+                  },
+                  {
+                    "time": "08:25-20-07-2026",
+                    "action": "decompress",
+                    "subject": "subject 4",
+                    "party": "party 4",
+                    "consideration": "consideration 4",
+                    "occurrenceCount": "occurrence count 4",
+                    "cumulative": "cumulative 4",
+                    "stock": "stock 4"
+                  },
+                  {
+                    "time": "09:40-21-07-2026",
+                    "action": "mint",
+                    "subject": "subject 4",
+                    "party": "party 4",
+                    "consideration": "consideration 4",
+                    "occurrenceCount": "occurrence count 4",
+                    "cumulative": "cumulative 4",
+                    "stock": "stock 4"
+                  },
+                  {
+                    "time": "10:55-22-07-2026",
+                    "action": "burn",
+                    "subject": "subject 4",
+                    "party": "party 4",
+                    "consideration": "consideration 4",
+                    "occurrenceCount": "occurrence count 4",
+                    "cumulative": "cumulative 4",
+                    "stock": "stock 4"
+                  },
+                  {
+                    "time": "11:10-23-07-2026",
+                    "action": "stake",
+                    "subject": "subject 4",
+                    "party": "party 4",
+                    "consideration": "consideration 4",
+                    "occurrenceCount": "occurrence count 4",
+                    "cumulative": "cumulative 4",
+                    "stock": "stock 4"
+                  },
+                  {
+                    "time": "12:25-24-07-2026",
+                    "action": "mint",
+                    "subject": "subject 4",
+                    "party": "party 4",
+                    "consideration": "consideration 4",
+                    "occurrenceCount": "occurrence count 4",
+                    "cumulative": "cumulative 4",
+                    "stock": "stock 4"
+                  }
+                ],
+                [
+                  {
+                    "time": "06:00-25-07-2026",
+                    "action": "Mint",
+                    "subject": "subject 5",
+                    "party": "party 5",
+                    "consideration": "consideration 5",
+                    "occurrenceCount": "occurrence count 5",
+                    "cumulative": "cumulative 5",
+                    "stock": "stock 5"
+                  },
+                  {
+                    "time": "07:20-26-07-2026",
+                    "action": "burn",
+                    "subject": "subject 5",
+                    "party": "party 5",
+                    "consideration": "consideration 5",
+                    "occurrenceCount": "occurrence count 5",
+                    "cumulative": "cumulative 5",
+                    "stock": "stock 5"
+                  },
+                  {
+                    "time": "08:40-27-07-2026",
+                    "action": "stake",
+                    "subject": "subject 5",
+                    "party": "party 5",
+                    "consideration": "consideration 5",
+                    "occurrenceCount": "occurrence count 5",
+                    "cumulative": "cumulative 5",
+                    "stock": "stock 5"
+                  },
+                  {
+                    "time": "09:00-28-07-2026",
+                    "action": "decompress",
+                    "subject": "subject 5",
+                    "party": "party 5",
+                    "consideration": "consideration 5",
+                    "occurrenceCount": "occurrence count 5",
+                    "cumulative": "cumulative 5",
+                    "stock": "stock 5"
+                  },
+                  {
+                    "time": "10:20-29-07-2026",
+                    "action": "mint",
+                    "subject": "subject 5",
+                    "party": "party 5",
+                    "consideration": "consideration 5",
+                    "occurrenceCount": "occurrence count 5",
+                    "cumulative": "cumulative 5",
+                    "stock": "stock 5"
+                  },
+                  {
+                    "time": "11:40-30-07-2026",
+                    "action": "burn",
+                    "subject": "subject 5",
+                    "party": "party 5",
+                    "consideration": "consideration 5",
+                    "occurrenceCount": "occurrence count 5",
+                    "cumulative": "cumulative 5",
+                    "stock": "stock 5"
+                  }
+                ],
+                [
+                  {
+                    "time": "05:10-31-07-2026",
+                    "action": "Burn",
+                    "subject": "subject 6",
+                    "party": "party 6",
+                    "consideration": "consideration 6",
+                    "occurrenceCount": "occurrence count 6",
+                    "cumulative": "cumulative 6",
+                    "stock": "stock 6"
+                  },
+                  {
+                    "time": "06:30-01-08-2026",
+                    "action": "stake",
+                    "subject": "subject 6",
+                    "party": "party 6",
+                    "consideration": "consideration 6",
+                    "occurrenceCount": "occurrence count 6",
+                    "cumulative": "cumulative 6",
+                    "stock": "stock 6"
+                  },
+                  {
+                    "time": "07:50-02-08-2026",
+                    "action": "mint",
+                    "subject": "subject 6",
+                    "party": "party 6",
+                    "consideration": "consideration 6",
+                    "occurrenceCount": "occurrence count 6",
+                    "cumulative": "cumulative 6",
+                    "stock": "stock 6"
+                  },
+                  {
+                    "time": "08:10-03-08-2026",
+                    "action": "decompress",
+                    "subject": "subject 6",
+                    "party": "party 6",
+                    "consideration": "consideration 6",
+                    "occurrenceCount": "occurrence count 6",
+                    "cumulative": "cumulative 6",
+                    "stock": "stock 6"
+                  },
+                  {
+                    "time": "09:30-04-08-2026",
+                    "action": "burn",
+                    "subject": "subject 6",
+                    "party": "party 6",
+                    "consideration": "consideration 6",
+                    "occurrenceCount": "occurrence count 6",
+                    "cumulative": "cumulative 6",
+                    "stock": "stock 6"
+                  },
+                  {
+                    "time": "10:50-05-08-2026",
+                    "action": "stake",
+                    "subject": "subject 6",
+                    "party": "party 6",
+                    "consideration": "consideration 6",
+                    "occurrenceCount": "occurrence count 6",
+                    "cumulative": "cumulative 6",
+                    "stock": "stock 6"
+                  }
+                ],
+                [
+                  {
+                    "time": "04:00-06-08-2026",
+                    "action": "Staking",
+                    "subject": "subject 7",
+                    "party": "party 7",
+                    "consideration": "consideration 7",
+                    "occurrenceCount": "occurrence count 7",
+                    "cumulative": "cumulative 7",
+                    "stock": "stock 7"
+                  },
+                  {
+                    "time": "05:15-07-08-2026",
+                    "action": "mint",
+                    "subject": "subject 7",
+                    "party": "party 7",
+                    "consideration": "consideration 7",
+                    "occurrenceCount": "occurrence count 7",
+                    "cumulative": "cumulative 7",
+                    "stock": "stock 7"
+                  },
+                  {
+                    "time": "06:30-08-08-2026",
+                    "action": "burn",
+                    "subject": "subject 7",
+                    "party": "party 7",
+                    "consideration": "consideration 7",
+                    "occurrenceCount": "occurrence count 7",
+                    "cumulative": "cumulative 7",
+                    "stock": "stock 7"
+                  },
+                  {
+                    "time": "07:45-09-08-2026",
+                    "action": "decompress",
+                    "subject": "subject 7",
+                    "party": "party 7",
+                    "consideration": "consideration 7",
+                    "occurrenceCount": "occurrence count 7",
+                    "cumulative": "cumulative 7",
+                    "stock": "stock 7"
+                  },
+                  {
+                    "time": "08:00-10-08-2026",
+                    "action": "stake",
+                    "subject": "subject 7",
+                    "party": "party 7",
+                    "consideration": "consideration 7",
+                    "occurrenceCount": "occurrence count 7",
+                    "cumulative": "cumulative 7",
+                    "stock": "stock 7"
+                  },
+                  {
+                    "time": "09:15-11-08-2026",
+                    "action": "mint",
+                    "subject": "subject 7",
+                    "party": "party 7",
+                    "consideration": "consideration 7",
+                    "occurrenceCount": "occurrence count 7",
+                    "cumulative": "cumulative 7",
+                    "stock": "stock 7"
+                  }
+                ]
+              ],
               "filterButtons": [
                 "Mint",
                 "Burn",
@@ -1193,6 +2023,400 @@
                   "newConstruction": "220",
                   "cumulativeConstruction": "110"
                 }
+              ],
+              "listDataPages": [
+                [
+                  {
+                    "time": "10:15-01-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "11:30-02-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "12:45-03-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "13:20-04-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "14:10-05-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  },
+                  {
+                    "time": "15:25-06-07-2026",
+                    "newUsage": "666",
+                    "cumulativeUsage": "888",
+                    "newRecommendation": "222",
+                    "cumulativeRecommendation": "333",
+                    "newConstruction": "220",
+                    "cumulativeConstruction": "110"
+                  }
+                ],
+                [
+                  {
+                    "time": "09:00-07-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "10:30-08-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "11:15-09-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "12:00-10-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "13:45-11-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  },
+                  {
+                    "time": "14:20-12-07-2026",
+                    "newUsage": "777",
+                    "cumulativeUsage": "999",
+                    "newRecommendation": "333",
+                    "cumulativeRecommendation": "444",
+                    "newConstruction": "330",
+                    "cumulativeConstruction": "220"
+                  }
+                ],
+                [
+                  {
+                    "time": "08:15-13-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "09:30-14-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "10:45-15-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "11:20-16-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "12:35-17-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  },
+                  {
+                    "time": "13:50-18-07-2026",
+                    "newUsage": "888",
+                    "cumulativeUsage": "1110",
+                    "newRecommendation": "444",
+                    "cumulativeRecommendation": "555",
+                    "newConstruction": "440",
+                    "cumulativeConstruction": "330"
+                  }
+                ],
+                [
+                  {
+                    "time": "07:00-19-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "08:25-20-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "09:40-21-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "10:55-22-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "11:10-23-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  },
+                  {
+                    "time": "12:25-24-07-2026",
+                    "newUsage": "999",
+                    "cumulativeUsage": "1221",
+                    "newRecommendation": "555",
+                    "cumulativeRecommendation": "666",
+                    "newConstruction": "550",
+                    "cumulativeConstruction": "440"
+                  }
+                ],
+                [
+                  {
+                    "time": "06:00-25-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "07:20-26-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "08:40-27-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "09:00-28-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "10:20-29-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  },
+                  {
+                    "time": "11:40-30-07-2026",
+                    "newUsage": "1110",
+                    "cumulativeUsage": "1332",
+                    "newRecommendation": "666",
+                    "cumulativeRecommendation": "777",
+                    "newConstruction": "660",
+                    "cumulativeConstruction": "550"
+                  }
+                ],
+                [
+                  {
+                    "time": "05:10-31-07-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "06:30-01-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "07:50-02-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "08:10-03-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "09:30-04-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  },
+                  {
+                    "time": "10:50-05-08-2026",
+                    "newUsage": "1221",
+                    "cumulativeUsage": "1443",
+                    "newRecommendation": "777",
+                    "cumulativeRecommendation": "888",
+                    "newConstruction": "770",
+                    "cumulativeConstruction": "660"
+                  }
+                ],
+                [
+                  {
+                    "time": "04:00-06-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "05:15-07-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "06:30-08-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "07:45-09-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "08:00-10-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  },
+                  {
+                    "time": "09:15-11-08-2026",
+                    "newUsage": "1332",
+                    "cumulativeUsage": "1554",
+                    "newRecommendation": "888",
+                    "cumulativeRecommendation": "999",
+                    "newConstruction": "880",
+                    "cumulativeConstruction": "770"
+                  }
+                ]
               ],
               "filterButtons": [
                 "Revenue",
@@ -3788,6 +5012,1902 @@
                     }
                   }
                 }
+              ],
+              "tableDataPages": [
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            },
+                            {
+                              "name": "Open for voting",
+                              "date": "DEC11,2025—DEC17,2025"
+                            },
+                            {
+                              "name": "Voting closed",
+                              "date": "DEC11,2025—DEC17,2025"
+                            },
+                            {
+                              "name": "Payloads executed",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": [
+                            {
+                              "text": "Raw-Ipfs",
+                              "url": "#"
+                            },
+                            {
+                              "text": "Share on twitter",
+                              "url": "#"
+                            },
+                            {
+                              "text": "Share on Lens",
+                              "url": "#"
+                            }
+                          ]
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset in various E-Modes, and USDe in the PT-USDe Stablecoins E-mode. This will allow users to leverage their positions more efficiently and reduce friction for sUSDe-based principal token loopers."
+                        },
+                        "motivation": {
+                          "title": "Motivation",
+                          "sections": [
+                            {
+                              "title": "sUSDe",
+                              "content": "We recommend adding sUSDe as an eligible collateral asset in both the PTsUSDe5FEB/Stablecoins and PTsUSDe5FEB/USDe E-Modes to reduce potential friction for sUSDe-based principal token loopers when substituting collateral."
+                            }
+                          ]
+                        },
+                        "specification": {
+                          "title": "Specification",
+                          "content": "The proposal includes detailed specifications for the implementation."
+                        },
+                        "implementation": {
+                          "title": "Implementation",
+                          "sections": [
+                            {
+                              "title": "Technical Details",
+                              "content": "Implementation will be carried out following the technical specifications outlined in the proposal."
+                            }
+                          ]
+                        },
+                        "voteBreakdown": {
+                          "title": "Vote Breakdown",
+                          "sections": [
+                            {
+                              "title": "Voting Results",
+                              "content": "Detailed voting results will be displayed here."
+                            }
+                          ]
+                        },
+                        "rightSidebar": {
+                          "title": "Proposal Details",
+                          "sections": [
+                            {
+                              "title": "Contributors",
+                              "items": [
+                                {
+                                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                                  "name": "Contributor 1",
+                                  "role": "Developer",
+                                  "totalContributions": "1,234",
+                                  "tokensEarned": "12,800 GVP",
+                                  "tagLabel": "Data Annotation",
+                                  "totalContributionsLabel": "Total contributions",
+                                  "tokensEarnedLabel": "Tokens earned"
+                                }
+                              ]
+                            }
+                          ],
+                          "forumDiscussion": {
+                            "text": "Forum discussion",
+                            "url": "#"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset in various E-Modes."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-005",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to enhance token liquidity and improve market depth",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            },
+                            {
+                              "name": "Open for voting",
+                              "date": "DEC12,2025—DEC18,2025"
+                            },
+                            {
+                              "name": "Voting closed",
+                              "date": "DEC12,2025—DEC18,2025"
+                            },
+                            {
+                              "name": "Payloads executed",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance Token Liquidity",
+                          "actionButtons": [
+                            {
+                              "text": "Raw-Ipfs",
+                              "url": "#"
+                            },
+                            {
+                              "text": "Share on twitter",
+                              "url": "#"
+                            },
+                            {
+                              "text": "Share on Lens",
+                              "url": "#"
+                            }
+                          ]
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance token liquidity and improve market depth through strategic partnerships and infrastructure improvements."
+                        },
+                        "motivation": {
+                          "title": "Motivation",
+                          "sections": [
+                            {
+                              "title": "Liquidity Enhancement",
+                              "content": "We recommend implementing liquidity enhancement measures to improve market depth and reduce slippage for users."
+                            }
+                          ]
+                        },
+                        "specification": {
+                          "title": "Specification",
+                          "content": "The proposal includes detailed specifications for the implementation."
+                        },
+                        "implementation": {
+                          "title": "Implementation",
+                          "sections": [
+                            {
+                              "title": "Technical Details",
+                              "content": "Implementation will be carried out following the technical specifications outlined in the proposal."
+                            }
+                          ]
+                        },
+                        "voteBreakdown": {
+                          "title": "Vote Breakdown",
+                          "sections": [
+                            {
+                              "title": "Voting Results",
+                              "content": "Detailed voting results will be displayed here."
+                            }
+                          ]
+                        },
+                        "rightSidebar": {
+                          "title": "Proposal Details",
+                          "sections": [
+                            {
+                              "title": "Contributors",
+                              "items": [
+                                {
+                                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                                  "name": "Contributor 1",
+                                  "role": "Developer",
+                                  "totalContributions": "1,234",
+                                  "tokensEarned": "12,800 GVP",
+                                  "tagLabel": "Data Annotation",
+                                  "totalContributionsLabel": "Total contributions",
+                                  "tokensEarnedLabel": "Tokens earned"
+                                }
+                              ]
+                            }
+                          ],
+                          "forumDiscussion": {
+                            "text": "Forum discussion",
+                            "url": "#"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-006",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to optimize gas fees and reduce transaction costs",
+                    "turnout": "22.3%",
+                    "proposer": "550,456 / 2,700,000",
+                    "timing": "02:30:45",
+                    "type": "DEC13,2025—DEC19,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "02:30:45"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC13,2025—DEC19,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Optimize Gas Fees",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal focuses on optimizing gas fees and reducing transaction costs for users."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-007",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to implement cross-chain bridge functionality",
+                    "turnout": "25.7%",
+                    "proposer": "650,789 / 2,900,000",
+                    "timing": "03:45:12",
+                    "type": "DEC14,2025—DEC20,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "03:45:12"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Cross-Chain Bridge",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal addresses the implementation of cross-chain bridge functionality."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-008",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to upgrade governance mechanism and voting system",
+                    "turnout": "28.9%",
+                    "proposer": "750,234 / 3,100,000",
+                    "timing": "04:20:33",
+                    "type": "DEC15,2025—DEC21,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "04:20:33"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Governance Upgrade",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal focuses on upgrading the governance mechanism and voting system."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ]
               ],
               "sortByPlaceholder": "Sort by",
               "interactionFormPlaceholder": "Interaction / Form",

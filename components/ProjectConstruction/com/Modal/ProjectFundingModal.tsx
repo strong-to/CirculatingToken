@@ -2,6 +2,7 @@
 
 import { px } from "@/utils/pxToRem";
 import { useEffect, useRef, useState } from "react";
+import Toast from '@/components/common/Toast';
 
 interface CardData {
   icon?: string;
@@ -53,6 +54,8 @@ export default function ProjectFundingModal({ card }: ProjectFundingModalProps) 
   const [sliderValue, setSliderValue] = useState(33); // 初始值33%
   const [isDragging, setIsDragging] = useState(false);
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -614,9 +617,18 @@ export default function ProjectFundingModal({ card }: ProjectFundingModalProps) 
           >
             <button
               className="cursor-pointer w-full"
+              onClick={() => {
+                setIsLoading(true)
+                // 5秒后显示Toast提示并结束loading
+                setTimeout(() => {
+                  setIsLoading(false)
+                  setShowSuccessToast(true)
+                }, 5000)
+              }}
+              disabled={isLoading}
               style={{
                 height: px(44),
-                backgroundColor: "#000000",
+                backgroundColor: isLoading ? "#666666" : "#000000",
                 borderRadius: px(4),
                 color: "#ffffff",
                 fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -624,13 +636,68 @@ export default function ProjectFundingModal({ card }: ProjectFundingModalProps) 
                 fontSize: px(16),
                 lineHeight: "100%",
                 letterSpacing: "0%",
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: px(8),
+                cursor: isLoading ? 'not-allowed' : 'pointer',
+                opacity: isLoading ? 0.7 : 1,
+                transition: 'background-color 0.2s ease, opacity 0.2s ease',
               }}
             >
+              {isLoading && (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{
+                    animation: 'spin 1s linear infinite',
+                  }}
+                >
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="6"
+                    stroke="#ffffff"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeDasharray="31.416"
+                    strokeDashoffset="31.416"
+                    fill="none"
+                    opacity="0.3"
+                  />
+                  <circle
+                    cx="8"
+                    cy="8"
+                    r="6"
+                    stroke="#ffffff"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeDasharray="31.416"
+                    strokeDashoffset="15.708"
+                    fill="none"
+                    style={{
+                      transformOrigin: '8px 8px',
+                    }}
+                  />
+                </svg>
+              )}
               {card?.modal?.formSection?.submitButton || "Confirm Contribution"}
             </button>
           </div>
         </div>
       </div>
+
+      {/* 成功提示Toast */}
+      {showSuccessToast && (
+        <Toast
+          message="Your funds have been approved, click the link to mint tokens"
+          duration={5000}
+          onClose={() => setShowSuccessToast(false)}
+        />
+      )}
     </div>
   );
 }

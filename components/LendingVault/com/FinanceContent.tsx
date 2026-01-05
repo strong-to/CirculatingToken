@@ -20,7 +20,7 @@ export default function FinanceContent({ data }: FinanceContentProps) {
   const chartInstanceRef = useRef<echarts.ECharts | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
-  const totalPages = 7
+  const [timeSortOrder, setTimeSortOrder] = useState<'asc' | 'desc' | null>(null)
 
   const handleViewChange = (value: string) => {
     const view = value as 'Diagram' | 'List'
@@ -30,8 +30,36 @@ export default function FinanceContent({ data }: FinanceContentProps) {
   // 从 JSON 数据中读取表格列定义
   const listColumns: Column[] = data?.listColumns || []
 
-  // 从 JSON 数据中读取表格数据
-  const listData = data?.listData || []
+  // 从 JSON 数据中读取表格数据（支持多页数据）
+  // 如果 data.listDataPages 存在（多页数据），则根据 currentPage 选择对应页的数据
+  // 否则使用 data.listData（单页数据，向后兼容）
+  const listDataPages = data?.listDataPages || []
+  const totalPages = listDataPages.length > 0 ? listDataPages.length : 7
+  let listData = listDataPages.length > 0 
+    ? (listDataPages[currentPage - 1] || [])
+    : (data?.listData || [])
+
+  // 时间排序处理
+  const handleTimeSort = () => {
+    if (timeSortOrder === null || timeSortOrder === 'desc') {
+      setTimeSortOrder('asc')
+    } else {
+      setTimeSortOrder('desc')
+    }
+  }
+
+  // 对数据进行排序
+  if (timeSortOrder !== null) {
+    listData = [...listData].sort((a, b) => {
+      const timeA = a.time || ''
+      const timeB = b.time || ''
+      if (timeSortOrder === 'asc') {
+        return timeA.localeCompare(timeB)
+      } else {
+        return timeB.localeCompare(timeA)
+      }
+    })
+  }
 
   // 初始化图表
   useEffect(() => {
@@ -323,19 +351,43 @@ export default function FinanceContent({ data }: FinanceContentProps) {
                       alignItems: 'center',
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: 'PingFang SC',
-                        fontWeight: 400,
-                        fontStyle: 'normal',
-                        fontSize: px(16),
-                        lineHeight: '100%',
-                        letterSpacing: '0%',
-                        color: '#000000',
-                      }}
-                    >
-                      {column.label}
-                    </span>
+                    {column.key === 'time' ? (
+                      <span
+                        onClick={handleTimeSort}
+                        style={{
+                          fontFamily: 'PingFang SC',
+                          fontWeight: 400,
+                          fontStyle: 'normal',
+                          fontSize: px(16),
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          color: '#000000',
+                          cursor: 'pointer',
+                          userSelect: 'none',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: px(4),
+                        }}
+                      >
+                        {column.label}
+                        {timeSortOrder === 'asc' && ' ↑'}
+                        {timeSortOrder === 'desc' && ' ↓'}
+                      </span>
+                    ) : (
+                      <span
+                        style={{
+                          fontFamily: 'PingFang SC',
+                          fontWeight: 400,
+                          fontStyle: 'normal',
+                          fontSize: px(16),
+                          lineHeight: '100%',
+                          letterSpacing: '0%',
+                          color: '#000000',
+                        }}
+                      >
+                        {column.label}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
@@ -380,11 +432,13 @@ export default function FinanceContent({ data }: FinanceContentProps) {
               ))}
             </div>
 
-            <PageSelector 
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={setCurrentPage}
-            />
+            <div style={{ marginTop: px(50)}}>
+              <PageSelector 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+              />
+            </div>
           </div>
         )}
       </div>

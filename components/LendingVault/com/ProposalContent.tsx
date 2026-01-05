@@ -23,14 +23,18 @@ export default function ProposalContent({ data, system_id }: ProposalContentProp
   const chartInstanceRef = useRef<echarts.ECharts | null>(null)
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(10)
-  const totalPages = 7
-
 
   // 从 JSON 数据中读取表格列定义
   const columns: Column[] = data?.columns || []
   
-  // 从 JSON 数据中读取表格数据
-  const tableData = data?.tableData || []
+  // 从 JSON 数据中读取表格数据（支持多页数据）
+  // 如果 data.tableDataPages 存在（多页数据），则根据 currentPage 选择对应页的数据
+  // 否则使用 data.tableData（单页数据，向后兼容）
+  const tableDataPages = data?.tableDataPages || []
+  const totalPages = tableDataPages.length > 0 ? tableDataPages.length : 7
+  const tableData = tableDataPages.length > 0 
+    ? (tableDataPages[currentPage - 1] || [])
+    : (data?.tableData || [])
 
 
   
@@ -209,11 +213,13 @@ export default function ProposalContent({ data, system_id }: ProposalContentProp
       <DataTable columns={columns} data={tableData} system_id={system_id} />
 
        {/* Pagination Controls */}
-       <PageSelector 
-              currentPage={currentPage}
-              totalPages={totalPages}
-              onPageChange={setCurrentPage}
-            />
+       <div style={{ marginTop: px(50)}}>
+         <PageSelector 
+           currentPage={currentPage}
+           totalPages={totalPages}
+           onPageChange={setCurrentPage}
+         />
+       </div>
       </div>
     </div>
   )

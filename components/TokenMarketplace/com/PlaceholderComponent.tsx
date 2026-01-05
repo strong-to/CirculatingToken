@@ -235,7 +235,9 @@ export default function PlaceholderComponent({ projects }: PlaceholderComponentP
       {/* 弹窗 */}
       <ProjectModal
         selectedCard={selectedCard}
+        projects={displayData}
         onClose={handleCloseModal}
+        onCardChange={setSelectedCard}
         formatNumber={formatNumber}
         formatCurrency={formatCurrency}
       />

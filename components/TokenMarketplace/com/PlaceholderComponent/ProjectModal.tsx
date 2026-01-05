@@ -1,34 +1,68 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
 import type { ProjectData } from '@/app/data'
 import Toast from '@/components/common/Toast'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Mousewheel } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
+import 'swiper/css'
 
 interface ProjectModalProps {
   selectedCard: ProjectData | null
+  projects: ProjectData[]
   onClose: () => void
+  onCardChange: (card: ProjectData) => void
   formatNumber: (value: number | undefined) => string
   formatCurrency: (value: number | undefined) => string
 }
 
 export default function ProjectModal({
   selectedCard,
+  projects,
   onClose,
+  onCardChange,
 }: ProjectModalProps) {
   const router = useRouter()
   const [isDetailsHovered, setIsDetailsHovered] = useState(false)
   const [isFavoritesHovered, setIsFavoritesHovered] = useState(false)
   const [showLoginToast, setShowLoginToast] = useState(false)
+  const swiperRef = useRef<SwiperType | null>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
+  // 找到当前选中项目在列表中的索引
+  useEffect(() => {
+    if (selectedCard && projects.length > 0) {
+      const index = projects.findIndex(p => p.system_id === selectedCard.system_id)
+      if (index !== -1) {
+        setCurrentIndex(index)
+        // 滑动到对应索引
+        if (swiperRef.current) {
+          swiperRef.current.slideTo(index)
+        }
+      }
+    }
+  }, [selectedCard, projects])
 
   const handleDetailsClick = () => {
     if (selectedCard?.system_id) {
       router.push(`/LendingVault?system_id=${selectedCard.system_id}`)
     }
   }
+
+  const handleSlideChange = (swiper: SwiperType) => {
+    const newIndex = swiper.activeIndex
+    setCurrentIndex(newIndex)
+    if (projects[newIndex]) {
+      onCardChange(projects[newIndex])
+    }
+  }
+
+  // 判断是否可以向左滑动（如果是第一个项目，不能向左滑）
+  const canSlideLeft = currentIndex > 0
 
   if (selectedCard === null) return null
 
@@ -115,15 +149,63 @@ export default function ProjectModal({
             overflow: 'hidden',
             borderRadius: 0,
           }}>
-            <Image
-              src={selectedCard?.profile?.media?.banner?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || ''}
-              alt={selectedCard?.profile?.name || selectedCard?.system_id || ''}
-              fill
-              className="object-cover"
-              style={{
-                borderRadius: 0,
+            <Swiper
+              modules={[Mousewheel]}
+              spaceBetween={0}
+              slidesPerView={1}
+              slidesPerGroup={1}
+              grabCursor={true}
+              watchSlidesProgress={true}
+              speed={300}
+              mousewheel={{
+                forceToAxis: true,
+                releaseOnEdges: false,
+                sensitivity: 1.2,
+                thresholdDelta: 10,
+                eventsTarget: 'container',
               }}
-            />
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+                // 初始化时滑动到当前索引
+                if (selectedCard && projects.length > 0) {
+                  const index = projects.findIndex(p => p.system_id === selectedCard.system_id)
+                  if (index !== -1) {
+                    swiper.slideTo(index, 0) // 立即跳转，无动画
+                  }
+                }
+              }}
+              onSlideChange={handleSlideChange}
+              allowSlidePrev={canSlideLeft}
+              allowTouchMove={true}
+              touchEventsTarget="container"
+              touchRatio={1}
+              resistance={true}
+              resistanceRatio={0.85}
+              style={{
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              {projects.map((project, index) => (
+                <SwiperSlide key={project.system_id || index}>
+                  <div style={{
+                    width: '100%',
+                    height: '100%',
+                    position: 'relative',
+                  }}>
+                    <Image
+                      src={project?.profile?.media?.banner?.replace(/^\.\.\/\.\.\/\.\.\/public/, '') || ''}
+                      alt={project?.profile?.name || project?.system_id || ''}
+                      fill
+                      className="object-cover"
+                      style={{
+                        borderRadius: 0,
+                      }}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           <div style={{

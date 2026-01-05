@@ -1,12 +1,28 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+import { useSetAtom } from 'jotai'
 import { px } from '@/utils/pxToRem'
+import { StepNextButton } from './StepCommon'
+import { shouldShowProject31Atom } from '@/store/atoms'
 
 interface SuccessPageProps {
   onDone?: () => void
 }
 
 export default function SuccessPage({ onDone }: SuccessPageProps = {} as SuccessPageProps) {
+  const router = useRouter()
+  const setShouldShowProject31 = useSetAtom(shouldShowProject31Atom)
+
+  const handleViewInProjectHub = () => {
+    // 设置为 false，表示要显示31个项目
+    setShouldShowProject31(false)
+    // 使用 setTimeout 确保 atom 更新完成后再跳转
+    setTimeout(() => {
+      router.push('/ProjectHub')
+      onDone?.()
+    }, 0)
+  }
   return (
     <div
       className="flex-1 flex flex-col items-center justify-center"
@@ -57,7 +73,11 @@ export default function SuccessPage({ onDone }: SuccessPageProps = {} as Success
         </div>
       </div>
 
-     
+      <div style={{ marginTop: px(90) }}>
+
+      <StepNextButton onClick={handleViewInProjectHub} label="View In Project Hub" marginTop={0} />
+      </div>
+
     </div>
   )
 }

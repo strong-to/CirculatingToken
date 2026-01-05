@@ -530,6 +530,7 @@ import DBTF0000027 from './projects/DBTF0000027.json';
 import DBTF0000028 from './projects/DBTF0000028.json';
 import DBTF0000029 from './projects/DBTF0000029.json';
 import DBTF0000030 from './projects/DBTF0000030.json';
+import DBTF0000031 from './projects/DBTF00000031.json';
 
 const projectModules = {
   DBTF0000001,
@@ -562,6 +563,7 @@ const projectModules = {
   DBTF0000028,
   DBTF0000029,
   DBTF0000030,
+  DBTF0000031,
 };
 
 const projectEntries: ProjectData[] = Object.values(projectModules)

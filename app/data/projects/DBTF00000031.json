@@ -1,0 +1,4133 @@
+{
+  "system_id": "DBTF00000031",
+  "slug": "primecore",
+  "status": "voting",
+  "profile": {
+    "name": "PrimeCore",
+    "symbol": "P",
+    "type_en": "Compute Pool",
+    "category_cn": "中央处理器（CPU）集群",
+    "slogan": "Reliable CPU compute at scale.",
+    "summary": "PrimeCore delivers Compute Pool capabilities for AI / Computing teams.",
+    "description_md": "## 关于 PrimeCore\nReliable CPU compute at scale.\n\n### 交互形态\n- Code / Table\n\n### 适用领域\n- AI / Computing / Industry\n\n### 核心能力\n- Analyze · Optimize · Monitor · Coordinate\n\n### 运营概览\n- 贡献者：48\n- 市值：$2.3M\n- 建设进度：62%",
+    "media": {
+      "logo": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+      "projectDetails": "DBTF00000031_Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms,DBTF00000031_Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, seasons, and the climate.Signals behind storms, ",
+      "maskTextList": [
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF00000031_001"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF00000031_002"
+        },
+        {
+          "text": "Natural Language",
+          "id": "maskTextListDBTF00000031_003"
+        },
+        {
+          "text": "Text",
+          "id": "maskTextListDBTF00000031_004"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF00000031_005"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF00000031_006"
+        },
+        {
+          "text": "Analyze",
+          "id": "maskTextListDBTF00000031_007"
+        },
+        {
+          "text": "Public Health",
+          "id": "maskTextListDBTF00000031_008"
+        }
+      ],
+      "maskInfoList": [
+        {
+          "text": "24h Revenue",
+          "info": "$6550,521",
+          "id": "maskInfoListDBTF00000031_001"
+        },
+        {
+          "text": "Market Cap",
+          "info": "$76,144,900",
+          "id": "maskInfoListDBTF00000031_002"
+        },
+        {
+          "text": "Total Users",
+          "info": "2,110,977",
+          "id": "maskInfoListDBTF00000031_003"
+        },
+        {
+          "text": "User Rating",
+          "info": "1212121",
+          "id": "maskInfoListDBTF00000031_004"
+        }
+      ],
+      "assets": [
+        {
+          "type": "image",
+          "url": "https://assets.dbtf.com/posters/primecore_hero.jpg",
+          "context": "project_home_hero",
+          "description": "PrimeCore 主视觉"
+        },
+        {
+          "type": "video",
+          "url": "https://assets.dbtf.com/videos/primecore_intro.mp4",
+          "context": "project_story",
+          "description": "PrimeCore 产品介绍"
+        }
+      ],
+      "description": "Reliable CPU compute at scale. DBTF00000031",
+      "introduction": "Reliable CPU compute at scale. 001"
+    },
+    "projectDetailsPage": {
+      "banner": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/LendingVault/banner/MaskGroup.png",
+      "carouselImages": [
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+        "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png"
+      ],
+      "tabList": [
+        {
+          "id": "DBTF00000031ProjectIntroduction",
+          "name": "Project Introduction"
+        },
+        {
+          "id": "DBTF00000031UserComments",
+          "name": "User Comments"
+        },
+        {
+          "id": "DBTF00000031ProjectConstruction",
+          "name": "Project Construction"
+        },
+        {
+          "id": "DBTF00000031ProjectGovernance",
+          "name": "Project Governance"
+        },
+        {
+          "id": "DBTF00000031TokenTrading",
+          "name": "Token Trading"
+        },
+        {
+          "id": "DBTF00000031TokenLending",
+          "name": "Token Lending"
+        }
+      ],
+      "projectIntroduction": {
+        "ratingData": [
+          "Workflow",
+          "Video+Audio",
+          "Image",
+          "Text",
+          "Media",
+          "Entertainment",
+          "Generate",
+          "Edit",
+          "Text",
+          "Model"
+        ],
+        "content": "Whether you are already using THE4 apps and earning from them, or you've just arrived and are still exploring what this AI ecosystem can do, you can invite friends to join with your referral link. Once your invitees start using THE4 and connect with specific AI projects (Contracts), they will receive rights tokens for those projects as well as tokens from the THE4 Community (Covenant). As the referrer, you'll also receive a share of both the Contract tokens and Covenant tokens.",
+        "arrowContent": "Learn more details",
+        "buttonList": [
+          {
+            "id": "DBTF00000031FavoriteProject",
+            "name": "Favorite Project",
+            "url": "https://primecore.io"
+          },
+          {
+            "id": "DBTF00000031Button2",
+            "name": "Experience the Project",
+            "url": "https://primecore.io"
+          }
+        ],
+        "projectsYouMayBeInterestedIn": [
+          {
+            "id": "DBTF00000031Project1",
+            "name": "Project 1",
+            "url": "https://primecore.io"
+          }
+        ]
+      },
+      "userComments": {
+        "overallRating": "4.5/5",
+        "totalReviews": 120518,
+        "ratingData": [
+          {
+            "stars": 5,
+            "count": 52079,
+            "percentage": 95
+          },
+          {
+            "stars": 4,
+            "count": 38895,
+            "percentage": 75
+          },
+          {
+            "stars": 3,
+            "count": 21322,
+            "percentage": 50
+          },
+          {
+            "stars": 2,
+            "count": 6427,
+            "percentage": 25
+          },
+          {
+            "stars": 1,
+            "count": 1259,
+            "percentage": 5
+          }
+        ],
+        "commentList": [
+          {
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "AtmoSet",
+            "id": "DBAI000000",
+            "stars": 5,
+            "comment": "Great tool.......",
+            "emoji": "👍👍",
+            "date": "Dec 09 2025"
+          },
+          {
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Nero",
+            "id": "DB000000137",
+            "stars": 5,
+            "comment": "It is very convenient and can be easily used without professional skills!",
+            "emoji": "",
+            "date": "Dec 09 2025"
+          },
+          {
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Ashley",
+            "id": "DBAI0000009",
+            "stars": 5,
+            "comment": "It is very efficient, and it would be even better if it could have voice interaction function.",
+            "emoji": "",
+            "date": "Dec 09 2025"
+          },
+          {
+            "img": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Shi san",
+            "id": "DBAI0000009",
+            "stars": 5,
+            "comment": "It's the best software I've ever used, and it replaces almost every other tool, perfect!",
+            "emoji": "",
+            "date": "Dec 09 2025"
+          }
+        ]
+      },
+      "projectConstruction": {
+        "statistics": {
+          "totalResponses": 1503,
+          "totalResponsesLabel": "construction response count：",
+          "totalConstructors": 667,
+          "totalConstructorsLabel": "number of constructors：",
+          "completedSubjects": 7,
+          "completedSubjectsLabel": "number of completed response subjects：",
+          "ongoingSubjects": 5,
+          "ongoingSubjectsLabel": "number of ongoing response subjects："
+        },
+        "logo": {
+          "src": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/img/Mask1.png",
+          "name": "PrimeCore",
+          "address": "0x1a2b...Core",
+          "totalContributions": 1503,
+          "tokensEarned": "45,200 GVP",
+          "tagLabel": "Project Overview"
+        },
+        "constructors": [
+          {
+            "id": 1,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Quantum",
+            "address": "0x2b3c...Otla",
+            "totalContributions": 287,
+            "tokensEarned": "12,800 GVP",
+            "tagLabel": "Data Annotation"
+          },
+          {
+            "id": 2,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Nexus",
+            "address": "0x3c4d...Nexu",
+            "totalContributions": 245,
+            "tokensEarned": "10,500 GVP",
+            "tagLabel": "Code Review"
+          },
+          {
+            "id": 3,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Apex",
+            "address": "0x4d5e...Apex",
+            "totalContributions": 312,
+            "tokensEarned": "14,200 GVP",
+            "tagLabel": "Testing"
+          },
+          {
+            "id": 4,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Vortex",
+            "address": "0x5e6f...Vort",
+            "totalContributions": 198,
+            "tokensEarned": "8,900 GVP",
+            "tagLabel": "Documentation"
+          },
+          {
+            "id": 5,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Zenith",
+            "address": "0x6f7a...Zeni",
+            "totalContributions": 356,
+            "tokensEarned": "16,100 GVP",
+            "tagLabel": "Design"
+          },
+          {
+            "id": 6,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Phoenix",
+            "address": "0x7a8b...Phoe",
+            "totalContributions": 223,
+            "tokensEarned": "9,800 GVP",
+            "tagLabel": "Optimization"
+          },
+          {
+            "id": 7,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Titan",
+            "address": "0x8b9c...Tita",
+            "totalContributions": 289,
+            "tokensEarned": "13,200 GVP",
+            "tagLabel": "Security"
+          },
+          {
+            "id": 8,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Nova",
+            "address": "0x9c0d...Nova",
+            "totalContributions": 267,
+            "tokensEarned": "11,600 GVP",
+            "tagLabel": "Integration"
+          },
+          {
+            "id": 9,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Atlas",
+            "address": "0x0d1e...Atla",
+            "totalContributions": 334,
+            "tokensEarned": "15,300 GVP",
+            "tagLabel": "Architecture"
+          },
+          {
+            "id": 10,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Orion",
+            "address": "0x1e2f...Orion",
+            "totalContributions": 201,
+            "tokensEarned": "9,100 GVP",
+            "tagLabel": "Debugging"
+          },
+          {
+            "id": 11,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Helix",
+            "address": "0x2f3a...Heli",
+            "totalContributions": 278,
+            "tokensEarned": "12,500 GVP",
+            "tagLabel": "Refactoring"
+          },
+          {
+            "id": 12,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Cipher",
+            "address": "0x3a4b...Ciph",
+            "totalContributions": 256,
+            "tokensEarned": "11,400 GVP",
+            "tagLabel": "Encryption"
+          },
+          {
+            "id": 13,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Echo",
+            "address": "0x4b5c...Echo",
+            "totalContributions": 245,
+            "tokensEarned": "10,700 GVP",
+            "tagLabel": "API Design"
+          },
+          {
+            "id": 14,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Flux",
+            "address": "0x5c6d...Flux",
+            "totalContributions": 302,
+            "tokensEarned": "13,800 GVP",
+            "tagLabel": "Performance"
+          },
+          {
+            "id": 15,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Prism",
+            "address": "0x6d7e...Prism",
+            "totalContributions": 219,
+            "tokensEarned": "9,600 GVP",
+            "tagLabel": "UI/UX"
+          },
+          {
+            "id": 16,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Vector",
+            "address": "0x7e8f...Vect",
+            "totalContributions": 291,
+            "tokensEarned": "13,100 GVP",
+            "tagLabel": "Algorithm"
+          }
+        ],
+        "jobs": [
+          {
+            "id": 1,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 2,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 3,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 4,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 5,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          },
+          {
+            "id": 6,
+            "annotation": "multi-modal data annotation",
+            "content": "job content",
+            "filter": "filter/sort",
+            "tokens": "80",
+            "unit": "item",
+            "demand": "200000",
+            "participants": "110",
+            "difficulty": "4.1/5.0",
+            "timeLimit": "Nov 30 2026",
+            "status": "under construction"
+          }
+        ],
+        "pagination": {
+          "defaultItemsPerPage": 10,
+          "itemsPerPageOptions": [
+            10,
+            20,
+            50
+          ],
+          "totalPages": 7
+        },
+        "cardData": [
+          {
+            "icon": "/ConferenceRoom/img/icon1.png",
+            "title": "Project funding support",
+            "subtitle": "Support the project with USDC to earn tokens and special benefits",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Online contribution",
+                "icon": "lightning"
+              },
+              {
+                "type": "bordered",
+                "text": "Easy"
+              },
+              {
+                "type": "icon",
+                "text": "1,200GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "Immediate",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "35applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "formSection": {
+                "title": "Contribute Funds",
+                "description": "Support the project with USDC to earn tokens and special benefits",
+                "contributionInput": {
+                  "label": "Contribution Amount (USDC)",
+                  "placeholder": "$ 100",
+                  "minimumText": "Minimum contribution: 50 USDC"
+                },
+                "quickAmounts": [
+                  "$100",
+                  "$500",
+                  "$1000",
+                  "$5000"
+                ],
+                "lockPeriod": {
+                  "title": "Lock Period (extra rewards)",
+                  "minLabel": "6 months",
+                  "minBonus": "+10% Bonus",
+                  "maxLabel": "No lock",
+                  "maxValue": "24months",
+                  "infoText": "Longer lock periods yield more token rewards. Tokens unlock gradually during the lock, and you still retain governance voting rights."
+                },
+                "estimatedReward": {
+                  "title": "Estimated Reward",
+                  "badge": "Supporter",
+                  "totalAmount": "1,150 GVP",
+                  "breakdown": [
+                    {
+                      "label": "Base reward (10x):",
+                      "value": "1.000 GVP"
+                    },
+                    {
+                      "label": "Tier bonus (5%):",
+                      "value": "+50"
+                    },
+                    {
+                      "label": "Lock bonus (10%):",
+                      "value": "+100"
+                    }
+                  ]
+                },
+                "submitButton": "Confirm Contribution"
+              }
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon2.png",
+            "title": "Collect labeled data for specific",
+            "subtitle": "Collect labeled data in medical imaging for fine-tuning and accuracy improvement",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Medium"
+              },
+              {
+                "type": "icon",
+                "text": "2000 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "1-2 weeks 2",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "5 applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "statistics": [
+                {
+                  "label": "This round",
+                  "value": "1",
+                  "icon": "C"
+                },
+                {
+                  "label": "Accuracy",
+                  "value": "96.5%",
+                  "icon": "C"
+                },
+                {
+                  "label": "Rewards Earned",
+                  "value": "2",
+                  "icon": "C"
+                },
+                {
+                  "label": "Avg Time",
+                  "value": "45s",
+                  "icon": "C"
+                }
+              ],
+              "task": {
+                "title": "Tasio Transcription Verification",
+                "progress": "Task 5 / 5",
+                "reward": "+2 GVP"
+              },
+              "audioPlayer": {
+                "label": "Audio Player"
+              },
+              "transcription": {
+                "text": "Artificial intelligence is changing our way of life"
+              },
+              "verification": {
+                "prompt": "Verify if the transcription is accurate",
+                "options": [
+                  "Completely accurate",
+                  "Mostly accurate (minor errors)",
+                  "Partially accurate",
+                  "Inaccurate"
+                ]
+              },
+              "buttons": {
+                "skip": "Skip",
+                "submit": "Submit labels"
+              }
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon3.png",
+            "title": "NVIDIA A100 GPU Computing Power",
+            "subtitle": "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning...",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Medium"
+              },
+              {
+                "type": "icon",
+                "text": "8000-15000 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "Ongoing",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "5 applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "description": "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning. Please provide GPU specs and accessible address (IP + port or API endpoint). Expected contribution: 100-200 GPU hours per week.",
+              "leftCard": {
+                "title": "NVIDIA A100 GPU Computing Power",
+                "description": "Provide NVIDIA A100 or equivalent GPU computing power for model training. At least 40GB VRAM GPU required for large-scale image recognition model training and fine-tuning. Please provide GPU specs ...",
+                "tags": [
+                  {
+                    "text": "8000-15000 GVP",
+                    "type": "primary"
+                  },
+                  {
+                    "text": "medium",
+                    "type": "secondary"
+                  },
+                  {
+                    "text": "Ongoing",
+                    "type": "secondary"
+                  }
+                ]
+              },
+              "rightCard": {
+                "title": "Compute Type",
+                "description": "Select the type of compute resource you can provide",
+                "filterDropdown": {
+                  "placeholder": "GPU Computing",
+                  "description": "Select the type of compute resource you can provide",
+                  "options": [
+                    "GPU Computing",
+                    "GPU Computing1",
+                    "GPU Computing2"
+                  ],
+                  "value": "GPU Computing"
+                }
+              },
+              "gpuSpecifications": {
+                "title": "GPU Specifications",
+                "gpuModel": {
+                  "label": "GPU Model",
+                  "placeholder": "GPU Model",
+                  "options": [
+                    "NVIDIA A100, 80GB",
+                    "NVIDIA A100, 40GB",
+                    "NVIDIA A6000, 48GB",
+                    "NVIDIA V100, 32GB",
+                    "NVIDIA V100, 16GB",
+                    "NVIDIA RTX 4090, 24GB",
+                    "NVIDIA RTX 3090, 24GB",
+                    "NVIDIA RTX 3080, 10GB",
+                    "NVIDIA L40, 48GB",
+                    "NVIDIA T4, 16GB",
+                    "Other"
+                  ]
+                },
+                "gpuCount": {
+                  "label": "GPU Count",
+                  "placeholder": "1",
+                  "options": [
+                    "1",
+                    "2",
+                    "4",
+                    "8",
+                    "16",
+                    "32+"
+                  ],
+                  "value": "1"
+                }
+              },
+              "accessInformation": {
+                "title": "Access Information",
+                "ipAddress": {
+                  "label": "IP Address / Domain",
+                  "placeholder": "e.g. 192.168.1.100 or example.com"
+                },
+                "port": {
+                  "label": "Port",
+                  "placeholder": "e.g., 8080"
+                },
+                "sshKey": {
+                  "label": "SSH Public Key (optional)",
+                  "placeholder": "ssh-rsa AAAAB3..."
+                }
+              },
+              "availabilityDuration": {
+                "title": "Availability & Duration",
+                "availability": {
+                  "label": "Availability",
+                  "placeholder": "24/7",
+                  "options": [
+                    "24/7",
+                    "Business Hours",
+                    "Custom"
+                  ],
+                  "value": "24/7"
+                },
+                "commitmentDuration": {
+                  "label": "Commitment Duration",
+                  "placeholder": "1 Month",
+                  "options": [
+                    "1 Week",
+                    "Month",
+                    "3 Months",
+                    "6 Months",
+                    "1 Year"
+                  ],
+                  "value": "Month"
+                }
+              },
+              "additionalInformation": {
+                "title": "Additional Information",
+                "placeholder": "e.g., SLA guarantees, special configurations, maintenance windows..."
+              },
+              "submitButton": "Submit Compute Resource"
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon4.png",
+            "title": "Optimize image recognition performance",
+            "subtitle": "Optimize inference speed for high-resolution images; target 30% reduction in processing time",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Hard"
+              },
+              {
+                "type": "icon",
+                "text": "5000 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "2-3 weeks",
+                "icon": "clock"
+              },
+              {
+                "type": "icon",
+                "text": "3 applicants",
+                "icon": "person"
+              }
+            ],
+            "modal": {
+              "notSupportedMessage": "This task type is not supported for online contributions yet",
+              "contactMessage": "Please contact the project team for details",
+              "taskInfoLabel": "Task Info:",
+              "taskInfoText": "Optimize inference speed for high-resolution images; target 30% reduction in processing time",
+              "actionButtons": {
+                "leftButton": "1500 GVP",
+                "rightButton": "medium"
+              }
+            }
+          },
+          {
+            "icon": "/ConferenceRoom/img/icon5.png",
+            "title": "Write detailed API documentation",
+            "subtitle": "Document the new scene analysis feature with examples",
+            "tags": [
+              {
+                "type": "bordered",
+                "text": "Medium"
+              },
+              {
+                "type": "icon",
+                "text": "1500 GVP",
+                "icon": "gvp"
+              },
+              {
+                "type": "icon",
+                "text": "1 week",
+                "icon": "clock"
+              }
+            ],
+            "modal": {
+              "notSupportedMessage": "This task type is not supported for online contributions yet",
+              "contactMessage": "Please contact the project team for details",
+              "taskInfoLabel": "Task Info:",
+              "taskInfoText": "Create comprehensive documentation and code examples for new scene analysis features",
+              "actionButtons": {
+                "leftButton": "1500 GVP",
+                "rightButton": "medium"
+              }
+            }
+          }
+        ]
+      },
+      "projectGovernance": {
+        "statistics": {
+          "constructionResponseCount": 1503,
+          "constructionResponseCountLabel": "construction response count：",
+          "numberOfConstructors": 667,
+          "numberOfConstructorsLabel": "number of constructors：",
+          "numberOfCompletedResponseSubjects": 7,
+          "numberOfCompletedResponseSubjectsLabel": "number of completed response subjects："
+        },
+        "tabs": [
+          {
+            "id": "ecosystem",
+            "name": "Ecosystem",
+            "component": "Ecosystem",
+            "data": {
+              "title": "Ecosystem Data",
+              "description": "This is ecosystem content data",
+              "listColumns": [
+                {
+                  "key": "time",
+                  "label": "time",
+                  "width": 200
+                },
+                {
+                  "key": "newUsage",
+                  "label": "Newly Added Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeUsage",
+                  "label": "Cumulative Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newRecommendation",
+                  "label": "Newly Added Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeRecommendation",
+                  "label": "Cumulative Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newConstruction",
+                  "label": "Newly Added Construction Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeConstruction",
+                  "label": "Cumulative Construction Count",
+                  "width": "flex"
+                }
+              ],
+              "listData": [
+                {
+                  "time": "14:59-08-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-07-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-06-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-05-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-04-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-03-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                }
+              ],
+              "filterButtons": [
+                "Use",
+                "Recommend",
+                "Construct",
+                "2024-11--2024-11-21"
+              ],
+              "actionButtons": [
+                "Search",
+                "Reset"
+              ],
+              "sortByPlaceholder": "Sort by",
+              "interactionFormPlaceholder": "Interaction / Form",
+              "interactionFormDescription": "Which of the following ways would you like to interact with AI?",
+              "favoriteProjectButton": "Favorite Project",
+              "experienceProjectButton": "Experience the Project"
+            }
+          },
+          {
+            "id": "token",
+            "name": "Token",
+            "component": "Token",
+            "data": {
+              "title": "Token Data",
+              "description": "This is token content data",
+              "listColumns": [
+                {
+                  "key": "time",
+                  "label": "time",
+                  "width": 200
+                },
+                {
+                  "key": "action",
+                  "label": "action",
+                  "width": "flex"
+                },
+                {
+                  "key": "subject",
+                  "label": "subject",
+                  "width": "flex"
+                },
+                {
+                  "key": "party",
+                  "label": "party",
+                  "width": "flex"
+                },
+                {
+                  "key": "consideration",
+                  "label": "consideration",
+                  "width": "flex"
+                },
+                {
+                  "key": "occurrenceCount",
+                  "label": "occurrence count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulative",
+                  "label": "cumulative",
+                  "width": "flex"
+                },
+                {
+                  "key": "stock",
+                  "label": "stock",
+                  "width": "flex"
+                }
+              ],
+              "listData": [
+                {
+                  "time": "14:59-08-07-2026",
+                  "action": "Mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-07-07-2026",
+                  "action": "mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-06-07-2026",
+                  "action": "stake",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-05-07-2026",
+                  "action": "decompress",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-04-07-2026",
+                  "action": "mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                },
+                {
+                  "time": "14:59-03-07-2026",
+                  "action": "mint",
+                  "subject": "subject",
+                  "party": "party",
+                  "consideration": "consideration",
+                  "occurrenceCount": "occurrence count",
+                  "cumulative": "cumulative",
+                  "stock": "stock"
+                }
+              ],
+              "filterButtons": [
+                "Mint",
+                "Burn",
+                "Staking",
+                "Decompress",
+                "2024-11--2024-11-21"
+              ],
+              "actionButtons": [
+                "Search",
+                "Reset"
+              ],
+              "sortByPlaceholder": "Sort by",
+              "favoriteProjectButton": "Favorite Project",
+              "experienceProjectButton": "Experience the Project"
+            }
+          },
+          {
+            "id": "finance",
+            "name": "Finance",
+            "component": "Finance",
+            "data": {
+              "title": "Finance Data",
+              "description": "This is finance content data",
+              "listColumns": [
+                {
+                  "key": "time",
+                  "label": "time",
+                  "width": 200
+                },
+                {
+                  "key": "newUsage",
+                  "label": "Newly Added Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeUsage",
+                  "label": "Cumulative Usage Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newRecommendation",
+                  "label": "Newly Added Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeRecommendation",
+                  "label": "Cumulative Recommendation Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "newConstruction",
+                  "label": "Newly Added Construction Count",
+                  "width": "flex"
+                },
+                {
+                  "key": "cumulativeConstruction",
+                  "label": "Cumulative Construction Count",
+                  "width": "flex"
+                }
+              ],
+              "listData": [
+                {
+                  "time": "14:59-08-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-07-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-06-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-05-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-04-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                },
+                {
+                  "time": "14:59-03-07-2026",
+                  "newUsage": "666",
+                  "cumulativeUsage": "888",
+                  "newRecommendation": "222",
+                  "cumulativeRecommendation": "333",
+                  "newConstruction": "220",
+                  "cumulativeConstruction": "110"
+                }
+              ],
+              "filterButtons": [
+                "Revenue",
+                "Expense",
+                "2024-11--2024-11-21"
+              ],
+              "actionButtons": [
+                "Search",
+                "Reset"
+              ],
+              "sortByPlaceholder": "Diagram/List",
+              "subjectPlaceholder": "Subject",
+              "subjectDescription": "Which of the following ways would you like to interact with AI?",
+              "assetPlaceholder": "Asset",
+              "assetDescription": "Which of the following ways would you like to interact with AI?",
+              "favoriteProjectButton": "Favorite Project",
+              "experienceProjectButton": "Experience the Project"
+            }
+          },
+          {
+            "id": "proposal",
+            "name": "Proposal",
+            "component": "Proposal",
+            "data": {
+              "title": "Proposal Data",
+              "description": "This is proposal content data",
+              "columns": [
+                {
+                  "key": "type",
+                  "label": "Type",
+                  "width": "flex"
+                },
+                {
+                  "key": "subject",
+                  "label": "Subject",
+                  "width": "flex"
+                },
+                {
+                  "key": "proposer",
+                  "label": "Proposer",
+                  "width": "flex"
+                },
+                {
+                  "key": "turnout",
+                  "label": "Turnout",
+                  "width": "flex"
+                },
+                {
+                  "key": "timing",
+                  "label": "Timing",
+                  "width": "flex"
+                },
+                {
+                  "key": "status",
+                  "label": "Status",
+                  "width": "flex"
+                }
+              ],
+              "tableData": [
+                {
+                  "id": "proposal-001",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                  "turnout": "15.1%",
+                  "proposer": "343,891 / 2,277,697",
+                  "timing": "00:22:23",
+                  "type": "DEC11,2025—DEC17,2025",
+                  "status": "On going",
+                  "yae": "0,000,000",
+                  "nay": "0,000,000",
+                  "detail": {
+                    "leftSidebar": {
+                      "ongoingTimer": {
+                        "label": "On going",
+                        "value": "00:22:23"
+                      },
+                      "resultStatistics": {
+                        "title": "Result Statistics",
+                        "items": [
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
+                        ]
+                      },
+                      "process": {
+                        "title": "Process",
+                        "steps": [
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
+                        ]
+                      }
+                    },
+                    "mainContent": {
+                      "goBackButton": {
+                        "text": "Go Back"
+                      },
+                      "proposalOverview": {
+                        "title": "Proposal overview",
+                        "subject": "Ethena February E-Modes Adjustments",
+                        "actionButtons": [
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "simpleSummary": {
+                        "title": "Simple Summary",
+                        "content": "This proposal recommends adding sUSDe as an eligible collateral asset in various E-Modes, and USDe in the PT-USDe Stablecoins E-mode. This will allow users to leverage their positions more efficiently and reduce friction for sUSDe-based principal token loopers."
+                      },
+                      "motivation": {
+                        "title": "Motivation",
+                        "sections": [
+                          {
+                            "title": "sUSDe",
+                            "content": "We recommend adding sUSDe as an eligible collateral asset in both the PTsUSDe5FEB/Stablecoins and PTsUSDe5FEB/USDe E-Modes to reduce potential friction for sUSDe-based principal token loopers when substituting collateral. As PT-sUSDe-5FEB2025 can only be redeemed for sUSDe, enabling sUSDe within these E-Modes will allow users to migrate collateral from the principal token to sUSDe while preserving E-Mode benefits, rather than fully unwinding their positions. To date, this substitution path has seen limited use: in September, approximately 24.27 million sUSDe of collateral, out of more than 2 billion principal tokens with September maturity, was swapped via transactions that burned PT-sUSDe and minted aEthsUSDe. While not widely adopted historically, we view this as a useful tool for advanced position management and would recommend supporting it as the markets scale. This adjustment is therefore expected to increase the stickiness of PT-sUSDe-based demand for stablecoin borrowing, reduce unnecessary deleveraging and operational overhead around redemption events, and lower potential liquidity stress when positions are adjusted at substantial market sizes."
+                          },
+                          {
+                            "title": "USDe",
+                            "content": "The motivation behind the addition of sUSDe in the PT-sUSDe E-Modes strains from the fact that users would otherwise need to fully unwind highly leveraged positions in order to shift from the November sUSDe PTs to the February maturity tokens. Since Pendle allows one-to-one redemption of the PTs at maturity, users receive sUSDe without incurring in any swapping cost, which, while yield-bearing, can be utilized as collateral, and can act as a substitution for the PT-sUSDe when users are exiting the previous maturity PTs while awaiting the next maturity PTs (either to be listed or to have sufficient capacity). This way, the presence of sUSDe in the E-Modes serves a high-utility purpose for a subset of users. The inclusion of USDe in the E-Modes does not provide such utility as it is not yield-bearing. Hence, if users redeem PT-USDe for USDe and then collateralize the debt with USDe, they would be taking a leveraged annualized loss equal to the borrowing costs of the notional debt. We'd also like to note that the utility of such collateral in the PT-related E-Modes does not depend on the type of PT (sUSDe or USDe), as no incremental utility is provided by USDe in either case. In case of unwinding staked USDe positions, the inclusion of USDe under the same parameters effectively presents the same utility. Nevertheless, the inclusion of USDe in the PT-USDe E-Mode can reduce the costs of transition in one specific edge case. Given that a user has a substantial leveraged position and is paying borrowing costs on the notional, if the next PT is expected to be listed within a reasonably short period of time, it might be beneficial to incur the funding costs of the net position instead of converting the USDe collateral to the debt assets. While the inclusion of USDe in the proposed E-Modes presents limited utility, such an adjustment does not introduce additional risk; therefore, we support the proposed adjustment."
+                          }
+                        ]
+                      },
+                      "specification": {
+                        "title": "Specification",
+                        "tables": [
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "references": {
+                        "title": "References",
+                        "items": [
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "disclosure": {
+                        "title": "Disclosure",
+                        "paragraphs": [
+                          "Copyright and related rights waived via CC0.Chaos Labs has not been compensated by any third party for publishing this AGRS recommendation.",
+                          "Caps updates mentioned on the forum discussion post have been implemented via risk steward so it will not be part of this AIP."
+                        ]
+                      },
+                      "copyright": {
+                        "title": "Copyright",
+                        "content": "Copyright and related rights waived via CC0."
+                      }
+                    },
+                    "rightSidebar": {
+                      "votingInfo": {
+                        "title": "Your voting info",
+                        "status": "Voting is on",
+                        "buttons": [
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
+                        ]
+                      },
+                      "votingResults": {
+                        "title": "Voting results",
+                        "items": [
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
+                        ]
+                      },
+                      "proposer": {
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "title": "Proposer",
+                        "modal": {
+                          "name": "Quantum",
+                          "address": "0x2b3c...Otla",
+                          "totalContributions": 287,
+                          "tokensEarned": "12,800 GVP",
+                          "tagLabel": "Data Annotation",
+                          "totalContributionsLabel": "Total contributions",
+                          "tokensEarnedLabel": "Tokens earned"
+                        }
+                      },
+                      "voter": {
+                        "title": "Voter",
+                        "items": [
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
+                        ]
+                      },
+                      "forumDiscussion": {
+                        "text": "Forum discussion",
+                        "url": "#"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "proposal-002",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                  "turnout": "15.1%",
+                  "proposer": "343,891 / 2,277,697",
+                  "timing": "00:22:23",
+                  "type": "DEC11,2025—DEC17,2025",
+                  "status": "On going",
+                  "yae": "0,000,000",
+                  "nay": "0,000,000",
+                  "detail": {
+                    "leftSidebar": {
+                      "ongoingTimer": {
+                        "label": "On going",
+                        "value": "00:22:23"
+                      },
+                      "resultStatistics": {
+                        "title": "Result Statistics",
+                        "items": [
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
+                        ]
+                      },
+                      "process": {
+                        "title": "Process",
+                        "steps": [
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
+                        ]
+                      }
+                    },
+                    "mainContent": {
+                      "goBackButton": {
+                        "text": "Go Back"
+                      },
+                      "proposalOverview": {
+                        "title": "Proposal overview",
+                        "subject": "Ethena February E-Modes Adjustments",
+                        "actionButtons": [
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "simpleSummary": {
+                        "title": "Simple Summary",
+                        "content": "This proposal recommends adding sUSDe as an eligible collateral asset in various E-Modes, and USDe in the PT-USDe Stablecoins E-mode. This will allow users to leverage their positions more efficiently and reduce friction for sUSDe-based principal token loopers."
+                      },
+                      "motivation": {
+                        "title": "Motivation",
+                        "sections": [
+                          {
+                            "title": "sUSDe",
+                            "content": "We recommend adding sUSDe as an eligible collateral asset in both the PTsUSDe5FEB/Stablecoins and PTsUSDe5FEB/USDe E-Modes to reduce potential friction for sUSDe-based principal token loopers when substituting collateral. As PT-sUSDe-5FEB2025 can only be redeemed for sUSDe, enabling sUSDe within these E-Modes will allow users to migrate collateral from the principal token to sUSDe while preserving E-Mode benefits, rather than fully unwinding their positions. To date, this substitution path has seen limited use: in September, approximately 24.27 million sUSDe of collateral, out of more than 2 billion principal tokens with September maturity, was swapped via transactions that burned PT-sUSDe and minted aEthsUSDe. While not widely adopted historically, we view this as a useful tool for advanced position management and would recommend supporting it as the markets scale. This adjustment is therefore expected to increase the stickiness of PT-sUSDe-based demand for stablecoin borrowing, reduce unnecessary deleveraging and operational overhead around redemption events, and lower potential liquidity stress when positions are adjusted at substantial market sizes."
+                          },
+                          {
+                            "title": "USDe",
+                            "content": "The motivation behind the addition of sUSDe in the PT-sUSDe E-Modes strains from the fact that users would otherwise need to fully unwind highly leveraged positions in order to shift from the November sUSDe PTs to the February maturity tokens. Since Pendle allows one-to-one redemption of the PTs at maturity, users receive sUSDe without incurring in any swapping cost, which, while yield-bearing, can be utilized as collateral, and can act as a substitution for the PT-sUSDe when users are exiting the previous maturity PTs while awaiting the next maturity PTs (either to be listed or to have sufficient capacity). This way, the presence of sUSDe in the E-Modes serves a high-utility purpose for a subset of users. The inclusion of USDe in the E-Modes does not provide such utility as it is not yield-bearing. Hence, if users redeem PT-USDe for USDe and then collateralize the debt with USDe, they would be taking a leveraged annualized loss equal to the borrowing costs of the notional debt. We'd also like to note that the utility of such collateral in the PT-related E-Modes does not depend on the type of PT (sUSDe or USDe), as no incremental utility is provided by USDe in either case. In case of unwinding staked USDe positions, the inclusion of USDe under the same parameters effectively presents the same utility. Nevertheless, the inclusion of USDe in the PT-USDe E-Mode can reduce the costs of transition in one specific edge case. Given that a user has a substantial leveraged position and is paying borrowing costs on the notional, if the next PT is expected to be listed within a reasonably short period of time, it might be beneficial to incur the funding costs of the net position instead of converting the USDe collateral to the debt assets. While the inclusion of USDe in the proposed E-Modes presents limited utility, such an adjustment does not introduce additional risk; therefore, we support the proposed adjustment."
+                          }
+                        ]
+                      },
+                      "specification": {
+                        "title": "Specification",
+                        "tables": [
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "references": {
+                        "title": "References",
+                        "items": [
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "disclosure": {
+                        "title": "Disclosure",
+                        "paragraphs": [
+                          "Copyright and related rights waived via CC0.Chaos Labs has not been compensated by any third party for publishing this AGRS recommendation.",
+                          "Caps updates mentioned on the forum discussion post have been implemented via risk steward so it will not be part of this AIP."
+                        ]
+                      },
+                      "copyright": {
+                        "title": "Copyright",
+                        "content": "Copyright and related rights waived via CC0."
+                      }
+                    },
+                    "rightSidebar": {
+                      "votingInfo": {
+                        "title": "Your voting info",
+                        "status": "Voting is on",
+                        "buttons": [
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
+                        ]
+                      },
+                      "votingResults": {
+                        "title": "Voting results",
+                        "items": [
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
+                        ]
+                      },
+                      "proposer": {
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "title": "Proposer",
+                        "modal": {
+                          "name": "Quantum",
+                          "address": "0x2b3c...Otla",
+                          "totalContributions": 287,
+                          "tokensEarned": "12,800 GVP",
+                          "tagLabel": "Data Annotation",
+                          "totalContributionsLabel": "Total contributions",
+                          "tokensEarnedLabel": "Tokens earned"
+                        }
+                      },
+                      "voter": {
+                        "title": "Voter",
+                        "items": [
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
+                        ]
+                      },
+                      "forumDiscussion": {
+                        "text": "Forum discussion",
+                        "url": "#"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "proposal-003",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                  "turnout": "15.1%",
+                  "proposer": "343,891 / 2,277,697",
+                  "timing": "00:22:23",
+                  "type": "DEC11,2025—DEC17,2025",
+                  "status": "On going",
+                  "yae": "0,000,000",
+                  "nay": "0,000,000",
+                  "detail": {
+                    "leftSidebar": {
+                      "ongoingTimer": {
+                        "label": "On going",
+                        "value": "00:22:23"
+                      },
+                      "resultStatistics": {
+                        "title": "Result Statistics",
+                        "items": [
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
+                        ]
+                      },
+                      "process": {
+                        "title": "Process",
+                        "steps": [
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
+                        ]
+                      }
+                    },
+                    "mainContent": {
+                      "goBackButton": {
+                        "text": "Go Back"
+                      },
+                      "proposalOverview": {
+                        "title": "Proposal overview",
+                        "subject": "Ethena February E-Modes Adjustments",
+                        "actionButtons": [
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "simpleSummary": {
+                        "title": "Simple Summary",
+                        "content": "This proposal recommends adding sUSDe as an eligible collateral asset in various E-Modes, and USDe in the PT-USDe Stablecoins E-mode. This will allow users to leverage their positions more efficiently and reduce friction for sUSDe-based principal token loopers."
+                      },
+                      "motivation": {
+                        "title": "Motivation",
+                        "sections": [
+                          {
+                            "title": "sUSDe",
+                            "content": "We recommend adding sUSDe as an eligible collateral asset in both the PTsUSDe5FEB/Stablecoins and PTsUSDe5FEB/USDe E-Modes to reduce potential friction for sUSDe-based principal token loopers when substituting collateral. As PT-sUSDe-5FEB2025 can only be redeemed for sUSDe, enabling sUSDe within these E-Modes will allow users to migrate collateral from the principal token to sUSDe while preserving E-Mode benefits, rather than fully unwinding their positions. To date, this substitution path has seen limited use: in September, approximately 24.27 million sUSDe of collateral, out of more than 2 billion principal tokens with September maturity, was swapped via transactions that burned PT-sUSDe and minted aEthsUSDe. While not widely adopted historically, we view this as a useful tool for advanced position management and would recommend supporting it as the markets scale. This adjustment is therefore expected to increase the stickiness of PT-sUSDe-based demand for stablecoin borrowing, reduce unnecessary deleveraging and operational overhead around redemption events, and lower potential liquidity stress when positions are adjusted at substantial market sizes."
+                          },
+                          {
+                            "title": "USDe",
+                            "content": "The motivation behind the addition of sUSDe in the PT-sUSDe E-Modes strains from the fact that users would otherwise need to fully unwind highly leveraged positions in order to shift from the November sUSDe PTs to the February maturity tokens. Since Pendle allows one-to-one redemption of the PTs at maturity, users receive sUSDe without incurring in any swapping cost, which, while yield-bearing, can be utilized as collateral, and can act as a substitution for the PT-sUSDe when users are exiting the previous maturity PTs while awaiting the next maturity PTs (either to be listed or to have sufficient capacity). This way, the presence of sUSDe in the E-Modes serves a high-utility purpose for a subset of users. The inclusion of USDe in the E-Modes does not provide such utility as it is not yield-bearing. Hence, if users redeem PT-USDe for USDe and then collateralize the debt with USDe, they would be taking a leveraged annualized loss equal to the borrowing costs of the notional debt. We'd also like to note that the utility of such collateral in the PT-related E-Modes does not depend on the type of PT (sUSDe or USDe), as no incremental utility is provided by USDe in either case. In case of unwinding staked USDe positions, the inclusion of USDe under the same parameters effectively presents the same utility. Nevertheless, the inclusion of USDe in the PT-USDe E-Mode can reduce the costs of transition in one specific edge case. Given that a user has a substantial leveraged position and is paying borrowing costs on the notional, if the next PT is expected to be listed within a reasonably short period of time, it might be beneficial to incur the funding costs of the net position instead of converting the USDe collateral to the debt assets. While the inclusion of USDe in the proposed E-Modes presents limited utility, such an adjustment does not introduce additional risk; therefore, we support the proposed adjustment."
+                          }
+                        ]
+                      },
+                      "specification": {
+                        "title": "Specification",
+                        "tables": [
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "references": {
+                        "title": "References",
+                        "items": [
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "disclosure": {
+                        "title": "Disclosure",
+                        "paragraphs": [
+                          "Copyright and related rights waived via CC0.Chaos Labs has not been compensated by any third party for publishing this AGRS recommendation.",
+                          "Caps updates mentioned on the forum discussion post have been implemented via risk steward so it will not be part of this AIP."
+                        ]
+                      },
+                      "copyright": {
+                        "title": "Copyright",
+                        "content": "Copyright and related rights waived via CC0."
+                      }
+                    },
+                    "rightSidebar": {
+                      "votingInfo": {
+                        "title": "Your voting info",
+                        "status": "Voting is on",
+                        "buttons": [
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
+                        ]
+                      },
+                      "votingResults": {
+                        "title": "Voting results",
+                        "items": [
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
+                        ]
+                      },
+                      "proposer": {
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "title": "Proposer",
+                        "modal": {
+                          "name": "Quantum",
+                          "address": "0x2b3c...Otla",
+                          "totalContributions": 287,
+                          "tokensEarned": "12,800 GVP",
+                          "tagLabel": "Data Annotation",
+                          "totalContributionsLabel": "Total contributions",
+                          "tokensEarnedLabel": "Tokens earned"
+                        }
+                      },
+                      "voter": {
+                        "title": "Voter",
+                        "items": [
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
+                        ]
+                      },
+                      "forumDiscussion": {
+                        "text": "Forum discussion",
+                        "url": "#"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "proposal-004",
+                  "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                  "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                  "turnout": "15.1%",
+                  "proposer": "343,891 / 2,277,697",
+                  "timing": "00:22:23",
+                  "type": "DEC11,2025—DEC17,2025",
+                  "status": "On going",
+                  "yae": "0,000,000",
+                  "nay": "0,000,000",
+                  "detail": {
+                    "leftSidebar": {
+                      "ongoingTimer": {
+                        "label": "On going",
+                        "value": "00:22:23"
+                      },
+                      "resultStatistics": {
+                        "title": "Result Statistics",
+                        "items": [
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          },
+                          {
+                            "label": "Quorum:",
+                            "value": "0,000,000"
+                          }
+                        ]
+                      },
+                      "process": {
+                        "title": "Process",
+                        "steps": [
+                          {
+                            "name": "Created",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Open for voting",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Voting closed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          },
+                          {
+                            "name": "Payloads executed",
+                            "date": "DEC11,2025—DEC17,2025"
+                          }
+                        ]
+                      }
+                    },
+                    "mainContent": {
+                      "goBackButton": {
+                        "text": "Go Back"
+                      },
+                      "proposalOverview": {
+                        "title": "Proposal overview",
+                        "subject": "Ethena February E-Modes Adjustments",
+                        "actionButtons": [
+                          {
+                            "text": "Raw-Ipfs",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on twitter",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Share on Lens",
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "simpleSummary": {
+                        "title": "Simple Summary",
+                        "content": "This proposal recommends adding sUSDe as an eligible collateral asset in various E-Modes, and USDe in the PT-USDe Stablecoins E-mode. This will allow users to leverage their positions more efficiently and reduce friction for sUSDe-based principal token loopers."
+                      },
+                      "motivation": {
+                        "title": "Motivation",
+                        "sections": [
+                          {
+                            "title": "sUSDe",
+                            "content": "We recommend adding sUSDe as an eligible collateral asset in both the PTsUSDe5FEB/Stablecoins and PTsUSDe5FEB/USDe E-Modes to reduce potential friction for sUSDe-based principal token loopers when substituting collateral. As PT-sUSDe-5FEB2025 can only be redeemed for sUSDe, enabling sUSDe within these E-Modes will allow users to migrate collateral from the principal token to sUSDe while preserving E-Mode benefits, rather than fully unwinding their positions. To date, this substitution path has seen limited use: in September, approximately 24.27 million sUSDe of collateral, out of more than 2 billion principal tokens with September maturity, was swapped via transactions that burned PT-sUSDe and minted aEthsUSDe. While not widely adopted historically, we view this as a useful tool for advanced position management and would recommend supporting it as the markets scale. This adjustment is therefore expected to increase the stickiness of PT-sUSDe-based demand for stablecoin borrowing, reduce unnecessary deleveraging and operational overhead around redemption events, and lower potential liquidity stress when positions are adjusted at substantial market sizes."
+                          },
+                          {
+                            "title": "USDe",
+                            "content": "The motivation behind the addition of sUSDe in the PT-sUSDe E-Modes strains from the fact that users would otherwise need to fully unwind highly leveraged positions in order to shift from the November sUSDe PTs to the February maturity tokens. Since Pendle allows one-to-one redemption of the PTs at maturity, users receive sUSDe without incurring in any swapping cost, which, while yield-bearing, can be utilized as collateral, and can act as a substitution for the PT-sUSDe when users are exiting the previous maturity PTs while awaiting the next maturity PTs (either to be listed or to have sufficient capacity). This way, the presence of sUSDe in the E-Modes serves a high-utility purpose for a subset of users. The inclusion of USDe in the E-Modes does not provide such utility as it is not yield-bearing. Hence, if users redeem PT-USDe for USDe and then collateralize the debt with USDe, they would be taking a leveraged annualized loss equal to the borrowing costs of the notional debt. We'd also like to note that the utility of such collateral in the PT-related E-Modes does not depend on the type of PT (sUSDe or USDe), as no incremental utility is provided by USDe in either case. In case of unwinding staked USDe positions, the inclusion of USDe under the same parameters effectively presents the same utility. Nevertheless, the inclusion of USDe in the PT-USDe E-Mode can reduce the costs of transition in one specific edge case. Given that a user has a substantial leveraged position and is paying borrowing costs on the notional, if the next PT is expected to be listed within a reasonably short period of time, it might be beneficial to incur the funding costs of the net position instead of converting the USDe collateral to the debt assets. While the inclusion of USDe in the proposed E-Modes presents limited utility, such an adjustment does not introduce additional risk; therefore, we support the proposed adjustment."
+                          }
+                        ]
+                      },
+                      "specification": {
+                        "title": "Specification",
+                        "tables": [
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "title": "PT-sUSDe Stablecoins E-mode",
+                            "columns": [
+                              "Asset",
+                              "PT-sUSDe-5FEB2026",
+                              "PT-sUSDe-27NOV2025",
+                              "sUSDe",
+                              "USDC",
+                              "USDT",
+                              "USDe",
+                              "USDtb"
+                            ],
+                            "rows": [
+                              {
+                                "label": "Collateral",
+                                "values": [
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "No"
+                                ]
+                              },
+                              {
+                                "label": "Borrowable",
+                                "values": [
+                                  "No",
+                                  "No",
+                                  "No",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes",
+                                  "Yes"
+                                ]
+                              },
+                              {
+                                "label": "LTV",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "LT",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              },
+                              {
+                                "label": "Liquidation Bonus",
+                                "values": [
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "Subject to Risk Oracle",
+                                  "-",
+                                  "-",
+                                  "-",
+                                  "-"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "references": {
+                        "title": "References",
+                        "items": [
+                          {
+                            "text": "Implementation:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Tests:",
+                            "link": "AaveV3Ethereum",
+                            "url": "#"
+                          },
+                          {
+                            "text": "Snapshot: Direct-to-AIP",
+                            "link": null,
+                            "url": null
+                          },
+                          {
+                            "text": "Discussion",
+                            "link": null,
+                            "url": "#"
+                          }
+                        ]
+                      },
+                      "disclosure": {
+                        "title": "Disclosure",
+                        "paragraphs": [
+                          "Copyright and related rights waived via CC0.Chaos Labs has not been compensated by any third party for publishing this AGRS recommendation.",
+                          "Caps updates mentioned on the forum discussion post have been implemented via risk steward so it will not be part of this AIP."
+                        ]
+                      },
+                      "copyright": {
+                        "title": "Copyright",
+                        "content": "Copyright and related rights waived via CC0."
+                      }
+                    },
+                    "rightSidebar": {
+                      "votingInfo": {
+                        "title": "Your voting info",
+                        "status": "Voting is on",
+                        "buttons": [
+                          {
+                            "text": "YAE"
+                          },
+                          {
+                            "text": "NAY"
+                          }
+                        ]
+                      },
+                      "votingResults": {
+                        "title": "Voting results",
+                        "items": [
+                          {
+                            "label": "YAE",
+                            "value": "0.000.000",
+                            "color": "#34C759"
+                          },
+                          {
+                            "label": "NAY",
+                            "value": "0.000.000",
+                            "color": "#CB2C22"
+                          }
+                        ]
+                      },
+                      "proposer": {
+                        "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                        "title": "Proposer",
+                        "modal": {
+                          "name": "Quantum",
+                          "address": "0x2b3c...Otla",
+                          "totalContributions": 287,
+                          "tokensEarned": "12,800 GVP",
+                          "tagLabel": "Data Annotation",
+                          "totalContributionsLabel": "Total contributions",
+                          "tokensEarnedLabel": "Tokens earned"
+                        }
+                      },
+                      "voter": {
+                        "title": "Voter",
+                        "items": [
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum1",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum2",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum3",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum4",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum5",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum6",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum7",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum112",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          },
+                          {
+                            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                            "name": "YAE",
+                            "value": "0,000,000",
+                            "modal": {
+                              "name": "Quantum12",
+                              "address": "0x2b3c...Otla",
+                              "totalContributions": 287,
+                              "tokensEarned": "12,800 GVP",
+                              "tagLabel": "Data Annotation",
+                              "totalContributionsLabel": "Total contributions",
+                              "tokensEarnedLabel": "Tokens earned"
+                            }
+                          }
+                        ]
+                      },
+                      "forumDiscussion": {
+                        "text": "Forum discussion",
+                        "url": "#"
+                      }
+                    }
+                  }
+                }
+              ],
+              "sortByPlaceholder": "Sort by",
+              "interactionFormPlaceholder": "Interaction / Form",
+              "interactionFormDescription": "Which of the following ways would you like to interact with AI?",
+              "submitProposalButton": "Submit a Proposal",
+              "initiateProposal": {
+                "title": "Initiate Proposal",
+                "viewProposalRulesButton": "View Proposal Rules",
+                "proposalRulesModal": {
+                  "title": "Proposal checklist",
+                  "checklist": [
+                    {
+                      "number": 1,
+                      "title": "Create your proposal",
+                      "description": "Get started by drafting your proposal directly in the Uniswap governance interface. Clearly outline your objectives, provide supporting details, and ensure your proposal aligns with Uniswap's governance standards."
+                    },
+                    {
+                      "number": 2,
+                      "title": "Request sponsorship (if threshold not met)",
+                      "description": "If you don't meet the required voting power threshold, you can request sponsorship from existing delegates. This allows your proposal to gain visibility and the necessary backing from the community."
+                    },
+                    {
+                      "number": 3,
+                      "title": "Submit as waiting for sponsorship",
+                      "description": "If you don't have the voting power to post the proposal yourself, you can request a delegate with enough voting power to sponsor it. The delegate you choose can review your proposal and choose to sponsor it if they support it, pushing it onchain for voting. One note - you should coordinate with sponsor delegates so they know you're looking for sponsorship!"
+                    },
+                    {
+                      "number": 4,
+                      "title": "Submit onchain (If threshold met)",
+                      "description": "If you meet the voting power threshold, you can bypass the sponsorship phase and submit it onchain directly. This fast-tracks your proposal to the voting stage, giving the community the opportunity to decide on its implementation."
+                    }
+                  ]
+                },
+                "typeSelection": {
+                  "label": "Type Selection",
+                  "description": "Please select the type of proposal you wish to initiate in the text box below.",
+                  "selectPlaceholder": "Select a type",
+                  "proposalTypes": [
+                    "Regarding Adjustment of Token Minting Coefficient",
+                    "Type 2",
+                    "Type 3"
+                  ]
+                },
+                "proposalContent": {
+                  "label": "Type Selection",
+                  "description": "Please select the type of proposal you wish to initiate in the text box below.",
+                  "placeholder": "Draft or upload your proposal content here."
+                },
+                "proposalContentOrganization": {
+                  "label": "Type Selection",
+                  "description": "Please select the type of proposal you wish to initiate in the text box below.",
+                  "placeholder": "This section is for viewing only and cannot be edited.",
+                  "aiGeneratedSummary": "[AI Generated Summary: This is a comprehensive summary of your proposal content. The AI will generate a detailed analysis based on the information you provided.]"
+                },
+                "attachmentLink": {
+                  "label": "Type Selection",
+                  "description": "Please select the type of proposal you wish to initiate in the text box below.",
+                  "placeholder": "Draft or upload your proposal content here."
+                },
+                "actionButtons": {
+                  "initiateDiscussion": "Initiate Discussion",
+                  "initiateDiscussionUrl": "/discussion",
+                  "discussTheResolution": "Discuss the Resolution",
+                  "discussTheResolutionUrl": "/resolution"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "links": {
+        "website": "https://primecore.io",
+        "whitepaper": "https://docs.primecore.io/whitepaper",
+        "github": "https://github.com/dbtf/primecore"
+      }
+    },
+    "taxonomy": {
+      "domain": [
+        "AI / Computing",
+        "Industry"
+      ],
+      "object": [
+        "Data",
+        "Code"
+      ],
+      "action": [
+        "Analyze",
+        "Optimize",
+        "Monitor",
+        "Coordinate"
+      ],
+      "interaction_form": [
+        "Code",
+        "Table"
+      ]
+    },
+    "metrics": {
+      "development": {
+        "start_date": "2025-12-01",
+        "progress": 0.62,
+        "contributors_count": 48,
+        "total_commits": 1763
+      },
+      "operation": {
+        "total_users": 134,
+        "new_users_24h": 3,
+        "revenue_total": 0,
+        "revenue_24h": 0
+      },
+      "rating": {
+        "score": 4.4,
+        "review_count": 12
+      }
+    },
+    "reviews": {
+      "summary_tags": [
+        "Reliable",
+        "Feature Rich",
+        "Scalable"
+      ],
+      "list": [
+        {
+          "id": "primecore_rev_1",
+          "user_id": "primecore_builder",
+          "user_name": "PBuilder",
+          "avatar": "https://assets.dbtf.com/avatars/primecore_1.png",
+          "rating": 4,
+          "content": "PrimeCore 的部署体验非常顺畅，算力调度和任务协同都很稳定。",
+          "date": "2025-12-10",
+          "likes": 21
+        },
+        {
+          "id": "primecore_rev_2",
+          "user_id": "primecore_ops",
+          "user_name": "POps",
+          "avatar": "https://assets.dbtf.com/avatars/primecore_2.png",
+          "rating": 4,
+          "content": "Dashboard 数据偶尔有延迟，但整体收益和工具链体验不错。",
+          "date": "2025-12-12",
+          "likes": 21
+        }
+      ]
+    },
+    "tokenomics": {
+      "base_currency": "USDT",
+      "price_info": {
+        "current_price": 2.51,
+        "market_cap": 2300000,
+        "change_24h_percent": 2.3,
+        "volume_24h": 71301
+      },
+      "supply": {
+        "total_supply": 915315,
+        "circulating": 853930,
+        "minted_24h": 565,
+        "burned_24h": 136
+      },
+      "staking": {
+        "total_staked": 319148,
+        "staking_ratio": 0.35,
+        "unstaked_24h": 4957,
+        "apy": 0.08
+      }
+    },
+    "market": {
+      "price_history": [
+        {
+          "timestamp": 1766512797,
+          "open": 2.54,
+          "high": 2.58,
+          "low": 2.52,
+          "close": 2.53,
+          "volume": 61597
+        },
+        {
+          "timestamp": 1766599197,
+          "open": 2.52,
+          "high": 2.56,
+          "low": 2.49,
+          "close": 2.54,
+          "volume": 79523
+        }
+      ],
+      "order_book": {
+        "bids": [
+          {
+            "price": 2.48,
+            "amount": 765
+          },
+          {
+            "price": 2.47,
+            "amount": 776
+          }
+        ],
+        "asks": [
+          {
+            "price": 2.54,
+            "amount": 586
+          },
+          {
+            "price": 2.55,
+            "amount": 674
+          }
+        ]
+      },
+      "recent_trades": [
+        {
+          "id": "primecore_trade_buy",
+          "timestamp": 1766681997,
+          "type": "buy",
+          "price": 2.51,
+          "amount": 153,
+          "total_value": 280.06,
+          "trader_info": {
+            "user_id": "primecore_whale",
+            "name": "PWhale",
+            "avatar": "https://assets.dbtf.com/avatars/primecore_whale.png",
+            "wallet_short": "0x71...9A"
+          }
+        },
+        {
+          "id": "primecore_trade_sell",
+          "timestamp": 1766683197,
+          "type": "sell",
+          "price": 2.5,
+          "amount": 93,
+          "total_value": 241.22,
+          "trader_info": {
+            "user_id": "primecore_pro",
+            "name": "PTrader",
+            "avatar": "https://assets.dbtf.com/avatars/primecore_trader.png",
+            "wallet_short": "0xAB...CD"
+          }
+        }
+      ]
+    },
+    "co_creation": {
+      "summary": {
+        "total_contributions_recorded": 12,
+        "active_builders_count": 48
+      },
+      "exchange_rates": [
+        {
+          "resource_key": "primecore_resource",
+          "unit_name": "Unit",
+          "description": "PrimeCore 核心资源贡献",
+          "reward_token": 6
+        }
+      ],
+      "open_tasks": [
+        {
+          "task_id": "primecore_task_1",
+          "title": "扩展 PrimeCore 能力池",
+          "type": "long_term",
+          "category": "resource",
+          "status": "active",
+          "progress_current": 143617,
+          "progress_target": 319148,
+          "reward_display": "P 奖励"
+        },
+        {
+          "task_id": "primecore_task_2",
+          "title": "算法调优 / 工作流脚本",
+          "type": "one_time",
+          "category": "development",
+          "status": "active",
+          "reward_display": "P 赏金"
+        }
+      ],
+      "contributors_leaderboard": [
+        {
+          "rank": 1,
+          "user_id": "primecore_alpha",
+          "name": "PAlpha",
+          "avatar": "https://assets.dbtf.com/avatars/primecore_alpha.png",
+          "role": "Lead Builder",
+          "contribution_points": 12584,
+          "last_active": "2025-12-24"
+        },
+        {
+          "rank": 2,
+          "user_id": "primecore_beta",
+          "name": "PBeta",
+          "avatar": "https://assets.dbtf.com/avatars/primecore_beta.png",
+          "role": "Developer",
+          "contribution_points": 7218,
+          "last_active": "2025-12-22"
+        }
+      ],
+      "contribution_history": [
+        {
+          "record_id": "primecore_hist_1",
+          "user_id": "primecore_alpha",
+          "user_name": "PAlpha",
+          "task_title": "PrimeCore 节点贡献",
+          "amount": 139,
+          "unit": "Unit",
+          "timestamp": 1766678397
+        }
+      ]
+    },
+    "governance": {
+      "active_proposal_count": 1,
+      "proposals": [
+        {
+          "proposal_id": "primecore_gov_1",
+          "title": "关于 PrimeCore 奖励参数的提案",
+          "proposer": {
+            "name": "P DAO",
+            "avatar": "https://assets.dbtf.com/avatars/primecore_dao.png",
+            "address": "0xAdmin...001"
+          },
+          "status": "voting",
+          "end_timestamp": 1766944797,
+          "description": "提升 PrimeCore 在 AI / Computing 的激励倍数，以吸引更多建设者。",
+          "votes_summary": {
+            "for": 184000,
+            "against": 46000,
+            "abstain": 23000
+          },
+          "recent_votes": [
+            {
+              "user_id": "primecore_governor_a",
+              "name": "PGovernorA",
+              "avatar": "https://assets.dbtf.com/avatars/primecore_gov_a.png",
+              "vote_option": "for",
+              "weight": 5110,
+              "timestamp": 1766683797
+            },
+            {
+              "user_id": "primecore_governor_b",
+              "name": "PGovernorB",
+              "avatar": "https://assets.dbtf.com/avatars/primecore_gov_b.png",
+              "vote_option": "against",
+              "weight": 1294,
+              "timestamp": 1766684397
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

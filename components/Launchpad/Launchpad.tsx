@@ -431,7 +431,19 @@ export default function Launchpad() {
     <section className="bg-white flex flex-col" style={{ height: 'calc(100vh - 4.5rem)' }}>
       <div className="flex-1 flex overflow-hidden" style={{ paddingLeft: px(30) }}>
         {/* 左侧步骤条 - 固定不滚动 */}
-        <div className="flex-shrink-0" style={{ width: px(240), paddingTop: px(48), position: 'sticky', top: 0, alignSelf: 'flex-start' }}>
+        <div 
+          className="flex-shrink-0 scrollbar-hide" 
+          style={{ 
+            width: px(240), 
+            paddingTop: px(48), 
+            position: 'sticky', 
+            top: 0, 
+            alignSelf: 'flex-start',
+            maxHeight: 'calc(100vh - 4.5rem)',
+            overflowY: 'auto',
+            overflowX: 'hidden',
+          }}
+        >
           <StepsBar steps={steps} />
         </div>
         

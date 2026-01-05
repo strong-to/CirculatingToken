@@ -16,7 +16,11 @@ type FilterValues = {
   search: string
 }
 
-export default function TokenMarketplaceContent() {
+interface TokenMarketplaceContentProps {
+  customProjects?: ProjectData[]
+}
+
+export default function TokenMarketplaceContent({ customProjects }: TokenMarketplaceContentProps = {}) {
   const [viewMode, setViewMode] = useState<'Number of Users' | 'Latest Contribution'>('Latest Contribution')
   const [filters, setFilters] = useState<FilterValues>({
     interactionForm: '',
@@ -28,6 +32,11 @@ export default function TokenMarketplaceContent() {
   })
 
   const filteredProjects = useMemo(() => {
+    // 如果传入了自定义项目列表，直接使用它（不进行筛选）
+    if (customProjects) {
+      return customProjects
+    }
+    
     const normalize = (value?: string) => value?.trim().toLowerCase() || ''
     const matchesCategory = (values: string[] | undefined, target: string) => {
       if (!target) return true
@@ -39,6 +48,11 @@ export default function TokenMarketplaceContent() {
     const searchTerm = normalize(filters.search)
 
     return projectsList.filter((project: ProjectData) => {
+      // 正常情况下，过滤掉 DBTF00000031，只显示 30 个项目
+      if (project.system_id === 'DBTF00000031') {
+        return false
+      }
+      
       const taxonomy = project.taxonomy || (project.profile as any)?.taxonomy
       const matchesInteractionForm = matchesCategory(taxonomy?.interaction_form as string[] | undefined, filters.interactionForm)
       const matchesDomain = matchesCategory(taxonomy?.domain as string[] | undefined, filters.domain)
@@ -56,7 +70,7 @@ export default function TokenMarketplaceContent() {
 
       return matchesInteractionForm && matchesDomain && matchesObject && matchesAction && matchesSearch
     })
-  }, [filters])
+  }, [filters, customProjects])
 
   const handleFilterChange = (newFilters: Partial<FilterValues>) => {
     setFilters(prev => ({

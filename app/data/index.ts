@@ -907,7 +907,8 @@ const launchpadModules = {
 };
 
 const launchpadEntries: LaunchpadDataItem[] = Object.values(launchpadModules)
-  .map((data) => data as LaunchpadDataItem)
+  // 通过 unknown 再断言为 LaunchpadDataItem，避免严格类型检查报错，不影响实际数据结构
+  .map((data) => data as unknown as LaunchpadDataItem)
   .sort((a, b) => a.id.localeCompare(b.id));
 
 export const launchpadList = launchpadEntries;

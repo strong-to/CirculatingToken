@@ -446,19 +446,7 @@ export default function FileUploadArea({ onFileUploaded, onFileDeleted, presetCo
                 <path d="M9.61408 3.05859V14.2007H8.7959V3.05859H9.61408Z" fill="#083FD8"/>
                 <path d="M2.4549 14.8281V17.3622H15.9549V14.8281H16.7731V18.1804H1.63672V14.8281H2.4549Z" fill="#083FD8"/>
               </svg>
-              <span
-                style={{
-                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                  fontWeight: 300,
-                  fontStyle: 'normal',
-                  fontSize: px(16),
-                  lineHeight: '100%',
-                  letterSpacing: '0%',
-                  color: '#000000',
-                }}
-              >
-                uploads
-              </span>
+              {/* 文案在外层已包含“uploads”，这里不再重复，避免出现“uploads uploads” */}
             </div>
           )
         )}

@@ -33,6 +33,7 @@ export default function InitiateProposalContent() {
   const [uploadedFile, setUploadedFile] = useState<UploadedFileInfo | null>(null)
   const [isUploading, setIsUploading] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isProposalFocused, setIsProposalFocused] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -347,6 +348,8 @@ export default function InitiateProposalContent() {
               value={proposalContent}
               onChange={(e) => setProposalContent(e.target.value)}
               placeholder={initiateProposalData?.proposalContent?.placeholder || 'Draft or upload your proposal content here.'}
+              onFocus={() => setIsProposalFocused(true)}
+              onBlur={() => setIsProposalFocused(false)}
               style={{
                 width: '100%',
                 minHeight: px(170),
@@ -389,21 +392,52 @@ export default function InitiateProposalContent() {
                 }
               }}
             />
-            <div 
-              onClick={() => fileInputRef.current?.click()}
-              style={{
-                position: 'absolute',
-                bottom: px(16),
-                right: px(16),
-                display: 'flex',
-                alignItems: 'center',
-                gap: px(8),
-                cursor: 'pointer',
-                opacity: isUploading ? 0.5 : 1
-              }}
-            >
-             
-            </div>
+            {!isUploading && !isProposalFocused && proposalContent.trim() === '' && (
+              <div 
+                onClick={(e) => {
+                  e.stopPropagation()
+                  if (fileInputRef.current) {
+                    fileInputRef.current.click()
+                  }
+                }}
+                style={{
+                  position: 'absolute',
+                  bottom: px(16),
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: px(8),
+                  cursor: 'pointer',
+                }}
+              >
+                {/* 上传图标，参考 StepThree 的 uploads 区域 */}
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M16.6535 9.49494L16.075 10.0738L9.20517 3.21475L2.33532 10.0738L1.75684 9.49494L9.20517 2.05859L16.6535 9.49494Z" fill="#083FD8"/>
+                  <path d="M9.61408 3.05859V14.2007H8.7959V3.05859H9.61408Z" fill="#083FD8"/>
+                  <path d="M2.4549 14.8281V17.3622H15.9549V14.8281H16.7731V18.1804H1.63672V14.8281H2.4549Z" fill="#083FD8"/>
+                </svg>
+                <span
+                  style={{
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontStyle: 'normal',
+                    fontSize: px(16),
+                    lineHeight: '100%',
+                    letterSpacing: '0%',
+                    color: '#000000',
+                  }}
+                >
+                  uploads
+                </span>
+              </div>
+            )}
           </div>
         </div>
 

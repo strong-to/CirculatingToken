@@ -7,7 +7,9 @@ import ConstructorImageModal from './ConstructorImageModal'
 import ProjectCardList from '@/components/ProjectConstruction/com/ProjectCardList'
 import PageSelector from './PageSelector'
 import type { ProjectConstructionData } from '@/app/data'
-import { log } from 'console'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Mousewheel } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
 
 interface ProjectConstructionProps {
   projectData?: ProjectConstructionData
@@ -31,6 +33,7 @@ export default function ProjectConstruction({ projectData }: ProjectConstruction
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
   const [isLogoModalOpen, setIsLogoModalOpen] = useState(false)
   const [activeTab, setActiveTab] = useState("All");
+  const swiperRef = useRef<SwiperType | null>(null)
   
   const selectedConstructor = selectedImageIndex !== null ? constructors[selectedImageIndex] : null
 
@@ -219,37 +222,84 @@ export default function ProjectConstruction({ projectData }: ProjectConstruction
           />
         </div> 
 
-         <div className="flex items-center" style={{height:px(80),paddingRight:px(80), gap: px(15)}}>
-           {constructors.map((constructor, i) => (
-             <div
-               key={constructor.id}
-               onClick={() => setSelectedImageIndex(i)}
-               style={{
-                 width: px(80),
-                 height: px(80),
-                 borderRadius: '50%',
-                 flexShrink: 0,
-                 overflow: 'hidden',
-                 cursor: 'pointer',
-                 transition: 'transform 0.2s',
-               }}
-               onMouseEnter={(e) => {
-                 e.currentTarget.style.transform = 'scale(1.1)'
-               }}
-               onMouseLeave={(e) => {
-                 e.currentTarget.style.transform = 'scale(1)'
-               }}
-             >
-               <Image
-                 src={constructor.avatar}
-                 alt={`Constructor ${constructor.id}`}
-                 width={80}
-                 height={80}
-                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-               />
-             </div>
-           ))}
-         </div>
+        {/* 构造者头像水平滑动区域，滑动逻辑参考 LetEveryShare.tsx:371-420 */}
+        <div
+          className="flex items-center justify-end"
+          style={{
+            height: px(80),
+            paddingLeft: px(300),  // 左边空出：logo 左边距 80 + 宽 200 + 20px 间距
+            paddingRight: px(80),
+            width: '100%',
+            boxSizing: 'border-box',
+            overflow: 'hidden',
+          }}
+        >
+          {constructors.length > 0 && (
+            <Swiper
+              modules={[Navigation, Mousewheel]}
+              spaceBetween={10}               // 头像之间固定 10px 间距
+              slidesPerView="auto"            // 每个 slide 宽度由内容决定，不被平均拉伸
+              loop={constructors.length > 10}
+              grabCursor={true}
+              watchSlidesProgress={true}
+              // 滚动逻辑与 LetEveryShare 保持一致：freeMode + mousewheel 惯性左右滑
+              freeMode={{
+                enabled: true,
+                momentum: true,
+                momentumBounce: false,
+              }}
+              mousewheel={{
+                forceToAxis: true,
+                releaseOnEdges: true,
+                sensitivity: 1.2,
+                thresholdDelta: 1,
+              }}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper
+              }}
+            >
+              {constructors.map((constructor, i) => (
+                <SwiperSlide
+                  key={constructor.id}
+                  style={{
+                    width: px(60),
+                    height: px(60),
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <div
+                    onClick={() => setSelectedImageIndex(i)}
+                    style={{
+                      width: px(60),
+                      height: px(60),
+                      borderRadius: '50%',
+                      flexShrink: 0,
+                      overflow: 'hidden',
+                      cursor: 'pointer',
+                      transition: 'transform 0.2s',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'scale(1.1)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'scale(1)'
+                    }}
+                  >
+                    <Image
+                      src={constructor.avatar}
+                      alt={`Constructor ${constructor.id}`}
+                      width={60}
+                      height={60}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </div>
       </div>
 
 

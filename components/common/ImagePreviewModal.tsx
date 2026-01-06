@@ -1,6 +1,7 @@
 'use client'
 
 import { px } from '@/utils/pxToRem'
+import { createPortal } from 'react-dom'
 
 interface ImagePreviewModalProps {
   imageSrc: string | null
@@ -10,13 +11,14 @@ interface ImagePreviewModalProps {
 export default function ImagePreviewModal({ imageSrc, onClose }: ImagePreviewModalProps) {
   if (!imageSrc) return null
 
-  return (
+  // 使用 portal 挂到 body 上，确保永远压在整个页面最上层
+  return createPortal(
     <div
       style={{
         position: 'fixed',
         inset: 0,
         backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        zIndex: 99999,
+        zIndex: 999999,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -81,7 +83,8 @@ export default function ImagePreviewModal({ imageSrc, onClose }: ImagePreviewMod
           </svg>
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 

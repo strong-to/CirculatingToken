@@ -2501,15 +2501,11 @@
                             "value": "0,000,000"
                           },
                           {
-                            "label": "Quorum:",
+                            "label": "Current votes:",
                             "value": "0,000,000"
                           },
                           {
-                            "label": "Quorum:",
-                            "value": "0,000,000"
-                          },
-                          {
-                            "label": "Quorum:",
+                            "label": "Voter Turnout :",
                             "value": "0,000,000"
                           }
                         ]
@@ -2546,15 +2542,15 @@
                         "actionButtons": [
                           {
                             "text": "Raw-Ipfs",
-                            "url": "#"
+                            "url": "https://ipfs.io/ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"
                           },
                           {
                             "text": "Share on twitter",
-                            "url": "#"
+                            "url": "https://twitter.com/intent/tweet?text=Check%20out%20this%20proposal&url=https://example.com/proposal"
                           },
                           {
                             "text": "Share on Lens",
-                            "url": "#"
+                            "url": "https://lens.xyz"
                           }
                         ]
                       },
@@ -3180,15 +3176,15 @@
                         "actionButtons": [
                           {
                             "text": "Raw-Ipfs",
-                            "url": "#"
+                            "url": "https://ipfs.io/ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"
                           },
                           {
                             "text": "Share on twitter",
-                            "url": "#"
+                            "url": "https://twitter.com/intent/tweet?text=Check%20out%20this%20proposal&url=https://example.com/proposal"
                           },
                           {
                             "text": "Share on Lens",
-                            "url": "#"
+                            "url": "https://lens.xyz"
                           }
                         ]
                       },
@@ -3814,15 +3810,15 @@
                         "actionButtons": [
                           {
                             "text": "Raw-Ipfs",
-                            "url": "#"
+                            "url": "https://ipfs.io/ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"
                           },
                           {
                             "text": "Share on twitter",
-                            "url": "#"
+                            "url": "https://twitter.com/intent/tweet?text=Check%20out%20this%20proposal&url=https://example.com/proposal"
                           },
                           {
                             "text": "Share on Lens",
-                            "url": "#"
+                            "url": "https://lens.xyz"
                           }
                         ]
                       },
@@ -4448,15 +4444,15 @@
                         "actionButtons": [
                           {
                             "text": "Raw-Ipfs",
-                            "url": "#"
+                            "url": "https://ipfs.io/ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"
                           },
                           {
                             "text": "Share on twitter",
-                            "url": "#"
+                            "url": "https://twitter.com/intent/tweet?text=Check%20out%20this%20proposal&url=https://example.com/proposal"
                           },
                           {
                             "text": "Share on Lens",
-                            "url": "#"
+                            "url": "https://lens.xyz"
                           }
                         ]
                       },
@@ -5085,15 +5081,15 @@
                           "actionButtons": [
                             {
                               "text": "Raw-Ipfs",
-                              "url": "#"
+                              "url": "https://ipfs.io/ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"
                             },
                             {
                               "text": "Share on twitter",
-                              "url": "#"
+                              "url": "https://twitter.com/intent/tweet?text=Check%20out%20this%20proposal&url=https://example.com/proposal"
                             },
                             {
                               "text": "Share on Lens",
-                              "url": "#"
+                              "url": "https://lens.xyz"
                             }
                           ]
                         },
@@ -5176,11 +5172,19 @@
                           "label": "On going",
                           "value": "00:22:23"
                         },
-                        "resultStatistics": {
+                          "resultStatistics": {
                           "title": "Result Statistics",
                           "items": [
                             {
                               "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -5367,15 +5371,15 @@
                           "actionButtons": [
                             {
                               "text": "Raw-Ipfs",
-                              "url": "#"
+                              "url": "https://ipfs.io/ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG"
                             },
                             {
                               "text": "Share on twitter",
-                              "url": "#"
+                              "url": "https://twitter.com/intent/tweet?text=Check%20out%20this%20proposal&url=https://example.com/proposal"
                             },
                             {
                               "text": "Share on Lens",
-                              "url": "#"
+                              "url": "https://lens.xyz"
                             }
                           ]
                         },
@@ -5458,11 +5462,19 @@
                           "label": "On going",
                           "value": "02:30:45"
                         },
-                        "resultStatistics": {
+                          "resultStatistics": {
                           "title": "Result Statistics",
                           "items": [
                             {
                               "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -5602,6 +5614,14 @@
                             {
                               "label": "Quorum:",
                               "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
                             }
                           ]
                         },
@@ -5653,6 +5673,14 @@
                           "items": [
                             {
                               "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -5792,6 +5820,14 @@
                             {
                               "label": "Quorum:",
                               "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
                             }
                           ]
                         },
@@ -5843,6 +5879,14 @@
                           "items": [
                             {
                               "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -5982,6 +6026,14 @@
                             {
                               "label": "Quorum:",
                               "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
                             }
                           ]
                         },
@@ -6033,6 +6085,426 @@
                           "items": [
                             {
                               "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                          "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC12,2025—DEC18,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Enhance data processing capabilities",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal aims to enhance data processing capabilities."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-003",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-004",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": []
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": []
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  }
+                ],
+                [
+                  {
+                    "id": "proposal-001",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
+                    "turnout": "15.1%",
+                    "proposer": "343,891 / 2,277,697",
+                    "timing": "00:22:23",
+                    "type": "DEC11,2025—DEC17,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "00:22:23"
+                        },
+                          "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
+                            }
+                          ]
+                        },
+                        "process": {
+                          "title": "Process",
+                          "steps": [
+                            {
+                              "name": "Created",
+                              "date": "DEC11,2025—DEC17,2025"
+                            }
+                          ]
+                        }
+                      },
+                      "mainContent": {
+                        "goBackButton": {
+                          "text": "Go Back"
+                        },
+                        "proposalOverview": {
+                          "title": "Proposal overview",
+                          "subject": "Ethena February E-Modes Adjustments",
+                          "actionButtons": []
+                        },
+                        "simpleSummary": {
+                          "title": "Simple Summary",
+                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "proposal-002",
+                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+                    "subject": "Proposal 2: Enhance data processing capabilities",
+                    "turnout": "18.5%",
+                    "proposer": "450,123 / 2,500,000",
+                    "timing": "01:15:30",
+                    "type": "DEC12,2025—DEC18,2025",
+                    "status": "On going",
+                    "yae": "0,000,000",
+                    "nay": "0,000,000",
+                    "detail": {
+                      "leftSidebar": {
+                        "ongoingTimer": {
+                          "label": "On going",
+                          "value": "01:15:30"
+                        },
+                        "resultStatistics": {
+                          "title": "Result Statistics",
+                          "items": [
+                            {
+                              "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -6172,6 +6644,14 @@
                             {
                               "label": "Quorum:",
                               "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
+                              "value": "0,000,000"
                             }
                           ]
                         },
@@ -6218,11 +6698,19 @@
                           "label": "On going",
                           "value": "01:15:30"
                         },
-                        "resultStatistics": {
+                          "resultStatistics": {
                           "title": "Result Statistics",
                           "items": [
                             {
                               "label": "Quorum:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Current votes:",
+                              "value": "0,000,000"
+                            },
+                            {
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -6362,195 +6850,13 @@
                             {
                               "label": "Quorum:",
                               "value": "0,000,000"
-                            }
-                          ]
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": [
+                            },
                             {
-                              "name": "Created",
-                              "date": "DEC11,2025—DEC17,2025"
-                            }
-                          ]
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Ethena February E-Modes Adjustments",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "id": "proposal-002",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal 2: Enhance data processing capabilities",
-                    "turnout": "18.5%",
-                    "proposer": "450,123 / 2,500,000",
-                    "timing": "01:15:30",
-                    "type": "DEC12,2025—DEC18,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "01:15:30"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": [
-                            {
-                              "label": "Quorum:",
+                              "label": "Current votes:",
                               "value": "0,000,000"
-                            }
-                          ]
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": [
+                            },
                             {
-                              "name": "Created",
-                              "date": "DEC12,2025—DEC18,2025"
-                            }
-                          ]
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Enhance data processing capabilities",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal aims to enhance data processing capabilities."
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "id": "proposal-003",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
-                    "turnout": "15.1%",
-                    "proposer": "343,891 / 2,277,697",
-                    "timing": "00:22:23",
-                    "type": "DEC11,2025—DEC17,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "00:22:23"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": []
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": []
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Ethena February E-Modes Adjustments",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "id": "proposal-004",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
-                    "turnout": "15.1%",
-                    "proposer": "343,891 / 2,277,697",
-                    "timing": "00:22:23",
-                    "type": "DEC11,2025—DEC17,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "00:22:23"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": []
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": []
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Ethena February E-Modes Adjustments",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
-                        }
-                      }
-                    }
-                  }
-                ],
-                [
-                  {
-                    "id": "proposal-001",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
-                    "turnout": "15.1%",
-                    "proposer": "343,891 / 2,277,697",
-                    "timing": "00:22:23",
-                    "type": "DEC11,2025—DEC17,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "00:22:23"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": [
-                            {
-                              "label": "Quorum:",
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -6604,195 +6910,13 @@
                             {
                               "label": "Quorum:",
                               "value": "0,000,000"
-                            }
-                          ]
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": [
+                            },
                             {
-                              "name": "Created",
-                              "date": "DEC12,2025—DEC18,2025"
-                            }
-                          ]
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Enhance data processing capabilities",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal aims to enhance data processing capabilities."
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "id": "proposal-003",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
-                    "turnout": "15.1%",
-                    "proposer": "343,891 / 2,277,697",
-                    "timing": "00:22:23",
-                    "type": "DEC11,2025—DEC17,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "00:22:23"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": []
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": []
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Ethena February E-Modes Adjustments",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "id": "proposal-004",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
-                    "turnout": "15.1%",
-                    "proposer": "343,891 / 2,277,697",
-                    "timing": "00:22:23",
-                    "type": "DEC11,2025—DEC17,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "00:22:23"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": []
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": []
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Ethena February E-Modes Adjustments",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
-                        }
-                      }
-                    }
-                  }
-                ],
-                [
-                  {
-                    "id": "proposal-001",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal to extend the data contribution response cycle and increase the return on data contribution by 20%",
-                    "turnout": "15.1%",
-                    "proposer": "343,891 / 2,277,697",
-                    "timing": "00:22:23",
-                    "type": "DEC11,2025—DEC17,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "00:22:23"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": [
-                            {
-                              "label": "Quorum:",
+                              "label": "Current votes:",
                               "value": "0,000,000"
-                            }
-                          ]
-                        },
-                        "process": {
-                          "title": "Process",
-                          "steps": [
+                            },
                             {
-                              "name": "Created",
-                              "date": "DEC11,2025—DEC17,2025"
-                            }
-                          ]
-                        }
-                      },
-                      "mainContent": {
-                        "goBackButton": {
-                          "text": "Go Back"
-                        },
-                        "proposalOverview": {
-                          "title": "Proposal overview",
-                          "subject": "Ethena February E-Modes Adjustments",
-                          "actionButtons": []
-                        },
-                        "simpleSummary": {
-                          "title": "Simple Summary",
-                          "content": "This proposal recommends adding sUSDe as an eligible collateral asset."
-                        }
-                      }
-                    }
-                  },
-                  {
-                    "id": "proposal-002",
-                    "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
-                    "subject": "Proposal 2: Enhance data processing capabilities",
-                    "turnout": "18.5%",
-                    "proposer": "450,123 / 2,500,000",
-                    "timing": "01:15:30",
-                    "type": "DEC12,2025—DEC18,2025",
-                    "status": "On going",
-                    "yae": "0,000,000",
-                    "nay": "0,000,000",
-                    "detail": {
-                      "leftSidebar": {
-                        "ongoingTimer": {
-                          "label": "On going",
-                          "value": "01:15:30"
-                        },
-                        "resultStatistics": {
-                          "title": "Result Statistics",
-                          "items": [
-                            {
-                              "label": "Quorum:",
+                              "label": "Voter Turnout :",
                               "value": "0,000,000"
                             }
                           ]
@@ -6948,7 +7072,10 @@
                   "proposalTypes": [
                     "Regarding Adjustment of Token Minting Coefficient",
                     "Type 2",
-                    "Type 3"
+                    "Type 3",
+                    "Type 4",
+                    "Type 5",
+                    "Type 6"
                   ]
                 },
                 "proposalContent": {

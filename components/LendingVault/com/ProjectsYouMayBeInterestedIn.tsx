@@ -83,7 +83,7 @@ export default function ProjectsYouMayBeInterestedIn() {
           href="#"
           onClick={(e) => {
             e.preventDefault()
-            router.push('/Favorites')
+            router.push('/ProjectHub')
           }}
           className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity cursor-pointer"
           style={{
@@ -171,53 +171,53 @@ export default function ProjectsYouMayBeInterestedIn() {
         )}
 
         {hasProjects ? (
-          <Swiper
-            modules={[Navigation, Mousewheel]}
-            spaceBetween={gap}
-            loop={shouldLoop}
-            grabCursor={true}
-            watchSlidesProgress={true}
-            // 滚动逻辑：freeMode + mousewheel 惯性左右滑
-            freeMode={{
-              enabled: true,
-              momentum: true,
-              momentumRatio: 1.5,
-              momentumBounce: false,
-            }}
-            mousewheel={{
-              forceToAxis: true,
-              releaseOnEdges: true,
-              sensitivity: 1.2,
-              thresholdDelta: 1,
-            }}
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper
-            }}
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              640: {
-                slidesPerView: 3,
-              },
-              1024: {
-                slidesPerView: 5,
-              },
-            }}
-          >
-            {projects.map((project, index) => (
-              <SwiperSlide key={`${project.projectId}-${index}`}>
-                <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
-                  <BlueSquareCard card={project} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        ) : (
-          <div className="flex items-center justify-center py-10 text-black/60 text-lg">
-            Projects will be available soon.
-          </div>
-        )}
+              <Swiper
+                modules={[Navigation, Mousewheel]}
+                spaceBetween={gap}
+                loop={shouldLoop}
+                grabCursor={true}
+                watchSlidesProgress={true}
+                // 使用 freeMode + mousewheel，让左右滚动有"惯性"而不是一次滚动一个卡片
+                freeMode={{
+                  enabled: true,
+                  momentum: true,
+                  momentumRatio: 1.5,      // 惯性更明显一些
+                  momentumBounce: false,
+                }}
+                mousewheel={{
+                  forceToAxis: true,      // 只根据水平方向滚动
+                  releaseOnEdges: true,   // 滑到边缘时把滚动交还给页面
+                  sensitivity: 1.2,       // 提高灵敏度，滑一下走得更多
+                  thresholdDelta: 1,      // 较小的滑动也能触发滚动
+                }}
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper
+                }}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  640: {
+                    slidesPerView: 3,
+                  },
+                  1024: {
+                    slidesPerView: 5,
+                  },
+                }}
+              >
+                {projects.map((project, index) => (
+                  <SwiperSlide key={`${project.projectId}-${index}`}>
+                    <div className="relative w-full" style={{ aspectRatio: '2 / 3' }}>
+                      <BlueSquareCard card={project} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            ) : (
+              <div className="flex items-center justify-center py-10 text-black/60 text-lg">
+                Projects will be available soon.
+              </div>
+            )}
       </div>
     </div>
   )

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { px } from "@/utils/pxToRem";
 import ConstructorImageModal from "./ConstructorImageModal";
+import Toast from "@/components/common/Toast";
 
 interface ModalData {
   name?: string;
@@ -62,6 +63,7 @@ export default function ProposalDetailRightSidebar({
 }: ProposalDetailRightSidebarProps) {
   const [isProposerModalOpen, setIsProposerModalOpen] = useState(false);
   const [selectedVoterIndex, setSelectedVoterIndex] = useState<number | null>(null);
+  const [showNotLoggedInToast, setShowNotLoggedInToast] = useState(false);
 
   const selectedVoter = selectedVoterIndex !== null ? data?.voter?.items?.[selectedVoterIndex] : null;
 
@@ -116,6 +118,9 @@ export default function ProposalDetailRightSidebar({
                     cursor: "pointer",
                     border: "0.5px solid #000000",
                     transition: "background-color 0.2s, color 0.2s",
+                  }}
+                  onClick={() => {
+                    setShowNotLoggedInToast(true);
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = "#000000";
@@ -264,19 +269,25 @@ export default function ProposalDetailRightSidebar({
         {data?.voter && (
           <div style={{ marginBottom: px(12) }}>
             <div
+              className="scroll-container"
               style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: px(15),
                 height: px(380),
-                overflowY: "auto",
-                overflowX: "hidden",
-                padding: px(15),
+                borderRadius: px(4),
               }}
-              className="scrollbar-hide"
             >
-              {data.voter.items && data.voter.items.length > 0 ? (
-                data.voter.items.map((item, index) => (
+              <div
+                className="scroll-content custom-scrollbar"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: px(15),
+                  padding: px(15),
+                  overflowY: "auto",
+                  overflowX: "hidden",
+                }}
+              >
+                {data.voter.items && data.voter.items.length > 0 ? (
+                  data.voter.items.map((item, index) => (
                   <div
                     key={index}
                     onClick={() => item.modal && setSelectedVoterIndex(index)}
@@ -341,8 +352,9 @@ export default function ProposalDetailRightSidebar({
                   </div>
 
 
-                ))
-              ) : null}
+                  ))
+                ) : null}
+              </div>
             </div>
           </div>
         )}
@@ -415,6 +427,15 @@ export default function ProposalDetailRightSidebar({
         tagLabel={selectedVoter.modal.tagLabel}
         totalContributionsLabel={selectedVoter.modal.totalContributionsLabel}
         tokensEarnedLabel={selectedVoter.modal.tokensEarnedLabel}
+      />
+    )}
+
+    {/* Not logged in Toast */}
+    {showNotLoggedInToast && (
+      <Toast
+        message="Not logged in"
+        duration={3000}
+        onClose={() => setShowNotLoggedInToast(false)}
       />
     )}
     </>

@@ -110,10 +110,10 @@ export default function ProposalContent({ data, system_id }: ProposalContentProp
     <div className="w-full">
       {/* 筛选框 */}
       <div className='flex items-center' style={{ width: '100%', marginTop: px(15), gap: px(15), paddingLeft: px(80), paddingRight: px(80) }}>
-        <div className="flex-1">
+      <div className="" style={{width: '25%'}}>
           <SearchInput />
           </div>
-        <div className="flex-1">
+        <div className="" style={{width: '25%'}}>
 
           
           <FilterDropdown
@@ -129,14 +129,14 @@ export default function ProposalContent({ data, system_id }: ProposalContentProp
           />
         </div>
 
-        <div className="flex-1">
+        {/* <div className="flex-1">
           <FilterDropdown
             placeholder={data?.interactionFormPlaceholder}
             description={data?.interactionFormDescription}
             categories={interactionFormCategories}
           />
-        </div>
-        <div className="flex-1">
+        </div> */}
+        {/* <div className="flex-1">
           <button
             className="flex-1 transition-colors cursor-pointer w-full"
             style={{
@@ -168,7 +168,7 @@ export default function ProposalContent({ data, system_id }: ProposalContentProp
           >
             {data?.submitProposalButton}
           </button>
-        </div>
+        </div> */}
 
      
       </div>
@@ -177,7 +177,22 @@ export default function ProposalContent({ data, system_id }: ProposalContentProp
       <div className="w-full" style={{ paddingLeft: px(80), paddingRight: px(80), marginTop: px(20) }}>
 
         <div 
-          onClick={() => router.push(`/InitiateProposal${system_id ? `?system_id=${system_id}` : ''}`)}
+          onClick={() => {
+            // 保存当前滚动位置
+            const scrollContainer = document.querySelector('[data-scroll-container="lending-vault"]') as HTMLElement
+            if (scrollContainer) {
+              sessionStorage.setItem('lendingVaultScrollPosition', scrollContainer.scrollTop.toString())
+            }
+            
+            const params = new URLSearchParams()
+            if (system_id) {
+              params.set('system_id', system_id)
+            }
+            // 保存当前 tab 状态
+            params.set('main_tab', 'Project Governance')
+            params.set('sub_tab', 'Proposal')
+            router.push(`/InitiateProposal?${params.toString()}`)
+          }}
                style={{
             width: px(230), 
             cursor: 'pointer', 

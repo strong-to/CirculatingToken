@@ -430,8 +430,11 @@ export default function BlueSquareCard({ card }: BlueSquareCardProps) {
           }}
           onMouseEnter={() => setButtonHovered('details')}
           onMouseLeave={() => setButtonHovered(null)}
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             if (cardData.systemId) {
+              // 设置标记，表示应该滚动到顶部（从卡片点击跳转）
+              sessionStorage.setItem('lendingVaultScrollToTop', 'true')
               router.push(`/LendingVault?system_id=${cardData.systemId}`);
             }
           }}

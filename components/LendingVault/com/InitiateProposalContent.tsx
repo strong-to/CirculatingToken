@@ -36,11 +36,7 @@ export default function InitiateProposalContent() {
   const fileInputRef = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
-  const proposalTypes = initiateProposalData?.typeSelection?.proposalTypes || [
-    'Regarding Adjustment of Token Minting Coefficient',
-    'Type 2',
-    'Type 3'
-  ]
+  const proposalTypes = initiateProposalData?.typeSelection?.proposalTypes
 
   // 当数据加载后更新默认选中值
   useEffect(() => {
@@ -143,6 +139,47 @@ export default function InitiateProposalContent() {
           </button>
         </div>
 
+        <div 
+            className="w-full flex items-center justify-center" 
+            style={{ 
+              width: px(133), 
+              height:px(44), 
+              backgroundColor:'#000000', 
+              color:'#ffffff', 
+              marginBottom: px(32), 
+              gap: px(5), 
+              borderRadius: px(4),
+              cursor: 'pointer',
+              transition: 'background-color 0.2s, opacity 0.2s'
+            }}
+            onClick={() => {
+              // 获取保存的 tab 状态
+              const mainTab = searchParams.get('main_tab')
+              const subTab = searchParams.get('sub_tab')
+              
+              if (mainTab && subTab && system_id) {
+                // 返回到指定 tab 状态
+                router.push(`/LendingVault?system_id=${system_id}&main_tab=${encodeURIComponent(mainTab)}&sub_tab=${encodeURIComponent(subTab)}`)
+              } else {
+                router.back()
+              }
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#333333";
+              e.currentTarget.style.opacity = "0.9";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#000000";
+              e.currentTarget.style.opacity = "1";
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10.999 0.625L1.62224 10.0018L10.9972 19.3768" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+              <path d="M19.5 10L1.62248 9.99905" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
+            </svg>
+            Go Back
+          </div>
+
         {/* Type Selection */}
         <div style={{ marginBottom: px(40) }}>
         <div className="flex items-center" style={{ marginBottom: px(20) }}>
@@ -196,7 +233,7 @@ export default function InitiateProposalContent() {
                 justifyContent: 'space-between'
               }}
             >
-              <span>{typeSelection || (initiateProposalData?.typeSelection?.selectPlaceholder || 'Select a type')}</span>
+              <span>{typeSelection || (initiateProposalData?.typeSelection?.selectPlaceholder )}</span>
               <svg
                 width="16"
                 height="16"
@@ -231,38 +268,6 @@ export default function InitiateProposalContent() {
                   overflowY: 'auto'
                 }}
               >
-                <div
-                  onClick={() => handleSelectType('')}
-                  style={{
-                    padding: px(12),
-                    paddingLeft: px(16),
-                    paddingRight: px(16),
-                    fontFamily: 'PingFang SC',
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    fontSize: px(16),
-                    lineHeight: '140%',
-                    letterSpacing: '0%',
-                    color: typeSelection === '' ? '#ffffff' : '#000000',
-                    cursor: 'pointer',
-                    backgroundColor: typeSelection === '' ? '#000000' : '#ffffff',
-                    borderBottom: '1px solid #e0e0e0'
-                  }}
-                  onMouseEnter={(e) => {
-                    if (typeSelection !== '') {
-                      e.currentTarget.style.backgroundColor = '#000000'
-                      e.currentTarget.style.color = '#ffffff'
-                    }
-                  }}
-                  onMouseLeave={(e) => {
-                    if (typeSelection !== '') {
-                      e.currentTarget.style.backgroundColor = '#ffffff'
-                      e.currentTarget.style.color = '#000000'
-                    }
-                  }}
-                >
-                  {initiateProposalData?.typeSelection?.selectPlaceholder || 'Select a type'}
-                </div>
                 {proposalTypes.map((type: string, index: number) => (
                   <div
                     key={index}

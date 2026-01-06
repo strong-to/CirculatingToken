@@ -34,7 +34,17 @@ export default function LendingVaultContent() {
   ];
   const tabList = pageData?.tabList ?? defaultTabList;
   
-  const [activeTab, setActiveTab] = useState(tabList[0]?.name || 'Project Introduction');
+  // 从 URL 参数读取 tab 状态
+  const mainTabFromUrl = searchParams.get('main_tab')
+  const initialActiveTab = mainTabFromUrl || tabList[0]?.name || 'Project Introduction'
+  const [activeTab, setActiveTab] = useState(initialActiveTab);
+  
+  // 当 URL 参数变化时更新 tab
+  useEffect(() => {
+    if (mainTabFromUrl) {
+      setActiveTab(mainTabFromUrl)
+    }
+  }, [mainTabFromUrl])
   const [showFavoriteToast, setShowFavoriteToast] = useState(false)
 
   // Tab 栏滚动效果相关状态和引用
@@ -137,8 +147,49 @@ export default function LendingVaultContent() {
     }
   }, [tabStyle.position, headerHeight, tabGap])
 
+  // 恢复滚动位置或滚动到顶部
+  useEffect(() => {
+    if (containerRef.current) {
+      // 检查是否是新的 system_id（从 ProjectsYouMayBeInterestedIn 点击 Details 跳转过来）
+      const shouldScrollToTop = sessionStorage.getItem('lendingVaultScrollToTop') === 'true'
+      
+      if (shouldScrollToTop) {
+        // 清除标记
+        sessionStorage.removeItem('lendingVaultScrollToTop')
+        // 滚动到顶部
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            if (containerRef.current) {
+              containerRef.current.scrollTop = 0
+            }
+          })
+        })
+      } else {
+        // 恢复之前保存的滚动位置（从详情页返回时）
+        const savedScrollPosition = sessionStorage.getItem('lendingVaultScrollPosition')
+        if (savedScrollPosition) {
+          // 使用 requestAnimationFrame 确保在下一帧渲染后恢复滚动位置
+          const restoreScroll = () => {
+            if (containerRef.current) {
+              containerRef.current.scrollTop = parseInt(savedScrollPosition, 10)
+              // 清除保存的位置，避免下次进入时再次恢复
+              sessionStorage.removeItem('lendingVaultScrollPosition')
+            }
+          }
+          
+          // 延迟执行以确保内容已渲染，使用多次 requestAnimationFrame 确保内容完全加载
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              restoreScroll()
+            })
+          })
+        }
+      }
+    }
+  }, [system_id, activeTab, mainTabFromUrl])
+
   return (
-    <div ref={containerRef} className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
+    <div ref={containerRef} data-scroll-container="lending-vault" className="flex-1 min-h-0 overflow-y-scroll scrollbar-hide">
       {/* 项目数据调试显示区域 - 可以后续移除或隐藏 */}
      
 

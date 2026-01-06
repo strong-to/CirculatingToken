@@ -45,7 +45,7 @@ export default function ProposalDetailLeftSidebar({
           width: px(350),
           height: px(160),
           borderRadius: px(4),
-          padding: px(20),
+          // padding: px(20),
         }}
       >
         <div
@@ -72,7 +72,7 @@ export default function ProposalDetailLeftSidebar({
       </div>
 
       <div
-        className="flex flex-col items-start justify-center"
+        className="flex flex-col items-start "
         style={{
           marginBottom: px(32),
           border: "1px solid #000000",
@@ -85,39 +85,61 @@ export default function ProposalDetailLeftSidebar({
         {/* Result Statistics */}
         <div className="w-full">
           <div
+          className="flex items-center justify-start"
             style={{
               fontFamily: "PingFang SC",
               fontWeight: 400,
               fontSize: px(24),
               color: "#000000",
               marginBottom: px(16),
+              gap: px(10),
             }}
           >
             {data?.resultStatistics?.title || "Result Statistics"}
+
+
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.1109 10C19.1109 4.96818 15.0318 0.889116 10 0.889116C4.96821 0.889116 0.889116 4.96818 0.889116 10C0.889116 15.0318 4.96821 19.1109 10 19.1109V20C4.47715 20 0 15.5229 0 10C0 4.47711 4.47715 0 10 0C15.5228 0 20 4.47711 20 10C20 15.5229 15.5228 20 10 20V19.1109C15.0318 19.1109 19.1109 15.0318 19.1109 10Z" fill="black"/>
+<path d="M11.1159 11.746H9.95098V11.659C9.95098 10.6145 10.5019 9.75858 11.4465 8.9607C12.391 8.16283 12.9262 7.58256 12.9262 6.8137C12.9262 5.60964 11.7613 4.65219 10.4705 4.65219C9.21112 4.65219 7.98326 5.50809 7.98326 6.92975V7.17637H6.81836V6.97328C6.81836 4.95684 8.62867 3.63672 10.5177 3.63672C12.5012 3.63672 14.0911 5.01486 14.0911 6.85722C14.0911 7.82917 13.5873 8.51099 12.6428 9.30887C11.6983 10.1067 11.1316 10.8321 11.1159 11.746ZM11.1159 14.5458H9.95098V12.718H11.1159V14.5458Z" fill="black"/>
+</svg>
+
           </div>
           <div
+            className="scroll-container"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: px(24),
+              height: px(150),
+              // backgroundColor: '#F5F5F5',
+              borderRadius: px(4),
             }}
           >
-            {data?.resultStatistics?.items?.map((item, index) => (
-              <div key={index} className="flex items-center justify-between w-full">
-                <div
-                  style={{
-                    fontSize: px(20),
-                    color: "#000000",
-                    marginBottom: px(4),
-                  }}
-                >
-                  {item.label || "Quorum:"}
+            <div
+              className="scroll-content custom-scrollbar"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: px(24),
+                padding: px(15),
+                overflowY: "auto",
+                overflowX: "hidden",
+              }}
+            >
+              {data?.resultStatistics?.items?.map((item, index) => (
+                <div key={index} className="flex items-center justify-between w-full" style={{ flexShrink: 0 }}>
+                  <div
+                    style={{
+                      fontSize: px(20),
+                      color: "#000000",
+                      marginBottom: px(4),
+                    }}
+                  >
+                    {item.label}
+                  </div>
+                  <div style={{ fontSize: px(20), color: "#8C8C8C" }}>
+                    {item.value }
+                  </div>
                 </div>
-                <div style={{ fontSize: px(20), color: "#8C8C8C" }}>
-                  {item.value || "0.000.000"}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 

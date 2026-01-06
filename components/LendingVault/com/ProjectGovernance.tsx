@@ -2,7 +2,8 @@
 
 import { px } from "@/utils/pxToRem"
 import Image from 'next/image'
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import EcosystemContent from './EcosystemContent'
 import TokenContent from './TokenContent'
 import FinanceContent from './FinanceContent'
@@ -32,6 +33,7 @@ interface ProjectGovernanceProps {
 
 export default function ProjectGovernance({ projectData, system_id }: ProjectGovernanceProps) {
   console.log('ProjectGovernance projectData:', projectData)
+  const searchParams = useSearchParams()
   
   const statistics = projectData?.statistics || {}
   const constructionResponseCount = statistics.constructionResponseCount ?? 0
@@ -41,7 +43,18 @@ export default function ProjectGovernance({ projectData, system_id }: ProjectGov
   // 从 JSON 读取 tabs 配置
   const tabs: TabConfig[] = projectData?.tabs || []
   const defaultTab = tabs[0]?.name || 'Ecosystem'
-  const [selectedTab, setSelectedTab] = useState<string>(defaultTab)
+  
+  // 从 URL 参数读取 sub_tab 状态
+  const subTabFromUrl = searchParams.get('sub_tab')
+  const initialSelectedTab = subTabFromUrl || defaultTab
+  const [selectedTab, setSelectedTab] = useState<string>(initialSelectedTab)
+  
+  // 当 URL 参数变化时更新 tab
+  useEffect(() => {
+    if (subTabFromUrl) {
+      setSelectedTab(subTabFromUrl)
+    }
+  }, [subTabFromUrl])
 
   // 格式化数字，添加千位分隔符
   const formatNumber = (num: number) => {

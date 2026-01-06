@@ -69,7 +69,18 @@ export default function ProposalDetailContent() {
               cursor: 'pointer',
               transition: 'background-color 0.2s, opacity 0.2s'
             }}
-            onClick={() => router.back()}
+            onClick={() => {
+              // 获取保存的 tab 状态
+              const mainTab = searchParams.get('main_tab')
+              const subTab = searchParams.get('sub_tab')
+              
+              if (mainTab && subTab && system_id) {
+                // 返回到指定 tab 状态
+                router.push(`/LendingVault?system_id=${system_id}&main_tab=${encodeURIComponent(mainTab)}&sub_tab=${encodeURIComponent(subTab)}`)
+              } else {
+                router.back()
+              }
+            }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = "#333333";
               e.currentTarget.style.opacity = "0.9";

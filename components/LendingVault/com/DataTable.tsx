@@ -29,6 +29,12 @@ export default function DataTable({
   const router = useRouter()
 
   const handleRowClick = (row: Record<string, any>, index: number) => {
+    // 保存当前滚动位置
+    const scrollContainer = document.querySelector('[data-scroll-container="lending-vault"]') as HTMLElement
+    if (scrollContainer) {
+      sessionStorage.setItem('lendingVaultScrollPosition', scrollContainer.scrollTop.toString())
+    }
+    
     // 跳转到提案详情页，传递 system_id 和提案 id
     const params = new URLSearchParams()
     if (system_id) {
@@ -39,6 +45,9 @@ export default function DataTable({
     } else {
       params.set('proposal_index', index.toString())
     }
+    // 保存当前 tab 状态
+    params.set('main_tab', 'Project Governance')
+    params.set('sub_tab', 'Proposal')
     router.push(`/ProposalDetail?${params.toString()}`)
   }
 

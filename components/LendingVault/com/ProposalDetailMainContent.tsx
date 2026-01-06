@@ -58,9 +58,9 @@ export default function ProposalDetailMainContent({
 }: ProposalDetailMainContentProps) {
   return (
     <div
+      className="scroll-container"
       style={{
         flex: 1,
-        padding: px(40),
         backgroundColor: "#ffffff",
         border: "1px solid #000000",
         borderRadius: px(4),
@@ -69,10 +69,18 @@ export default function ProposalDetailMainContent({
         flexShrink: 0,
         height: px(1004),
         overflow: 'hidden',
-        overflowY: 'auto',
+        paddingRight: px(20),
       }}
     >
-      {/* Proposal overview */}
+      <div
+        className="scroll-content custom-scrollbar"
+        style={{
+          padding: px(40),
+          overflowY: 'auto',
+          overflowX: 'hidden',
+        }}
+      >
+        {/* Proposal overview */}
       {data?.proposalOverview && (
         <div style={{ marginBottom: px(40) }}>
           <h1
@@ -126,6 +134,11 @@ export default function ProposalDetailMainContent({
                   onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = "#ffffff";
                     e.currentTarget.style.color = "#000000";
+                  }}
+                  onClick={() => {
+                    if (button.url && button.url !== "#") {
+                      window.open(button.url, '_blank', 'noopener,noreferrer');
+                    }
                   }}
                 >
                   {button.text || ""}
@@ -463,6 +476,7 @@ export default function ProposalDetailMainContent({
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 }

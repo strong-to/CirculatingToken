@@ -38,8 +38,9 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
     <>
       {/* 遮罩层 */}
       <div
-        className="fixed inset-0 z-40"
+        className="fixed inset-0"
         style={{
+          zIndex: 9998,
           backgroundColor: "rgba(0, 0, 0, 0.4)",
           opacity: isAnimating ? 1 : 0,
           transition: "opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -48,8 +49,9 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
       />
       {/* 弹窗内容 */}
       <div
-        className="fixed z-50"
+        className="fixed"
         style={{
+          zIndex: 9999,
           top: px(30),
           left: px(30),
           right: px(30),

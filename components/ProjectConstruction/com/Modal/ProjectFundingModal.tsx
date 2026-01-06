@@ -56,6 +56,9 @@ export default function ProjectFundingModal({ card }: ProjectFundingModalProps) 
   const sliderRef = useRef<HTMLDivElement>(null);
   const [showSuccessToast, setShowSuccessToast] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [contributionAmount, setContributionAmount] = useState('');
+  const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
+  const [hoveredAmount, setHoveredAmount] = useState<string | null>(null);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -219,6 +222,8 @@ export default function ProjectFundingModal({ card }: ProjectFundingModalProps) 
             </label>
             <input
               type="text"
+              value={contributionAmount}
+              onChange={(e) => setContributionAmount(e.target.value)}
               placeholder={card?.modal?.formSection?.contributionInput?.placeholder || "$ 100"}
               style={{
                 width: "100%",
@@ -249,20 +254,38 @@ export default function ProjectFundingModal({ card }: ProjectFundingModalProps) 
           </div>
 
           <div className="flex" style={{ marginTop: px(11), gap: px(20) }}>
-            {(card?.modal?.formSection?.quickAmounts || ["$100", "$500", "$1000", "$5000"]).map((amount, index) => (
-              <div
-                key={index}
-                className=" flex items-center justify-center "
-                style={{
-                  width: px(80),
-                  height: px(40),
-                  border: "0.5px solid #000000",
-                  borderRadius: px(4),
-                }}
-              >
-                {amount}
-              </div>
-            ))}
+            {(card?.modal?.formSection?.quickAmounts || ["$100", "$500", "$1000", "$5000"]).map((amount, index) => {
+              const isSelected = selectedAmount === amount;
+              const isHovered = hoveredAmount === amount;
+              
+              return (
+                <div
+                  key={index}
+                  className="flex items-center justify-center cursor-pointer transition-colors"
+                  style={{
+                    width: px(80),
+                    height: px(40),
+                    border: "0.5px solid #000000",
+                    borderRadius: px(4),
+                    backgroundColor: isSelected || isHovered ? "#000000" : "#ffffff",
+                    color: isSelected || isHovered ? "#ffffff" : "#000000",
+                    fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                    fontWeight: 300,
+                    fontSize: px(14),
+                  }}
+                  onClick={() => {
+                    setSelectedAmount(amount);
+                    // 提取数字部分（去掉$符号）
+                    const numericValue = amount.replace('$', '').trim();
+                    setContributionAmount(`$ ${numericValue}`);
+                  }}
+                  onMouseEnter={() => setHoveredAmount(amount)}
+                  onMouseLeave={() => setHoveredAmount(null)}
+                >
+                  {amount}
+                </div>
+              );
+            })}
           </div>
 
           <div

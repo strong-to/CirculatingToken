@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -12,7 +12,40 @@ import UserIcon from './icons/UserIcon'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
+  const [selectedLanguage, setSelectedLanguage] = useState('English')
+  const languageDropdownRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
+
+  const languages = [
+    'English',
+    'Spanish',
+    'Arabic',
+    'Chinese',
+    'French',
+    'Russian',
+    'German',
+    'Japanese',
+    'Korean',
+    'Hindi'
+  ]
+
+  // 点击外部关闭下拉框
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
+        setIsLanguageDropdownOpen(false)
+      }
+    }
+
+    if (isLanguageDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isLanguageDropdownOpen])
 
   const navItems = [
     'Project Hub',
@@ -134,12 +167,47 @@ export default function Header() {
             </button>
 
             {/* 语言图标 */}
-            <button
-              className="flex items-center justify-center hover:opacity-70 transition-opacity"
-              aria-label="Language"
-            >
-              <LanguageIcon />
-            </button>
+            <div className="relative" ref={languageDropdownRef}>
+              <button
+                className="flex items-center justify-center hover:opacity-70 transition-opacity"
+                aria-label="Language"
+                onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+              >
+                <LanguageIcon />
+              </button>
+              
+              {/* 语言下拉框 */}
+              {isLanguageDropdownOpen && (
+                <div
+                  className="absolute right-0 mt-2 bg-white rounded z-50"
+                  style={{
+                    minWidth: px(120),
+                    padding: px(8),
+                    boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
+                  }}
+                >
+                  {languages.map((language) => (
+                    <div
+                      key={language}
+                      onClick={() => {
+                        setSelectedLanguage(language)
+                        setIsLanguageDropdownOpen(false)
+                      }}
+                      className="cursor-pointer hover:bg-gray-100 transition-colors"
+                      style={{
+                        padding: px(8),
+                        fontSize: px(16),
+                        fontFamily: 'PingFang SC',
+                        color: selectedLanguage === language ? '#000000' : '#666666',
+                        fontWeight: selectedLanguage === language ? 500 : 400,
+                      }}
+                    >
+                      {language}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
 
             {/* 太阳图标 - 深色/浅色模式切换 */}
             <button

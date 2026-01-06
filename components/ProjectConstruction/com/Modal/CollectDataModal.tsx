@@ -3,6 +3,7 @@
 import { px } from "@/utils/pxToRem";
 import FilterDropdown from "./FilterDropdown";
 import { useState } from "react";
+import Toast from '@/components/common/Toast';
 
 interface CardData {
   icon?: string;
@@ -49,6 +50,9 @@ export default function CollectDataModal({ card }: CollectDataModalProps) {
   console.log('CollectDataModal card data:', card);
   const [skipHovered, setSkipHovered] = useState(false);
   const [submitHovered, setSubmitHovered] = useState(false);
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number | null>(null);
+  const [showSuccessToast, setShowSuccessToast] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <div>
       <div
@@ -398,33 +402,50 @@ export default function CollectDataModal({ card }: CollectDataModalProps) {
 
 
 
-<div className="flex flex-col" style={{ gap: px(20),marginTop:px(35) }}>
+        <div className="flex flex-col" style={{ gap: px(20),marginTop:px(35) }}>
           {(card?.modal?.verification?.options || [
             "Completely accurate",
             "Mostly accurate (minor errors)",
             "Partially accurate",
             "Inaccurate"
-          ]).map((option, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-start"
-              style={{
-                paddingLeft: px(15),
-                height: px(44),
-                backgroundColor: "#F5F5F5",
-                borderRadius: px(4),
-                fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
-                fontWeight: 300,
-                fontSize: px(16),
-                lineHeight: "100%",
-                letterSpacing: "0%",
-                color: "#555555",
-                cursor: "pointer",
-              }}
-            >
-              {option}
-            </div>
-          ))}
+          ]).map((option, index) => {
+            const isSelected = selectedOptionIndex === index;
+            return (
+              <div
+                key={index}
+                className="flex items-center justify-start"
+                style={{
+                  paddingLeft: px(15),
+                  height: px(44),
+                  backgroundColor: isSelected ? "#000000" : "#F5F5F5",
+                  borderRadius: px(4),
+                  fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                  fontWeight: 300,
+                  fontSize: px(16),
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  color: isSelected ? "#FFFFFF" : "#555555",
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                }}
+                onClick={() => setSelectedOptionIndex(index)}
+                onMouseEnter={(e) => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = "#000000";
+                    e.currentTarget.style.color = "#FFFFFF";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isSelected) {
+                    e.currentTarget.style.backgroundColor = "#F5F5F5";
+                    e.currentTarget.style.color = "#555555";
+                  }
+                }}
+              >
+                {option}
+              </div>
+            );
+          })}
         </div>
 
         <div className="w-full flex items-center justify-center" style={{marginTop:px(60),marginBottom:px(20),gap:px(20)}}>
@@ -453,7 +474,7 @@ export default function CollectDataModal({ card }: CollectDataModalProps) {
             className="flex items-center justify-center w-full"
             style={{
               height: px(44),
-              backgroundColor: submitHovered ? "#000000" : "transparent",
+              backgroundColor: submitHovered || isLoading ? "#000000" : "transparent",
               border: "1px solid #000000",
               borderRadius: px(4),
               fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
@@ -461,13 +482,63 @@ export default function CollectDataModal({ card }: CollectDataModalProps) {
               fontSize: px(16),
               lineHeight: "100%",
               letterSpacing: "0%",
-              color: submitHovered ? "#FFFFFF" : "#000000",
-              cursor: "pointer",
+              color: submitHovered || isLoading ? "#FFFFFF" : "#000000",
+              cursor: isLoading ? "not-allowed" : "pointer",
               transition: "all 0.2s ease",
+              opacity: isLoading ? 0.7 : 1,
+              gap: px(8),
             }}
             onMouseEnter={() => setSubmitHovered(true)}
             onMouseLeave={() => setSubmitHovered(false)}
+            onClick={() => {
+              if (isLoading) return;
+              setIsLoading(true);
+              setTimeout(() => {
+                setIsLoading(false);
+                setShowSuccessToast(true);
+              }, 5000);
+            }}
+            disabled={isLoading}
           >
+            {isLoading && (
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  animation: 'spin 1s linear infinite',
+                }}
+              >
+                <circle
+                  cx="8"
+                  cy="8"
+                  r="6"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeDasharray="31.416"
+                  strokeDashoffset="31.416"
+                  fill="none"
+                  opacity="0.3"
+                />
+                <circle
+                  cx="8"
+                  cy="8"
+                  r="6"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeDasharray="31.416"
+                  strokeDashoffset="15.708"
+                  fill="none"
+                  style={{
+                    transformOrigin: '8px 8px',
+                  }}
+                />
+              </svg>
+            )}
             {card?.modal?.buttons?.submit || "Submit labels"}
           </button>
         </div>
@@ -499,6 +570,14 @@ export default function CollectDataModal({ card }: CollectDataModalProps) {
 
 
 
+      {/* 成功提示 Toast */}
+      {showSuccessToast && (
+        <Toast
+          message="Your contribution has been confirmed successfully"
+          duration={5000}
+          onClose={() => setShowSuccessToast(false)}
+        />
+      )}
     </div>
   );
 }

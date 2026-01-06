@@ -65,7 +65,7 @@ export default function StepsBar({ steps, space = 40 }: StepsBarProps) {
           <div key={index} className="flex">
             {/* 左侧固定列：数字和连接线（顶部对齐） */}
             <div
-              className="flex flex-col items-start flex-shrink-0"
+              className="flex flex-col items-center flex-shrink-0"
               style={{ width: px(30), marginRight: px(16) }}
             >
               <div
@@ -73,7 +73,7 @@ export default function StepsBar({ steps, space = 40 }: StepsBarProps) {
                 onClick={() => handleStepClick(stepNumber)}
                 style={{
                   // 未选中状态的基础样式不变，仅在选中时放大字号
-                  fontSize: isActive ? px(40) : px(22),
+                  fontSize: isActive ? px(40) : px(30),
                   color: '#000000',
                   fontWeight: 500,
                   flexShrink: 0,

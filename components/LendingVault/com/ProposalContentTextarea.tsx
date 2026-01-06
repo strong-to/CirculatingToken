@@ -6,18 +6,21 @@ interface ProposalContentTextareaProps {
   value: string
   onChange: (value: string) => void
   placeholder?: string
+  readOnly?: boolean
 }
 
 export default function ProposalContentTextarea({
   value,
   onChange,
-  placeholder = 'Draft or upload your proposal content here.'
+  placeholder = 'Draft or upload your proposal content here.',
+  readOnly = false
 }: ProposalContentTextareaProps) {
   return (
     <textarea
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
+      readOnly={readOnly}
       style={{
         width: '100%',
         minHeight: px(170),
@@ -32,7 +35,8 @@ export default function ProposalContentTextarea({
         lineHeight: '140%',
         letterSpacing: '0%',
         color: '#000000',
-        resize: 'vertical'
+        resize: 'vertical',
+        cursor: readOnly ? 'default' : 'text'
       }}
     />
   )

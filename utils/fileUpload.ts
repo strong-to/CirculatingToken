@@ -1,91 +1,54 @@
 /**
- * 文件上传工具函数
+ * 文件上传工具函数（前端模拟版本）
+ *
+ * 说明：
+ * - 之前这里是通过 /api/upload 接口上传到服务端。
+ * - 为了兼容静态导出（output: 'export'）以及纯静态部署环境，
+ *   现在改为在前端“模拟上传”，不再依赖任何后端接口。
+ * - 上传成功后返回一个包含文件基本信息的对象，fileId 使用 blob URL，
+ *   供前端预览 / 下载使用。
  */
-
+ 
 export interface UploadedFileInfo {
   fileId: string
   fileName: string
   fileSize: number
   fileType: string
 }
-
+ 
 export interface UploadOptions {
   onProgress?: (progress: number) => void
 }
-
+ 
 /**
- * 上传文件到服务器
+ * 模拟上传文件（仅在前端保存文件信息，不依赖后端）
  */
 export async function uploadFile(
   file: File,
   options?: UploadOptions
 ): Promise<UploadedFileInfo> {
-  const formData = new FormData()
-  formData.append('file', file)
-
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
-
-    // 监听上传进度
-    if (options?.onProgress) {
-      xhr.upload.addEventListener('progress', (e) => {
-        if (e.lengthComputable) {
-          const progress = (e.loaded / e.total) * 100
-          options.onProgress!(progress)
-        }
-      })
-    }
-
-    xhr.addEventListener('load', () => {
-      console.log('XHR load event, status:', xhr.status, 'response:', xhr.responseText)
-      if (xhr.status === 200) {
-        try {
-          const response = JSON.parse(xhr.responseText)
-          if (response.success) {
-            resolve({
-              fileId: response.fileId,
-              fileName: response.fileName,
-              fileSize: response.fileSize,
-              fileType: response.fileType,
-            })
-          } else {
-            reject(new Error(response.error || 'Upload failed'))
-          }
-        } catch (error) {
-          console.error('Failed to parse response:', error, 'Response text:', xhr.responseText)
-          reject(new Error('Failed to parse response'))
-        }
-      } else {
-        try {
-          const error = JSON.parse(xhr.responseText)
-          reject(new Error(error.error || 'Upload failed'))
-        } catch {
-          reject(new Error(`Upload failed with status ${xhr.status}`))
-        }
-      }
-    })
-
-    xhr.addEventListener('error', (e) => {
-      console.error('XHR error event:', e)
-      reject(new Error('Network error'))
-    })
-
-    xhr.addEventListener('abort', () => {
-      console.error('XHR abort event')
-      reject(new Error('Upload aborted'))
-    })
-
-    console.log('Starting upload to /api/upload')
-    xhr.open('POST', '/api/upload')
-    xhr.send(formData)
-  })
+  // 简单的进度模拟：直接回调 100%
+  if (options?.onProgress) {
+    options.onProgress(100)
+  }
+ 
+  // 使用 blob URL 作为 fileId，后续用于本地预览 / 下载
+  const objectUrl = URL.createObjectURL(file)
+ 
+  return {
+    fileId: objectUrl,
+    fileName: file.name,
+    fileSize: file.size,
+    fileType: file.type || 'application/octet-stream',
+  }
 }
-
+ 
 /**
- * 获取文件下载 URL
+ * 获取文件“下载” URL
+ * - 现在直接返回 fileId（即 blob URL）
  */
 export function getFileDownloadUrl(fileId: string): string {
-  return `/api/files/${fileId}`
+  return fileId
 }
 
 /**

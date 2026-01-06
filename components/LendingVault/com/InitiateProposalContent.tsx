@@ -8,6 +8,7 @@ import type { UploadedFileInfo } from '@/utils/fileUpload'
 import ProposalContentTextarea from './ProposalContentTextarea'
 import { projectsMap } from '@/app/data'
 import type { ProjectData } from '@/app/data'
+import Toast from '@/components/common/Toast'
 
 export default function InitiateProposalContent() {
   const router = useRouter()
@@ -31,10 +32,14 @@ export default function InitiateProposalContent() {
   const [organizedContent, setOrganizedContent] = useState('')
   const [attachmentLink, setAttachmentLink] = useState('')
   const [uploadedFile, setUploadedFile] = useState<UploadedFileInfo | null>(null)
+  const [uploadedFileThird, setUploadedFileThird] = useState<UploadedFileInfo | null>(null)
   const [isUploading, setIsUploading] = useState(false)
+  const [showUploadErrorToast, setShowUploadErrorToast] = useState(false)
+  const [showUploadSuccessToast, setShowUploadSuccessToast] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isProposalFocused, setIsProposalFocused] = useState(false)
   const fileInputRef = useRef<HTMLInputElement>(null)
+  const fileInputRefThird = useRef<HTMLInputElement>(null)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   const proposalTypes = initiateProposalData?.typeSelection?.proposalTypes
@@ -61,6 +66,20 @@ export default function InitiateProposalContent() {
       document.removeEventListener('mousedown', handleClickOutside)
     }
   }, [isDropdownOpen])
+
+  // 如果已经有上传的文件，但文本框还是空的，用文件名填充，避免因为某些分支遗漏导致不展示
+  useEffect(() => {
+    if (uploadedFile && proposalContent.trim() === '') {
+      setProposalContent(uploadedFile.fileName)
+    }
+  }, [uploadedFile, proposalContent])
+
+  // 第二个 textarea 的上传文件处理
+  useEffect(() => {
+    if (uploadedFileThird && thirdProposalContent.trim() === '') {
+      setThirdProposalContent(uploadedFileThird.fileName)
+    }
+  }, [uploadedFileThird, thirdProposalContent])
 
   // 自动生成内容摘要
   useEffect(() => {
@@ -350,6 +369,7 @@ export default function InitiateProposalContent() {
               placeholder={initiateProposalData?.proposalContent?.placeholder || 'Draft or upload your proposal content here.'}
               onFocus={() => setIsProposalFocused(true)}
               onBlur={() => setIsProposalFocused(false)}
+              readOnly={uploadedFile !== null && proposalContent.trim() !== ''}
               style={{
                 width: '100%',
                 minHeight: px(170),
@@ -364,14 +384,16 @@ export default function InitiateProposalContent() {
                 lineHeight: '140%',
                 letterSpacing: '0%',
                 color: '#000000',
-                resize: 'vertical'
+                resize: 'vertical',
+                cursor: uploadedFile !== null && proposalContent.trim() !== '' ? 'default' : 'text'
               }}
             />
             <input
               type="file"
               ref={fileInputRef}
               style={{ display: 'none' }}
-              accept=".doc,.docx,.txt,.md"
+              // 与 Launchpad StepThree 保持一致，支持 doc/docx/ppt/pptx/xls/xlsx/pdf
+              accept=".doc,.docx,.ppt,.pptx,.xls,.xlsx,.pdf,.txt,.md"
               onChange={async (e) => {
                 const file = e.target.files?.[0]
                 if (file) {
@@ -383,15 +405,21 @@ export default function InitiateProposalContent() {
                     if (file.type === 'text/plain' || file.name.endsWith('.txt') || file.name.endsWith('.md')) {
                       const text = await file.text()
                       setProposalContent(text)
+                    } else {
+                      // 非纯文本文件：在框里展示文件名，方便用户确认
+                      setProposalContent(file.name)
                     }
+                    setShowUploadSuccessToast(true)
                   } catch (error) {
                     console.error('Upload failed:', error)
+                    setShowUploadErrorToast(true)
                   } finally {
                     setIsUploading(false)
                   }
                 }
               }}
             />
+            {/* 上传入口文案 */}
             {!isUploading && !isProposalFocused && proposalContent.trim() === '' && (
               <div 
                 onClick={(e) => {
@@ -435,6 +463,46 @@ export default function InitiateProposalContent() {
                   }}
                 >
                   uploads
+                </span>
+              </div>
+            )}
+
+            {/* 如果是通过上传填入的文件名，提供一个小的删除按钮 */}
+            {uploadedFile && proposalContent.trim() !== '' && (
+              <div
+                onClick={(e) => {
+                  e.stopPropagation()
+                  e.preventDefault()
+                  setUploadedFile(null)
+                  setProposalContent('')
+                  // 重置文件选择器
+                  if (fileInputRef.current) {
+                    fileInputRef.current.value = ''
+                  }
+                }}
+                style={{
+                  position: 'absolute',
+                  top: px(10),
+                  right: px(20),
+                  width: px(18),
+                  height: px(18),
+                  borderRadius: '50%',
+                  backgroundColor: '#000000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                }}
+              >
+                <span
+                  style={{
+                    color: '#ffffff',
+                    fontSize: px(12),
+                    lineHeight: '1',
+                    userSelect: 'none',
+                  }}
+                >
+                  ×
                 </span>
               </div>
             )}
@@ -528,34 +596,78 @@ export default function InitiateProposalContent() {
               value={thirdProposalContent}
               onChange={setThirdProposalContent}
               placeholder={initiateProposalData?.attachmentLink?.placeholder || 'Draft or upload your proposal content here.'}
+              readOnly={uploadedFileThird !== null && thirdProposalContent.trim() !== ''}
             />
             <input
               type="file"
-              ref={fileInputRef}
+              ref={fileInputRefThird}
               style={{ display: 'none' }}
-              accept=".doc,.docx,.txt,.md"
+              // 与 Launchpad StepThree 保持一致，支持 doc/docx/ppt/pptx/xls/xlsx/pdf
+              accept=".doc,.docx,.ppt,.pptx,.xls,.xlsx,.pdf,.txt,.md"
               onChange={async (e) => {
                 const file = e.target.files?.[0]
                 if (file) {
                   setIsUploading(true)
                   try {
                     const fileInfo = await uploadFile(file)
-                    setUploadedFile(fileInfo)
+                    setUploadedFileThird(fileInfo)
                     // 如果是文本文件，读取内容
                     if (file.type === 'text/plain' || file.name.endsWith('.txt') || file.name.endsWith('.md')) {
                       const text = await file.text()
-                      setProposalContent(text)
+                      setThirdProposalContent(text)
+                    } else {
+                      // 非纯文本文件：在框里展示文件名
+                      setThirdProposalContent(file.name)
                     }
+                    setShowUploadSuccessToast(true)
                   } catch (error) {
                     console.error('Upload failed:', error)
+                    setShowUploadErrorToast(true)
                   } finally {
                     setIsUploading(false)
                   }
                 }
               }}
             />
+            {/* 如果是通过上传填入的文件名，提供一个小的删除按钮 */}
+            {uploadedFileThird && thirdProposalContent.trim() !== '' && (
+              <div
+                onClick={(e) => {
+                  e.stopPropagation()
+                  e.preventDefault()
+                  setUploadedFileThird(null)
+                  setThirdProposalContent('')
+                  // 重置文件选择器
+                  if (fileInputRefThird.current) {
+                    fileInputRefThird.current.value = ''
+                  }
+                }}
+                style={{
+                  position: 'absolute',
+                  top: px(10),
+                  right: px(20),
+                  width: px(18),
+                  height: px(18),
+                  borderRadius: '50%',
+                  backgroundColor: '#000000',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  zIndex: 10
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.opacity = '0.8'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.opacity = '1'
+                }}
+              >
+                <span style={{ color: '#ffffff', fontSize: px(12), lineHeight: 1 }}>×</span>
+              </div>
+            )}
             <div 
-              onClick={() => fileInputRef.current?.click()}
+              onClick={() => fileInputRefThird.current?.click()}
               style={{
                 position: 'absolute',
                 bottom: px(16),
@@ -576,6 +688,23 @@ export default function InitiateProposalContent() {
 
         
         </div>
+
+        {/* 上传结果 Toast，与 Launchpad StepThree 一致 */}
+        {showUploadErrorToast && (
+          <Toast
+            message="File upload failed, please try again"
+            duration={3000}
+            onClose={() => setShowUploadErrorToast(false)}
+          />
+        )}
+
+        {showUploadSuccessToast && (
+          <Toast
+            message="File uploaded successfully"
+            duration={3000}
+            onClose={() => setShowUploadSuccessToast(false)}
+          />
+        )}
 
         {/* Action Buttons */}
         <div className="flex items-center justify-center" style={{ gap: px(16) }}>

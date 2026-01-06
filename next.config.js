@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // 启用静态导出，打包文件将输出到 out 目录
-  // 注意：启用后 API 路由（文件上传功能）将无法工作
+  // 启用静态导出，打包文件将输出到 out 目录（注意：API 路由将无法工作，如文件上传）
   output: 'export',
-  
+ 
   // 图片配置
   images: {
     unoptimized: true, // 静态导出模式下必须禁用图片优化
@@ -39,8 +38,9 @@ const nextConfig = {
   // 页面配置
   poweredByHeader: false, // 移除 X-Powered-By 头，提高安全性
   
-  // 静态导出配置
-  trailingSlash: false, // 不在URL末尾添加斜杠
+  // URL 结尾配置：静态导出时为了兼容 Nginx 等静态服务器，打开 trailingSlash
+  // 这样 /ProjectHub/ 会对应到 /ProjectHub/index.html，避免 403/404
+  trailingSlash: true,
   
   // 开发模式配置
   ...(process.env.NODE_ENV === 'development' && {

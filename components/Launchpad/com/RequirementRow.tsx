@@ -61,8 +61,6 @@ function TableDropdown({ placeholder, options, value, onChange, onOpenChange, pr
         className="cursor-pointer flex items-center justify-between"
         style={{
           cursor: previewMode ? 'default' : 'pointer',
-        }}
-        style={{
           width: '100%',
           height: '100%',
           paddingLeft: px(12),

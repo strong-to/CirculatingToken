@@ -1,8 +1,9 @@
+import { Suspense } from 'react'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import LaunchpadContent from '@/components/Launchpad/Launchpad'
 
-export default function Launchpad() {
+function LaunchpadPageContent() {
   return (
     <div className="h-screen flex flex-col overflow-hidden">
       {/* Title 盒子 - 固定高度 89px */}
@@ -16,6 +17,25 @@ export default function Launchpad() {
         {/* <Footer /> */}
       </div>
     </div>
+  )
+}
+
+export default function Launchpad() {
+  return (
+    <Suspense
+      fallback={
+        <div className="h-screen flex flex-col overflow-hidden">
+          <div>
+            <Header />
+          </div>
+          <div className="flex-1 min-h-0 flex items-center justify-center">
+            <div>Loading...</div>
+          </div>
+        </div>
+      }
+    >
+      <LaunchpadPageContent />
+    </Suspense>
   )
 }
 

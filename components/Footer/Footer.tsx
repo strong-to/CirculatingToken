@@ -87,7 +87,7 @@ export default function Footer() {
                 <div style={{ marginBottom: px(12) }}>AI Project Hub</div>
                 <div 
                   style={{ marginBottom: px(12), cursor: 'pointer' }}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/launchpad')}
                   className="hover:opacity-70 transition-opacity"
                 >
                   Launchpad

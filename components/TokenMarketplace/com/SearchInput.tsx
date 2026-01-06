@@ -42,7 +42,6 @@ export default function SearchInput({
         </svg>
         <input
           type="text"
-          placeholder={placeholder}
           value={value}
           onChange={previewMode ? undefined : (e) => onChange?.(e.target.value)}
           readOnly={previewMode}

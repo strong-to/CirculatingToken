@@ -115,7 +115,7 @@ export default function Header() {
               if (item === 'Project Hub') {
                 href = '/ProjectHub'
               } else if (item === 'Launchpad') {
-                href = '/Launchpad'
+                href = '/launchpad'
               } else if (item === 'Token Marketplace') {
                 // href = '/TokenMarketplace'
 
@@ -130,7 +130,7 @@ export default function Header() {
               }
               
               const isActive = (item === 'Project Hub' && pathname === '/ProjectHub') || 
-                               (item === 'Launchpad' && pathname === '/Launchpad') ||
+                               (item === 'Launchpad' && pathname === '/launchpad') ||
                                (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
                                (item === 'Lending Vault' && pathname === '/LendingVault') ||
                                (item === 'Conference Room' && pathname === '/ConferenceRoom') ||

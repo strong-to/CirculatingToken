@@ -71,11 +71,12 @@ export default function ConstructorImageModal({
     <>
       {/* 遮罩层 */}
       <div
-        className="fixed inset-0 z-40"
+        className="fixed inset-0"
         style={{
           backgroundColor: "rgba(0, 0, 0, 0.5)",
           opacity: isAnimating ? 1 : 0,
           transition: "opacity 0.3s ease-in-out",
+          zIndex: 9998, // 确保遮罩层覆盖所有吸顶元素
         }}
         onClick={onClose}
       />
@@ -85,7 +86,7 @@ export default function ConstructorImageModal({
       
       {/* 弹窗内容 */}
       <div
-        className="fixed z-50"
+        className="fixed"
         style={{
           top: "50%",
           left: "50%",
@@ -102,6 +103,7 @@ export default function ConstructorImageModal({
           padding: px(30),
           display: "flex",
           flexDirection: "column",
+          zIndex: 9999, // 弹窗内容优先级最高
         }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -161,7 +163,7 @@ export default function ConstructorImageModal({
               style={{
                 width: "100%",
                 height: "100%",
-                objectFit: "cover",
+                objectFit: "contain", // 按比例完整展示头像，不裁切
               }}
               priority
             />

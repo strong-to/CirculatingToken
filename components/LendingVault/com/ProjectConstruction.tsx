@@ -218,7 +218,12 @@ export default function ProjectConstruction({ projectData }: ProjectConstruction
             alt="Project Construction Logo"
             width={200}
             height={200}
-            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: px(4) }}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'contain', // 按比例完整展示，不裁切
+              borderRadius: px(4),
+            }}
           />
         </div> 
 
@@ -237,7 +242,7 @@ export default function ProjectConstruction({ projectData }: ProjectConstruction
           {constructors.length > 0 && (
             <Swiper
               modules={[Navigation, Mousewheel]}
-              spaceBetween={10}               // 头像之间固定 10px 间距
+              spaceBetween={15}               // 头像之间固定 10px 间距
               slidesPerView="auto"            // 每个 slide 宽度由内容决定，不被平均拉伸
               loop={constructors.length > 10}
               grabCursor={true}

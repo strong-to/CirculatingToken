@@ -13,8 +13,10 @@ import UserIcon from './icons/UserIcon'
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
+  const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false)
   const [selectedLanguage, setSelectedLanguage] = useState('English')
   const languageDropdownRef = useRef<HTMLDivElement>(null)
+  const aboutDropdownRef = useRef<HTMLDivElement>(null)
   const pathname = usePathname()
 
   const languages = [
@@ -30,7 +32,7 @@ export default function Header() {
     'Hindi'
   ]
 
-  // 点击外部关闭下拉框
+  // 点击外部关闭语言下拉框
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (languageDropdownRef.current && !languageDropdownRef.current.contains(event.target as Node)) {
@@ -47,6 +49,23 @@ export default function Header() {
     }
   }, [isLanguageDropdownOpen])
 
+  // 点击外部关闭 About 下拉框
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (aboutDropdownRef.current && !aboutDropdownRef.current.contains(event.target as Node)) {
+        setIsAboutDropdownOpen(false)
+      }
+    }
+
+    if (isAboutDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isAboutDropdownOpen])
+
   const navItems = [
     'Project Hub',
     'Launchpad',
@@ -55,8 +74,17 @@ export default function Header() {
     // 'Lending Vault',
     // 'Project Construction',
     'Mortgage  market',
-    'About'
-    
+    'About',
+  ]
+
+  const aboutSubNavItems = [
+    { key: 'deep-blue-covenant', label: 'Deep Blue Covenant' }, // 深蓝盟约
+    { key: 'the-creators', label: 'The Creators' }, // The创建者
+    { key: 'user-guide', label: 'User Guide' }, // 用户指南
+    { key: 'related-information', label: 'Related Information' }, // 关联信息
+    { key: 'technical-documents', label: 'Technical Documents' }, // 技术文件
+    { key: 'community-events', label: 'Community Events' }, // 社区活动
+    { key: 'related-news', label: 'Related News' }, // 相关新闻
   ]
 
 
@@ -108,7 +136,68 @@ export default function Header() {
                                (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
                                (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
                                (item === 'Project Construction' && pathname === '/ProjectConstruction')
-              
+
+              // About 使用下拉菜单，不直接导航
+              if (item === 'About') {
+                return (
+                  <div
+                    key="About"
+                    className="relative"
+                    ref={aboutDropdownRef}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setIsAboutDropdownOpen((prev) => !prev)}
+                      className="hover:opacity-70 transition-colors whitespace-nowrap cursor-pointer"
+                      style={{
+                        fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                        fontWeight: 300,
+                        fontStyle: 'normal',
+                        fontSize: px(20),
+                        lineHeight: '100%',
+                        letterSpacing: '0%',
+                        color: '#888888',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: px(6),
+                      }}
+                    >
+                      About
+                      
+                    </button>
+
+                    {isAboutDropdownOpen && (
+                      <div
+                        className="absolute left-0 mt-2 bg-white rounded z-50"
+                        style={{
+                          minWidth: px(180),
+                          padding: px(8),
+                          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.15)',
+                        }}
+                      >
+                        {aboutSubNavItems.map((sub) => (
+                          <div
+                            key={sub.key}
+                            onClick={() => setIsAboutDropdownOpen(false)}
+                            className="cursor-pointer hover:bg-gray-100 transition-colors"
+                            style={{
+                              padding: px(8),
+                              fontSize: px(16),
+                              fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+                              fontWeight: 300,
+                              color: '#333333',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {sub.label}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                )
+              }
+
               if (href === '#') {
                 return (
                   <a
@@ -261,7 +350,34 @@ export default function Header() {
                                (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
                                (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
                                (item === 'Project Construction' && pathname === '/ProjectConstruction')
-              
+
+              if (item === 'About') {
+                // 移动端 About 展开子导航
+                return (
+                  <div key="About" className="flex flex-col gap-2">
+                    <div
+                      className="text-title cursor-default"
+                      style={{ color: '#888888' }}
+                    >
+                      About
+                    </div>
+                    <div className="flex flex-col gap-1 pl-4">
+                      {aboutSubNavItems.map((sub) => (
+                        <button
+                          key={sub.key}
+                          type="button"
+                          className="text-left text-title hover:opacity-70 transition-colors"
+                          style={{ color: '#888888', fontSize: px(16) }}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {sub.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )
+              }
+
               if (href === '#') {
                 return (
                   <a

@@ -390,6 +390,69 @@
             "totalContributions": 291,
             "tokensEarned": "13,100 GVP",
             "tagLabel": "Algorithm"
+          },
+          {
+            "id": 17,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Quark",
+            "address": "0x8f90...Quar",
+            "totalContributions": 305,
+            "tokensEarned": "14,400 GVP",
+            "tagLabel": "Data Pipeline"
+          },
+          {
+            "id": 18,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Pulse",
+            "address": "0x9a01...Puls",
+            "totalContributions": 242,
+            "tokensEarned": "11,900 GVP",
+            "tagLabel": "Monitoring"
+          },
+          {
+            "id": 19,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Ion",
+            "address": "0x1b12...Ion0",
+            "totalContributions": 268,
+            "tokensEarned": "12,200 GVP",
+            "tagLabel": "Infrastructure"
+          },
+          {
+            "id": 20,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Nebula",
+            "address": "0x2c23...Nebu",
+            "totalContributions": 327,
+            "tokensEarned": "15,800 GVP",
+            "tagLabel": "Distributed Systems"
+          },
+          {
+            "id": 21,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Nebula",
+            "address": "0x2c23...Nebu",
+            "totalContributions": 327,
+            "tokensEarned": "15,800 GVP",
+            "tagLabel": "Distributed Systems"
+          },
+          {
+            "id": 22,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Nebula",
+            "address": "0x2c23...Nebu",
+            "totalContributions": 327,
+            "tokensEarned": "15,800 GVP",
+            "tagLabel": "Distributed Systems"
+          },
+          {
+            "id": 23,
+            "avatar": "https://miaocode-ai.oss-ap-southeast-1.aliyuncs.com/the4/ProjectHub/PlaceholderComponent/icon/img_001.png",
+            "name": "Nebula",
+            "address": "0x2c23...Nebu",
+            "totalContributions": 327,
+            "tokensEarned": "15,800 GVP",
+            "tagLabel": "Distributed Systems"
           }
         ],
         "jobs": [

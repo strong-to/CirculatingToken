@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { px } from "@/utils/pxToRem";
 
 interface ProposalDetailLeftSidebarProps {
@@ -20,6 +21,10 @@ interface ProposalDetailLeftSidebarProps {
       steps?: Array<{
         name?: string;
         date?: string;
+        subSteps?: Array<{
+          name?: string;
+          date?: string;
+        }>;
       }>;
     };
   };
@@ -28,6 +33,20 @@ interface ProposalDetailLeftSidebarProps {
 export default function ProposalDetailLeftSidebar({
   data,
 }: ProposalDetailLeftSidebarProps) {
+  const [expandedSteps, setExpandedSteps] = useState<Set<number>>(new Set());
+
+  const toggleStep = (index: number) => {
+    setExpandedSteps((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      return newSet;
+    });
+  };
+
   return (
     <div
       style={{
@@ -79,6 +98,7 @@ export default function ProposalDetailLeftSidebar({
           width: px(350),
           borderRadius: px(4),
           padding: px(20),
+          paddingRight: px(0),
           height: px(812),
         }}
       >
@@ -144,140 +164,102 @@ export default function ProposalDetailLeftSidebar({
         </div>
 
         {/* Process */}
-        <div>
+        <div className="flex flex-col w-full" style={{ flex: 1, minHeight: 0,paddingRight: px(10) }}>
           <div
             style={{
               fontFamily: "PingFang SC",
               fontWeight: 400,
               fontSize: px(24),
               color: "#000000",
-              marginBottom: px(16),
+              marginBottom: px(30),
               marginTop: px(50),
             }}
           >
             {data?.process?.title || "Process"}
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-            }}
-          >
-            {data?.process?.steps?.map((step, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: px(12),
-                }}
-              >
-                {/* 左侧圆圈和连接线区域 */}
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    width: px(20),
-                    flexShrink: 0,
-                  }}
-                >
-                  {/* 圆圈标记 */}
-                  <div
-                    style={{
-                      width: px(20),
-                      height: px(20),
-                      borderRadius: "50%",
-                      backgroundColor:
-                        index === 0
-                          ? "transparent"
-                          : "rgba(140, 140, 140, 0.5)",
-                      border:
-                        index === 0
-                          ? "2px solid rgba(140, 140, 140, 0.5)"
-                          : "none",
-                      flexShrink: 0,
-                      zIndex: 2,
-                    }}
-                  />
-                  {/* 连接线 - 从圆圈底部开始，连接到下一个圆圈顶部，最后一个不显示 */}
-                  {index < (data?.process?.steps?.length || 0) - 1 && (
-                    <div
-                      style={{
-                        transform: "translateX(-50%)",
-                        width: px(2),
-                        height: px(72),
-                        backgroundColor: "#e0e0e0",
-                        zIndex: 1,
-                      }}
-                    />
-                  )}
-                </div>
 
-                {/* 内容区域 */}
-                <div
-                  style={{
-                    flex: 1,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                  }}
-                >
-                  <div>
-                    <div
-                      style={{
-                        fontSize: px(20),
-                        color: "#000000",
-                        fontWeight: 400,
-                        marginTop: px(-3),
-                      }}
-                    >
-                      {step.name || ""}
+          <div
+            className="scroll-container scrollbar-hide"
+            style={{
+              flex: 1,
+              minHeight: 0,
+              overflowY: "auto",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            } as React.CSSProperties}
+          >
+            <div
+              className="scroll-content scrollbar-hide"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                paddingTop: px(20),
+              } as React.CSSProperties}
+            >
+              <div className="flex flex-col items-start justify-start">
+                {data?.process?.steps?.map((step, index) => {
+                  const isExpanded = expandedSteps.has(index);
+                  const hasSubSteps = step.subSteps && step.subSteps.length > 0;
+                  const isLastStep = index === (data?.process?.steps?.length || 0) - 1;
+                  
+                  return (
+                    <div key={index} className="flex  flex-col items-start justify-start w-full">
+                      <div style={{width: px(20), height: px(20), border: "1px solid #000000", borderRadius: px(50)}}></div>
+                      <div className="w-full" style={{ paddingLeft: px(34), marginLeft: px(10),fontFamily: "PingFang SC", fontWeight: 400, fontSize: px(20), color: "#000000", borderLeft: isLastStep ? "none" : "1px solid #000000", paddingBottom: px(60), width: "100%", overflow: "visible" }}>
+                        <div className="flex items-center justify-between w-full" style={{gap: px(5),marginTop: px(-35),paddingBottom: px(20), minWidth: 0 }} >
+                          <div
+                            onClick={hasSubSteps ? () => toggleStep(index) : undefined}
+                            style={{ 
+                              flex: 1,
+                              cursor: hasSubSteps ? "pointer" : "default"
+                            }}
+                          >
+                            <div style={{fontFamily: "PingFang SC", fontWeight: 400, fontSize: px(18), color: "#000000"}}>{step.name || ""}</div>
+                            <div style={{fontFamily: "PingFang SC", fontWeight: 400, fontSize: px(16), color: "#8C8C8C"}}>{step.date || ""}</div>
+                          </div> 
+                          {hasSubSteps && (
+                            <div
+                              onClick={(e) => { e.stopPropagation(); toggleStep(index); }}
+                              style={{ cursor: "pointer", transition: "transform 0.3s ease", transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)", flexShrink: 0, minWidth: px(48), display: "flex", alignItems: "center", justifyContent: "center" }}
+                            >
+                              <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.53125 9.0625L8.53122 1.0625L16.5312 9.0625" stroke="black" strokeWidth="1.5" strokeMiterlimit="10"/>
+                              </svg>
+                            </div>
+                          )}
+                        </div>
+
+                        {isExpanded && hasSubSteps && step.subSteps && (
+                          <>
+                            {step.subSteps.map((subStep, subIndex) => {
+                              const isLastSubStep = subIndex === (step.subSteps?.length || 0) - 1;
+                              return (
+                                <div key={subIndex} className="flex  flex-col items-start justify-start">
+                                  <div style={{width: px(20), height: px(20), border: "1px solid #000000", borderRadius: px(50)}}></div>
+                                  <div style={{ paddingLeft: px(34), marginLeft: px(10),fontFamily: "PingFang SC", fontWeight: 400, fontSize: px(20), color: "#000000", borderLeft: isLastSubStep ? "none" : "1px solid #000000", height: isLastSubStep ? px(30) : px(60) }}>
+                                    <div className="flex items-center justify-between" style={{gap: px(5),marginTop: px(-35)}} >
+                                      <div>
+                                        <div style={{fontFamily: "PingFang SC", fontWeight: 400, fontSize: px(14), color: "#000000"}}>{subStep.name || ""}</div>
+                                        <div style={{fontFamily: "PingFang SC", fontWeight: 400, fontSize: px(12), color: "#8C8C8C"}}>{subStep.date || ""}</div>
+                                      </div> 
+                                    </div>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </>
+                        )}
+                      </div>
                     </div>
-                    <div
-                      style={{
-                        fontSize: px(18),
-                        color: "#8C8C8C",
-                      }}
-                    >
-                      {step.date || ""}
-                    </div>
-                  </div>
-                  {/* 下拉箭头 */}
-                  <div
-                    style={{
-                      width: px(20),
-                      height: px(20),
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      cursor: "pointer",
-                      flexShrink: 0,
-                    }}
-                  >
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2 6L9.99997 14L18 6"
-                        stroke="black"
-                        strokeWidth="1.5"
-                        strokeMiterlimit="10"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-

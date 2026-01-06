@@ -2505,7 +2505,7 @@
                             "value": "0,000,000"
                           },
                           {
-                            "label": "Voter Turnout :",
+                            "label": "Voter Turnout :",
                             "value": "0,000,000"
                           }
                         ]
@@ -2515,19 +2515,57 @@
                         "steps": [
                           {
                             "name": "Created",
-                            "date": "DEC11,2025—DEC17,2025"
+                            "date": "DEC11, 2025 00:22:23 AM",
+                            "subSteps": [
+                              {
+                                "name": "Payload 383 was created",
+                                "date": "Dec 23, 2025 10:04 PM"
+                              },
+                              {
+                                "name": "Proposal was created",
+                                "date": "Dec 25, 2025 2:44 AM"
+                              }
+                            ]
                           },
                           {
                             "name": "Open for voting",
-                            "date": "DEC11,2025—DEC17,2025"
+                            "date": "DEC11, 2025 00:22:23 AM",
+                            "subSteps": [
+                              {
+                                "name": "Proposal was activated for voting",
+                                "date": "Dec 26, 2025 2:45 AM"
+                              },
+                              {
+                                "name": "Voting started",
+                                "date": "Dec 26, 2025 2:49 AM"
+                              }
+                            ]
                           },
                           {
                             "name": "Voting closed",
-                            "date": "DEC11,2025—DEC17,2025"
+                            "date": "DEC11, 2025 00:22:23 AM"
                           },
                           {
                             "name": "Payloads executed",
-                            "date": "DEC11,2025—DEC17,2025"
+                            "date": "DEC11, 2025 00:22:23 AM",
+                            "subSteps": [
+                              {
+                                "name": "Proposal queued",
+                                "date": "Dec 29, 2025 2:53 AM"
+                              },
+                              {
+                                "name": "Proposal executed",
+                                "date": "Dec 29, 2025 2:53 AM"
+                              },
+                              {
+                                "name": "Payload 383 queued",
+                                "date": "Dec 29, 2025 2:53 AM"
+                              },
+                              {
+                                "name": "Payload 383 executed",
+                                "date": "Dec 30, 2025 2:53 AM"
+                              }
+                            ]
                           }
                         ]
                       }

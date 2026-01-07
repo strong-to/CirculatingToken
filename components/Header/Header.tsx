@@ -115,9 +115,9 @@ export default function Header() {
               if (item === 'Project Hub') {
                 href = '/ProjectHub'
               } else if (item === 'Launchpad') {
-                href = '/launchpad'
+                href = '/Launchpad'
               } else if (item === 'Token Marketplace') {
-                // href = '/TokenMarketplace'
+                href = '/Favorites'
 
               } else if (item === 'Lending Vault') {
                 href = '/LendingVault'
@@ -129,13 +129,16 @@ export default function Header() {
                 href = '/ProjectConstruction'
               }
               
-              const isActive = (item === 'Project Hub' && pathname === '/ProjectHub') || 
-                               (item === 'Launchpad' && pathname === '/launchpad') ||
-                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
-                               (item === 'Lending Vault' && pathname === '/LendingVault') ||
-                               (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
-                               (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
-                               (item === 'Project Construction' && pathname === '/ProjectConstruction')
+              // 处理 trailing slash，确保 pathname 匹配
+              const normalizedPathname = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+              
+              const isActive = (item === 'Project Hub' && (normalizedPathname === '/ProjectHub' || normalizedPathname.startsWith('/ProjectHub'))) || 
+                               (item === 'Launchpad' && (normalizedPathname === '/Launchpad' || normalizedPathname.startsWith('/Launchpad'))) ||
+                               (item === 'Token Marketplace' && (normalizedPathname === '/Favorites' || normalizedPathname.startsWith('/Favorites'))) ||
+                               (item === 'Lending Vault' && (normalizedPathname === '/LendingVault' || normalizedPathname.startsWith('/LendingVault'))) ||
+                               (item === 'Conference Room' && (normalizedPathname === '/ConferenceRoom' || normalizedPathname.startsWith('/ConferenceRoom'))) ||
+                               (item === 'Mortgage  market' && (normalizedPathname === '/MortgageMarket' || normalizedPathname.startsWith('/MortgageMarket'))) ||
+                               (item === 'Project Construction' && (normalizedPathname === '/ProjectConstruction' || normalizedPathname.startsWith('/ProjectConstruction')))
 
               // About 使用下拉菜单，不直接导航
               if (item === 'About') {

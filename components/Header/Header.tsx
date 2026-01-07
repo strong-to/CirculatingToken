@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { px } from '@/utils/pxToRem'
 import SearchIcon from './icons/SearchIcon'
 import LanguageIcon from './icons/LanguageIcon'
@@ -11,6 +11,7 @@ import SunIcon from './icons/SunIcon'
 import UserIcon from './icons/UserIcon'
 
 export default function Header() {
+  const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false)
@@ -113,32 +114,33 @@ export default function Header() {
             {navItems.map((item) => {
               let href = '#'
               if (item === 'Project Hub') {
-                href = '/ProjectHub'
+                href = '/ProjectHub/'
               } else if (item === 'Launchpad') {
-                href = '/Launchpad'
+                href = '/Launchpad/'
               } else if (item === 'Token Marketplace') {
-                href = '/Favorites'
+                href = '/Favorites/'
 
               } else if (item === 'Lending Vault') {
-                href = '/LendingVault'
+                href = '/LendingVault/'
               } else if (item === 'Conference Room') {
-                href = '/ConferenceRoom'
+                href = '/ConferenceRoom/'
               } else if (item === 'Mortgage  market') {
-                href = '/MortgageMarket'
+                href = '/MortgageMarket/'
               } else if (item === 'Project Construction') {
-                href = '/ProjectConstruction'
+                href = '/ProjectConstruction/'
               }
               
               // 处理 trailing slash，确保 pathname 匹配
-              const normalizedPathname = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname
+              const normalizedPathname = pathname.endsWith('/') ? pathname : pathname + '/'
               
-              const isActive = (item === 'Project Hub' && (normalizedPathname === '/ProjectHub' || normalizedPathname.startsWith('/ProjectHub'))) || 
-                               (item === 'Launchpad' && (normalizedPathname === '/Launchpad' || normalizedPathname.startsWith('/Launchpad'))) ||
-                               (item === 'Token Marketplace' && (normalizedPathname === '/Favorites' || normalizedPathname.startsWith('/Favorites'))) ||
-                               (item === 'Lending Vault' && (normalizedPathname === '/LendingVault' || normalizedPathname.startsWith('/LendingVault'))) ||
-                               (item === 'Conference Room' && (normalizedPathname === '/ConferenceRoom' || normalizedPathname.startsWith('/ConferenceRoom'))) ||
-                               (item === 'Mortgage  market' && (normalizedPathname === '/MortgageMarket' || normalizedPathname.startsWith('/MortgageMarket'))) ||
-                               (item === 'Project Construction' && (normalizedPathname === '/ProjectConstruction' || normalizedPathname.startsWith('/ProjectConstruction')))
+              const isActive = (item === 'Project Hub' && (normalizedPathname === '/ProjectHub/' || normalizedPathname.startsWith('/ProjectHub/'))) || 
+                               (item === 'Launchpad' && (normalizedPathname === '/Launchpad/' || normalizedPathname.startsWith('/Launchpad/'))) ||
+                               // Token Marketplace 在 Favorites 页面不显示为 active（开发中页面）
+                               // (item === 'Token Marketplace' && (normalizedPathname === '/Favorites/' || normalizedPathname.startsWith('/Favorites/'))) ||
+                               (item === 'Lending Vault' && (normalizedPathname === '/LendingVault/' || normalizedPathname.startsWith('/LendingVault/'))) ||
+                               (item === 'Conference Room' && (normalizedPathname === '/ConferenceRoom/' || normalizedPathname.startsWith('/ConferenceRoom/'))) ||
+                               (item === 'Mortgage  market' && (normalizedPathname === '/MortgageMarket/' || normalizedPathname.startsWith('/MortgageMarket/'))) ||
+                               (item === 'Project Construction' && (normalizedPathname === '/ProjectConstruction/' || normalizedPathname.startsWith('/ProjectConstruction/')))
 
               // About 使用下拉菜单，不直接导航
               if (item === 'About') {
@@ -223,12 +225,20 @@ export default function Header() {
               }
               
               return (
-                <Link
+                <a
                   key={item}
                   href={href}
                   onClick={(e) => {
                     if (isActive) {
                       e.preventDefault()
+                      return
+                    }
+                    e.preventDefault()
+                    // 在静态导出模式下，直接使用 window.location 确保保留 trailing slash
+                    if (typeof window !== 'undefined') {
+                      window.location.href = href
+                    } else {
+                      router.push(href)
                     }
                   }}
                   style={{
@@ -243,7 +253,7 @@ export default function Header() {
                   className={`hover:opacity-70 transition-colors whitespace-nowrap ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
                 >
                   {item}
-                </Link>
+                </a>
               )
             })}
           </nav>
@@ -251,12 +261,12 @@ export default function Header() {
           {/* 右侧图标组 - 间距 56px */}
           <div className="flex items-center" style={{ gap: '3.5rem' }}> {/* 56px */}
             {/* 搜索图标 */}
-            <button
+            {/* <button
               className="flex items-center justify-center hover:opacity-70 transition-opacity"
               aria-label="Search"
             >
               <SearchIcon />
-            </button>
+            </button> */}
 
             {/* 语言图标 */}
             <div className="relative" ref={languageDropdownRef}>
@@ -331,28 +341,32 @@ export default function Header() {
             {navItems.map((item) => {
               let href = '#'
               if (item === 'Project Hub') {
-                href = '/ProjectHub'
+                href = '/ProjectHub/'
               } else if (item === 'Launchpad') {
-                href = '/Launchpad'
+                href = '/Launchpad/'
               } else if (item === 'Token Marketplace') {
-                // href = '/TokenMarketplace'
+                href = '/Favorites/'
               } else if (item === 'Lending Vault') {
-                href = '/LendingVault'
+                href = '/LendingVault/'
               } else if (item === 'Conference Room') {
-                href = '/ConferenceRoom'
+                href = '/ConferenceRoom/'
               } else if (item === 'Mortgage  market') {
-                href = '/MortgageMarket'
+                href = '/MortgageMarket/'
               } else if (item === 'Project Construction') {
-                href = '/ProjectConstruction'
+                href = '/ProjectConstruction/'
               }
               
-              const isActive = (item === 'Project Hub' && pathname === '/ProjectHub') || 
-                               (item === 'Launchpad' && pathname === '/Launchpad') ||
-                               (item === 'Token Marketplace' && pathname === '/TokenMarketplace') ||
-                               (item === 'Lending Vault' && pathname === '/LendingVault') ||
-                               (item === 'Conference Room' && pathname === '/ConferenceRoom') ||
-                               (item === 'Mortgage  market' && pathname === '/MortgageMarket') ||
-                               (item === 'Project Construction' && pathname === '/ProjectConstruction')
+              // 处理 trailing slash，确保 pathname 匹配
+              const normalizedPathname = pathname.endsWith('/') ? pathname : pathname + '/'
+              
+              const isActive = (item === 'Project Hub' && (normalizedPathname === '/ProjectHub/' || normalizedPathname.startsWith('/ProjectHub/'))) || 
+                               (item === 'Launchpad' && (normalizedPathname === '/Launchpad/' || normalizedPathname.startsWith('/Launchpad/'))) ||
+                               // Token Marketplace 在 Favorites 页面不显示为 active（开发中页面）
+                               // (item === 'Token Marketplace' && (normalizedPathname === '/Favorites/' || normalizedPathname.startsWith('/Favorites/'))) ||
+                               (item === 'Lending Vault' && (normalizedPathname === '/LendingVault/' || normalizedPathname.startsWith('/LendingVault/'))) ||
+                               (item === 'Conference Room' && (normalizedPathname === '/ConferenceRoom/' || normalizedPathname.startsWith('/ConferenceRoom/'))) ||
+                               (item === 'Mortgage  market' && (normalizedPathname === '/MortgageMarket/' || normalizedPathname.startsWith('/MortgageMarket/'))) ||
+                               (item === 'Project Construction' && (normalizedPathname === '/ProjectConstruction/' || normalizedPathname.startsWith('/ProjectConstruction/')))
 
               if (item === 'About') {
                 // 移动端 About 展开子导航
@@ -398,15 +412,22 @@ export default function Header() {
               }
               
               return (
-                <Link
+                <a
                   key={item}
                   href={href}
                   onClick={(e) => {
                     if (isActive) {
                       e.preventDefault()
-                    } else {
-                      setIsMenuOpen(false)
+                      return
                     }
+                    e.preventDefault()
+                    // 在静态导出模式下，直接使用 window.location 确保保留 trailing slash
+                    if (typeof window !== 'undefined') {
+                      window.location.href = href
+                    } else {
+                      router.push(href)
+                    }
+                    setIsMenuOpen(false)
                   }}
                   style={{
                     color: isActive ? '#000000' : '#888888'
@@ -414,7 +435,7 @@ export default function Header() {
                   className={`text-title hover:opacity-70 transition-colors ${isActive ? 'cursor-default' : 'cursor-pointer'}`}
                 >
                   {item}
-                </Link>
+                </a>
               )
             })}
           </nav>

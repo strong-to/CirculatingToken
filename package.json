@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/fix-launchpad-case.js",
     "start": "next start",
     "lint": "next lint",
     "optimize-images": "node scripts/optimize-images.js",

@@ -134,7 +134,7 @@ export default function FilterDropdown({
   }
 
   return (
-    <div className="relative flex-1" ref={dropdownRef}>
+    <div className="relative" style={{ width: '100%' }} ref={dropdownRef}>
       <div
         ref={triggerRef}
         onClick={previewMode ? undefined : () => setIsOpen(!isOpen)}

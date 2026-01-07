@@ -54,15 +54,21 @@ export default function StepOne({ currentStep, onEnter, previewMode, data, onDat
 
   return (
     <>
-      {!isPreview && (
+      {(!isPreview && !previewMode) ?
         <StepTitleBar
           title={texts.title}
           barColor="rgba(8, 63, 216, 0.65)"
           width={815}
           marginTop={5}
           marginBottom={80}
-        />
-      )}
+        /> : <div style={{fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(35),
+          color: '#000000',
+          marginBottom: px(20),
+        }}>{texts.title}</div>
+      }
+      
       {/* 表单内容区域 */}
       <div className="" style={{marginBottom: px(120)}}>
         {/* Function Description */}
@@ -77,7 +83,7 @@ export default function StepOne({ currentStep, onEnter, previewMode, data, onDat
               }}
             >
               <span style={{ color: '#000000', marginRight: px(8) }}>{texts.purposeLabel}</span>
-              {texts.purposeHelp}
+              { (!isPreview && !previewMode) ? texts.purposeHelp : ''}
             </div>
 
               <div>
@@ -124,7 +130,7 @@ export default function StepOne({ currentStep, onEnter, previewMode, data, onDat
               }}
             >
               <span style={{ color: '#000000', marginRight: px(8) }}>{texts.functionSortingLabel}</span>
-              {texts.functionSortingHelp}
+              { (!isPreview && !previewMode) ? texts.functionSortingHelp : ''}
             </div>
 
               <div>

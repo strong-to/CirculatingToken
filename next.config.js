@@ -59,7 +59,7 @@ const nextConfig = {
     },
   }),
   
-  // 静态导出时排除 API 路由
+  // 静态导出时排除 API 路由，并确保路径大小写保持一致
   ...(process.env.NODE_ENV === 'production' && {
     webpack: (config, { isServer }) => {
       if (isServer) {
@@ -68,9 +68,16 @@ const nextConfig = {
           ...config.resolve.alias,
         };
       }
+      // 确保路径大小写保持一致
+      config.resolve.symlinks = false;
       return config;
     },
   }),
+  
+  // 确保静态导出时路径大小写保持一致
+  async generateBuildId() {
+    return 'build-' + Date.now()
+  },
 }
 
 module.exports = nextConfig

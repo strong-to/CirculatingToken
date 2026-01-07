@@ -16,7 +16,7 @@ export default function SearchInput({
   previewMode = false
 }: SearchInputProps) {
   return (
-    <div className="relative flex items-center flex-1">
+    <div className="relative flex items-center" style={{ width: '100%' }}>
       <div
         className="flex items-center"
         style={{
@@ -27,6 +27,12 @@ export default function SearchInput({
           border: `0.5px solid #000000`,
           borderRadius: px(4),
           backgroundColor: '#FFFFFF',
+          outline: 'none',
+          boxShadow: 'none',
+        }}
+        onFocus={(e) => {
+          e.currentTarget.style.outline = 'none'
+          e.currentTarget.style.borderColor = '#000000'
         }}
       >
         <svg

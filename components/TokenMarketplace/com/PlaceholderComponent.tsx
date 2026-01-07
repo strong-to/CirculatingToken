@@ -1,10 +1,11 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useMemo, useEffect } from 'react'
 import { px } from '@/utils/pxToRem'
 import Image from 'next/image'
 import { projectsList, type ProjectData } from '@/app/data'
 import ProjectModal from './PlaceholderComponent/ProjectModal'
+import PageSelector from '@/components/LendingVault/com/PageSelector'
 
 interface PlaceholderComponentProps {
   projects?: ProjectData[]
@@ -40,9 +41,36 @@ const formatCurrency = (value: number | undefined): string => {
 
 export default function PlaceholderComponent({ projects }: PlaceholderComponentProps = {}) {
   // 使用筛选后的数据，默认展示全部
-  const displayData = (projects && projects.length > 0 ? projects : projectsList)
+  const allProjects = (projects && projects.length > 0 ? projects : projectsList)
   const [selectedCard, setSelectedCard] = useState<ProjectData | null>(null)
+  const [currentPage, setCurrentPage] = useState(1)
   const timersRef = useRef<Map<number, NodeJS.Timeout[]>>(new Map())
+  
+  // 分页逻辑：每页24个
+  const itemsPerPage = 24
+  const totalPages = Math.ceil(allProjects.length / itemsPerPage)
+  
+  // 根据当前页获取要显示的项目
+  const displayData = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+    return allProjects.slice(startIndex, endIndex)
+  }, [allProjects, currentPage])
+  
+  // 当筛选结果改变时，重置到第一页
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [allProjects.length])
+
+  // 处理翻页，同时滚动到顶部
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+    // 滚动到可滚动容器的顶部
+    const scrollContainer = document.querySelector('.flex-1.min-h-0.overflow-y-scroll')
+    if (scrollContainer) {
+      scrollContainer.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   const handleCardClick = (card: ProjectData) => {
     setSelectedCard(card)
@@ -232,10 +260,26 @@ export default function PlaceholderComponent({ projects }: PlaceholderComponentP
       </div>
       )}
       
+      {/* 翻页组件 - 在红色方块位置 */}
+      {allProjects.length > itemsPerPage && (
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'flex-end', 
+          marginTop: px(20),
+          paddingRight: px(0)
+        }}>
+          <PageSelector
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+          />
+        </div>
+      )}
+      
       {/* 弹窗 */}
       <ProjectModal
         selectedCard={selectedCard}
-        projects={displayData}
+        projects={allProjects}
         onClose={handleCloseModal}
         onCardChange={setSelectedCard}
         formatNumber={formatNumber}

@@ -27,17 +27,20 @@ export default function ModelCardSlider({ previewMode = false }: ModelCardSlider
 
   const handleCardClick = (cardType: string) => {
     if (previewMode) return
-    // 如果点击的是已经选中的卡片，则取消选中；否则选中该卡片
+    // 只能选一个：如果点击的是已经选中的卡片，则取消选中；否则清空之前的选中，只选中当前卡片
     setClickedCards(prev => {
-      const newSet = new Set(prev)
-      if (newSet.has(cardType)) {
-        newSet.delete(cardType)
+      const newSet = new Set<string>()
+      if (prev.has(cardType)) {
+        // 如果点击的是已选中的卡片，则取消选中（返回空 Set）
+        setSelectedCard(null)
+        return newSet
       } else {
+        // 否则清空之前的选中，只选中当前卡片
         newSet.add(cardType)
+        setSelectedCard(cardType)
+        return newSet
       }
-      return newSet
     })
-    setSelectedCard(cardType)
   }
 
   return (

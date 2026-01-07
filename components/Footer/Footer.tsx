@@ -82,26 +82,62 @@ export default function Footer() {
                   color: '#000000'
                 }}
               >
-                <div style={{ marginBottom: px(12) }}>About THE4</div>
-                <div style={{ marginBottom: px(12) }}>How It Works</div>
-                <div style={{ marginBottom: px(12) }}>AI Project Hub</div>
                 <div 
                   style={{ marginBottom: px(12), cursor: 'pointer' }}
-                  onClick={() => router.push('/launchpad')}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  About THE4
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  How It Works
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  AI Project Hub
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Launchpad/')}
                   className="hover:opacity-70 transition-opacity"
                 >
                   Launchpad
                 </div>
                 <div 
                   style={{ marginBottom: px(12), cursor: 'pointer' }}
-                  onClick={() => router.push('/ProjectHub')}
+                  onClick={() => router.push('/ProjectHub/')}
                   className="hover:opacity-70 transition-opacity"
                 >
                   Marketplace
                 </div>
-                <div style={{ marginBottom: px(12) }}>Governance</div>
-                <div style={{ marginBottom: px(12) }}>Docs</div>
-                <div style={{ marginBottom: px(12) }}>Discord</div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Governance
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Docs
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Discord
+                </div>
               </div>
             </div>
 
@@ -133,12 +169,48 @@ export default function Footer() {
                   color: '#000000'
                 }}
               >
-                <div style={{ marginBottom: px(12) }}>About DEEPBLUE</div>
-                <div style={{ marginBottom: px(12) }}>How It Works</div>
-                <div style={{ marginBottom: px(12) }}>Consensus</div>
-                <div style={{ marginBottom: px(12) }}>White & Docs</div>
-                <div style={{ marginBottom: px(12) }}>Governance</div>
-                <div style={{ marginBottom: px(12) }}>Discord</div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  About DEEPBLUE
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  How It Works
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Consensus
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  White & Docs
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Governance
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Discord
+                </div>
               </div>
             </div>
 
@@ -176,12 +248,48 @@ export default function Footer() {
               >
                 
 
-<div style={{ marginBottom: px(12) }}>Discard</div>
-                <div style={{ marginBottom: px(12) }}>Tokenomics Overview</div>
-                <div style={{ marginBottom: px(12) }}>Token Marketplace</div>
-                <div style={{ marginBottom: px(12) }}>Contract Tokens</div>
-                <div style={{ marginBottom: px(12) }}>Covenant Tokens</div>
-                <div style={{ marginBottom: px(12) }}>Convention Token</div>
+<div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Discard
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Tokenomics Overview
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Token Marketplace
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Contract Tokens
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Covenant Tokens
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Convention Token
+                </div>
               </div>
             </div>
 
@@ -214,11 +322,41 @@ export default function Footer() {
                   color: '#000000'
                 }}
               >
-                <div style={{ marginBottom: px(12) }}>Help Center</div>
-                <div style={{ marginBottom: px(12) }}>FAQ</div>
-                <div style={{ marginBottom: px(12) }}>Terms of Service</div>
-                <div style={{ marginBottom: px(12) }}>Privacy Policy</div>
-                <div style={{ marginBottom: px(12) }}>Contact Us</div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Help Center
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  FAQ
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Terms of Service
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Privacy Policy
+                </div>
+                <div 
+                  style={{ marginBottom: px(12), cursor: 'pointer' }}
+                  onClick={() => router.push('/Favorites/')}
+                  className="hover:opacity-70 transition-opacity"
+                >
+                  Contact Us
+                </div>
               </div>
             </div>
 

@@ -207,7 +207,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
 
   return (
     <>
-      {!previewMode && (
+      {!previewMode ? (
         <StepTitleBar
           title={texts.title}
           barColor="rgba(151, 151, 151, 0.65)"
@@ -215,10 +215,18 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
           marginTop={5}
           marginBottom={80}
         />
+      ) : (
+        <div style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(35),
+          color: '#000000',
+          marginTop: px(60),
+        }}>{texts.title}</div>
       )}
 
 
-<div style={{marginTop: px(60)}} >
+<div style={{marginTop: px(20)}} >
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
           <div
             style={{
@@ -231,9 +239,11 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
             {texts.feeStandardSection.label}
                 </span>
-                <span 
-                  dangerouslySetInnerHTML={{ __html: texts.feeStandardSection.description.replace(/<br\/>/g, '<br/>') }}
-                />
+                {!previewMode ? (
+                  <span 
+                    dangerouslySetInnerHTML={{ __html: texts.feeStandardSection.description.replace(/<br\/>/g, '<br/>') }}
+                  />
+                ) : ''}
                 
           </div>
 
@@ -781,7 +791,7 @@ export default function StepSix({ onEnter, previewMode, data, onDataChange }: St
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
               {texts.economicDataSection.label}
                 </span>
-                {texts.economicDataSection.description}
+                {!previewMode ? texts.economicDataSection.description : ''}
           </div>
 
               {!previewMode && (

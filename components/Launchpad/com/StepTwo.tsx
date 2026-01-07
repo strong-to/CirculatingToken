@@ -291,14 +291,24 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
 
   return (
     <>
-      {!previewMode && (
+      {!previewMode ? (
         <StepTitleBar
           title={<span suppressHydrationWarning>{texts.title}</span>}
           barColor="rgba(225, 5, 13, 0.75)"
           width={805}
           marginTop={5}
-          marginBottom={82}
+          marginBottom={80}
         />
+      ) : (
+        <div style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(35),
+          color: '#000000',
+          marginBottom: px(20),
+        }}>
+          <span suppressHydrationWarning>{texts.title}</span>
+        </div>
       )}
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
             <div
@@ -312,7 +322,9 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
               {texts.projectNameSection.label}
                 </span>
-                <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.projectNameSection.description }} />
+                {!previewMode ? (
+                  <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.projectNameSection.description }} />
+                ) : ''}
             </div>
 
               {!previewMode && (
@@ -406,7 +418,7 @@ export default function StepTwo({ onEnter, previewMode, data, onDataChange }: St
               {texts.logoSection.label}
                 </span>
 
-                <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.logoSection.description }} />
+                  { (!previewMode) ? <span suppressHydrationWarning dangerouslySetInnerHTML={{ __html: texts.logoSection.description }} /> : ''}  
             </div>
 
               {!previewMode && (

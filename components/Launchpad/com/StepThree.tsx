@@ -291,7 +291,7 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
 
   return (
     <>
-      {!previewMode && (
+      {!previewMode ? (
         <StepTitleBar
           title={texts.title}
           barColor="rgba(132, 0, 249, 0.65)"
@@ -299,6 +299,14 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
           marginTop={5}
           marginBottom={82}
         />
+      ) : (
+        <div style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(35),
+          color: '#000000',
+          marginBottom: px(20),
+        }}>{texts.title}</div>
       )}
 
 
@@ -324,15 +332,17 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
               {texts.modelSelectionSection.label}
                 </span>
-                <span suppressHydrationWarning>
-                {texts.modelSelectionSection.description}
-                </span>
+                {!previewMode ? (
+                  <span suppressHydrationWarning>
+                    {texts.modelSelectionSection.description}
+                  </span>
+                ) : ''}
             </div>
 
       
           </div>
 
-
+          {!previewMode && 
 
           <div style={{marginBottom: px(30)}}>
           <FilterSection 
@@ -343,7 +353,7 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
             initialFilterValues={data?.filterValues}
             previewMode={previewMode}
           />
-          </div>
+          </div>}
 
           <div style={{marginBottom: px(82)}}>
             
@@ -366,9 +376,11 @@ export default function StepThree({ onEnter, previewMode, data, onDataChange }: 
               <span style={{ color: '#000000', marginRight: px(8) }} suppressHydrationWarning>
               {texts.uploadSection.label}
                 </span>
-                <span suppressHydrationWarning>
-                {texts.uploadSection.description}
-                </span>
+                {!previewMode ? (
+                  <span suppressHydrationWarning>
+                    {texts.uploadSection.description}
+                  </span>
+                ) : ''}
             </div>
 
             {!previewMode && (

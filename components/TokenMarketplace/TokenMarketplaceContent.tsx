@@ -83,7 +83,7 @@ export default function TokenMarketplaceContent({ customProjects }: TokenMarketp
       <div className="flex-1 min-h-0 flex flex-col">
           {/* 筛选框 - 固定在顶部，不滚动 */}
           <div style={{paddingLeft: px(29), paddingRight: px(29), flexShrink: 0,marginBottom: px(20)}}>
-          <FilterSection onViewChange={setViewMode} onFilterChange={handleFilterChange} />
+          <FilterSection onViewChange={setViewMode} onFilterChange={handleFilterChange} alignWithCards={true} />
           </div>
 
           {/* 可滚动内容区域 */}

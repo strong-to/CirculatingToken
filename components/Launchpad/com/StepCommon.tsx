@@ -11,6 +11,14 @@ interface StepTitleBarProps {
   width?: number
   marginTop?: number
   marginBottom?: number
+  /** 是否显示底部彩色条，默认 true */
+  showBar?: boolean
+  /** 标题字体大小（px 数值），默认 40 */
+  titleFontSize?: number
+  /** 是否左对齐，默认 false（居中） */
+  alignLeft?: boolean
+  /** 左对齐时的左边距（px 数值），默认 0 */
+  leftMargin?: number
 }
 
 export function StepTitleBar({
@@ -19,11 +27,22 @@ export function StepTitleBar({
   width = 815,
   marginTop = 5,
   marginBottom = 80,
+  showBar = true,
+  titleFontSize = 40,
+  alignLeft = false,
+  leftMargin = 0,
 }: StepTitleBarProps) {
   return (
     <div
-      className="flex flex-col items-center justify-between"
-      style={{ marginTop: px(marginTop), marginBottom: px(marginBottom), width: px(width) }}
+      className="flex flex-col"
+      style={{
+        marginTop: px(marginTop),
+        marginBottom: px(marginBottom),
+        width: alignLeft ? 'auto' : px(width),
+        position: 'relative',
+        alignItems: alignLeft ? 'flex-start' : 'center',
+        paddingLeft: alignLeft ? px(leftMargin) : 0,
+      }}
     >
       <div
         className="text-[#000000]"
@@ -31,24 +50,30 @@ export function StepTitleBar({
           fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
           fontWeight: 300,
           fontStyle: 'normal',
-          fontSize: px(40),
-          lineHeight: px(48),
+          fontSize: px(titleFontSize),
+          lineHeight: px(titleFontSize * 1.2),
           verticalAlign: 'middle',
           height: px(34),
           display: 'flex',
           alignItems: 'center',
+          position: 'relative',
+          zIndex: 2,
         }}
       >
         {title}
       </div>
-      <div
-        style={{
-          width: '100%',
-          height: px(18),
-          backgroundColor: barColor,
-          marginTop: px(-15),
-        }}
-      />
+      {showBar && (
+        <div
+          style={{
+            width: alignLeft ? 'auto' : '100%',
+            height: px(18),
+            backgroundColor: barColor,
+            marginTop: px(-15),
+            position: 'relative',
+            zIndex: 1,
+          }}
+        />
+      )}
     </div>
   )
 }

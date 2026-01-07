@@ -269,7 +269,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("datasets")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
             >
               {/* 初始化图片 */}
                   <div
@@ -334,7 +334,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("computePool")}
               onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
             >
               {/* 初始化图片 */}
                   <div
@@ -399,7 +399,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("foundationalModels")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
               {/* 初始化图片 */}
                   <div
@@ -466,7 +466,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("workflows")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
               {/* 初始化图片 */}
                   <div
@@ -531,7 +531,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("aiAgents")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
               {/* 初始化图片 */}
                   <div
@@ -597,7 +597,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("datasets")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
                   <div
                     style={{
@@ -660,7 +660,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("computePool")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
                   <div
                     style={{
@@ -723,7 +723,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("foundationalModels")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
                   <div
                     style={{
@@ -788,7 +788,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("workflows")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
                   <div
                     style={{
@@ -851,7 +851,7 @@ export default function YourNextWorld() {
                   }}
                   onMouseEnter={() => setHoveredCard("aiAgents")}
                   onMouseLeave={() => setHoveredCard(null)}
-                  onClick={() => router.push('/Launchpad')}
+                  onClick={() => router.push('/Launchpad/')}
                 >
                   <div
                     style={{

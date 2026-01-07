@@ -60,9 +60,10 @@ interface FilterSectionProps {
     search?: string
   }
   previewMode?: boolean
+  alignWithCards?: boolean // 是否与卡片宽度对齐（用于 Project Hub），默认为 false（保持原来的 flex-1 布局）
 }
 
-export default function FilterSection({ onViewChange, onFilterChange, initialFilterValues, previewMode = false }: FilterSectionProps) {
+export default function FilterSection({ onViewChange, onFilterChange, initialFilterValues, previewMode = false, alignWithCards = false }: FilterSectionProps) {
   const [selectedView, setSelectedView] = useState<'Number of Users' | 'Latest Contribution'>(
     (initialFilterValues?.sortBy as 'Number of Users' | 'Latest Contribution') || 'Latest Contribution'
   )
@@ -100,57 +101,108 @@ export default function FilterSection({ onViewChange, onFilterChange, initialFil
     onFilterChange?.(newFilterValues)
   }
 
+  // 如果 alignWithCards 为 true，则使用固定宽度与卡片对齐（用于 Project Hub）
+  // 否则使用原来的 flex-1 布局（用于 Launchpad）
+  const cardWidth = alignWithCards ? `calc((100% - ${px(16 * 5)}) / 6)` : undefined
+  const searchWidth = alignWithCards ? `calc((100% - ${px(16 * 5)}) / 6 * 2 + ${px(16)})` : undefined
+  const gap = alignWithCards ? px(16) : px(15)
+  
   return (
-    <div className='flex items-center' style={{ width: '100%',  marginTop: px(15), gap: px(15) }}>
-      <FilterDropdown
-        placeholder={filterSelectData.filters.interactionForm.placeholder}
-        description={filterSelectData.filters.interactionForm.description}
-        categories={interactionFormCategories}
-        value={filterValues.interactionForm}
-        onChange={(value) => handleFilterChange('interactionForm', value)}
-      />
-      
-      <FilterDropdown
-        placeholder={filterSelectData.filters.domain.placeholder}
-        description={filterSelectData.filters.domain.description}
-        categories={domainCategories}
-        value={filterValues.domain}
-        onChange={(value) => handleFilterChange('domain', value)}
-      />
-      
-      <FilterDropdown
-        placeholder={filterSelectData.filters.object.placeholder}
-        description={filterSelectData.filters.object.description}
-        options={objectOptions}
-        value={filterValues.object}
-        onChange={(value) => handleFilterChange('object', value)}
-      />
-      
-      <FilterDropdown
-        placeholder={filterSelectData.filters.action.placeholder}
-        description={filterSelectData.filters.action.description}
-        categories={actionCategories}
-        value={filterValues.action}
-        onChange={(value) => handleFilterChange('action', value)}
-      />
-      {/* <FilterDropdown
-        placeholder={filterSelectData.filters.sortBy.placeholder}
-        description={filterSelectData.filters.sortBy.description}
-        options={actionSortBy}
-        value={selectedView}
-        onChange={(value) => {
-          if (value === 'Number of Users' || value === 'Latest Contribution') {
-            handleViewChange(value)
-          }
-        }}
-      /> */}
-      
-      <SearchInput
-        placeholder="Search"
-        value={filterValues.search}
-        onChange={previewMode ? undefined : (value) => handleFilterChange('search', value)}
-        previewMode={previewMode}
-      />
+    <div className='flex items-center' style={{ width: '100%',  marginTop: px(15), gap }}>
+      {alignWithCards ? (
+        <>
+          <div style={{ width: cardWidth, flexShrink: 0 }}>
+            <FilterDropdown
+              placeholder={filterSelectData.filters.interactionForm.placeholder}
+              description={filterSelectData.filters.interactionForm.description}
+              categories={interactionFormCategories}
+              value={filterValues.interactionForm}
+              onChange={(value) => handleFilterChange('interactionForm', value)}
+            />
+          </div>
+          
+          <div style={{ width: cardWidth, flexShrink: 0 }}>
+            <FilterDropdown
+              placeholder={filterSelectData.filters.domain.placeholder}
+              description={filterSelectData.filters.domain.description}
+              categories={domainCategories}
+              value={filterValues.domain}
+              onChange={(value) => handleFilterChange('domain', value)}
+            />
+          </div>
+          
+          <div style={{ width: cardWidth, flexShrink: 0 }}>
+            <FilterDropdown
+              placeholder={filterSelectData.filters.object.placeholder}
+              description={filterSelectData.filters.object.description}
+              options={objectOptions}
+              value={filterValues.object}
+              onChange={(value) => handleFilterChange('object', value)}
+            />
+          </div>
+          
+          <div style={{ width: cardWidth, flexShrink: 0 }}>
+            <FilterDropdown
+              placeholder={filterSelectData.filters.action.placeholder}
+              description={filterSelectData.filters.action.description}
+              categories={actionCategories}
+              value={filterValues.action}
+              onChange={(value) => handleFilterChange('action', value)}
+            />
+          </div>
+          
+          <div style={{ width: searchWidth, flexShrink: 0 }}>
+            <SearchInput
+              placeholder="Search"
+              value={filterValues.search}
+              onChange={previewMode ? undefined : (value) => handleFilterChange('search', value)}
+              previewMode={previewMode}
+            />
+          </div>
+        </>
+      ) : (
+        <>
+          <FilterDropdown
+            placeholder={filterSelectData.filters.interactionForm.placeholder}
+            description={filterSelectData.filters.interactionForm.description}
+            categories={interactionFormCategories}
+            value={filterValues.interactionForm}
+            onChange={(value) => handleFilterChange('interactionForm', value)}
+          />
+          
+          <FilterDropdown
+            placeholder={filterSelectData.filters.domain.placeholder}
+            description={filterSelectData.filters.domain.description}
+            categories={domainCategories}
+            value={filterValues.domain}
+            onChange={(value) => handleFilterChange('domain', value)}
+          />
+          
+          {/* Launchpad 中交换 Object 和 Action 的位置 */}
+          <FilterDropdown
+            placeholder={filterSelectData.filters.action.placeholder}
+            description={filterSelectData.filters.action.description}
+            categories={actionCategories}
+            value={filterValues.action}
+            onChange={(value) => handleFilterChange('action', value)}
+          />
+          
+          <FilterDropdown
+            placeholder={filterSelectData.filters.object.placeholder}
+            description={filterSelectData.filters.object.description}
+            options={objectOptions}
+            value={filterValues.object}
+            onChange={(value) => handleFilterChange('object', value)}
+          />
+          
+          <SearchInput
+            placeholder="Search"
+            value={filterValues.search}
+            onChange={previewMode ? undefined : (value) => handleFilterChange('search', value)}
+            previewMode={previewMode}
+          />
+        </>
+      )}
     </div>
   )
 }

@@ -56,7 +56,7 @@ export default function StepSeven({ onEnter, launchpadData }: StepSevenProps = {
         >
           Preview and Release
         </div>
-        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(8, 63, 216, 0.65)', marginTop: px(-15) }}></div>
+        <div style={{ width: '100%', height: px(18), backgroundColor: 'rgba(0, 0, 0, 0.75)', marginTop: px(-15) }}></div>
       </div>
 
       <div style={{fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',

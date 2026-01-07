@@ -83,7 +83,7 @@ export default function ProjectsYouMayBeInterestedIn() {
           href="#"
           onClick={(e) => {
             e.preventDefault()
-            router.push('/ProjectHub')
+            router.push('/ProjectHub/')
           }}
           className="flex items-center gap-2 text-black hover:opacity-80 transition-opacity cursor-pointer"
           style={{

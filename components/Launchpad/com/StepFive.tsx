@@ -333,14 +333,22 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
 
   return (
     <>
-      {!previewMode && (
+      {!previewMode ? (
         <StepTitleBar
           title={texts.title}
-          barColor="rgba(225, 5, 13, 0.75)"
+          barColor="rgba(255, 240, 5, 1)"
           width={843}
           marginTop={5}
           marginBottom={80}
         />
+      ) : (
+        <div style={{
+          fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif',
+          fontWeight: 300,
+          fontSize: px(35),
+          color: '#000000',
+          marginBottom: px(20),
+        }}>{texts.title}</div>
       )}
 
       <div style={{marginBottom: px(20)}}  className='flex  items-start justify-between'>
@@ -352,10 +360,12 @@ export default function StepFive({ onEnter, previewMode, data, onDataChange }: S
                 color: '#8C8C8C',
               }}
             >
-              <span 
-                style={{ color: '#8C8C8C', marginRight: px(8), fontSize: px(20), fontWeight: 300 }} 
-                dangerouslySetInnerHTML={{ __html: texts.description.replace(/<br\/>/g, '<br/>') }}
-              />
+              {!previewMode ? (
+                <span 
+                  style={{ color: '#8C8C8C', marginRight: px(8), fontSize: px(20), fontWeight: 300 }} 
+                  dangerouslySetInnerHTML={{ __html: texts.description.replace(/<br\/>/g, '<br/>') }}
+                />
+              ) : ''}
 
                 <span  />
       </div>

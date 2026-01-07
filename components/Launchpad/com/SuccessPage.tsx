@@ -19,7 +19,7 @@ export default function SuccessPage({ onDone }: SuccessPageProps = {} as Success
     setShouldShowProject31(false)
     // 使用 setTimeout 确保 atom 更新完成后再跳转
     setTimeout(() => {
-      router.push('/ProjectHub')
+      router.push('/ProjectHub/')
       onDone?.()
     }, 0)
   }

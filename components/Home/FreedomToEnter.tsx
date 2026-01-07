@@ -210,10 +210,11 @@ export default function  FreedomToEnter() {
 
       {/* 黑色盒子 - 撑满整个屏幕宽度，不受 container-responsive 内边距限制 */}
       <div 
-        className="w-full bg-[#000000] relative flex items-end justify-end" 
+        className="w-full bg-[#000000] relative flex items-end justify-end cursor-pointer" 
         style={{ height:px(520), paddingRight:px(66),paddingBottom:px(45), overflow: 'hidden', backgroundColor: '#000000' }}
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
+        onClick={() => router.push('/Favorites')}
       >
         {/* 初始化背景图片 */}
         <div style={{
@@ -256,14 +257,13 @@ export default function  FreedomToEnter() {
        
          {/* Learn more details 链接 - 在下边框外面紧挨着 */}
          <div 
-           onClick={() => router.push('/Favorites')}
            className="flex items-center justify-end relative z-10 cursor-pointer hover:opacity-80 transition-opacity" 
            style={{ marginTop: '1.4rem' }}
          >
            <span className='text-[#FFFFFF]' style={{ marginRight: '0.625rem',fontSize:px(26),lineHeight: '100%',letterSpacing: '0%',fontFamily: '"ITC Avant Garde Gothic Pro", sans-serif'}}>
            
           </span>
-          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ cursor: 'pointer' }}>
               <path d="M32.5339 0.525635V32.5247H0.969234" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
               <path d="M0.533943 0.526611L32.0987 32.5256" stroke="white" strokeWidth="1.5" strokeMiterlimit="10"/>
           </svg>
